@@ -23,8 +23,15 @@
 //
 // Usage: bun ./scripts/update-data.ts   (or ./scripts/update-data.ts --help)
 
-// @ts-ignore node types are intentionally not installed in this no-dependency repo.
+// Bun provides Node-compatible fs/promises and process globals for this script.
+// @ts-ignore node types are intentionally not required for this zero-dependency Bun script.
 import { mkdir, readFile, writeFile, readdir, rm, appendFile } from 'node:fs/promises';
+
+declare const process: {
+  env: Record<string, string | undefined>;
+  argv: string[];
+  exitCode?: number;
+};
 
 // ---------------------------------------------------------------------------
 // Constants and small helpers
@@ -2145,7 +2152,7 @@ function catalogFundFromIndex(ticker: string, row: JsonRecord): CatalogFund {
 // Entry point (kept at the end: main() relies on the let bindings above)
 // ---------------------------------------------------------------------------
 
-if (import.meta.main) {
+if ((import.meta as { main?: boolean }).main) {
   if (process.argv.includes('-h') || process.argv.includes('--help')) {
     console.log(USAGE.trim());
   } else {

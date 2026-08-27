@@ -1,3 +1,5 @@
+// Bun's test runner provides these globals at runtime.
+// @ts-ignore bun types are intentionally not required for this zero-dependency Bun script.
 import { describe, expect, test } from 'bun:test';
 import {
   parseRange,
