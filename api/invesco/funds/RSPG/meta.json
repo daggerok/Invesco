@@ -1,15 +1,21 @@
 {
  "ticker": "RSPG",
- "name": "Invesco S&P 500\u00ae Equal Weight Energy ETF",
+ "name": "Invesco S&P 500® Equal Weight Energy ETF",
  "category": "Sector",
+ "categoryPath": "Sector",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/rspg.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=RSPG",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=RSPG",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=RSPG",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46137V365",
-  "isin": "US46137V3657"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/RSPG?period1=0&period2=1787870648&interval=1d&events=div%7Csplit",
+  "holdingsSource": "invesco.com per-fund holdings download",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
   "display": "0.35%",
@@ -18,27 +24,40 @@
  "nav": {
   "display": "$27.77",
   "value": 27.77,
-  "asOfDate": "Aug 26 2026"
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
   "display": "$27.85",
   "value": 27.85,
-  "asOfDate": "Aug 26 2026"
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
   "display": "0.29%",
   "value": 0.29
  },
  "aum": {
-  "display": "$40.78 B",
-  "value": 40777000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$40,777.00 M",
+  "value": 40777000000,
+  "asOfDate": "—",
+  "source": "Invesco product list \"Fund Assets\" column"
+ },
+ "yields": {
+  "dividendYield": 3.07,
+  "dividendYieldText": "3.07%",
+  "dividendYieldKind": "trailing 12-month, published by invesco.com",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
+   "asOfDate": "Aug 27 2026",
+   "mo1": 7.39,
+   "mo1Text": "7.39%",
+   "qtd": 16.12,
+   "qtdText": "16.12%",
    "ytd": -2.23,
    "ytdText": "-2.23%",
    "yr1": -0.23,
@@ -66,28 +85,310 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.13925"
+    "12/27/2006",
+    "0.059"
    ],
    [
-    "03/23/2026",
-    "0.13368"
+    "03/16/2007",
+    "0.082"
    ],
    [
-    "12/22/2025",
-    "0.14204"
+    "06/15/2007",
+    "0.077"
+   ],
+   [
+    "09/21/2007",
+    "0.063"
+   ],
+   [
+    "12/21/2007",
+    "1.878"
+   ],
+   [
+    "03/20/2008",
+    "0.069"
+   ],
+   [
+    "06/20/2008",
+    "0.091"
+   ],
+   [
+    "09/19/2008",
+    "0.104"
+   ],
+   [
+    "12/19/2008",
+    "0.109"
+   ],
+   [
+    "03/20/2009",
+    "0.08"
+   ],
+   [
+    "06/19/2009",
+    "0.108"
+   ],
+   [
+    "09/18/2009",
+    "0.123"
+   ],
+   [
+    "12/18/2009",
+    "0.126"
+   ],
+   [
+    "03/19/2010",
+    "0.122"
+   ],
+   [
+    "06/18/2010",
+    "0.114"
+   ],
+   [
+    "09/17/2010",
+    "0.096"
+   ],
+   [
+    "12/17/2010",
+    "0.075"
+   ],
+   [
+    "03/18/2011",
+    "0.042"
+   ],
+   [
+    "06/17/2011",
+    "0.155"
+   ],
+   [
+    "09/16/2011",
+    "0.099"
+   ],
+   [
+    "12/16/2011",
+    "0.11"
+   ],
+   [
+    "03/16/2012",
+    "0.129"
+   ],
+   [
+    "06/15/2012",
+    "0.143"
+   ],
+   [
+    "09/21/2012",
+    "0.124"
+   ],
+   [
+    "12/21/2012",
+    "0.243"
+   ],
+   [
+    "03/15/2013",
+    "0.18"
+   ],
+   [
+    "06/21/2013",
+    "0.172"
+   ],
+   [
+    "09/20/2013",
+    "0.207"
+   ],
+   [
+    "12/20/2013",
+    "0.233"
+   ],
+   [
+    "03/21/2014",
+    "0.166"
+   ],
+   [
+    "06/20/2014",
+    "0.385"
+   ],
+   [
+    "09/19/2014",
+    "0.405"
+   ],
+   [
+    "12/19/2014",
+    "0.374"
+   ],
+   [
+    "03/20/2015",
+    "0.412"
+   ],
+   [
+    "06/19/2015",
+    "0.37"
+   ],
+   [
+    "09/18/2015",
+    "0.235"
+   ],
+   [
+    "12/18/2015",
+    "0.3"
+   ],
+   [
+    "06/17/2016",
+    "0.159"
+   ],
+   [
+    "09/16/2016",
+    "0.236"
+   ],
+   [
+    "12/16/2016",
+    "0.104"
+   ],
+   [
+    "03/17/2017",
+    "0.308"
+   ],
+   [
+    "06/16/2017",
+    "0.214"
+   ],
+   [
+    "09/15/2017",
+    "0.767"
+   ],
+   [
+    "12/15/2017",
+    "0.199"
+   ],
+   [
+    "03/16/2018",
+    "0.246"
+   ],
+   [
+    "06/15/2018",
+    "0.233"
+   ],
+   [
+    "09/24/2018",
+    "0.235"
+   ],
+   [
+    "12/24/2018",
+    "0.225"
+   ],
+   [
+    "03/18/2019",
+    "0.271"
+   ],
+   [
+    "06/24/2019",
+    "0.276"
+   ],
+   [
+    "09/23/2019",
+    "0.267"
+   ],
+   [
+    "12/23/2019",
+    "0.217"
+   ],
+   [
+    "03/23/2020",
+    "0.246"
+   ],
+   [
+    "06/22/2020",
+    "0.233"
+   ],
+   [
+    "12/21/2020",
+    "0.223"
+   ],
+   [
+    "03/22/2021",
+    "0.226"
+   ],
+   [
+    "06/21/2021",
+    "0.232"
+   ],
+   [
+    "12/20/2021",
+    "0.387"
+   ],
+   [
+    "03/21/2022",
+    "0.424"
+   ],
+   [
+    "06/21/2022",
+    "0.541"
+   ],
+   [
+    "09/19/2022",
+    "0.701"
+   ],
+   [
+    "12/19/2022",
+    "0.829"
+   ],
+   [
+    "03/20/2023",
+    "0.58"
+   ],
+   [
+    "06/20/2023",
+    "0.384"
+   ],
+   [
+    "09/18/2023",
+    "0.482"
+   ],
+   [
+    "12/18/2023",
+    "0.648"
+   ],
+   [
+    "03/18/2024",
+    "0.423"
+   ],
+   [
+    "06/24/2024",
+    "0.456"
+   ],
+   [
+    "09/23/2024",
+    "0.539"
+   ],
+   [
+    "12/23/2024",
+    "0.438"
+   ],
+   [
+    "03/24/2025",
+    "0.513"
+   ],
+   [
+    "06/23/2025",
+    "0.514"
    ],
    [
     "09/22/2025",
-    "0.12532"
+    "0.527"
+   ],
+   [
+    "12/22/2025",
+    "0.518"
+   ],
+   [
+    "03/23/2026",
+    "0.509"
+   ],
+   [
+    "06/22/2026",
+    "0.537"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 3.07,
-  "dividendYieldText": "3.07%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
@@ -95,24 +396,21 @@
   ],
   "pageSize": 250,
   "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "invesco.com per-fund holdings download"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json",
+   "history/004.json",
+   "history/005.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "RSPG",
-  "name": "Invesco S&P 500\u00ae Equal Weight Energy ETF",
-  "category": "Sector",
-  "inception": "2006-11-01",
-  "exchange": "NYSE Arca",
-  "ter": 0.35,
-  "cusip": "46137V365",
-  "isin": "US46137V3657"
+  "totalRows": 4981,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

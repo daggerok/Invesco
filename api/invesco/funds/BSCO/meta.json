@@ -5,9 +5,9 @@
  "categoryPath": "Fixed Income",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/bsco.html",
-  "holdingsDownload": null,
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=BSCO",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=BSCO",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BSCO?period1=0&period2=1787867654&interval=1d&events=div%7Csplit",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BSCO?period1=0&period2=1787871044&interval=1d&events=div%7Csplit",
   "holdingsSource": "invesco.com per-fund holdings download",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
@@ -24,12 +24,12 @@
  "nav": {
   "display": "$52.68",
   "value": 52.68,
-  "asOfDate": "—"
+  "asOfDate": "Dec 13 2024"
  },
  "marketPrice": {
   "display": "$52.71",
   "value": 52.71,
-  "asOfDate": "—"
+  "asOfDate": "Dec 13 2024"
  },
  "premiumDiscount": {
   "display": "0.06%",
@@ -53,7 +53,7 @@
  "returns": {
   "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
   "monthEnd": {
-   "asOfDate": "—",
+   "asOfDate": "Dec 13 2024",
    "mo1": null,
    "mo1Text": "—",
    "qtd": null,
@@ -77,13 +77,18 @@
   }
  },
  "distributions": {
-  "frequency": "Quarterly",
+  "frequency": "Unknown",
   "paymentsPerYear": null,
   "headers": [
    "Ex-Date",
    "Amount"
   ],
-  "rows": []
+  "rows": [
+   [
+    "12/13/2024",
+    "0.04052"
+   ]
+  ]
  },
  "holdings": {
   "pages": [
@@ -100,8 +105,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "—",
-  "source": "previous run"
+  "totalRows": 1,
+  "asOf": "Dec 13 2024",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

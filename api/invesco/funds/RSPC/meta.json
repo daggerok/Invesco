@@ -2,14 +2,20 @@
  "ticker": "RSPC",
  "name": "Invesco S&P 500 Equal Weight Communication Services ETF",
  "category": "US Equity",
+ "categoryPath": "US Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/rspc.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=RSPC",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=RSPC",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=RSPC",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46137Y609",
-  "isin": "US46137Y6095"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/RSPC?period1=0&period2=1787870609&interval=1d&events=div%7Csplit",
+  "holdingsSource": "invesco.com per-fund holdings download",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
   "display": "0.35%",
@@ -18,27 +24,40 @@
  "nav": {
   "display": "$97.45",
   "value": 97.45,
-  "asOfDate": "Aug 26 2026"
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
   "display": "$97.69",
   "value": 97.69,
-  "asOfDate": "Aug 26 2026"
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
   "display": "0.25%",
   "value": 0.25
  },
  "aum": {
-  "display": "$47.74 B",
-  "value": 47745000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$47,745.00 M",
+  "value": 47745000000,
+  "asOfDate": "—",
+  "source": "Invesco product list \"Fund Assets\" column"
+ },
+ "yields": {
+  "dividendYield": 2.75,
+  "dividendYieldText": "2.75%",
+  "dividendYieldKind": "trailing 12-month, published by invesco.com",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
+   "asOfDate": "Aug 27 2026",
+   "mo1": 5.22,
+   "mo1Text": "5.22%",
+   "qtd": 3.64,
+   "qtdText": "3.64%",
    "ytd": 7.45,
    "ytdText": "7.45%",
    "yr1": 9.45,
@@ -66,28 +85,126 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.48845"
+    "12/24/2018",
+    "0.053"
    ],
    [
-    "03/23/2026",
-    "0.46891"
+    "03/18/2019",
+    "0.051"
    ],
    [
-    "12/22/2025",
-    "0.49822"
+    "06/24/2019",
+    "0.076"
+   ],
+   [
+    "09/23/2019",
+    "0.079"
+   ],
+   [
+    "12/23/2019",
+    "0.197"
+   ],
+   [
+    "03/23/2020",
+    "0.073"
+   ],
+   [
+    "06/22/2020",
+    "0.069"
+   ],
+   [
+    "09/21/2020",
+    "0.097"
+   ],
+   [
+    "12/21/2020",
+    "0.092"
+   ],
+   [
+    "03/22/2021",
+    "0.096"
+   ],
+   [
+    "06/21/2021",
+    "0.085"
+   ],
+   [
+    "12/20/2021",
+    "0.118"
+   ],
+   [
+    "03/21/2022",
+    "0.092"
+   ],
+   [
+    "06/21/2022",
+    "0.1"
+   ],
+   [
+    "09/19/2022",
+    "0.098"
+   ],
+   [
+    "12/19/2022",
+    "0.073"
+   ],
+   [
+    "03/20/2023",
+    "0.057"
+   ],
+   [
+    "06/20/2023",
+    "0.033"
+   ],
+   [
+    "09/18/2023",
+    "0.109"
+   ],
+   [
+    "12/18/2023",
+    "0.09"
+   ],
+   [
+    "03/18/2024",
+    "0.082"
+   ],
+   [
+    "06/24/2024",
+    "0.081"
+   ],
+   [
+    "09/23/2024",
+    "0.092"
+   ],
+   [
+    "12/23/2024",
+    "0.098"
+   ],
+   [
+    "03/24/2025",
+    "0.101"
+   ],
+   [
+    "06/23/2025",
+    "0.085"
    ],
    [
     "09/22/2025",
-    "0.43960"
+    "0.345"
+   ],
+   [
+    "12/22/2025",
+    "0.129"
+   ],
+   [
+    "03/23/2026",
+    "0.087"
+   ],
+   [
+    "06/22/2026",
+    "0.09"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 2.75,
-  "dividendYieldText": "2.75%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
@@ -95,24 +212,18 @@
   ],
   "pageSize": 250,
   "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "invesco.com per-fund holdings download"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "RSPC",
-  "name": "Invesco S&P 500 Equal Weight Communication Services ETF",
-  "category": "US Equity",
-  "inception": "2018-11-07",
-  "exchange": "NYSE Arca",
-  "ter": 0.35,
-  "cusip": "46137Y609",
-  "isin": "US46137Y6095"
+  "totalRows": 1960,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

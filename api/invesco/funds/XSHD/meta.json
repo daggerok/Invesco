@@ -2,14 +2,20 @@
  "ticker": "XSHD",
  "name": "Invesco S&P SmallCap High Dividend Low Volatility ETF",
  "category": "US Equity",
+ "categoryPath": "US Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/xshd.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=XSHD",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=XSHD",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=XSHD",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46138E131",
-  "isin": "US46138E1313"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/XSHD?period1=0&period2=1787870949&interval=1d&events=div%7Csplit",
+  "holdingsSource": "invesco.com per-fund holdings download",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
   "display": "0.35%",
@@ -18,27 +24,40 @@
  "nav": {
   "display": "$156.28",
   "value": 156.28,
-  "asOfDate": "Aug 26 2026"
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
   "display": "$155.50",
   "value": 155.5,
-  "asOfDate": "Aug 26 2026"
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
   "display": "-0.50%",
   "value": -0.5
  },
  "aum": {
-  "display": "$28.63 B",
-  "value": 28628000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$28,628.00 M",
+  "value": 28628000000,
+  "asOfDate": "—",
+  "source": "Invesco product list \"Fund Assets\" column"
+ },
+ "yields": {
+  "dividendYield": 1.58,
+  "dividendYieldText": "1.58%",
+  "dividendYieldKind": "trailing 12-month, published by invesco.com",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
+   "asOfDate": "Aug 27 2026",
+   "mo1": -0.01,
+   "mo1Text": "-0.01%",
+   "qtd": 1.39,
+   "qtdText": "1.39%",
    "ytd": 6.28,
    "ytdText": "6.28%",
    "yr1": -1.72,
@@ -58,36 +77,482 @@
   }
  },
  "distributions": {
-  "frequency": "Quarterly",
-  "paymentsPerYear": 4,
+  "frequency": "Monthly",
+  "paymentsPerYear": 12,
   "headers": [
    "Ex-Date",
    "Amount"
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.77750"
+    "12/15/2016",
+    "0.105"
    ],
    [
-    "03/23/2026",
-    "0.74640"
+    "01/13/2017",
+    "0.08"
    ],
    [
-    "12/22/2025",
-    "0.79305"
+    "02/15/2017",
+    "0.08"
+   ],
+   [
+    "03/15/2017",
+    "0.08"
+   ],
+   [
+    "04/13/2017",
+    "0.08"
+   ],
+   [
+    "05/15/2017",
+    "0.077"
+   ],
+   [
+    "06/15/2017",
+    "0.078"
+   ],
+   [
+    "07/14/2017",
+    "0.078"
+   ],
+   [
+    "08/15/2017",
+    "0.095"
+   ],
+   [
+    "09/18/2017",
+    "0.092"
+   ],
+   [
+    "10/23/2017",
+    "0.092"
+   ],
+   [
+    "11/20/2017",
+    "0.094"
+   ],
+   [
+    "12/18/2017",
+    "0.109"
+   ],
+   [
+    "01/22/2018",
+    "0.121"
+   ],
+   [
+    "02/20/2018",
+    "0.136"
+   ],
+   [
+    "03/19/2018",
+    "0.131"
+   ],
+   [
+    "04/23/2018",
+    "0.117"
+   ],
+   [
+    "05/21/2018",
+    "0.08"
+   ],
+   [
+    "06/18/2018",
+    "0.08"
+   ],
+   [
+    "07/23/2018",
+    "0.08"
+   ],
+   [
+    "08/20/2018",
+    "0.082"
+   ],
+   [
+    "09/24/2018",
+    "0.082"
+   ],
+   [
+    "10/22/2018",
+    "0.095"
+   ],
+   [
+    "11/19/2018",
+    "0.1"
+   ],
+   [
+    "12/24/2018",
+    "0.108"
+   ],
+   [
+    "01/22/2019",
+    "0.115"
+   ],
+   [
+    "02/19/2019",
+    "0.118"
+   ],
+   [
+    "03/18/2019",
+    "0.101"
+   ],
+   [
+    "04/22/2019",
+    "0.106"
+   ],
+   [
+    "05/20/2019",
+    "0.096"
+   ],
+   [
+    "06/24/2019",
+    "0.087"
+   ],
+   [
+    "07/22/2019",
+    "0.087"
+   ],
+   [
+    "08/19/2019",
+    "0.087"
+   ],
+   [
+    "09/23/2019",
+    "0.088"
+   ],
+   [
+    "10/21/2019",
+    "0.106"
+   ],
+   [
+    "11/18/2019",
+    "0.108"
+   ],
+   [
+    "12/23/2019",
+    "0.108"
+   ],
+   [
+    "01/21/2020",
+    "0.112"
+   ],
+   [
+    "02/24/2020",
+    "0.115"
+   ],
+   [
+    "03/23/2020",
+    "0.117"
+   ],
+   [
+    "04/20/2020",
+    "0.114"
+   ],
+   [
+    "05/18/2020",
+    "0.108"
+   ],
+   [
+    "06/22/2020",
+    "0.1"
+   ],
+   [
+    "07/20/2020",
+    "0.097"
+   ],
+   [
+    "08/24/2020",
+    "0.097"
+   ],
+   [
+    "09/21/2020",
+    "0.069"
+   ],
+   [
+    "10/19/2020",
+    "0.063"
+   ],
+   [
+    "11/23/2020",
+    "0.058"
+   ],
+   [
+    "12/21/2020",
+    "0.062"
+   ],
+   [
+    "01/19/2021",
+    "0.064"
+   ],
+   [
+    "02/22/2021",
+    "0.067"
+   ],
+   [
+    "03/22/2021",
+    "0.069"
+   ],
+   [
+    "04/19/2021",
+    "0.066"
+   ],
+   [
+    "05/24/2021",
+    "0.069"
+   ],
+   [
+    "06/21/2021",
+    "0.071"
+   ],
+   [
+    "07/19/2021",
+    "0.074"
+   ],
+   [
+    "08/23/2021",
+    "0.075"
+   ],
+   [
+    "09/20/2021",
+    "0.078"
+   ],
+   [
+    "10/18/2021",
+    "0.08"
+   ],
+   [
+    "11/22/2021",
+    "0.084"
+   ],
+   [
+    "12/20/2021",
+    "0.083"
+   ],
+   [
+    "01/24/2022",
+    "0.085"
+   ],
+   [
+    "02/22/2022",
+    "0.088"
+   ],
+   [
+    "03/21/2022",
+    "0.09"
+   ],
+   [
+    "04/18/2022",
+    "0.094"
+   ],
+   [
+    "05/23/2022",
+    "0.096"
+   ],
+   [
+    "06/21/2022",
+    "0.098"
+   ],
+   [
+    "07/18/2022",
+    "0.102"
+   ],
+   [
+    "08/22/2022",
+    "0.103"
+   ],
+   [
+    "09/19/2022",
+    "0.103"
+   ],
+   [
+    "10/24/2022",
+    "0.104"
+   ],
+   [
+    "11/21/2022",
+    "0.105"
+   ],
+   [
+    "12/19/2022",
+    "0.102"
+   ],
+   [
+    "01/23/2023",
+    "0.103"
+   ],
+   [
+    "02/21/2023",
+    "0.105"
+   ],
+   [
+    "03/20/2023",
+    "0.107"
+   ],
+   [
+    "04/24/2023",
+    "0.107"
+   ],
+   [
+    "05/22/2023",
+    "0.108"
+   ],
+   [
+    "06/20/2023",
+    "0.107"
+   ],
+   [
+    "07/24/2023",
+    "0.106"
+   ],
+   [
+    "08/21/2023",
+    "0.109"
+   ],
+   [
+    "09/18/2023",
+    "0.092"
+   ],
+   [
+    "10/23/2023",
+    "0.096"
+   ],
+   [
+    "11/20/2023",
+    "0.105"
+   ],
+   [
+    "12/18/2023",
+    "0.11"
+   ],
+   [
+    "01/22/2024",
+    "0.093"
+   ],
+   [
+    "02/20/2024",
+    "0.093"
+   ],
+   [
+    "03/18/2024",
+    "0.09"
+   ],
+   [
+    "04/22/2024",
+    "0.09"
+   ],
+   [
+    "05/20/2024",
+    "0.09"
+   ],
+   [
+    "06/24/2024",
+    "0.09"
+   ],
+   [
+    "07/22/2024",
+    "0.085"
+   ],
+   [
+    "08/19/2024",
+    "0.084"
+   ],
+   [
+    "09/23/2024",
+    "0.082"
+   ],
+   [
+    "10/21/2024",
+    "0.085"
+   ],
+   [
+    "11/18/2024",
+    "0.086"
+   ],
+   [
+    "12/23/2024",
+    "0.086"
+   ],
+   [
+    "01/21/2025",
+    "0.086"
+   ],
+   [
+    "02/24/2025",
+    "0.086"
+   ],
+   [
+    "03/24/2025",
+    "0.086"
+   ],
+   [
+    "04/21/2025",
+    "0.069"
+   ],
+   [
+    "05/19/2025",
+    "0.067"
+   ],
+   [
+    "06/23/2025",
+    "0.064"
+   ],
+   [
+    "07/21/2025",
+    "0.062"
+   ],
+   [
+    "08/18/2025",
+    "0.06"
    ],
    [
     "09/22/2025",
-    "0.69975"
+    "0.06"
+   ],
+   [
+    "10/20/2025",
+    "0.061"
+   ],
+   [
+    "11/24/2025",
+    "0.062"
+   ],
+   [
+    "12/22/2025",
+    "0.062"
+   ],
+   [
+    "01/20/2026",
+    "0.062"
+   ],
+   [
+    "02/23/2026",
+    "0.063"
+   ],
+   [
+    "03/23/2026",
+    "0.053"
+   ],
+   [
+    "04/20/2026",
+    "0.058"
+   ],
+   [
+    "05/18/2026",
+    "0.056"
+   ],
+   [
+    "06/22/2026",
+    "0.052"
+   ],
+   [
+    "07/20/2026",
+    "0.049"
+   ],
+   [
+    "08/24/2026",
+    "0.049"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 1.58,
-  "dividendYieldText": "1.58%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
@@ -95,24 +560,19 @@
   ],
   "pageSize": 250,
   "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "invesco.com per-fund holdings download"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "XSHD",
-  "name": "Invesco S&P SmallCap High Dividend Low Volatility ETF",
-  "category": "US Equity",
-  "inception": "2016-12-01",
-  "exchange": "Cboe BZX Exchange, Inc.",
-  "ter": 0.35,
-  "cusip": "46138E131",
-  "isin": "US46138E1313"
+  "totalRows": 2442,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

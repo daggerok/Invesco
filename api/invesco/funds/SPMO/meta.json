@@ -1,15 +1,21 @@
 {
  "ticker": "SPMO",
- "name": "Invesco S&P 500\u00ae Momentum ETF",
+ "name": "Invesco S&P 500® Momentum ETF",
  "category": "US Equity",
+ "categoryPath": "US Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/spmo.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=SPMO",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=SPMO",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=SPMO",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46138E339",
-  "isin": "US46138E3392"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/SPMO?period1=0&period2=1787870808&interval=1d&events=div%7Csplit",
+  "holdingsSource": "invesco.com per-fund holdings download",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
   "display": "0.35%",
@@ -18,27 +24,40 @@
  "nav": {
   "display": "$168.77",
   "value": 168.77,
-  "asOfDate": "Aug 26 2026"
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
   "display": "$168.77",
   "value": 168.77,
-  "asOfDate": "Aug 26 2026"
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
   "display": "0.00%",
-  "value": 0.0
+  "value": 0
  },
  "aum": {
-  "display": "$39.88 B",
-  "value": 39877000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$39,877.00 M",
+  "value": 39877000000,
+  "asOfDate": "—",
+  "source": "Invesco product list \"Fund Assets\" column"
+ },
+ "yields": {
+  "dividendYield": 4.07,
+  "dividendYieldText": "4.07%",
+  "dividendYieldKind": "trailing 12-month, published by invesco.com",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
+   "asOfDate": "Aug 27 2026",
+   "mo1": 2.66,
+   "mo1Text": "2.66%",
+   "qtd": -4.33,
+   "qtdText": "-4.33%",
    "ytd": 18.77,
    "ytdText": "18.77%",
    "yr1": 10.77,
@@ -66,28 +85,162 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.84385"
+    "12/18/2015",
+    "0.092"
    ],
    [
-    "03/23/2026",
-    "0.81010"
+    "06/17/2016",
+    "0.082"
    ],
    [
-    "12/22/2025",
-    "0.86073"
+    "09/16/2016",
+    "0.123"
+   ],
+   [
+    "12/16/2016",
+    "0.273"
+   ],
+   [
+    "03/17/2017",
+    "0.015"
+   ],
+   [
+    "09/18/2017",
+    "0.195"
+   ],
+   [
+    "12/18/2017",
+    "0.054"
+   ],
+   [
+    "03/19/2018",
+    "0.066"
+   ],
+   [
+    "06/18/2018",
+    "0.078"
+   ],
+   [
+    "09/24/2018",
+    "0.082"
+   ],
+   [
+    "12/24/2018",
+    "0.129"
+   ],
+   [
+    "03/18/2019",
+    "0.1"
+   ],
+   [
+    "06/24/2019",
+    "0.156"
+   ],
+   [
+    "09/23/2019",
+    "0.142"
+   ],
+   [
+    "12/23/2019",
+    "0.186"
+   ],
+   [
+    "03/23/2020",
+    "0.171"
+   ],
+   [
+    "06/22/2020",
+    "0.165"
+   ],
+   [
+    "12/21/2020",
+    "0.165"
+   ],
+   [
+    "03/22/2021",
+    "0.076"
+   ],
+   [
+    "06/21/2021",
+    "0.065"
+   ],
+   [
+    "12/20/2021",
+    "0.126"
+   ],
+   [
+    "03/21/2022",
+    "0.139"
+   ],
+   [
+    "06/21/2022",
+    "0.231"
+   ],
+   [
+    "09/19/2022",
+    "0.275"
+   ],
+   [
+    "12/19/2022",
+    "0.3"
+   ],
+   [
+    "03/20/2023",
+    "0.343"
+   ],
+   [
+    "06/20/2023",
+    "0.28"
+   ],
+   [
+    "09/18/2023",
+    "0.278"
+   ],
+   [
+    "12/18/2023",
+    "0.164"
+   ],
+   [
+    "03/18/2024",
+    "0.127"
+   ],
+   [
+    "06/24/2024",
+    "0.069"
+   ],
+   [
+    "09/23/2024",
+    "0.069"
+   ],
+   [
+    "12/23/2024",
+    "0.193"
+   ],
+   [
+    "03/24/2025",
+    "0.179"
+   ],
+   [
+    "06/23/2025",
+    "0.211"
    ],
    [
     "09/22/2025",
-    "0.75946"
+    "0.192"
+   ],
+   [
+    "12/22/2025",
+    "0.291"
+   ],
+   [
+    "03/23/2026",
+    "0.321"
+   ],
+   [
+    "06/22/2026",
+    "0.245"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 4.07,
-  "dividendYieldText": "4.07%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
@@ -95,24 +248,19 @@
   ],
   "pageSize": 250,
   "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "invesco.com per-fund holdings download"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "SPMO",
-  "name": "Invesco S&P 500\u00ae Momentum ETF",
-  "category": "US Equity",
-  "inception": "2015-10-09",
-  "exchange": "NYSE Arca",
-  "ter": 0.35,
-  "cusip": "46138E339",
-  "isin": "US46138E3392"
+  "totalRows": 2735,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

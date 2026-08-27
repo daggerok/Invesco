@@ -23,6 +23,7 @@
 //
 // Usage: bun ./scripts/update-data.ts   (or ./scripts/update-data.ts --help)
 
+// @ts-ignore node types are intentionally not installed in this no-dependency repo.
 import { mkdir, readFile, writeFile, readdir, rm, appendFile } from 'node:fs/promises';
 
 // ---------------------------------------------------------------------------

@@ -2,14 +2,20 @@
  "ticker": "RWJ",
  "name": "Invesco S&P SmallCap 600 Revenue ETF",
  "category": "US Equity",
+ "categoryPath": "US Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/rwj.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=RWJ",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=RWJ",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=RWJ",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46138G664",
-  "isin": "US46138G6641"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/RWJ?period1=0&period2=1787870714&interval=1d&events=div%7Csplit",
+  "holdingsSource": "invesco.com per-fund holdings download",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
   "display": "0.35%",
@@ -18,27 +24,40 @@
  "nav": {
   "display": "$120.95",
   "value": 120.95,
-  "asOfDate": "Aug 26 2026"
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
   "display": "$120.41",
   "value": 120.41,
-  "asOfDate": "Aug 26 2026"
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
   "display": "-0.45%",
   "value": -0.45
  },
  "aum": {
-  "display": "$20.09 B",
-  "value": 20095000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$20,095.00 M",
+  "value": 20095000000,
+  "asOfDate": "—",
+  "source": "Invesco product list \"Fund Assets\" column"
+ },
+ "yields": {
+  "dividendYield": 1.25,
+  "dividendYieldText": "1.25%",
+  "dividendYieldKind": "trailing 12-month, published by invesco.com",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
+   "asOfDate": "Aug 27 2026",
+   "mo1": 0.08,
+   "mo1Text": "0.08%",
+   "qtd": 2.65,
+   "qtdText": "2.65%",
    "ytd": 0.95,
    "ytdText": "0.95%",
    "yr1": 32.95,
@@ -66,28 +85,282 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.60205"
+    "06/26/2008",
+    "0.021833"
    ],
    [
-    "03/23/2026",
-    "0.57797"
+    "10/02/2008",
+    "0.010167"
    ],
    [
-    "12/22/2025",
-    "0.61409"
+    "12/29/2008",
+    "0.018333"
+   ],
+   [
+    "04/02/2009",
+    "0.005"
+   ],
+   [
+    "07/02/2009",
+    "0.004667"
+   ],
+   [
+    "10/02/2009",
+    "0.002"
+   ],
+   [
+    "12/29/2009",
+    "0.009"
+   ],
+   [
+    "04/05/2010",
+    "0.002"
+   ],
+   [
+    "07/02/2010",
+    "0.006667"
+   ],
+   [
+    "10/04/2010",
+    "0.007"
+   ],
+   [
+    "12/29/2010",
+    "0.026667"
+   ],
+   [
+    "04/04/2011",
+    "0.005333"
+   ],
+   [
+    "07/05/2011",
+    "0.007333"
+   ],
+   [
+    "10/04/2011",
+    "0.010667"
+   ],
+   [
+    "12/28/2011",
+    "0.015667"
+   ],
+   [
+    "04/04/2012",
+    "0.016333"
+   ],
+   [
+    "07/06/2012",
+    "0.025667"
+   ],
+   [
+    "10/03/2012",
+    "0.014667"
+   ],
+   [
+    "12/27/2012",
+    "0.106667"
+   ],
+   [
+    "04/03/2013",
+    "0.013333"
+   ],
+   [
+    "07/03/2013",
+    "0.034667"
+   ],
+   [
+    "10/03/2013",
+    "0.081667"
+   ],
+   [
+    "12/27/2013",
+    "0.098333"
+   ],
+   [
+    "07/03/2014",
+    "0.014333"
+   ],
+   [
+    "10/03/2014",
+    "0.028"
+   ],
+   [
+    "12/29/2014",
+    "0.067"
+   ],
+   [
+    "04/02/2015",
+    "0.048333"
+   ],
+   [
+    "07/06/2015",
+    "0.016"
+   ],
+   [
+    "10/05/2015",
+    "0.031333"
+   ],
+   [
+    "12/29/2015",
+    "0.032333"
+   ],
+   [
+    "07/05/2016",
+    "0.016"
+   ],
+   [
+    "10/04/2016",
+    "0.033667"
+   ],
+   [
+    "12/28/2016",
+    "0.037667"
+   ],
+   [
+    "04/04/2017",
+    "0.057333"
+   ],
+   [
+    "07/05/2017",
+    "0.041667"
+   ],
+   [
+    "10/03/2017",
+    "0.053"
+   ],
+   [
+    "12/28/2017",
+    "0.059667"
+   ],
+   [
+    "03/16/2018",
+    "0.041333"
+   ],
+   [
+    "06/19/2018",
+    "0.054667"
+   ],
+   [
+    "09/25/2018",
+    "0.084"
+   ],
+   [
+    "12/26/2018",
+    "0.095333"
+   ],
+   [
+    "03/19/2019",
+    "0.036333"
+   ],
+   [
+    "06/24/2019",
+    "0.049667"
+   ],
+   [
+    "09/23/2019",
+    "0.075"
+   ],
+   [
+    "12/23/2019",
+    "0.115667"
+   ],
+   [
+    "03/23/2020",
+    "0.088667"
+   ],
+   [
+    "06/22/2020",
+    "0.063667"
+   ],
+   [
+    "12/21/2020",
+    "0.047333"
+   ],
+   [
+    "03/22/2021",
+    "0.062667"
+   ],
+   [
+    "06/21/2021",
+    "0.037667"
+   ],
+   [
+    "12/20/2021",
+    "0.079667"
+   ],
+   [
+    "03/21/2022",
+    "0.073"
+   ],
+   [
+    "06/21/2022",
+    "0.081667"
+   ],
+   [
+    "09/19/2022",
+    "0.088667"
+   ],
+   [
+    "12/19/2022",
+    "0.124667"
+   ],
+   [
+    "03/20/2023",
+    "0.158"
+   ],
+   [
+    "06/20/2023",
+    "0.108667"
+   ],
+   [
+    "09/18/2023",
+    "0.124"
+   ],
+   [
+    "12/18/2023",
+    "0.164"
+   ],
+   [
+    "03/18/2024",
+    "0.13"
+   ],
+   [
+    "06/24/2024",
+    "0.132"
+   ],
+   [
+    "09/23/2024",
+    "0.153"
+   ],
+   [
+    "12/23/2024",
+    "0.11"
+   ],
+   [
+    "03/24/2025",
+    "0.13"
+   ],
+   [
+    "06/23/2025",
+    "0.116"
    ],
    [
     "09/22/2025",
-    "0.54184"
+    "0.149"
+   ],
+   [
+    "12/22/2025",
+    "0.146"
+   ],
+   [
+    "03/23/2026",
+    "0.16"
+   ],
+   [
+    "06/22/2026",
+    "0.152"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 1.25,
-  "dividendYieldText": "1.25%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
@@ -95,24 +368,21 @@
   ],
   "pageSize": 250,
   "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "invesco.com per-fund holdings download"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json",
+   "history/004.json",
+   "history/005.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "RWJ",
-  "name": "Invesco S&P SmallCap 600 Revenue ETF",
-  "category": "US Equity",
-  "inception": "2008-02-19",
-  "exchange": "NYSE Arca, Inc.",
-  "ter": 0.35,
-  "cusip": "46138G664",
-  "isin": "US46138G6641"
+  "totalRows": 4658,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

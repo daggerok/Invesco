@@ -1,15 +1,21 @@
 {
  "ticker": "XRLV",
- "name": "Invesco S&P 500\u00ae ex-Rate Sensitive Low Volatility ETF",
+ "name": "Invesco S&P 500® ex-Rate Sensitive Low Volatility ETF",
  "category": "US Equity",
+ "categoryPath": "US Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/xrlv.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=XRLV",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=XRLV",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=XRLV",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46138E388",
-  "isin": "US46138E3889"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/XRLV?period1=0&period2=1787870934&interval=1d&events=div%7Csplit",
+  "holdingsSource": "invesco.com per-fund holdings download",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
   "display": "0.35%",
@@ -18,27 +24,40 @@
  "nav": {
   "display": "$122.23",
   "value": 122.23,
-  "asOfDate": "Aug 26 2026"
+  "asOfDate": "Feb 23 2026"
  },
  "marketPrice": {
   "display": "$121.99",
   "value": 121.99,
-  "asOfDate": "Aug 26 2026"
+  "asOfDate": "Feb 23 2026"
  },
  "premiumDiscount": {
   "display": "-0.20%",
   "value": -0.2
  },
  "aum": {
-  "display": "$15.22 B",
-  "value": 15223000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$15,223.00 M",
+  "value": 15223000000,
+  "asOfDate": "—",
+  "source": "Invesco product list \"Fund Assets\" column"
+ },
+ "yields": {
+  "dividendYield": 2.53,
+  "dividendYieldText": "2.53%",
+  "dividendYieldKind": "trailing 12-month, published by invesco.com",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
+   "asOfDate": "Feb 23 2026",
+   "mo1": null,
+   "mo1Text": "—",
+   "qtd": null,
+   "qtdText": "—",
    "ytd": 2.23,
    "ytdText": "2.23%",
    "yr1": 4.23,
@@ -58,36 +77,18 @@
   }
  },
  "distributions": {
-  "frequency": "Quarterly",
-  "paymentsPerYear": 4,
+  "frequency": "Unknown",
+  "paymentsPerYear": null,
   "headers": [
    "Ex-Date",
    "Amount"
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.60995"
-   ],
-   [
-    "03/23/2026",
-    "0.58555"
-   ],
-   [
-    "12/22/2025",
-    "0.62215"
-   ],
-   [
-    "09/22/2025",
-    "0.54895"
+    "02/23/2026",
+    "0.0941"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 2.53,
-  "dividendYieldText": "2.53%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
@@ -95,24 +96,17 @@
   ],
   "pageSize": 250,
   "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "invesco.com per-fund holdings download"
  },
  "history": {
   "pages": [
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "XRLV",
-  "name": "Invesco S&P 500\u00ae ex-Rate Sensitive Low Volatility ETF",
-  "category": "US Equity",
-  "inception": "2015-04-09",
-  "exchange": "NYSE",
-  "ter": 0.35,
-  "cusip": "46138E388",
-  "isin": "US46138E3889"
+  "totalRows": 1,
+  "asOf": "Feb 23 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

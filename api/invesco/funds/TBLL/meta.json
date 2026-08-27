@@ -2,14 +2,20 @@
  "ticker": "TBLL",
  "name": "Invesco Short Term Treasury ETF",
  "category": "Fixed Income",
+ "categoryPath": "Fixed Income",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/tbll.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=TBLL",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=TBLL",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=TBLL",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46138G888",
-  "isin": "US46138G8886"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/TBLL?period1=0&period2=1787870846&interval=1d&events=div%7Csplit",
+  "holdingsSource": "invesco.com per-fund holdings download",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
   "display": "0.35%",
@@ -18,27 +24,40 @@
  "nav": {
   "display": "$28.57",
   "value": 28.57,
-  "asOfDate": "Aug 26 2026"
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
   "display": "$28.47",
   "value": 28.47,
-  "asOfDate": "Aug 26 2026"
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
   "display": "-0.35%",
   "value": -0.35
  },
  "aum": {
-  "display": "$35.86 B",
-  "value": 35857000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$35,857.00 M",
+  "value": 35857000000,
+  "asOfDate": "—",
+  "source": "Invesco product list \"Fund Assets\" column"
+ },
+ "yields": {
+  "dividendYield": 3.87,
+  "dividendYieldText": "3.87%",
+  "dividendYieldKind": "trailing 12-month, published by invesco.com",
+  "distributionRate": null,
+  "secYield": 4.07,
+  "secYieldText": "4.07%",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
+   "asOfDate": "Aug 27 2026",
+   "mo1": 0.1,
+   "mo1Text": "0.10%",
+   "qtd": 0.35,
+   "qtdText": "0.35%",
    "ytd": -1.43,
    "ytdText": "-1.43%",
    "yr1": 30.57,
@@ -58,36 +77,374 @@
   }
  },
  "distributions": {
-  "frequency": "Quarterly",
-  "paymentsPerYear": 4,
+  "frequency": "Monthly",
+  "paymentsPerYear": 12,
   "headers": [
    "Ex-Date",
    "Amount"
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.14235"
+    "12/18/2017",
+    "0.747"
    ],
    [
-    "03/23/2026",
-    "0.13666"
+    "08/20/2018",
+    "0.987"
    ],
    [
-    "12/22/2025",
-    "0.14520"
+    "09/24/2018",
+    "0.188"
+   ],
+   [
+    "10/22/2018",
+    "0.156"
+   ],
+   [
+    "11/19/2018",
+    "0.169"
+   ],
+   [
+    "12/24/2018",
+    "0.282"
+   ],
+   [
+    "01/22/2019",
+    "0.204"
+   ],
+   [
+    "02/19/2019",
+    "0.194"
+   ],
+   [
+    "03/18/2019",
+    "0.211"
+   ],
+   [
+    "04/22/2019",
+    "0.206"
+   ],
+   [
+    "05/20/2019",
+    "0.22"
+   ],
+   [
+    "06/24/2019",
+    "0.207"
+   ],
+   [
+    "07/22/2019",
+    "0.21"
+   ],
+   [
+    "08/19/2019",
+    "0.186"
+   ],
+   [
+    "09/23/2019",
+    "0.186"
+   ],
+   [
+    "10/21/2019",
+    "0.188"
+   ],
+   [
+    "11/18/2019",
+    "0.173"
+   ],
+   [
+    "12/23/2019",
+    "0.181"
+   ],
+   [
+    "01/21/2020",
+    "0.16"
+   ],
+   [
+    "02/24/2020",
+    "0.144"
+   ],
+   [
+    "03/23/2020",
+    "0.137"
+   ],
+   [
+    "04/20/2020",
+    "0.112"
+   ],
+   [
+    "05/18/2020",
+    "0.079"
+   ],
+   [
+    "06/22/2020",
+    "0.05"
+   ],
+   [
+    "07/20/2020",
+    "0.039"
+   ],
+   [
+    "08/24/2020",
+    "0.012"
+   ],
+   [
+    "10/19/2020",
+    "0.025"
+   ],
+   [
+    "11/23/2020",
+    "0.012"
+   ],
+   [
+    "12/21/2020",
+    "0.05"
+   ],
+   [
+    "01/19/2021",
+    "0.008"
+   ],
+   [
+    "02/22/2021",
+    "0.006"
+   ],
+   [
+    "03/22/2021",
+    "0.002"
+   ],
+   [
+    "04/19/2021",
+    "0.001"
+   ],
+   [
+    "05/24/2021",
+    "0.001"
+   ],
+   [
+    "07/19/2021",
+    "0.001"
+   ],
+   [
+    "12/20/2021",
+    "0.038"
+   ],
+   [
+    "02/22/2022",
+    "0.001"
+   ],
+   [
+    "03/21/2022",
+    "0.006"
+   ],
+   [
+    "04/18/2022",
+    "0.014"
+   ],
+   [
+    "05/23/2022",
+    "0.024"
+   ],
+   [
+    "06/21/2022",
+    "0.033"
+   ],
+   [
+    "07/18/2022",
+    "0.143"
+   ],
+   [
+    "08/22/2022",
+    "0.122"
+   ],
+   [
+    "09/19/2022",
+    "0.218"
+   ],
+   [
+    "10/24/2022",
+    "0.231"
+   ],
+   [
+    "11/21/2022",
+    "0.261"
+   ],
+   [
+    "12/19/2022",
+    "0.394"
+   ],
+   [
+    "01/23/2023",
+    "0.325"
+   ],
+   [
+    "02/21/2023",
+    "0.317"
+   ],
+   [
+    "03/20/2023",
+    "0.372"
+   ],
+   [
+    "04/24/2023",
+    "0.374"
+   ],
+   [
+    "05/22/2023",
+    "0.397"
+   ],
+   [
+    "06/20/2023",
+    "0.386"
+   ],
+   [
+    "07/24/2023",
+    "0.434"
+   ],
+   [
+    "08/21/2023",
+    "0.442"
+   ],
+   [
+    "09/18/2023",
+    "0.431"
+   ],
+   [
+    "10/23/2023",
+    "0.45"
+   ],
+   [
+    "11/20/2023",
+    "0.47"
+   ],
+   [
+    "12/18/2023",
+    "0.493"
+   ],
+   [
+    "01/22/2024",
+    "0.455"
+   ],
+   [
+    "02/20/2024",
+    "0.463"
+   ],
+   [
+    "03/18/2024",
+    "0.439"
+   ],
+   [
+    "04/22/2024",
+    "0.434"
+   ],
+   [
+    "05/20/2024",
+    "0.438"
+   ],
+   [
+    "06/24/2024",
+    "0.441"
+   ],
+   [
+    "07/22/2024",
+    "0.457"
+   ],
+   [
+    "08/19/2024",
+    "0.475"
+   ],
+   [
+    "09/23/2024",
+    "0.443"
+   ],
+   [
+    "10/21/2024",
+    "0.433"
+   ],
+   [
+    "11/18/2024",
+    "0.415"
+   ],
+   [
+    "12/23/2024",
+    "0.374"
+   ],
+   [
+    "01/21/2025",
+    "0.395"
+   ],
+   [
+    "02/24/2025",
+    "0.375"
+   ],
+   [
+    "03/24/2025",
+    "0.364"
+   ],
+   [
+    "04/21/2025",
+    "0.354"
+   ],
+   [
+    "05/19/2025",
+    "0.329"
+   ],
+   [
+    "06/23/2025",
+    "0.372"
+   ],
+   [
+    "07/21/2025",
+    "0.378"
+   ],
+   [
+    "08/18/2025",
+    "0.354"
    ],
    [
     "09/22/2025",
-    "0.12811"
+    "0.353"
+   ],
+   [
+    "10/20/2025",
+    "0.353"
+   ],
+   [
+    "11/24/2025",
+    "0.334"
+   ],
+   [
+    "12/22/2025",
+    "0.347"
+   ],
+   [
+    "01/20/2026",
+    "0.33"
+   ],
+   [
+    "02/23/2026",
+    "0.323"
+   ],
+   [
+    "03/23/2026",
+    "0.296"
+   ],
+   [
+    "04/20/2026",
+    "0.269"
+   ],
+   [
+    "05/18/2026",
+    "0.316"
+   ],
+   [
+    "06/22/2026",
+    "0.316"
+   ],
+   [
+    "07/20/2026",
+    "0.307"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 3.87,
-  "dividendYieldText": "3.87%",
-  "secYield": 4.07,
-  "secYieldText": "4.07%"
  },
  "holdings": {
   "pages": [
@@ -95,24 +452,19 @@
   ],
   "pageSize": 250,
   "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "invesco.com per-fund holdings download"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "TBLL",
-  "name": "Invesco Short Term Treasury ETF",
-  "category": "Fixed Income",
-  "inception": "2017-01-12",
-  "exchange": "NYSE",
-  "ter": 0.35,
-  "cusip": "46138G888",
-  "isin": "US46138G8886"
+  "totalRows": 2413,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

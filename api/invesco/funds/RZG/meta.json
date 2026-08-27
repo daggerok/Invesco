@@ -1,15 +1,21 @@
 {
  "ticker": "RZG",
- "name": "Invesco S&P SmallCap 600\u00ae Pure Growth ETF",
+ "name": "Invesco S&P SmallCap 600® Pure Growth ETF",
  "category": "US Equity",
+ "categoryPath": "US Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/rzg.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=RZG",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=RZG",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=RZG",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46137V175",
-  "isin": "US46137V1750"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/RZG?period1=0&period2=1787870737&interval=1d&events=div%7Csplit",
+  "holdingsSource": "invesco.com per-fund holdings download",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
   "display": "0.35%",
@@ -18,27 +24,40 @@
  "nav": {
   "display": "$71.65",
   "value": 71.65,
-  "asOfDate": "Aug 26 2026"
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
   "display": "$71.83",
   "value": 71.83,
-  "asOfDate": "Aug 26 2026"
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
   "display": "0.25%",
   "value": 0.25
  },
  "aum": {
-  "display": "$45.16 B",
-  "value": 45165000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$45,165.00 M",
+  "value": 45165000000,
+  "asOfDate": "—",
+  "source": "Invesco product list \"Fund Assets\" column"
+ },
+ "yields": {
+  "dividendYield": 1.95,
+  "dividendYieldText": "1.95%",
+  "dividendYieldKind": "trailing 12-month, published by invesco.com",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
+   "asOfDate": "Aug 27 2026",
+   "mo1": -0.88,
+   "mo1Text": "-0.88%",
+   "qtd": -5.11,
+   "qtdText": "-5.11%",
    "ytd": 11.65,
    "ytdText": "11.65%",
    "yr1": 3.65,
@@ -66,28 +85,270 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.35915"
+    "12/27/2006",
+    "0.000333"
    ],
    [
-    "03/23/2026",
-    "0.34478"
+    "06/15/2007",
+    "0.006333"
    ],
    [
-    "12/22/2025",
-    "0.36633"
+    "03/20/2008",
+    "0.052333"
+   ],
+   [
+    "06/20/2008",
+    "0.005"
+   ],
+   [
+    "09/19/2008",
+    "0.004333"
+   ],
+   [
+    "12/19/2008",
+    "0.024"
+   ],
+   [
+    "06/19/2009",
+    "0.004667"
+   ],
+   [
+    "03/19/2010",
+    "0.013333"
+   ],
+   [
+    "09/17/2010",
+    "0.004333"
+   ],
+   [
+    "12/17/2010",
+    "0.031333"
+   ],
+   [
+    "03/16/2012",
+    "0.043333"
+   ],
+   [
+    "06/15/2012",
+    "0.01"
+   ],
+   [
+    "09/21/2012",
+    "0.007667"
+   ],
+   [
+    "12/21/2012",
+    "0.133333"
+   ],
+   [
+    "03/15/2013",
+    "0.017333"
+   ],
+   [
+    "06/21/2013",
+    "0.023667"
+   ],
+   [
+    "09/20/2013",
+    "0.015"
+   ],
+   [
+    "12/20/2013",
+    "0.033667"
+   ],
+   [
+    "03/21/2014",
+    "0.031667"
+   ],
+   [
+    "06/20/2014",
+    "0.021333"
+   ],
+   [
+    "09/19/2014",
+    "0.017"
+   ],
+   [
+    "12/19/2014",
+    "0.025667"
+   ],
+   [
+    "03/20/2015",
+    "0.05"
+   ],
+   [
+    "06/19/2015",
+    "0.046"
+   ],
+   [
+    "09/18/2015",
+    "0.036667"
+   ],
+   [
+    "12/18/2015",
+    "0.057"
+   ],
+   [
+    "03/18/2016",
+    "0.132667"
+   ],
+   [
+    "06/17/2016",
+    "0.005"
+   ],
+   [
+    "09/16/2016",
+    "0.043667"
+   ],
+   [
+    "12/16/2016",
+    "0.028667"
+   ],
+   [
+    "03/17/2017",
+    "0.043667"
+   ],
+   [
+    "06/16/2017",
+    "0.035333"
+   ],
+   [
+    "09/15/2017",
+    "0.034"
+   ],
+   [
+    "12/15/2017",
+    "0.056667"
+   ],
+   [
+    "03/16/2018",
+    "0.069333"
+   ],
+   [
+    "06/15/2018",
+    "0.011"
+   ],
+   [
+    "09/24/2018",
+    "0.031333"
+   ],
+   [
+    "12/24/2018",
+    "0.046333"
+   ],
+   [
+    "03/18/2019",
+    "0.070333"
+   ],
+   [
+    "06/24/2019",
+    "0.046667"
+   ],
+   [
+    "09/23/2019",
+    "0.075"
+   ],
+   [
+    "12/23/2019",
+    "0.082333"
+   ],
+   [
+    "03/23/2020",
+    "0.09"
+   ],
+   [
+    "06/22/2020",
+    "0.043"
+   ],
+   [
+    "12/21/2020",
+    "0.04"
+   ],
+   [
+    "03/22/2021",
+    "0.028333"
+   ],
+   [
+    "06/21/2021",
+    "0.031667"
+   ],
+   [
+    "12/20/2021",
+    "0.031333"
+   ],
+   [
+    "03/21/2022",
+    "0.074333"
+   ],
+   [
+    "06/21/2022",
+    "0.105333"
+   ],
+   [
+    "09/19/2022",
+    "0.16"
+   ],
+   [
+    "12/19/2022",
+    "0.277667"
+   ],
+   [
+    "03/20/2023",
+    "0.186333"
+   ],
+   [
+    "06/20/2023",
+    "0.185333"
+   ],
+   [
+    "09/18/2023",
+    "0.127"
+   ],
+   [
+    "12/18/2023",
+    "0.154"
+   ],
+   [
+    "03/18/2024",
+    "0.144"
+   ],
+   [
+    "06/24/2024",
+    "0.077"
+   ],
+   [
+    "09/23/2024",
+    "0.138"
+   ],
+   [
+    "12/23/2024",
+    "0.112"
+   ],
+   [
+    "03/24/2025",
+    "0.049"
+   ],
+   [
+    "06/23/2025",
+    "0.047"
    ],
    [
     "09/22/2025",
-    "0.32323"
+    "0.056"
+   ],
+   [
+    "12/22/2025",
+    "0.049"
+   ],
+   [
+    "03/23/2026",
+    "0.114"
+   ],
+   [
+    "06/22/2026",
+    "0.086"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 1.95,
-  "dividendYieldText": "1.95%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
@@ -95,24 +356,22 @@
   ],
   "pageSize": 250,
   "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "invesco.com per-fund holdings download"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json",
+   "history/004.json",
+   "history/005.json",
+   "history/006.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "RZG",
-  "name": "Invesco S&P SmallCap 600\u00ae Pure Growth ETF",
-  "category": "US Equity",
-  "inception": "2006-03-01",
-  "exchange": "NYSE Arca",
-  "ter": 0.35,
-  "cusip": "46137V175",
-  "isin": "US46137V1750"
+  "totalRows": 5152,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

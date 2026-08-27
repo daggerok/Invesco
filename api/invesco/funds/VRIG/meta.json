@@ -2,14 +2,20 @@
  "ticker": "VRIG",
  "name": "Invesco Variable Rate Investment Grade ETF",
  "category": "US Equity",
+ "categoryPath": "US Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/vrig.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=VRIG",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=VRIG",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=VRIG",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46090A879",
-  "isin": "US46090A8797"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/VRIG?period1=0&period2=1787870887&interval=1d&events=div%7Csplit",
+  "holdingsSource": "invesco.com per-fund holdings download",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
   "display": "0.35%",
@@ -18,27 +24,40 @@
  "nav": {
   "display": "$173.59",
   "value": 173.59,
-  "asOfDate": "Aug 26 2026"
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
   "display": "$173.24",
   "value": 173.24,
-  "asOfDate": "Aug 26 2026"
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
   "display": "-0.20%",
   "value": -0.2
  },
  "aum": {
-  "display": "$45.36 B",
-  "value": 45359000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$45,359.00 M",
+  "value": 45359000000,
+  "asOfDate": "—",
+  "source": "Invesco product list \"Fund Assets\" column"
+ },
+ "yields": {
+  "dividendYield": 3.89,
+  "dividendYieldText": "3.89%",
+  "dividendYieldKind": "trailing 12-month, published by invesco.com",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
+   "asOfDate": "Aug 27 2026",
+   "mo1": 0.4,
+   "mo1Text": "0.40%",
+   "qtd": 0.63,
+   "qtdText": "0.63%",
    "ytd": 23.59,
    "ytdText": "23.59%",
    "yr1": 5.59,
@@ -58,36 +77,490 @@
   }
  },
  "distributions": {
-  "frequency": "Quarterly",
-  "paymentsPerYear": 4,
+  "frequency": "Monthly",
+  "paymentsPerYear": 12,
   "headers": [
    "Ex-Date",
    "Amount"
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.86620"
+    "10/14/2016",
+    "0.055"
    ],
    [
-    "03/23/2026",
-    "0.83155"
+    "11/15/2016",
+    "0.042"
    ],
    [
-    "12/22/2025",
-    "0.88352"
+    "12/15/2016",
+    "0.052"
+   ],
+   [
+    "01/13/2017",
+    "0.048"
+   ],
+   [
+    "02/15/2017",
+    "0.048"
+   ],
+   [
+    "03/15/2017",
+    "0.049"
+   ],
+   [
+    "04/13/2017",
+    "0.052"
+   ],
+   [
+    "05/15/2017",
+    "0.05"
+   ],
+   [
+    "06/15/2017",
+    "0.047"
+   ],
+   [
+    "07/14/2017",
+    "0.046"
+   ],
+   [
+    "08/15/2017",
+    "0.047"
+   ],
+   [
+    "09/18/2017",
+    "0.047"
+   ],
+   [
+    "10/23/2017",
+    "0.046"
+   ],
+   [
+    "11/20/2017",
+    "0.048"
+   ],
+   [
+    "12/18/2017",
+    "0.055"
+   ],
+   [
+    "01/22/2018",
+    "0.049"
+   ],
+   [
+    "02/20/2018",
+    "0.05"
+   ],
+   [
+    "03/19/2018",
+    "0.053"
+   ],
+   [
+    "04/23/2018",
+    "0.056"
+   ],
+   [
+    "05/21/2018",
+    "0.058"
+   ],
+   [
+    "06/18/2018",
+    "0.06"
+   ],
+   [
+    "07/23/2018",
+    "0.062"
+   ],
+   [
+    "08/20/2018",
+    "0.062"
+   ],
+   [
+    "09/24/2018",
+    "0.062"
+   ],
+   [
+    "10/22/2018",
+    "0.064"
+   ],
+   [
+    "11/19/2018",
+    "0.065"
+   ],
+   [
+    "12/24/2018",
+    "0.07"
+   ],
+   [
+    "01/22/2019",
+    "0.069"
+   ],
+   [
+    "02/19/2019",
+    "0.069"
+   ],
+   [
+    "03/18/2019",
+    "0.068"
+   ],
+   [
+    "04/22/2019",
+    "0.069"
+   ],
+   [
+    "05/20/2019",
+    "0.07"
+   ],
+   [
+    "06/24/2019",
+    "0.067"
+   ],
+   [
+    "07/22/2019",
+    "0.064"
+   ],
+   [
+    "08/19/2019",
+    "0.064"
+   ],
+   [
+    "09/23/2019",
+    "0.063"
+   ],
+   [
+    "10/21/2019",
+    "0.059"
+   ],
+   [
+    "11/18/2019",
+    "0.055"
+   ],
+   [
+    "12/23/2019",
+    "0.064"
+   ],
+   [
+    "01/21/2020",
+    "0.054"
+   ],
+   [
+    "02/24/2020",
+    "0.053"
+   ],
+   [
+    "03/23/2020",
+    "0.053"
+   ],
+   [
+    "04/20/2020",
+    "0.052"
+   ],
+   [
+    "05/18/2020",
+    "0.04"
+   ],
+   [
+    "06/22/2020",
+    "0.028"
+   ],
+   [
+    "07/20/2020",
+    "0.024"
+   ],
+   [
+    "08/24/2020",
+    "0.018"
+   ],
+   [
+    "09/21/2020",
+    "0.017"
+   ],
+   [
+    "10/19/2020",
+    "0.015"
+   ],
+   [
+    "11/23/2020",
+    "0.019"
+   ],
+   [
+    "12/21/2020",
+    "0.018"
+   ],
+   [
+    "01/19/2021",
+    "0.019"
+   ],
+   [
+    "02/22/2021",
+    "0.019"
+   ],
+   [
+    "03/22/2021",
+    "0.017"
+   ],
+   [
+    "04/19/2021",
+    "0.017"
+   ],
+   [
+    "05/24/2021",
+    "0.018"
+   ],
+   [
+    "06/21/2021",
+    "0.016"
+   ],
+   [
+    "07/19/2021",
+    "0.015"
+   ],
+   [
+    "08/23/2021",
+    "0.014"
+   ],
+   [
+    "09/20/2021",
+    "0.015"
+   ],
+   [
+    "10/18/2021",
+    "0.015"
+   ],
+   [
+    "11/22/2021",
+    "0.015"
+   ],
+   [
+    "12/20/2021",
+    "0.014"
+   ],
+   [
+    "01/24/2022",
+    "0.014"
+   ],
+   [
+    "02/22/2022",
+    "0.013"
+   ],
+   [
+    "03/21/2022",
+    "0.014"
+   ],
+   [
+    "04/18/2022",
+    "0.02"
+   ],
+   [
+    "05/23/2022",
+    "0.024"
+   ],
+   [
+    "06/21/2022",
+    "0.031"
+   ],
+   [
+    "07/18/2022",
+    "0.042"
+   ],
+   [
+    "08/22/2022",
+    "0.056"
+   ],
+   [
+    "09/19/2022",
+    "0.071"
+   ],
+   [
+    "10/24/2022",
+    "0.091"
+   ],
+   [
+    "11/21/2022",
+    "0.091"
+   ],
+   [
+    "12/19/2022",
+    "0.123"
+   ],
+   [
+    "01/23/2023",
+    "0.102"
+   ],
+   [
+    "02/21/2023",
+    "0.11"
+   ],
+   [
+    "03/20/2023",
+    "0.112"
+   ],
+   [
+    "04/24/2023",
+    "0.12"
+   ],
+   [
+    "05/22/2023",
+    "0.122"
+   ],
+   [
+    "06/20/2023",
+    "0.123"
+   ],
+   [
+    "07/24/2023",
+    "0.128"
+   ],
+   [
+    "08/21/2023",
+    "0.13"
+   ],
+   [
+    "09/18/2023",
+    "0.133"
+   ],
+   [
+    "10/23/2023",
+    "0.131"
+   ],
+   [
+    "11/20/2023",
+    "0.127"
+   ],
+   [
+    "12/18/2023",
+    "0.152"
+   ],
+   [
+    "01/22/2024",
+    "0.131"
+   ],
+   [
+    "02/20/2024",
+    "0.129"
+   ],
+   [
+    "03/18/2024",
+    "0.13"
+   ],
+   [
+    "04/22/2024",
+    "0.134"
+   ],
+   [
+    "05/20/2024",
+    "0.127"
+   ],
+   [
+    "06/24/2024",
+    "0.124"
+   ],
+   [
+    "07/22/2024",
+    "0.128"
+   ],
+   [
+    "08/19/2024",
+    "0.126"
+   ],
+   [
+    "09/23/2024",
+    "0.127"
+   ],
+   [
+    "10/21/2024",
+    "0.12"
+   ],
+   [
+    "11/18/2024",
+    "0.12"
+   ],
+   [
+    "12/23/2024",
+    "0.132"
+   ],
+   [
+    "01/21/2025",
+    "0.114"
+   ],
+   [
+    "02/24/2025",
+    "0.104"
+   ],
+   [
+    "03/24/2025",
+    "0.099"
+   ],
+   [
+    "04/21/2025",
+    "0.093"
+   ],
+   [
+    "05/19/2025",
+    "0.11"
+   ],
+   [
+    "06/23/2025",
+    "0.114"
+   ],
+   [
+    "07/21/2025",
+    "0.106"
+   ],
+   [
+    "08/18/2025",
+    "0.107"
    ],
    [
     "09/22/2025",
-    "0.77958"
+    "0.104"
+   ],
+   [
+    "10/20/2025",
+    "0.101"
+   ],
+   [
+    "11/24/2025",
+    "0.104"
+   ],
+   [
+    "12/22/2025",
+    "0.096"
+   ],
+   [
+    "01/20/2026",
+    "0.1"
+   ],
+   [
+    "02/23/2026",
+    "0.097"
+   ],
+   [
+    "03/23/2026",
+    "0.093"
+   ],
+   [
+    "04/20/2026",
+    "0.087"
+   ],
+   [
+    "05/18/2026",
+    "0.094"
+   ],
+   [
+    "06/22/2026",
+    "0.092"
+   ],
+   [
+    "07/20/2026",
+    "0.092"
+   ],
+   [
+    "08/24/2026",
+    "0.091"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 3.89,
-  "dividendYieldText": "3.89%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
@@ -95,24 +568,19 @@
   ],
   "pageSize": 250,
   "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "invesco.com per-fund holdings download"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "VRIG",
-  "name": "Invesco Variable Rate Investment Grade ETF",
-  "category": "US Equity",
-  "inception": "2016-09-22",
-  "exchange": "NASDAQ",
-  "ter": 0.35,
-  "cusip": "46090A879",
-  "isin": "US46090A8797"
+  "totalRows": 2496,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

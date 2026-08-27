@@ -1,15 +1,21 @@
 {
  "ticker": "XLG",
- "name": "Invesco S&P 500\u00ae Top 50 ETF",
+ "name": "Invesco S&P 500® Top 50 ETF",
  "category": "US Equity",
+ "categoryPath": "US Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/xlg.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=XLG",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=XLG",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=XLG",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46137V233",
-  "isin": "US46137V2337"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/XLG?period1=0&period2=1787870902&interval=1d&events=div%7Csplit",
+  "holdingsSource": "invesco.com per-fund holdings download",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
   "display": "0.35%",
@@ -18,27 +24,40 @@
  "nav": {
   "display": "$114.19",
   "value": 114.19,
-  "asOfDate": "Aug 26 2026"
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
   "display": "$114.13",
   "value": 114.13,
-  "asOfDate": "Aug 26 2026"
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
   "display": "-0.05%",
   "value": -0.05
  },
  "aum": {
-  "display": "$44.42 B",
-  "value": 44419000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$44,419.00 M",
+  "value": 44419000000,
+  "asOfDate": "—",
+  "source": "Invesco product list \"Fund Assets\" column"
+ },
+ "yields": {
+  "dividendYield": 4.49,
+  "dividendYieldText": "4.49%",
+  "dividendYieldKind": "trailing 12-month, published by invesco.com",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
+   "asOfDate": "Aug 27 2026",
+   "mo1": 4.82,
+   "mo1Text": "4.82%",
+   "qtd": 2.7,
+   "qtdText": "2.70%",
    "ytd": 24.19,
    "ytdText": "24.19%",
    "yr1": 36.19,
@@ -66,28 +85,334 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.57065"
+    "09/16/2005",
+    "0.0447"
    ],
    [
-    "03/23/2026",
-    "0.54782"
+    "12/16/2005",
+    "0.0484"
    ],
    [
-    "12/22/2025",
-    "0.58206"
+    "03/17/2006",
+    "0.062"
+   ],
+   [
+    "06/16/2006",
+    "0.0388"
+   ],
+   [
+    "09/15/2006",
+    "0.0378"
+   ],
+   [
+    "12/15/2006",
+    "0.0473"
+   ],
+   [
+    "03/16/2007",
+    "0.0542"
+   ],
+   [
+    "06/15/2007",
+    "0.0491"
+   ],
+   [
+    "09/21/2007",
+    "0.0578"
+   ],
+   [
+    "12/21/2007",
+    "0.0572"
+   ],
+   [
+    "03/20/2008",
+    "0.0587"
+   ],
+   [
+    "06/20/2008",
+    "0.0568"
+   ],
+   [
+    "09/19/2008",
+    "0.0591"
+   ],
+   [
+    "12/19/2008",
+    "0.0468"
+   ],
+   [
+    "03/20/2009",
+    "0.0596"
+   ],
+   [
+    "06/19/2009",
+    "0.0474"
+   ],
+   [
+    "09/18/2009",
+    "0.0413"
+   ],
+   [
+    "12/18/2009",
+    "0.0449"
+   ],
+   [
+    "03/19/2010",
+    "0.0403"
+   ],
+   [
+    "06/18/2010",
+    "0.0437"
+   ],
+   [
+    "09/17/2010",
+    "0.0427"
+   ],
+   [
+    "12/17/2010",
+    "0.0461"
+   ],
+   [
+    "03/18/2011",
+    "0.0413"
+   ],
+   [
+    "06/17/2011",
+    "0.0472"
+   ],
+   [
+    "09/16/2011",
+    "0.0457"
+   ],
+   [
+    "12/16/2011",
+    "0.0529"
+   ],
+   [
+    "03/16/2012",
+    "0.0511"
+   ],
+   [
+    "06/15/2012",
+    "0.0528"
+   ],
+   [
+    "09/21/2012",
+    "0.0531"
+   ],
+   [
+    "12/21/2012",
+    "0.0701"
+   ],
+   [
+    "03/15/2013",
+    "0.0595"
+   ],
+   [
+    "06/21/2013",
+    "0.0642"
+   ],
+   [
+    "09/20/2013",
+    "0.0675"
+   ],
+   [
+    "12/20/2013",
+    "0.0649"
+   ],
+   [
+    "03/21/2014",
+    "0.0755"
+   ],
+   [
+    "06/20/2014",
+    "0.0648"
+   ],
+   [
+    "09/19/2014",
+    "0.0697"
+   ],
+   [
+    "12/19/2014",
+    "0.0688"
+   ],
+   [
+    "03/20/2015",
+    "0.0833"
+   ],
+   [
+    "06/19/2015",
+    "0.0749"
+   ],
+   [
+    "09/18/2015",
+    "0.0759"
+   ],
+   [
+    "12/18/2015",
+    "0.0685"
+   ],
+   [
+    "03/18/2016",
+    "0.0818"
+   ],
+   [
+    "06/17/2016",
+    "0.0775"
+   ],
+   [
+    "09/16/2016",
+    "0.0814"
+   ],
+   [
+    "12/16/2016",
+    "0.0742"
+   ],
+   [
+    "03/17/2017",
+    "0.0779"
+   ],
+   [
+    "06/16/2017",
+    "0.0811"
+   ],
+   [
+    "09/15/2017",
+    "0.0938"
+   ],
+   [
+    "12/15/2017",
+    "0.0995"
+   ],
+   [
+    "03/16/2018",
+    "0.0758"
+   ],
+   [
+    "06/15/2018",
+    "0.0771"
+   ],
+   [
+    "09/24/2018",
+    "0.1026"
+   ],
+   [
+    "12/24/2018",
+    "0.1035"
+   ],
+   [
+    "03/18/2019",
+    "0.0951"
+   ],
+   [
+    "06/24/2019",
+    "0.0895"
+   ],
+   [
+    "09/23/2019",
+    "0.0931"
+   ],
+   [
+    "12/23/2019",
+    "0.0913"
+   ],
+   [
+    "03/23/2020",
+    "0.0965"
+   ],
+   [
+    "06/22/2020",
+    "0.0829"
+   ],
+   [
+    "12/21/2020",
+    "0.0951"
+   ],
+   [
+    "03/22/2021",
+    "0.0884"
+   ],
+   [
+    "06/21/2021",
+    "0.0939"
+   ],
+   [
+    "12/20/2021",
+    "0.0813"
+   ],
+   [
+    "03/21/2022",
+    "0.0927"
+   ],
+   [
+    "06/21/2022",
+    "0.0937"
+   ],
+   [
+    "09/19/2022",
+    "0.0871"
+   ],
+   [
+    "12/19/2022",
+    "0.0955"
+   ],
+   [
+    "03/20/2023",
+    "0.0976"
+   ],
+   [
+    "06/20/2023",
+    "0.0936"
+   ],
+   [
+    "09/18/2023",
+    "0.087"
+   ],
+   [
+    "12/18/2023",
+    "0.088"
+   ],
+   [
+    "03/18/2024",
+    "0.09"
+   ],
+   [
+    "06/24/2024",
+    "0.094"
+   ],
+   [
+    "09/23/2024",
+    "0.086"
+   ],
+   [
+    "12/23/2024",
+    "0.09"
+   ],
+   [
+    "03/24/2025",
+    "0.091"
+   ],
+   [
+    "06/23/2025",
+    "0.103"
    ],
    [
     "09/22/2025",
-    "0.51358"
+    "0.089"
+   ],
+   [
+    "12/22/2025",
+    "0.097"
+   ],
+   [
+    "03/23/2026",
+    "0.094"
+   ],
+   [
+    "06/22/2026",
+    "0.117"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 4.49,
-  "dividendYieldText": "4.49%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
@@ -95,24 +420,22 @@
   ],
   "pageSize": 250,
   "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "invesco.com per-fund holdings download"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json",
+   "history/004.json",
+   "history/005.json",
+   "history/006.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "XLG",
-  "name": "Invesco S&P 500\u00ae Top 50 ETF",
-  "category": "US Equity",
-  "inception": "2005-05-04",
-  "exchange": "NYSE Arca",
-  "ter": 0.35,
-  "cusip": "46137V233",
-  "isin": "US46137V2337"
+  "totalRows": 5359,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

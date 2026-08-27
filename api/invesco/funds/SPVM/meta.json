@@ -2,14 +2,20 @@
  "ticker": "SPVM",
  "name": "Invesco S&P 500 Value with Momentum ETF",
  "category": "US Equity",
+ "categoryPath": "US Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/spvm.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=SPVM",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=SPVM",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=SPVM",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46137V423",
-  "isin": "US46137V4234"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/SPVM?period1=0&period2=1787870823&interval=1d&events=div%7Csplit",
+  "holdingsSource": "invesco.com per-fund holdings download",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
   "display": "0.35%",
@@ -18,27 +24,40 @@
  "nav": {
   "display": "$174.43",
   "value": 174.43,
-  "asOfDate": "Aug 26 2026"
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
   "display": "$174.08",
   "value": 174.08,
-  "asOfDate": "Aug 26 2026"
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
   "display": "-0.20%",
   "value": -0.2
  },
  "aum": {
-  "display": "$40.44 B",
-  "value": 40443000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$40,443.00 M",
+  "value": 40443000000,
+  "asOfDate": "—",
+  "source": "Invesco product list \"Fund Assets\" column"
+ },
+ "yields": {
+  "dividendYield": 4.73,
+  "dividendYieldText": "4.73%",
+  "dividendYieldKind": "trailing 12-month, published by invesco.com",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
+   "asOfDate": "Aug 27 2026",
+   "mo1": -0.04,
+   "mo1Text": "-0.04%",
+   "qtd": 3.58,
+   "qtdText": "3.58%",
    "ytd": 24.43,
    "ytdText": "24.43%",
    "yr1": 36.43,
@@ -66,28 +85,242 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.87040"
+    "09/16/2011",
+    "0.144"
    ],
    [
-    "03/23/2026",
-    "0.83558"
+    "12/16/2011",
+    "0.128"
    ],
    [
-    "12/22/2025",
-    "0.88781"
+    "03/16/2012",
+    "0.083"
+   ],
+   [
+    "06/15/2012",
+    "0.115"
+   ],
+   [
+    "09/21/2012",
+    "0.124"
+   ],
+   [
+    "12/21/2012",
+    "0.168"
+   ],
+   [
+    "03/15/2013",
+    "0.095"
+   ],
+   [
+    "06/21/2013",
+    "0.112"
+   ],
+   [
+    "09/20/2013",
+    "0.131"
+   ],
+   [
+    "12/20/2013",
+    "0.199"
+   ],
+   [
+    "12/24/2013",
+    "0.015"
+   ],
+   [
+    "03/21/2014",
+    "0.101"
+   ],
+   [
+    "06/20/2014",
+    "0.167"
+   ],
+   [
+    "09/19/2014",
+    "0.13"
+   ],
+   [
+    "12/19/2014",
+    "0.205"
+   ],
+   [
+    "03/20/2015",
+    "0.145"
+   ],
+   [
+    "06/19/2015",
+    "0.194"
+   ],
+   [
+    "09/18/2015",
+    "0.188"
+   ],
+   [
+    "12/18/2015",
+    "0.237"
+   ],
+   [
+    "03/18/2016",
+    "0.141"
+   ],
+   [
+    "06/17/2016",
+    "0.17"
+   ],
+   [
+    "09/16/2016",
+    "0.195"
+   ],
+   [
+    "12/16/2016",
+    "0.457"
+   ],
+   [
+    "03/17/2017",
+    "0.014"
+   ],
+   [
+    "06/16/2017",
+    "0.184"
+   ],
+   [
+    "09/18/2017",
+    "0.218"
+   ],
+   [
+    "12/18/2017",
+    "0.234"
+   ],
+   [
+    "03/19/2018",
+    "0.168"
+   ],
+   [
+    "06/18/2018",
+    "0.325"
+   ],
+   [
+    "09/24/2018",
+    "0.289"
+   ],
+   [
+    "12/24/2018",
+    "0.277"
+   ],
+   [
+    "03/18/2019",
+    "0.212"
+   ],
+   [
+    "06/24/2019",
+    "0.312"
+   ],
+   [
+    "09/23/2019",
+    "0.231"
+   ],
+   [
+    "12/23/2019",
+    "0.281"
+   ],
+   [
+    "03/23/2020",
+    "0.223"
+   ],
+   [
+    "06/22/2020",
+    "0.226"
+   ],
+   [
+    "12/21/2020",
+    "0.202"
+   ],
+   [
+    "03/22/2021",
+    "0.195"
+   ],
+   [
+    "06/21/2021",
+    "0.163"
+   ],
+   [
+    "12/20/2021",
+    "0.187"
+   ],
+   [
+    "03/21/2022",
+    "0.217"
+   ],
+   [
+    "06/21/2022",
+    "0.271"
+   ],
+   [
+    "09/19/2022",
+    "0.311"
+   ],
+   [
+    "12/19/2022",
+    "0.351"
+   ],
+   [
+    "03/20/2023",
+    "0.373"
+   ],
+   [
+    "06/20/2023",
+    "0.283"
+   ],
+   [
+    "09/18/2023",
+    "0.265"
+   ],
+   [
+    "12/18/2023",
+    "0.324"
+   ],
+   [
+    "03/18/2024",
+    "0.272"
+   ],
+   [
+    "06/24/2024",
+    "0.215"
+   ],
+   [
+    "09/23/2024",
+    "0.285"
+   ],
+   [
+    "12/23/2024",
+    "0.328"
+   ],
+   [
+    "03/24/2025",
+    "0.335"
+   ],
+   [
+    "06/23/2025",
+    "0.262"
    ],
    [
     "09/22/2025",
-    "0.78336"
+    "0.457"
+   ],
+   [
+    "12/22/2025",
+    "0.313"
+   ],
+   [
+    "03/23/2026",
+    "0.366"
+   ],
+   [
+    "06/22/2026",
+    "0.352"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 4.73,
-  "dividendYieldText": "4.73%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
@@ -95,24 +328,20 @@
   ],
   "pageSize": 250,
   "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "invesco.com per-fund holdings download"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json",
+   "history/004.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "SPVM",
-  "name": "Invesco S&P 500 Value with Momentum ETF",
-  "category": "US Equity",
-  "inception": "2011-06-16",
-  "exchange": "NYSE Arca",
-  "ter": 0.35,
-  "cusip": "46137V423",
-  "isin": "US46137V4234"
+  "totalRows": 3822,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

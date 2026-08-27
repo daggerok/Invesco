@@ -2,14 +2,20 @@
  "ticker": "TROT",
  "name": "Invesco MSCI Treasury Duration Rotation ETF",
  "category": "Fixed Income",
+ "categoryPath": "Fixed Income",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/trot.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=TROT",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=TROT",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=TROT",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46090A111",
-  "isin": "US46090A1115"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/TROT?period1=0&period2=1787870864&interval=1d&events=div%7Csplit",
+  "holdingsSource": "invesco.com per-fund holdings download",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
   "display": "0.15%",
@@ -18,27 +24,40 @@
  "nav": {
   "display": "$127.73",
   "value": 127.73,
-  "asOfDate": "Aug 26 2026"
+  "asOfDate": "Mar 24 2026"
  },
  "marketPrice": {
   "display": "$127.73",
   "value": 127.73,
-  "asOfDate": "Aug 26 2026"
+  "asOfDate": "Mar 24 2026"
  },
  "premiumDiscount": {
   "display": "0.00%",
-  "value": 0.0
+  "value": 0
  },
  "aum": {
-  "display": "$10.77 B",
-  "value": 10773000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$10,773.00 M",
+  "value": 10773000000,
+  "asOfDate": "—",
+  "source": "Invesco product list \"Fund Assets\" column"
+ },
+ "yields": {
+  "dividendYield": 3.03,
+  "dividendYieldText": "3.03%",
+  "dividendYieldKind": "trailing 12-month, published by invesco.com",
+  "distributionRate": null,
+  "secYield": 4.23,
+  "secYieldText": "4.23%",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
+   "asOfDate": "Aug 26 2026",
+   "mo1": 0.2,
+   "mo1Text": "0.20%",
+   "qtd": 0.13,
+   "qtdText": "0.13%",
    "ytd": 7.73,
    "ytdText": "7.73%",
    "yr1": 19.73,
@@ -58,36 +77,34 @@
   }
  },
  "distributions": {
-  "frequency": "Quarterly",
-  "paymentsPerYear": 4,
+  "frequency": "Monthly",
+  "paymentsPerYear": 12,
   "headers": [
    "Ex-Date",
    "Amount"
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.63865"
-   ],
-   [
     "03/23/2026",
-    "0.61310"
+    "0.072"
    ],
    [
-    "12/22/2025",
-    "0.65142"
+    "04/20/2026",
+    "0.069"
    ],
    [
-    "09/22/2025",
-    "0.57478"
+    "05/18/2026",
+    "0.072"
+   ],
+   [
+    "06/22/2026",
+    "0.071"
+   ],
+   [
+    "07/20/2026",
+    "0.072"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 3.03,
-  "dividendYieldText": "3.03%",
-  "secYield": 4.23,
-  "secYieldText": "4.23%"
  },
  "holdings": {
   "pages": [
@@ -95,24 +112,17 @@
   ],
   "pageSize": 250,
   "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "invesco.com per-fund holdings download"
  },
  "history": {
   "pages": [
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "TROT",
-  "name": "Invesco MSCI Treasury Duration Rotation ETF",
-  "category": "Fixed Income",
-  "inception": "2026-02-25",
-  "exchange": "NYSE Arca",
-  "ter": 0.15,
-  "cusip": "46090A111",
-  "isin": "US46090A1115"
+  "totalRows": 126,
+  "asOf": "Aug 26 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

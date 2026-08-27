@@ -5,9 +5,9 @@
  "categoryPath": "Fixed Income",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/bscp.html",
-  "holdingsDownload": null,
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=BSCP",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=BSCP",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BSCP?period1=0&period2=1787867657&interval=1d&events=div%7Csplit",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BSCP?period1=0&period2=1787871052&interval=1d&events=div%7Csplit",
   "holdingsSource": "invesco.com per-fund holdings download",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
@@ -24,12 +24,12 @@
  "nav": {
   "display": "$144.48",
   "value": 144.48,
-  "asOfDate": "—"
+  "asOfDate": "Dec 15 2025"
  },
  "marketPrice": {
   "display": "$144.34",
   "value": 144.34,
-  "asOfDate": "—"
+  "asOfDate": "Dec 15 2025"
  },
  "premiumDiscount": {
   "display": "-0.10%",
@@ -53,7 +53,7 @@
  "returns": {
   "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
   "monthEnd": {
-   "asOfDate": "—",
+   "asOfDate": "Dec 15 2025",
    "mo1": null,
    "mo1Text": "—",
    "qtd": null,
@@ -77,13 +77,18 @@
   }
  },
  "distributions": {
-  "frequency": "Quarterly",
+  "frequency": "Unknown",
   "paymentsPerYear": null,
   "headers": [
    "Ex-Date",
    "Amount"
   ],
-  "rows": []
+  "rows": [
+   [
+    "12/15/2025",
+    "0.02865"
+   ]
+  ]
  },
  "holdings": {
   "pages": [
@@ -100,8 +105,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "—",
-  "source": "previous run"
+  "totalRows": 1,
+  "asOf": "Dec 15 2025",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

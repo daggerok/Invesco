@@ -1,15 +1,21 @@
 {
  "ticker": "RSPH",
- "name": "Invesco S&P 500\u00ae Equal Weight Health Care ETF",
+ "name": "Invesco S&P 500® Equal Weight Health Care ETF",
  "category": "Sector",
+ "categoryPath": "Sector",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/rsph.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=RSPH",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=RSPH",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=RSPH",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46137V332",
-  "isin": "US46137V3327"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/RSPH?period1=0&period2=1787870649&interval=1d&events=div%7Csplit",
+  "holdingsSource": "invesco.com per-fund holdings download",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
   "display": "0.35%",
@@ -18,27 +24,40 @@
  "nav": {
   "display": "$101.75",
   "value": 101.75,
-  "asOfDate": "Aug 26 2026"
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
   "display": "$102.06",
   "value": 102.06,
-  "asOfDate": "Aug 26 2026"
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
   "display": "0.30%",
   "value": 0.3
  },
  "aum": {
-  "display": "$13.18 B",
-  "value": 13175000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$13,175.00 M",
+  "value": 13175000000,
+  "asOfDate": "—",
+  "source": "Invesco product list \"Fund Assets\" column"
+ },
+ "yields": {
+  "dividendYield": 2.05,
+  "dividendYieldText": "2.05%",
+  "dividendYieldKind": "trailing 12-month, published by invesco.com",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
+   "asOfDate": "Aug 27 2026",
+   "mo1": 10.2,
+   "mo1Text": "10.20%",
+   "qtd": 11.7,
+   "qtdText": "11.70%",
    "ytd": 11.75,
    "ytdText": "11.75%",
    "yr1": 23.75,
@@ -66,28 +85,310 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.51030"
+    "12/27/2006",
+    "0.0028"
    ],
    [
-    "03/23/2026",
-    "0.48989"
+    "03/16/2007",
+    "0.0025"
    ],
    [
-    "12/22/2025",
-    "0.52051"
+    "06/15/2007",
+    "0.0027"
+   ],
+   [
+    "09/21/2007",
+    "0.0025"
+   ],
+   [
+    "12/21/2007",
+    "0.0032"
+   ],
+   [
+    "03/20/2008",
+    "0.0035"
+   ],
+   [
+    "06/20/2008",
+    "0.0028"
+   ],
+   [
+    "09/19/2008",
+    "0.0034"
+   ],
+   [
+    "12/19/2008",
+    "0.0062"
+   ],
+   [
+    "03/20/2009",
+    "0.0051"
+   ],
+   [
+    "06/19/2009",
+    "0.0041"
+   ],
+   [
+    "09/18/2009",
+    "0.0034"
+   ],
+   [
+    "12/18/2009",
+    "0.0086"
+   ],
+   [
+    "03/19/2010",
+    "0.0014"
+   ],
+   [
+    "06/18/2010",
+    "0.0057"
+   ],
+   [
+    "09/17/2010",
+    "0.0067"
+   ],
+   [
+    "12/17/2010",
+    "0.0071"
+   ],
+   [
+    "03/18/2011",
+    "0.0052"
+   ],
+   [
+    "06/17/2011",
+    "0.008"
+   ],
+   [
+    "09/16/2011",
+    "0.0095"
+   ],
+   [
+    "12/16/2011",
+    "0.0117"
+   ],
+   [
+    "03/16/2012",
+    "0.0105"
+   ],
+   [
+    "06/15/2012",
+    "0.0828"
+   ],
+   [
+    "09/21/2012",
+    "0.0114"
+   ],
+   [
+    "12/21/2012",
+    "0.0208"
+   ],
+   [
+    "03/15/2013",
+    "0.0083"
+   ],
+   [
+    "06/21/2013",
+    "0.0121"
+   ],
+   [
+    "09/20/2013",
+    "0.0111"
+   ],
+   [
+    "12/20/2013",
+    "0.0148"
+   ],
+   [
+    "03/21/2014",
+    "0.0152"
+   ],
+   [
+    "06/20/2014",
+    "0.0174"
+   ],
+   [
+    "09/19/2014",
+    "0.0138"
+   ],
+   [
+    "12/19/2014",
+    "0.0146"
+   ],
+   [
+    "03/20/2015",
+    "0.0147"
+   ],
+   [
+    "06/19/2015",
+    "0.0172"
+   ],
+   [
+    "09/18/2015",
+    "0.0214"
+   ],
+   [
+    "12/18/2015",
+    "0.0214"
+   ],
+   [
+    "06/17/2016",
+    "0.0092"
+   ],
+   [
+    "09/16/2016",
+    "0.0198"
+   ],
+   [
+    "12/16/2016",
+    "0.0175"
+   ],
+   [
+    "03/17/2017",
+    "0.0157"
+   ],
+   [
+    "06/16/2017",
+    "0.0161"
+   ],
+   [
+    "09/15/2017",
+    "0.0254"
+   ],
+   [
+    "12/15/2017",
+    "0.0281"
+   ],
+   [
+    "03/16/2018",
+    "0.0151"
+   ],
+   [
+    "06/15/2018",
+    "0.0188"
+   ],
+   [
+    "09/24/2018",
+    "0.0269"
+   ],
+   [
+    "12/24/2018",
+    "0.0327"
+   ],
+   [
+    "03/18/2019",
+    "0.0257"
+   ],
+   [
+    "06/24/2019",
+    "0.0268"
+   ],
+   [
+    "09/23/2019",
+    "0.0347"
+   ],
+   [
+    "12/23/2019",
+    "0.0321"
+   ],
+   [
+    "03/23/2020",
+    "0.0325"
+   ],
+   [
+    "06/22/2020",
+    "0.0399"
+   ],
+   [
+    "12/21/2020",
+    "0.0319"
+   ],
+   [
+    "03/22/2021",
+    "0.0325"
+   ],
+   [
+    "06/21/2021",
+    "0.0326"
+   ],
+   [
+    "12/20/2021",
+    "0.0573"
+   ],
+   [
+    "03/21/2022",
+    "0.0534"
+   ],
+   [
+    "06/21/2022",
+    "0.046"
+   ],
+   [
+    "09/19/2022",
+    "0.0391"
+   ],
+   [
+    "12/19/2022",
+    "0.0456"
+   ],
+   [
+    "03/20/2023",
+    "0.0485"
+   ],
+   [
+    "06/20/2023",
+    "0.0511"
+   ],
+   [
+    "09/18/2023",
+    "0.048"
+   ],
+   [
+    "12/18/2023",
+    "0.05"
+   ],
+   [
+    "03/18/2024",
+    "0.046"
+   ],
+   [
+    "06/24/2024",
+    "0.051"
+   ],
+   [
+    "09/23/2024",
+    "0.055"
+   ],
+   [
+    "12/23/2024",
+    "0.057"
+   ],
+   [
+    "03/24/2025",
+    "0.055"
+   ],
+   [
+    "06/23/2025",
+    "0.055"
    ],
    [
     "09/22/2025",
-    "0.45927"
+    "0.06"
+   ],
+   [
+    "12/22/2025",
+    "0.053"
+   ],
+   [
+    "03/23/2026",
+    "0.056"
+   ],
+   [
+    "06/22/2026",
+    "0.063"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 2.05,
-  "dividendYieldText": "2.05%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
@@ -95,24 +396,21 @@
   ],
   "pageSize": 250,
   "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "invesco.com per-fund holdings download"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json",
+   "history/004.json",
+   "history/005.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "RSPH",
-  "name": "Invesco S&P 500\u00ae Equal Weight Health Care ETF",
-  "category": "Sector",
-  "inception": "2006-11-01",
-  "exchange": "NYSE Arca",
-  "ter": 0.35,
-  "cusip": "46137V332",
-  "isin": "US46137V3327"
+  "totalRows": 4981,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

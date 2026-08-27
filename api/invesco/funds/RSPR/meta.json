@@ -1,15 +1,21 @@
 {
  "ticker": "RSPR",
- "name": "Invesco S&P 500\u00ae Equal Weight Real Estate ETF",
+ "name": "Invesco S&P 500® Equal Weight Real Estate ETF",
  "category": "Real Estate",
+ "categoryPath": "Real Estate",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/rspr.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=RSPR",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=RSPR",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=RSPR",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46137V290",
-  "isin": "US46137V2907"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/RSPR?period1=0&period2=1787870683&interval=1d&events=div%7Csplit",
+  "holdingsSource": "invesco.com per-fund holdings download",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
   "display": "0.35%",
@@ -18,27 +24,40 @@
  "nav": {
   "display": "$123.19",
   "value": 123.19,
-  "asOfDate": "Aug 26 2026"
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
   "display": "$122.76",
   "value": 122.76,
-  "asOfDate": "Aug 26 2026"
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
   "display": "-0.35%",
   "value": -0.35
  },
  "aum": {
-  "display": "$40.32 B",
-  "value": 40319000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$40,319.00 M",
+  "value": 40319000000,
+  "asOfDate": "—",
+  "source": "Invesco product list \"Fund Assets\" column"
+ },
+ "yields": {
+  "dividendYield": 3.49,
+  "dividendYieldText": "3.49%",
+  "dividendYieldKind": "trailing 12-month, published by invesco.com",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
+   "asOfDate": "Aug 27 2026",
+   "mo1": -3.07,
+   "mo1Text": "-3.07%",
+   "qtd": -1.1,
+   "qtdText": "-1.10%",
    "ytd": 3.19,
    "ytdText": "3.19%",
    "yr1": 15.19,
@@ -66,28 +85,162 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.61380"
+    "12/18/2015",
+    "0.185"
    ],
    [
-    "03/23/2026",
-    "0.58925"
+    "06/17/2016",
+    "0.053"
    ],
    [
-    "12/22/2025",
-    "0.62608"
+    "12/16/2016",
+    "0.287"
+   ],
+   [
+    "06/16/2017",
+    "0.208"
+   ],
+   [
+    "09/15/2017",
+    "0.159"
+   ],
+   [
+    "12/15/2017",
+    "0.469"
+   ],
+   [
+    "03/16/2018",
+    "0.095"
+   ],
+   [
+    "06/15/2018",
+    "0.194"
+   ],
+   [
+    "09/24/2018",
+    "0.267"
+   ],
+   [
+    "12/24/2018",
+    "0.166"
+   ],
+   [
+    "12/26/2018",
+    "0.058"
+   ],
+   [
+    "03/18/2019",
+    "0.224"
+   ],
+   [
+    "06/24/2019",
+    "0.242"
+   ],
+   [
+    "09/23/2019",
+    "0.224"
+   ],
+   [
+    "12/23/2019",
+    "0.243"
+   ],
+   [
+    "03/23/2020",
+    "0.45"
+   ],
+   [
+    "06/22/2020",
+    "0.206"
+   ],
+   [
+    "12/21/2020",
+    "0.252"
+   ],
+   [
+    "03/22/2021",
+    "0.493"
+   ],
+   [
+    "06/21/2021",
+    "0.196"
+   ],
+   [
+    "12/20/2021",
+    "0.171"
+   ],
+   [
+    "03/21/2022",
+    "0.326"
+   ],
+   [
+    "06/21/2022",
+    "0.228"
+   ],
+   [
+    "09/19/2022",
+    "0.309"
+   ],
+   [
+    "12/19/2022",
+    "0.103"
+   ],
+   [
+    "03/20/2023",
+    "0.105"
+   ],
+   [
+    "06/20/2023",
+    "0.377"
+   ],
+   [
+    "09/18/2023",
+    "0.246"
+   ],
+   [
+    "12/18/2023",
+    "0.241"
+   ],
+   [
+    "03/18/2024",
+    "0.279"
+   ],
+   [
+    "06/24/2024",
+    "0.202"
+   ],
+   [
+    "09/23/2024",
+    "0.206"
+   ],
+   [
+    "12/23/2024",
+    "0.221"
+   ],
+   [
+    "03/24/2025",
+    "0.269"
+   ],
+   [
+    "06/23/2025",
+    "0.209"
    ],
    [
     "09/22/2025",
-    "0.55242"
+    "0.21"
+   ],
+   [
+    "12/22/2025",
+    "0.222"
+   ],
+   [
+    "03/23/2026",
+    "0.321"
+   ],
+   [
+    "06/22/2026",
+    "0.286"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 3.49,
-  "dividendYieldText": "3.49%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
@@ -95,24 +248,19 @@
   ],
   "pageSize": 250,
   "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "invesco.com per-fund holdings download"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "RSPR",
-  "name": "Invesco S&P 500\u00ae Equal Weight Real Estate ETF",
-  "category": "Real Estate",
-  "inception": "2015-08-13",
-  "exchange": "NYSE Arca",
-  "ter": 0.35,
-  "cusip": "46137V290",
-  "isin": "US46137V2907"
+  "totalRows": 2775,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

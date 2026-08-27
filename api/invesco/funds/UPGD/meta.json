@@ -2,14 +2,20 @@
  "ticker": "UPGD",
  "name": "Invesco Bloomberg Analyst Rating Improvers ETF",
  "category": "US Equity",
+ "categoryPath": "US Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/upgd.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=UPGD",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=UPGD",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=UPGD",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46137V522",
-  "isin": "US46137V5223"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/UPGD?period1=0&period2=1787870872&interval=1d&events=div%7Csplit",
+  "holdingsSource": "invesco.com per-fund holdings download",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
   "display": "0.35%",
@@ -18,27 +24,40 @@
  "nav": {
   "display": "$121.08",
   "value": 121.08,
-  "asOfDate": "Aug 26 2026"
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
   "display": "$120.78",
   "value": 120.78,
-  "asOfDate": "Aug 26 2026"
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
   "display": "-0.25%",
   "value": -0.25
  },
  "aum": {
-  "display": "$10.11 B",
-  "value": 10108000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$10,108.00 M",
+  "value": 10108000000,
+  "asOfDate": "—",
+  "source": "Invesco product list \"Fund Assets\" column"
+ },
+ "yields": {
+  "dividendYield": 1.38,
+  "dividendYieldText": "1.38%",
+  "dividendYieldKind": "trailing 12-month, published by invesco.com",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
+   "asOfDate": "Aug 27 2026",
+   "mo1": 0.74,
+   "mo1Text": "0.74%",
+   "qtd": 1.42,
+   "qtdText": "1.42%",
    "ytd": 1.08,
    "ytdText": "1.08%",
    "yr1": 13.08,
@@ -58,36 +77,82 @@
   }
  },
  "distributions": {
-  "frequency": "Quarterly",
-  "paymentsPerYear": 4,
+  "frequency": "Annually",
+  "paymentsPerYear": 1,
   "headers": [
    "Ex-Date",
    "Amount"
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.60390"
+    "12/22/2006",
+    "0.11"
    ],
    [
-    "03/23/2026",
-    "0.57974"
+    "12/21/2007",
+    "1.84"
+   ],
+   [
+    "12/24/2008",
+    "0.033"
+   ],
+   [
+    "12/23/2011",
+    "0.029"
+   ],
+   [
+    "12/24/2012",
+    "0.081"
+   ],
+   [
+    "12/24/2013",
+    "0.113"
+   ],
+   [
+    "12/24/2014",
+    "0.091"
+   ],
+   [
+    "12/24/2015",
+    "0.301"
+   ],
+   [
+    "12/23/2016",
+    "0.595"
+   ],
+   [
+    "12/24/2018",
+    "0.522"
+   ],
+   [
+    "12/23/2019",
+    "0.096"
+   ],
+   [
+    "12/21/2020",
+    "0.143"
+   ],
+   [
+    "12/20/2021",
+    "0.328"
+   ],
+   [
+    "12/19/2022",
+    "0.391"
+   ],
+   [
+    "12/18/2023",
+    "0.858"
+   ],
+   [
+    "12/23/2024",
+    "0.882"
    ],
    [
     "12/22/2025",
-    "0.61598"
-   ],
-   [
-    "09/22/2025",
-    "0.54351"
+    "1.293"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 1.38,
-  "dividendYieldText": "1.38%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
@@ -95,24 +160,22 @@
   ],
   "pageSize": 250,
   "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "invesco.com per-fund holdings download"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json",
+   "history/004.json",
+   "history/005.json",
+   "history/006.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "UPGD",
-  "name": "Invesco Bloomberg Analyst Rating Improvers ETF",
-  "category": "US Equity",
-  "inception": "2006-05-19",
-  "exchange": "NYSE Arca",
-  "ter": 0.35,
-  "cusip": "46137V522",
-  "isin": "US46137V5223"
+  "totalRows": 5100,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

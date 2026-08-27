@@ -5,9 +5,9 @@
  "categoryPath": "Digital Assets",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/blkc.html",
-  "holdingsDownload": null,
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=BLKC",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=BLKC",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BLKC?period1=0&period2=1787867647&interval=1d&events=div%7Csplit",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BLKC?period1=0&period2=1787870997&interval=1d&events=div%7Csplit",
   "holdingsSource": "invesco.com per-fund holdings download",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
@@ -24,12 +24,12 @@
  "nav": {
   "display": "$119.70",
   "value": 119.7,
-  "asOfDate": "—"
+  "asOfDate": "Feb 23 2026"
  },
  "marketPrice": {
   "display": "$119.94",
   "value": 119.94,
-  "asOfDate": "—"
+  "asOfDate": "Feb 23 2026"
  },
  "premiumDiscount": {
   "display": "0.20%",
@@ -53,7 +53,7 @@
  "returns": {
   "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
   "monthEnd": {
-   "asOfDate": "—",
+   "asOfDate": "Feb 23 2026",
    "mo1": null,
    "mo1Text": "—",
    "qtd": null,
@@ -100,8 +100,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "—",
-  "source": "previous run"
+  "totalRows": 1,
+  "asOf": "Feb 23 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

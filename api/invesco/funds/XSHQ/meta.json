@@ -2,14 +2,20 @@
  "ticker": "XSHQ",
  "name": "Invesco S&P SmallCap Quality ETF",
  "category": "US Equity",
+ "categoryPath": "US Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/xshq.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=XSHQ",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=XSHQ",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=XSHQ",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46138G300",
-  "isin": "US46138G3002"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/XSHQ?period1=0&period2=1787870957&interval=1d&events=div%7Csplit",
+  "holdingsSource": "invesco.com per-fund holdings download",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
   "display": "0.35%",
@@ -18,27 +24,40 @@
  "nav": {
   "display": "$47.81",
   "value": 47.81,
-  "asOfDate": "Aug 26 2026"
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
   "display": "$48.03",
   "value": 48.03,
-  "asOfDate": "Aug 26 2026"
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
   "display": "0.46%",
   "value": 0.46
  },
  "aum": {
-  "display": "$42.78 B",
-  "value": 42781000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$42,781.00 M",
+  "value": 42781000000,
+  "asOfDate": "—",
+  "source": "Invesco product list \"Fund Assets\" column"
+ },
+ "yields": {
+  "dividendYield": 3.11,
+  "dividendYieldText": "3.11%",
+  "dividendYieldKind": "trailing 12-month, published by invesco.com",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
+   "asOfDate": "Aug 27 2026",
+   "mo1": 2.22,
+   "mo1Text": "2.22%",
+   "qtd": 0.88,
+   "qtdText": "0.88%",
    "ytd": 17.81,
    "ytdText": "17.81%",
    "yr1": 19.81,
@@ -66,28 +85,158 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.24015"
+    "06/16/2017",
+    "0.049"
    ],
    [
-    "03/23/2026",
-    "0.23054"
+    "09/18/2017",
+    "0.048"
    ],
    [
-    "12/22/2025",
-    "0.24495"
+    "12/18/2017",
+    "0.116"
+   ],
+   [
+    "03/19/2018",
+    "0.059"
+   ],
+   [
+    "06/18/2018",
+    "0.044"
+   ],
+   [
+    "09/24/2018",
+    "0.067"
+   ],
+   [
+    "12/24/2018",
+    "0.116"
+   ],
+   [
+    "12/26/2018",
+    "0.005"
+   ],
+   [
+    "03/18/2019",
+    "0.064"
+   ],
+   [
+    "06/24/2019",
+    "0.093"
+   ],
+   [
+    "09/23/2019",
+    "0.034"
+   ],
+   [
+    "12/23/2019",
+    "0.133"
+   ],
+   [
+    "03/23/2020",
+    "0.128"
+   ],
+   [
+    "06/22/2020",
+    "0.057"
+   ],
+   [
+    "09/21/2020",
+    "0.122"
+   ],
+   [
+    "12/21/2020",
+    "0.091"
+   ],
+   [
+    "03/22/2021",
+    "0.057"
+   ],
+   [
+    "06/21/2021",
+    "0.07"
+   ],
+   [
+    "09/20/2021",
+    "0.116"
+   ],
+   [
+    "12/20/2021",
+    "0.248"
+   ],
+   [
+    "03/21/2022",
+    "0.159"
+   ],
+   [
+    "06/21/2022",
+    "0.166"
+   ],
+   [
+    "09/19/2022",
+    "0.125"
+   ],
+   [
+    "12/19/2022",
+    "0.208"
+   ],
+   [
+    "03/20/2023",
+    "0.119"
+   ],
+   [
+    "06/20/2023",
+    "0.126"
+   ],
+   [
+    "09/18/2023",
+    "0.106"
+   ],
+   [
+    "12/18/2023",
+    "0.109"
+   ],
+   [
+    "03/18/2024",
+    "0.119"
+   ],
+   [
+    "06/24/2024",
+    "0.104"
+   ],
+   [
+    "09/23/2024",
+    "0.148"
+   ],
+   [
+    "12/23/2024",
+    "0.129"
+   ],
+   [
+    "03/24/2025",
+    "0.15"
+   ],
+   [
+    "06/23/2025",
+    "0.096"
    ],
    [
     "09/22/2025",
-    "0.21613"
+    "0.136"
+   ],
+   [
+    "12/22/2025",
+    "0.24"
+   ],
+   [
+    "03/23/2026",
+    "0.16"
+   ],
+   [
+    "06/22/2026",
+    "0.031"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 3.11,
-  "dividendYieldText": "3.11%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
@@ -95,24 +244,19 @@
   ],
   "pageSize": 250,
   "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "invesco.com per-fund holdings download"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "XSHQ",
-  "name": "Invesco S&P SmallCap Quality ETF",
-  "category": "US Equity",
-  "inception": "2017-04-06",
-  "exchange": "Cboe BZX Exchange, Inc.",
-  "ter": 0.35,
-  "cusip": "46138G300",
-  "isin": "US46138G3002"
+  "totalRows": 2358,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

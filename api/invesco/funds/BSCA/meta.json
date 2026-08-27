@@ -5,9 +5,9 @@
  "categoryPath": "Fixed Income",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/bsca.html",
-  "holdingsDownload": null,
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=BSCA",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=BSCA",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BSCA?period1=0&period2=1787867650&interval=1d&events=div%7Csplit",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BSCA?period1=0&period2=1787871028&interval=1d&events=div%7Csplit",
   "holdingsSource": "invesco.com per-fund holdings download",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
@@ -24,12 +24,12 @@
  "nav": {
   "display": "$137.03",
   "value": 137.03,
-  "asOfDate": "—"
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
   "display": "$136.41",
   "value": 136.41,
-  "asOfDate": "—"
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
   "display": "-0.45%",
@@ -53,11 +53,11 @@
  "returns": {
   "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
   "monthEnd": {
-   "asOfDate": "—",
-   "mo1": null,
-   "mo1Text": "—",
-   "qtd": null,
-   "qtdText": "—",
+   "asOfDate": "Aug 27 2026",
+   "mo1": 0.61,
+   "mo1Text": "0.61%",
+   "qtd": -0.99,
+   "qtdText": "-0.99%",
    "ytd": 17.03,
    "ytdText": "17.03%",
    "yr1": -0.97,
@@ -77,13 +77,22 @@
   }
  },
  "distributions": {
-  "frequency": "Quarterly",
-  "paymentsPerYear": null,
+  "frequency": "Monthly",
+  "paymentsPerYear": 12,
   "headers": [
    "Ex-Date",
    "Amount"
   ],
-  "rows": []
+  "rows": [
+   [
+    "07/20/2026",
+    "0.121"
+   ],
+   [
+    "08/24/2026",
+    "0.095"
+   ]
+  ]
  },
  "holdings": {
   "pages": [
@@ -100,8 +109,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "—",
-  "source": "previous run"
+  "totalRows": 55,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

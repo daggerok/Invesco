@@ -2,14 +2,20 @@
  "ticker": "XMVM",
  "name": "Invesco S&P MidCap Value with Momentum ETF",
  "category": "US Equity",
+ "categoryPath": "US Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/xmvm.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=XMVM",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=XMVM",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=XMVM",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46137V456",
-  "isin": "US46137V4564"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/XMVM?period1=0&period2=1787870934&interval=1d&events=div%7Csplit",
+  "holdingsSource": "invesco.com per-fund holdings download",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
   "display": "0.35%",
@@ -18,27 +24,40 @@
  "nav": {
   "display": "$162.41",
   "value": 162.41,
-  "asOfDate": "Aug 26 2026"
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
   "display": "$162.41",
   "value": 162.41,
-  "asOfDate": "Aug 26 2026"
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
   "display": "0.00%",
-  "value": 0.0
+  "value": 0
  },
  "aum": {
-  "display": "$49.24 B",
-  "value": 49241000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$49,241.00 M",
+  "value": 49241000000,
+  "asOfDate": "—",
+  "source": "Invesco product list \"Fund Assets\" column"
+ },
+ "yields": {
+  "dividendYield": 2.71,
+  "dividendYieldText": "2.71%",
+  "dividendYieldKind": "trailing 12-month, published by invesco.com",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
+   "asOfDate": "Aug 27 2026",
+   "mo1": 0.2,
+   "mo1Text": "0.20%",
+   "qtd": 5.19,
+   "qtdText": "5.19%",
    "ytd": 12.41,
    "ytdText": "12.41%",
    "yr1": 24.41,
@@ -66,28 +85,334 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.81205"
+    "03/18/2005",
+    "0.02"
    ],
    [
-    "03/23/2026",
-    "0.77957"
+    "06/17/2005",
+    "0.049"
    ],
    [
-    "12/22/2025",
-    "0.82829"
+    "09/16/2005",
+    "0.048"
+   ],
+   [
+    "12/16/2005",
+    "0.123"
+   ],
+   [
+    "03/17/2006",
+    "0.034"
+   ],
+   [
+    "06/16/2006",
+    "0.052"
+   ],
+   [
+    "09/15/2006",
+    "0.038"
+   ],
+   [
+    "12/15/2006",
+    "0.112"
+   ],
+   [
+    "03/16/2007",
+    "0.032"
+   ],
+   [
+    "06/15/2007",
+    "0.096"
+   ],
+   [
+    "09/21/2007",
+    "0.051"
+   ],
+   [
+    "12/21/2007",
+    "0.047"
+   ],
+   [
+    "03/20/2008",
+    "0.061"
+   ],
+   [
+    "06/20/2008",
+    "0.063"
+   ],
+   [
+    "09/19/2008",
+    "0.073"
+   ],
+   [
+    "12/19/2008",
+    "0.086"
+   ],
+   [
+    "03/20/2009",
+    "0.018"
+   ],
+   [
+    "06/19/2009",
+    "0.085"
+   ],
+   [
+    "09/18/2009",
+    "0.035"
+   ],
+   [
+    "12/18/2009",
+    "0.144"
+   ],
+   [
+    "06/18/2010",
+    "0.042"
+   ],
+   [
+    "09/17/2010",
+    "0.031"
+   ],
+   [
+    "12/17/2010",
+    "0.078"
+   ],
+   [
+    "06/17/2011",
+    "0.052"
+   ],
+   [
+    "09/16/2011",
+    "0.032"
+   ],
+   [
+    "12/16/2011",
+    "0.097"
+   ],
+   [
+    "03/16/2012",
+    "0.05"
+   ],
+   [
+    "06/15/2012",
+    "0.097"
+   ],
+   [
+    "09/21/2012",
+    "0.074"
+   ],
+   [
+    "12/21/2012",
+    "0.161"
+   ],
+   [
+    "03/15/2013",
+    "0.061"
+   ],
+   [
+    "06/21/2013",
+    "0.106"
+   ],
+   [
+    "09/20/2013",
+    "0.067"
+   ],
+   [
+    "12/20/2013",
+    "0.111"
+   ],
+   [
+    "03/21/2014",
+    "0.056"
+   ],
+   [
+    "06/20/2014",
+    "0.103"
+   ],
+   [
+    "09/19/2014",
+    "0.095"
+   ],
+   [
+    "12/19/2014",
+    "0.167"
+   ],
+   [
+    "03/20/2015",
+    "0.022"
+   ],
+   [
+    "06/19/2015",
+    "0.095"
+   ],
+   [
+    "09/18/2015",
+    "0.201"
+   ],
+   [
+    "12/18/2015",
+    "0.321"
+   ],
+   [
+    "03/18/2016",
+    "0.024"
+   ],
+   [
+    "06/17/2016",
+    "0.131"
+   ],
+   [
+    "09/16/2016",
+    "0.167"
+   ],
+   [
+    "12/16/2016",
+    "0.386"
+   ],
+   [
+    "03/17/2017",
+    "0.019"
+   ],
+   [
+    "06/16/2017",
+    "0.221"
+   ],
+   [
+    "09/18/2017",
+    "0.167"
+   ],
+   [
+    "12/18/2017",
+    "0.287"
+   ],
+   [
+    "03/19/2018",
+    "0.063"
+   ],
+   [
+    "06/18/2018",
+    "0.221"
+   ],
+   [
+    "09/24/2018",
+    "0.228"
+   ],
+   [
+    "12/24/2018",
+    "0.279"
+   ],
+   [
+    "03/18/2019",
+    "0.06"
+   ],
+   [
+    "06/24/2019",
+    "0.257"
+   ],
+   [
+    "09/23/2019",
+    "0.139"
+   ],
+   [
+    "12/23/2019",
+    "0.155"
+   ],
+   [
+    "03/23/2020",
+    "0.131"
+   ],
+   [
+    "06/22/2020",
+    "0.114"
+   ],
+   [
+    "12/21/2020",
+    "0.142"
+   ],
+   [
+    "03/22/2021",
+    "0.08"
+   ],
+   [
+    "06/21/2021",
+    "0.084"
+   ],
+   [
+    "12/20/2021",
+    "0.223"
+   ],
+   [
+    "03/21/2022",
+    "0.174"
+   ],
+   [
+    "06/21/2022",
+    "0.231"
+   ],
+   [
+    "09/19/2022",
+    "0.198"
+   ],
+   [
+    "12/19/2022",
+    "0.17"
+   ],
+   [
+    "03/20/2023",
+    "0.204"
+   ],
+   [
+    "06/20/2023",
+    "0.221"
+   ],
+   [
+    "09/18/2023",
+    "0.179"
+   ],
+   [
+    "12/18/2023",
+    "0.184"
+   ],
+   [
+    "03/18/2024",
+    "0.164"
+   ],
+   [
+    "06/24/2024",
+    "0.161"
+   ],
+   [
+    "09/23/2024",
+    "0.248"
+   ],
+   [
+    "12/23/2024",
+    "0.222"
+   ],
+   [
+    "03/24/2025",
+    "0.385"
+   ],
+   [
+    "06/23/2025",
+    "0.339"
    ],
    [
     "09/22/2025",
-    "0.73084"
+    "0.318"
+   ],
+   [
+    "12/22/2025",
+    "0.284"
+   ],
+   [
+    "03/23/2026",
+    "0.407"
+   ],
+   [
+    "06/22/2026",
+    "0.322"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 2.71,
-  "dividendYieldText": "2.71%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
@@ -95,24 +420,22 @@
   ],
   "pageSize": 250,
   "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "invesco.com per-fund holdings download"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json",
+   "history/004.json",
+   "history/005.json",
+   "history/006.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "XMVM",
-  "name": "Invesco S&P MidCap Value with Momentum ETF",
-  "category": "US Equity",
-  "inception": "2005-03-03",
-  "exchange": "NYSE Arca",
-  "ter": 0.35,
-  "cusip": "46137V456",
-  "isin": "US46137V4564"
+  "totalRows": 5406,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

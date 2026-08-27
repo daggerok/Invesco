@@ -5,9 +5,9 @@
  "categoryPath": "Fixed Income",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/bsbe.html",
-  "holdingsDownload": null,
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=BSBE",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=BSBE",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BSBE?period1=0&period2=1787867650&interval=1d&events=div%7Csplit",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BSBE?period1=0&period2=1787871020&interval=1d&events=div%7Csplit",
   "holdingsSource": "invesco.com per-fund holdings download",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
@@ -24,12 +24,12 @@
  "nav": {
   "display": "$77.62",
   "value": 77.62,
-  "asOfDate": "—"
+  "asOfDate": "Dec 14 2022"
  },
  "marketPrice": {
   "display": "$77.35",
   "value": 77.35,
-  "asOfDate": "—"
+  "asOfDate": "Dec 14 2022"
  },
  "premiumDiscount": {
   "display": "-0.35%",
@@ -53,7 +53,7 @@
  "returns": {
   "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
   "monthEnd": {
-   "asOfDate": "—",
+   "asOfDate": "Dec 14 2022",
    "mo1": null,
    "mo1Text": "—",
    "qtd": null,
@@ -100,8 +100,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "—",
-  "source": "previous run"
+  "totalRows": 1,
+  "asOf": "Dec 14 2022",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

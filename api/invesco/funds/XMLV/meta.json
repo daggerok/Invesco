@@ -2,14 +2,20 @@
  "ticker": "XMLV",
  "name": "Invesco S&P MidCap Low Volatility ETF",
  "category": "US Equity",
+ "categoryPath": "US Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/xmlv.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=XMLV",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=XMLV",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=XMLV",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46138E198",
-  "isin": "US46138E1982"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/XMLV?period1=0&period2=1787870919&interval=1d&events=div%7Csplit",
+  "holdingsSource": "invesco.com per-fund holdings download",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
   "display": "0.35%",
@@ -18,27 +24,40 @@
  "nav": {
   "display": "$170.60",
   "value": 170.6,
-  "asOfDate": "Aug 26 2026"
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
   "display": "$170.34",
   "value": 170.34,
-  "asOfDate": "Aug 26 2026"
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
   "display": "-0.15%",
   "value": -0.15
  },
  "aum": {
-  "display": "$35.06 B",
-  "value": 35060000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$35,060.00 M",
+  "value": 35060000000,
+  "asOfDate": "—",
+  "source": "Invesco product list \"Fund Assets\" column"
+ },
+ "yields": {
+  "dividendYield": 0.9,
+  "dividendYieldText": "0.90%",
+  "dividendYieldKind": "trailing 12-month, published by invesco.com",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
+   "asOfDate": "Aug 27 2026",
+   "mo1": -2.12,
+   "mo1Text": "-2.12%",
+   "qtd": 1.79,
+   "qtdText": "1.79%",
    "ytd": 20.6,
    "ytdText": "20.60%",
    "yr1": 2.6,
@@ -66,28 +85,206 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.85170"
+    "03/15/2013",
+    "0.066"
    ],
    [
-    "03/23/2026",
-    "0.81763"
+    "06/21/2013",
+    "0.096"
    ],
    [
-    "12/22/2025",
-    "0.86873"
+    "09/20/2013",
+    "0.106"
+   ],
+   [
+    "12/20/2013",
+    "0.193"
+   ],
+   [
+    "03/21/2014",
+    "0.113"
+   ],
+   [
+    "06/20/2014",
+    "0.126"
+   ],
+   [
+    "09/19/2014",
+    "0.142"
+   ],
+   [
+    "12/19/2014",
+    "0.275"
+   ],
+   [
+    "03/20/2015",
+    "0.091"
+   ],
+   [
+    "06/19/2015",
+    "0.123"
+   ],
+   [
+    "09/18/2015",
+    "0.161"
+   ],
+   [
+    "12/18/2015",
+    "0.253"
+   ],
+   [
+    "06/17/2016",
+    "0.13"
+   ],
+   [
+    "09/16/2016",
+    "0.149"
+   ],
+   [
+    "12/16/2016",
+    "0.37"
+   ],
+   [
+    "06/16/2017",
+    "0.147"
+   ],
+   [
+    "09/18/2017",
+    "0.168"
+   ],
+   [
+    "12/18/2017",
+    "0.474"
+   ],
+   [
+    "03/19/2018",
+    "0.19"
+   ],
+   [
+    "06/18/2018",
+    "0.219"
+   ],
+   [
+    "09/24/2018",
+    "0.229"
+   ],
+   [
+    "12/24/2018",
+    "0.305"
+   ],
+   [
+    "03/18/2019",
+    "0.14"
+   ],
+   [
+    "06/24/2019",
+    "0.289"
+   ],
+   [
+    "09/23/2019",
+    "0.28"
+   ],
+   [
+    "12/23/2019",
+    "0.379"
+   ],
+   [
+    "03/23/2020",
+    "0.371"
+   ],
+   [
+    "06/22/2020",
+    "0.281"
+   ],
+   [
+    "12/21/2020",
+    "0.09"
+   ],
+   [
+    "03/22/2021",
+    "0.134"
+   ],
+   [
+    "06/21/2021",
+    "0.163"
+   ],
+   [
+    "12/20/2021",
+    "0.169"
+   ],
+   [
+    "03/21/2022",
+    "0.241"
+   ],
+   [
+    "06/21/2022",
+    "0.282"
+   ],
+   [
+    "09/19/2022",
+    "0.355"
+   ],
+   [
+    "12/19/2022",
+    "0.22"
+   ],
+   [
+    "03/20/2023",
+    "0.34"
+   ],
+   [
+    "06/20/2023",
+    "0.34"
+   ],
+   [
+    "09/18/2023",
+    "0.319"
+   ],
+   [
+    "12/18/2023",
+    "0.245"
+   ],
+   [
+    "03/18/2024",
+    "0.329"
+   ],
+   [
+    "06/24/2024",
+    "0.302"
+   ],
+   [
+    "09/23/2024",
+    "0.323"
+   ],
+   [
+    "12/23/2024",
+    "0.405"
+   ],
+   [
+    "03/24/2025",
+    "0.512"
+   ],
+   [
+    "06/23/2025",
+    "0.405"
    ],
    [
     "09/22/2025",
-    "0.76653"
+    "0.446"
+   ],
+   [
+    "12/22/2025",
+    "0.427"
+   ],
+   [
+    "03/23/2026",
+    "0.566"
+   ],
+   [
+    "06/22/2026",
+    "0.506"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 0.9,
-  "dividendYieldText": "0.90%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
@@ -95,24 +292,20 @@
   ],
   "pageSize": 250,
   "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "invesco.com per-fund holdings download"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json",
+   "history/004.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "XMLV",
-  "name": "Invesco S&P MidCap Low Volatility ETF",
-  "category": "US Equity",
-  "inception": "2013-02-15",
-  "exchange": "NYSE Arca",
-  "ter": 0.35,
-  "cusip": "46138E198",
-  "isin": "US46138E1982"
+  "totalRows": 3403,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

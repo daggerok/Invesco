@@ -2,14 +2,20 @@
  "ticker": "SPMV",
  "name": "Invesco S&P 500 Minimum Variance ETF",
  "category": "US Equity",
+ "categoryPath": "US Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/spmv.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=SPMV",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=SPMV",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=SPMV",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46138E347",
-  "isin": "US46138E3475"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/SPMV?period1=0&period2=1787870815&interval=1d&events=div%7Csplit",
+  "holdingsSource": "invesco.com per-fund holdings download",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
   "display": "0.35%",
@@ -18,27 +24,40 @@
  "nav": {
   "display": "$163.35",
   "value": 163.35,
-  "asOfDate": "Aug 26 2026"
+  "asOfDate": "Feb 20 2026"
  },
  "marketPrice": {
   "display": "$162.70",
   "value": 162.7,
-  "asOfDate": "Aug 26 2026"
+  "asOfDate": "Feb 20 2026"
  },
  "premiumDiscount": {
   "display": "-0.40%",
   "value": -0.4
  },
  "aum": {
-  "display": "$49.34 B",
-  "value": 49335000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$49,335.00 M",
+  "value": 49335000000,
+  "asOfDate": "—",
+  "source": "Invesco product list \"Fund Assets\" column"
+ },
+ "yields": {
+  "dividendYield": 3.65,
+  "dividendYieldText": "3.65%",
+  "dividendYieldKind": "trailing 12-month, published by invesco.com",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
+   "asOfDate": "—",
+   "mo1": null,
+   "mo1Text": "—",
+   "qtd": null,
+   "qtdText": "—",
    "ytd": 13.35,
    "ytdText": "13.35%",
    "yr1": 25.35,
@@ -59,35 +78,12 @@
  },
  "distributions": {
   "frequency": "Quarterly",
-  "paymentsPerYear": 4,
+  "paymentsPerYear": null,
   "headers": [
    "Ex-Date",
    "Amount"
   ],
-  "rows": [
-   [
-    "06/22/2026",
-    "0.81350"
-   ],
-   [
-    "03/23/2026",
-    "0.78096"
-   ],
-   [
-    "12/22/2025",
-    "0.82977"
-   ],
-   [
-    "09/22/2025",
-    "0.73215"
-   ]
-  ]
- },
- "yields": {
-  "dividendYield": 3.65,
-  "dividendYieldText": "3.65%",
-  "secYield": null,
-  "secYieldText": "\u2014"
+  "rows": []
  },
  "holdings": {
   "pages": [
@@ -95,7 +91,9 @@
   ],
   "pageSize": 250,
   "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "invesco.com per-fund holdings download"
  },
  "history": {
   "pages": [
@@ -103,16 +101,7 @@
   ],
   "pageSize": 1000,
   "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "SPMV",
-  "name": "Invesco S&P 500 Minimum Variance ETF",
-  "category": "US Equity",
-  "inception": "2017-07-13",
-  "exchange": "Cboe BZX Exchange, Inc.",
-  "ter": 0.35,
-  "cusip": "46138E347",
-  "isin": "US46138E3475"
+  "asOf": "—",
+  "source": "previous run"
  }
 }
