@@ -1,0 +1,21 @@
+{
+ "generatedAt": "2026-08-27T00:00:00Z",
+ "source": {
+  "provider": "Invesco Ltd. (US ETFs)",
+  "market": "us",
+  "site": "https://www.invesco.com",
+  "catalog": "https://www.invesco.com/us/en/financial-products/etfs.html",
+  "catalogDownload": "https://www.invesco.com/us/financial-products/etfs/performance/main/performance/0?audienceType=Advisor&action=download",
+  "holdings": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker={TICKER}",
+  "history": "Yahoo Finance public chart API (adjusted close)",
+  "holdingsFallback": "SEC EDGAR Form N-PORT-P filings of the Invesco ETF registrant",
+  "holdingTickers": "scripts/held-tickers.ts seed (SEC EDGAR company tickers + exchange symbol directories) extended live by the Yahoo Finance symbol search",
+  "audienceType": "Investor"
+ },
+ "counts": {
+  "funds": 0,
+  "holdings": 0,
+  "history": 0
+ },
+ "funds": []
+}
