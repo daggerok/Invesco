@@ -34,10 +34,11 @@ import {
   normalizeHoldingName,
   normalizeHoldingNameCore,
   cleanHoldingTicker,
-  pickSearchTicker,
-  yahooSearchUrl,
-  TickerResolver,
-  formatHeldTickersSeed,
+  invescoFundPageUrl,
+  invescoProductDetailUrl,
+  invescoHoldingsDownloadUrl,
+  invescoPricesDownloadUrl,
+  invescoProductListUrl,
   HOLDINGS_HEADERS,
   BOND_SHEET_HEADERS,
 } from './update-data';
@@ -749,72 +750,26 @@ describe('cleanHoldingTicker', () => {
   });
 });
 
-describe('held-tickers seed', () => {
-  test('is deterministic and skips empty mappings', () => {
-    const seed = formatHeldTickersSeed({ 'Zeta Corp': 'ZTA', '': 'X', Apple: 'AAPL', Beta: '  ' });
-    expect(seed).toContain('export const HELD_TICKERS: Record<string, string> = {');
-    expect(seed.indexOf('"Apple"')).toBeLessThan(seed.indexOf('"Zeta Corp"'));
-    expect(seed).not.toContain('"Beta"');
-  });
-});
-
-describe('TickerResolver', () => {
-  test('resolves from the seed by exact and normalized name', () => {
-    const resolver = new TickerResolver({ 'Apple Inc': 'AAPL' });
-    expect(resolver.lookup('Apple Inc')).toBe('AAPL');
-    expect(resolver.lookup('APPLE')).toBe('AAPL');
-    expect(resolver.lookup('Apple Inc.')).toBe('AAPL');
+describe('invesco URL builders', () => {
+  test('invescoFundPageUrl builds canonical product URL', () => {
+    expect(invescoFundPageUrl('QQQ')).toBe('https://www.invesco.com/us/en/financial-products/etfs/qqq.html');
   });
 
-  test('learned hits are memoized: one search per unknown name', async () => {
-    let calls = 0;
-    const resolver = new TickerResolver({}, async () => {
-      calls += 1;
-      return 'NVDA';
-    });
-    expect(await resolver.resolve('NVIDIA CORP')).toBe('NVDA');
-    expect(await resolver.resolve('NVIDIA CORP')).toBe('NVDA');
-    expect(calls).toBe(1);
-    expect(resolver.fresh).toEqual([{ name: 'NVIDIA CORP', ticker: 'NVDA' }]);
+  test('invescoProductDetailUrl builds product detail URL with audience', () => {
+    expect(invescoProductDetailUrl('QQQ')).toBe('https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=QQQ');
+    expect(invescoProductDetailUrl('RSP', 'Advisor')).toBe('https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Advisor&ticker=RSP');
   });
 
-  test('search failures degrade to "-" and are not retried', async () => {
-    let calls = 0;
-    const resolver = new TickerResolver({}, async () => {
-      calls += 1;
-      throw new Error('429');
-    });
-    expect(await resolver.resolve('Unknown Issuer')).toBe('-');
-    expect(await resolver.resolve('Unknown Issuer')).toBe('-');
-    expect(calls).toBe(1);
+  test('invescoHoldingsDownloadUrl builds holdings CSV download URL', () => {
+    expect(invescoHoldingsDownloadUrl('QQQ')).toBe('https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=QQQ');
   });
 
-  test('without a search function only seed lookups work', async () => {
-    const resolver = new TickerResolver({ 'Apple Inc': 'AAPL' });
-    expect(await resolver.resolve('Apple Inc')).toBe('AAPL');
-    expect(await resolver.resolve('Tesla')).toBe('-');
-  });
-});
-
-describe('yahoo search strict matcher', () => {
-  const payload = {
-    quoteMatches: [
-      { symbol: 'AAPL', quoteType: 'EQUITY', longname: 'Apple Inc' },
-      { symbol: 'XXXX', quoteType: 'INDEX', longname: 'Apple Index' },
-    ],
-  };
-
-  test('matches on the normalized long name only', () => {
-    expect(pickSearchTicker('APPLE INC', payload)).toBe('AAPL');
-    expect(pickSearchTicker('Banana Inc', payload)).toBeNull();
+  test('invescoPricesDownloadUrl builds prices & yields CSV URL', () => {
+    expect(invescoPricesDownloadUrl('QQQ')).toBe('https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=QQQ');
   });
 
-  test('ignores non-equity quote types', () => {
-    expect(pickSearchTicker('APPLE INDEX', payload)).toBeNull();
-  });
-
-  test('the search URL requests exact matches', () => {
-    expect(yahooSearchUrl('Apple Inc')).toContain('enableFuzzyQuery=false');
-    expect(yahooSearchUrl('Apple Inc')).toContain('q=Apple%20Inc');
+  test('invescoProductListUrl builds catalog download URL', () => {
+    expect(invescoProductListUrl()).toBe('https://www.invesco.com/us/financial-products/etfs/performance/prices/main/performance/0?audienceType=Advisor&action=download');
+    expect(invescoProductListUrl('Investor')).toBe('https://www.invesco.com/us/financial-products/etfs/performance/prices/main/performance/0?audienceType=Investor&action=download');
   });
 });

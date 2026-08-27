@@ -24,7 +24,6 @@
 // Usage: bun ./scripts/update-data.ts   (or ./scripts/update-data.ts --help)
 
 import { mkdir, readFile, writeFile, readdir, rm, appendFile } from 'node:fs/promises';
-import { invescoHoldingsDownloadUrl, invescoPricesDownloadUrl, invescoProductDetailUrl, invescoProductListUrl, INVESCO_FUNDS } from './invesco-funds';
 
 // ---------------------------------------------------------------------------
 // Constants and small helpers
@@ -33,6 +32,30 @@ import { invescoHoldingsDownloadUrl, invescoPricesDownloadUrl, invescoProductDet
 type JsonRecord = Record<string, any>;
 
 const INVESCO_SITE = 'https://www.invesco.com';
+const PRODUCT_BASE = `${INVESCO_SITE}/us/en/financial-products/etfs`;
+const LEGACY_BASE = `${INVESCO_SITE}/us/financial-products/etfs`;
+
+export function invescoFundPageUrl(ticker: string): string {
+  return `${PRODUCT_BASE}/${encodeURIComponent(String(ticker).toLowerCase())}.html`;
+}
+
+export function invescoProductDetailUrl(ticker: string, audience = 'Investor'): string {
+  return `${LEGACY_BASE}/product-detail?audienceType=${encodeURIComponent(audience)}&ticker=${encodeURIComponent(String(ticker).toUpperCase())}`;
+}
+
+export function invescoHoldingsDownloadUrl(ticker: string, audience = 'Investor'): string {
+  return `${LEGACY_BASE}/holdings/main/holdings/0?audienceType=${encodeURIComponent(audience)}&action=download&ticker=${encodeURIComponent(String(ticker).toUpperCase())}`;
+}
+
+export function invescoPricesDownloadUrl(ticker: string, audience = 'Investor'): string {
+  return `${LEGACY_BASE}/pricing/main/prices/0?audienceType=${encodeURIComponent(audience)}&action=download&ticker=${encodeURIComponent(String(ticker).toUpperCase())}`;
+}
+
+export function invescoProductListUrl(audience = 'Advisor'): string {
+  return `${LEGACY_BASE}/performance/prices/main/performance/0?audienceType=${encodeURIComponent(audience)}&action=download`;
+}
+
+
 const INVESCO_CATALOG_PAGE = `${INVESCO_SITE}/us/en/financial-products/etfs.html`;
 const INVESCO_PRODUCT_LIST_URL = invescoProductListUrl();
 
@@ -362,10 +385,6 @@ const USAGE = `
 Invesco ETF static data updater (Bun, no dependencies).
 
   bun ./scripts/update-data.ts            update ./api/invesco from invesco.com + Yahoo
-  ./scripts/update-data.ts --backfill-tickers
-                                          offline: stamp real exchange tickers from
-                                          scripts/held-tickers.ts into already
-                                          generated holdings data (no network)
   ./scripts/update-data.ts -h | --help    print this help
 
 Environment variables (all optional; strict "min:max" ranges; AND logic):
@@ -415,9 +434,7 @@ Environment variables (all optional; strict "min:max" ranges; AND logic):
   SEC_UA               Override the declared SEC User-Agent (SEC policy
                        requires a declared contact for automated access).
   SKIP_YAHOO           1/true to update invesco.com data only, keeping the
-                       previously published history and distributions (this
-                       also disables live Yahoo ticker resolution: the
-                       scripts/held-tickers.ts seed alone is applied).
+                       previously published history and distributions.
   SKIP_INVESCO         1/true to update history only (Yahoo), keeping the
                        previously published catalog values and holdings. Useful
                        when invesco.com is down and only prices moved.
@@ -1049,160 +1066,6 @@ export function pickSearchTicker(name: string, payload: JsonRecord): string | nu
   return null;
 }
 
-export type TickerSearchFn = (name: string) => Promise<string | null>;
-
-// Memoized name -> ticker lookup over the seed plus live Yahoo searches.
-// Unknown names are searched at most once per run (hits are learned into the
-// index, misses are cached) and can never throw: resolution degrades to "-".
-export class TickerResolver {
-  private readonly byName = new Map<string, string>();
-  private readonly byNorm = new Map<string, string>();
-  private readonly byNormCore = new Map<string, string>();
-  private readonly inFlight = new Map<string, Promise<string | null>>();
-  private readonly missed = new Map<string, true>();
-  readonly fresh: Array<{ name: string; ticker: string }> = [];
-  private readonly search: TickerSearchFn | null;
-
-  constructor(seed: Record<string, string>, search: TickerSearchFn | null = null) {
-    this.search = search;
-    for (const [name, ticker] of Object.entries(seed)) this.learn(name, ticker, false);
-  }
-
-  get size(): number {
-    return this.byName.size;
-  }
-
-  private indexName(name: string, symbol: string): void {
-    const norm = normalizeHoldingName(name);
-    if (!norm) return;
-    const core = norm.replace(/ /g, '');
-    const put = (map: Map<string, string>, key: string): void => {
-      const existing = map.get(key);
-      if (existing === undefined) map.set(key, symbol);
-      else if (existing !== symbol) map.delete(key); // two tickers share the key: ambiguous
-    };
-    put(this.byNorm, norm);
-    if (core) put(this.byNormCore, core);
-  }
-
-  private learn(name: string, rawTicker: string, isFresh: boolean): void {
-    const symbol = cleanHoldingTicker(rawTicker);
-    if (!name || !symbol) return;
-    this.byName.set(name, symbol);
-    this.indexName(name, symbol);
-    if (isFresh) this.fresh.push({ name, ticker: symbol });
-  }
-
-  lookup(name: string): string | null {
-    const exact = this.byName.get(name);
-    if (exact) return exact;
-    const norm = normalizeHoldingName(name);
-    if (!norm) return null;
-    return this.byNorm.get(norm) ?? this.byNormCore.get(norm.replace(/ /g, '')) ?? null;
-  }
-
-  async resolve(name: string): Promise<string> {
-    const known = this.lookup(name);
-    if (known) return known;
-    const norm = normalizeHoldingName(name);
-    const search = this.search;
-    if (!norm || !search || this.missed.has(norm)) return '-';
-    const inflight =
-      this.inFlight.get(norm) ??
-      (async () => {
-        let symbol: string | null = null;
-        try {
-          symbol = await search(name);
-        } catch {
-          symbol = null; // offline/throttled: keep "-" instead of failing the fund
-        }
-        if (symbol) this.learn(name, symbol, true);
-        else this.missed.set(norm, true);
-        this.inFlight.delete(norm);
-        return symbol;
-      })();
-    this.inFlight.set(norm, inflight);
-    const symbol = await inflight;
-    return symbol ?? '-';
-  }
-
-  freshEntries(): Record<string, string> {
-    const out: Record<string, string> = {};
-    for (const { name, ticker } of this.fresh) out[name] = ticker;
-    return out;
-  }
-}
-
-async function attachHoldingTickers(holdings: ParsedHoldings, resolver: TickerResolver): Promise<number> {
-  let resolved = 0;
-  for (const holding of holdings.rows) {
-    if (String(holding.Ticker ?? '-') !== '-') continue;
-    const symbol = await resolver.resolve(String(holding.Name ?? ''));
-    if (symbol !== '-') {
-      holding.Ticker = symbol;
-      resolved += 1;
-    }
-  }
-  return resolved;
-}
-
-// ---------------------------------------------------------------------------
-// Seed file persistence (scripts/held-tickers.ts grows with live resolutions)
-// ---------------------------------------------------------------------------
-
-const HELD_TICKERS_FILE = new URL('held-tickers.ts', import.meta.url);
-const HELD_TICKERS_IMPORT = './held-tickers';
-
-export function formatHeldTickersSeed(entries: Record<string, string>): string {
-  const rows = Object.entries(entries)
-    .map(([name, ticker]) => [name, cleanHoldingTicker(ticker)] as const)
-    .filter(([name, ticker]) => name && ticker)
-    .sort((a, b) => {
-      const ka = a[0].toLowerCase();
-      const kb = b[0].toLowerCase();
-      if (ka !== kb) return ka < kb ? -1 : 1;
-      return a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0;
-    });
-  const lines = [
-    '// Invesco holding name -> exchange ticker (GENERATED FILE: do not edit by hand).',
-    '//',
-    '// invesco.com already labels exchange-listed holdings with their ticker; this',
-    '// seed only fills the rows its downloads leave blank (bonds, futures, cash and',
-    '// a few foreign lines). Seeded from the same public directories as',
-    '// daggerok/Fidelity: SEC EDGAR company_tickers.json plus the Nasdaq / NYSE /',
-    '// NYSE American symbol directories, and extended live by the Yahoo Finance',
-    '// symbol search (strict name match only). Positions that genuinely have no',
-    '// exchange ticker keep Ticker "-" and are keyed by their CUSIP/ISIN Identifier,',
-    '// exactly like the SPDR and Fidelity bond rows.',
-    '',
-    'export const HELD_TICKERS: Record<string, string> = {',
-  ];
-  for (const [name, ticker] of rows) lines.push(`  ${JSON.stringify(name)}: ${JSON.stringify(ticker)},`);
-  lines.push('};', '');
-  return lines.join('\n');
-}
-
-async function writeTextIfChanged(file: URL, value: string): Promise<boolean> {
-  let previous: string | null = null;
-  try {
-    previous = await readFile(file, 'utf8');
-  } catch {
-    // First write.
-  }
-  if (previous === value) return false;
-  await writeFile(file, value, 'utf8');
-  return true;
-}
-
-async function readHeldTickersSeed(): Promise<Record<string, string>> {
-  try {
-    const module = await import(HELD_TICKERS_IMPORT);
-    return (module?.HELD_TICKERS || {}) as Record<string, string>;
-  } catch {
-    return {}; // the seed is generated on the first run that learns a mapping
-  }
-}
-
 // ---------------------------------------------------------------------------
 // SEC EDGAR fallback layer: N-PORT-P positions for funds invesco.com does not
 // publish holdings for, resolved through the EDGAR full-text search API.
@@ -1819,7 +1682,6 @@ async function processFund(
   fund: CatalogFund,
   config: UpdaterConfig,
   previous: JsonRecord,
-  resolver: TickerResolver,
 ): Promise<JsonRecord | null> {
   const ticker = fund.ticker;
 
@@ -1891,16 +1753,7 @@ async function processFund(
     }
   }
 
-  // invesco.com leaves the Ticker blank on bond / derivative rows: fill it
-  // from the seed (plus the Yahoo search unless SKIP_YAHOO=1).
-  if (holdings) {
-    try {
-      const resolved = await attachHoldingTickers(holdings, resolver);
-      if (resolved) console.log(`[ticker  ] ${ticker}: resolved ${resolved}/${holdings.rows.length} holding tickers`);
-    } catch (error) {
-      console.warn(`[ticker  ] ${ticker}: ${errorMessage(error)} — keeping "-" tickers`);
-    }
-  }
+
 
   const holdingsRows: JsonRecord[] = holdings ? holdings.rows : await readPreviousSheet(ticker, 'holdings');
   const holdingsHeaders = holdings?.headers.length
@@ -2079,7 +1932,7 @@ const cikByTicker = new Map<string, string | null>();
 async function resolveRegistrantCik(fund: CatalogFund, config: UpdaterConfig): Promise<string | null> {
   if (cikByTicker.has(fund.ticker)) return cikByTicker.get(fund.ticker) as string | null;
   let cik: string | null = null;
-  const pinned = INVESCO_FUNDS.find((seed) => seed.ticker === fund.ticker)?.trustCik || null;
+  const pinned = fund.trustCik || null;
   if (pinned) {
     cik = pinned;
   } else {
@@ -2095,69 +1948,6 @@ async function resolveRegistrantCik(fund: CatalogFund, config: UpdaterConfig): P
 }
 
 // ---------------------------------------------------------------------------
-// --backfill-tickers: offline re-stamp of already generated holdings data
-//
-// Applies the name -> ticker seed to the committed api/invesco holdings pages
-// without touching the network. Used right after the seed gains new entries.
-// ---------------------------------------------------------------------------
-
-async function backfillTickers(): Promise<void> {
-  console.log('Invesco ETF static data updater — holdings ticker backfill (offline, seed only)');
-  const seed = await readHeldTickersSeed();
-  const resolver = new TickerResolver(seed);
-  console.log(`[ticker  ] ${resolver.size} known holding names in scripts/held-tickers.ts`);
-
-  const fundsDir = new URL('funds/', API_ROOT);
-  let fundDirs: string[] = [];
-  try {
-    fundDirs = await readdir(fundsDir);
-  } catch {
-    console.log('[done    ] no api/invesco/funds directory yet — nothing to backfill');
-    return;
-  }
-
-  let funds = 0;
-  let pages = 0;
-  let rowsFilled = 0;
-  let rowsScanned = 0;
-  for (const dir of fundDirs) {
-    let firstPage: JsonRecord;
-    try {
-      firstPage = JSON.parse(await readFile(new URL(`funds/${dir}/holdings/001.json`, API_ROOT), 'utf8')) as JsonRecord;
-    } catch {
-      continue; // no holdings sheet for this fund
-    }
-    const headers = Array.isArray(firstPage.headers) ? (firstPage.headers as string[]) : [];
-    if (!headers.length) continue;
-    const pageSize = parsePositiveInt(String(firstPage.pageSize), HOLDINGS_PAGE_SIZE_FALLBACK);
-
-    const rows = await readPreviousSheet(dir, 'holdings');
-    rowsScanned += rows.length;
-    if (!rows.length) continue;
-
-    let changed = false;
-    for (const row of rows) {
-      if (String(row.Ticker ?? '-') !== '-') continue;
-      const symbol = resolver.lookup(String(row.Name ?? ''));
-      if (symbol) {
-        row.Ticker = symbol;
-        rowsFilled += 1;
-        changed = true;
-      }
-    }
-    if (changed) {
-      const manifest = await writePages(new URL(`funds/${dir}/`, API_ROOT), dir, 'holdings', headers, rows, pageSize);
-      pages += manifest.pages.length;
-      funds += 1;
-    }
-  }
-
-  console.log('');
-  console.log(`[done    ] ${funds} funds rewritten (${pages} holdings pages), ${rowsFilled} of ${rowsScanned} holding rows gained a ticker`);
-  console.log(`[cursor  ] rows still "-" have no exchange ticker (bonds / derivatives) or are not in the seed yet (a live run resolves them via Yahoo search)`);
-}
-
-// ---------------------------------------------------------------------------
 // Main
 // ---------------------------------------------------------------------------
 
@@ -2170,9 +1960,7 @@ async function main(): Promise<void> {
   for (const line of configLines(config)) console.log(`  ${line}`);
   console.log('');
 
-  const seedTickers = await readHeldTickersSeed();
-  const resolver = new TickerResolver(seedTickers, config.skipYahoo ? null : (name) => yahooSearchForTicker(name, config));
-  console.log(`[ticker  ] ${resolver.size} known holding names in scripts/held-tickers.ts${config.skipYahoo ? ' (live Yahoo resolution off: SKIP_YAHOO)' : ''}`);
+
 
   // 1) Catalog discovery: invesco.com product list, previous index, seed.
   const catalog = new Map<string, CatalogFund>();
@@ -2209,10 +1997,7 @@ async function main(): Promise<void> {
       if (!catalog.has(ticker)) catalog.set(ticker, catalogFundFromIndex(ticker, row));
     }
   }
-  for (const seed of INVESCO_FUNDS) {
-    if (catalog.has(seed.ticker)) continue;
-    catalog.set(seed.ticker, catalogFundFromSeed(seed));
-  }
+
 
   const universe = [...catalog.values()].sort((a, b) => (a.ticker < b.ticker ? -1 : a.ticker > b.ticker ? 1 : 0));
   if (!universe.length) {
@@ -2247,7 +2032,7 @@ async function main(): Promise<void> {
       if (config.maxFetches > 0 && processed >= config.maxFetches) return;
       processed += 1;
       try {
-        const row = await processFund(item.fund, config, previousIndex.get(item.fund.ticker) || {}, resolver);
+        const row = await processFund(item.fund, config, previousIndex.get(item.fund.ticker) || {});
         if (row) {
           results.push(row);
           lastProcessedTicker = item.fund.ticker;
@@ -2288,23 +2073,13 @@ async function main(): Promise<void> {
       catalogDownload: config.productListUrl,
       holdings: 'https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker={TICKER}',
       history: 'Yahoo Finance public chart API (adjusted close)',
-      holdingsFallback: 'SEC EDGAR Form N-PORT-P filings of the Invesco ETF registrant',
-      holdingTickers: 'scripts/held-tickers.ts seed (SEC EDGAR company tickers + exchange symbol directories) extended live by the Yahoo Finance symbol search',
       audienceType: config.audienceType,
     },
     counts,
     funds,
   });
 
-  // Persist tickers learned from live searches so the next run (and the
-  // --backfill-tickers mode) can serve them without re-querying Yahoo.
-  if (resolver.fresh.length) {
-    const merged: Record<string, string> = { ...seedTickers, ...resolver.freshEntries() };
-    const seedChanged = await writeTextIfChanged(HELD_TICKERS_FILE, formatHeldTickersSeed(merged));
-    if (seedChanged) {
-      console.log(`[ticker  ] ${resolver.fresh.length} new name -> ticker mappings added to scripts/held-tickers.ts`);
-    }
-  }
+
 
   await writeUpdateState(lastProcessedTicker);
 
@@ -2363,32 +2138,7 @@ function catalogFundFromIndex(ticker: string, row: JsonRecord): CatalogFund {
   };
 }
 
-function catalogFundFromSeed(seed: (typeof INVESCO_FUNDS)[number]): CatalogFund {
-  return {
-    ticker: seed.ticker,
-    name: seed.name,
-    category: normalizeInvescoCategory(seed.category),
-    categoryPath: seed.category,
-    inception: seed.inception,
-    exchange: seed.exchange,
-    cusip: seed.cusip ?? '',
-    isin: seed.isin ?? '',
-    benchmark: '',
-    ter: seed.ter,
-    nav: null,
-    close: null,
-    premiumDiscount: null,
-    netAssets: null,
-    dividendYield: null,
-    secYield: null,
-    distributionRate: null,
-    asOfDate: null,
-    returns: { ...EMPTY_RETURNS },
-    fundPage: seed.fundPage || invescoProductDetailUrl(seed.ticker),
-    trustCik: seed.trustCik ?? null,
-    source: 'seed',
-  };
-}
+
 
 // ---------------------------------------------------------------------------
 // Entry point (kept at the end: main() relies on the let bindings above)
@@ -2397,11 +2147,6 @@ function catalogFundFromSeed(seed: (typeof INVESCO_FUNDS)[number]): CatalogFund 
 if (import.meta.main) {
   if (process.argv.includes('-h') || process.argv.includes('--help')) {
     console.log(USAGE.trim());
-  } else if (process.argv.includes('--backfill-tickers')) {
-    await backfillTickers().catch((error) => {
-      console.error(error instanceof Error ? error.stack : String(error));
-      process.exitCode = 1;
-    });
   } else {
     await main().catch((error) => {
       console.error(error instanceof Error ? error.stack : String(error));
