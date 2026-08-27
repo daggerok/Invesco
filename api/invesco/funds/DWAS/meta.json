@@ -2,55 +2,74 @@
  "ticker": "DWAS",
  "name": "Invesco Dorsey Wright SmallCap Momentum ETF",
  "category": "US Equity",
+ "categoryPath": "US Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/dwas.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=DWAS",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=DWAS",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=DWAS",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46138E842",
-  "isin": "US46138E8425"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/DWAS?period1=0&period2=1787874297&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001394, report period 2026-05-31)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$34.49",
-  "value": 34.49,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$34.33",
-  "value": 34.33,
-  "asOfDate": "Aug 26 2026"
+  "display": "$114.08",
+  "value": 114.0805,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "-0.46%",
-  "value": -0.46
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$21.45 B",
-  "value": 21449000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$417.39 M",
+  "value": 417394901.01,
+  "asOfDate": "May 31 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-05-31)"
+ },
+ "yields": {
+  "dividendYield": 0.02,
+  "dividendYieldText": "0.02%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 4.49,
-   "ytdText": "4.49%",
-   "yr1": 6.49,
-   "yr1Text": "6.49%",
-   "yr3": 11.49,
-   "yr3Text": "11.49%",
-   "yr5": 11.49,
-   "yr5Text": "11.49%",
-   "yr10": 12.49,
-   "yr10Text": "12.49%",
-   "sinceInception": 13.49,
-   "sinceInceptionText": "13.49%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 0.2,
+   "mo1Text": "0.20%",
+   "qtd": -8.52,
+   "qtdText": "-8.52%",
+   "ytd": 17.89,
+   "ytdText": "17.89%",
+   "yr1": 26.88,
+   "yr1Text": "26.88%",
+   "yr3": 14.69,
+   "yr3Text": "14.69%",
+   "yr5": 6.1,
+   "yr5Text": "6.10%",
+   "yr10": 12.2,
+   "yr10Text": "12.20%",
+   "sinceInception": 11.81,
+   "sinceInceptionText": "11.81%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -66,53 +85,179 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.17165"
+    "12/21/2012",
+    "0.221"
    ],
    [
-    "03/23/2026",
-    "0.16478"
+    "03/15/2013",
+    "0.011"
    ],
    [
-    "12/22/2025",
-    "0.17508"
+    "06/21/2013",
+    "0.038"
+   ],
+   [
+    "12/20/2013",
+    "0.014"
+   ],
+   [
+    "06/20/2014",
+    "0.011"
+   ],
+   [
+    "12/19/2014",
+    "0.007"
+   ],
+   [
+    "06/19/2015",
+    "0.026"
+   ],
+   [
+    "12/18/2015",
+    "0.047"
+   ],
+   [
+    "03/18/2016",
+    "0.012"
+   ],
+   [
+    "06/17/2016",
+    "0.049"
+   ],
+   [
+    "12/16/2016",
+    "0.151"
+   ],
+   [
+    "09/18/2017",
+    "0.014"
+   ],
+   [
+    "12/18/2017",
+    "0.082"
+   ],
+   [
+    "03/19/2018",
+    "0.019"
+   ],
+   [
+    "09/23/2019",
+    "0.013"
+   ],
+   [
+    "12/23/2019",
+    "0.063"
+   ],
+   [
+    "03/23/2020",
+    "0.041"
+   ],
+   [
+    "06/22/2020",
+    "0.068"
+   ],
+   [
+    "09/21/2020",
+    "0.026"
+   ],
+   [
+    "12/21/2020",
+    "0.023"
+   ],
+   [
+    "06/21/2021",
+    "0.041"
+   ],
+   [
+    "09/20/2021",
+    "0.028"
+   ],
+   [
+    "12/20/2021",
+    "0.071"
+   ],
+   [
+    "03/21/2022",
+    "0.061"
+   ],
+   [
+    "06/21/2022",
+    "0.132"
+   ],
+   [
+    "09/19/2022",
+    "0.26"
+   ],
+   [
+    "12/19/2022",
+    "0.139"
+   ],
+   [
+    "03/20/2023",
+    "0.055"
+   ],
+   [
+    "06/20/2023",
+    "0.179"
+   ],
+   [
+    "09/18/2023",
+    "0.124"
+   ],
+   [
+    "12/18/2023",
+    "0.834"
+   ],
+   [
+    "03/18/2024",
+    "0.049"
+   ],
+   [
+    "06/24/2024",
+    "0.082"
+   ],
+   [
+    "09/23/2024",
+    "0.515"
+   ],
+   [
+    "12/23/2024",
+    "0.073"
+   ],
+   [
+    "03/24/2025",
+    "0.052"
+   ],
+   [
+    "06/23/2025",
+    "0.01"
    ],
    [
     "09/22/2025",
-    "0.15448"
+    "0.005"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 4.79,
-  "dividendYieldText": "4.79%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 202,
+  "asOfDate": "2026-05-31",
+  "asOf": "May 31 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001394, report period 2026-05-31)"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json",
+   "history/004.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "DWAS",
-  "name": "Invesco Dorsey Wright SmallCap Momentum ETF",
-  "category": "US Equity",
-  "inception": "2012-07-19",
-  "exchange": "NASDAQ",
-  "ter": 0.35,
-  "cusip": "46138E842",
-  "isin": "US46138E8425"
+  "totalRows": 3547,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

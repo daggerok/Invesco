@@ -2,55 +2,74 @@
  "ticker": "KBWP",
  "name": "Invesco KBW Property & Casualty Insurance ETF",
  "category": "US Equity",
+ "categoryPath": "US Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/kbwp.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=KBWP",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=KBWP",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=KBWP",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46138E586",
-  "isin": "US46138E5868"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/KBWP?period1=0&period2=1787874365&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001333, report period 2026-05-31)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$149.33",
-  "value": 149.33,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$148.88",
-  "value": 148.88,
-  "asOfDate": "Aug 26 2026"
+  "display": "$133.78",
+  "value": 133.78,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "-0.30%",
-  "value": -0.3
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$37.93 B",
-  "value": 37933000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$242.19 M",
+  "value": 242185171.73,
+  "asOfDate": "May 31 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-05-31)"
+ },
+ "yields": {
+  "dividendYield": 1.49,
+  "dividendYieldText": "1.49%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": -0.67,
-   "ytdText": "-0.67%",
-   "yr1": 11.33,
-   "yr1Text": "11.33%",
-   "yr3": 6.33,
-   "yr3Text": "6.33%",
-   "yr5": 26.33,
-   "yr5Text": "26.33%",
-   "yr10": 17.33,
-   "yr10Text": "17.33%",
-   "sinceInception": 8.33,
-   "sinceInceptionText": "8.33%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": -1.82,
+   "mo1Text": "-1.82%",
+   "qtd": 3.07,
+   "qtdText": "3.07%",
+   "ytd": 6.4,
+   "ytdText": "6.40%",
+   "yr1": 12.17,
+   "yr1Text": "12.17%",
+   "yr3": 19.94,
+   "yr3Text": "19.94%",
+   "yr5": 12.82,
+   "yr5Text": "12.82%",
+   "yr10": 12.66,
+   "yr10Text": "12.66%",
+   "sinceInception": 13.65,
+   "sinceInceptionText": "13.65%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -66,53 +85,287 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.74440"
+    "03/18/2011",
+    "0.302"
    ],
    [
-    "03/23/2026",
-    "0.71462"
+    "06/17/2011",
+    "0.092"
    ],
    [
-    "12/22/2025",
-    "0.75929"
+    "09/16/2011",
+    "0.102"
+   ],
+   [
+    "12/16/2011",
+    "0.211"
+   ],
+   [
+    "03/16/2012",
+    "0.086"
+   ],
+   [
+    "06/15/2012",
+    "0.04"
+   ],
+   [
+    "09/21/2012",
+    "0.186"
+   ],
+   [
+    "12/21/2012",
+    "0.6"
+   ],
+   [
+    "03/15/2013",
+    "0.057"
+   ],
+   [
+    "06/21/2013",
+    "0.12"
+   ],
+   [
+    "09/20/2013",
+    "0.081"
+   ],
+   [
+    "12/20/2013",
+    "0.369"
+   ],
+   [
+    "12/24/2013",
+    "0.048"
+   ],
+   [
+    "03/21/2014",
+    "0.232"
+   ],
+   [
+    "06/20/2014",
+    "0.222"
+   ],
+   [
+    "09/19/2014",
+    "0.103"
+   ],
+   [
+    "12/19/2014",
+    "0.501"
+   ],
+   [
+    "12/24/2014",
+    "0.101"
+   ],
+   [
+    "03/20/2015",
+    "0.014"
+   ],
+   [
+    "06/19/2015",
+    "0.176"
+   ],
+   [
+    "09/18/2015",
+    "0.089"
+   ],
+   [
+    "12/18/2015",
+    "0.328"
+   ],
+   [
+    "12/24/2015",
+    "0.042"
+   ],
+   [
+    "03/18/2016",
+    "0.121"
+   ],
+   [
+    "06/17/2016",
+    "0.241"
+   ],
+   [
+    "09/16/2016",
+    "0.241"
+   ],
+   [
+    "12/16/2016",
+    "0.585"
+   ],
+   [
+    "03/17/2017",
+    "0.062"
+   ],
+   [
+    "06/16/2017",
+    "0.24"
+   ],
+   [
+    "09/18/2017",
+    "0.2"
+   ],
+   [
+    "12/18/2017",
+    "0.627"
+   ],
+   [
+    "03/19/2018",
+    "0.194"
+   ],
+   [
+    "06/18/2018",
+    "0.281"
+   ],
+   [
+    "09/24/2018",
+    "0.299"
+   ],
+   [
+    "12/24/2018",
+    "0.421"
+   ],
+   [
+    "03/18/2019",
+    "0.38"
+   ],
+   [
+    "06/24/2019",
+    "0.428"
+   ],
+   [
+    "09/23/2019",
+    "0.214"
+   ],
+   [
+    "12/23/2019",
+    "0.397"
+   ],
+   [
+    "03/23/2020",
+    "0.432"
+   ],
+   [
+    "06/22/2020",
+    "0.31"
+   ],
+   [
+    "09/21/2020",
+    "0.187"
+   ],
+   [
+    "12/21/2020",
+    "0.39"
+   ],
+   [
+    "03/22/2021",
+    "0.528"
+   ],
+   [
+    "06/21/2021",
+    "0.413"
+   ],
+   [
+    "09/20/2021",
+    "0.537"
+   ],
+   [
+    "12/20/2021",
+    "0.93"
+   ],
+   [
+    "03/21/2022",
+    "0.428"
+   ],
+   [
+    "06/21/2022",
+    "0.514"
+   ],
+   [
+    "09/19/2022",
+    "0.285"
+   ],
+   [
+    "12/19/2022",
+    "0.488"
+   ],
+   [
+    "03/20/2023",
+    "0.431"
+   ],
+   [
+    "06/20/2023",
+    "0.329"
+   ],
+   [
+    "09/18/2023",
+    "0.323"
+   ],
+   [
+    "12/18/2023",
+    "0.437"
+   ],
+   [
+    "03/18/2024",
+    "0.478"
+   ],
+   [
+    "06/24/2024",
+    "0.306"
+   ],
+   [
+    "09/23/2024",
+    "0.342"
+   ],
+   [
+    "12/23/2024",
+    "0.779"
+   ],
+   [
+    "03/24/2025",
+    "0.651"
+   ],
+   [
+    "06/23/2025",
+    "0.376"
    ],
    [
     "09/22/2025",
-    "0.66996"
+    "0.374"
+   ],
+   [
+    "12/22/2025",
+    "0.605"
+   ],
+   [
+    "03/23/2026",
+    "0.985"
+   ],
+   [
+    "06/22/2026",
+    "0.499"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 4.63,
-  "dividendYieldText": "4.63%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 27,
+  "asOfDate": "2026-05-31",
+  "asOf": "May 31 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001333, report period 2026-05-31)"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json",
+   "history/004.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "KBWP",
-  "name": "Invesco KBW Property & Casualty Insurance ETF",
-  "category": "US Equity",
-  "inception": "2010-12-02",
-  "exchange": "NASDAQ",
-  "ter": 0.35,
-  "cusip": "46138E586",
-  "isin": "US46138E5868"
+  "totalRows": 3943,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

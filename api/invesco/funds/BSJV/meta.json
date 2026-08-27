@@ -5,9 +5,9 @@
  "categoryPath": "Fixed Income",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/bsjv.html",
-  "holdingsDownload": null,
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=BSJV",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=BSJV",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BSJV?period1=0&period2=1787867693&interval=1d&events=div%7Csplit",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BSJV?period1=0&period2=1787874224&interval=1d&events=div%7Csplit",
   "holdingsSource": "invesco.com per-fund holdings download",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
@@ -18,58 +18,58 @@
   "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$125.46",
-  "value": 125.46,
-  "asOfDate": "—"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$125.52",
-  "value": 125.52,
-  "asOfDate": "—"
+  "display": "$25.98",
+  "value": 25.975,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "0.05%",
-  "value": 0.05
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$45,546.00 M",
-  "value": 45546000000,
+  "display": "—",
+  "value": null,
   "asOfDate": "—",
-  "source": "Invesco product list \"Fund Assets\" column"
+  "source": "previous run"
  },
  "yields": {
-  "dividendYield": 0.76,
-  "dividendYieldText": "0.76%",
-  "dividendYieldKind": "trailing 12-month, published by invesco.com",
+  "dividendYield": 6.79,
+  "dividendYieldText": "6.79%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
   "distributionRate": null,
-  "secYield": 1.96,
-  "secYieldText": "1.96%",
+  "secYield": null,
+  "secYieldText": "—",
   "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "—",
-   "mo1": null,
-   "mo1Text": "—",
-   "qtd": null,
-   "qtdText": "—",
-   "ytd": 5.46,
-   "ytdText": "5.46%",
-   "yr1": 7.46,
-   "yr1Text": "7.46%",
-   "yr3": 12.46,
-   "yr3Text": "12.46%",
-   "yr5": 2.46,
-   "yr5Text": "2.46%",
-   "yr10": 13.46,
-   "yr10Text": "13.46%",
-   "sinceInception": 14.46,
-   "sinceInceptionText": "14.46%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 1.09,
+   "mo1Text": "1.09%",
+   "qtd": 0.06,
+   "qtdText": "0.06%",
+   "ytd": 1.6,
+   "ytdText": "1.60%",
+   "yr1": 3.99,
+   "yr1Text": "3.99%",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 8.21,
+   "sinceInceptionText": "8.21%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -77,20 +77,159 @@
   }
  },
  "distributions": {
-  "frequency": "Quarterly",
-  "paymentsPerYear": null,
+  "frequency": "Monthly",
+  "paymentsPerYear": 12,
   "headers": [
    "Ex-Date",
    "Amount"
   ],
-  "rows": []
+  "rows": [
+   [
+    "10/23/2023",
+    "0.118"
+   ],
+   [
+    "11/20/2023",
+    "0.195"
+   ],
+   [
+    "12/18/2023",
+    "0.113"
+   ],
+   [
+    "01/22/2024",
+    "0.12"
+   ],
+   [
+    "02/20/2024",
+    "0.142"
+   ],
+   [
+    "03/18/2024",
+    "0.125"
+   ],
+   [
+    "04/22/2024",
+    "0.14"
+   ],
+   [
+    "05/20/2024",
+    "0.155"
+   ],
+   [
+    "06/24/2024",
+    "0.148"
+   ],
+   [
+    "07/22/2024",
+    "0.158"
+   ],
+   [
+    "08/19/2024",
+    "0.161"
+   ],
+   [
+    "09/23/2024",
+    "0.13"
+   ],
+   [
+    "10/21/2024",
+    "0.147"
+   ],
+   [
+    "11/18/2024",
+    "0.154"
+   ],
+   [
+    "12/23/2024",
+    "0.158"
+   ],
+   [
+    "01/21/2025",
+    "0.148"
+   ],
+   [
+    "02/24/2025",
+    "0.145"
+   ],
+   [
+    "03/24/2025",
+    "0.132"
+   ],
+   [
+    "04/21/2025",
+    "0.137"
+   ],
+   [
+    "05/19/2025",
+    "0.15"
+   ],
+   [
+    "06/23/2025",
+    "0.149"
+   ],
+   [
+    "07/21/2025",
+    "0.15"
+   ],
+   [
+    "08/18/2025",
+    "0.142"
+   ],
+   [
+    "09/22/2025",
+    "0.148"
+   ],
+   [
+    "10/20/2025",
+    "0.135"
+   ],
+   [
+    "11/24/2025",
+    "0.144"
+   ],
+   [
+    "12/22/2025",
+    "0.162"
+   ],
+   [
+    "01/20/2026",
+    "0.137"
+   ],
+   [
+    "02/23/2026",
+    "0.132"
+   ],
+   [
+    "03/23/2026",
+    "0.136"
+   ],
+   [
+    "04/20/2026",
+    "0.145"
+   ],
+   [
+    "05/18/2026",
+    "0.149"
+   ],
+   [
+    "06/22/2026",
+    "0.147"
+   ],
+   [
+    "07/20/2026",
+    "0.147"
+   ],
+   [
+    "08/24/2026",
+    "0.147"
+   ]
+  ]
  },
  "holdings": {
-  "pages": [
-   "holdings/001.json"
-  ],
+  "pages": [],
   "pageSize": 250,
-  "totalRows": 10,
+  "totalRows": 0,
   "asOfDate": null,
   "asOf": "—",
   "source": "invesco.com per-fund holdings download"
@@ -100,8 +239,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "—",
-  "source": "previous run"
+  "totalRows": 737,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

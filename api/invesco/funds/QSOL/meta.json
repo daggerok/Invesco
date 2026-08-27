@@ -2,55 +2,74 @@
  "ticker": "QSOL",
  "name": "Invesco Galaxy Solana ETF",
  "category": "Digital Assets",
+ "categoryPath": "Digital Assets",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/qsol.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=QSOL",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=QSOL",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=QSOL",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46090A102",
-  "isin": "US46090A1024"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/QSOL?period1=0&period2=1787874545&interval=1d&events=div%7Csplit",
+  "holdingsSource": "invesco.com per-fund holdings download",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.25%",
-  "value": 0.25
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$67.01",
-  "value": 67.01,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$66.81",
-  "value": 66.81,
-  "asOfDate": "Aug 26 2026"
+  "display": "$11.02",
+  "value": 11.02,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "-0.30%",
-  "value": -0.3
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$4.70 B",
-  "value": 4701000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "—",
+  "value": null,
+  "asOfDate": "—",
+  "source": "previous run"
+ },
+ "yields": {
+  "dividendYield": 1.96,
+  "dividendYieldText": "1.96%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 7.01,
-   "ytdText": "7.01%",
-   "yr1": 19.01,
-   "yr1Text": "19.01%",
-   "yr3": 14.01,
-   "yr3Text": "14.01%",
-   "yr5": 19.01,
-   "yr5Text": "19.01%",
-   "yr10": 5.01,
-   "yr10Text": "5.01%",
-   "sinceInception": 16.01,
-   "sinceInceptionText": "16.01%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 44.05,
+   "mo1Text": "44.05%",
+   "qtd": 43.12,
+   "qtdText": "43.12%",
+   "ytd": -10.4,
+   "ytdText": "-10.40%",
+   "yr1": null,
+   "yr1Text": "—",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": null,
+   "sinceInceptionText": "—"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -66,53 +85,30 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.33405"
-   ],
-   [
     "03/23/2026",
-    "0.32069"
+    "0.014"
    ],
    [
-    "12/22/2025",
-    "0.34073"
-   ],
-   [
-    "09/22/2025",
-    "0.30064"
+    "06/22/2026",
+    "0.054"
    ]
   ]
  },
- "yields": {
-  "dividendYield": 2.31,
-  "dividendYieldText": "2.31%",
-  "secYield": null,
-  "secYieldText": "\u2014"
- },
  "holdings": {
-  "pages": [
-   "holdings/001.json"
-  ],
+  "pages": [],
   "pageSize": 250,
-  "totalRows": 2,
-  "asOf": "Aug 26 2026"
+  "totalRows": 0,
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "invesco.com per-fund holdings download"
  },
  "history": {
   "pages": [
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "QSOL",
-  "name": "Invesco Galaxy Solana ETF",
-  "category": "Digital Assets",
-  "inception": "2025-12-15",
-  "exchange": "CBOE",
-  "ter": 0.25,
-  "cusip": "46090A102",
-  "isin": "US46090A1024"
+  "totalRows": 176,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

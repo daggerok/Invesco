@@ -2,55 +2,74 @@
  "ticker": "QQA",
  "name": "Invesco QQQ Income Advantage ETF",
  "category": "US Equity",
+ "categoryPath": "US Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/qqa.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=QQA",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=QQA",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=QQA",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46090A689",
-  "isin": "US46090A6890"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/QQA?period1=0&period2=1787874540&interval=1d&events=div%7Csplit",
+  "holdingsSource": "invesco.com per-fund holdings download",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$124.48",
-  "value": 124.48,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$124.60",
-  "value": 124.6,
-  "asOfDate": "Aug 26 2026"
+  "display": "$56.36",
+  "value": 56.36,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "0.10%",
-  "value": 0.1
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$45.45 B",
-  "value": 45448000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "—",
+  "value": null,
+  "asOfDate": "—",
+  "source": "previous run"
+ },
+ "yields": {
+  "dividendYield": 10.28,
+  "dividendYieldText": "10.28%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 4.48,
-   "ytdText": "4.48%",
-   "yr1": 6.48,
-   "yr1Text": "6.48%",
-   "yr3": 11.48,
-   "yr3Text": "11.48%",
-   "yr5": 26.48,
-   "yr5Text": "26.48%",
-   "yr10": 12.48,
-   "yr10Text": "12.48%",
-   "sinceInception": 13.48,
-   "sinceInceptionText": "13.48%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 5.2,
+   "mo1Text": "5.20%",
+   "qtd": 0.7,
+   "qtdText": "0.70%",
+   "ytd": 13.89,
+   "ytdText": "13.89%",
+   "yr1": 21.96,
+   "yr1Text": "21.96%",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 18.47,
+   "sinceInceptionText": "18.47%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -58,61 +77,130 @@
   }
  },
  "distributions": {
-  "frequency": "Quarterly",
-  "paymentsPerYear": 4,
+  "frequency": "Monthly",
+  "paymentsPerYear": 12,
   "headers": [
    "Ex-Date",
    "Amount"
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.62300"
+    "08/19/2024",
+    "0.413"
    ],
    [
-    "03/23/2026",
-    "0.59808"
+    "09/23/2024",
+    "0.418"
    ],
    [
-    "12/22/2025",
-    "0.63546"
+    "10/21/2024",
+    "0.425"
+   ],
+   [
+    "11/18/2024",
+    "0.457"
+   ],
+   [
+    "12/23/2024",
+    "0.436"
+   ],
+   [
+    "01/21/2025",
+    "0.437"
+   ],
+   [
+    "02/24/2025",
+    "0.44"
+   ],
+   [
+    "03/24/2025",
+    "0.403"
+   ],
+   [
+    "04/21/2025",
+    "0.375"
+   ],
+   [
+    "05/19/2025",
+    "0.418"
+   ],
+   [
+    "06/23/2025",
+    "0.42"
+   ],
+   [
+    "07/21/2025",
+    "0.437"
+   ],
+   [
+    "08/18/2025",
+    "0.444"
    ],
    [
     "09/22/2025",
-    "0.56070"
+    "0.454"
+   ],
+   [
+    "10/20/2025",
+    "0.455"
+   ],
+   [
+    "11/24/2025",
+    "0.443"
+   ],
+   [
+    "12/22/2025",
+    "0.459"
+   ],
+   [
+    "01/20/2026",
+    "0.46"
+   ],
+   [
+    "02/23/2026",
+    "0.451"
+   ],
+   [
+    "03/23/2026",
+    "0.434"
+   ],
+   [
+    "04/20/2026",
+    "0.464"
+   ],
+   [
+    "05/18/2026",
+    "0.486"
+   ],
+   [
+    "06/22/2026",
+    "0.5"
+   ],
+   [
+    "07/20/2026",
+    "0.476"
+   ],
+   [
+    "08/24/2026",
+    "0.483"
    ]
   ]
  },
- "yields": {
-  "dividendYield": 4.78,
-  "dividendYieldText": "4.78%",
-  "secYield": null,
-  "secYieldText": "\u2014"
- },
  "holdings": {
-  "pages": [
-   "holdings/001.json"
-  ],
+  "pages": [],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 0,
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "invesco.com per-fund holdings download"
  },
  "history": {
   "pages": [
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "QQA",
-  "name": "Invesco QQQ Income Advantage ETF",
-  "category": "US Equity",
-  "inception": "2024-07-17",
-  "exchange": "NASDAQ",
-  "ter": 0.35,
-  "cusip": "46090A689",
-  "isin": "US46090A6890"
+  "totalRows": 531,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

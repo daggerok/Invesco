@@ -2,55 +2,74 @@
  "ticker": "PWB",
  "name": "Invesco Large Cap Growth ETF",
  "category": "US Equity",
+ "categoryPath": "US Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pwb.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PWB",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PWB",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PWB",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46137V746",
-  "isin": "US46137V7468"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/PWB?period1=0&period2=1787874503&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000886, report period 2026-04-30)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$80.71",
-  "value": 80.71,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$80.31",
-  "value": 80.31,
-  "asOfDate": "Aug 26 2026"
+  "display": "$157.15",
+  "value": 157.15,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "-0.50%",
-  "value": -0.5
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$11.07 B",
-  "value": 11071000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$1,914.59 M",
+  "value": 1914588426.89,
+  "asOfDate": "Apr 30 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-04-30)"
+ },
+ "yields": {
+  "dividendYield": 0.01,
+  "dividendYieldText": "0.01%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 20.71,
-   "ytdText": "20.71%",
-   "yr1": 2.71,
-   "yr1Text": "2.71%",
-   "yr3": 27.71,
-   "yr3Text": "27.71%",
-   "yr5": 7.71,
-   "yr5Text": "7.71%",
-   "yr10": 8.71,
-   "yr10Text": "8.71%",
-   "sinceInception": 14.71,
-   "sinceInceptionText": "14.71%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 2.42,
+   "mo1Text": "2.42%",
+   "qtd": -4.01,
+   "qtdText": "-4.01%",
+   "ytd": 23.63,
+   "ytdText": "23.63%",
+   "yr1": 31.59,
+   "yr1Text": "31.59%",
+   "yr3": 31.26,
+   "yr3Text": "31.26%",
+   "yr5": 15.14,
+   "yr5Text": "15.14%",
+   "yr10": 17.74,
+   "yr10Text": "17.74%",
+   "sinceInception": 12.12,
+   "sinceInceptionText": "12.12%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -66,53 +85,281 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.40155"
+    "12/16/2005",
+    "0.002"
    ],
    [
-    "03/23/2026",
-    "0.38549"
+    "06/16/2006",
+    "0.001"
    ],
    [
-    "12/22/2025",
-    "0.40958"
+    "12/15/2006",
+    "0.019"
    ],
    [
-    "09/22/2025",
-    "0.36139"
+    "12/21/2007",
+    "0.036"
+   ],
+   [
+    "06/20/2008",
+    "0.015"
+   ],
+   [
+    "12/19/2008",
+    "0.062"
+   ],
+   [
+    "06/19/2009",
+    "0.04"
+   ],
+   [
+    "09/18/2009",
+    "0.012"
+   ],
+   [
+    "12/18/2009",
+    "0.035"
+   ],
+   [
+    "03/19/2010",
+    "0.005"
+   ],
+   [
+    "06/18/2010",
+    "0.023"
+   ],
+   [
+    "09/17/2010",
+    "0.017"
+   ],
+   [
+    "12/17/2010",
+    "0.058"
+   ],
+   [
+    "03/18/2011",
+    "0.01"
+   ],
+   [
+    "06/17/2011",
+    "0.042"
+   ],
+   [
+    "09/16/2011",
+    "0.03"
+   ],
+   [
+    "12/16/2011",
+    "0.06"
+   ],
+   [
+    "03/16/2012",
+    "0.009"
+   ],
+   [
+    "06/15/2012",
+    "0.051"
+   ],
+   [
+    "09/21/2012",
+    "0.031"
+   ],
+   [
+    "12/21/2012",
+    "0.12"
+   ],
+   [
+    "06/21/2013",
+    "0.048"
+   ],
+   [
+    "09/20/2013",
+    "0.021"
+   ],
+   [
+    "12/20/2013",
+    "0.04"
+   ],
+   [
+    "06/20/2014",
+    "0.046"
+   ],
+   [
+    "09/19/2014",
+    "0.041"
+   ],
+   [
+    "12/19/2014",
+    "0.039"
+   ],
+   [
+    "03/20/2015",
+    "0.04"
+   ],
+   [
+    "06/19/2015",
+    "0.069"
+   ],
+   [
+    "09/18/2015",
+    "0.039"
+   ],
+   [
+    "12/18/2015",
+    "0.063"
+   ],
+   [
+    "03/18/2016",
+    "0.013"
+   ],
+   [
+    "06/17/2016",
+    "0.071"
+   ],
+   [
+    "09/16/2016",
+    "0.076"
+   ],
+   [
+    "12/16/2016",
+    "0.102"
+   ],
+   [
+    "06/16/2017",
+    "0.108"
+   ],
+   [
+    "09/18/2017",
+    "0.052"
+   ],
+   [
+    "12/18/2017",
+    "0.063"
+   ],
+   [
+    "03/19/2018",
+    "0.046"
+   ],
+   [
+    "06/18/2018",
+    "0.105"
+   ],
+   [
+    "09/24/2018",
+    "0.089"
+   ],
+   [
+    "12/24/2018",
+    "0.162"
+   ],
+   [
+    "03/18/2019",
+    "0.087"
+   ],
+   [
+    "06/24/2019",
+    "0.125"
+   ],
+   [
+    "09/23/2019",
+    "0.04"
+   ],
+   [
+    "12/23/2019",
+    "0.046"
+   ],
+   [
+    "03/23/2020",
+    "0.056"
+   ],
+   [
+    "06/22/2020",
+    "0.054"
+   ],
+   [
+    "09/21/2020",
+    "0.012"
+   ],
+   [
+    "12/21/2020",
+    "0.018"
+   ],
+   [
+    "03/22/2021",
+    "0.007"
+   ],
+   [
+    "06/21/2021",
+    "0.014"
+   ],
+   [
+    "03/21/2022",
+    "0.007"
+   ],
+   [
+    "06/21/2022",
+    "0.015"
+   ],
+   [
+    "09/19/2022",
+    "0.053"
+   ],
+   [
+    "12/19/2022",
+    "0.112"
+   ],
+   [
+    "03/20/2023",
+    "0.084"
+   ],
+   [
+    "06/20/2023",
+    "0.071"
+   ],
+   [
+    "09/18/2023",
+    "0.033"
+   ],
+   [
+    "12/18/2023",
+    "0.102"
+   ],
+   [
+    "03/18/2024",
+    "0.008"
+   ],
+   [
+    "12/23/2024",
+    "0.073"
+   ],
+   [
+    "06/23/2025",
+    "0.002"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 1.01,
-  "dividendYieldText": "1.01%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 52,
+  "asOfDate": "2026-04-30",
+  "asOf": "Apr 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000886, report period 2026-04-30)"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json",
+   "history/004.json",
+   "history/005.json",
+   "history/006.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "PWB",
-  "name": "Invesco Large Cap Growth ETF",
-  "category": "US Equity",
-  "inception": "2005-03-03",
-  "exchange": "NYSE Arca",
-  "ter": 0.35,
-  "cusip": "46137V746",
-  "isin": "US46137V7468"
+  "totalRows": 5406,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

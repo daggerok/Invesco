@@ -1,14 +1,14 @@
 {
  "ticker": "RSPU",
- "name": "Invesco S&P 500® Equal Weight Utilities ETF",
+ "name": "Invesco S&P 500 Equal Weight Utilities ETF",
  "category": "Sector",
  "categoryPath": "Sector",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/rspu.html",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=RSPU",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=RSPU",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/RSPU?period1=0&period2=1787870706&interval=1d&events=div%7Csplit",
-  "holdingsSource": "invesco.com per-fund holdings download",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/RSPU?period1=0&period2=1787874590&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000927, report period 2026-04-30)",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
  },
@@ -18,58 +18,58 @@
   "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$113.86",
-  "value": 113.86,
+  "display": "—",
+  "value": null,
   "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$113.80",
-  "value": 113.8,
+  "display": "$76.71",
+  "value": 76.71,
   "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "-0.05%",
-  "value": -0.05
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$14,386.00 M",
-  "value": 14386000000,
-  "asOfDate": "—",
-  "source": "Invesco product list \"Fund Assets\" column"
+  "display": "$586.17 M",
+  "value": 586170477.3,
+  "asOfDate": "Apr 30 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-04-30)"
  },
  "yields": {
-  "dividendYield": 4.16,
-  "dividendYieldText": "4.16%",
-  "dividendYieldKind": "trailing 12-month, published by invesco.com",
+  "dividendYield": 2.66,
+  "dividendYieldText": "2.66%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
   "distributionRate": null,
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
    "asOfDate": "Aug 27 2026",
    "mo1": -5.58,
    "mo1Text": "-5.58%",
    "qtd": -4.39,
    "qtdText": "-4.39%",
-   "ytd": 23.86,
-   "ytdText": "23.86%",
-   "yr1": 35.86,
-   "yr1Text": "35.86%",
-   "yr3": 30.86,
-   "yr3Text": "30.86%",
-   "yr5": 15.86,
-   "yr5Text": "15.86%",
-   "yr10": 21.86,
-   "yr10Text": "21.86%",
-   "sinceInception": 17.86,
-   "sinceInceptionText": "17.86%"
+   "ytd": 3.95,
+   "ytdText": "3.95%",
+   "yr1": 5.14,
+   "yr1Text": "5.14%",
+   "yr3": 15.57,
+   "yr3Text": "15.57%",
+   "yr5": 9.47,
+   "yr5Text": "9.47%",
+   "yr10": 9.37,
+   "yr10Text": "9.37%",
+   "sinceInception": 8.66,
+   "sinceInceptionText": "8.66%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -399,10 +399,10 @@
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOfDate": null,
-  "asOf": "—",
-  "source": "invesco.com per-fund holdings download"
+  "totalRows": 33,
+  "asOfDate": "2026-04-30",
+  "asOf": "Apr 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000927, report period 2026-04-30)"
  },
  "history": {
   "pages": [

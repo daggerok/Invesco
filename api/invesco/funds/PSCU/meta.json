@@ -2,55 +2,74 @@
  "ticker": "PSCU",
  "name": "Invesco S&P SmallCap Utilities & Communication Services ETF",
  "category": "Sector",
+ "categoryPath": "Sector",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pscu.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PSCU",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PSCU",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PSCU",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46138G409",
-  "isin": "US46138G4091"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/PSCU?period1=0&period2=1787874483&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001337, report period 2026-05-31)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$39.77",
-  "value": 39.77,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$39.95",
-  "value": 39.95,
-  "asOfDate": "Aug 26 2026"
+  "display": "$64.64",
+  "value": 64.643,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "0.45%",
-  "value": 0.45
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$46.98 B",
-  "value": 46977000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$17.87 M",
+  "value": 17871496.26,
+  "asOfDate": "May 31 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-05-31)"
+ },
+ "yields": {
+  "dividendYield": 0.17,
+  "dividendYieldText": "0.17%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 9.77,
-   "ytdText": "9.77%",
-   "yr1": 21.77,
-   "yr1Text": "21.77%",
-   "yr3": 16.77,
-   "yr3Text": "16.77%",
-   "yr5": 16.77,
-   "yr5Text": "16.77%",
-   "yr10": 7.77,
-   "yr10Text": "7.77%",
-   "sinceInception": 18.77,
-   "sinceInceptionText": "18.77%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 0.66,
+   "mo1Text": "0.66%",
+   "qtd": -1.71,
+   "qtdText": "-1.71%",
+   "ytd": 12.68,
+   "ytdText": "12.68%",
+   "yr1": 14.37,
+   "yr1Text": "14.37%",
+   "yr3": 8.62,
+   "yr3Text": "8.62%",
+   "yr5": 0.95,
+   "yr5Text": "0.95%",
+   "yr10": 5.92,
+   "yr10Text": "5.92%",
+   "sinceInception": 8.57,
+   "sinceInceptionText": "8.57%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -66,53 +85,284 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.19975"
+    "06/18/2010",
+    "0.208"
    ],
    [
-    "03/23/2026",
-    "0.19176"
+    "09/17/2010",
+    "0.021"
    ],
    [
-    "12/22/2025",
-    "0.20375"
+    "12/17/2010",
+    "0.35"
+   ],
+   [
+    "03/18/2011",
+    "0.142"
+   ],
+   [
+    "06/17/2011",
+    "0.121"
+   ],
+   [
+    "09/16/2011",
+    "0.307"
+   ],
+   [
+    "12/16/2011",
+    "0.356"
+   ],
+   [
+    "03/16/2012",
+    "0.175"
+   ],
+   [
+    "06/15/2012",
+    "0.273"
+   ],
+   [
+    "09/21/2012",
+    "0.093"
+   ],
+   [
+    "12/21/2012",
+    "0.731"
+   ],
+   [
+    "03/15/2013",
+    "0.124"
+   ],
+   [
+    "06/21/2013",
+    "0.2"
+   ],
+   [
+    "09/20/2013",
+    "0.283"
+   ],
+   [
+    "12/20/2013",
+    "0.41"
+   ],
+   [
+    "03/21/2014",
+    "0.117"
+   ],
+   [
+    "06/20/2014",
+    "0.236"
+   ],
+   [
+    "09/19/2014",
+    "0.193"
+   ],
+   [
+    "12/19/2014",
+    "0.424"
+   ],
+   [
+    "03/20/2015",
+    "0.123"
+   ],
+   [
+    "06/19/2015",
+    "0.215"
+   ],
+   [
+    "09/18/2015",
+    "0.573"
+   ],
+   [
+    "12/18/2015",
+    "0.301"
+   ],
+   [
+    "03/18/2016",
+    "0.038"
+   ],
+   [
+    "06/17/2016",
+    "0.243"
+   ],
+   [
+    "09/16/2016",
+    "0.528"
+   ],
+   [
+    "12/16/2016",
+    "0.744"
+   ],
+   [
+    "12/27/2016",
+    "1.761"
+   ],
+   [
+    "09/18/2017",
+    "0.117"
+   ],
+   [
+    "12/18/2017",
+    "0.856"
+   ],
+   [
+    "03/19/2018",
+    "0.036"
+   ],
+   [
+    "06/18/2018",
+    "0.346"
+   ],
+   [
+    "09/24/2018",
+    "0.423"
+   ],
+   [
+    "12/24/2018",
+    "0.351"
+   ],
+   [
+    "03/18/2019",
+    "0.166"
+   ],
+   [
+    "06/24/2019",
+    "0.304"
+   ],
+   [
+    "09/23/2019",
+    "0.271"
+   ],
+   [
+    "12/23/2019",
+    "0.56"
+   ],
+   [
+    "03/23/2020",
+    "0.095"
+   ],
+   [
+    "06/22/2020",
+    "0.187"
+   ],
+   [
+    "09/21/2020",
+    "0.191"
+   ],
+   [
+    "12/21/2020",
+    "0.175"
+   ],
+   [
+    "03/22/2021",
+    "0.179"
+   ],
+   [
+    "06/21/2021",
+    "0.109"
+   ],
+   [
+    "09/20/2021",
+    "0.689"
+   ],
+   [
+    "12/20/2021",
+    "0.854"
+   ],
+   [
+    "03/21/2022",
+    "0.121"
+   ],
+   [
+    "06/21/2022",
+    "0.273"
+   ],
+   [
+    "09/19/2022",
+    "0.266"
+   ],
+   [
+    "12/19/2022",
+    "0.262"
+   ],
+   [
+    "03/20/2023",
+    "0.191"
+   ],
+   [
+    "06/20/2023",
+    "0.025"
+   ],
+   [
+    "09/18/2023",
+    "0.378"
+   ],
+   [
+    "12/18/2023",
+    "0.272"
+   ],
+   [
+    "03/18/2024",
+    "0.123"
+   ],
+   [
+    "06/24/2024",
+    "0.012"
+   ],
+   [
+    "09/23/2024",
+    "0.196"
+   ],
+   [
+    "12/23/2024",
+    "0.248"
+   ],
+   [
+    "03/24/2025",
+    "0.108"
+   ],
+   [
+    "06/23/2025",
+    "0.03"
    ],
    [
     "09/22/2025",
-    "0.17977"
+    "0.262"
+   ],
+   [
+    "12/22/2025",
+    "0.231"
+   ],
+   [
+    "03/23/2026",
+    "0.115"
+   ],
+   [
+    "06/22/2026",
+    "0.028"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 5.07,
-  "dividendYieldText": "5.07%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 40,
+  "asOfDate": "2026-05-31",
+  "asOf": "May 31 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001337, report period 2026-05-31)"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json",
+   "history/004.json",
+   "history/005.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "PSCU",
-  "name": "Invesco S&P SmallCap Utilities & Communication Services ETF",
-  "category": "Sector",
-  "inception": "2010-04-07",
-  "exchange": "NASDAQ",
-  "ter": 0.35,
-  "cusip": "46138G409",
-  "isin": "US46138G4091"
+  "totalRows": 4124,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

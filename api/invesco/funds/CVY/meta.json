@@ -2,55 +2,74 @@
  "ticker": "CVY",
  "name": "Invesco Zacks Multi-Asset Income ETF",
  "category": "US Equity",
+ "categoryPath": "US Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/cvy.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=CVY",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=CVY",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=CVY",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46137Y500",
-  "isin": "US46137Y5006"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/CVY?period1=0&period2=1787874267&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000944, report period 2026-04-30)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$65.27",
-  "value": 65.27,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$65.56",
-  "value": 65.56,
-  "asOfDate": "Aug 26 2026"
+  "display": "$30.61",
+  "value": 30.6061,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "0.44%",
-  "value": 0.44
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$14.53 B",
-  "value": 14527000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$120.29 M",
+  "value": 120285523.48,
+  "asOfDate": "Apr 30 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-04-30)"
+ },
+ "yields": {
+  "dividendYield": 5.69,
+  "dividendYieldText": "5.69%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 5.27,
-   "ytdText": "5.27%",
-   "yr1": -2.73,
-   "yr1Text": "-2.73%",
-   "yr3": 12.27,
-   "yr3Text": "12.27%",
-   "yr5": 17.27,
-   "yr5Text": "17.27%",
-   "yr10": 3.27,
-   "yr10Text": "3.27%",
-   "sinceInception": 14.27,
-   "sinceInceptionText": "14.27%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 1.38,
+   "mo1Text": "1.38%",
+   "qtd": 5.61,
+   "qtdText": "5.61%",
+   "ytd": 16.88,
+   "ytdText": "16.88%",
+   "yr1": 18.13,
+   "yr1Text": "18.13%",
+   "yr3": 16.08,
+   "yr3Text": "16.08%",
+   "yr5": 9.04,
+   "yr5Text": "9.04%",
+   "yr10": 8.64,
+   "yr10Text": "8.64%",
+   "sinceInception": 5.96,
+   "sinceInceptionText": "5.96%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -66,53 +85,337 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.32780"
+    "12/22/2006",
+    "0.36"
    ],
    [
-    "03/23/2026",
-    "0.31469"
+    "03/26/2007",
+    "0.32"
    ],
    [
-    "12/22/2025",
-    "0.33436"
+    "06/25/2007",
+    "0.315"
+   ],
+   [
+    "09/24/2007",
+    "0.32"
+   ],
+   [
+    "12/26/2007",
+    "0.367"
+   ],
+   [
+    "03/25/2008",
+    "0.364"
+   ],
+   [
+    "06/24/2008",
+    "0.337"
+   ],
+   [
+    "09/24/2008",
+    "0.353"
+   ],
+   [
+    "12/24/2008",
+    "0.354"
+   ],
+   [
+    "03/25/2009",
+    "0.287"
+   ],
+   [
+    "06/24/2009",
+    "0.216"
+   ],
+   [
+    "09/24/2009",
+    "0.228"
+   ],
+   [
+    "12/24/2009",
+    "0.222"
+   ],
+   [
+    "03/25/2010",
+    "0.221"
+   ],
+   [
+    "06/24/2010",
+    "0.262"
+   ],
+   [
+    "09/24/2010",
+    "0.225"
+   ],
+   [
+    "12/27/2010",
+    "0.247"
+   ],
+   [
+    "03/25/2011",
+    "0.259"
+   ],
+   [
+    "06/24/2011",
+    "0.276"
+   ],
+   [
+    "09/26/2011",
+    "0.295"
+   ],
+   [
+    "12/23/2011",
+    "0.277"
+   ],
+   [
+    "03/26/2012",
+    "0.265"
+   ],
+   [
+    "06/25/2012",
+    "0.314"
+   ],
+   [
+    "09/24/2012",
+    "0.284"
+   ],
+   [
+    "12/24/2012",
+    "0.319"
+   ],
+   [
+    "03/22/2013",
+    "0.324"
+   ],
+   [
+    "06/24/2013",
+    "0.37"
+   ],
+   [
+    "09/24/2013",
+    "0.321"
+   ],
+   [
+    "12/24/2013",
+    "0.31"
+   ],
+   [
+    "03/25/2014",
+    "0.292"
+   ],
+   [
+    "06/24/2014",
+    "0.31"
+   ],
+   [
+    "09/24/2014",
+    "0.316"
+   ],
+   [
+    "12/24/2014",
+    "0.487"
+   ],
+   [
+    "03/25/2015",
+    "0.282"
+   ],
+   [
+    "06/24/2015",
+    "0.254"
+   ],
+   [
+    "09/24/2015",
+    "0.284"
+   ],
+   [
+    "12/24/2015",
+    "0.251"
+   ],
+   [
+    "03/24/2016",
+    "0.221"
+   ],
+   [
+    "06/24/2016",
+    "0.223"
+   ],
+   [
+    "09/26/2016",
+    "0.243"
+   ],
+   [
+    "12/23/2016",
+    "0.22"
+   ],
+   [
+    "03/27/2017",
+    "0.222"
+   ],
+   [
+    "06/26/2017",
+    "0.218"
+   ],
+   [
+    "09/26/2017",
+    "0.226"
+   ],
+   [
+    "12/26/2017",
+    "0.216"
+   ],
+   [
+    "03/26/2018",
+    "0.23"
+   ],
+   [
+    "06/26/2018",
+    "0.207"
+   ],
+   [
+    "09/24/2018",
+    "0.25"
+   ],
+   [
+    "12/24/2018",
+    "0.165"
+   ],
+   [
+    "03/18/2019",
+    "0.187"
+   ],
+   [
+    "06/24/2019",
+    "0.183"
+   ],
+   [
+    "09/23/2019",
+    "0.205"
+   ],
+   [
+    "12/23/2019",
+    "0.179"
+   ],
+   [
+    "03/23/2020",
+    "0.182"
+   ],
+   [
+    "06/22/2020",
+    "0.14"
+   ],
+   [
+    "12/21/2020",
+    "0.185"
+   ],
+   [
+    "03/22/2021",
+    "0.112"
+   ],
+   [
+    "06/21/2021",
+    "0.185"
+   ],
+   [
+    "12/20/2021",
+    "0.029"
+   ],
+   [
+    "03/21/2022",
+    "0.17"
+   ],
+   [
+    "06/21/2022",
+    "0.172"
+   ],
+   [
+    "09/19/2022",
+    "0.322"
+   ],
+   [
+    "12/19/2022",
+    "0.432"
+   ],
+   [
+    "03/20/2023",
+    "0.271"
+   ],
+   [
+    "06/20/2023",
+    "0.284"
+   ],
+   [
+    "09/18/2023",
+    "0.229"
+   ],
+   [
+    "12/18/2023",
+    "0.265"
+   ],
+   [
+    "03/18/2024",
+    "0.224"
+   ],
+   [
+    "06/24/2024",
+    "0.318"
+   ],
+   [
+    "09/23/2024",
+    "0.244"
+   ],
+   [
+    "12/23/2024",
+    "0.237"
+   ],
+   [
+    "03/24/2025",
+    "0.221"
+   ],
+   [
+    "06/23/2025",
+    "0.263"
    ],
    [
     "09/22/2025",
-    "0.29502"
+    "0.306"
+   ],
+   [
+    "12/22/2025",
+    "0.281"
+   ],
+   [
+    "03/23/2026",
+    "0.223"
+   ],
+   [
+    "06/22/2026",
+    "0.435"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 0.57,
-  "dividendYieldText": "0.57%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 152,
+  "asOfDate": "2026-04-30",
+  "asOf": "Apr 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000944, report period 2026-04-30)"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json",
+   "history/004.json",
+   "history/005.json",
+   "history/006.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "CVY",
-  "name": "Invesco Zacks Multi-Asset Income ETF",
-  "category": "US Equity",
-  "inception": "2006-09-21",
-  "exchange": "NYSE Arca",
-  "ter": 0.35,
-  "cusip": "46137Y500",
-  "isin": "US46137Y5006"
+  "totalRows": 5014,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

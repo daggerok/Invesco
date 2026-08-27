@@ -2,55 +2,74 @@
  "ticker": "EQWL",
  "name": "Invesco S&P 100 Equal Weight ETF",
  "category": "US Equity",
+ "categoryPath": "US Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/eqwl.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=EQWL",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=EQWL",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=EQWL",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46137V449",
-  "isin": "US46137V4499"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/EQWL?period1=0&period2=1787874291&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000870, report period 2026-04-30)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$174.51",
-  "value": 174.51,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$174.86",
-  "value": 174.86,
-  "asOfDate": "Aug 26 2026"
+  "display": "$134.77",
+  "value": 134.77,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "0.20%",
-  "value": 0.2
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$30.45 B",
-  "value": 30451000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$2,481.59 M",
+  "value": 2481594328.33,
+  "asOfDate": "Apr 30 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-04-30)"
+ },
+ "yields": {
+  "dividendYield": 1.53,
+  "dividendYieldText": "1.53%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 24.51,
-   "ytdText": "24.51%",
-   "yr1": 16.51,
-   "yr1Text": "16.51%",
-   "yr3": 31.51,
-   "yr3Text": "31.51%",
-   "yr5": 26.51,
-   "yr5Text": "26.51%",
-   "yr10": 22.51,
-   "yr10Text": "22.51%",
-   "sinceInception": 18.51,
-   "sinceInceptionText": "18.51%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 3.55,
+   "mo1Text": "3.55%",
+   "qtd": 4.24,
+   "qtdText": "4.24%",
+   "ytd": 15.04,
+   "ytdText": "15.04%",
+   "yr1": 21.2,
+   "yr1Text": "21.20%",
+   "yr3": 20.72,
+   "yr3Text": "20.72%",
+   "yr5": 12.1,
+   "yr5Text": "12.10%",
+   "yr10": 14.7,
+   "yr10Text": "14.70%",
+   "sinceInception": 10.9,
+   "sinceInceptionText": "10.90%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -66,53 +85,324 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.87430"
+    "12/15/2006",
+    "0.02"
    ],
    [
-    "03/23/2026",
-    "0.83933"
+    "03/16/2007",
+    "0.057"
    ],
    [
-    "12/22/2025",
-    "0.89179"
+    "06/15/2007",
+    "0.085"
+   ],
+   [
+    "09/21/2007",
+    "0.069"
+   ],
+   [
+    "12/21/2007",
+    "0.045"
+   ],
+   [
+    "03/20/2008",
+    "0.012"
+   ],
+   [
+    "06/20/2008",
+    "0.108"
+   ],
+   [
+    "09/19/2008",
+    "0.076"
+   ],
+   [
+    "12/19/2008",
+    "0.076"
+   ],
+   [
+    "06/19/2009",
+    "0.157"
+   ],
+   [
+    "09/18/2009",
+    "0.068"
+   ],
+   [
+    "12/18/2009",
+    "0.084"
+   ],
+   [
+    "06/18/2010",
+    "0.086"
+   ],
+   [
+    "09/17/2010",
+    "0.063"
+   ],
+   [
+    "12/17/2010",
+    "0.22"
+   ],
+   [
+    "06/17/2011",
+    "0.173"
+   ],
+   [
+    "09/16/2011",
+    "0.181"
+   ],
+   [
+    "12/16/2011",
+    "0.178"
+   ],
+   [
+    "03/16/2012",
+    "0.118"
+   ],
+   [
+    "06/15/2012",
+    "0.173"
+   ],
+   [
+    "09/21/2012",
+    "0.159"
+   ],
+   [
+    "12/21/2012",
+    "0.221"
+   ],
+   [
+    "03/15/2013",
+    "0.135"
+   ],
+   [
+    "06/21/2013",
+    "0.14"
+   ],
+   [
+    "09/20/2013",
+    "0.141"
+   ],
+   [
+    "12/20/2013",
+    "0.162"
+   ],
+   [
+    "03/21/2014",
+    "0.13"
+   ],
+   [
+    "06/20/2014",
+    "0.161"
+   ],
+   [
+    "09/19/2014",
+    "0.165"
+   ],
+   [
+    "12/19/2014",
+    "0.25"
+   ],
+   [
+    "03/20/2015",
+    "0.131"
+   ],
+   [
+    "06/19/2015",
+    "0.223"
+   ],
+   [
+    "09/18/2015",
+    "0.187"
+   ],
+   [
+    "12/18/2015",
+    "0.247"
+   ],
+   [
+    "03/18/2016",
+    "0.112"
+   ],
+   [
+    "06/17/2016",
+    "0.194"
+   ],
+   [
+    "09/16/2016",
+    "0.203"
+   ],
+   [
+    "12/16/2016",
+    "0.357"
+   ],
+   [
+    "06/16/2017",
+    "0.22"
+   ],
+   [
+    "09/18/2017",
+    "0.193"
+   ],
+   [
+    "12/18/2017",
+    "0.262"
+   ],
+   [
+    "03/19/2018",
+    "0.167"
+   ],
+   [
+    "06/18/2018",
+    "0.282"
+   ],
+   [
+    "09/24/2018",
+    "0.299"
+   ],
+   [
+    "12/24/2018",
+    "0.339"
+   ],
+   [
+    "03/18/2019",
+    "0.225"
+   ],
+   [
+    "06/24/2019",
+    "0.296"
+   ],
+   [
+    "09/23/2019",
+    "0.348"
+   ],
+   [
+    "12/23/2019",
+    "0.39"
+   ],
+   [
+    "03/23/2020",
+    "0.343"
+   ],
+   [
+    "06/22/2020",
+    "0.329"
+   ],
+   [
+    "09/21/2020",
+    "0.346"
+   ],
+   [
+    "12/21/2020",
+    "0.361"
+   ],
+   [
+    "03/22/2021",
+    "0.327"
+   ],
+   [
+    "06/21/2021",
+    "0.305"
+   ],
+   [
+    "12/20/2021",
+    "0.419"
+   ],
+   [
+    "03/21/2022",
+    "0.407"
+   ],
+   [
+    "06/21/2022",
+    "0.406"
+   ],
+   [
+    "09/19/2022",
+    "0.389"
+   ],
+   [
+    "12/19/2022",
+    "0.383"
+   ],
+   [
+    "03/20/2023",
+    "0.436"
+   ],
+   [
+    "06/20/2023",
+    "0.411"
+   ],
+   [
+    "09/18/2023",
+    "0.429"
+   ],
+   [
+    "12/18/2023",
+    "0.452"
+   ],
+   [
+    "03/18/2024",
+    "0.467"
+   ],
+   [
+    "06/24/2024",
+    "0.478"
+   ],
+   [
+    "09/23/2024",
+    "0.486"
+   ],
+   [
+    "12/23/2024",
+    "0.471"
+   ],
+   [
+    "03/24/2025",
+    "0.531"
+   ],
+   [
+    "06/23/2025",
+    "0.443"
    ],
    [
     "09/22/2025",
-    "0.78687"
+    "0.478"
+   ],
+   [
+    "12/22/2025",
+    "0.517"
+   ],
+   [
+    "03/23/2026",
+    "0.529"
+   ],
+   [
+    "06/22/2026",
+    "0.515"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 4.81,
-  "dividendYieldText": "4.81%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 102,
+  "asOfDate": "2026-04-30",
+  "asOf": "Apr 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000870, report period 2026-04-30)"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json",
+   "history/004.json",
+   "history/005.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "EQWL",
-  "name": "Invesco S&P 100 Equal Weight ETF",
-  "category": "US Equity",
-  "inception": "2006-12-01",
-  "exchange": "NYSE Arca",
-  "ter": 0.35,
-  "cusip": "46137V449",
-  "isin": "US46137V4499"
+  "totalRows": 4964,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

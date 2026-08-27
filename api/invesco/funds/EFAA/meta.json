@@ -2,55 +2,74 @@
  "ticker": "EFAA",
  "name": "Invesco MSCI EAFE Income Advantage ETF",
  "category": "International",
+ "categoryPath": "International",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/efaa.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=EFAA",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=EFAA",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=EFAA",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46090A713",
-  "isin": "US46090A7138"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/EFAA?period1=0&period2=1787874288&interval=1d&events=div%7Csplit",
+  "holdingsSource": "invesco.com per-fund holdings download",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$41.07",
-  "value": 41.07,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$41.09",
-  "value": 41.09,
-  "asOfDate": "Aug 26 2026"
+  "display": "$56.92",
+  "value": 56.92,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "0.05%",
-  "value": 0.05
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$32.11 B",
-  "value": 32107000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "—",
+  "value": null,
+  "asOfDate": "—",
+  "source": "previous run"
+ },
+ "yields": {
+  "dividendYield": 8.2,
+  "dividendYieldText": "8.20%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 11.07,
-   "ytdText": "11.07%",
-   "yr1": 33.07,
-   "yr1Text": "33.07%",
-   "yr3": 18.07,
-   "yr3Text": "18.07%",
-   "yr5": 18.07,
-   "yr5Text": "18.07%",
-   "yr10": 19.07,
-   "yr10Text": "19.07%",
-   "sinceInception": 5.07,
-   "sinceInceptionText": "5.07%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 2.54,
+   "mo1Text": "2.54%",
+   "qtd": 3.64,
+   "qtdText": "3.64%",
+   "ytd": 10.62,
+   "ytdText": "10.62%",
+   "yr1": 17.55,
+   "yr1Text": "17.55%",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 15.1,
+   "sinceInceptionText": "15.10%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -58,61 +77,122 @@
   }
  },
  "distributions": {
-  "frequency": "Quarterly",
-  "paymentsPerYear": 4,
+  "frequency": "Monthly",
+  "paymentsPerYear": 12,
   "headers": [
    "Ex-Date",
    "Amount"
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.20545"
+    "09/23/2024",
+    "0.354"
    ],
    [
-    "03/23/2026",
-    "0.19723"
+    "10/21/2024",
+    "0.352"
    ],
    [
-    "12/22/2025",
-    "0.20956"
+    "11/18/2024",
+    "0.368"
+   ],
+   [
+    "12/23/2024",
+    "0.463"
+   ],
+   [
+    "01/21/2025",
+    "0.333"
+   ],
+   [
+    "02/24/2025",
+    "0.344"
+   ],
+   [
+    "03/24/2025",
+    "0.349"
+   ],
+   [
+    "04/21/2025",
+    "0.338"
+   ],
+   [
+    "05/19/2025",
+    "0.355"
+   ],
+   [
+    "06/23/2025",
+    "0.353"
+   ],
+   [
+    "07/21/2025",
+    "0.359"
+   ],
+   [
+    "08/18/2025",
+    "0.368"
    ],
    [
     "09/22/2025",
-    "0.18491"
+    "0.37"
+   ],
+   [
+    "10/20/2025",
+    "0.372"
+   ],
+   [
+    "11/24/2025",
+    "0.37"
+   ],
+   [
+    "12/22/2025",
+    "0.379"
+   ],
+   [
+    "01/20/2026",
+    "0.387"
+   ],
+   [
+    "02/23/2026",
+    "0.4"
+   ],
+   [
+    "03/23/2026",
+    "0.359"
+   ],
+   [
+    "04/20/2026",
+    "0.389"
+   ],
+   [
+    "05/18/2026",
+    "0.381"
+   ],
+   [
+    "06/22/2026",
+    "0.393"
+   ],
+   [
+    "07/20/2026",
+    "0.389"
    ]
   ]
  },
- "yields": {
-  "dividendYield": 1.37,
-  "dividendYieldText": "1.37%",
-  "secYield": null,
-  "secYieldText": "\u2014"
- },
  "holdings": {
-  "pages": [
-   "holdings/001.json"
-  ],
+  "pages": [],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 0,
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "invesco.com per-fund holdings download"
  },
  "history": {
   "pages": [
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "EFAA",
-  "name": "Invesco MSCI EAFE Income Advantage ETF",
-  "category": "International",
-  "inception": "2024-07-17",
-  "exchange": "NYSE",
-  "ter": 0.35,
-  "cusip": "46090A713",
-  "isin": "US46090A7138"
+  "totalRows": 531,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

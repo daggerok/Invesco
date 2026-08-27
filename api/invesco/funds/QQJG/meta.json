@@ -2,55 +2,74 @@
  "ticker": "QQJG",
  "name": "Invesco ESG NASDAQ Next Gen 100 ETF",
  "category": "US Equity",
+ "categoryPath": "US Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/qqjg.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=QQJG",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=QQJG",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=QQJG",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46138G532",
-  "isin": "US46138G5320"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/QQJG?period1=0&period2=1787874542&interval=1d&events=div%7Csplit",
+  "holdingsSource": "invesco.com per-fund holdings download",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$106.54",
-  "value": 106.54,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Feb 23 2026"
  },
  "marketPrice": {
-  "display": "$106.81",
-  "value": 106.81,
-  "asOfDate": "Aug 26 2026"
+  "display": "$24.82",
+  "value": 24.815,
+  "asOfDate": "Feb 23 2026"
  },
  "premiumDiscount": {
-  "display": "0.25%",
-  "value": 0.25
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$33.65 B",
-  "value": 33654000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "—",
+  "value": null,
+  "asOfDate": "—",
+  "source": "previous run"
+ },
+ "yields": {
+  "dividendYield": null,
+  "dividendYieldText": "—",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 16.54,
-   "ytdText": "16.54%",
-   "yr1": 28.54,
-   "yr1Text": "28.54%",
-   "yr3": 23.54,
-   "yr3Text": "23.54%",
-   "yr5": 8.54,
-   "yr5Text": "8.54%",
-   "yr10": 14.54,
-   "yr10Text": "14.54%",
-   "sinceInception": 10.54,
-   "sinceInceptionText": "10.54%"
+   "asOfDate": "Feb 23 2026",
+   "mo1": null,
+   "mo1Text": "—",
+   "qtd": null,
+   "qtdText": "—",
+   "ytd": null,
+   "ytdText": "—",
+   "yr1": null,
+   "yr1Text": "—",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": null,
+   "sinceInceptionText": "—"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -58,61 +77,34 @@
   }
  },
  "distributions": {
-  "frequency": "Quarterly",
-  "paymentsPerYear": 4,
+  "frequency": "Unknown",
+  "paymentsPerYear": null,
   "headers": [
    "Ex-Date",
    "Amount"
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.53405"
-   ],
-   [
-    "03/23/2026",
-    "0.51269"
-   ],
-   [
-    "12/22/2025",
-    "0.54473"
-   ],
-   [
-    "09/22/2025",
-    "0.48064"
+    "02/23/2026",
+    "3.2727"
    ]
   ]
  },
- "yields": {
-  "dividendYield": 1.84,
-  "dividendYieldText": "1.84%",
-  "secYield": null,
-  "secYieldText": "\u2014"
- },
  "holdings": {
-  "pages": [
-   "holdings/001.json"
-  ],
+  "pages": [],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 0,
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "invesco.com per-fund holdings download"
  },
  "history": {
   "pages": [
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "QQJG",
-  "name": "Invesco ESG NASDAQ Next Gen 100 ETF",
-  "category": "US Equity",
-  "inception": "2021-10-27",
-  "exchange": "Nasdaq",
-  "ter": 0.35,
-  "cusip": "46138G532",
-  "isin": "US46138G5320"
+  "totalRows": 1,
+  "asOf": "Feb 23 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

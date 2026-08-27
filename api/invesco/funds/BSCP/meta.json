@@ -7,8 +7,8 @@
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/bscp.html",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=BSCP",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=BSCP",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BSCP?period1=0&period2=1787871052&interval=1d&events=div%7Csplit",
-  "holdingsSource": "invesco.com per-fund holdings download",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BSCP?period1=0&period2=1787874215&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001657201-26-000153, report period 2025-11-30)",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
  },
@@ -18,58 +18,58 @@
   "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$144.48",
-  "value": 144.48,
+  "display": "—",
+  "value": null,
   "asOfDate": "Dec 15 2025"
  },
  "marketPrice": {
-  "display": "$144.34",
-  "value": 144.34,
+  "display": "$20.68",
+  "value": 20.675,
   "asOfDate": "Dec 15 2025"
  },
  "premiumDiscount": {
-  "display": "-0.10%",
-  "value": -0.1
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$12,448.00 M",
-  "value": 12448000000,
-  "asOfDate": "—",
-  "source": "Invesco product list \"Fund Assets\" column"
+  "display": "$2,343.32 M",
+  "value": 2343315164.61,
+  "asOfDate": "Nov 30 2025",
+  "source": "SEC Form N-PORT-P net assets (report period 2025-11-30)"
  },
  "yields": {
-  "dividendYield": 4.78,
-  "dividendYieldText": "4.78%",
-  "dividendYieldKind": "trailing 12-month, published by invesco.com",
+  "dividendYield": null,
+  "dividendYieldText": "—",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
   "distributionRate": null,
-  "secYield": 2.98,
-  "secYieldText": "2.98%",
+  "secYield": null,
+  "secYieldText": "—",
   "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Dec 15 2025",
+   "asOfDate": "Dec 17 2025",
    "mo1": null,
    "mo1Text": "—",
    "qtd": null,
    "qtdText": "—",
-   "ytd": 24.48,
-   "ytdText": "24.48%",
-   "yr1": 36.48,
-   "yr1Text": "36.48%",
-   "yr3": 31.48,
-   "yr3Text": "31.48%",
-   "yr5": 21.48,
-   "yr5Text": "21.48%",
-   "yr10": 22.48,
-   "yr10Text": "22.48%",
-   "sinceInception": 18.48,
-   "sinceInceptionText": "18.48%"
+   "ytd": null,
+   "ytdText": "—",
+   "yr1": null,
+   "yr1Text": "—",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": null,
+   "sinceInceptionText": "—"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -95,18 +95,18 @@
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOfDate": null,
-  "asOf": "—",
-  "source": "invesco.com per-fund holdings download"
+  "totalRows": 11,
+  "asOfDate": "2025-11-30",
+  "asOf": "Nov 30 2025",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001657201-26-000153, report period 2025-11-30)"
  },
  "history": {
   "pages": [
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 1,
-  "asOf": "Dec 15 2025",
+  "totalRows": 3,
+  "asOf": "Dec 17 2025",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

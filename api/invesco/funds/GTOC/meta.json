@@ -2,55 +2,74 @@
  "ticker": "GTOC",
  "name": "Invesco Core Fixed Income ETF",
  "category": "Fixed Income",
+ "categoryPath": "Fixed Income",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/gtoc.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=GTOC",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=GTOC",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=GTOC",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46090A108",
-  "isin": "US46090A1081"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/GTOC?period1=0&period2=1787874311&interval=1d&events=div%7Csplit",
+  "holdingsSource": "invesco.com per-fund holdings download",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.28%",
-  "value": 0.28
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$116.92",
-  "value": 116.92,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$117.04",
-  "value": 117.04,
-  "asOfDate": "Aug 26 2026"
+  "display": "$24.74",
+  "value": 24.7402,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "0.10%",
-  "value": 0.1
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$9.69 B",
-  "value": 9692000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "—",
+  "value": null,
+  "asOfDate": "—",
+  "source": "previous run"
+ },
+ "yields": {
+  "dividendYield": 4.37,
+  "dividendYieldText": "4.37%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": -3.08,
-   "ytdText": "-3.08%",
-   "yr1": 8.92,
-   "yr1Text": "8.92%",
-   "yr3": 3.92,
-   "yr3Text": "3.92%",
-   "yr5": 18.92,
-   "yr5Text": "18.92%",
-   "yr10": 14.92,
-   "yr10Text": "14.92%",
-   "sinceInception": 5.92,
-   "sinceInceptionText": "5.92%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 0.45,
+   "mo1Text": "0.45%",
+   "qtd": -0.37,
+   "qtdText": "-0.37%",
+   "ytd": 0.34,
+   "ytdText": "0.34%",
+   "yr1": 2.58,
+   "yr1Text": "2.58%",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 3.64,
+   "sinceInceptionText": "3.64%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -58,61 +77,82 @@
   }
  },
  "distributions": {
-  "frequency": "Quarterly",
-  "paymentsPerYear": 4,
+  "frequency": "Monthly",
+  "paymentsPerYear": 12,
   "headers": [
    "Ex-Date",
    "Amount"
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.58520"
-   ],
-   [
-    "03/23/2026",
-    "0.56179"
-   ],
-   [
-    "12/22/2025",
-    "0.59690"
+    "08/18/2025",
+    "0.094"
    ],
    [
     "09/22/2025",
-    "0.52668"
+    "0.07"
+   ],
+   [
+    "10/20/2025",
+    "0.106"
+   ],
+   [
+    "11/24/2025",
+    "0.07"
+   ],
+   [
+    "12/22/2025",
+    "0.166"
+   ],
+   [
+    "01/20/2026",
+    "0.087"
+   ],
+   [
+    "02/23/2026",
+    "0.088"
+   ],
+   [
+    "03/23/2026",
+    "0.083"
+   ],
+   [
+    "04/20/2026",
+    "0.083"
+   ],
+   [
+    "05/18/2026",
+    "0.094"
+   ],
+   [
+    "06/22/2026",
+    "0.098"
+   ],
+   [
+    "07/20/2026",
+    "0.093"
+   ],
+   [
+    "08/24/2026",
+    "0.09"
    ]
   ]
  },
- "yields": {
-  "dividendYield": 2.22,
-  "dividendYieldText": "2.22%",
-  "secYield": 2.42,
-  "secYieldText": "2.42%"
- },
  "holdings": {
-  "pages": [
-   "holdings/001.json"
-  ],
+  "pages": [],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 0,
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "invesco.com per-fund holdings download"
  },
  "history": {
   "pages": [
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "GTOC",
-  "name": "Invesco Core Fixed Income ETF",
-  "category": "Fixed Income",
-  "inception": "2025-07-23",
-  "exchange": "NYSE Arca",
-  "ter": 0.28,
-  "cusip": "46090A108",
-  "isin": "US46090A1081"
+  "totalRows": 277,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

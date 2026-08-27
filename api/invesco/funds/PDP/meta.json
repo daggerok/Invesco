@@ -2,55 +2,74 @@
  "ticker": "PDP",
  "name": "Invesco Dorsey Wright Momentum ETF",
  "category": "US Equity",
+ "categoryPath": "US Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pdp.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PDP",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PDP",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PDP",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46137V837",
-  "isin": "US46137V8375"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/PDP?period1=0&period2=1787874418&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000869, report period 2026-04-30)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$163.24",
-  "value": 163.24,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$162.67",
-  "value": 162.67,
-  "asOfDate": "Aug 26 2026"
+  "display": "$137.17",
+  "value": 137.17,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "-0.35%",
-  "value": -0.35
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$49.32 B",
-  "value": 49324000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$1,469.37 M",
+  "value": 1469366164.98,
+  "asOfDate": "Apr 30 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-04-30)"
+ },
+ "yields": {
+  "dividendYield": 0.33,
+  "dividendYieldText": "0.33%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 13.24,
-   "ytdText": "13.24%",
-   "yr1": 25.24,
-   "yr1Text": "25.24%",
-   "yr3": 20.24,
-   "yr3Text": "20.24%",
-   "yr5": 15.24,
-   "yr5Text": "15.24%",
-   "yr10": 11.24,
-   "yr10Text": "11.24%",
-   "sinceInception": 7.24,
-   "sinceInceptionText": "7.24%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 1.4,
+   "mo1Text": "1.40%",
+   "qtd": -6.67,
+   "qtdText": "-6.67%",
+   "ytd": 17.84,
+   "ytdText": "17.84%",
+   "yr1": 22.99,
+   "yr1Text": "22.99%",
+   "yr3": 20.54,
+   "yr3Text": "20.54%",
+   "yr5": 7.99,
+   "yr5Text": "7.99%",
+   "yr10": 12.68,
+   "yr10Text": "12.68%",
+   "sinceInception": 9.7,
+   "sinceInceptionText": "9.70%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -66,53 +85,204 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.81335"
+    "09/21/2007",
+    "0.025"
    ],
    [
-    "03/23/2026",
-    "0.78082"
+    "12/19/2008",
+    "0.039"
    ],
    [
-    "12/22/2025",
-    "0.82962"
+    "06/19/2009",
+    "0.075"
+   ],
+   [
+    "09/18/2009",
+    "0.018"
+   ],
+   [
+    "12/18/2009",
+    "0.007"
+   ],
+   [
+    "06/18/2010",
+    "0.018"
+   ],
+   [
+    "12/17/2010",
+    "0.037"
+   ],
+   [
+    "09/16/2011",
+    "0.017"
+   ],
+   [
+    "12/16/2011",
+    "0.022"
+   ],
+   [
+    "06/15/2012",
+    "0.045"
+   ],
+   [
+    "09/21/2012",
+    "0.018"
+   ],
+   [
+    "12/21/2012",
+    "0.175"
+   ],
+   [
+    "06/21/2013",
+    "0.045"
+   ],
+   [
+    "09/20/2013",
+    "0.034"
+   ],
+   [
+    "12/20/2013",
+    "0.025"
+   ],
+   [
+    "09/19/2014",
+    "0.063"
+   ],
+   [
+    "03/20/2015",
+    "0.047"
+   ],
+   [
+    "06/19/2015",
+    "0.054"
+   ],
+   [
+    "09/18/2015",
+    "0.033"
+   ],
+   [
+    "12/18/2015",
+    "0.026"
+   ],
+   [
+    "06/17/2016",
+    "0.102"
+   ],
+   [
+    "09/16/2016",
+    "0.043"
+   ],
+   [
+    "12/16/2016",
+    "0.194"
+   ],
+   [
+    "06/16/2017",
+    "0.056"
+   ],
+   [
+    "09/18/2017",
+    "0.087"
+   ],
+   [
+    "06/18/2018",
+    "0.035"
+   ],
+   [
+    "09/24/2018",
+    "0.007"
+   ],
+   [
+    "12/24/2018",
+    "0.043"
+   ],
+   [
+    "06/24/2019",
+    "0.047"
+   ],
+   [
+    "09/23/2019",
+    "0.068"
+   ],
+   [
+    "12/23/2019",
+    "0.047"
+   ],
+   [
+    "03/23/2020",
+    "0.071"
+   ],
+   [
+    "06/22/2020",
+    "0.024"
+   ],
+   [
+    "09/19/2022",
+    "0.083"
+   ],
+   [
+    "12/19/2022",
+    "0.239"
+   ],
+   [
+    "03/20/2023",
+    "0.126"
+   ],
+   [
+    "06/20/2023",
+    "0.107"
+   ],
+   [
+    "09/18/2023",
+    "0.028"
+   ],
+   [
+    "12/18/2023",
+    "0.096"
+   ],
+   [
+    "03/18/2024",
+    "0.028"
+   ],
+   [
+    "12/23/2024",
+    "0.134"
+   ],
+   [
+    "03/24/2025",
+    "0.046"
+   ],
+   [
+    "06/23/2025",
+    "0.043"
    ],
    [
     "09/22/2025",
-    "0.73201"
+    "0.113"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 3.54,
-  "dividendYieldText": "3.54%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 103,
+  "asOfDate": "2026-04-30",
+  "asOf": "Apr 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000869, report period 2026-04-30)"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json",
+   "history/004.json",
+   "history/005.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "PDP",
-  "name": "Invesco Dorsey Wright Momentum ETF",
-  "category": "US Equity",
-  "inception": "2007-03-01",
-  "exchange": "NASDAQ",
-  "ter": 0.35,
-  "cusip": "46137V837",
-  "isin": "US46137V8375"
+  "totalRows": 4905,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

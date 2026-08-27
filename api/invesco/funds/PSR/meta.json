@@ -2,55 +2,74 @@
  "ticker": "PSR",
  "name": "Invesco Active U.S. Real Estate ETF",
  "category": "Real Estate",
+ "categoryPath": "Real Estate",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/psr.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PSR",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PSR",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PSR",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46090A101",
-  "isin": "US46090A1016"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/PSR?period1=0&period2=1787874489&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001418144-26-000288, report period 2026-04-30)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$141.54",
-  "value": 141.54,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$141.82",
-  "value": 141.82,
-  "asOfDate": "Aug 26 2026"
+  "display": "$104.06",
+  "value": 104.06,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "0.20%",
-  "value": 0.2
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$37.15 B",
-  "value": 37154000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$51.95 M",
+  "value": 51946209.77,
+  "asOfDate": "Apr 30 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-04-30)"
+ },
+ "yields": {
+  "dividendYield": 3,
+  "dividendYieldText": "3.00%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 21.54,
-   "ytdText": "21.54%",
-   "yr1": 3.54,
-   "yr1Text": "3.54%",
-   "yr3": 28.54,
-   "yr3Text": "28.54%",
-   "yr5": 18.54,
-   "yr5Text": "18.54%",
-   "yr10": 9.54,
-   "yr10Text": "9.54%",
-   "sinceInception": 15.54,
-   "sinceInceptionText": "15.54%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": -3.43,
+   "mo1Text": "-3.43%",
+   "qtd": 1.15,
+   "qtdText": "1.15%",
+   "ytd": 16.93,
+   "ytdText": "16.93%",
+   "yr1": 15.22,
+   "yr1Text": "15.22%",
+   "yr3": 10.45,
+   "yr3Text": "10.45%",
+   "yr5": 1.85,
+   "yr5Text": "1.85%",
+   "yr10": 5.37,
+   "yr10Text": "5.37%",
+   "sinceInception": 12.18,
+   "sinceInceptionText": "12.18%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -66,53 +85,292 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.70910"
+    "12/19/2008",
+    "0.352"
    ],
    [
-    "03/23/2026",
-    "0.68074"
+    "03/20/2009",
+    "0.058"
    ],
    [
-    "12/22/2025",
-    "0.72328"
+    "06/19/2009",
+    "0.085"
+   ],
+   [
+    "09/18/2009",
+    "0.088"
+   ],
+   [
+    "12/18/2009",
+    "0.405"
+   ],
+   [
+    "03/19/2010",
+    "0.089"
+   ],
+   [
+    "06/18/2010",
+    "0.103"
+   ],
+   [
+    "09/17/2010",
+    "0.121"
+   ],
+   [
+    "12/17/2010",
+    "0.652"
+   ],
+   [
+    "09/16/2011",
+    "0.142"
+   ],
+   [
+    "12/16/2011",
+    "0.202"
+   ],
+   [
+    "12/27/2011",
+    "0.08"
+   ],
+   [
+    "03/16/2012",
+    "0.303"
+   ],
+   [
+    "06/15/2012",
+    "0.232"
+   ],
+   [
+    "09/21/2012",
+    "0.1"
+   ],
+   [
+    "12/21/2012",
+    "0.496"
+   ],
+   [
+    "03/15/2013",
+    "0.045"
+   ],
+   [
+    "06/21/2013",
+    "0.198"
+   ],
+   [
+    "09/20/2013",
+    "0.051"
+   ],
+   [
+    "12/20/2013",
+    "0.593"
+   ],
+   [
+    "03/21/2014",
+    "0.131"
+   ],
+   [
+    "06/20/2014",
+    "0.179"
+   ],
+   [
+    "09/19/2014",
+    "0.013"
+   ],
+   [
+    "12/19/2014",
+    "0.601"
+   ],
+   [
+    "03/20/2015",
+    "0.196"
+   ],
+   [
+    "06/19/2015",
+    "0.264"
+   ],
+   [
+    "09/18/2015",
+    "0.191"
+   ],
+   [
+    "12/18/2015",
+    "0.845"
+   ],
+   [
+    "12/24/2015",
+    "0.829"
+   ],
+   [
+    "06/17/2016",
+    "0.251"
+   ],
+   [
+    "09/16/2016",
+    "0.323"
+   ],
+   [
+    "12/16/2016",
+    "1.687"
+   ],
+   [
+    "12/18/2017",
+    "0.113"
+   ],
+   [
+    "03/19/2018",
+    "0.302"
+   ],
+   [
+    "06/18/2018",
+    "0.441"
+   ],
+   [
+    "09/24/2018",
+    "0.574"
+   ],
+   [
+    "12/24/2018",
+    "0.7"
+   ],
+   [
+    "03/18/2019",
+    "0.161"
+   ],
+   [
+    "06/24/2019",
+    "0.754"
+   ],
+   [
+    "09/23/2019",
+    "0.762"
+   ],
+   [
+    "12/23/2019",
+    "0.762"
+   ],
+   [
+    "03/23/2020",
+    "0.698"
+   ],
+   [
+    "06/22/2020",
+    "0.644"
+   ],
+   [
+    "09/21/2020",
+    "0.641"
+   ],
+   [
+    "12/21/2020",
+    "0.7"
+   ],
+   [
+    "03/22/2021",
+    "0.604"
+   ],
+   [
+    "06/21/2021",
+    "0.685"
+   ],
+   [
+    "12/20/2021",
+    "0.651"
+   ],
+   [
+    "03/21/2022",
+    "0.631"
+   ],
+   [
+    "06/21/2022",
+    "0.676"
+   ],
+   [
+    "09/19/2022",
+    "0.629"
+   ],
+   [
+    "12/19/2022",
+    "0.629"
+   ],
+   [
+    "03/20/2023",
+    "0.645"
+   ],
+   [
+    "06/20/2023",
+    "0.652"
+   ],
+   [
+    "09/18/2023",
+    "0.69"
+   ],
+   [
+    "12/18/2023",
+    "0.689"
+   ],
+   [
+    "03/18/2024",
+    "0.69"
+   ],
+   [
+    "06/24/2024",
+    "0.699"
+   ],
+   [
+    "09/23/2024",
+    "0.687"
+   ],
+   [
+    "12/23/2024",
+    "0.686"
+   ],
+   [
+    "03/24/2025",
+    "0.56"
+   ],
+   [
+    "06/23/2025",
+    "0.582"
    ],
    [
     "09/22/2025",
-    "0.63819"
+    "0.586"
+   ],
+   [
+    "12/22/2025",
+    "0.59"
+   ],
+   [
+    "03/23/2026",
+    "0.672"
+   ],
+   [
+    "06/22/2026",
+    "0.78"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 1.84,
-  "dividendYieldText": "1.84%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 33,
+  "asOfDate": "2026-04-30",
+  "asOf": "Apr 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001418144-26-000288, report period 2026-04-30)"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json",
+   "history/004.json",
+   "history/005.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "PSR",
-  "name": "Invesco Active U.S. Real Estate ETF",
-  "category": "Real Estate",
-  "inception": "2008-11-20",
-  "exchange": "NYSE Arca",
-  "ter": 0.35,
-  "cusip": "46090A101",
-  "isin": "US46090A1016"
+  "totalRows": 4467,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

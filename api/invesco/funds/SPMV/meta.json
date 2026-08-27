@@ -7,8 +7,8 @@
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/spmv.html",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=SPMV",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=SPMV",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/SPMV?period1=0&period2=1787870815&interval=1d&events=div%7Csplit",
-  "holdingsSource": "invesco.com per-fund holdings download",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/SPMV?period1=0&period2=1787874621&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-000285, report period 2025-11-30)",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
  },
@@ -18,58 +18,58 @@
   "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$163.35",
-  "value": 163.35,
+  "display": "—",
+  "value": null,
   "asOfDate": "Feb 20 2026"
  },
  "marketPrice": {
-  "display": "$162.70",
-  "value": 162.7,
+  "display": "$50.75",
+  "value": 50.75,
   "asOfDate": "Feb 20 2026"
  },
  "premiumDiscount": {
-  "display": "-0.40%",
-  "value": -0.4
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$49,335.00 M",
-  "value": 49335000000,
-  "asOfDate": "—",
-  "source": "Invesco product list \"Fund Assets\" column"
+  "display": "$3.53 M",
+  "value": 3530584.38,
+  "asOfDate": "Nov 30 2025",
+  "source": "SEC Form N-PORT-P net assets (report period 2025-11-30)"
  },
  "yields": {
-  "dividendYield": 3.65,
-  "dividendYieldText": "3.65%",
-  "dividendYieldKind": "trailing 12-month, published by invesco.com",
+  "dividendYield": null,
+  "dividendYieldText": "—",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
   "distributionRate": null,
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "—",
+   "asOfDate": "Feb 23 2026",
    "mo1": null,
    "mo1Text": "—",
    "qtd": null,
    "qtdText": "—",
-   "ytd": 13.35,
-   "ytdText": "13.35%",
-   "yr1": 25.35,
-   "yr1Text": "25.35%",
-   "yr3": 20.35,
-   "yr3Text": "20.35%",
-   "yr5": 15.35,
-   "yr5Text": "15.35%",
-   "yr10": 11.35,
-   "yr10Text": "11.35%",
-   "sinceInception": 7.35,
-   "sinceInceptionText": "7.35%"
+   "ytd": null,
+   "ytdText": "—",
+   "yr1": null,
+   "yr1Text": "—",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": null,
+   "sinceInceptionText": "—"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -77,31 +77,36 @@
   }
  },
  "distributions": {
-  "frequency": "Quarterly",
+  "frequency": "Unknown",
   "paymentsPerYear": null,
   "headers": [
    "Ex-Date",
    "Amount"
   ],
-  "rows": []
+  "rows": [
+   [
+    "02/23/2026",
+    "0.14286"
+   ]
+  ]
  },
  "holdings": {
   "pages": [
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOfDate": null,
-  "asOf": "—",
-  "source": "invesco.com per-fund holdings download"
+  "totalRows": 125,
+  "asOfDate": "2025-11-30",
+  "asOf": "Nov 30 2025",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-000285, report period 2025-11-30)"
  },
  "history": {
   "pages": [
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "—",
-  "source": "previous run"
+  "totalRows": 1,
+  "asOf": "Feb 23 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

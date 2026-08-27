@@ -2,55 +2,74 @@
  "ticker": "PBD",
  "name": "Invesco Global Clean Energy ETF",
  "category": "Global Equity",
+ "categoryPath": "Global Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pbd.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PBD",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PBD",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PBD",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46138G847",
-  "isin": "US46138G8472"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/PBD?period1=0&period2=1787874386&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001107, report period 2026-04-30)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$156.18",
-  "value": 156.18,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$156.26",
-  "value": 156.26,
-  "asOfDate": "Aug 26 2026"
+  "display": "$18.18",
+  "value": 18.175,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "0.05%",
-  "value": 0.05
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$38.62 B",
-  "value": 38618000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$208.37 M",
+  "value": 208370324.75,
+  "asOfDate": "Apr 30 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-04-30)"
+ },
+ "yields": {
+  "dividendYield": 1.72,
+  "dividendYieldText": "1.72%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 6.18,
-   "ytdText": "6.18%",
-   "yr1": 18.18,
-   "yr1Text": "18.18%",
-   "yr3": 13.18,
-   "yr3Text": "13.18%",
-   "yr5": 8.18,
-   "yr5Text": "8.18%",
-   "yr10": 4.18,
-   "yr10Text": "4.18%",
-   "sinceInception": 15.18,
-   "sinceInceptionText": "15.18%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 3.27,
+   "mo1Text": "3.27%",
+   "qtd": -5.88,
+   "qtdText": "-5.88%",
+   "ytd": 13.6,
+   "ytdText": "13.60%",
+   "yr1": 30.37,
+   "yr1Text": "30.37%",
+   "yr3": 4.7,
+   "yr3Text": "4.70%",
+   "yr5": -7.1,
+   "yr5Text": "-7.10%",
+   "yr10": 7.12,
+   "yr10Text": "7.12%",
+   "sinceInception": -0.28,
+   "sinceInceptionText": "-0.28%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -66,53 +85,260 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.78130"
+    "12/19/2008",
+    "0.023"
    ],
    [
-    "03/23/2026",
-    "0.75005"
+    "06/19/2009",
+    "0.009"
    ],
    [
-    "12/22/2025",
-    "0.79693"
+    "12/18/2009",
+    "0.007"
+   ],
+   [
+    "12/17/2010",
+    "0.019"
+   ],
+   [
+    "06/17/2011",
+    "0.011"
+   ],
+   [
+    "09/16/2011",
+    "0.059"
+   ],
+   [
+    "12/16/2011",
+    "0.06"
+   ],
+   [
+    "03/16/2012",
+    "0.016"
+   ],
+   [
+    "06/15/2012",
+    "0.076"
+   ],
+   [
+    "09/21/2012",
+    "0.039"
+   ],
+   [
+    "12/21/2012",
+    "0.042"
+   ],
+   [
+    "03/15/2013",
+    "0.006"
+   ],
+   [
+    "06/21/2013",
+    "0.05"
+   ],
+   [
+    "09/20/2013",
+    "0.013"
+   ],
+   [
+    "12/20/2013",
+    "0.037"
+   ],
+   [
+    "06/20/2014",
+    "0.048"
+   ],
+   [
+    "09/19/2014",
+    "0.016"
+   ],
+   [
+    "12/19/2014",
+    "0.057"
+   ],
+   [
+    "06/19/2015",
+    "0.044"
+   ],
+   [
+    "09/18/2015",
+    "0.024"
+   ],
+   [
+    "12/18/2015",
+    "0.074"
+   ],
+   [
+    "06/17/2016",
+    "0.065"
+   ],
+   [
+    "09/16/2016",
+    "0.069"
+   ],
+   [
+    "12/16/2016",
+    "0.079"
+   ],
+   [
+    "06/16/2017",
+    "0.062"
+   ],
+   [
+    "09/18/2017",
+    "0.051"
+   ],
+   [
+    "12/18/2017",
+    "0.119"
+   ],
+   [
+    "06/18/2018",
+    "0.051"
+   ],
+   [
+    "09/24/2018",
+    "0.047"
+   ],
+   [
+    "12/24/2018",
+    "0.097"
+   ],
+   [
+    "03/18/2019",
+    "0.016"
+   ],
+   [
+    "06/24/2019",
+    "0.057"
+   ],
+   [
+    "09/23/2019",
+    "0.071"
+   ],
+   [
+    "12/23/2019",
+    "0.118"
+   ],
+   [
+    "03/23/2020",
+    "0.034"
+   ],
+   [
+    "06/22/2020",
+    "0.042"
+   ],
+   [
+    "09/21/2020",
+    "0.071"
+   ],
+   [
+    "12/21/2020",
+    "0.02"
+   ],
+   [
+    "06/21/2021",
+    "0.066"
+   ],
+   [
+    "12/20/2021",
+    "0.059"
+   ],
+   [
+    "03/21/2022",
+    "0.062"
+   ],
+   [
+    "06/21/2022",
+    "0.109"
+   ],
+   [
+    "09/19/2022",
+    "0.079"
+   ],
+   [
+    "12/19/2022",
+    "0.297"
+   ],
+   [
+    "03/20/2023",
+    "0.084"
+   ],
+   [
+    "06/20/2023",
+    "0.14"
+   ],
+   [
+    "09/18/2023",
+    "0.037"
+   ],
+   [
+    "12/18/2023",
+    "0.195"
+   ],
+   [
+    "03/18/2024",
+    "0.007"
+   ],
+   [
+    "06/24/2024",
+    "0.087"
+   ],
+   [
+    "09/23/2024",
+    "0.071"
+   ],
+   [
+    "12/23/2024",
+    "0.045"
+   ],
+   [
+    "03/24/2025",
+    "0.093"
+   ],
+   [
+    "06/23/2025",
+    "0.136"
    ],
    [
     "09/22/2025",
-    "0.70317"
+    "0.116"
+   ],
+   [
+    "12/22/2025",
+    "0.09"
+   ],
+   [
+    "03/23/2026",
+    "0.02"
+   ],
+   [
+    "06/22/2026",
+    "0.078"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 1.48,
-  "dividendYieldText": "1.48%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 113,
+  "asOfDate": "2026-04-30",
+  "asOf": "Apr 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001107, report period 2026-04-30)"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json",
+   "history/004.json",
+   "history/005.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "PBD",
-  "name": "Invesco Global Clean Energy ETF",
-  "category": "Global Equity",
-  "inception": "2007-06-13",
-  "exchange": "NYSE Arca",
-  "ter": 0.35,
-  "cusip": "46138G847",
-  "isin": "US46138G8472"
+  "totalRows": 4833,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

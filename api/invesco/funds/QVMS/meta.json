@@ -1,56 +1,75 @@
 {
  "ticker": "QVMS",
- "name": "Invesco S&P SmallCap 600 QVM Multi-factor ETF",
+ "name": "Invesco S&P SmallCap 600 QVM Multi-Factor ETF",
  "category": "US Equity",
+ "categoryPath": "US Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/qvms.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=QVMS",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=QVMS",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=QVMS",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46138G565",
-  "isin": "US46138G5650"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/QVMS?period1=0&period2=1787874561&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001354, report period 2026-05-31)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$110.67",
-  "value": 110.67,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$110.56",
-  "value": 110.56,
-  "asOfDate": "Aug 26 2026"
+  "display": "$34.42",
+  "value": 34.4244,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "-0.10%",
-  "value": -0.1
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$9.07 B",
-  "value": 9067000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$237.72 M",
+  "value": 237722730.77,
+  "asOfDate": "May 31 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-05-31)"
+ },
+ "yields": {
+  "dividendYield": 1.09,
+  "dividendYieldText": "1.09%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 20.67,
-   "ytdText": "20.67%",
-   "yr1": 22.67,
-   "yr1Text": "22.67%",
-   "yr3": 27.67,
-   "yr3Text": "27.67%",
-   "yr5": 12.67,
-   "yr5Text": "12.67%",
-   "yr10": 8.67,
-   "yr10Text": "8.67%",
-   "sinceInception": 14.67,
-   "sinceInceptionText": "14.67%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 0.53,
+   "mo1Text": "0.53%",
+   "qtd": -1.18,
+   "qtdText": "-1.18%",
+   "ytd": 22.73,
+   "ytdText": "22.73%",
+   "yr1": 24.1,
+   "yr1Text": "24.10%",
+   "yr3": 16.45,
+   "yr3Text": "16.45%",
+   "yr5": 8.01,
+   "yr5Text": "8.01%",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 7.88,
+   "sinceInceptionText": "7.88%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -66,53 +85,107 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.55280"
+    "09/20/2021",
+    "0.086"
    ],
    [
-    "03/23/2026",
-    "0.53069"
+    "12/20/2021",
+    "0.08"
    ],
    [
-    "12/22/2025",
-    "0.56386"
+    "03/21/2022",
+    "0.078"
+   ],
+   [
+    "06/21/2022",
+    "0.091"
+   ],
+   [
+    "09/19/2022",
+    "0.09"
+   ],
+   [
+    "12/19/2022",
+    "0.085"
+   ],
+   [
+    "03/20/2023",
+    "0.098"
+   ],
+   [
+    "06/20/2023",
+    "0.102"
+   ],
+   [
+    "09/18/2023",
+    "0.094"
+   ],
+   [
+    "12/18/2023",
+    "0.086"
+   ],
+   [
+    "03/18/2024",
+    "0.088"
+   ],
+   [
+    "06/24/2024",
+    "0.076"
+   ],
+   [
+    "09/23/2024",
+    "0.102"
+   ],
+   [
+    "12/23/2024",
+    "0.147"
+   ],
+   [
+    "03/24/2025",
+    "0.049"
+   ],
+   [
+    "06/23/2025",
+    "0.069"
    ],
    [
     "09/22/2025",
-    "0.49752"
+    "0.104"
+   ],
+   [
+    "12/22/2025",
+    "0.089"
+   ],
+   [
+    "03/23/2026",
+    "0.109"
+   ],
+   [
+    "06/22/2026",
+    "0.094"
    ]
   ]
  },
- "yields": {
-  "dividendYield": 0.97,
-  "dividendYieldText": "0.97%",
-  "secYield": null,
-  "secYieldText": "\u2014"
- },
  "holdings": {
   "pages": [
-   "holdings/001.json"
+   "holdings/001.json",
+   "holdings/002.json",
+   "holdings/003.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 532,
+  "asOfDate": "2026-05-31",
+  "asOf": "May 31 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001354, report period 2026-05-31)"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "QVMS",
-  "name": "Invesco S&P SmallCap 600 QVM Multi-factor ETF",
-  "category": "US Equity",
-  "inception": "2021-06-30",
-  "exchange": "NYSE Arca",
-  "ter": 0.35,
-  "cusip": "46138G565",
-  "isin": "US46138G5650"
+  "totalRows": 1296,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

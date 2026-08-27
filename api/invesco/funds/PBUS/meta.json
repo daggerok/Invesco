@@ -2,55 +2,74 @@
  "ticker": "PBUS",
  "name": "Invesco MSCI USA ETF",
  "category": "US Equity",
+ "categoryPath": "US Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pbus.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PBUS",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PBUS",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PBUS",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46138E461",
-  "isin": "US46138E4614"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/PBUS?period1=0&period2=1787874402&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001399, report period 2026-05-31)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$138.46",
-  "value": 138.46,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$137.98",
-  "value": 137.98,
-  "asOfDate": "Aug 26 2026"
+  "display": "$77.38",
+  "value": 77.38,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "-0.35%",
-  "value": -0.35
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$16.85 B",
-  "value": 16846000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$11,454.61 M",
+  "value": 11454614471.27,
+  "asOfDate": "May 31 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-05-31)"
+ },
+ "yields": {
+  "dividendYield": 1.01,
+  "dividendYieldText": "1.01%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 18.46,
-   "ytdText": "18.46%",
-   "yr1": 20.46,
-   "yr1Text": "20.46%",
-   "yr3": 25.46,
-   "yr3Text": "25.46%",
-   "yr5": 15.46,
-   "yr5Text": "15.46%",
-   "yr10": 6.46,
-   "yr10Text": "6.46%",
-   "sinceInception": 12.46,
-   "sinceInceptionText": "12.46%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 4.38,
+   "mo1Text": "4.38%",
+   "qtd": 3.56,
+   "qtdText": "3.56%",
+   "ytd": 13.7,
+   "ytdText": "13.70%",
+   "yr1": 20.33,
+   "yr1Text": "20.33%",
+   "yr3": 22.27,
+   "yr3Text": "22.27%",
+   "yr5": 12.48,
+   "yr5Text": "12.48%",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 15.25,
+   "sinceInceptionText": "15.25%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -66,53 +85,172 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.68990"
+    "12/18/2017",
+    "0.133"
    ],
    [
-    "03/23/2026",
-    "0.66230"
+    "03/19/2018",
+    "0.098"
    ],
    [
-    "12/22/2025",
-    "0.70370"
+    "06/18/2018",
+    "0.125"
+   ],
+   [
+    "09/24/2018",
+    "0.137"
+   ],
+   [
+    "12/24/2018",
+    "0.149"
+   ],
+   [
+    "12/26/2018",
+    "0.068"
+   ],
+   [
+    "03/18/2019",
+    "0.108"
+   ],
+   [
+    "06/24/2019",
+    "0.132"
+   ],
+   [
+    "09/23/2019",
+    "0.078"
+   ],
+   [
+    "12/23/2019",
+    "0.174"
+   ],
+   [
+    "03/23/2020",
+    "0.154"
+   ],
+   [
+    "06/22/2020",
+    "0.104"
+   ],
+   [
+    "09/21/2020",
+    "0.131"
+   ],
+   [
+    "12/21/2020",
+    "0.128"
+   ],
+   [
+    "03/22/2021",
+    "0.127"
+   ],
+   [
+    "06/21/2021",
+    "0.045"
+   ],
+   [
+    "09/20/2021",
+    "0.125"
+   ],
+   [
+    "12/20/2021",
+    "0.172"
+   ],
+   [
+    "03/21/2022",
+    "0.163"
+   ],
+   [
+    "06/21/2022",
+    "0.162"
+   ],
+   [
+    "09/19/2022",
+    "0.162"
+   ],
+   [
+    "12/19/2022",
+    "0.165"
+   ],
+   [
+    "03/20/2023",
+    "0.168"
+   ],
+   [
+    "06/20/2023",
+    "0.156"
+   ],
+   [
+    "09/18/2023",
+    "0.142"
+   ],
+   [
+    "12/18/2023",
+    "0.182"
+   ],
+   [
+    "03/18/2024",
+    "0.169"
+   ],
+   [
+    "06/24/2024",
+    "0.174"
+   ],
+   [
+    "09/23/2024",
+    "0.175"
+   ],
+   [
+    "12/23/2024",
+    "0.187"
+   ],
+   [
+    "03/24/2025",
+    "0.185"
+   ],
+   [
+    "06/23/2025",
+    "0.171"
    ],
    [
     "09/22/2025",
-    "0.62091"
+    "0.185"
+   ],
+   [
+    "12/22/2025",
+    "0.182"
+   ],
+   [
+    "03/23/2026",
+    "0.205"
+   ],
+   [
+    "06/22/2026",
+    "0.195"
    ]
   ]
  },
- "yields": {
-  "dividendYield": 3.76,
-  "dividendYieldText": "3.76%",
-  "secYield": null,
-  "secYieldText": "\u2014"
- },
  "holdings": {
   "pages": [
-   "holdings/001.json"
+   "holdings/001.json",
+   "holdings/002.json",
+   "holdings/003.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 540,
+  "asOfDate": "2026-05-31",
+  "asOf": "May 31 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001399, report period 2026-05-31)"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "PBUS",
-  "name": "Invesco MSCI USA ETF",
-  "category": "US Equity",
-  "inception": "2017-09-22",
-  "exchange": "Cboe BZX Exchange, Inc.",
-  "ter": 0.35,
-  "cusip": "46138E461",
-  "isin": "US46138E4614"
+  "totalRows": 2243,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

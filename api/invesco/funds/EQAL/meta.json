@@ -2,55 +2,74 @@
  "ticker": "EQAL",
  "name": "Invesco Russell 1000 Equal Weight ETF",
  "category": "US Equity",
+ "categoryPath": "US Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/eqal.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=EQAL",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=EQAL",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=EQAL",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46138E420",
-  "isin": "US46138E4200"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/EQAL?period1=0&period2=1787874290&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001397, report period 2026-05-31)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$96.28",
-  "value": 96.28,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$96.38",
-  "value": 96.38,
-  "asOfDate": "Aug 26 2026"
+  "display": "$61.63",
+  "value": 61.63,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "0.10%",
-  "value": 0.1
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$47.63 B",
-  "value": 47628000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$806.40 M",
+  "value": 806396315.42,
+  "asOfDate": "May 31 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-05-31)"
+ },
+ "yields": {
+  "dividendYield": 1.6,
+  "dividendYieldText": "1.60%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 6.28,
-   "ytdText": "6.28%",
-   "yr1": 8.28,
-   "yr1Text": "8.28%",
-   "yr3": 13.28,
-   "yr3Text": "13.28%",
-   "yr5": 23.28,
-   "yr5Text": "23.28%",
-   "yr10": 14.28,
-   "yr10Text": "14.28%",
-   "sinceInception": 15.28,
-   "sinceInceptionText": "15.28%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 3.84,
+   "mo1Text": "3.84%",
+   "qtd": 4.04,
+   "qtdText": "4.04%",
+   "ytd": 18.12,
+   "ytdText": "18.12%",
+   "yr1": 21.32,
+   "yr1Text": "21.32%",
+   "yr3": 16.4,
+   "yr3Text": "16.40%",
+   "yr5": 7.67,
+   "yr5Text": "7.67%",
+   "yr10": 10.79,
+   "yr10Text": "10.79%",
+   "sinceInception": 9.76,
+   "sinceInceptionText": "9.76%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -66,53 +85,209 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.48190"
+    "03/20/2015",
+    "0.037"
    ],
    [
-    "03/23/2026",
-    "0.46262"
+    "06/19/2015",
+    "0.091"
    ],
    [
-    "12/22/2025",
-    "0.49154"
+    "09/18/2015",
+    "0.091"
+   ],
+   [
+    "12/18/2015",
+    "0.169"
+   ],
+   [
+    "03/18/2016",
+    "0.063"
+   ],
+   [
+    "06/17/2016",
+    "0.11"
+   ],
+   [
+    "09/16/2016",
+    "0.081"
+   ],
+   [
+    "12/16/2016",
+    "0.168"
+   ],
+   [
+    "03/17/2017",
+    "0.026"
+   ],
+   [
+    "06/16/2017",
+    "0.09"
+   ],
+   [
+    "09/18/2017",
+    "0.112"
+   ],
+   [
+    "12/18/2017",
+    "0.139"
+   ],
+   [
+    "03/19/2018",
+    "0.07"
+   ],
+   [
+    "06/18/2018",
+    "0.108"
+   ],
+   [
+    "09/24/2018",
+    "0.146"
+   ],
+   [
+    "12/24/2018",
+    "0.13"
+   ],
+   [
+    "03/18/2019",
+    "0.074"
+   ],
+   [
+    "06/24/2019",
+    "0.131"
+   ],
+   [
+    "09/23/2019",
+    "0.154"
+   ],
+   [
+    "12/23/2019",
+    "0.193"
+   ],
+   [
+    "03/23/2020",
+    "0.165"
+   ],
+   [
+    "06/22/2020",
+    "0.152"
+   ],
+   [
+    "09/21/2020",
+    "0.143"
+   ],
+   [
+    "12/21/2020",
+    "0.175"
+   ],
+   [
+    "03/22/2021",
+    "0.195"
+   ],
+   [
+    "06/21/2021",
+    "0.166"
+   ],
+   [
+    "12/20/2021",
+    "0.097"
+   ],
+   [
+    "03/21/2022",
+    "0.191"
+   ],
+   [
+    "06/21/2022",
+    "0.205"
+   ],
+   [
+    "09/19/2022",
+    "0.227"
+   ],
+   [
+    "12/19/2022",
+    "0.16"
+   ],
+   [
+    "03/20/2023",
+    "0.198"
+   ],
+   [
+    "06/20/2023",
+    "0.187"
+   ],
+   [
+    "09/18/2023",
+    "0.231"
+   ],
+   [
+    "12/18/2023",
+    "0.213"
+   ],
+   [
+    "03/18/2024",
+    "0.186"
+   ],
+   [
+    "06/24/2024",
+    "0.169"
+   ],
+   [
+    "09/23/2024",
+    "0.217"
+   ],
+   [
+    "12/23/2024",
+    "0.211"
+   ],
+   [
+    "03/24/2025",
+    "0.225"
+   ],
+   [
+    "06/23/2025",
+    "0.209"
    ],
    [
     "09/22/2025",
-    "0.43371"
+    "0.26"
+   ],
+   [
+    "12/22/2025",
+    "0.247"
+   ],
+   [
+    "03/23/2026",
+    "0.248"
+   ],
+   [
+    "06/22/2026",
+    "0.247"
    ]
   ]
  },
- "yields": {
-  "dividendYield": 1.58,
-  "dividendYieldText": "1.58%",
-  "secYield": null,
-  "secYieldText": "\u2014"
- },
  "holdings": {
   "pages": [
-   "holdings/001.json"
+   "holdings/001.json",
+   "holdings/002.json",
+   "holdings/003.json",
+   "holdings/004.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 992,
+  "asOfDate": "2026-05-31",
+  "asOf": "May 31 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001397, report period 2026-05-31)"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "EQAL",
-  "name": "Invesco Russell 1000 Equal Weight ETF",
-  "category": "US Equity",
-  "inception": "2014-12-23",
-  "exchange": "NYSE ",
-  "ter": 0.35,
-  "cusip": "46138E420",
-  "isin": "US46138E4200"
+  "totalRows": 2935,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

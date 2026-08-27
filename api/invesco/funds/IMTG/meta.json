@@ -2,55 +2,74 @@
  "ticker": "IMTG",
  "name": "Invesco Agency MBS ETF",
  "category": "Fixed Income",
+ "categoryPath": "Fixed Income",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/imtg.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=IMTG",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=IMTG",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=IMTG",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46090A110",
-  "isin": "US46090A1107"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/IMTG?period1=0&period2=1787874352&interval=1d&events=div%7Csplit",
+  "holdingsSource": "invesco.com per-fund holdings download",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.22%",
-  "value": 0.22
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$52.43",
-  "value": 52.43,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$52.35",
-  "value": 52.35,
-  "asOfDate": "Aug 26 2026"
+  "display": "$48.45",
+  "value": 48.455,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "-0.15%",
-  "value": -0.15
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$38.24 B",
-  "value": 38243000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "—",
+  "value": null,
+  "asOfDate": "—",
+  "source": "previous run"
+ },
+ "yields": {
+  "dividendYield": 5.3,
+  "dividendYieldText": "5.30%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 22.43,
-   "ytdText": "22.43%",
-   "yr1": 14.43,
-   "yr1Text": "14.43%",
-   "yr3": 29.43,
-   "yr3Text": "29.43%",
-   "yr5": 4.43,
-   "yr5Text": "4.43%",
-   "yr10": 20.43,
-   "yr10Text": "20.43%",
-   "sinceInception": 16.43,
-   "sinceInceptionText": "16.43%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 0.43,
+   "mo1Text": "0.43%",
+   "qtd": -0.27,
+   "qtdText": "-0.27%",
+   "ytd": null,
+   "ytdText": "—",
+   "yr1": null,
+   "yr1Text": "—",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": null,
+   "sinceInceptionText": "—"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -58,61 +77,50 @@
   }
  },
  "distributions": {
-  "frequency": "Quarterly",
-  "paymentsPerYear": 4,
+  "frequency": "Monthly",
+  "paymentsPerYear": 12,
   "headers": [
    "Ex-Date",
    "Amount"
   ],
   "rows": [
    [
+    "04/20/2026",
+    "0.207"
+   ],
+   [
+    "05/18/2026",
+    "0.21"
+   ],
+   [
     "06/22/2026",
-    "0.26175"
+    "0.213"
    ],
    [
-    "03/23/2026",
-    "0.25128"
+    "07/20/2026",
+    "0.208"
    ],
    [
-    "12/22/2025",
-    "0.26699"
-   ],
-   [
-    "09/22/2025",
-    "0.23557"
+    "08/24/2026",
+    "0.214"
    ]
   ]
  },
- "yields": {
-  "dividendYield": 2.73,
-  "dividendYieldText": "2.73%",
-  "secYield": 3.93,
-  "secYieldText": "3.93%"
- },
  "holdings": {
-  "pages": [
-   "holdings/001.json"
-  ],
+  "pages": [],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 0,
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "invesco.com per-fund holdings download"
  },
  "history": {
   "pages": [
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "IMTG",
-  "name": "Invesco Agency MBS ETF",
-  "category": "Fixed Income",
-  "inception": "2026-02-25",
-  "exchange": "NYSE Arca",
-  "ter": 0.22,
-  "cusip": "46090A110",
-  "isin": "US46090A1107"
+  "totalRows": 127,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

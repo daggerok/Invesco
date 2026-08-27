@@ -2,55 +2,74 @@
  "ticker": "PIN",
  "name": "Invesco India ETF",
  "category": "International",
+ "categoryPath": "International",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pin.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PIN",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PIN",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PIN",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46137R109",
-  "isin": "US46137R1095"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/PIN?period1=0&period2=1787874442&interval=1d&events=div%7Csplit",
+  "holdingsSource": "invesco.com per-fund holdings download",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$84.86",
-  "value": 84.86,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Feb 20 2026"
  },
  "marketPrice": {
-  "display": "$84.99",
-  "value": 84.99,
-  "asOfDate": "Aug 26 2026"
+  "display": "$23.98",
+  "value": 23.98,
+  "asOfDate": "Feb 20 2026"
  },
  "premiumDiscount": {
-  "display": "0.15%",
-  "value": 0.15
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$36.49 B",
-  "value": 36486000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "—",
+  "value": null,
+  "asOfDate": "—",
+  "source": "previous run"
+ },
+ "yields": {
+  "dividendYield": null,
+  "dividendYieldText": "—",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 24.86,
-   "ytdText": "24.86%",
-   "yr1": 16.86,
-   "yr1Text": "16.86%",
-   "yr3": 31.86,
-   "yr3Text": "31.86%",
-   "yr5": 11.86,
-   "yr5Text": "11.86%",
-   "yr10": 22.86,
-   "yr10Text": "22.86%",
-   "sinceInception": 18.86,
-   "sinceInceptionText": "18.86%"
+   "asOfDate": "Jul 17 2026",
+   "mo1": null,
+   "mo1Text": "—",
+   "qtd": null,
+   "qtdText": "—",
+   "ytd": null,
+   "ytdText": "—",
+   "yr1": null,
+   "yr1Text": "—",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": null,
+   "sinceInceptionText": "—"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -58,61 +77,29 @@
   }
  },
  "distributions": {
-  "frequency": "Quarterly",
-  "paymentsPerYear": 4,
+  "frequency": "—",
+  "paymentsPerYear": null,
   "headers": [
    "Ex-Date",
    "Amount"
   ],
-  "rows": [
-   [
-    "06/22/2026",
-    "0.42495"
-   ],
-   [
-    "03/23/2026",
-    "0.40795"
-   ],
-   [
-    "12/22/2025",
-    "0.43345"
-   ],
-   [
-    "09/22/2025",
-    "0.38245"
-   ]
-  ]
- },
- "yields": {
-  "dividendYield": 5.16,
-  "dividendYieldText": "5.16%",
-  "secYield": null,
-  "secYieldText": "\u2014"
+  "rows": []
  },
  "holdings": {
-  "pages": [
-   "holdings/001.json"
-  ],
+  "pages": [],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 0,
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "invesco.com per-fund holdings download"
  },
  "history": {
   "pages": [
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "PIN",
-  "name": "Invesco India ETF",
-  "category": "International",
-  "inception": "2008-03-05",
-  "exchange": "NYSE Arca",
-  "ter": 0.35,
-  "cusip": "46137R109",
-  "isin": "US46137R1095"
+  "totalRows": 1,
+  "asOf": "Jul 17 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

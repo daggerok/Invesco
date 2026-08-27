@@ -2,55 +2,74 @@
  "ticker": "PYZ",
  "name": "Invesco Dorsey Wright Basic Materials Momentum ETF",
  "category": "Sector",
+ "categoryPath": "Sector",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pyz.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PYZ",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PYZ",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PYZ",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46137V704",
-  "isin": "US46137V7047"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/PYZ?period1=0&period2=1787874532&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000931, report period 2026-04-30)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$135.02",
-  "value": 135.02,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$135.63",
-  "value": 135.63,
-  "asOfDate": "Aug 26 2026"
+  "display": "$125.73",
+  "value": 125.727,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "0.45%",
-  "value": 0.45
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$36.50 B",
-  "value": 36502000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$102.70 M",
+  "value": 102698204.85,
+  "asOfDate": "Apr 30 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-04-30)"
+ },
+ "yields": {
+  "dividendYield": 0.45,
+  "dividendYieldText": "0.45%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 15.02,
-   "ytdText": "15.02%",
-   "yr1": -2.98,
-   "yr1Text": "-2.98%",
-   "yr3": 22.02,
-   "yr3Text": "22.02%",
-   "yr5": 12.02,
-   "yr5Text": "12.02%",
-   "yr10": 3.02,
-   "yr10Text": "3.02%",
-   "sinceInception": 9.02,
-   "sinceInceptionText": "9.02%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 4.09,
+   "mo1Text": "4.09%",
+   "qtd": 1.83,
+   "qtdText": "1.83%",
+   "ytd": 14.38,
+   "ytdText": "14.38%",
+   "yr1": 21.88,
+   "yr1Text": "21.88%",
+   "yr3": 16.02,
+   "yr3Text": "16.02%",
+   "yr5": 7.39,
+   "yr5Text": "7.39%",
+   "yr10": 9.26,
+   "yr10Text": "9.26%",
+   "sinceInception": 9.65,
+   "sinceInceptionText": "9.65%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -66,53 +85,332 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.67815"
+    "12/15/2006",
+    "0.159"
    ],
    [
-    "03/23/2026",
-    "0.65102"
+    "03/16/2007",
+    "0.039"
    ],
    [
-    "12/22/2025",
-    "0.69171"
+    "06/15/2007",
+    "0.066"
+   ],
+   [
+    "09/21/2007",
+    "0.072"
+   ],
+   [
+    "12/21/2007",
+    "0.1"
+   ],
+   [
+    "03/20/2008",
+    "0.006"
+   ],
+   [
+    "06/20/2008",
+    "0.161"
+   ],
+   [
+    "09/19/2008",
+    "0.102"
+   ],
+   [
+    "12/19/2008",
+    "0.142"
+   ],
+   [
+    "03/20/2009",
+    "0.011"
+   ],
+   [
+    "06/19/2009",
+    "0.138"
+   ],
+   [
+    "09/18/2009",
+    "0.064"
+   ],
+   [
+    "12/18/2009",
+    "0.112"
+   ],
+   [
+    "03/19/2010",
+    "0.005"
+   ],
+   [
+    "06/18/2010",
+    "0.058"
+   ],
+   [
+    "09/17/2010",
+    "0.066"
+   ],
+   [
+    "12/17/2010",
+    "0.717"
+   ],
+   [
+    "06/17/2011",
+    "0.093"
+   ],
+   [
+    "09/16/2011",
+    "0.105"
+   ],
+   [
+    "12/16/2011",
+    "0.143"
+   ],
+   [
+    "03/16/2012",
+    "0.087"
+   ],
+   [
+    "06/15/2012",
+    "0.159"
+   ],
+   [
+    "09/21/2012",
+    "0.095"
+   ],
+   [
+    "12/21/2012",
+    "0.371"
+   ],
+   [
+    "03/15/2013",
+    "0.025"
+   ],
+   [
+    "06/21/2013",
+    "0.197"
+   ],
+   [
+    "09/20/2013",
+    "0.07"
+   ],
+   [
+    "12/20/2013",
+    "0.194"
+   ],
+   [
+    "03/21/2014",
+    "0.052"
+   ],
+   [
+    "06/20/2014",
+    "0.191"
+   ],
+   [
+    "09/19/2014",
+    "0.082"
+   ],
+   [
+    "12/19/2014",
+    "0.212"
+   ],
+   [
+    "06/19/2015",
+    "0.153"
+   ],
+   [
+    "09/18/2015",
+    "0.173"
+   ],
+   [
+    "12/18/2015",
+    "0.286"
+   ],
+   [
+    "03/18/2016",
+    "0.062"
+   ],
+   [
+    "06/17/2016",
+    "0.126"
+   ],
+   [
+    "09/16/2016",
+    "0.087"
+   ],
+   [
+    "12/16/2016",
+    "0.358"
+   ],
+   [
+    "06/16/2017",
+    "0.066"
+   ],
+   [
+    "09/18/2017",
+    "0.127"
+   ],
+   [
+    "12/18/2017",
+    "0.183"
+   ],
+   [
+    "03/19/2018",
+    "0.028"
+   ],
+   [
+    "06/18/2018",
+    "0.195"
+   ],
+   [
+    "09/24/2018",
+    "0.189"
+   ],
+   [
+    "12/24/2018",
+    "0.225"
+   ],
+   [
+    "03/18/2019",
+    "0.06"
+   ],
+   [
+    "06/24/2019",
+    "0.319"
+   ],
+   [
+    "09/23/2019",
+    "0.213"
+   ],
+   [
+    "12/23/2019",
+    "0.274"
+   ],
+   [
+    "03/23/2020",
+    "0.193"
+   ],
+   [
+    "06/22/2020",
+    "0.246"
+   ],
+   [
+    "09/21/2020",
+    "0.15"
+   ],
+   [
+    "12/21/2020",
+    "0.153"
+   ],
+   [
+    "03/22/2021",
+    "0.076"
+   ],
+   [
+    "06/21/2021",
+    "0.057"
+   ],
+   [
+    "09/20/2021",
+    "0.046"
+   ],
+   [
+    "12/20/2021",
+    "0.131"
+   ],
+   [
+    "03/21/2022",
+    "0.134"
+   ],
+   [
+    "06/21/2022",
+    "0.269"
+   ],
+   [
+    "09/19/2022",
+    "0.307"
+   ],
+   [
+    "12/19/2022",
+    "0.223"
+   ],
+   [
+    "03/20/2023",
+    "0.183"
+   ],
+   [
+    "06/20/2023",
+    "0.213"
+   ],
+   [
+    "09/18/2023",
+    "0.201"
+   ],
+   [
+    "12/18/2023",
+    "0.42"
+   ],
+   [
+    "03/18/2024",
+    "0.211"
+   ],
+   [
+    "06/24/2024",
+    "0.264"
+   ],
+   [
+    "09/23/2024",
+    "0.25"
+   ],
+   [
+    "12/23/2024",
+    "0.255"
+   ],
+   [
+    "03/24/2025",
+    "0.23"
+   ],
+   [
+    "06/23/2025",
+    "0.227"
    ],
    [
     "09/22/2025",
-    "0.61033"
+    "0.178"
+   ],
+   [
+    "12/22/2025",
+    "0.155"
+   ],
+   [
+    "03/23/2026",
+    "0.119"
+   ],
+   [
+    "06/22/2026",
+    "0.142"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 0.32,
-  "dividendYieldText": "0.32%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 45,
+  "asOfDate": "2026-04-30",
+  "asOf": "Apr 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000931, report period 2026-04-30)"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json",
+   "history/004.json",
+   "history/005.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "PYZ",
-  "name": "Invesco Dorsey Wright Basic Materials Momentum ETF",
-  "category": "Sector",
-  "inception": "2006-10-12",
-  "exchange": "NASDAQ",
-  "ter": 0.35,
-  "cusip": "46137V704",
-  "isin": "US46137V7047"
+  "totalRows": 4999,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

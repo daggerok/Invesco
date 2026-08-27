@@ -2,7 +2,7 @@
  "ticker": "PID",
  "page": 1,
  "pageSize": 250,
- "totalRows": 10,
+ "totalRows": 65,
  "headers": [
   "Name",
   "Ticker",
@@ -14,94 +14,589 @@
  ],
  "rows": [
   {
-   "Name": "Taiwan Semiconductor Manufacturing",
-   "Ticker": "TSM",
-   "Identifier": "874039100",
-   "Weight": "7.50",
-   "Market Value": "75000000.00",
-   "Shares Held": "750000",
-   "Asset Category": "Equity"
+   "Name": "Willis Towers Watson PLC",
+   "Ticker": "WTW",
+   "Identifier": "G96629103",
+   "Weight": "0.6171464442",
+   "Market Value": "5730681.6",
+   "Shares Held": "22368",
+   "Asset Category": "EC"
   },
   {
-   "Name": "ASML Holding NV",
-   "Ticker": "ASML",
-   "Identifier": "N07059210",
-   "Weight": "6.20",
-   "Market Value": "62000000.00",
-   "Shares Held": "620000",
-   "Asset Category": "Equity"
+   "Name": "TransAlta Corp.",
+   "Ticker": "TAC",
+   "Identifier": "89346D107",
+   "Weight": "0.7602879536",
+   "Market Value": "7059861.12",
+   "Shares Held": "565694",
+   "Asset Category": "EC"
   },
   {
-   "Name": "Samsung Electronics Co Ltd",
+   "Name": "America Movil, S.A.B. de C.V.",
+   "Ticker": "AMX",
+   "Identifier": "02390A101",
+   "Weight": "1.3413849563",
+   "Market Value": "12455795.8",
+   "Shares Held": "468263",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "British American Tobacco PLC",
    "Ticker": "-",
-   "Identifier": "796050201",
-   "Weight": "5.80",
-   "Market Value": "58000000.00",
-   "Shares Held": "580000",
-   "Asset Category": "Fixed Income/Other"
+   "Identifier": "110448107",
+   "Weight": "2.9357343644",
+   "Market Value": "27260562",
+   "Shares Held": "463615",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "BOYD GROUP Inc.",
+   "Ticker": "-",
+   "Identifier": "103310108",
+   "Weight": "0.1052942229",
+   "Market Value": "977738.22",
+   "Shares Held": "7899",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Canadian Natural Resources Ltd.",
+   "Ticker": "CNQ",
+   "Identifier": "136385101",
+   "Weight": "2.5740442218",
+   "Market Value": "23901989.55",
+   "Shares Held": "501195",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Pearson PLC",
+   "Ticker": "PSO",
+   "Identifier": "705015105",
+   "Weight": "1.7564292705",
+   "Market Value": "16309802.96",
+   "Shares Held": "1111022",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Perusahaan Perseroan (Persero) PT Telekomunikasi Indonesia Tbk.",
+   "Ticker": "TLK",
+   "Identifier": "715684106",
+   "Weight": "2.9350658471",
+   "Market Value": "27254354.3",
+   "Shares Held": "1611730",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Coca-Cola FEMSA, S.A.B. de C.V.",
+   "Ticker": "KOF",
+   "Identifier": "191241108",
+   "Weight": "1.9677094304",
+   "Market Value": "18271702.5",
+   "Shares Held": "179875",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Canadian Imperial Bank of Commerce",
+   "Ticker": "-",
+   "Identifier": "136069101",
+   "Weight": "1.9136922197",
+   "Market Value": "17770110.96",
+   "Shares Held": "159459",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Toyota Motor Corp.",
+   "Ticker": "TM",
+   "Identifier": "892331307",
+   "Weight": "1.2648801695",
+   "Market Value": "11745389.74",
+   "Shares Held": "60977",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Brookfield Renewable Partners L.P.",
+   "Ticker": "BEP",
+   "Identifier": "G16258108",
+   "Weight": "3.0230961561",
+   "Market Value": "28071783.74",
+   "Shares Held": "847834",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Itau Unibanco Holding S.A.",
+   "Ticker": "ITUB",
+   "Identifier": "465562106",
+   "Weight": "3.608020291",
+   "Market Value": "33503256.3",
+   "Shares Held": "3850949",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Royalty Pharma PLC",
+   "Ticker": "RPRX",
+   "Identifier": "G7709Q104",
+   "Weight": "1.2804010028",
+   "Market Value": "11889512.67",
+   "Shares Held": "237363",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Enbridge Inc.",
+   "Ticker": "ENB",
+   "Identifier": "29250N105",
+   "Weight": "3.2777739667",
+   "Market Value": "30436664",
+   "Shares Held": "549200",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "RELX PLC",
+   "Ticker": "RELX",
+   "Identifier": "759530108",
+   "Weight": "1.5985445604",
+   "Market Value": "14843721.43",
+   "Shares Held": "405677",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "TELUS Corp.",
+   "Ticker": "TU",
+   "Identifier": "87971M103",
+   "Weight": "3.7107546644",
+   "Market Value": "34457224.34",
+   "Shares Held": "2749978",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "TFI International Inc.",
+   "Ticker": "TFII",
+   "Identifier": "87241L109",
+   "Weight": "1.108739296",
+   "Market Value": "10295501.08",
+   "Shares Held": "71906",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Brookfield Renewable Corp.",
+   "Ticker": "BEPC",
+   "Identifier": "11285B108",
+   "Weight": "1.8314755012",
+   "Market Value": "17006665.2",
+   "Shares Held": "469020",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Amdocs Ltd.",
+   "Ticker": "DOX",
+   "Identifier": "G02602103",
+   "Weight": "1.7073200423",
+   "Market Value": "15853785.83",
+   "Shares Held": "245149",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Sony Group Corp.",
+   "Ticker": "SONY",
+   "Identifier": "835699307",
+   "Weight": "0.3395890244",
+   "Market Value": "3153346.49",
+   "Shares Held": "156961",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "RB Global, Inc.",
+   "Ticker": "RBA",
+   "Identifier": "74935Q107",
+   "Weight": "0.7605909311",
+   "Market Value": "7062674.5",
+   "Shares Held": "67715",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Pentair PLC",
+   "Ticker": "PNR",
+   "Identifier": "G7S00T104",
+   "Weight": "0.507870068",
+   "Market Value": "4715966.01",
+   "Shares Held": "58431",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Mizuho Financial Group, Inc.",
+   "Ticker": "MFG",
+   "Identifier": "60687Y109",
+   "Weight": "1.3108958403",
+   "Market Value": "12172680.8",
+   "Shares Held": "1415428",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Eni S.p.A.",
+   "Ticker": "-",
+   "Identifier": "26874R108",
+   "Weight": "3.6448267551",
+   "Market Value": "33845032.76",
+   "Shares Held": "597652",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Franco-Nevada Corp.",
+   "Ticker": "FNV",
+   "Identifier": "351858105",
+   "Weight": "0.2696626573",
+   "Market Value": "2504026.14",
+   "Shares Held": "10871",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Aon PLC",
+   "Ticker": "AON",
+   "Identifier": "G0403H108",
+   "Weight": "0.5022232132",
+   "Market Value": "4663530.6",
+   "Shares Held": "14964",
+   "Asset Category": "EC"
   },
   {
    "Name": "Novo Nordisk A/S",
    "Ticker": "NVO",
    "Identifier": "670100205",
-   "Weight": "5.10",
-   "Market Value": "51000000.00",
-   "Shares Held": "509999",
-   "Asset Category": "Equity"
+   "Weight": "3.17257921",
+   "Market Value": "29459849.4",
+   "Shares Held": "697770",
+   "Asset Category": "EC"
   },
   {
-   "Name": "AstraZeneca PLC",
-   "Ticker": "AZN",
-   "Identifier": "046353108",
-   "Weight": "4.20",
-   "Market Value": "42000000.00",
-   "Shares Held": "420000",
-   "Asset Category": "Equity"
+   "Name": "Imperial Oil Ltd.",
+   "Ticker": "IMO",
+   "Identifier": "453038408",
+   "Weight": "1.2254484914",
+   "Market Value": "11379236.14",
+   "Shares Held": "84907",
+   "Asset Category": "EC"
   },
   {
-   "Name": "Shell PLC",
-   "Ticker": "SHEL",
-   "Identifier": "780259107",
-   "Weight": "3.80",
-   "Market Value": "38000000.00",
-   "Shares Held": "380000",
-   "Asset Category": "Equity"
+   "Name": "Waste Connections, Inc.",
+   "Ticker": "WCN",
+   "Identifier": "94106B101",
+   "Weight": "0.4479620918",
+   "Market Value": "4159674.16",
+   "Shares Held": "25253",
+   "Asset Category": "EC"
   },
   {
-   "Name": "Toyota Motor Corp",
-   "Ticker": "TM",
-   "Identifier": "892331307",
-   "Weight": "3.50",
-   "Market Value": "35000000.00",
-   "Shares Held": "350000",
-   "Asset Category": "Equity"
+   "Name": "Tenaris S.A.",
+   "Ticker": "TS",
+   "Identifier": "88031M109",
+   "Weight": "2.2400230206",
+   "Market Value": "20800344.6",
+   "Shares Held": "325514",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "OR Royalties Inc.",
+   "Ticker": "OR",
+   "Identifier": "68390D106",
+   "Weight": "0.2076526503",
+   "Market Value": "1928215.31",
+   "Shares Held": "52241",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "FinVolution Group",
+   "Ticker": "FINV",
+   "Identifier": "31810T101",
+   "Weight": "2.6547487485",
+   "Market Value": "24651393.44",
+   "Shares Held": "4970039",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Chunghwa Telecom Co., Ltd.",
+   "Ticker": "CHT",
+   "Identifier": "17133Q502",
+   "Weight": "2.3630166235",
+   "Market Value": "21942435.24",
+   "Shares Held": "506286",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Thomson Reuters Corp.",
+   "Ticker": "-",
+   "Identifier": "884903808",
+   "Weight": "1.5333858008",
+   "Market Value": "14238672",
+   "Shares Held": "148800",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Sumitomo Mitsui Financial Group, Inc.",
+   "Ticker": "SMFG",
+   "Identifier": "86562M209",
+   "Weight": "1.4159311693",
+   "Market Value": "13148014.99",
+   "Shares Held": "619313",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "NetEase, Inc.",
+   "Ticker": "NTES",
+   "Identifier": "64110W102",
+   "Weight": "1.6472050461",
+   "Market Value": "15295571.64",
+   "Shares Held": "130164",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Sanofi",
+   "Ticker": "SNY",
+   "Identifier": "80105N105",
+   "Weight": "2.6359277041",
+   "Market Value": "24476625.5",
+   "Shares Held": "525475",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Mitsubishi Ufj Financial Group, Inc.",
+   "Ticker": "MUFG",
+   "Identifier": "606822104",
+   "Weight": "1.5583362931",
+   "Market Value": "14470356.6",
+   "Shares Held": "806148",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Restaurant Brands International Inc.",
+   "Ticker": "QSR",
+   "Identifier": "76131D103",
+   "Weight": "2.3742708598",
+   "Market Value": "22046939.52",
+   "Shares Held": "273264",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Brookfield Infrastructure Partners L.P.",
+   "Ticker": "BIPH",
+   "Identifier": "G16252101",
+   "Weight": "2.504986447",
+   "Market Value": "23260734.75",
+   "Shares Held": "648835",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Invesco Private Prime Fund",
+   "Ticker": "-",
+   "Identifier": "2487474",
+   "Weight": "8.2204769698",
+   "Market Value": "76333480.5848",
+   "Shares Held": "76325848",
+   "Asset Category": "STIV"
+  },
+  {
+   "Name": "Brookfield Infrastructure Corp.",
+   "Ticker": "BIPC",
+   "Identifier": "11276H106",
+   "Weight": "1.5837351918",
+   "Market Value": "14706205",
+   "Shares Held": "397465",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "FirstService Corp.",
+   "Ticker": "FSV",
+   "Identifier": "33767E202",
+   "Weight": "0.3584685593",
+   "Market Value": "3328657.56",
+   "Shares Held": "24876",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Infosys Ltd.",
+   "Ticker": "INFY",
+   "Identifier": "456788108",
+   "Weight": "1.8806861932",
+   "Market Value": "17463624.5",
+   "Shares Held": "1401575",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Nutrien Ltd.",
+   "Ticker": "NTR",
+   "Identifier": "67077M108",
+   "Weight": "1.7941791758",
+   "Market Value": "16660340",
+   "Shares Held": "219215",
+   "Asset Category": "EC"
   },
   {
    "Name": "SAP SE",
    "Ticker": "SAP",
    "Identifier": "803054204",
-   "Weight": "3.20",
-   "Market Value": "32000000.00",
-   "Shares Held": "320000",
-   "Asset Category": "Equity"
+   "Weight": "0.6672257822",
+   "Market Value": "6195706.95",
+   "Shares Held": "36555",
+   "Asset Category": "EC"
   },
   {
-   "Name": "Nestle SA",
+   "Name": "Reliance Industries Ltd.",
    "Ticker": "-",
-   "Identifier": "641069406",
-   "Weight": "2.90",
-   "Market Value": "29000000.00",
-   "Shares Held": "290000",
-   "Asset Category": "Fixed Income/Other"
+   "Identifier": "759470107",
+   "Weight": "0.2418086651",
+   "Market Value": "2245380.3",
+   "Shares Held": "37039",
+   "Asset Category": "EC"
   },
   {
-   "Name": "LVMH Moet Hennessy Louis Vuitton",
+   "Name": "Emera Inc.",
+   "Ticker": "EMA",
+   "Identifier": "290876101",
+   "Weight": "2.5441394396",
+   "Market Value": "23624300.54",
+   "Shares Held": "442237",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Toronto-Dominion Bank (The)",
+   "Ticker": "TD",
+   "Identifier": "891160509",
+   "Weight": "2.1114286494",
+   "Market Value": "19606246.5",
+   "Shares Held": "182045",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Fortis Inc.",
+   "Ticker": "FTS",
+   "Identifier": "349553107",
+   "Weight": "1.9086957858",
+   "Market Value": "17723715.21",
+   "Shares Held": "309801",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Magna International Inc.",
+   "Ticker": "MGA",
+   "Identifier": "559222401",
+   "Weight": "1.9064029846",
+   "Market Value": "17702424.78",
+   "Shares Held": "278034",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Coca-Cola Europacific Partners PLC",
+   "Ticker": "CCEP",
+   "Identifier": "G25839104",
+   "Weight": "1.1033674382",
+   "Market Value": "10245619.23",
+   "Shares Held": "108339",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Invesco Government & Agency Portfolio",
    "Ticker": "-",
-   "Identifier": "500767104",
-   "Weight": "2.80",
-   "Market Value": "28000000.00",
-   "Shares Held": "280000",
-   "Asset Category": "Fixed Income/Other"
+   "Identifier": "825252885",
+   "Weight": "0.1337709236",
+   "Market Value": "1242166.39",
+   "Shares Held": "1242166.39",
+   "Asset Category": "STIV"
+  },
+  {
+   "Name": "Logitech International S.A.",
+   "Ticker": "LOGI",
+   "Identifier": "H50430232",
+   "Weight": "1.1372681571",
+   "Market Value": "10560413.6",
+   "Shares Held": "106370",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Invesco Private Government Fund",
+   "Ticker": "-",
+   "Identifier": "2442116",
+   "Weight": "3.1630090597",
+   "Market Value": "29370983.16",
+   "Shares Held": "29370983.16",
+   "Asset Category": "STIV"
+  },
+  {
+   "Name": "West Fraser Timber Co. Ltd.",
+   "Ticker": "WFG",
+   "Identifier": "952845105",
+   "Weight": "1.1176404378",
+   "Market Value": "10378155.06",
+   "Shares Held": "163926",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Gildan Activewear Inc.",
+   "Ticker": "GIL",
+   "Identifier": "375916103",
+   "Weight": "0.7348391431",
+   "Market Value": "6823549.25",
+   "Shares Held": "110075",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "GFL Environmental Inc.",
+   "Ticker": "GFL",
+   "Identifier": "36168Q104",
+   "Weight": "0.0737124602",
+   "Market Value": "684477.15",
+   "Shares Held": "17065",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Royal Bank of Canada",
+   "Ticker": "RY",
+   "Identifier": "780087102",
+   "Weight": "1.7649159255",
+   "Market Value": "16388608.11",
+   "Shares Held": "91063",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Novartis AG",
+   "Ticker": "NVS",
+   "Identifier": "66987V109",
+   "Weight": "1.2681401416",
+   "Market Value": "11775661.1",
+   "Shares Held": "79646",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Taiwan Semiconductor Manufacturing Co. Ltd.",
+   "Ticker": "TSM",
+   "Identifier": "874039100",
+   "Weight": "0.5274389241",
+   "Market Value": "4897677.96",
+   "Shares Held": "12366",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Stantec Inc.",
+   "Ticker": "STN",
+   "Identifier": "85472N109",
+   "Weight": "0.4157073543",
+   "Market Value": "3860164",
+   "Shares Held": "42280",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Open Text Corp.",
+   "Ticker": "OTEX",
+   "Identifier": "683715106",
+   "Weight": "2.4230565575",
+   "Market Value": "22499952.42",
+   "Shares Held": "992937",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Canadian National Railway Co.",
+   "Ticker": "CNI",
+   "Identifier": "136375102",
+   "Weight": "1.384343097",
+   "Market Value": "12854695.33",
+   "Shares Held": "114641",
+   "Asset Category": "EC"
   }
  ]
 }

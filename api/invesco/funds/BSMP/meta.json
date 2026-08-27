@@ -5,10 +5,10 @@
  "categoryPath": "Fixed Income",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/bsmp.html",
-  "holdingsDownload": null,
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=BSMP",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=BSMP",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BSMP?period1=0&period2=1787867700&interval=1d&events=div%7Csplit",
-  "holdingsSource": "invesco.com per-fund holdings download",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BSMP?period1=0&period2=1787874227&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001657201-26-000161, report period 2025-11-30)",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
  },
@@ -18,58 +18,58 @@
   "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$37.47",
-  "value": 37.47,
-  "asOfDate": "—"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Dec 15 2025"
  },
  "marketPrice": {
-  "display": "$37.49",
-  "value": 37.49,
-  "asOfDate": "—"
+  "display": "$24.48",
+  "value": 24.485,
+  "asOfDate": "Dec 15 2025"
  },
  "premiumDiscount": {
-  "display": "0.05%",
-  "value": 0.05
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$31,747.00 M",
-  "value": 31747000000,
-  "asOfDate": "—",
-  "source": "Invesco product list \"Fund Assets\" column"
+  "display": "$188.68 M",
+  "value": 188679226.51,
+  "asOfDate": "Nov 30 2025",
+  "source": "SEC Form N-PORT-P net assets (report period 2025-11-30)"
  },
  "yields": {
-  "dividendYield": 2.77,
-  "dividendYieldText": "2.77%",
-  "dividendYieldKind": "trailing 12-month, published by invesco.com",
+  "dividendYield": null,
+  "dividendYieldText": "—",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
   "distributionRate": null,
-  "secYield": 2.47,
-  "secYieldText": "2.47%",
+  "secYield": null,
+  "secYieldText": "—",
   "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "—",
+   "asOfDate": "Dec 17 2025",
    "mo1": null,
    "mo1Text": "—",
    "qtd": null,
    "qtdText": "—",
-   "ytd": 7.47,
-   "ytdText": "7.47%",
-   "yr1": 9.47,
-   "yr1Text": "9.47%",
-   "yr3": 14.47,
-   "yr3Text": "14.47%",
-   "yr5": 14.47,
-   "yr5Text": "14.47%",
-   "yr10": 15.47,
-   "yr10Text": "15.47%",
-   "sinceInception": 16.47,
-   "sinceInceptionText": "16.47%"
+   "ytd": null,
+   "ytdText": "—",
+   "yr1": null,
+   "yr1Text": "—",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": null,
+   "sinceInceptionText": "—"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -77,31 +77,36 @@
   }
  },
  "distributions": {
-  "frequency": "Quarterly",
+  "frequency": "Unknown",
   "paymentsPerYear": null,
   "headers": [
    "Ex-Date",
    "Amount"
   ],
-  "rows": []
+  "rows": [
+   [
+    "12/15/2025",
+    "0.00784"
+   ]
+  ]
  },
  "holdings": {
   "pages": [
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOfDate": null,
-  "asOf": "—",
-  "source": "invesco.com per-fund holdings download"
+  "totalRows": 231,
+  "asOfDate": "2025-11-30",
+  "asOf": "Nov 30 2025",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001657201-26-000161, report period 2025-11-30)"
  },
  "history": {
   "pages": [
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "—",
-  "source": "previous run"
+  "totalRows": 3,
+  "asOf": "Dec 17 2025",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

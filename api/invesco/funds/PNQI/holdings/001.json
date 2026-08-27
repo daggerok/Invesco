@@ -2,7 +2,7 @@
  "ticker": "PNQI",
  "page": 1,
  "pageSize": 250,
- "totalRows": 10,
+ "totalRows": 80,
  "headers": [
   "Name",
   "Ticker",
@@ -14,94 +14,724 @@
  ],
  "rows": [
   {
-   "Name": "NVIDIA Corp",
-   "Ticker": "NVDA",
-   "Identifier": "67066G104",
-   "Weight": "8.20",
-   "Market Value": "82000000.00",
-   "Shares Held": "819999",
-   "Asset Category": "Equity"
+   "Name": "Bumble Inc.",
+   "Ticker": "BMBL",
+   "Identifier": "12047B105",
+   "Weight": "0.0149043586",
+   "Market Value": "83257.3",
+   "Shares Held": "20062",
+   "Asset Category": "EC"
   },
   {
-   "Name": "Apple Inc",
-   "Ticker": "AAPL",
-   "Identifier": "037833100",
-   "Weight": "7.50",
-   "Market Value": "75000000.00",
-   "Shares Held": "750000",
-   "Asset Category": "Equity"
+   "Name": "Teladoc Health, Inc.",
+   "Ticker": "TDOC",
+   "Identifier": "87918A105",
+   "Weight": "0.0297797989",
+   "Market Value": "166353.06",
+   "Shares Held": "27451",
+   "Asset Category": "EC"
   },
   {
-   "Name": "Microsoft Corp",
-   "Ticker": "MSFT",
-   "Identifier": "594918104",
-   "Weight": "6.80",
-   "Market Value": "68000000.00",
-   "Shares Held": "680000",
-   "Asset Category": "Equity"
+   "Name": "Adobe Inc.",
+   "Ticker": "ADBE",
+   "Identifier": "00724F101",
+   "Weight": "2.7781114241",
+   "Market Value": "15518819.9",
+   "Shares Held": "63059",
+   "Asset Category": "EC"
   },
   {
-   "Name": "Amazon.com Inc",
+   "Name": "Global-e Online Ltd.",
+   "Ticker": "GLBE",
+   "Identifier": "M5216V106",
+   "Weight": "0.147446358",
+   "Market Value": "823650.72",
+   "Shares Held": "26256",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "DoorDash, Inc.",
+   "Ticker": "DASH",
+   "Identifier": "25809K105",
+   "Weight": "1.914682212",
+   "Market Value": "10695614.35",
+   "Shares Held": "63419",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "MakeMyTrip Ltd.",
+   "Ticker": "MMYT",
+   "Identifier": "V5633W109",
+   "Weight": "0.1171016036",
+   "Market Value": "654141.76",
+   "Shares Held": "13856",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Yelp Inc.",
+   "Ticker": "YELP",
+   "Identifier": "985817105",
+   "Weight": "0.0452481355",
+   "Market Value": "252760.8",
+   "Shares Held": "9158",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Salesforce, Inc.",
+   "Ticker": "CRM",
+   "Identifier": "79466L302",
+   "Weight": "3.0932307803",
+   "Market Value": "17279109.46",
+   "Shares Held": "97882",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Netflix, Inc.",
+   "Ticker": "NFLX",
+   "Identifier": "64110L106",
+   "Weight": "3.8026300301",
+   "Market Value": "21241887.59",
+   "Shares Held": "226919",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "GoDaddy Inc.",
+   "Ticker": "GDDY",
+   "Identifier": "380237107",
+   "Weight": "0.3205079686",
+   "Market Value": "1790390.91",
+   "Shares Held": "20629",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Roku, Inc.",
+   "Ticker": "ROKU",
+   "Identifier": "77543R102",
+   "Weight": "0.4219326519",
+   "Market Value": "2356959.76",
+   "Shares Held": "20221",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Coinbase Global, Inc.",
+   "Ticker": "COIN",
+   "Identifier": "19260Q107",
+   "Weight": "1.1597757714",
+   "Market Value": "6478628.31",
+   "Shares Held": "34503",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Lyft, Inc.",
+   "Ticker": "LYFT",
+   "Identifier": "55087P104",
+   "Weight": "0.1559991934",
+   "Market Value": "871427.75",
+   "Shares Held": "61585",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "eBay Inc.",
+   "Ticker": "EBAY",
+   "Identifier": "278642103",
+   "Weight": "1.2838060624",
+   "Market Value": "7171474.44",
+   "Shares Held": "69303",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Walt Disney Co. (The)",
+   "Ticker": "DIS",
+   "Identifier": "254687106",
+   "Weight": "3.8250273316",
+   "Market Value": "21367001.25",
+   "Shares Held": "205947",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Elastic N.V.",
+   "Ticker": "ESTC",
+   "Identifier": "N14506104",
+   "Weight": "0.1330785648",
+   "Market Value": "743390.73",
+   "Shares Held": "16011",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Airbnb, Inc.",
+   "Ticker": "ABNB",
+   "Identifier": "009066101",
+   "Weight": "1.6463976158",
+   "Market Value": "9196948.64",
+   "Shares Held": "65524",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Criteo",
+   "Ticker": "CRTO",
+   "Identifier": "226718104",
+   "Weight": "0.027592346",
+   "Market Value": "154133.72",
+   "Shares Held": "8138",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Zillow Group, Inc.",
+   "Ticker": "ZG",
+   "Identifier": "98954M200",
+   "Weight": "0.2309297416",
+   "Market Value": "1289997.6",
+   "Shares Held": "29054",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Okta, Inc.",
+   "Ticker": "OKTA",
+   "Identifier": "679295105",
+   "Weight": "0.3456185259",
+   "Market Value": "1930661.1",
+   "Shares Held": "26214",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "VeriSign, Inc.",
+   "Ticker": "-",
+   "Identifier": "92343E102",
+   "Weight": "0.6822182262",
+   "Market Value": "3810942.1",
+   "Shares Held": "14185",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Wayfair Inc.",
+   "Ticker": "W",
+   "Identifier": "94419L101",
+   "Weight": "0.1925646463",
+   "Market Value": "1075686.18",
+   "Shares Held": "16826",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Amazon.com, Inc.",
    "Ticker": "AMZN",
    "Identifier": "023135106",
-   "Weight": "5.50",
-   "Market Value": "55000000.00",
-   "Shares Held": "550000",
-   "Asset Category": "Equity"
+   "Weight": "9.8689591575",
+   "Market Value": "55129034.22",
+   "Shares Held": "207987",
+   "Asset Category": "EC"
   },
   {
-   "Name": "Alphabet Inc Class A",
+   "Name": "Pinterest, Inc.",
+   "Ticker": "PINS",
+   "Identifier": "72352L106",
+   "Weight": "0.2701070308",
+   "Market Value": "1508846.02",
+   "Shares Held": "76747",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "CoStar Group, Inc.",
+   "Ticker": "CSGP",
+   "Identifier": "22160N109",
+   "Weight": "0.4023445873",
+   "Market Value": "2247538.79",
+   "Shares Held": "64939",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Lands' End, Inc.",
+   "Ticker": "LE",
+   "Identifier": "51509F105",
+   "Weight": "0.0095071911",
+   "Market Value": "53108.16",
+   "Shares Held": "4704",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "JD.com, Inc.",
+   "Ticker": "JD",
+   "Identifier": "47215P106",
+   "Weight": "0.4017406477",
+   "Market Value": "2244165.12",
+   "Shares Held": "74016",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Box, Inc.",
+   "Ticker": "BOX",
+   "Identifier": "10316T104",
+   "Weight": "0.0959837448",
+   "Market Value": "536175.2",
+   "Shares Held": "22156",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Twilio Inc.",
+   "Ticker": "TWLO",
+   "Identifier": "90138F102",
+   "Weight": "0.6212254828",
+   "Market Value": "3470230.28",
+   "Shares Held": "23438",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Bilibili Inc.",
+   "Ticker": "BILI",
+   "Identifier": "090040106",
+   "Weight": "0.0718150406",
+   "Market Value": "401166.3",
+   "Shares Held": "18210",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Akamai Technologies, Inc.",
+   "Ticker": "AKAM",
+   "Identifier": "00971T101",
+   "Weight": "0.4131843332",
+   "Market Value": "2308090.74",
+   "Shares Held": "22413",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Expedia Group, Inc.",
+   "Ticker": "EXPE",
+   "Identifier": "30212P303",
+   "Weight": "0.8048087195",
+   "Market Value": "4495745.37",
+   "Shares Held": "18101",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "GitLab Inc.",
+   "Ticker": "GTLB",
+   "Identifier": "37637K108",
+   "Weight": "0.0918440118",
+   "Market Value": "513050.22",
+   "Shares Held": "23173",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "eGain Corp.",
+   "Ticker": "EGAN",
+   "Identifier": "28225C806",
+   "Weight": "0.0056895179",
+   "Market Value": "31782.24",
+   "Shares Held": "4204",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Alphabet Inc.",
    "Ticker": "GOOGL",
-   "Identifier": "02079K305",
-   "Weight": "4.20",
-   "Market Value": "42000000.00",
-   "Shares Held": "420000",
-   "Asset Category": "Equity"
+   "Identifier": "02079K107",
+   "Weight": "9.589209077",
+   "Market Value": "53566321.12",
+   "Shares Held": "140248",
+   "Asset Category": "EC"
   },
   {
-   "Name": "Meta Platforms Inc",
+   "Name": "Trip.com Group Ltd.",
+   "Ticker": "TCOM",
+   "Identifier": "89677Q107",
+   "Weight": "0.3695740995",
+   "Market Value": "2064479.43",
+   "Shares Held": "38083",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Fastly, Inc.",
+   "Ticker": "FSLY",
+   "Identifier": "31188V100",
+   "Weight": "0.106163059",
+   "Market Value": "593037.91",
+   "Shares Held": "23482",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "PayPal Holdings, Inc.",
+   "Ticker": "PYPL",
+   "Identifier": "70450Y103",
+   "Weight": "1.2783486812",
+   "Market Value": "7140988.94",
+   "Shares Held": "142421",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Coupang, Inc.",
+   "Ticker": "CPNG",
+   "Identifier": "22266T109",
+   "Weight": "0.9242205038",
+   "Market Value": "5162792.04",
+   "Shares Held": "258398",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Roblox Corp.",
+   "Ticker": "RBLX",
+   "Identifier": "771049103",
+   "Weight": "1.01249745",
+   "Market Value": "5655916.26",
+   "Shares Held": "102351",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Etsy, Inc.",
+   "Ticker": "ETSY",
+   "Identifier": "29786A106",
+   "Weight": "0.1714895078",
+   "Market Value": "957958.26",
+   "Shares Held": "14889",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "MercadoLibre, Inc.",
+   "Ticker": "MELI",
+   "Identifier": "58733R102",
+   "Weight": "2.5168877238",
+   "Market Value": "14059597.09",
+   "Shares Held": "7843",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "HubSpot, Inc.",
+   "Ticker": "HUBS",
+   "Identifier": "443573100",
+   "Weight": "0.3239001233",
+   "Market Value": "1809339.84",
+   "Shares Held": "8159",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Shopify Inc.",
+   "Ticker": "SHOP",
+   "Identifier": "82509L107",
+   "Weight": "3.9224050693",
+   "Market Value": "21910963.44",
+   "Shares Held": "180888",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Consensus Cloud Solutions, Inc.",
+   "Ticker": "CCSI",
+   "Identifier": "20848V105",
+   "Weight": "0.0133798865",
+   "Market Value": "74741.44",
+   "Shares Held": "2888",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Paylocity Holding Corp.",
+   "Ticker": "PCTY",
+   "Identifier": "70438V106",
+   "Weight": "0.1573822521",
+   "Market Value": "879153.66",
+   "Shares Held": "8334",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "DLocal Ltd.",
+   "Ticker": "DLO",
+   "Identifier": "G29018101",
+   "Weight": "0.0636813255",
+   "Market Value": "355730.52",
+   "Shares Held": "25629",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Dropbox, Inc.",
+   "Ticker": "DBX",
+   "Identifier": "26210C104",
+   "Weight": "0.1058852053",
+   "Market Value": "591485.79",
+   "Shares Held": "24351",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Zoom Communications, Inc.",
+   "Ticker": "ZM",
+   "Identifier": "98980L101",
+   "Weight": "0.7155504902",
+   "Market Value": "3997139.6",
+   "Shares Held": "41144",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Meta Platforms, Inc.",
    "Ticker": "META",
    "Identifier": "30303M102",
-   "Weight": "3.80",
-   "Market Value": "38000000.00",
-   "Shares Held": "380000",
-   "Asset Category": "Equity"
+   "Weight": "7.3814511613",
+   "Market Value": "41233555.35",
+   "Shares Held": "67385",
+   "Asset Category": "EC"
   },
   {
-   "Name": "Broadcom Inc",
-   "Ticker": "AVGO",
-   "Identifier": "11135F101",
-   "Weight": "3.10",
-   "Market Value": "31000000.00",
-   "Shares Held": "310000",
-   "Asset Category": "Equity"
+   "Name": "NetEase, Inc.",
+   "Ticker": "NTES",
+   "Identifier": "64110W102",
+   "Weight": "0.2621732565",
+   "Market Value": "1464527.13",
+   "Shares Held": "12463",
+   "Asset Category": "EC"
   },
   {
-   "Name": "Tesla Inc",
-   "Ticker": "TSLA",
-   "Identifier": "88160R101",
-   "Weight": "2.90",
-   "Market Value": "29000000.00",
-   "Shares Held": "290000",
-   "Asset Category": "Equity"
+   "Name": "Spotify Technology S.A.",
+   "Ticker": "SPOT",
+   "Identifier": "L8681T102",
+   "Weight": "2.5453514714",
+   "Market Value": "14218598.55",
+   "Shares Held": "31841",
+   "Asset Category": "EC"
   },
   {
-   "Name": "JPMorgan Chase & Co",
-   "Ticker": "JPM",
-   "Identifier": "46625H100",
-   "Weight": "2.50",
-   "Market Value": "25000000.00",
-   "Shares Held": "250000",
-   "Asset Category": "Equity"
+   "Name": "Invesco Private Prime Fund",
+   "Ticker": "-",
+   "Identifier": "2487474",
+   "Weight": "2.9783439345",
+   "Market Value": "16637339.5676",
+   "Shares Held": "16635676",
+   "Asset Category": "STIV"
   },
   {
-   "Name": "Berkshire Hathaway Inc Class B",
-   "Ticker": "BRK.B",
-   "Identifier": "084670702",
-   "Weight": "2.20",
-   "Market Value": "22000000.00",
-   "Shares Held": "220000",
-   "Asset Category": "Equity"
+   "Name": "Cars.com Inc.",
+   "Ticker": "CARS",
+   "Identifier": "14575E105",
+   "Weight": "0.0177438169",
+   "Market Value": "99118.81",
+   "Shares Held": "9019",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Alibaba Group Holding Ltd.",
+   "Ticker": "BABA",
+   "Identifier": "01609W102",
+   "Weight": "1.9406726706",
+   "Market Value": "10840799.76",
+   "Shares Held": "82202",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Stitch Fix, Inc.",
+   "Ticker": "SFIX",
+   "Identifier": "860897107",
+   "Weight": "0.0118952668",
+   "Market Value": "66448.2",
+   "Shares Held": "18255",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Vipshop Holdings Ltd.",
+   "Ticker": "VIPS",
+   "Identifier": "92763W103",
+   "Weight": "0.1631634816",
+   "Market Value": "911448.21",
+   "Shares Held": "63339",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Booking Holdings Inc.",
+   "Ticker": "BKNG",
+   "Identifier": "09857L108",
+   "Weight": "3.6917651397",
+   "Market Value": "20622584.76",
+   "Shares Held": "122491",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "DocuSign, Inc.",
+   "Ticker": "DOCU",
+   "Identifier": "256163106",
+   "Weight": "0.2550643773",
+   "Market Value": "1424816.19",
+   "Shares Held": "30981",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Unity Software Inc.",
+   "Ticker": "U",
+   "Identifier": "91332U101",
+   "Weight": "0.3167881472",
+   "Market Value": "1769611.6",
+   "Shares Held": "66980",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Apple Inc.",
+   "Ticker": "AAPL",
+   "Identifier": "037833100",
+   "Weight": "8.0311495412",
+   "Market Value": "44862838.2",
+   "Shares Held": "165332",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Baidu, Inc.",
+   "Ticker": "BIDU",
+   "Identifier": "056752108",
+   "Weight": "0.3848605669",
+   "Market Value": "2149871.23",
+   "Shares Held": "16991",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Autohome Inc.",
+   "Ticker": "ATHM",
+   "Identifier": "05278C107",
+   "Weight": "0.0346746324",
+   "Market Value": "193696.11",
+   "Shares Held": "10397",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Reddit, Inc.",
+   "Ticker": "RDDT",
+   "Identifier": "75734B100",
+   "Weight": "0.5693788685",
+   "Market Value": "3180609.69",
+   "Shares Held": "21603",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "DraftKings Inc.",
+   "Ticker": "DKNG",
+   "Identifier": "26142V105",
+   "Weight": "0.3183709246",
+   "Market Value": "1778453.16",
+   "Shares Held": "76263",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Chewy, Inc.",
+   "Ticker": "CHWY",
+   "Identifier": "16679L109",
+   "Weight": "0.167907208",
+   "Market Value": "937947.16",
+   "Shares Held": "36898",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Grab Holdings Ltd.",
+   "Ticker": "GRAB",
+   "Identifier": "G4124C109",
+   "Weight": "0.4194392541",
+   "Market Value": "2343031.38",
+   "Shares Held": "613359",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Invesco Government & Agency Portfolio",
+   "Ticker": "-",
+   "Identifier": "825252885",
+   "Weight": "0.0687917923",
+   "Market Value": "384278.12",
+   "Shares Held": "384278.12",
+   "Asset Category": "STIV"
+  },
+  {
+   "Name": "Tripadvisor, Inc.",
+   "Ticker": "TRIP",
+   "Identifier": "896945201",
+   "Weight": "0.035210471",
+   "Market Value": "196689.36",
+   "Shares Held": "17672",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Snap Inc.",
+   "Ticker": "SNAP",
+   "Identifier": "83304A106",
+   "Weight": "0.2411807462",
+   "Market Value": "1347260.78",
+   "Shares Held": "221954",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Sea Ltd.",
+   "Ticker": "SE",
+   "Identifier": "81141R100",
+   "Weight": "1.0232514026",
+   "Market Value": "5715988.96",
+   "Shares Held": "67342",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Lemonade, Inc.",
+   "Ticker": "LMND",
+   "Identifier": "52567D107",
+   "Weight": "0.1198076899",
+   "Market Value": "669258.24",
+   "Shares Held": "11816",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Invesco Private Government Fund",
+   "Ticker": "-",
+   "Identifier": "2442116",
+   "Weight": "1.1450696905",
+   "Market Value": "6396478.61",
+   "Shares Held": "6396478.61",
+   "Asset Category": "STIV"
+  },
+  {
+   "Name": "Uber Technologies, Inc.",
+   "Ticker": "UBER",
+   "Identifier": "90353T100",
+   "Weight": "3.8674799876",
+   "Market Value": "21604146.21",
+   "Shares Held": "289561",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Microsoft Corp.",
+   "Ticker": "MSFT",
+   "Identifier": "594918104",
+   "Weight": "8.1183643769",
+   "Market Value": "45350029.36",
+   "Shares Held": "111212",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Wix.com Ltd.",
+   "Ticker": "WIX",
+   "Identifier": "M98068105",
+   "Weight": "0.1131426764",
+   "Market Value": "632026.78",
+   "Shares Held": "8462",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Open Text Corp.",
+   "Ticker": "OTEX",
+   "Identifier": "683715106",
+   "Weight": "0.1572581155",
+   "Market Value": "878460.22",
+   "Shares Held": "38767",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Alarm.com Holdings, Inc.",
+   "Ticker": "ALRM",
+   "Identifier": "011642105",
+   "Weight": "0.0610804986",
+   "Market Value": "341202.03",
+   "Shares Held": "7683",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "SPS Commerce, Inc.",
+   "Ticker": "SPSC",
+   "Identifier": "78463M107",
+   "Weight": "0.0581081319",
+   "Market Value": "324598.08",
+   "Shares Held": "5784",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Intuit Inc.",
+   "Ticker": "INTU",
+   "Identifier": "461202103",
+   "Weight": "2.9752452512",
+   "Market Value": "16620030",
+   "Shares Held": "42780",
+   "Asset Category": "EC"
   }
  ]
 }

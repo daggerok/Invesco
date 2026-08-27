@@ -2,55 +2,74 @@
  "ticker": "RDIV",
  "name": "Invesco S&P Ultra Dividend Revenue ETF",
  "category": "US Equity",
+ "categoryPath": "US Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/rdiv.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=RDIV",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=RDIV",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=RDIV",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46138G656",
-  "isin": "US46138G6567"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/RDIV?period1=0&period2=1787874563&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001361, report period 2026-05-31)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$104.15",
-  "value": 104.15,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$104.62",
-  "value": 104.62,
-  "asOfDate": "Aug 26 2026"
+  "display": "$63.18",
+  "value": 63.18,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "0.45%",
-  "value": 0.45
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$3.42 B",
-  "value": 3415000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$1,076.79 M",
+  "value": 1076787452.75,
+  "asOfDate": "May 31 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-05-31)"
+ },
+ "yields": {
+  "dividendYield": 3.32,
+  "dividendYieldText": "3.32%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 14.15,
-   "ytdText": "14.15%",
-   "yr1": 26.15,
-   "yr1Text": "26.15%",
-   "yr3": 21.15,
-   "yr3Text": "21.15%",
-   "yr5": 6.15,
-   "yr5Text": "6.15%",
-   "yr10": 12.15,
-   "yr10Text": "12.15%",
-   "sinceInception": 8.15,
-   "sinceInceptionText": "8.15%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 0.89,
+   "mo1Text": "0.89%",
+   "qtd": 8.33,
+   "qtdText": "8.33%",
+   "ytd": 23.78,
+   "ytdText": "23.78%",
+   "yr1": 27,
+   "yr1Text": "27.00%",
+   "yr3": 22.89,
+   "yr3Text": "22.89%",
+   "yr5": 13.11,
+   "yr5Text": "13.11%",
+   "yr10": 10.97,
+   "yr10Text": "10.97%",
+   "sinceInception": 11.64,
+   "sinceInceptionText": "11.64%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -66,53 +85,223 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.52310"
+    "12/27/2013",
+    "0.237"
    ],
    [
-    "03/23/2026",
-    "0.50218"
+    "04/02/2014",
+    "0.212"
    ],
    [
-    "12/22/2025",
-    "0.53356"
+    "07/03/2014",
+    "0.226"
+   ],
+   [
+    "10/03/2014",
+    "0.31"
+   ],
+   [
+    "12/29/2014",
+    "0.272"
+   ],
+   [
+    "04/02/2015",
+    "0.333"
+   ],
+   [
+    "07/06/2015",
+    "0.244"
+   ],
+   [
+    "10/05/2015",
+    "0.296"
+   ],
+   [
+    "12/29/2015",
+    "0.368"
+   ],
+   [
+    "04/04/2016",
+    "0.253"
+   ],
+   [
+    "07/05/2016",
+    "0.212"
+   ],
+   [
+    "10/04/2016",
+    "0.271"
+   ],
+   [
+    "12/28/2016",
+    "0.333"
+   ],
+   [
+    "04/04/2017",
+    "0.345"
+   ],
+   [
+    "07/05/2017",
+    "0.351"
+   ],
+   [
+    "10/03/2017",
+    "0.417"
+   ],
+   [
+    "12/28/2017",
+    "0.446"
+   ],
+   [
+    "03/16/2018",
+    "0.329"
+   ],
+   [
+    "06/19/2018",
+    "0.379"
+   ],
+   [
+    "09/25/2018",
+    "0.406"
+   ],
+   [
+    "12/26/2018",
+    "0.331"
+   ],
+   [
+    "03/19/2019",
+    "0.271"
+   ],
+   [
+    "06/24/2019",
+    "0.336"
+   ],
+   [
+    "09/23/2019",
+    "0.422"
+   ],
+   [
+    "12/23/2019",
+    "0.488"
+   ],
+   [
+    "03/23/2020",
+    "0.284"
+   ],
+   [
+    "06/22/2020",
+    "0.162"
+   ],
+   [
+    "12/21/2020",
+    "0.85"
+   ],
+   [
+    "03/22/2021",
+    "0.373"
+   ],
+   [
+    "06/21/2021",
+    "0.329"
+   ],
+   [
+    "12/20/2021",
+    "0.334"
+   ],
+   [
+    "03/21/2022",
+    "0.35"
+   ],
+   [
+    "06/21/2022",
+    "0.35"
+   ],
+   [
+    "09/19/2022",
+    "0.37"
+   ],
+   [
+    "12/19/2022",
+    "0.429"
+   ],
+   [
+    "03/20/2023",
+    "0.432"
+   ],
+   [
+    "06/20/2023",
+    "0.39"
+   ],
+   [
+    "09/18/2023",
+    "0.491"
+   ],
+   [
+    "12/18/2023",
+    "0.403"
+   ],
+   [
+    "03/18/2024",
+    "0.501"
+   ],
+   [
+    "06/24/2024",
+    "0.448"
+   ],
+   [
+    "09/23/2024",
+    "0.501"
+   ],
+   [
+    "12/23/2024",
+    "0.516"
+   ],
+   [
+    "03/24/2025",
+    "0.498"
+   ],
+   [
+    "06/23/2025",
+    "0.473"
    ],
    [
     "09/22/2025",
-    "0.47079"
+    "0.552"
+   ],
+   [
+    "12/22/2025",
+    "0.529"
+   ],
+   [
+    "03/23/2026",
+    "0.556"
+   ],
+   [
+    "06/22/2026",
+    "0.525"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 4.45,
-  "dividendYieldText": "4.45%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 63,
+  "asOfDate": "2026-05-31",
+  "asOf": "May 31 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001361, report period 2026-05-31)"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json",
+   "history/004.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "RDIV",
-  "name": "Invesco S&P Ultra Dividend Revenue ETF",
-  "category": "US Equity",
-  "inception": "2013-09-30",
-  "exchange": "NYSE Arca, Inc.",
-  "ter": 0.35,
-  "cusip": "46138G656",
-  "isin": "US46138G6567"
+  "totalRows": 3246,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

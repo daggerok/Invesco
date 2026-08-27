@@ -2,55 +2,74 @@
  "ticker": "IMFL",
  "name": "Invesco International Developed Dynamic Multifactor ETF",
  "category": "International",
+ "categoryPath": "International",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/imfl.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=IMFL",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=IMFL",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=IMFL",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46138J437",
-  "isin": "US46138J4379"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/IMFL?period1=0&period2=1787874349&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001657201-26-000589, report period 2026-05-31)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$122.86",
-  "value": 122.86,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$122.43",
-  "value": 122.43,
-  "asOfDate": "Aug 26 2026"
+  "display": "$35.03",
+  "value": 35.03,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "-0.35%",
-  "value": -0.35
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$30.29 B",
-  "value": 30286000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$1,011.27 M",
+  "value": 1011274039.77,
+  "asOfDate": "May 31 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-05-31)"
+ },
+ "yields": {
+  "dividendYield": 2.34,
+  "dividendYieldText": "2.34%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 2.86,
-   "ytdText": "2.86%",
-   "yr1": 14.86,
-   "yr1Text": "14.86%",
-   "yr3": 9.86,
-   "yr3Text": "9.86%",
-   "yr5": 24.86,
-   "yr5Text": "24.86%",
-   "yr10": 20.86,
-   "yr10Text": "20.86%",
-   "sinceInception": 11.86,
-   "sinceInceptionText": "11.86%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 4.5,
+   "mo1Text": "4.50%",
+   "qtd": 3.79,
+   "qtdText": "3.79%",
+   "ytd": 19.43,
+   "ytdText": "19.43%",
+   "yr1": 31.02,
+   "yr1Text": "31.02%",
+   "yr3": 18.12,
+   "yr3Text": "18.12%",
+   "yr5": 9.25,
+   "yr5Text": "9.25%",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 10.14,
+   "sinceInceptionText": "10.14%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -66,53 +85,108 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.61215"
+    "09/20/2021",
+    "0.328"
    ],
    [
-    "03/23/2026",
-    "0.58766"
+    "12/20/2021",
+    "0.416"
    ],
    [
-    "12/22/2025",
-    "0.62439"
+    "03/21/2022",
+    "0.176"
+   ],
+   [
+    "06/21/2022",
+    "0.271"
+   ],
+   [
+    "09/19/2022",
+    "0.227"
+   ],
+   [
+    "12/19/2022",
+    "0.027"
+   ],
+   [
+    "03/20/2023",
+    "0.208"
+   ],
+   [
+    "06/20/2023",
+    "0.187"
+   ],
+   [
+    "09/18/2023",
+    "0.217"
+   ],
+   [
+    "12/18/2023",
+    "0.357"
+   ],
+   [
+    "03/18/2024",
+    "0.201"
+   ],
+   [
+    "06/24/2024",
+    "0.283"
+   ],
+   [
+    "09/23/2024",
+    "0.324"
+   ],
+   [
+    "12/23/2024",
+    "0.028"
+   ],
+   [
+    "03/24/2025",
+    "0.158"
+   ],
+   [
+    "06/23/2025",
+    "0.208"
    ],
    [
     "09/22/2025",
-    "0.55093"
+    "0.225"
+   ],
+   [
+    "12/22/2025",
+    "0.266"
+   ],
+   [
+    "03/23/2026",
+    "0.297"
+   ],
+   [
+    "06/22/2026",
+    "0.205"
    ]
   ]
  },
- "yields": {
-  "dividendYield": 3.16,
-  "dividendYieldText": "3.16%",
-  "secYield": null,
-  "secYieldText": "\u2014"
- },
  "holdings": {
   "pages": [
-   "holdings/001.json"
+   "holdings/001.json",
+   "holdings/002.json",
+   "holdings/003.json",
+   "holdings/004.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 874,
+  "asOfDate": "2026-05-31",
+  "asOf": "May 31 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001657201-26-000589, report period 2026-05-31)"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "IMFL",
-  "name": "Invesco International Developed Dynamic Multifactor ETF",
-  "category": "International",
-  "inception": "2021-02-24",
-  "exchange": "Cboe BZX Exchange, Inc.",
-  "ter": 0.35,
-  "cusip": "46138J437",
-  "isin": "US46138J4379"
+  "totalRows": 1382,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

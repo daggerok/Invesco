@@ -1,0 +1,347 @@
+{
+ "ticker": "FDIQ",
+ "name": "Invesco Bloomberg Financial Data Providers ETF",
+ "category": "ETF",
+ "categoryPath": "ETF",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=FDIQ",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=FDIQ",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=FDIQ",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/FDIQ?period1=0&period2=1787874296&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001376, report period 2026-05-31)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
+ },
+ "expenseRatio": {
+  "display": "—",
+  "value": null
+ },
+ "nav": {
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
+ },
+ "marketPrice": {
+  "display": "$76.40",
+  "value": 76.4,
+  "asOfDate": "Aug 27 2026"
+ },
+ "premiumDiscount": {
+  "display": "—",
+  "value": null
+ },
+ "aum": {
+  "display": "$51.11 M",
+  "value": 51107576.24,
+  "asOfDate": "May 31 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-05-31)"
+ },
+ "yields": {
+  "dividendYield": 1.17,
+  "dividendYieldText": "1.17%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
+ },
+ "returns": {
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
+  "monthEnd": {
+   "asOfDate": "Aug 27 2026",
+   "mo1": 6.32,
+   "mo1Text": "6.32%",
+   "qtd": 16.13,
+   "qtdText": "16.13%",
+   "ytd": 24.78,
+   "ytdText": "24.78%",
+   "yr1": 23.59,
+   "yr1Text": "23.59%",
+   "yr3": 22.06,
+   "yr3Text": "22.06%",
+   "yr5": 7.72,
+   "yr5Text": "7.72%",
+   "yr10": 8.53,
+   "yr10Text": "8.53%",
+   "sinceInception": 11.16,
+   "sinceInceptionText": "11.16%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "12/16/2011",
+    "0.129"
+   ],
+   [
+    "03/16/2012",
+    "0.347"
+   ],
+   [
+    "06/15/2012",
+    "0.125"
+   ],
+   [
+    "09/21/2012",
+    "0.148"
+   ],
+   [
+    "12/21/2012",
+    "0.197"
+   ],
+   [
+    "03/15/2013",
+    "0.101"
+   ],
+   [
+    "06/21/2013",
+    "0.16"
+   ],
+   [
+    "09/20/2013",
+    "0.078"
+   ],
+   [
+    "12/20/2013",
+    "0.254"
+   ],
+   [
+    "03/21/2014",
+    "0.063"
+   ],
+   [
+    "06/20/2014",
+    "0.179"
+   ],
+   [
+    "09/19/2014",
+    "0.171"
+   ],
+   [
+    "12/19/2014",
+    "0.301"
+   ],
+   [
+    "03/20/2015",
+    "0.156"
+   ],
+   [
+    "06/19/2015",
+    "0.21"
+   ],
+   [
+    "09/18/2015",
+    "0.118"
+   ],
+   [
+    "12/18/2015",
+    "0.307"
+   ],
+   [
+    "03/18/2016",
+    "0.066"
+   ],
+   [
+    "06/17/2016",
+    "0.215"
+   ],
+   [
+    "09/16/2016",
+    "0.217"
+   ],
+   [
+    "12/16/2016",
+    "0.339"
+   ],
+   [
+    "03/17/2017",
+    "0.066"
+   ],
+   [
+    "06/16/2017",
+    "0.25"
+   ],
+   [
+    "09/18/2017",
+    "0.21"
+   ],
+   [
+    "12/18/2017",
+    "0.367"
+   ],
+   [
+    "03/19/2018",
+    "0.152"
+   ],
+   [
+    "06/18/2018",
+    "0.25"
+   ],
+   [
+    "09/24/2018",
+    "0.325"
+   ],
+   [
+    "12/24/2018",
+    "0.372"
+   ],
+   [
+    "03/18/2019",
+    "0.236"
+   ],
+   [
+    "06/24/2019",
+    "0.315"
+   ],
+   [
+    "09/23/2019",
+    "0.342"
+   ],
+   [
+    "12/23/2019",
+    "0.423"
+   ],
+   [
+    "03/23/2020",
+    "0.338"
+   ],
+   [
+    "06/22/2020",
+    "0.361"
+   ],
+   [
+    "09/21/2020",
+    "0.328"
+   ],
+   [
+    "12/21/2020",
+    "0.356"
+   ],
+   [
+    "03/22/2021",
+    "0.301"
+   ],
+   [
+    "06/21/2021",
+    "0.257"
+   ],
+   [
+    "09/20/2021",
+    "0.369"
+   ],
+   [
+    "12/20/2021",
+    "0.358"
+   ],
+   [
+    "03/21/2022",
+    "0.317"
+   ],
+   [
+    "06/21/2022",
+    "0.35"
+   ],
+   [
+    "09/19/2022",
+    "0.364"
+   ],
+   [
+    "12/19/2022",
+    "0.402"
+   ],
+   [
+    "03/20/2023",
+    "0.389"
+   ],
+   [
+    "06/20/2023",
+    "0.369"
+   ],
+   [
+    "09/18/2023",
+    "0.417"
+   ],
+   [
+    "12/18/2023",
+    "0.407"
+   ],
+   [
+    "03/18/2024",
+    "0.399"
+   ],
+   [
+    "06/24/2024",
+    "0.401"
+   ],
+   [
+    "09/23/2024",
+    "0.401"
+   ],
+   [
+    "12/23/2024",
+    "0.41"
+   ],
+   [
+    "03/24/2025",
+    "0.373"
+   ],
+   [
+    "06/23/2025",
+    "0.419"
+   ],
+   [
+    "09/22/2025",
+    "0.403"
+   ],
+   [
+    "12/22/2025",
+    "0.448"
+   ],
+   [
+    "03/23/2026",
+    "0.454"
+   ],
+   [
+    "06/22/2026",
+    "0.223"
+   ]
+  ]
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 35,
+  "asOfDate": "2026-05-31",
+  "asOf": "May 31 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001376, report period 2026-05-31)"
+ },
+ "history": {
+  "pages": [
+   "history/001.json",
+   "history/002.json",
+   "history/003.json",
+   "history/004.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 3726,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
+ }
+}

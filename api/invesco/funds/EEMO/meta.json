@@ -2,55 +2,74 @@
  "ticker": "EEMO",
  "name": "Invesco S&P Emerging Markets Momentum ETF",
  "category": "International",
+ "categoryPath": "International",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/eemo.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=EEMO",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=EEMO",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=EEMO",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46138E289",
-  "isin": "US46138E2899"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/EEMO?period1=0&period2=1787874296&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001106, report period 2026-04-30)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$131.28",
-  "value": 131.28,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$130.95",
-  "value": 130.95,
-  "asOfDate": "Aug 26 2026"
+  "display": "$22.43",
+  "value": 22.433,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "-0.25%",
-  "value": -0.25
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$16.13 B",
-  "value": 16128000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$13.24 M",
+  "value": 13240195.23,
+  "asOfDate": "Apr 30 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-04-30)"
+ },
+ "yields": {
+  "dividendYield": 2.07,
+  "dividendYieldText": "2.07%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 11.28,
-   "ytdText": "11.28%",
-   "yr1": 13.28,
-   "yr1Text": "13.28%",
-   "yr3": 18.28,
-   "yr3Text": "18.28%",
-   "yr5": 8.28,
-   "yr5Text": "8.28%",
-   "yr10": 19.28,
-   "yr10Text": "19.28%",
-   "sinceInception": 5.28,
-   "sinceInceptionText": "5.28%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 9.81,
+   "mo1Text": "9.81%",
+   "qtd": -3.01,
+   "qtdText": "-3.01%",
+   "ytd": 28.8,
+   "ytdText": "28.80%",
+   "yr1": 31.5,
+   "yr1Text": "31.50%",
+   "yr3": 18.69,
+   "yr3Text": "18.69%",
+   "yr5": 7.03,
+   "yr5Text": "7.03%",
+   "yr10": 7.4,
+   "yr10Text": "7.40%",
+   "sinceInception": 2.45,
+   "sinceInceptionText": "2.45%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -66,53 +85,200 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.65475"
+    "06/15/2012",
+    "0.043"
    ],
    [
-    "03/23/2026",
-    "0.62856"
+    "09/21/2012",
+    "0.106"
    ],
    [
-    "12/22/2025",
-    "0.66785"
+    "12/21/2012",
+    "0.175"
+   ],
+   [
+    "06/21/2013",
+    "0.119"
+   ],
+   [
+    "09/20/2013",
+    "0.055"
+   ],
+   [
+    "12/20/2013",
+    "0.191"
+   ],
+   [
+    "06/20/2014",
+    "0.258"
+   ],
+   [
+    "12/19/2014",
+    "0.237"
+   ],
+   [
+    "06/19/2015",
+    "0.094"
+   ],
+   [
+    "12/18/2015",
+    "0.321"
+   ],
+   [
+    "12/16/2016",
+    "0.223"
+   ],
+   [
+    "06/16/2017",
+    "0.011"
+   ],
+   [
+    "09/18/2017",
+    "0.14"
+   ],
+   [
+    "12/18/2017",
+    "0.143"
+   ],
+   [
+    "12/27/2017",
+    "0.759"
+   ],
+   [
+    "12/24/2018",
+    "0.11"
+   ],
+   [
+    "12/26/2018",
+    "1.852"
+   ],
+   [
+    "03/18/2019",
+    "0.049"
+   ],
+   [
+    "09/23/2019",
+    "0.27"
+   ],
+   [
+    "12/23/2019",
+    "0.059"
+   ],
+   [
+    "03/23/2020",
+    "0.277"
+   ],
+   [
+    "12/21/2020",
+    "0.012"
+   ],
+   [
+    "03/22/2021",
+    "0.069"
+   ],
+   [
+    "06/21/2021",
+    "0.04"
+   ],
+   [
+    "12/20/2021",
+    "0.086"
+   ],
+   [
+    "03/21/2022",
+    "0.07"
+   ],
+   [
+    "06/21/2022",
+    "0.117"
+   ],
+   [
+    "09/19/2022",
+    "0.166"
+   ],
+   [
+    "12/19/2022",
+    "0.174"
+   ],
+   [
+    "03/20/2023",
+    "0.124"
+   ],
+   [
+    "06/20/2023",
+    "0.237"
+   ],
+   [
+    "09/18/2023",
+    "0.136"
+   ],
+   [
+    "12/18/2023",
+    "0.055"
+   ],
+   [
+    "03/18/2024",
+    "0.079"
+   ],
+   [
+    "06/24/2024",
+    "0.133"
+   ],
+   [
+    "09/23/2024",
+    "0.177"
+   ],
+   [
+    "12/23/2024",
+    "0.028"
+   ],
+   [
+    "03/24/2025",
+    "0.055"
+   ],
+   [
+    "06/23/2025",
+    "0.122"
    ],
    [
     "09/22/2025",
-    "0.58927"
+    "0.125"
+   ],
+   [
+    "12/22/2025",
+    "0.103"
+   ],
+   [
+    "03/23/2026",
+    "0.052"
+   ],
+   [
+    "06/22/2026",
+    "0.116"
    ]
   ]
  },
- "yields": {
-  "dividendYield": 1.58,
-  "dividendYieldText": "1.58%",
-  "secYield": null,
-  "secYieldText": "\u2014"
- },
  "holdings": {
   "pages": [
-   "holdings/001.json"
+   "holdings/001.json",
+   "holdings/002.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 259,
+  "asOfDate": "2026-04-30",
+  "asOf": "Apr 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001106, report period 2026-04-30)"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json",
+   "history/004.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "EEMO",
-  "name": "Invesco S&P Emerging Markets Momentum ETF",
-  "category": "International",
-  "inception": "2012-02-24",
-  "exchange": "NYSE Arca",
-  "ter": 0.35,
-  "cusip": "46138E289",
-  "isin": "US46138E2899"
+  "totalRows": 3648,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

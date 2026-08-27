@@ -2,55 +2,74 @@
  "ticker": "BSMT",
  "name": "Invesco BulletShares 2029 Municipal Bond ETF",
  "category": "Fixed Income",
+ "categoryPath": "Fixed Income",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/bsmt.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=BSMT",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=BSMT",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=BSMT",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46138J478",
-  "isin": "US46138J4783"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BSMT?period1=0&period2=1787874241&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001657201-26-000584, report period 2026-05-31)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$129.96",
-  "value": 129.96,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$129.83",
-  "value": 129.83,
-  "asOfDate": "Aug 26 2026"
+  "display": "$22.93",
+  "value": 22.935,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "-0.10%",
-  "value": -0.1
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$36.00 B",
-  "value": 35996000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$271.61 M",
+  "value": 271605303.64,
+  "asOfDate": "May 31 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-05-31)"
+ },
+ "yields": {
+  "dividendYield": 2.88,
+  "dividendYieldText": "2.88%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 9.96,
-   "ytdText": "9.96%",
-   "yr1": 31.96,
-   "yr1Text": "31.96%",
-   "yr3": 16.96,
-   "yr3Text": "16.96%",
-   "yr5": 6.96,
-   "yr5Text": "6.96%",
-   "yr10": 17.96,
-   "yr10Text": "17.96%",
-   "sinceInception": 18.96,
-   "sinceInceptionText": "18.96%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 0.52,
+   "mo1Text": "0.52%",
+   "qtd": 0.1,
+   "qtdText": "0.10%",
+   "ytd": 0.9,
+   "ytdText": "0.90%",
+   "yr1": 2.99,
+   "yr1Text": "2.99%",
+   "yr3": 3.27,
+   "yr3Text": "3.27%",
+   "yr5": -0.28,
+   "yr5Text": "-0.28%",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 0.93,
+   "sinceInceptionText": "0.93%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -58,61 +77,372 @@
   }
  },
  "distributions": {
-  "frequency": "Quarterly",
-  "paymentsPerYear": 4,
+  "frequency": "Monthly",
+  "paymentsPerYear": 12,
   "headers": [
    "Ex-Date",
    "Amount"
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.64915"
+    "10/21/2019",
+    "0.041"
    ],
    [
-    "03/23/2026",
-    "0.62318"
+    "11/18/2019",
+    "0.04"
    ],
    [
-    "12/22/2025",
-    "0.66213"
+    "12/23/2019",
+    "0.04"
+   ],
+   [
+    "01/21/2020",
+    "0.041"
+   ],
+   [
+    "02/24/2020",
+    "0.038"
+   ],
+   [
+    "03/23/2020",
+    "0.041"
+   ],
+   [
+    "04/20/2020",
+    "0.04"
+   ],
+   [
+    "05/18/2020",
+    "0.041"
+   ],
+   [
+    "06/22/2020",
+    "0.039"
+   ],
+   [
+    "07/20/2020",
+    "0.04"
+   ],
+   [
+    "08/24/2020",
+    "0.04"
+   ],
+   [
+    "09/21/2020",
+    "0.038"
+   ],
+   [
+    "10/19/2020",
+    "0.04"
+   ],
+   [
+    "11/23/2020",
+    "0.038"
+   ],
+   [
+    "12/21/2020",
+    "0.039"
+   ],
+   [
+    "01/19/2021",
+    "0.033"
+   ],
+   [
+    "02/22/2021",
+    "0.029"
+   ],
+   [
+    "03/22/2021",
+    "0.029"
+   ],
+   [
+    "04/19/2021",
+    "0.028"
+   ],
+   [
+    "05/24/2021",
+    "0.028"
+   ],
+   [
+    "06/21/2021",
+    "0.027"
+   ],
+   [
+    "07/19/2021",
+    "0.028"
+   ],
+   [
+    "08/23/2021",
+    "0.028"
+   ],
+   [
+    "09/20/2021",
+    "0.028"
+   ],
+   [
+    "10/18/2021",
+    "0.029"
+   ],
+   [
+    "11/22/2021",
+    "0.028"
+   ],
+   [
+    "12/20/2021",
+    "0.029"
+   ],
+   [
+    "01/24/2022",
+    "0.029"
+   ],
+   [
+    "02/22/2022",
+    "0.026"
+   ],
+   [
+    "03/21/2022",
+    "0.029"
+   ],
+   [
+    "04/18/2022",
+    "0.028"
+   ],
+   [
+    "05/23/2022",
+    "0.029"
+   ],
+   [
+    "06/21/2022",
+    "0.033"
+   ],
+   [
+    "07/18/2022",
+    "0.034"
+   ],
+   [
+    "08/22/2022",
+    "0.034"
+   ],
+   [
+    "09/19/2022",
+    "0.033"
+   ],
+   [
+    "10/24/2022",
+    "0.034"
+   ],
+   [
+    "11/21/2022",
+    "0.039"
+   ],
+   [
+    "12/19/2022",
+    "0.03"
+   ],
+   [
+    "01/23/2023",
+    "0.053"
+   ],
+   [
+    "02/21/2023",
+    "0.048"
+   ],
+   [
+    "03/20/2023",
+    "0.053"
+   ],
+   [
+    "04/24/2023",
+    "0.051"
+   ],
+   [
+    "05/22/2023",
+    "0.052"
+   ],
+   [
+    "06/20/2023",
+    "0.05"
+   ],
+   [
+    "07/24/2023",
+    "0.052"
+   ],
+   [
+    "08/21/2023",
+    "0.052"
+   ],
+   [
+    "09/18/2023",
+    "0.05"
+   ],
+   [
+    "10/23/2023",
+    "0.051"
+   ],
+   [
+    "11/20/2023",
+    "0.049"
+   ],
+   [
+    "12/18/2023",
+    "0.054"
+   ],
+   [
+    "01/22/2024",
+    "0.052"
+   ],
+   [
+    "02/20/2024",
+    "0.048"
+   ],
+   [
+    "03/18/2024",
+    "0.051"
+   ],
+   [
+    "04/22/2024",
+    "0.053"
+   ],
+   [
+    "05/20/2024",
+    "0.055"
+   ],
+   [
+    "06/24/2024",
+    "0.056"
+   ],
+   [
+    "07/22/2024",
+    "0.056"
+   ],
+   [
+    "08/19/2024",
+    "0.057"
+   ],
+   [
+    "09/23/2024",
+    "0.054"
+   ],
+   [
+    "10/21/2024",
+    "0.055"
+   ],
+   [
+    "11/18/2024",
+    "0.052"
+   ],
+   [
+    "12/23/2024",
+    "0.052"
+   ],
+   [
+    "01/21/2025",
+    "0.053"
+   ],
+   [
+    "02/24/2025",
+    "0.053"
+   ],
+   [
+    "03/24/2025",
+    "0.054"
+   ],
+   [
+    "04/21/2025",
+    "0.054"
+   ],
+   [
+    "05/19/2025",
+    "0.057"
+   ],
+   [
+    "06/23/2025",
+    "0.055"
+   ],
+   [
+    "07/21/2025",
+    "0.058"
+   ],
+   [
+    "08/18/2025",
+    "0.055"
    ],
    [
     "09/22/2025",
-    "0.58424"
+    "0.052"
+   ],
+   [
+    "10/20/2025",
+    "0.051"
+   ],
+   [
+    "11/24/2025",
+    "0.051"
+   ],
+   [
+    "12/22/2025",
+    "0.05"
+   ],
+   [
+    "01/20/2026",
+    "0.051"
+   ],
+   [
+    "02/23/2026",
+    "0.05"
+   ],
+   [
+    "03/23/2026",
+    "0.052"
+   ],
+   [
+    "04/20/2026",
+    "0.053"
+   ],
+   [
+    "05/18/2026",
+    "0.054"
+   ],
+   [
+    "06/22/2026",
+    "0.053"
+   ],
+   [
+    "07/20/2026",
+    "0.054"
+   ],
+   [
+    "08/24/2026",
+    "0.055"
    ]
   ]
  },
- "yields": {
-  "dividendYield": 5.26,
-  "dividendYieldText": "5.26%",
-  "secYield": 4.96,
-  "secYieldText": "4.96%"
- },
  "holdings": {
   "pages": [
-   "holdings/001.json"
+   "holdings/001.json",
+   "holdings/002.json",
+   "holdings/003.json",
+   "holdings/004.json",
+   "holdings/005.json",
+   "holdings/006.json",
+   "holdings/007.json",
+   "holdings/008.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 1797,
+  "asOfDate": "2026-05-31",
+  "asOf": "May 31 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001657201-26-000584, report period 2026-05-31)"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "BSMT",
-  "name": "Invesco BulletShares 2029 Municipal Bond ETF",
-  "category": "Fixed Income",
-  "inception": "2019-09-25",
-  "exchange": "Nasdaq",
-  "ter": 0.35,
-  "cusip": "46138J478",
-  "isin": "US46138J4783"
+  "totalRows": 1740,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

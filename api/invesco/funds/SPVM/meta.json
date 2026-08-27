@@ -7,8 +7,8 @@
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/spvm.html",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=SPVM",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=SPVM",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/SPVM?period1=0&period2=1787870823&interval=1d&events=div%7Csplit",
-  "holdingsSource": "invesco.com per-fund holdings download",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/SPVM?period1=0&period2=1787874625&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000917, report period 2026-04-30)",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
  },
@@ -18,58 +18,58 @@
   "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$174.43",
-  "value": 174.43,
+  "display": "—",
+  "value": null,
   "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$174.08",
-  "value": 174.08,
+  "display": "$77.36",
+  "value": 77.3624,
   "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "-0.20%",
-  "value": -0.2
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$40,443.00 M",
-  "value": 40443000000,
-  "asOfDate": "—",
-  "source": "Invesco product list \"Fund Assets\" column"
+  "display": "$120.31 M",
+  "value": 120306937.72,
+  "asOfDate": "Apr 30 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-04-30)"
  },
  "yields": {
-  "dividendYield": 4.73,
-  "dividendYieldText": "4.73%",
-  "dividendYieldKind": "trailing 12-month, published by invesco.com",
+  "dividendYield": 1.82,
+  "dividendYieldText": "1.82%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
   "distributionRate": null,
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
    "asOfDate": "Aug 27 2026",
    "mo1": -0.04,
    "mo1Text": "-0.04%",
    "qtd": 3.58,
    "qtdText": "3.58%",
-   "ytd": 24.43,
-   "ytdText": "24.43%",
-   "yr1": 36.43,
-   "yr1Text": "36.43%",
-   "yr3": 31.43,
-   "yr3Text": "31.43%",
-   "yr5": 26.43,
-   "yr5Text": "26.43%",
-   "yr10": 22.43,
-   "yr10Text": "22.43%",
-   "sinceInception": 18.43,
-   "sinceInceptionText": "18.43%"
+   "ytd": 15.3,
+   "ytdText": "15.30%",
+   "yr1": 22.5,
+   "yr1Text": "22.50%",
+   "yr3": 19.65,
+   "yr3Text": "19.65%",
+   "yr5": 11.18,
+   "yr5Text": "11.18%",
+   "yr10": 11.91,
+   "yr10Text": "11.91%",
+   "sinceInception": 11.88,
+   "sinceInceptionText": "11.88%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -327,10 +327,10 @@
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOfDate": null,
-  "asOf": "—",
-  "source": "invesco.com per-fund holdings download"
+  "totalRows": 104,
+  "asOfDate": "2026-04-30",
+  "asOf": "Apr 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000917, report period 2026-04-30)"
  },
  "history": {
   "pages": [

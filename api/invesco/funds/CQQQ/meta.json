@@ -2,55 +2,74 @@
  "ticker": "CQQQ",
  "name": "Invesco China Technology ETF",
  "category": "International",
+ "categoryPath": "International",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/cqqq.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=CQQQ",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=CQQQ",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=CQQQ",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46138E800",
-  "isin": "US46138E8003"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/CQQQ?period1=0&period2=1787874263&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001119, report period 2026-04-30)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$169.36",
-  "value": 169.36,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$169.02",
-  "value": 169.02,
-  "asOfDate": "Aug 26 2026"
+  "display": "$49.02",
+  "value": 49.02,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "-0.20%",
-  "value": -0.2
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$44.94 B",
-  "value": 44936000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$2,733.30 M",
+  "value": 2733304150.62,
+  "asOfDate": "Apr 30 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-04-30)"
+ },
+ "yields": {
+  "dividendYield": 2.3,
+  "dividendYieldText": "2.30%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 19.36,
-   "ytdText": "19.36%",
-   "yr1": 21.36,
-   "yr1Text": "21.36%",
-   "yr3": 26.36,
-   "yr3Text": "26.36%",
-   "yr5": 21.36,
-   "yr5Text": "21.36%",
-   "yr10": 7.36,
-   "yr10Text": "7.36%",
-   "sinceInception": 13.36,
-   "sinceInceptionText": "13.36%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": -4.05,
+   "mo1Text": "-4.05%",
+   "qtd": -13.98,
+   "qtdText": "-13.98%",
+   "ytd": -5.73,
+   "ytdText": "-5.73%",
+   "yr1": -3.11,
+   "yr1Text": "-3.11%",
+   "yr3": 9.94,
+   "yr3Text": "9.94%",
+   "yr5": -5.99,
+   "yr5Text": "-5.99%",
+   "yr10": 3.24,
+   "yr10Text": "3.24%",
+   "sinceInception": 5.14,
+   "sinceInceptionText": "5.14%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -58,61 +77,96 @@
   }
  },
  "distributions": {
-  "frequency": "Quarterly",
-  "paymentsPerYear": 4,
+  "frequency": "Annually",
+  "paymentsPerYear": 1,
   "headers": [
    "Ex-Date",
    "Amount"
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.84510"
+    "12/27/2010",
+    "0.133"
    ],
    [
-    "03/23/2026",
-    "0.81130"
+    "12/23/2011",
+    "0.565"
+   ],
+   [
+    "12/24/2012",
+    "0.426"
+   ],
+   [
+    "12/24/2013",
+    "0.276"
+   ],
+   [
+    "12/24/2014",
+    "0.345"
+   ],
+   [
+    "12/24/2015",
+    "0.636"
+   ],
+   [
+    "12/23/2016",
+    "0.595"
+   ],
+   [
+    "12/26/2017",
+    "0.858"
+   ],
+   [
+    "12/24/2018",
+    "0.17"
+   ],
+   [
+    "12/23/2019",
+    "0.005"
+   ],
+   [
+    "12/21/2020",
+    "0.386"
+   ],
+   [
+    "12/19/2022",
+    "0.033"
+   ],
+   [
+    "12/18/2023",
+    "0.197"
+   ],
+   [
+    "12/23/2024",
+    "0.111"
    ],
    [
     "12/22/2025",
-    "0.86200"
-   ],
-   [
-    "09/22/2025",
-    "0.76059"
+    "1.126"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 4.66,
-  "dividendYieldText": "4.66%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 176,
+  "asOfDate": "2026-04-30",
+  "asOf": "Apr 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001119, report period 2026-04-30)"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json",
+   "history/004.json",
+   "history/005.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "CQQQ",
-  "name": "Invesco China Technology ETF",
-  "category": "International",
-  "inception": "2009-12-08",
-  "exchange": "NYSE Arca",
-  "ter": 0.35,
-  "cusip": "46138E800",
-  "isin": "US46138E8003"
+  "totalRows": 4175,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

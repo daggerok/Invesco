@@ -2,55 +2,74 @@
  "ticker": "GRPZ",
  "name": "Invesco S&P SmallCap 600 GARP ETF",
  "category": "US Equity",
+ "categoryPath": "US Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/grpz.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=GRPZ",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=GRPZ",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=GRPZ",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46138G441",
-  "isin": "US46138G4414"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/GRPZ?period1=0&period2=1787874303&interval=1d&events=div%7Csplit",
+  "holdingsSource": "invesco.com per-fund holdings download",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$158.11",
-  "value": 158.11,
+  "display": "—",
+  "value": null,
   "asOfDate": "Aug 26 2026"
  },
  "marketPrice": {
-  "display": "$157.32",
-  "value": 157.32,
+  "display": "$33.16",
+  "value": 33.1556,
   "asOfDate": "Aug 26 2026"
  },
  "premiumDiscount": {
-  "display": "-0.50%",
-  "value": -0.5
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$38.81 B",
-  "value": 38811000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "—",
+  "value": null,
+  "asOfDate": "—",
+  "source": "previous run"
+ },
+ "yields": {
+  "dividendYield": 1.11,
+  "dividendYieldText": "1.11%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 8.11,
-   "ytdText": "8.11%",
-   "yr1": 20.11,
-   "yr1Text": "20.11%",
-   "yr3": 15.11,
-   "yr3Text": "15.11%",
-   "yr5": 10.11,
-   "yr5Text": "10.11%",
-   "yr10": 6.11,
-   "yr10Text": "6.11%",
-   "sinceInception": 17.11,
-   "sinceInceptionText": "17.11%"
+   "asOfDate": "Aug 26 2026",
+   "mo1": 2.66,
+   "mo1Text": "2.66%",
+   "qtd": 3.34,
+   "qtdText": "3.34%",
+   "ytd": 25.7,
+   "ytdText": "25.70%",
+   "yr1": 22.97,
+   "yr1Text": "22.97%",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 12.83,
+   "sinceInceptionText": "12.83%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -66,53 +85,58 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.78660"
+    "06/24/2024",
+    "0.06"
    ],
    [
-    "03/23/2026",
-    "0.75514"
+    "09/23/2024",
+    "0.078"
    ],
    [
-    "12/22/2025",
-    "0.80233"
+    "12/23/2024",
+    "0.052"
+   ],
+   [
+    "03/24/2025",
+    "0.058"
+   ],
+   [
+    "06/23/2025",
+    "0.074"
    ],
    [
     "09/22/2025",
-    "0.70794"
+    "0.065"
+   ],
+   [
+    "12/22/2025",
+    "0.061"
+   ],
+   [
+    "03/23/2026",
+    "0.069"
+   ],
+   [
+    "06/22/2026",
+    "0.092"
    ]
   ]
  },
- "yields": {
-  "dividendYield": 3.41,
-  "dividendYieldText": "3.41%",
-  "secYield": null,
-  "secYieldText": "\u2014"
- },
  "holdings": {
-  "pages": [
-   "holdings/001.json"
-  ],
+  "pages": [],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 0,
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "invesco.com per-fund holdings download"
  },
  "history": {
   "pages": [
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "GRPZ",
-  "name": "Invesco S&P SmallCap 600 GARP ETF",
-  "category": "US Equity",
-  "inception": "2024-03-27",
-  "exchange": "NYSE",
-  "ter": 0.35,
-  "cusip": "46138G441",
-  "isin": "US46138G4414"
+  "totalRows": 605,
+  "asOf": "Aug 26 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

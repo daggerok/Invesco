@@ -2,55 +2,74 @@
  "ticker": "PSCI",
  "name": "Invesco S&P SmallCap Industrials ETF",
  "category": "Sector",
+ "categoryPath": "Sector",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/psci.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PSCI",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PSCI",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PSCI",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46138E123",
-  "isin": "US46138E1230"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/PSCI?period1=0&period2=1787874479&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001340, report period 2026-05-31)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$117.53",
-  "value": 117.53,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$117.35",
-  "value": 117.35,
-  "asOfDate": "Aug 26 2026"
+  "display": "$176.04",
+  "value": 176.04,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "-0.15%",
-  "value": -0.15
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$4.75 B",
-  "value": 4753000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$174.37 M",
+  "value": 174372815.87,
+  "asOfDate": "May 31 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-05-31)"
+ },
+ "yields": {
+  "dividendYield": 0.45,
+  "dividendYieldText": "0.45%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": -2.47,
-   "ytdText": "-2.47%",
-   "yr1": 19.53,
-   "yr1Text": "19.53%",
-   "yr3": 4.53,
-   "yr3Text": "4.53%",
-   "yr5": 19.53,
-   "yr5Text": "19.53%",
-   "yr10": 5.53,
-   "yr10Text": "5.53%",
-   "sinceInception": 6.53,
-   "sinceInceptionText": "6.53%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": -1.73,
+   "mo1Text": "-1.73%",
+   "qtd": -4.07,
+   "qtdText": "-4.07%",
+   "ytd": 17.6,
+   "ytdText": "17.60%",
+   "yr1": 19.19,
+   "yr1Text": "19.19%",
+   "yr3": 21.1,
+   "yr3Text": "21.10%",
+   "yr5": 14.1,
+   "yr5Text": "14.10%",
+   "yr10": 14.49,
+   "yr10Text": "14.49%",
+   "sinceInception": 13.53,
+   "sinceInceptionText": "13.53%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -66,53 +85,280 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.58675"
+    "06/18/2010",
+    "0.025"
    ],
    [
-    "03/23/2026",
-    "0.56328"
+    "12/17/2010",
+    "0.118"
    ],
    [
-    "12/22/2025",
-    "0.59849"
+    "03/18/2011",
+    "0.037"
+   ],
+   [
+    "06/17/2011",
+    "0.027"
+   ],
+   [
+    "09/16/2011",
+    "0.04"
+   ],
+   [
+    "12/16/2011",
+    "0.072"
+   ],
+   [
+    "03/16/2012",
+    "0.041"
+   ],
+   [
+    "06/15/2012",
+    "0.093"
+   ],
+   [
+    "09/21/2012",
+    "0.042"
+   ],
+   [
+    "12/21/2012",
+    "0.501"
+   ],
+   [
+    "03/15/2013",
+    "0.029"
+   ],
+   [
+    "06/21/2013",
+    "0.049"
+   ],
+   [
+    "09/20/2013",
+    "0.021"
+   ],
+   [
+    "12/20/2013",
+    "0.115"
+   ],
+   [
+    "03/21/2014",
+    "0.047"
+   ],
+   [
+    "06/20/2014",
+    "0.114"
+   ],
+   [
+    "09/19/2014",
+    "0.042"
+   ],
+   [
+    "12/19/2014",
+    "0.177"
+   ],
+   [
+    "03/20/2015",
+    "0.137"
+   ],
+   [
+    "06/19/2015",
+    "0.072"
+   ],
+   [
+    "09/18/2015",
+    "0.081"
+   ],
+   [
+    "12/18/2015",
+    "0.151"
+   ],
+   [
+    "03/18/2016",
+    "0.053"
+   ],
+   [
+    "06/17/2016",
+    "0.082"
+   ],
+   [
+    "09/16/2016",
+    "0.054"
+   ],
+   [
+    "12/16/2016",
+    "0.222"
+   ],
+   [
+    "06/16/2017",
+    "0.239"
+   ],
+   [
+    "09/18/2017",
+    "0.066"
+   ],
+   [
+    "12/18/2017",
+    "0.153"
+   ],
+   [
+    "03/19/2018",
+    "0.085"
+   ],
+   [
+    "06/18/2018",
+    "0.103"
+   ],
+   [
+    "09/24/2018",
+    "0.08"
+   ],
+   [
+    "12/24/2018",
+    "0.104"
+   ],
+   [
+    "03/18/2019",
+    "0.101"
+   ],
+   [
+    "06/24/2019",
+    "0.103"
+   ],
+   [
+    "09/23/2019",
+    "0.112"
+   ],
+   [
+    "12/23/2019",
+    "0.144"
+   ],
+   [
+    "03/23/2020",
+    "0.128"
+   ],
+   [
+    "06/22/2020",
+    "0.112"
+   ],
+   [
+    "09/21/2020",
+    "0.115"
+   ],
+   [
+    "12/21/2020",
+    "0.115"
+   ],
+   [
+    "03/22/2021",
+    "0.237"
+   ],
+   [
+    "06/21/2021",
+    "0.085"
+   ],
+   [
+    "09/20/2021",
+    "0.174"
+   ],
+   [
+    "12/20/2021",
+    "0.185"
+   ],
+   [
+    "03/21/2022",
+    "0.131"
+   ],
+   [
+    "06/21/2022",
+    "0.153"
+   ],
+   [
+    "09/19/2022",
+    "0.207"
+   ],
+   [
+    "12/19/2022",
+    "0.279"
+   ],
+   [
+    "03/20/2023",
+    "0.169"
+   ],
+   [
+    "06/20/2023",
+    "0.193"
+   ],
+   [
+    "09/18/2023",
+    "0.17"
+   ],
+   [
+    "12/18/2023",
+    "0.299"
+   ],
+   [
+    "03/18/2024",
+    "0.18"
+   ],
+   [
+    "06/24/2024",
+    "0.143"
+   ],
+   [
+    "09/23/2024",
+    "0.318"
+   ],
+   [
+    "12/23/2024",
+    "0.237"
+   ],
+   [
+    "03/24/2025",
+    "0.187"
+   ],
+   [
+    "06/23/2025",
+    "0.204"
    ],
    [
     "09/22/2025",
-    "0.52807"
+    "0.192"
+   ],
+   [
+    "12/22/2025",
+    "1.766"
+   ],
+   [
+    "03/23/2026",
+    "0.218"
+   ],
+   [
+    "06/22/2026",
+    "0.196"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 2.83,
-  "dividendYieldText": "2.83%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 91,
+  "asOfDate": "2026-05-31",
+  "asOf": "May 31 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001340, report period 2026-05-31)"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json",
+   "history/004.json",
+   "history/005.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "PSCI",
-  "name": "Invesco S&P SmallCap Industrials ETF",
-  "category": "Sector",
-  "inception": "2010-04-07",
-  "exchange": "NASDAQ",
-  "ter": 0.35,
-  "cusip": "46138E123",
-  "isin": "US46138E1230"
+  "totalRows": 4124,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

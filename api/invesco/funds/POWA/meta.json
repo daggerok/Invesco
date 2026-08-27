@@ -2,55 +2,74 @@
  "ticker": "POWA",
  "name": "Invesco Bloomberg Pricing Power ETF",
  "category": "US Equity",
+ "categoryPath": "US Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/powa.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=POWA",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=POWA",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=POWA",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46138J775",
-  "isin": "US46138J7752"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/POWA?period1=0&period2=1787874450&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001657201-26-000556, report period 2026-05-31)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$68.81",
-  "value": 68.81,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$68.71",
-  "value": 68.71,
-  "asOfDate": "Aug 26 2026"
+  "display": "$91.05",
+  "value": 91.0516,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "-0.15%",
-  "value": -0.15
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$39.88 B",
-  "value": 39881000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$176.97 M",
+  "value": 176970239.72,
+  "asOfDate": "May 31 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-05-31)"
+ },
+ "yields": {
+  "dividendYield": 0.93,
+  "dividendYieldText": "0.93%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 8.81,
-   "ytdText": "8.81%",
-   "yr1": 30.81,
-   "yr1Text": "30.81%",
-   "yr3": 15.81,
-   "yr3Text": "15.81%",
-   "yr5": 20.81,
-   "yr5Text": "20.81%",
-   "yr10": 16.81,
-   "yr10Text": "16.81%",
-   "sinceInception": 17.81,
-   "sinceInceptionText": "17.81%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 1.07,
+   "mo1Text": "1.07%",
+   "qtd": 2.4,
+   "qtdText": "2.40%",
+   "ytd": 1.24,
+   "ytdText": "1.24%",
+   "yr1": 2.19,
+   "yr1Text": "2.19%",
+   "yr3": 11.53,
+   "yr3Text": "11.53%",
+   "yr5": 6.89,
+   "yr5Text": "6.89%",
+   "yr10": 10.33,
+   "yr10Text": "10.33%",
+   "sinceInception": 8.63,
+   "sinceInceptionText": "8.63%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -58,61 +77,116 @@
   }
  },
  "distributions": {
-  "frequency": "Quarterly",
-  "paymentsPerYear": 4,
+  "frequency": "Annually",
+  "paymentsPerYear": 1,
   "headers": [
    "Ex-Date",
    "Amount"
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.34355"
+    "12/22/2006",
+    "0.006"
    ],
    [
-    "03/23/2026",
-    "0.32981"
+    "12/26/2007",
+    "0.41"
+   ],
+   [
+    "12/24/2008",
+    "0.5"
+   ],
+   [
+    "12/24/2009",
+    "0.563"
+   ],
+   [
+    "12/27/2010",
+    "0.388"
+   ],
+   [
+    "12/23/2011",
+    "0.375"
+   ],
+   [
+    "12/24/2012",
+    "0.747"
+   ],
+   [
+    "12/24/2013",
+    "0.787"
+   ],
+   [
+    "12/24/2014",
+    "0.963"
+   ],
+   [
+    "12/24/2015",
+    "1.152"
+   ],
+   [
+    "12/23/2016",
+    "0.848"
+   ],
+   [
+    "12/26/2017",
+    "0.758"
+   ],
+   [
+    "12/24/2018",
+    "0.613"
+   ],
+   [
+    "12/23/2019",
+    "0.648"
+   ],
+   [
+    "12/21/2020",
+    "0.794"
+   ],
+   [
+    "12/20/2021",
+    "0.778"
+   ],
+   [
+    "12/19/2022",
+    "0.981"
+   ],
+   [
+    "12/18/2023",
+    "1.158"
+   ],
+   [
+    "12/23/2024",
+    "0.643"
    ],
    [
     "12/22/2025",
-    "0.35042"
-   ],
-   [
-    "09/22/2025",
-    "0.30919"
+    "0.845"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 4.11,
-  "dividendYieldText": "4.11%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 53,
+  "asOfDate": "2026-05-31",
+  "asOf": "May 31 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001657201-26-000556, report period 2026-05-31)"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json",
+   "history/004.json",
+   "history/005.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "POWA",
-  "name": "Invesco Bloomberg Pricing Power ETF",
-  "category": "US Equity",
-  "inception": "2006-12-15",
-  "exchange": "NYSE Arca",
-  "ter": 0.35,
-  "cusip": "46138J775",
-  "isin": "US46138J7752"
+  "totalRows": 4954,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

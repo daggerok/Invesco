@@ -2,55 +2,74 @@
  "ticker": "PBE",
  "name": "Invesco Biotechnology & Genome ETF",
  "category": "Thematic",
+ "categoryPath": "Thematic",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pbe.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PBE",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PBE",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PBE",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46137V787",
-  "isin": "US46137V7872"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/PBE?period1=0&period2=1787874386&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000898, report period 2026-04-30)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$46.30",
-  "value": 46.3,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$46.28",
-  "value": 46.28,
-  "asOfDate": "Aug 26 2026"
+  "display": "$98.54",
+  "value": 98.54,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "-0.04%",
-  "value": -0.04
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$32.63 B",
-  "value": 32630000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$247.38 M",
+  "value": 247382628.13,
+  "asOfDate": "Apr 30 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-04-30)"
+ },
+ "yields": {
+  "dividendYield": 3.29,
+  "dividendYieldText": "3.29%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 16.3,
-   "ytdText": "16.30%",
-   "yr1": 18.3,
-   "yr1Text": "18.30%",
-   "yr3": 23.3,
-   "yr3Text": "23.30%",
-   "yr5": 23.3,
-   "yr5Text": "23.30%",
-   "yr10": 4.3,
-   "yr10Text": "4.30%",
-   "sinceInception": 10.3,
-   "sinceInceptionText": "10.30%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 9.67,
+   "mo1Text": "9.67%",
+   "qtd": 9.57,
+   "qtdText": "9.57%",
+   "ytd": 21.24,
+   "ytdText": "21.24%",
+   "yr1": 46.72,
+   "yr1Text": "46.72%",
+   "yr3": 18.3,
+   "yr3Text": "18.30%",
+   "yr5": 5.21,
+   "yr5Text": "5.21%",
+   "yr10": 9.53,
+   "yr10Text": "9.53%",
+   "sinceInception": 9.67,
+   "sinceInceptionText": "9.67%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -66,53 +85,113 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.23140"
+    "12/18/2009",
+    "0.076"
    ],
    [
-    "03/23/2026",
-    "0.22214"
+    "06/20/2014",
+    "0.234"
    ],
    [
-    "12/22/2025",
-    "0.23603"
+    "09/19/2014",
+    "0.043"
+   ],
+   [
+    "06/19/2015",
+    "0.123"
+   ],
+   [
+    "09/18/2015",
+    "0.137"
+   ],
+   [
+    "12/18/2015",
+    "0.308"
+   ],
+   [
+    "09/16/2016",
+    "0.028"
+   ],
+   [
+    "12/16/2016",
+    "0.121"
+   ],
+   [
+    "03/17/2017",
+    "0.056"
+   ],
+   [
+    "06/16/2017",
+    "0.215"
+   ],
+   [
+    "09/24/2018",
+    "0.002"
+   ],
+   [
+    "03/23/2020",
+    "0.029"
+   ],
+   [
+    "06/20/2023",
+    "0.014"
+   ],
+   [
+    "03/18/2024",
+    "0.024"
+   ],
+   [
+    "06/24/2024",
+    "0.008"
+   ],
+   [
+    "03/24/2025",
+    "0.034"
+   ],
+   [
+    "06/23/2025",
+    "0.13"
    ],
    [
     "09/22/2025",
-    "0.20826"
+    "0.234"
+   ],
+   [
+    "12/22/2025",
+    "0.42"
+   ],
+   [
+    "03/23/2026",
+    "0.082"
+   ],
+   [
+    "06/22/2026",
+    "0.811"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 1.6,
-  "dividendYieldText": "1.60%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 33,
+  "asOfDate": "2026-04-30",
+  "asOf": "Apr 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000898, report period 2026-04-30)"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json",
+   "history/004.json",
+   "history/005.json",
+   "history/006.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "PBE",
-  "name": "Invesco Biotechnology & Genome ETF",
-  "category": "Thematic",
-  "inception": "2005-06-23",
-  "exchange": "NYSE Arca",
-  "ter": 0.35,
-  "cusip": "46137V787",
-  "isin": "US46137V7872"
+  "totalRows": 5328,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

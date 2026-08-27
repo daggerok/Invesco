@@ -2,55 +2,74 @@
  "ticker": "PSCE",
  "name": "Invesco S&P SmallCap Energy ETF",
  "category": "Sector",
+ "categoryPath": "Sector",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/psce.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PSCE",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PSCE",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PSCE",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46138G474",
-  "isin": "US46138E1644"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/PSCE?period1=0&period2=1787874487&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001356, report period 2026-05-31)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$63.69",
-  "value": 63.69,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$63.91",
-  "value": 63.91,
-  "asOfDate": "Aug 26 2026"
+  "display": "$62.57",
+  "value": 62.571,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$9.37 B",
-  "value": 9369000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$118.67 M",
+  "value": 118673998.85,
+  "asOfDate": "May 31 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-05-31)"
+ },
+ "yields": {
+  "dividendYield": 2.62,
+  "dividendYieldText": "2.62%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 3.69,
-   "ytdText": "3.69%",
-   "yr1": 25.69,
-   "yr1Text": "25.69%",
-   "yr3": 10.69,
-   "yr3Text": "10.69%",
-   "yr5": 15.69,
-   "yr5Text": "15.69%",
-   "yr10": 11.69,
-   "yr10Text": "11.69%",
-   "sinceInception": 12.69,
-   "sinceInceptionText": "12.69%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 11.69,
+   "mo1Text": "11.69%",
+   "qtd": 16.76,
+   "qtdText": "16.76%",
+   "ytd": 47.51,
+   "ytdText": "47.51%",
+   "yr1": 55.44,
+   "yr1Text": "55.44%",
+   "yr3": 6.63,
+   "yr3Text": "6.63%",
+   "yr5": 15.92,
+   "yr5Text": "15.92%",
+   "yr10": -1.94,
+   "yr10Text": "-1.94%",
+   "sinceInception": -3.35,
+   "sinceInceptionText": "-3.35%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -66,53 +85,196 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.31955"
+    "12/17/2010",
+    "2.085"
    ],
    [
-    "03/23/2026",
-    "0.30677"
+    "12/16/2011",
+    "0.11"
    ],
    [
-    "12/22/2025",
-    "0.32594"
+    "12/21/2012",
+    "1.245"
+   ],
+   [
+    "12/20/2013",
+    "0.005"
+   ],
+   [
+    "06/20/2014",
+    "0.095"
+   ],
+   [
+    "12/19/2014",
+    "0.33"
+   ],
+   [
+    "06/19/2015",
+    "0.17"
+   ],
+   [
+    "09/18/2015",
+    "0.14"
+   ],
+   [
+    "12/18/2015",
+    "0.315"
+   ],
+   [
+    "03/18/2016",
+    "0.085"
+   ],
+   [
+    "09/16/2016",
+    "0.055"
+   ],
+   [
+    "12/16/2016",
+    "0.095"
+   ],
+   [
+    "12/18/2017",
+    "0.035"
+   ],
+   [
+    "09/24/2018",
+    "0.095"
+   ],
+   [
+    "09/23/2019",
+    "0.005"
+   ],
+   [
+    "12/23/2019",
+    "0.045"
+   ],
+   [
+    "03/23/2020",
+    "0.07"
+   ],
+   [
+    "06/22/2020",
+    "0.03"
+   ],
+   [
+    "09/21/2020",
+    "0.065"
+   ],
+   [
+    "12/21/2020",
+    "0.025"
+   ],
+   [
+    "03/22/2021",
+    "0.015"
+   ],
+   [
+    "06/21/2021",
+    "0.015"
+   ],
+   [
+    "09/20/2021",
+    "0.055"
+   ],
+   [
+    "12/20/2021",
+    "0.075"
+   ],
+   [
+    "03/21/2022",
+    "0.07"
+   ],
+   [
+    "06/21/2022",
+    "0.17"
+   ],
+   [
+    "09/19/2022",
+    "0.29"
+   ],
+   [
+    "12/19/2022",
+    "0.34"
+   ],
+   [
+    "03/20/2023",
+    "0.34"
+   ],
+   [
+    "06/20/2023",
+    "0.32"
+   ],
+   [
+    "09/18/2023",
+    "0.361"
+   ],
+   [
+    "12/18/2023",
+    "0.316"
+   ],
+   [
+    "03/18/2024",
+    "0.179"
+   ],
+   [
+    "06/24/2024",
+    "0.186"
+   ],
+   [
+    "09/23/2024",
+    "0.283"
+   ],
+   [
+    "12/23/2024",
+    "0.175"
+   ],
+   [
+    "03/24/2025",
+    "0.243"
+   ],
+   [
+    "06/23/2025",
+    "0.248"
    ],
    [
     "09/22/2025",
-    "0.28759"
+    "0.24"
+   ],
+   [
+    "12/22/2025",
+    "0.295"
+   ],
+   [
+    "03/23/2026",
+    "0.335"
+   ],
+   [
+    "06/22/2026",
+    "0.41"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 3.99,
-  "dividendYieldText": "3.99%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 34,
+  "asOfDate": "2026-05-31",
+  "asOf": "May 31 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001356, report period 2026-05-31)"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json",
+   "history/004.json",
+   "history/005.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "PSCE",
-  "name": "Invesco S&P SmallCap Energy ETF",
-  "category": "Sector",
-  "inception": "2010-04-07",
-  "exchange": "NASDAQ",
-  "ter": 0.35,
-  "cusip": "46138G474",
-  "isin": "US46138E1644"
+  "totalRows": 4124,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

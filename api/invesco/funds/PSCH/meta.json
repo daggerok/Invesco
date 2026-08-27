@@ -2,55 +2,74 @@
  "ticker": "PSCH",
  "name": "Invesco S&P SmallCap Health Care ETF",
  "category": "Sector",
+ "categoryPath": "Sector",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/psch.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PSCH",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PSCH",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PSCH",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46138E149",
-  "isin": "US46138E1495"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/PSCH?period1=0&period2=1787874465&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001344, report period 2026-05-31)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$143.47",
-  "value": 143.47,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$143.61",
-  "value": 143.61,
-  "asOfDate": "Aug 26 2026"
+  "display": "$55.44",
+  "value": 55.44,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "0.10%",
-  "value": 0.1
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$47.35 B",
-  "value": 47347000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$131.36 M",
+  "value": 131359965.78,
+  "asOfDate": "May 31 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-05-31)"
+ },
+ "yields": {
+  "dividendYield": 0.02,
+  "dividendYieldText": "0.02%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 23.47,
-   "ytdText": "23.47%",
-   "yr1": 5.47,
-   "yr1Text": "5.47%",
-   "yr3": 30.47,
-   "yr3Text": "30.47%",
-   "yr5": 20.47,
-   "yr5Text": "20.47%",
-   "yr10": 11.47,
-   "yr10Text": "11.47%",
-   "sinceInception": 17.47,
-   "sinceInceptionText": "17.47%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 4.78,
+   "mo1Text": "4.78%",
+   "qtd": 4.94,
+   "qtdText": "4.94%",
+   "ytd": 25.83,
+   "ytdText": "25.83%",
+   "yr1": 34.9,
+   "yr1Text": "34.90%",
+   "yr3": 10.74,
+   "yr3Text": "10.74%",
+   "yr5": -2.61,
+   "yr5Text": "-2.61%",
+   "yr10": 8.66,
+   "yr10Text": "8.66%",
+   "sinceInception": 12.45,
+   "sinceInceptionText": "12.45%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -66,53 +85,100 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.71805"
+    "12/17/2010",
+    "0.024667"
    ],
    [
-    "03/23/2026",
-    "0.68933"
+    "12/16/2011",
+    "0.095667"
    ],
    [
-    "12/22/2025",
-    "0.73241"
+    "03/16/2012",
+    "0.010667"
+   ],
+   [
+    "12/21/2012",
+    "0.045333"
+   ],
+   [
+    "06/21/2013",
+    "0.002"
+   ],
+   [
+    "12/20/2013",
+    "0.004333"
+   ],
+   [
+    "06/20/2014",
+    "0.008333"
+   ],
+   [
+    "12/19/2014",
+    "0.009333"
+   ],
+   [
+    "12/24/2014",
+    "0.185667"
+   ],
+   [
+    "12/16/2016",
+    "0.006333"
+   ],
+   [
+    "09/24/2018",
+    "0.001667"
+   ],
+   [
+    "12/18/2023",
+    "0.004"
+   ],
+   [
+    "03/18/2024",
+    "0.036"
+   ],
+   [
+    "06/24/2024",
+    "0.066"
+   ],
+   [
+    "12/23/2024",
+    "0.018"
+   ],
+   [
+    "03/24/2025",
+    "0.014"
+   ],
+   [
+    "06/23/2025",
+    "0.002"
    ],
    [
     "09/22/2025",
-    "0.64624"
+    "0.003"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 3.77,
-  "dividendYieldText": "3.77%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 81,
+  "asOfDate": "2026-05-31",
+  "asOf": "May 31 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001344, report period 2026-05-31)"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json",
+   "history/004.json",
+   "history/005.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "PSCH",
-  "name": "Invesco S&P SmallCap Health Care ETF",
-  "category": "Sector",
-  "inception": "2010-04-07",
-  "exchange": "NASDAQ",
-  "ter": 0.35,
-  "cusip": "46138E149",
-  "isin": "US46138E1495"
+  "totalRows": 4124,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

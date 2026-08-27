@@ -2,55 +2,74 @@
  "ticker": "FLXI",
  "name": "Invesco Flexible Income ETF",
  "category": "Fixed Income",
+ "categoryPath": "Fixed Income",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/flxi.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=FLXI",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=FLXI",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=FLXI",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46090A107",
-  "isin": "US46090A1073"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/FLXI?period1=0&period2=1787874297&interval=1d&events=div%7Csplit",
+  "holdingsSource": "invesco.com per-fund holdings download",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.39%",
-  "value": 0.39
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$41.72",
-  "value": 41.72,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 19 2026"
  },
  "marketPrice": {
-  "display": "$41.66",
-  "value": 41.66,
-  "asOfDate": "Aug 26 2026"
+  "display": "$48.81",
+  "value": 48.8101,
+  "asOfDate": "Aug 19 2026"
  },
  "premiumDiscount": {
-  "display": "-0.14%",
-  "value": -0.14
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$32.17 B",
-  "value": 32172000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "—",
+  "value": null,
+  "asOfDate": "—",
+  "source": "previous run"
+ },
+ "yields": {
+  "dividendYield": 5.29,
+  "dividendYieldText": "5.29%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 11.72,
-   "ytdText": "11.72%",
-   "yr1": 33.72,
-   "yr1Text": "33.72%",
-   "yr3": 18.72,
-   "yr3Text": "18.72%",
-   "yr5": 18.72,
-   "yr5Text": "18.72%",
-   "yr10": 19.72,
-   "yr10Text": "19.72%",
-   "sinceInception": 5.72,
-   "sinceInceptionText": "5.72%"
+   "asOfDate": "Aug 26 2026",
+   "mo1": 1.75,
+   "mo1Text": "1.75%",
+   "qtd": 0.35,
+   "qtdText": "0.35%",
+   "ytd": null,
+   "ytdText": "—",
+   "yr1": null,
+   "yr1Text": "—",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": null,
+   "sinceInceptionText": "—"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -58,61 +77,54 @@
   }
  },
  "distributions": {
-  "frequency": "Quarterly",
-  "paymentsPerYear": 4,
+  "frequency": "Monthly",
+  "paymentsPerYear": 12,
   "headers": [
    "Ex-Date",
    "Amount"
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.20830"
-   ],
-   [
     "03/23/2026",
-    "0.19997"
+    "0.207"
    ],
    [
-    "12/22/2025",
-    "0.21247"
+    "04/20/2026",
+    "0.204"
    ],
    [
-    "09/22/2025",
-    "0.18747"
+    "05/18/2026",
+    "0.205"
+   ],
+   [
+    "06/22/2026",
+    "0.215"
+   ],
+   [
+    "07/20/2026",
+    "0.214"
+   ],
+   [
+    "08/24/2026",
+    "0.215"
    ]
   ]
  },
- "yields": {
-  "dividendYield": 2.02,
-  "dividendYieldText": "2.02%",
-  "secYield": 2.22,
-  "secYieldText": "2.22%"
- },
  "holdings": {
-  "pages": [
-   "holdings/001.json"
-  ],
+  "pages": [],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 0,
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "invesco.com per-fund holdings download"
  },
  "history": {
   "pages": [
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "FLXI",
-  "name": "Invesco Flexible Income ETF",
-  "category": "Fixed Income",
-  "inception": "2026-02-25",
-  "exchange": "NYSE Arca",
-  "ter": 0.39,
-  "cusip": "46090A107",
-  "isin": "US46090A1073"
+  "totalRows": 126,
+  "asOf": "Aug 26 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

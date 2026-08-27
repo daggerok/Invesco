@@ -2,55 +2,74 @@
  "ticker": "KNCT",
  "name": "Invesco Next Gen Connectivity ETF",
  "category": "US Equity",
+ "categoryPath": "US Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/knct.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=KNCT",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=KNCT",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=KNCT",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46137V688",
-  "isin": "US46137V6882"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/KNCT?period1=0&period2=1787874374&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000911, report period 2026-04-30)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$88.26",
-  "value": 88.26,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$88.04",
-  "value": 88.04,
-  "asOfDate": "Aug 26 2026"
+  "display": "$199.38",
+  "value": 199.376,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "-0.25%",
-  "value": -0.25
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$16.83 B",
-  "value": 16826000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$133.61 M",
+  "value": 133608119.06,
+  "asOfDate": "Apr 30 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-04-30)"
+ },
+ "yields": {
+  "dividendYield": 0.78,
+  "dividendYieldText": "0.78%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": -1.74,
-   "ytdText": "-1.74%",
-   "yr1": 20.26,
-   "yr1Text": "20.26%",
-   "yr3": 5.26,
-   "yr3Text": "5.26%",
-   "yr5": 15.26,
-   "yr5Text": "15.26%",
-   "yr10": 6.26,
-   "yr10Text": "6.26%",
-   "sinceInception": 7.26,
-   "sinceInceptionText": "7.26%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 6.1,
+   "mo1Text": "6.10%",
+   "qtd": -1.52,
+   "qtdText": "-1.52%",
+   "ytd": 49.42,
+   "ytdText": "49.42%",
+   "yr1": 68.74,
+   "yr1Text": "68.74%",
+   "yr3": 38.49,
+   "yr3Text": "38.49%",
+   "yr5": 16.79,
+   "yr5Text": "16.79%",
+   "yr10": 19.06,
+   "yr10Text": "19.06%",
+   "sinceInception": 13.52,
+   "sinceInceptionText": "13.52%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -66,53 +85,169 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.44020"
+    "12/17/2010",
+    "0.107"
    ],
    [
-    "03/23/2026",
-    "0.42259"
+    "12/21/2012",
+    "0.06"
    ],
    [
-    "12/22/2025",
-    "0.44900"
+    "06/21/2013",
+    "0.096"
+   ],
+   [
+    "09/20/2013",
+    "0.105"
+   ],
+   [
+    "06/17/2016",
+    "0.176"
+   ],
+   [
+    "06/16/2017",
+    "0.239"
+   ],
+   [
+    "09/18/2017",
+    "0.065"
+   ],
+   [
+    "06/18/2018",
+    "0.12"
+   ],
+   [
+    "09/24/2018",
+    "0.12"
+   ],
+   [
+    "12/24/2018",
+    "0.35"
+   ],
+   [
+    "03/18/2019",
+    "0.123"
+   ],
+   [
+    "06/24/2019",
+    "0.115"
+   ],
+   [
+    "09/23/2019",
+    "0.024"
+   ],
+   [
+    "12/23/2019",
+    "0.004"
+   ],
+   [
+    "03/23/2020",
+    "0.02"
+   ],
+   [
+    "06/22/2020",
+    "0.026"
+   ],
+   [
+    "09/21/2020",
+    "0.103"
+   ],
+   [
+    "12/21/2020",
+    "0.004"
+   ],
+   [
+    "12/20/2021",
+    "0.306"
+   ],
+   [
+    "03/21/2022",
+    "0.474"
+   ],
+   [
+    "06/21/2022",
+    "0.517"
+   ],
+   [
+    "09/19/2022",
+    "0.192"
+   ],
+   [
+    "12/19/2022",
+    "0.397"
+   ],
+   [
+    "09/18/2023",
+    "0.124"
+   ],
+   [
+    "12/18/2023",
+    "0.414"
+   ],
+   [
+    "03/18/2024",
+    "0.304"
+   ],
+   [
+    "06/24/2024",
+    "0.427"
+   ],
+   [
+    "09/23/2024",
+    "0.332"
+   ],
+   [
+    "12/23/2024",
+    "0.387"
+   ],
+   [
+    "03/24/2025",
+    "0.22"
+   ],
+   [
+    "06/23/2025",
+    "0.358"
    ],
    [
     "09/22/2025",
-    "0.39618"
+    "0.355"
+   ],
+   [
+    "12/22/2025",
+    "0.216"
+   ],
+   [
+    "03/23/2026",
+    "0.316"
+   ],
+   [
+    "06/22/2026",
+    "0.389"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 3.56,
-  "dividendYieldText": "3.56%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 98,
+  "asOfDate": "2026-04-30",
+  "asOf": "Apr 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000911, report period 2026-04-30)"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json",
+   "history/004.json",
+   "history/005.json",
+   "history/006.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "KNCT",
-  "name": "Invesco Next Gen Connectivity ETF",
-  "category": "US Equity",
-  "inception": "2005-06-23",
-  "exchange": "NYSE Arca",
-  "ter": 0.35,
-  "cusip": "46137V688",
-  "isin": "US46137V6882"
+  "totalRows": 5328,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

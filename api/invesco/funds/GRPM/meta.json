@@ -1,56 +1,75 @@
 {
  "ticker": "GRPM",
- "name": "Invesco S&P MidCap 400\u00ae GARP ETF",
+ "name": "Invesco S&P MidCap 400 GARP ETF",
  "category": "US Equity",
+ "categoryPath": "US Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/grpm.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=GRPM",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=GRPM",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=GRPM",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46137V225",
-  "isin": "US46137V2253"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/GRPM?period1=0&period2=1787874310&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000893, report period 2026-04-30)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$132.71",
-  "value": 132.71,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$132.31",
-  "value": 132.31,
-  "asOfDate": "Aug 26 2026"
+  "display": "$146.15",
+  "value": 146.149,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "-0.30%",
-  "value": -0.3
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$11.27 B",
-  "value": 11271000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$485.98 M",
+  "value": 485981819.91,
+  "asOfDate": "Apr 30 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-04-30)"
+ },
+ "yields": {
+  "dividendYield": 0.56,
+  "dividendYieldText": "0.56%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 12.71,
-   "ytdText": "12.71%",
-   "yr1": 4.71,
-   "yr1Text": "4.71%",
-   "yr3": 19.71,
-   "yr3Text": "19.71%",
-   "yr5": 9.71,
-   "yr5Text": "9.71%",
-   "yr10": 10.71,
-   "yr10Text": "10.71%",
-   "sinceInception": 6.71,
-   "sinceInceptionText": "6.71%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 8.32,
+   "mo1Text": "8.32%",
+   "qtd": 11.6,
+   "qtdText": "11.60%",
+   "ytd": 22.2,
+   "ytdText": "22.20%",
+   "yr1": 22.85,
+   "yr1Text": "22.85%",
+   "yr3": 18.8,
+   "yr3Text": "18.80%",
+   "yr5": 10.44,
+   "yr5Text": "10.44%",
+   "yr10": 11.87,
+   "yr10Text": "11.87%",
+   "sinceInception": 11.93,
+   "sinceInceptionText": "11.93%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -66,53 +85,271 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.66155"
+    "12/17/2010",
+    "0.032"
    ],
    [
-    "03/23/2026",
-    "0.63509"
+    "03/18/2011",
+    "0.055"
    ],
    [
-    "12/22/2025",
-    "0.67478"
+    "06/17/2011",
+    "0.07"
+   ],
+   [
+    "09/16/2011",
+    "0.055"
+   ],
+   [
+    "12/16/2011",
+    "0.12"
+   ],
+   [
+    "03/16/2012",
+    "0.07"
+   ],
+   [
+    "06/15/2012",
+    "0.131"
+   ],
+   [
+    "09/21/2012",
+    "0.138"
+   ],
+   [
+    "12/21/2012",
+    "0.216"
+   ],
+   [
+    "03/15/2013",
+    "0.087"
+   ],
+   [
+    "06/21/2013",
+    "0.136"
+   ],
+   [
+    "09/20/2013",
+    "0.124"
+   ],
+   [
+    "12/20/2013",
+    "0.49"
+   ],
+   [
+    "03/21/2014",
+    "0.148"
+   ],
+   [
+    "06/20/2014",
+    "0.166"
+   ],
+   [
+    "09/19/2014",
+    "0.15"
+   ],
+   [
+    "12/19/2014",
+    "0.185"
+   ],
+   [
+    "03/20/2015",
+    "0.196"
+   ],
+   [
+    "06/19/2015",
+    "0.164"
+   ],
+   [
+    "09/18/2015",
+    "0.166"
+   ],
+   [
+    "12/18/2015",
+    "0.156"
+   ],
+   [
+    "03/18/2016",
+    "0.223"
+   ],
+   [
+    "06/17/2016",
+    "0.084"
+   ],
+   [
+    "09/16/2016",
+    "0.186"
+   ],
+   [
+    "12/16/2016",
+    "0.084"
+   ],
+   [
+    "03/17/2017",
+    "0.187"
+   ],
+   [
+    "06/16/2017",
+    "0.145"
+   ],
+   [
+    "09/15/2017",
+    "0.173"
+   ],
+   [
+    "12/15/2017",
+    "0.228"
+   ],
+   [
+    "03/16/2018",
+    "0.19"
+   ],
+   [
+    "06/15/2018",
+    "0.197"
+   ],
+   [
+    "09/24/2018",
+    "0.256"
+   ],
+   [
+    "12/24/2018",
+    "0.19"
+   ],
+   [
+    "03/18/2019",
+    "0.204"
+   ],
+   [
+    "06/24/2019",
+    "0.234"
+   ],
+   [
+    "09/23/2019",
+    "0.217"
+   ],
+   [
+    "12/23/2019",
+    "0.189"
+   ],
+   [
+    "03/23/2020",
+    "0.344"
+   ],
+   [
+    "06/22/2020",
+    "0.163"
+   ],
+   [
+    "12/21/2020",
+    "0.194"
+   ],
+   [
+    "03/22/2021",
+    "0.237"
+   ],
+   [
+    "06/21/2021",
+    "0.195"
+   ],
+   [
+    "12/20/2021",
+    "0.196"
+   ],
+   [
+    "03/21/2022",
+    "0.267"
+   ],
+   [
+    "06/21/2022",
+    "0.273"
+   ],
+   [
+    "09/19/2022",
+    "0.319"
+   ],
+   [
+    "12/19/2022",
+    "0.21"
+   ],
+   [
+    "03/20/2023",
+    "0.296"
+   ],
+   [
+    "06/20/2023",
+    "0.307"
+   ],
+   [
+    "09/18/2023",
+    "0.151"
+   ],
+   [
+    "12/18/2023",
+    "0.187"
+   ],
+   [
+    "03/18/2024",
+    "0.276"
+   ],
+   [
+    "06/24/2024",
+    "0.296"
+   ],
+   [
+    "09/23/2024",
+    "0.293"
+   ],
+   [
+    "12/23/2024",
+    "0.209"
+   ],
+   [
+    "03/24/2025",
+    "0.406"
+   ],
+   [
+    "06/23/2025",
+    "0.488"
    ],
    [
     "09/22/2025",
-    "0.59540"
+    "0.315"
+   ],
+   [
+    "12/22/2025",
+    "0.217"
+   ],
+   [
+    "03/23/2026",
+    "0.213"
+   ],
+   [
+    "06/22/2026",
+    "0.204"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 3.01,
-  "dividendYieldText": "3.01%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 61,
+  "asOfDate": "2026-04-30",
+  "asOf": "Apr 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000893, report period 2026-04-30)"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json",
+   "history/004.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "GRPM",
-  "name": "Invesco S&P MidCap 400\u00ae GARP ETF",
-  "category": "US Equity",
-  "inception": "2010-12-03",
-  "exchange": "NYSE Arca",
-  "ter": 0.35,
-  "cusip": "46137V225",
-  "isin": "US46137V2253"
+  "totalRows": 3953,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

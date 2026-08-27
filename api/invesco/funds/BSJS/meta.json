@@ -5,10 +5,10 @@
  "categoryPath": "Fixed Income",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/bsjs.html",
-  "holdingsDownload": null,
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=BSJS",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=BSJS",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BSJS?period1=0&period2=1787867686&interval=1d&events=div%7Csplit",
-  "holdingsSource": "invesco.com per-fund holdings download",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BSJS?period1=0&period2=1787874283&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001657201-26-000559, report period 2026-05-31)",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
  },
@@ -18,58 +18,58 @@
   "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$100.23",
-  "value": 100.23,
-  "asOfDate": "—"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$100.13",
-  "value": 100.13,
-  "asOfDate": "—"
+  "display": "$21.78",
+  "value": 21.78,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "-0.10%",
-  "value": -0.1
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$48,023.00 M",
-  "value": 48023000000,
-  "asOfDate": "—",
-  "source": "Invesco product list \"Fund Assets\" column"
+  "display": "$693.87 M",
+  "value": 693874961.24,
+  "asOfDate": "May 31 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-05-31)"
  },
  "yields": {
-  "dividendYield": 0.53,
-  "dividendYieldText": "0.53%",
-  "dividendYieldKind": "trailing 12-month, published by invesco.com",
+  "dividendYield": 6.01,
+  "dividendYieldText": "6.01%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
   "distributionRate": null,
-  "secYield": 3.73,
-  "secYieldText": "3.73%",
+  "secYield": null,
+  "secYieldText": "—",
   "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "—",
-   "mo1": null,
-   "mo1Text": "—",
-   "qtd": null,
-   "qtdText": "—",
-   "ytd": 10.23,
-   "ytdText": "10.23%",
-   "yr1": 12.23,
-   "yr1Text": "12.23%",
-   "yr3": 17.23,
-   "yr3Text": "17.23%",
-   "yr5": 2.23,
-   "yr5Text": "2.23%",
-   "yr10": 18.23,
-   "yr10Text": "18.23%",
-   "sinceInception": 4.23,
-   "sinceInceptionText": "4.23%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 1.08,
+   "mo1Text": "1.08%",
+   "qtd": 1.12,
+   "qtdText": "1.12%",
+   "ytd": 3.02,
+   "ytdText": "3.02%",
+   "yr1": 4.72,
+   "yr1Text": "4.72%",
+   "yr3": 8.47,
+   "yr3Text": "8.47%",
+   "yr5": 3.21,
+   "yr5Text": "3.21%",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 3.82,
+   "sinceInceptionText": "3.82%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -77,31 +77,313 @@
   }
  },
  "distributions": {
-  "frequency": "Quarterly",
-  "paymentsPerYear": null,
+  "frequency": "Monthly",
+  "paymentsPerYear": 12,
   "headers": [
    "Ex-Date",
    "Amount"
   ],
-  "rows": []
+  "rows": [
+   [
+    "11/23/2020",
+    "0.088"
+   ],
+   [
+    "12/21/2020",
+    "0.104"
+   ],
+   [
+    "01/19/2021",
+    "0.105"
+   ],
+   [
+    "02/22/2021",
+    "0.092"
+   ],
+   [
+    "03/22/2021",
+    "0.102"
+   ],
+   [
+    "04/19/2021",
+    "0.097"
+   ],
+   [
+    "05/24/2021",
+    "0.098"
+   ],
+   [
+    "06/21/2021",
+    "0.093"
+   ],
+   [
+    "07/19/2021",
+    "0.088"
+   ],
+   [
+    "08/23/2021",
+    "0.093"
+   ],
+   [
+    "09/20/2021",
+    "0.089"
+   ],
+   [
+    "10/18/2021",
+    "0.091"
+   ],
+   [
+    "11/22/2021",
+    "0.088"
+   ],
+   [
+    "12/20/2021",
+    "0.195"
+   ],
+   [
+    "01/24/2022",
+    "0.094"
+   ],
+   [
+    "02/22/2022",
+    "0.086"
+   ],
+   [
+    "03/21/2022",
+    "0.099"
+   ],
+   [
+    "04/18/2022",
+    "0.095"
+   ],
+   [
+    "05/23/2022",
+    "0.102"
+   ],
+   [
+    "06/21/2022",
+    "0.095"
+   ],
+   [
+    "07/18/2022",
+    "0.103"
+   ],
+   [
+    "08/22/2022",
+    "0.11"
+   ],
+   [
+    "09/19/2022",
+    "0.105"
+   ],
+   [
+    "10/24/2022",
+    "0.113"
+   ],
+   [
+    "11/21/2022",
+    "0.105"
+   ],
+   [
+    "12/19/2022",
+    "0.098"
+   ],
+   [
+    "01/23/2023",
+    "0.117"
+   ],
+   [
+    "02/21/2023",
+    "0.103"
+   ],
+   [
+    "03/20/2023",
+    "0.123"
+   ],
+   [
+    "04/24/2023",
+    "0.121"
+   ],
+   [
+    "05/22/2023",
+    "0.126"
+   ],
+   [
+    "06/20/2023",
+    "0.118"
+   ],
+   [
+    "07/24/2023",
+    "0.121"
+   ],
+   [
+    "08/21/2023",
+    "0.123"
+   ],
+   [
+    "09/18/2023",
+    "0.124"
+   ],
+   [
+    "10/23/2023",
+    "0.119"
+   ],
+   [
+    "11/20/2023",
+    "0.135"
+   ],
+   [
+    "12/18/2023",
+    "0.132"
+   ],
+   [
+    "01/22/2024",
+    "0.114"
+   ],
+   [
+    "02/20/2024",
+    "0.114"
+   ],
+   [
+    "03/18/2024",
+    "0.12"
+   ],
+   [
+    "04/22/2024",
+    "0.128"
+   ],
+   [
+    "05/20/2024",
+    "0.135"
+   ],
+   [
+    "06/24/2024",
+    "0.131"
+   ],
+   [
+    "07/22/2024",
+    "0.136"
+   ],
+   [
+    "08/19/2024",
+    "0.129"
+   ],
+   [
+    "09/23/2024",
+    "0.118"
+   ],
+   [
+    "10/21/2024",
+    "0.135"
+   ],
+   [
+    "11/18/2024",
+    "0.136"
+   ],
+   [
+    "12/23/2024",
+    "0.131"
+   ],
+   [
+    "01/21/2025",
+    "0.124"
+   ],
+   [
+    "02/24/2025",
+    "0.118"
+   ],
+   [
+    "03/24/2025",
+    "0.117"
+   ],
+   [
+    "04/21/2025",
+    "0.117"
+   ],
+   [
+    "05/19/2025",
+    "0.126"
+   ],
+   [
+    "06/23/2025",
+    "0.124"
+   ],
+   [
+    "07/21/2025",
+    "0.124"
+   ],
+   [
+    "08/18/2025",
+    "0.117"
+   ],
+   [
+    "09/22/2025",
+    "0.117"
+   ],
+   [
+    "10/20/2025",
+    "0.113"
+   ],
+   [
+    "11/24/2025",
+    "0.112"
+   ],
+   [
+    "12/22/2025",
+    "0.118"
+   ],
+   [
+    "01/20/2026",
+    "0.111"
+   ],
+   [
+    "02/23/2026",
+    "0.106"
+   ],
+   [
+    "03/23/2026",
+    "0.105"
+   ],
+   [
+    "04/20/2026",
+    "0.108"
+   ],
+   [
+    "05/18/2026",
+    "0.112"
+   ],
+   [
+    "06/22/2026",
+    "0.109"
+   ],
+   [
+    "07/20/2026",
+    "0.109"
+   ],
+   [
+    "08/24/2026",
+    "0.109"
+   ]
+  ]
  },
  "holdings": {
   "pages": [
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOfDate": null,
-  "asOf": "—",
-  "source": "invesco.com per-fund holdings download"
+  "totalRows": 195,
+  "asOfDate": "2026-05-31",
+  "asOf": "May 31 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001657201-26-000559, report period 2026-05-31)"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "—",
-  "source": "previous run"
+  "totalRows": 1494,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

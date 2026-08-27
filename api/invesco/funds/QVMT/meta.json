@@ -1,0 +1,266 @@
+{
+ "ticker": "QVMT",
+ "name": "Invesco S&P 500 Concentrated QVM ETF",
+ "category": "ETF",
+ "categoryPath": "ETF",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=QVMT",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=QVMT",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=QVMT",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/QVMT?period1=0&period2=1787874565&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001348, report period 2026-05-31)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
+ },
+ "expenseRatio": {
+  "display": "—",
+  "value": null
+ },
+ "nav": {
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
+ },
+ "marketPrice": {
+  "display": "$65.82",
+  "value": 65.8159,
+  "asOfDate": "Aug 27 2026"
+ },
+ "premiumDiscount": {
+  "display": "—",
+  "value": null
+ },
+ "aum": {
+  "display": "$134.93 M",
+  "value": 134925832.45,
+  "asOfDate": "May 31 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-05-31)"
+ },
+ "yields": {
+  "dividendYield": 1.12,
+  "dividendYieldText": "1.12%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
+ },
+ "returns": {
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
+  "monthEnd": {
+   "asOfDate": "Aug 27 2026",
+   "mo1": 0.42,
+   "mo1Text": "0.42%",
+   "qtd": -3.59,
+   "qtdText": "-3.59%",
+   "ytd": 16.25,
+   "ytdText": "16.25%",
+   "yr1": 23.49,
+   "yr1Text": "23.49%",
+   "yr3": 20.53,
+   "yr3Text": "20.53%",
+   "yr5": 11.81,
+   "yr5Text": "11.81%",
+   "yr10": 12.54,
+   "yr10Text": "12.54%",
+   "sinceInception": 11.69,
+   "sinceInceptionText": "11.69%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "12/18/2015",
+    "0.139"
+   ],
+   [
+    "06/17/2016",
+    "0.16"
+   ],
+   [
+    "12/16/2016",
+    "0.12"
+   ],
+   [
+    "03/17/2017",
+    "0.045"
+   ],
+   [
+    "06/16/2017",
+    "0.054"
+   ],
+   [
+    "09/18/2017",
+    "0.149"
+   ],
+   [
+    "12/18/2017",
+    "0.575"
+   ],
+   [
+    "03/19/2018",
+    "0.153"
+   ],
+   [
+    "06/18/2018",
+    "0.164"
+   ],
+   [
+    "09/24/2018",
+    "0.214"
+   ],
+   [
+    "12/24/2018",
+    "0.23"
+   ],
+   [
+    "03/18/2019",
+    "0.189"
+   ],
+   [
+    "06/24/2019",
+    "0.192"
+   ],
+   [
+    "09/23/2019",
+    "0.245"
+   ],
+   [
+    "12/23/2019",
+    "0.236"
+   ],
+   [
+    "03/23/2020",
+    "0.246"
+   ],
+   [
+    "06/22/2020",
+    "0.219"
+   ],
+   [
+    "12/21/2020",
+    "0.214"
+   ],
+   [
+    "03/22/2021",
+    "0.247"
+   ],
+   [
+    "06/21/2021",
+    "0.201"
+   ],
+   [
+    "12/20/2021",
+    "0.313"
+   ],
+   [
+    "03/21/2022",
+    "0.234"
+   ],
+   [
+    "06/21/2022",
+    "0.266"
+   ],
+   [
+    "09/19/2022",
+    "0.272"
+   ],
+   [
+    "12/19/2022",
+    "0.247"
+   ],
+   [
+    "03/20/2023",
+    "0.372"
+   ],
+   [
+    "06/20/2023",
+    "0.258"
+   ],
+   [
+    "09/18/2023",
+    "0.359"
+   ],
+   [
+    "12/18/2023",
+    "0.357"
+   ],
+   [
+    "03/18/2024",
+    "0.326"
+   ],
+   [
+    "06/24/2024",
+    "0.307"
+   ],
+   [
+    "09/23/2024",
+    "0.354"
+   ],
+   [
+    "12/23/2024",
+    "0.347"
+   ],
+   [
+    "03/24/2025",
+    "0.354"
+   ],
+   [
+    "06/23/2025",
+    "0.316"
+   ],
+   [
+    "09/22/2025",
+    "0.36"
+   ],
+   [
+    "12/22/2025",
+    "0.354"
+   ],
+   [
+    "03/23/2026",
+    "0.337"
+   ],
+   [
+    "06/22/2026",
+    "0.184"
+   ]
+  ]
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 101,
+  "asOfDate": "2026-05-31",
+  "asOf": "May 31 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001348, report period 2026-05-31)"
+ },
+ "history": {
+  "pages": [
+   "history/001.json",
+   "history/002.json",
+   "history/003.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 2736,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
+ }
+}
