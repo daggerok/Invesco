@@ -75,6 +75,11 @@ const YAHOO_BROWSER_UA =
 const SEC_DATA_HOST = 'https://data.sec.gov';
 const SEC_EFTS_HOST = 'https://efts.sec.gov/LATEST';
 const EDGAR_ARCHIVES = 'https://www.sec.gov/Archives/edgar/data';
+const EDGAR_BROWSE_URL = 'https://www.sec.gov/cgi-bin/browse-edgar';
+// Official SEC lookup tables (public, no key): ETF/mutual-fund ticker ->
+// registrant CIK + series/class id, and operating-company ticker -> name.
+const SEC_FUND_TICKERS_URL = 'https://www.sec.gov/files/company_tickers_mf.json';
+const SEC_COMPANY_TICKERS_URL = 'https://www.sec.gov/files/company_tickers.json';
 const SEC_UA_DEFAULT = 'DaggerOk Invesco Feed admin@daggerok.example.com';
 
 const API_ROOT = new URL('../api/invesco/', import.meta.url);
@@ -368,7 +373,7 @@ function configLines(config: UpdaterConfig): string[] {
   return [
     `CONCURRENCY         ${config.concurrency}`,
     `REQUEST_SLEEP       ${config.requestSleep} s between outgoing request starts`,
-    `MAX_FETCHES         ${config.maxFetches === 0 ? 'all eligible funds' : `${config.maxFetches} per run (resumes after the saved cursor)`}`,
+    `MAX_FETCHES         ${config.maxFetches === 0 ? 'all eligible funds (full pass, cursor ignored)' : `${config.maxFetches} per run (resumes after the saved cursor)`}`,
     `HOLDINGS_PAGE_SIZE  ${config.holdingsPageSize}`,
     `HISTORY_PAGE_SIZE   ${config.historyPageSize}`,
     `STORE_RAW_DOWNLOADS ${config.storeRawDownloads ? 'on' : 'off'}`,
@@ -398,7 +403,10 @@ Invesco ETF static data updater (Bun, no dependencies).
 Environment variables (all optional; strict "min:max" ranges; AND logic):
 
   MAX_FETCHES          Batch size: continue after the ticker cursor saved in
-                       api/invesco/update-state.json. Empty or 0 means all.
+                       api/invesco/update-state.json. Empty or 0 (the default)
+                       means a full pass: every Invesco ETF in the catalog is
+                       refreshed in one run, starting from the first ticker,
+                       and the cursor is reset when it finishes.
                        Legacy alias: INVESCO_LIMIT.
   REQUEST_SLEEP        Minimum seconds between outgoing request starts,
                        including retries (default 1). invesco.com and the SEC
@@ -1103,6 +1111,87 @@ export function parseNportAccessions(submissions: JsonRecord): NportAccession[] 
   return result;
 }
 
+// EDGAR publishes the authoritative "ticker -> registrant CIK + series id"
+// table for every ETF and mutual fund class; it is the reliable way to reach a
+// fund's own N-PORT-P filing (the full-text search is only a last resort).
+export type SecSeriesRef = { cik: string; seriesId: string; classId: string };
+
+export function parseFundTickerMap(payload: JsonRecord): Map<string, SecSeriesRef> {
+  const map = new Map<string, SecSeriesRef>();
+  const fields: string[] = Array.isArray(payload?.fields) ? payload.fields.map((field: unknown) => String(field)) : [];
+  const rows: unknown[] = Array.isArray(payload?.data) ? payload.data : [];
+  const at = (row: unknown[], field: string): string => {
+    const index = fields.indexOf(field);
+    return index >= 0 ? String(row[index] ?? '') : '';
+  };
+  for (const raw of rows) {
+    if (!Array.isArray(raw)) continue;
+    const ticker = sanitizeTicker(at(raw, 'symbol'));
+    if (!ticker || map.has(ticker)) continue;
+    const cik = at(raw, 'cik').replace(/\D/g, '');
+    if (!cik || Number(cik) === 0) continue;
+    map.set(ticker, {
+      cik: cik.padStart(10, '0'),
+      seriesId: at(raw, 'seriesId').toUpperCase(),
+      classId: at(raw, 'classId').toUpperCase(),
+    });
+  }
+  return map;
+}
+
+// Operating-company name -> exchange ticker, so N-PORT positions (which carry
+// CUSIP/ISIN but never a ticker) still land in the watchlist with a symbol.
+export function parseCompanyTickerMap(payload: JsonRecord): Map<string, string> {
+  const map = new Map<string, string>();
+  const rows = payload && typeof payload === 'object' ? Object.values(payload as JsonRecord) : [];
+  for (const raw of rows) {
+    if (!raw || typeof raw !== 'object') continue;
+    const record = raw as JsonRecord;
+    const ticker = cleanHoldingTicker(record.ticker);
+    const title = String(record.title ?? '');
+    if (!ticker || !title) continue;
+    for (const key of [normalizeHoldingName(title), normalizeHoldingNameCore(title)]) {
+      if (key && !map.has(key)) map.set(key, ticker);
+    }
+  }
+  return map;
+}
+
+export function edgarSeriesFilingsUrl(seriesId: string, count = 10): string {
+  const params = new URLSearchParams({
+    action: 'getcompany',
+    CIK: String(seriesId || '').toUpperCase(),
+    type: 'NPORT-P',
+    dateb: '',
+    owner: 'include',
+    count: String(count),
+    output: 'atom',
+  });
+  return `${EDGAR_BROWSE_URL}?${params.toString()}`;
+}
+
+// browse-edgar's Atom feed for one series: the newest N-PORT-P accessions of
+// exactly that fund, newest first.
+export function parseEdgarAtomFilings(xml: string): NportAccession[] {
+  const result: NportAccession[] = [];
+  for (const entry of String(xml || '').matchAll(/<entry>([\s\S]*?)<\/entry>/gi)) {
+    const body = entry[1];
+    const form = tagValue(body, 'filing-type') || tagValue(body, 'type');
+    if (form && form.toUpperCase() !== 'NPORT-P') continue;
+    const accession = tagValue(body, 'accession-number') || tagValue(body, 'accession-nunber');
+    if (!accession) continue;
+    const hrefMatch = /<filing-href>([\s\S]*?)<\/filing-href>/i.exec(body);
+    const cikMatch = hrefMatch ? /\/edgar\/data\/(\d+)\//.exec(cleanText(hrefMatch[1])) : null;
+    result.push({
+      accession,
+      filed: tagValue(body, 'filing-date'),
+      reportDate: tagValue(body, 'period') || '',
+      url: nportUrlFor(cikMatch ? cikMatch[1] : accession.slice(0, 10), accession),
+    });
+  }
+  return result;
+}
+
 function tagValue(xml: string, tag: string): string {
   const match = new RegExp(`<${tag}>([\\s\\S]*?)</${tag}>`, 'i').exec(xml);
   return match ? cleanText(match[1]) : '';
@@ -1118,6 +1207,7 @@ export type ParsedNport = {
   repPdDate: string;
   holdings: NportHolding[];
   totalValue: number;
+  netAssets: number | null;
 };
 
 // Minimal, forgiving N-PORT-P XML reader (machine-generated schemas only),
@@ -1125,6 +1215,8 @@ export type ParsedNport = {
 export function parseNport(xml: string): ParsedNport {
   const genInfoMatch = /<genInfo>([\s\S]*?)<\/genInfo>/i.exec(xml);
   const genInfo = genInfoMatch ? genInfoMatch[1] : String(xml || '').slice(0, 4000);
+  const fundInfoMatch = /<fundInfo>([\s\S]*?)<\/fundInfo>/i.exec(xml);
+  const fundInfo = fundInfoMatch ? fundInfoMatch[1] : '';
   const holdings: NportHolding[] = [];
   const blockRe = /<invstOrSec>([\s\S]*?)<\/invstOrSec>/g;
   let block: RegExpExecArray | null;
@@ -1164,6 +1256,7 @@ export function parseNport(xml: string): ParsedNport {
     repPdDate: toIsoDate(tagValue(genInfo, 'repPdDate')),
     holdings,
     totalValue,
+    netAssets: numberOrNull(normalizeNumberText(tagValue(fundInfo, 'netAssets'))),
   };
 }
 
@@ -1182,15 +1275,33 @@ export function eftsSearchUrl(query: string): string {
 }
 
 export function pickEftsCik(payload: JsonRecord, fundName: string): string | null {
-  const hits = Array.isArray(payload?.hits) ? payload.hits : [];
+  // EDGAR returns { hits: { hits: [...] } }; older/simplified payloads (and the
+  // unit-test fixtures) use a flat { hits: [...] } array.
+  const hits: unknown[] = Array.isArray(payload?.hits)
+    ? (payload.hits as unknown[])
+    : Array.isArray((payload?.hits as JsonRecord)?.hits)
+      ? ((payload.hits as JsonRecord).hits as unknown[])
+      : [];
   const wanted = normalizeHoldingName(fundName);
-  for (const hit of hits) {
-    const cik = String(hit?._source?.display_names?.cik || '').padStart(10, '0');
+  for (const raw of hits) {
+    if (!raw || typeof raw !== 'object') continue;
+    const hit = raw as JsonRecord;
+    const source = (hit._source || {}) as JsonRecord;
+    const display = source.display_names;
+    // Real payload: display_names is ["NAME  (CIK 0001209466)", ...].
+    const names: string[] = Array.isArray(display)
+      ? display.map((entry: unknown) => String(entry))
+      : Array.isArray((display as JsonRecord)?.names)
+        ? ((display as JsonRecord).names as unknown[]).map((entry) => String(entry))
+        : [];
+    const fromDisplay = names.map((name) => /\(CIK\s*(\d{4,10})\)/i.exec(name)).find(Boolean);
+    const ciks: string[] = Array.isArray(source.ciks) ? source.ciks.map((entry: unknown) => String(entry)) : [];
+    const rawCik = String((display as JsonRecord)?.cik || fromDisplay?.[1] || ciks[0] || '');
+    const cik = rawCik.replace(/\D/g, '').padStart(10, '0');
     if (!cik || cik === '0000000000') continue;
-    const names: string[] = hit?._source?.display_names?.names || [];
     if (wanted && names.length) {
       const matched = names.some((name) => {
-        const normalized = normalizeHoldingName(name);
+        const normalized = normalizeHoldingName(name.replace(/\(CIK\s*\d+\)/i, ''));
         return normalized && (wanted.includes(normalized) || normalized.includes(wanted));
       });
       if (!matched) continue;
@@ -1742,18 +1853,26 @@ async function processFund(
 
   if (!holdings && config.edgarFallback) {
     try {
-      const cik = await resolveRegistrantCik(fund, config);
-      if (cik) {
-        const submissions = await fetchJson(`${SEC_DATA_HOST}/submissions/CIK${cik}.json`, `[edgar   ] ${cik} submissions`, secHeaders(config), config);
-        const [newest] = parseNportAccessions(submissions);
-        if (newest) {
-          holdingsEdgar = parseNport(await fetchText(newest.url, `[nport   ] ${ticker}`, secHeaders(config), config));
+      const filing = await resolveNportFiling(fund, config);
+      if (filing) {
+        const parsed = parseNport(await fetchText(filing.accession.url, `[nport   ] ${ticker}`, secHeaders(config), config));
+        // A registrant files one N-PORT-P per series: only accept the document
+        // that really belongs to this fund, never the trust's newest filing.
+        const filedSeries = normalizeHoldingName(parsed.seriesName);
+        const wantedSeries = normalizeHoldingName(fund.name);
+        const belongsToFund = filing.seriesId
+          ? !parsed.seriesId || parsed.seriesId.toUpperCase() === filing.seriesId.toUpperCase()
+          : Boolean(filedSeries && wantedSeries && (filedSeries === wantedSeries || filedSeries.includes(wantedSeries) || wantedSeries.includes(filedSeries)));
+        if (!belongsToFund) {
+          console.warn(`[edgar   ] ${ticker}: ${filing.accession.accession} reports "${parsed.seriesName || 'unknown series'}" — skipped`);
+        } else if (parsed.holdings.length) {
+          holdingsEdgar = parsed;
           holdings = {
-            asOfDate: holdingsEdgar.repPdDate || null,
+            asOfDate: parsed.repPdDate || null,
             headers: HOLDINGS_HEADERS,
-            rows: holdingsEdgar.holdings,
+            rows: fillNportTickers(parsed.holdings, await loadCompanyTickerMap(config)),
           };
-          holdingsSource = `SEC EDGAR Form N-PORT-P (accession ${newest.accession}, report period ${holdingsEdgar.repPdDate || 'n/a'})`;
+          holdingsSource = `SEC EDGAR Form N-PORT-P (accession ${filing.accession.accession}, report period ${parsed.repPdDate || 'n/a'})`;
         }
       }
     } catch (error) {
@@ -1837,13 +1956,22 @@ async function processFund(
   const historyManifest = await writePages(fundDir, ticker, 'history', historyHeaders, history, config.historyPageSize);
   const distributions = dividends.length ? distributionRows(dividends) : (((previous.distributions?.rows as JsonRecord[]) || []) as string[][]);
 
-  const name = fund.name || (String(previous.name ?? '') || ticker);
+  // Without a fresh invesco.com catalog the filed N-PORT-P series name is the
+  // most authoritative fund name available.
+  const name =
+    (fund.source !== 'invesco' && holdingsEdgar?.seriesName) || fund.name || String(previous.name ?? '') || ticker;
   const nav = fund.nav ?? navFromChart;
   const price = fund.close ?? priceFromChart;
   const premiumDiscount =
     fund.premiumDiscount ?? (nav && price ? round(((price - nav) / nav) * 100, 2) : null);
-  const netAssets =
-    fund.netAssets ?? (holdingsEdgar && holdingsEdgar.totalValue ? round(holdingsEdgar.totalValue, 2) : numberOrNull(previous.aumValue));
+  // Fresh invesco.com "Fund Assets" wins; when the catalog row only comes from
+  // the previously published index (invesco.com unavailable), the N-PORT-P net
+  // assets of the filing we just parsed are the authoritative number.
+  const nportNetAssets = holdingsEdgar
+    ? holdingsEdgar.netAssets ?? (holdingsEdgar.totalValue ? round(holdingsEdgar.totalValue, 2) : null)
+    : null;
+  const catalogNetAssets = fund.source === 'invesco' ? fund.netAssets : null;
+  const netAssets = catalogNetAssets ?? nportNetAssets ?? fund.netAssets ?? numberOrNull(previous.aumValue);
   const returnsData = returnsBlock(derived, fund.returns, fund.asOfDate, previous);
   const asOfLabel = fund.asOfDate ? formatEdgarDate(fund.asOfDate) : marketTime ? formatEpochDate(marketTime) : '—';
 
@@ -1869,8 +1997,17 @@ async function processFund(
     aum: {
       display: netAssets === null ? '—' : formatAumDisplay(netAssets),
       value: netAssets,
-      asOfDate: fund.asOfDate ? formatEdgarDate(fund.asOfDate) : (((previous.aum as JsonRecord)?.asOfDate as string) ?? '—'),
-      source: fund.netAssets !== null ? 'Invesco product list "Fund Assets" column' : 'previous run / N-PORT position sum',
+      asOfDate: fund.asOfDate && catalogNetAssets !== null
+        ? formatEdgarDate(fund.asOfDate)
+        : nportNetAssets !== null && holdingsEdgar?.repPdDate
+          ? formatEdgarDate(holdingsEdgar.repPdDate)
+          : (((previous.aum as JsonRecord)?.asOfDate as string) ?? '—'),
+      source:
+        catalogNetAssets !== null
+          ? 'Invesco product list "Fund Assets" column'
+          : nportNetAssets !== null
+            ? `SEC Form N-PORT-P net assets (report period ${holdingsEdgar?.repPdDate || 'n/a'})`
+            : 'previous run',
     },
     yields: {
       dividendYield: metrics.dividendYield,
@@ -1914,7 +2051,11 @@ async function processFund(
     aum: netAssets === null ? '—' : formatAumDisplay(netAssets),
     aumValue: netAssets,
     asOfDate: fund.asOfDate ? formatEdgarDate(fund.asOfDate) : (previous.asOfDate || '—'),
-    inceptionDate: fund.inception ? formatEdgarDate(fund.inception) : (previous.inceptionDate || '—'),
+    inceptionDate: fund.inception
+      ? formatEdgarDate(fund.inception)
+      : firstTradeDate
+        ? formatEpochDate(firstTradeDate)
+        : (previous.inceptionDate || '—'),
     exchange: fund.exchange || exchangeName || (previous.exchange || ''),
     closePrice: price === null ? '—' : `$${price.toFixed(2)}`,
     closePriceValue: price,
@@ -1933,17 +2074,62 @@ async function processFund(
 }
 
 // The Invesco ETF registrant CIK for a fund, needed only by the EDGAR
-// fallback: the seed may pin it, otherwise it is discovered through the EDGAR
-// full-text search API (cached per run).
+// fallback: the seed may pin it, otherwise it is read from the official SEC
+// "ticker -> registrant CIK + series id" table and, as a last resort,
+// discovered through the EDGAR full-text search API (cached per run).
 const cikByTicker = new Map<string, string | null>();
+
+// Lazily fetched, cached-per-run SEC lookup tables.
+let fundTickerMap: Map<string, SecSeriesRef> | null = null;
+let companyTickerMap: Map<string, string> | null = null;
+
+async function loadFundTickerMap(config: UpdaterConfig): Promise<Map<string, SecSeriesRef>> {
+  if (fundTickerMap) return fundTickerMap;
+  try {
+    const payload = await fetchJson(SEC_FUND_TICKERS_URL, '[edgar   ] fund ticker table', secHeaders(config), config);
+    fundTickerMap = parseFundTickerMap(payload);
+    console.log(`[edgar   ] SEC fund ticker table: ${fundTickerMap.size} ETF / mutual-fund share classes`);
+  } catch (error) {
+    console.warn(`[edgar   ] fund ticker table: ${errorMessage(error)} — falling back to full-text search`);
+    fundTickerMap = new Map<string, SecSeriesRef>();
+  }
+  return fundTickerMap;
+}
+
+async function loadCompanyTickerMap(config: UpdaterConfig): Promise<Map<string, string>> {
+  if (companyTickerMap) return companyTickerMap;
+  try {
+    const payload = await fetchJson(SEC_COMPANY_TICKERS_URL, '[edgar   ] company ticker table', secHeaders(config), config);
+    companyTickerMap = parseCompanyTickerMap(payload);
+    console.log(`[edgar   ] SEC company ticker table: ${companyTickerMap.size} issuer names`);
+  } catch (error) {
+    console.warn(`[edgar   ] company ticker table: ${errorMessage(error)} — N-PORT tickers stay "-"`);
+    companyTickerMap = new Map<string, string>();
+  }
+  return companyTickerMap;
+}
+
+// N-PORT positions carry CUSIP/ISIN but never a ticker; the SEC company table
+// turns the filed issuer name back into an exchange symbol so the watchlist
+// export stays usable, exactly like the sibling Fidelity updater.
+function fillNportTickers(rows: NportHolding[], names: Map<string, string>): NportHolding[] {
+  if (!names.size) return rows;
+  return rows.map((row) => {
+    if (cleanHoldingTicker(row.Ticker)) return row;
+    const name = String(row.Name ?? '');
+    const ticker = names.get(normalizeHoldingName(name)) || names.get(normalizeHoldingNameCore(name)) || '';
+    return ticker ? { ...row, Ticker: ticker } : row;
+  });
+}
 
 async function resolveRegistrantCik(fund: CatalogFund, config: UpdaterConfig): Promise<string | null> {
   if (cikByTicker.has(fund.ticker)) return cikByTicker.get(fund.ticker) as string | null;
-  let cik: string | null = null;
-  const pinned = fund.trustCik || null;
-  if (pinned) {
-    cik = pinned;
-  } else {
+  let cik: string | null = fund.trustCik || null;
+  if (!cik) {
+    const table = await loadFundTickerMap(config);
+    cik = table.get(fund.ticker)?.cik || null;
+  }
+  if (!cik) {
     try {
       const payload = await fetchJson(eftsSearchUrl(fund.ticker), `[edgar   ] search ${fund.ticker}`, secHeaders(config), config);
       cik = pickEftsCik(payload, fund.name);
@@ -1953,6 +2139,36 @@ async function resolveRegistrantCik(fund: CatalogFund, config: UpdaterConfig): P
   }
   cikByTicker.set(fund.ticker, cik);
   return cik;
+}
+
+// The fund's own newest N-PORT-P filing. The SEC series id gives an exact,
+// one-request answer (browse-edgar Atom, filtered to that series); scanning the
+// whole registrant's submissions is the fallback when the series is unknown.
+async function resolveNportFiling(
+  fund: CatalogFund,
+  config: UpdaterConfig,
+): Promise<{ accession: NportAccession; cik: string; seriesId: string } | null> {
+  const table = await loadFundTickerMap(config);
+  const ref = table.get(fund.ticker) || null;
+  if (ref?.seriesId) {
+    try {
+      const atom = await fetchText(edgarSeriesFilingsUrl(ref.seriesId), `[edgar   ] ${fund.ticker} series ${ref.seriesId}`, secHeaders(config), config);
+      const [newest] = parseEdgarAtomFilings(atom);
+      if (newest) return { accession: newest, cik: ref.cik, seriesId: ref.seriesId };
+    } catch (error) {
+      console.warn(`[edgar   ] ${fund.ticker} series ${ref.seriesId}: ${errorMessage(error)} — scanning registrant submissions`);
+    }
+  }
+  const cik = ref?.cik || (await resolveRegistrantCik(fund, config));
+  if (!cik) return null;
+  try {
+    const submissions = await fetchJson(`${SEC_DATA_HOST}/submissions/CIK${cik}.json`, `[edgar   ] ${cik} submissions`, secHeaders(config), config);
+    const [newest] = parseNportAccessions(submissions);
+    if (newest) return { accession: newest, cik, seriesId: ref?.seriesId || '' };
+  } catch (error) {
+    console.warn(`[edgar   ] ${fund.ticker}: ${errorMessage(error)}`);
+  }
+  return null;
 }
 
 // ---------------------------------------------------------------------------
@@ -2007,6 +2223,28 @@ async function main(): Promise<void> {
   }
 
 
+  // When invesco.com is unreachable the SEC registrant tables still list every
+  // share class of the Invesco ETF trusts, so a no-argument full pass keeps
+  // covering the complete product line instead of only the published feed.
+  if (catalogSource !== 'invesco.com ETF product list download' && config.edgarFallback) {
+    const table = await loadFundTickerMap(config);
+    const registrantCiks = new Set<string>();
+    for (const ticker of catalog.keys()) {
+      const ref = table.get(ticker);
+      if (ref) registrantCiks.add(ref.cik);
+    }
+    let discovered = 0;
+    for (const [ticker, ref] of table) {
+      if (!registrantCiks.has(ref.cik) || catalog.has(ticker)) continue;
+      catalog.set(ticker, { ...catalogFundFromIndex(ticker, {}), source: 'seed' });
+      discovered += 1;
+    }
+    if (discovered) {
+      console.log(`[catalog ] +${discovered} funds discovered through the SEC registrant tables`);
+      catalogSource = `${catalogSource} + SEC registrant tables`;
+    }
+  }
+
   const universe = [...catalog.values()].sort((a, b) => (a.ticker < b.ticker ? -1 : a.ticker > b.ticker ? 1 : 0));
   if (!universe.length) {
     console.log(
@@ -2020,7 +2258,11 @@ async function main(): Promise<void> {
 
   // 2) Bounded, resumable batch run over the catalog (iShares/SPDR cursor).
   const state = await readUpdateState();
-  const cursor = state?.cursor || null;
+  // A plain `bun ./scripts/update-data.ts` (no MAX_FETCHES) always walks the
+  // whole catalog from the top and clears the cursor afterwards; the saved
+  // cursor only rotates the queue for explicitly bounded batch runs, exactly
+  // like the sibling SPDR / iShares updaters.
+  const cursor = config.maxFetches > 0 ? state?.cursor || null : null;
   const cursorIndex = cursor ? universe.findIndex((fund) => fund.ticker === cursor) : -1;
   const ordered =
     cursorIndex >= 0
@@ -2089,12 +2331,15 @@ async function main(): Promise<void> {
 
 
 
-  await writeUpdateState(lastProcessedTicker);
+  // Full passes reset the cursor: the next run starts from the top again.
+  await writeUpdateState(config.maxFetches > 0 ? lastProcessedTicker : null);
 
   console.log('');
   console.log(`[done    ] ${results.length} funds updated, ${keptFromPrevious.length} kept from previous runs, ${failures} failures`);
   console.log(`[done    ] counts: ${counts.funds} funds / ${counts.holdings.toLocaleString('en-US')} holdings rows / ${counts.history.toLocaleString('en-US')} history rows`);
-  console.log(`[cursor  ] ${lastProcessedTicker ? `next run continues after ${lastProcessedTicker}` : 'full pass complete (cursor reset)'}`);
+  console.log(
+    `[cursor  ] ${config.maxFetches > 0 && lastProcessedTicker ? `next run continues after ${lastProcessedTicker}` : 'full pass complete (cursor reset)'}`,
+  );
 
   if (process.env.GITHUB_STEP_SUMMARY) {
     await appendFile(
