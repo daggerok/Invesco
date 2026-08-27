@@ -1,0 +1,118 @@
+{
+ "ticker": "QQMG",
+ "name": "Invesco ESG NASDAQ 100 ETF",
+ "category": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/qqmg.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=QQMG",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=QQMG",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=QQMG",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138G540",
+  "isin": "US46138G5403"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$79.30",
+  "value": 79.3,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$79.14",
+  "value": 79.14,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.20%",
+  "value": -0.2
+ },
+ "aum": {
+  "display": "$5.93 B",
+  "value": 5930000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 19.3,
+   "ytdText": "19.30%",
+   "yr1": 31.3,
+   "yr1Text": "31.30%",
+   "yr3": 26.3,
+   "yr3Text": "26.30%",
+   "yr5": 6.3,
+   "yr5Text": "6.30%",
+   "yr10": 17.3,
+   "yr10Text": "17.30%",
+   "sinceInception": 13.3,
+   "sinceInceptionText": "13.30%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.39570"
+   ],
+   [
+    "03/23/2026",
+    "0.37987"
+   ],
+   [
+    "12/22/2025",
+    "0.40361"
+   ],
+   [
+    "09/22/2025",
+    "0.35613"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 4.6,
+  "dividendYieldText": "4.60%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "QQMG",
+  "name": "Invesco ESG NASDAQ 100 ETF",
+  "category": "US Equity",
+  "inception": "2021-10-27",
+  "exchange": "Nasdaq",
+  "ter": 0.35,
+  "cusip": "46138G540",
+  "isin": "US46138G5403"
+ }
+}

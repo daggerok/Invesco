@@ -1,0 +1,118 @@
+{
+ "ticker": "PFIG",
+ "name": "Invesco Fundamental Investment Grade Corporate Bond ETF",
+ "category": "Fixed Income",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pfig.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PFIG",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PFIG",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PFIG",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138E693",
+  "isin": "US46138E6932"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$152.61",
+  "value": 152.61,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$152.46",
+  "value": 152.46,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.10%",
+  "value": -0.1
+ },
+ "aum": {
+  "display": "$38.26 B",
+  "value": 38261000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 2.61,
+   "ytdText": "2.61%",
+   "yr1": 14.61,
+   "yr1Text": "14.61%",
+   "yr3": 9.61,
+   "yr3Text": "9.61%",
+   "yr5": 4.61,
+   "yr5Text": "4.61%",
+   "yr10": 20.61,
+   "yr10Text": "20.61%",
+   "sinceInception": 11.61,
+   "sinceInceptionText": "11.61%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.76230"
+   ],
+   [
+    "03/23/2026",
+    "0.73181"
+   ],
+   [
+    "12/22/2025",
+    "0.77755"
+   ],
+   [
+    "09/22/2025",
+    "0.68607"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 2.91,
+  "dividendYieldText": "2.91%",
+  "secYield": 2.11,
+  "secYieldText": "2.11%"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "PFIG",
+  "name": "Invesco Fundamental Investment Grade Corporate Bond ETF",
+  "category": "Fixed Income",
+  "inception": "2011-09-15",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46138E693",
+  "isin": "US46138E6932"
+ }
+}

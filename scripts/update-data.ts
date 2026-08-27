@@ -10,11 +10,11 @@
 // only: node:fs/promises + fetch).
 //
 // Data sources
-//   - catalog + fund metrics  : investco.com "Excel Product List Download"
+//   - catalog + fund metrics  : invesco.com "Excel Product List Download"
 //     CSV (every active US Invesco ETF: ticker, name, inception, CUSIP/ISIN,
 //     exchange, category, TER, net assets, NAV, close, premium/discount,
 //     trailing-12m dividend yield, 30-day SEC yield, official returns)
-//   - per-fund daily holdings : investco.com per-fund "download holdings" CSV
+//   - per-fund daily holdings : invesco.com per-fund "download holdings" CSV
 //     (equity, bond and futures column flavours are normalized)
 //   - history + distributions : Yahoo Finance public chart API
 //   - holdings fallback       : SEC EDGAR Form N-PORT-P filings of the
@@ -24,7 +24,7 @@
 // Usage: bun ./scripts/update-data.ts   (or ./scripts/update-data.ts --help)
 
 import { mkdir, readFile, writeFile, readdir, rm, appendFile } from 'node:fs/promises';
-import { investcoHoldingsDownloadUrl, investcoPricesDownloadUrl, investcoProductDetailUrl, investcoProductListUrl, INVESCO_FUNDS } from './invesco-funds';
+import { invescoHoldingsDownloadUrl, invescoPricesDownloadUrl, invescoProductDetailUrl, invescoProductListUrl, INVESCO_FUNDS } from './invesco-funds';
 
 // ---------------------------------------------------------------------------
 // Constants and small helpers
@@ -34,7 +34,7 @@ type JsonRecord = Record<string, any>;
 
 const INVESCO_SITE = 'https://www.invesco.com';
 const INVESCO_CATALOG_PAGE = `${INVESCO_SITE}/us/en/financial-products/etfs.html`;
-const INVESCO_PRODUCT_LIST_URL = investcoProductListUrl();
+const INVESCO_PRODUCT_LIST_URL = invescoProductListUrl();
 
 const YAHOO_CHART_URL = 'https://query1.finance.yahoo.com/v8/finance/chart';
 const YAHOO_SEARCH_URL = 'https://query1.finance.yahoo.com/v1/finance/search';
@@ -153,7 +153,7 @@ export function toIsoDate(raw: unknown): string {
   return text;
 }
 
-// "2026-08-21" -> "08/21/2026" (how investco.com renders dates in its CSVs).
+// "2026-08-21" -> "08/21/2026" (how invesco.com renders dates in its CSVs).
 export function formatInvescoDate(raw: unknown): string {
   const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(toIsoDate(raw));
   if (!match) return String(raw ?? '');
@@ -344,7 +344,7 @@ function configLines(config: UpdaterConfig): string[] {
     `MAX_RETRIES         ${config.maxRetries}`,
     `TICKERS             ${config.tickers.length ? config.tickers.join(' ') : 'all Invesco ETFs in the catalog'}`,
     `HISTORY_RANGE       ${config.historyRange} (Yahoo chart range)`,
-    `AUDIENCE_TYPE       ${config.audienceType} (investco.com audienceType parameter)`,
+    `AUDIENCE_TYPE       ${config.audienceType} (invesco.com audienceType parameter)`,
     `AUM                 ${rangeLabel(config.aumRange)}`,
     `TER                 ${rangeLabel(config.terRange)}`,
     `DIVIDEND_YIELD      ${rangeLabel(config.dividendYieldRange)}`,
@@ -361,7 +361,7 @@ function configLines(config: UpdaterConfig): string[] {
 const USAGE = `
 Invesco ETF static data updater (Bun, no dependencies).
 
-  bun ./scripts/update-data.ts            update ./api/invesco from investco.com + Yahoo
+  bun ./scripts/update-data.ts            update ./api/invesco from invesco.com + Yahoo
   ./scripts/update-data.ts --backfill-tickers
                                           offline: stamp real exchange tickers from
                                           scripts/held-tickers.ts into already
@@ -374,7 +374,7 @@ Environment variables (all optional; strict "min:max" ranges; AND logic):
                        api/invesco/update-state.json. Empty or 0 means all.
                        Legacy alias: INVESCO_LIMIT.
   REQUEST_SLEEP        Minimum seconds between outgoing request starts,
-                       including retries (default 1). investco.com and the SEC
+                       including retries (default 1). invesco.com and the SEC
                        both throttle bursty clients; the SEC allows at most 10
                        requests per second, Yahoo throttles hard, keep >= 1.
   CONCURRENCY          Parallel fund workers (default 2). Starts are still
@@ -399,12 +399,12 @@ Environment variables (all optional; strict "min:max" ranges; AND logic):
                        api/invesco/raw (1/true/yes/on).
                        Legacy alias: INVESCO_STORE_RAW_DOWNLOADS.
   HISTORY_RANGE        Yahoo chart range for history rows (default "max").
-  AUDIENCE_TYPE        investco.com audienceType parameter: Investor (default)
+  AUDIENCE_TYPE        invesco.com audienceType parameter: Investor (default)
                        or Advisor. The Investor flavor is what the public
                        product pages serve.
   PRODUCT_LIST_URL     Override the catalog CSV URL, e.g. to pin an as-of
                        date: ...?audienceType=Advisor&action=download&asOfDate=MM/DD/YYYY
-  CATALOG_HTML_URL     investco.com catalog page scraped for the canonical
+  CATALOG_HTML_URL     invesco.com catalog page scraped for the canonical
                        per-fund page URLs (falls back to ?ticker= links).
   PRICES_HISTORY       1/true to also pull the per-fund prices & yields CSV
                        (daily NAV / close history) instead of relying on the
@@ -414,13 +414,13 @@ Environment variables (all optional; strict "min:max" ranges; AND logic):
                        (default on; needs the declared SEC_UA).
   SEC_UA               Override the declared SEC User-Agent (SEC policy
                        requires a declared contact for automated access).
-  SKIP_YAHOO           1/true to update investco.com data only, keeping the
+  SKIP_YAHOO           1/true to update invesco.com data only, keeping the
                        previously published history and distributions (this
                        also disables live Yahoo ticker resolution: the
                        scripts/held-tickers.ts seed alone is applied).
   SKIP_INVESCO         1/true to update history only (Yahoo), keeping the
                        previously published catalog values and holdings. Useful
-                       when investco.com is down and only prices moved.
+                       when invesco.com is down and only prices moved.
 
 AUM, TER, yield and return filters are evaluated against the freshly
 downloaded catalog values (or the previously published catalog) before the
@@ -499,7 +499,7 @@ function secHeaders(config: UpdaterConfig): Record<string, string> {
   return { 'User-Agent': config.secUa, Accept: 'application/json,*/*' };
 }
 
-// investco.com sits behind a marketing CDN that answers a plain browser UA and
+// invesco.com sits behind a marketing CDN that answers a plain browser UA and
 // rejects the odd user agents bots usually ship with.
 function invescoHeaders(): Record<string, string> {
   return { 'User-Agent': YAHOO_BROWSER_UA, Accept: 'text/csv,application/octet-stream,*/*' };
@@ -570,7 +570,7 @@ export function parseCsv(text: string): CsvTable {
   return rows;
 }
 
-// Header lookups ignore case, spaces and punctuation: investco.com renames
+// Header lookups ignore case, spaces and punctuation: invesco.com renames
 // columns between its Investor/Advisor flavors far more often than it changes
 // their meaning.
 function headerKey(name: unknown): string {
@@ -578,7 +578,7 @@ function headerKey(name: unknown): string {
 }
 
 /**
- * investco.com prefixes its downloads with legal/footer lines (fund company,
+ * invesco.com prefixes its downloads with legal/footer lines (fund company,
  * copyright, disclaimers), so the header row is located by content instead of
  * by a fixed row index.
  */
@@ -634,7 +634,7 @@ function pickDate(record: JsonRecord, candidates: string[]): string {
 }
 
 // ---------------------------------------------------------------------------
-// Catalog layer: the investco.com ETF product-list download
+// Catalog layer: the invesco.com ETF product-list download
 // ---------------------------------------------------------------------------
 
 export type CatalogReturns = {
@@ -785,7 +785,7 @@ export function parseProductList(text: string, fundPages: Map<string, string> = 
         yr10: readReturn(record, ['10 Yr Ann', '10 Yr', '10 Year', '10Y'], 10),
         sinceInception: readReturn(record, ['Since Inception Ann', 'Since Inception (Ann.)', 'Since Inception']),
       },
-      fundPage: fundPages.get(ticker) || investcoProductDetailUrl(ticker),
+      fundPage: fundPages.get(ticker) || invescoProductDetailUrl(ticker),
       trustCik: null,
       source: 'invesco',
     });
@@ -795,7 +795,7 @@ export function parseProductList(text: string, fundPages: Map<string, string> = 
   return funds.sort((a, b) => (a.ticker < b.ticker ? -1 : a.ticker > b.ticker ? 1 : 0));
 }
 
-// investco.com serves canonical, human-readable fund pages
+// invesco.com serves canonical, human-readable fund pages
 // (/us/en/financial-products/etfs/<slug>.html). The product-list CSV has no
 // links, so they are scraped from the catalog page; if that ever fails the
 // generic ?ticker= route is used and the feed stays correct, just uglier.
@@ -823,9 +823,9 @@ export function parseCatalogFundPages(html: string): Map<string, string> {
 }
 
 // ---------------------------------------------------------------------------
-// Holdings layer: the per-fund investco.com "download holdings" CSV
+// Holdings layer: the per-fund invesco.com "download holdings" CSV
 //
-// Three column flavours exist on investco.com:
+// Three column flavours exist on invesco.com:
 //   equity  : "Holding Ticker", "Name", "Weight", "Shares/Par Value",
 //             "Market Value", "Security Identifier", "Sector", "Date"
 //   bond    : "Security Identifier"/"CUSIP", "PercentageOfFund", "CouponRate",
@@ -919,7 +919,7 @@ export function weightsSum(rows: JsonRecord[]): number {
 // ---------------------------------------------------------------------------
 // Holding ticker resolution
 //
-// investco.com labels every exchange-listed holding with a ticker, but its
+// invesco.com labels every exchange-listed holding with a ticker, but its
 // bond, futures and cash rows come back blank or "n/a". Those rows keep "-"
 // and are keyed by their CUSIP/ISIN Identifier in the Watchlist — the exact
 // convention daggerok/SPDR and daggerok/Fidelity use. Names still missing a
@@ -1166,7 +1166,7 @@ export function formatHeldTickersSeed(entries: Record<string, string>): string {
   const lines = [
     '// Invesco holding name -> exchange ticker (GENERATED FILE: do not edit by hand).',
     '//',
-    '// investco.com already labels exchange-listed holdings with their ticker; this',
+    '// invesco.com already labels exchange-listed holdings with their ticker; this',
     '// seed only fills the rows its downloads leave blank (bonds, futures, cash and',
     '// a few foreign lines). Seeded from the same public directories as',
     '// daggerok/Fidelity: SEC EDGAR company_tickers.json plus the Nasdaq / NYSE /',
@@ -1204,7 +1204,7 @@ async function readHeldTickersSeed(): Promise<Record<string, string>> {
 }
 
 // ---------------------------------------------------------------------------
-// SEC EDGAR fallback layer: N-PORT-P positions for funds investco.com does not
+// SEC EDGAR fallback layer: N-PORT-P positions for funds invesco.com does not
 // publish holdings for, resolved through the EDGAR full-text search API.
 // ---------------------------------------------------------------------------
 
@@ -1824,7 +1824,7 @@ async function processFund(
   const ticker = fund.ticker;
 
   // Filters run against fresh catalog values (or the previous catalog when
-  // investco.com is unavailable) before any per-fund download happens.
+  // invesco.com is unavailable) before any per-fund download happens.
   const preMetrics = deriveCatalogMetrics(
     fund.returns,
     EMPTY_PRICE_RETURNS,
@@ -1846,13 +1846,13 @@ async function processFund(
   const fundDir = new URL(`funds/${ticker}/`, API_ROOT);
   await mkdir(fundDir, { recursive: true });
 
-  // 1) investco.com daily holdings CSV; SEC Form N-PORT-P as the fallback.
+  // 1) invesco.com daily holdings CSV; SEC Form N-PORT-P as the fallback.
   let holdings: ParsedHoldings | null = null;
-  let holdingsSource = 'investco.com per-fund holdings download';
+  let holdingsSource = 'invesco.com per-fund holdings download';
   let holdingsEdgar: ParsedNport | null = null;
   if (!config.skipInvesco) {
     try {
-      const csv = await fetchText(investcoHoldingsDownloadUrl(ticker, config.audienceType), `[holdings] ${ticker}`, invescoHeaders(), config);
+      const csv = await fetchText(invescoHoldingsDownloadUrl(ticker, config.audienceType), `[holdings] ${ticker}`, invescoHeaders(), config);
       const parsed = parseInvescoHoldings(csv, ticker);
       const sum = weightsSum(parsed.rows);
       if (sum > 0 && sum < 1) {
@@ -1891,7 +1891,7 @@ async function processFund(
     }
   }
 
-  // investco.com leaves the Ticker blank on bond / derivative rows: fill it
+  // invesco.com leaves the Ticker blank on bond / derivative rows: fill it
   // from the seed (plus the Yahoo search unless SKIP_YAHOO=1).
   if (holdings) {
     try {
@@ -1909,7 +1909,7 @@ async function processFund(
   const holdingsManifest = await writePages(fundDir, ticker, 'holdings', holdingsHeaders, holdingsRows, config.holdingsPageSize);
   const holdingsAsOf = holdings?.asOfDate || (((previous.holdings as JsonRecord)?.asOfDate as string) ?? null);
 
-  // 2) investco.com prices & yields history (optional), then Yahoo chart.
+  // 2) invesco.com prices & yields history (optional), then Yahoo chart.
   let chartDays: ChartDay[] = [];
   let dividends: Array<{ epoch: number; amount: number }> = [];
   let exchangeName = '';
@@ -1922,12 +1922,12 @@ async function processFund(
   if (config.pricesHistory && !config.skipInvesco) {
     try {
       const parsed = parsePricesCsv(
-        await fetchText(investcoPricesDownloadUrl(ticker, config.audienceType), `[prices  ] ${ticker}`, invescoHeaders(), config),
+        await fetchText(invescoPricesDownloadUrl(ticker, config.audienceType), `[prices  ] ${ticker}`, invescoHeaders(), config),
         ticker,
       );
       if (parsed.days.length) {
         chartDays = parsed.days;
-        historySource = 'investco.com per-fund prices & yields download';
+        historySource = 'invesco.com per-fund prices & yields download';
         // The prices file carries the NAV for every day, so the fund's NAV
         // becomes the last published one instead of the Yahoo quote.
         const lastNavDay = parsed.days[parsed.days.length - 1];
@@ -1993,8 +1993,8 @@ async function processFund(
     categoryPath: fund.categoryPath,
     source: {
       fundPage: fund.fundPage,
-      holdingsDownload: config.skipInvesco ? (((previous.source as JsonRecord)?.holdingsDownload as string) ?? null) : investcoHoldingsDownloadUrl(ticker, config.audienceType),
-      pricesDownload: investcoPricesDownloadUrl(ticker, config.audienceType),
+      holdingsDownload: config.skipInvesco ? (((previous.source as JsonRecord)?.holdingsDownload as string) ?? null) : invescoHoldingsDownloadUrl(ticker, config.audienceType),
+      pricesDownload: invescoPricesDownloadUrl(ticker, config.audienceType),
       yahooChart: chartUrl(ticker, config),
       holdingsSource,
       historySource,
@@ -2015,11 +2015,11 @@ async function processFund(
       dividendYield: metrics.dividendYield,
       dividendYieldText: metrics.dividendYieldText,
       dividendYieldKind:
-        fund.dividendYield !== null ? 'trailing 12-month, published by investco.com' : 'indicated (latest distribution x inferred frequency / market price)',
+        fund.dividendYield !== null ? 'trailing 12-month, published by invesco.com' : 'indicated (latest distribution x inferred frequency / market price)',
       distributionRate: fund.distributionRate,
       secYield: fund.secYield,
       secYieldText: fund.secYield === null ? '—' : `${fund.secYield.toFixed(2)}%`,
-      secYieldKind: 'SEC 30-day yield as published on the investco.com product list (fixed income funds; most equity funds publish none)',
+      secYieldKind: 'SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)',
     },
     returns: returnsData,
     distributions: { frequency: frequency.frequency, paymentsPerYear: frequency.paymentsPerYear, headers: ['Ex-Date', 'Amount'], rows: distributions },
@@ -2166,7 +2166,7 @@ async function main(): Promise<void> {
   requestSleepMs = Math.max(0, config.requestSleep) * 1000;
 
   console.log('Invesco ETF static data updater');
-  console.log('Sources: investco.com product-list + per-fund holdings CSVs, Yahoo Finance public chart API, SEC EDGAR N-PORT-P (fallback)');
+  console.log('Sources: invesco.com product-list + per-fund holdings CSVs, Yahoo Finance public chart API, SEC EDGAR N-PORT-P (fallback)');
   for (const line of configLines(config)) console.log(`  ${line}`);
   console.log('');
 
@@ -2174,7 +2174,7 @@ async function main(): Promise<void> {
   const resolver = new TickerResolver(seedTickers, config.skipYahoo ? null : (name) => yahooSearchForTicker(name, config));
   console.log(`[ticker  ] ${resolver.size} known holding names in scripts/held-tickers.ts${config.skipYahoo ? ' (live Yahoo resolution off: SKIP_YAHOO)' : ''}`);
 
-  // 1) Catalog discovery: investco.com product list, previous index, seed.
+  // 1) Catalog discovery: invesco.com product list, previous index, seed.
   const catalog = new Map<string, CatalogFund>();
   let catalogSource = 'previous api/invesco/index.json';
   const previousIndex = await readPreviousIndex();
@@ -2194,7 +2194,7 @@ async function main(): Promise<void> {
         await mkdir(rawDir, { recursive: true });
         await writeFile(new URL(`product-list-${new Date().toISOString().slice(0, 10)}.csv`, rawDir), csv, 'utf8');
       }
-      catalogSource = 'investco.com ETF product list download';
+      catalogSource = 'invesco.com ETF product list download';
     } catch (error) {
       console.warn(`[catalog ] ${errorMessage(error)} — falling back to the published feed`);
     }
@@ -2217,8 +2217,8 @@ async function main(): Promise<void> {
   const universe = [...catalog.values()].sort((a, b) => (a.ticker < b.ticker ? -1 : a.ticker > b.ticker ? 1 : 0));
   if (!universe.length) {
     console.log(
-      '[done    ] nothing to do: the investco.com product list is unreachable and the published ' +
-        'api/invesco/index.json is empty or missing — run this where investco.com resolves, e.g. ' +
+      '[done    ] nothing to do: the invesco.com product list is unreachable and the published ' +
+        'api/invesco/index.json is empty or missing — run this where invesco.com resolves, e.g. ' +
         'the "Update Invesco ETF data" GitHub Actions workflow',
     );
     return;
@@ -2357,7 +2357,7 @@ function catalogFundFromIndex(ticker: string, row: JsonRecord): CatalogFund {
       yr10: numberOrNull(monthEnd.yr10),
       sinceInception: numberOrNull(monthEnd.sinceInception),
     },
-    fundPage: String(row.fundPage ?? investcoProductDetailUrl(ticker)),
+    fundPage: String(row.fundPage ?? invescoProductDetailUrl(ticker)),
     trustCik: null,
     source: 'previous index',
   };
@@ -2384,7 +2384,7 @@ function catalogFundFromSeed(seed: (typeof INVESCO_FUNDS)[number]): CatalogFund 
     distributionRate: null,
     asOfDate: null,
     returns: { ...EMPTY_RETURNS },
-    fundPage: seed.fundPage || investcoProductDetailUrl(seed.ticker),
+    fundPage: seed.fundPage || invescoProductDetailUrl(seed.ticker),
     trustCik: seed.trustCik ?? null,
     source: 'seed',
   };

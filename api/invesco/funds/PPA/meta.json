@@ -1,0 +1,118 @@
+{
+ "ticker": "PPA",
+ "name": "Invesco Aerospace & Defense ETF",
+ "category": "Thematic",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/ppa.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PPA",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PPA",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PPA",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46137V100",
+  "isin": "US46137V1008"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$40.06",
+  "value": 40.06,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$39.92",
+  "value": 39.92,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.35%",
+  "value": -0.35
+ },
+ "aum": {
+  "display": "$7.01 B",
+  "value": 7006000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 10.06,
+   "ytdText": "10.06%",
+   "yr1": 22.06,
+   "yr1Text": "22.06%",
+   "yr3": 17.06,
+   "yr3Text": "17.06%",
+   "yr5": 17.06,
+   "yr5Text": "17.06%",
+   "yr10": 8.06,
+   "yr10Text": "8.06%",
+   "sinceInception": 4.06,
+   "sinceInceptionText": "4.06%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.19960"
+   ],
+   [
+    "03/23/2026",
+    "0.19162"
+   ],
+   [
+    "12/22/2025",
+    "0.20359"
+   ],
+   [
+    "09/22/2025",
+    "0.17964"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 0.36,
+  "dividendYieldText": "0.36%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "PPA",
+  "name": "Invesco Aerospace & Defense ETF",
+  "category": "Thematic",
+  "inception": "2005-10-26",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46137V100",
+  "isin": "US46137V1008"
+ }
+}

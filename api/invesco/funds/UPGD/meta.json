@@ -1,0 +1,118 @@
+{
+ "ticker": "UPGD",
+ "name": "Invesco Bloomberg Analyst Rating Improvers ETF",
+ "category": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/upgd.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=UPGD",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=UPGD",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=UPGD",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46137V522",
+  "isin": "US46137V5223"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$121.08",
+  "value": 121.08,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$120.78",
+  "value": 120.78,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.25%",
+  "value": -0.25
+ },
+ "aum": {
+  "display": "$10.11 B",
+  "value": 10108000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 1.08,
+   "ytdText": "1.08%",
+   "yr1": 13.08,
+   "yr1Text": "13.08%",
+   "yr3": 8.08,
+   "yr3Text": "8.08%",
+   "yr5": 23.08,
+   "yr5Text": "23.08%",
+   "yr10": 19.08,
+   "yr10Text": "19.08%",
+   "sinceInception": 10.08,
+   "sinceInceptionText": "10.08%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.60390"
+   ],
+   [
+    "03/23/2026",
+    "0.57974"
+   ],
+   [
+    "12/22/2025",
+    "0.61598"
+   ],
+   [
+    "09/22/2025",
+    "0.54351"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 1.38,
+  "dividendYieldText": "1.38%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "UPGD",
+  "name": "Invesco Bloomberg Analyst Rating Improvers ETF",
+  "category": "US Equity",
+  "inception": "2006-05-19",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46137V522",
+  "isin": "US46137V5223"
+ }
+}

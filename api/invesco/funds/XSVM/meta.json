@@ -1,0 +1,118 @@
+{
+ "ticker": "XSVM",
+ "name": "Invesco S&P SmallCap Value with Momentum ETF",
+ "category": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/xsvm.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=XSVM",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=XSVM",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=XSVM",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46137V480",
+  "isin": "US46137V4804"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$36.31",
+  "value": 36.31,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$36.13",
+  "value": 36.13,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.50%",
+  "value": -0.5
+ },
+ "aum": {
+  "display": "$26.63 B",
+  "value": 26631000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 6.31,
+   "ytdText": "6.31%",
+   "yr1": -1.69,
+   "yr1Text": "-1.69%",
+   "yr3": 13.31,
+   "yr3Text": "13.31%",
+   "yr5": 13.31,
+   "yr5Text": "13.31%",
+   "yr10": 4.31,
+   "yr10Text": "4.31%",
+   "sinceInception": 15.31,
+   "sinceInceptionText": "15.31%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.18065"
+   ],
+   [
+    "03/23/2026",
+    "0.17342"
+   ],
+   [
+    "12/22/2025",
+    "0.18426"
+   ],
+   [
+    "09/22/2025",
+    "0.16259"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 1.61,
+  "dividendYieldText": "1.61%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "XSVM",
+  "name": "Invesco S&P SmallCap Value with Momentum ETF",
+  "category": "US Equity",
+  "inception": "2005-03-03",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46137V480",
+  "isin": "US46137V4804"
+ }
+}

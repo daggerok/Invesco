@@ -1,0 +1,118 @@
+{
+ "ticker": "PICB",
+ "name": "Invesco International Corporate Bond ETF",
+ "category": "Fixed Income",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/picb.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PICB",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PICB",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PICB",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138E636",
+  "isin": "US46138E6361"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$64.81",
+  "value": 64.81,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$64.58",
+  "value": 64.58,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.35%",
+  "value": -0.35
+ },
+ "aum": {
+  "display": "$14.48 B",
+  "value": 14481000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 4.81,
+   "ytdText": "4.81%",
+   "yr1": 16.81,
+   "yr1Text": "16.81%",
+   "yr3": 11.81,
+   "yr3Text": "11.81%",
+   "yr5": 16.81,
+   "yr5Text": "16.81%",
+   "yr10": 22.81,
+   "yr10Text": "22.81%",
+   "sinceInception": 13.81,
+   "sinceInceptionText": "13.81%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.32290"
+   ],
+   [
+    "03/23/2026",
+    "0.30998"
+   ],
+   [
+    "12/22/2025",
+    "0.32936"
+   ],
+   [
+    "09/22/2025",
+    "0.29061"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 5.11,
+  "dividendYieldText": "5.11%",
+  "secYield": 4.31,
+  "secYieldText": "4.31%"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "PICB",
+  "name": "Invesco International Corporate Bond ETF",
+  "category": "Fixed Income",
+  "inception": "2010-06-03",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46138E636",
+  "isin": "US46138E6361"
+ }
+}

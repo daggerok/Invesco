@@ -1,0 +1,118 @@
+{
+ "ticker": "CGW",
+ "name": "Invesco S&P Global Water Index ETF",
+ "category": "Global Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/cgw.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=CGW",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=CGW",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=CGW",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138E263",
+  "isin": "US46138E2634"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$133.31",
+  "value": 133.31,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$133.91",
+  "value": 133.91,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.45%",
+  "value": 0.45
+ },
+ "aum": {
+  "display": "$46.33 B",
+  "value": 46331000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 13.31,
+   "ytdText": "13.31%",
+   "yr1": 35.31,
+   "yr1Text": "35.31%",
+   "yr3": 20.31,
+   "yr3Text": "20.31%",
+   "yr5": 10.31,
+   "yr5Text": "10.31%",
+   "yr10": 21.31,
+   "yr10Text": "21.31%",
+   "sinceInception": 7.31,
+   "sinceInceptionText": "7.31%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.66955"
+   ],
+   [
+    "03/23/2026",
+    "0.64277"
+   ],
+   [
+    "12/22/2025",
+    "0.68294"
+   ],
+   [
+    "09/22/2025",
+    "0.60259"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 3.61,
+  "dividendYieldText": "3.61%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "CGW",
+  "name": "Invesco S&P Global Water Index ETF",
+  "category": "Global Equity",
+  "inception": "2007-05-14",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46138E263",
+  "isin": "US46138E2634"
+ }
+}

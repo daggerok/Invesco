@@ -1,0 +1,118 @@
+{
+ "ticker": "PSP",
+ "name": "Invesco Global Listed Private Equity ETF",
+ "category": "Global Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/psp.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PSP",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PSP",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PSP",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46137V118",
+  "isin": "US46137V5892"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$41.78",
+  "value": 41.78,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$41.78",
+  "value": 41.78,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.00%",
+  "value": 0.0
+ },
+ "aum": {
+  "display": "$22.18 B",
+  "value": 22178000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 11.78,
+   "ytdText": "11.78%",
+   "yr1": 13.78,
+   "yr1Text": "13.78%",
+   "yr3": 18.78,
+   "yr3Text": "18.78%",
+   "yr5": 18.78,
+   "yr5Text": "18.78%",
+   "yr10": 19.78,
+   "yr10Text": "19.78%",
+   "sinceInception": 5.78,
+   "sinceInceptionText": "5.78%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.20890"
+   ],
+   [
+    "03/23/2026",
+    "0.20054"
+   ],
+   [
+    "12/22/2025",
+    "0.21308"
+   ],
+   [
+    "09/22/2025",
+    "0.18801"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 2.08,
+  "dividendYieldText": "2.08%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "PSP",
+  "name": "Invesco Global Listed Private Equity ETF",
+  "category": "Global Equity",
+  "inception": "2006-10-24",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46137V118",
+  "isin": "US46137V5892"
+ }
+}

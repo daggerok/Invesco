@@ -1,0 +1,118 @@
+{
+ "ticker": "TAN",
+ "name": "Invesco Solar ETF",
+ "category": "Thematic",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/tan.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=TAN",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=TAN",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=TAN",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138G706",
+  "isin": "US46138G7060"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$44.92",
+  "value": 44.92,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$44.83",
+  "value": 44.83,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.20%",
+  "value": -0.2
+ },
+ "aum": {
+  "display": "$17.49 B",
+  "value": 17492000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 14.92,
+   "ytdText": "14.92%",
+   "yr1": 6.92,
+   "yr1Text": "6.92%",
+   "yr3": 21.92,
+   "yr3Text": "21.92%",
+   "yr5": 21.92,
+   "yr5Text": "21.92%",
+   "yr10": 12.92,
+   "yr10Text": "12.92%",
+   "sinceInception": 8.92,
+   "sinceInceptionText": "8.92%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.22415"
+   ],
+   [
+    "03/23/2026",
+    "0.21518"
+   ],
+   [
+    "12/22/2025",
+    "0.22863"
+   ],
+   [
+    "09/22/2025",
+    "0.20173"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 5.22,
+  "dividendYieldText": "5.22%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "TAN",
+  "name": "Invesco Solar ETF",
+  "category": "Thematic",
+  "inception": "2008-04-15",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46138G706",
+  "isin": "US46138G7060"
+ }
+}

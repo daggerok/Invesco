@@ -1,0 +1,118 @@
+{
+ "ticker": "PVI",
+ "name": "Invesco Floating Rate Municipal Income ETF",
+ "category": "Fixed Income",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pvi.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PVI",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PVI",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PVI",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138G862",
+  "isin": "US46138G8621"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$72.87",
+  "value": 72.87,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$72.91",
+  "value": 72.91,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.05%",
+  "value": 0.05
+ },
+ "aum": {
+  "display": "$45.29 B",
+  "value": 45287000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 12.87,
+   "ytdText": "12.87%",
+   "yr1": 24.87,
+   "yr1Text": "24.87%",
+   "yr3": 19.87,
+   "yr3Text": "19.87%",
+   "yr5": 24.87,
+   "yr5Text": "24.87%",
+   "yr10": 10.87,
+   "yr10Text": "10.87%",
+   "sinceInception": 6.87,
+   "sinceInceptionText": "6.87%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.36455"
+   ],
+   [
+    "03/23/2026",
+    "0.34997"
+   ],
+   [
+    "12/22/2025",
+    "0.37184"
+   ],
+   [
+    "09/22/2025",
+    "0.32809"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 3.17,
+  "dividendYieldText": "3.17%",
+  "secYield": 4.87,
+  "secYieldText": "4.87%"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "PVI",
+  "name": "Invesco Floating Rate Municipal Income ETF",
+  "category": "Fixed Income",
+  "inception": "2007-11-15",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46138G862",
+  "isin": "US46138G8621"
+ }
+}

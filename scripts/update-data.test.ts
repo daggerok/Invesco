@@ -115,7 +115,7 @@ describe('normalizeNumberText', () => {
 });
 
 describe('numberOrNull', () => {
-  test('accepts the investco.com placeholder styles', () => {
+  test('accepts the invesco.com placeholder styles', () => {
     expect(numberOrNull('--')).toBeNull();
     expect(numberOrNull('—')).toBeNull();
     expect(numberOrNull('N/A')).toBeNull();
@@ -198,7 +198,7 @@ describe('parseCsv / header detection', () => {
 });
 
 // ---------------------------------------------------------------------------
-// Catalog: the investco.com product-list download
+// Catalog: the invesco.com product-list download
 // ---------------------------------------------------------------------------
 
 describe('parseProductList', () => {
@@ -484,7 +484,7 @@ describe('pickEftsCik', () => {
 });
 
 // ---------------------------------------------------------------------------
-// History layers (Yahoo chart + the optional investco.com prices CSV)
+// History layers (Yahoo chart + the optional invesco.com prices CSV)
 // ---------------------------------------------------------------------------
 
 function chartFixture(options: { closes?: (number | null)[]; adj?: (number | null)[]; dividends?: Record<string, { date: number; amount: number }> } = {}) {

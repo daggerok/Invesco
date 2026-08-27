@@ -1,0 +1,118 @@
+{
+ "ticker": "PIPE",
+ "name": "Invesco SteelPath MLP & Energy Infrastructure ETF",
+ "category": "MLPs",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pipe.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PIPE",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PIPE",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PIPE",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46090A103",
+  "isin": "US46090A1032"
+ },
+ "expenseRatio": {
+  "display": "0.75%",
+  "value": 0.75
+ },
+ "nav": {
+  "display": "$30.19",
+  "value": 30.19,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$30.17",
+  "value": 30.17,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.07%",
+  "value": -0.07
+ },
+ "aum": {
+  "display": "$31.02 B",
+  "value": 31019000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 0.19,
+   "ytdText": "0.19%",
+   "yr1": 22.19,
+   "yr1Text": "22.19%",
+   "yr3": 7.19,
+   "yr3Text": "7.19%",
+   "yr5": 7.19,
+   "yr5Text": "7.19%",
+   "yr10": 8.19,
+   "yr10Text": "8.19%",
+   "sinceInception": 9.19,
+   "sinceInceptionText": "9.19%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.15085"
+   ],
+   [
+    "03/23/2026",
+    "0.14482"
+   ],
+   [
+    "12/22/2025",
+    "0.15387"
+   ],
+   [
+    "09/22/2025",
+    "0.13576"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 0.49,
+  "dividendYieldText": "0.49%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "PIPE",
+  "name": "Invesco SteelPath MLP & Energy Infrastructure ETF",
+  "category": "MLPs",
+  "inception": "2025-02-20",
+  "exchange": "NYSE Arca",
+  "ter": 0.75,
+  "cusip": "46090A103",
+  "isin": "US46090A1032"
+ }
+}

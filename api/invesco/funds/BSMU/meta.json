@@ -1,0 +1,118 @@
+{
+ "ticker": "BSMU",
+ "name": "Invesco BulletShares 2030 Municipal Bond ETF",
+ "category": "Fixed Income",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/bsmu.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=BSMU",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=BSMU",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=BSMU",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138J445",
+  "isin": "US46138J4452"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$136.52",
+  "value": 136.52,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$136.52",
+  "value": 136.52,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.00%",
+  "value": 0.0
+ },
+ "aum": {
+  "display": "$31.65 B",
+  "value": 31652000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 16.52,
+   "ytdText": "16.52%",
+   "yr1": 28.52,
+   "yr1Text": "28.52%",
+   "yr3": 23.52,
+   "yr3Text": "23.52%",
+   "yr5": 13.52,
+   "yr5Text": "13.52%",
+   "yr10": 14.52,
+   "yr10Text": "14.52%",
+   "sinceInception": 10.52,
+   "sinceInceptionText": "10.52%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.68260"
+   ],
+   [
+    "03/23/2026",
+    "0.65530"
+   ],
+   [
+    "12/22/2025",
+    "0.69625"
+   ],
+   [
+    "09/22/2025",
+    "0.61434"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 1.82,
+  "dividendYieldText": "1.82%",
+  "secYield": 2.52,
+  "secYieldText": "2.52%"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "BSMU",
+  "name": "Invesco BulletShares 2030 Municipal Bond ETF",
+  "category": "Fixed Income",
+  "inception": "2020-09-16",
+  "exchange": "Nasdaq",
+  "ter": 0.35,
+  "cusip": "46138J445",
+  "isin": "US46138J4452"
+ }
+}

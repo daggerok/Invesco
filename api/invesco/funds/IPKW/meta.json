@@ -1,0 +1,118 @@
+{
+ "ticker": "IPKW",
+ "name": "Invesco International BuyBack Achievers\u2122 ETF",
+ "category": "International",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/ipkw.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=IPKW",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=IPKW",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=IPKW",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138E644",
+  "isin": "US46138E6445"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$65.81",
+  "value": 65.81,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$65.51",
+  "value": 65.51,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.46%",
+  "value": -0.46
+ },
+ "aum": {
+  "display": "$49.58 B",
+  "value": 49581000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 5.81,
+   "ytdText": "5.81%",
+   "yr1": 27.81,
+   "yr1Text": "27.81%",
+   "yr3": 12.81,
+   "yr3Text": "12.81%",
+   "yr5": 17.81,
+   "yr5Text": "17.81%",
+   "yr10": 13.81,
+   "yr10Text": "13.81%",
+   "sinceInception": 14.81,
+   "sinceInceptionText": "14.81%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.32755"
+   ],
+   [
+    "03/23/2026",
+    "0.31445"
+   ],
+   [
+    "12/22/2025",
+    "0.33410"
+   ],
+   [
+    "09/22/2025",
+    "0.29479"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 1.11,
+  "dividendYieldText": "1.11%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "IPKW",
+  "name": "Invesco International BuyBack Achievers\u2122 ETF",
+  "category": "International",
+  "inception": "2014-02-27",
+  "exchange": "NASDAQ",
+  "ter": 0.35,
+  "cusip": "46138E644",
+  "isin": "US46138E6445"
+ }
+}

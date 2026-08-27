@@ -1,0 +1,118 @@
+{
+ "ticker": "PID",
+ "name": "Invesco International Dividend Achievers\u2122 ETF",
+ "category": "International",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pid.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PID",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PID",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PID",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46137V548",
+  "isin": "US46137V5488"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$78.56",
+  "value": 78.56,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$78.80",
+  "value": 78.8,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.31%",
+  "value": 0.31
+ },
+ "aum": {
+  "display": "$40.86 B",
+  "value": 40856000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 18.56,
+   "ytdText": "18.56%",
+   "yr1": 20.56,
+   "yr1Text": "20.56%",
+   "yr3": 25.56,
+   "yr3Text": "25.56%",
+   "yr5": 5.56,
+   "yr5Text": "5.56%",
+   "yr10": 6.56,
+   "yr10Text": "6.56%",
+   "sinceInception": 12.56,
+   "sinceInceptionText": "12.56%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.39400"
+   ],
+   [
+    "03/23/2026",
+    "0.37824"
+   ],
+   [
+    "12/22/2025",
+    "0.40188"
+   ],
+   [
+    "09/22/2025",
+    "0.35460"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 3.86,
+  "dividendYieldText": "3.86%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "PID",
+  "name": "Invesco International Dividend Achievers\u2122 ETF",
+  "category": "International",
+  "inception": "2005-09-15",
+  "exchange": "NASDAQ",
+  "ter": 0.35,
+  "cusip": "46137V548",
+  "isin": "US46137V5488"
+ }
+}

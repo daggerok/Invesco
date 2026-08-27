@@ -1,0 +1,107 @@
+{
+ "ticker": "BAB",
+ "name": "Invesco Taxable Municipal Bond ETF",
+ "category": "Fixed Income",
+ "categoryPath": "Fixed Income",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/bab.html",
+  "holdingsDownload": null,
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=BAB",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BAB?period1=0&period2=1787867643&interval=1d&events=div%7Csplit",
+  "holdingsSource": "invesco.com per-fund holdings download",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$59.83",
+  "value": 59.83,
+  "asOfDate": "—"
+ },
+ "marketPrice": {
+  "display": "$59.62",
+  "value": 59.62,
+  "asOfDate": "—"
+ },
+ "premiumDiscount": {
+  "display": "-0.35%",
+  "value": -0.35
+ },
+ "aum": {
+  "display": "$43,983.00 M",
+  "value": 43983000000,
+  "asOfDate": "—",
+  "source": "Invesco product list \"Fund Assets\" column"
+ },
+ "yields": {
+  "dividendYield": 5.13,
+  "dividendYieldText": "5.13%",
+  "dividendYieldKind": "trailing 12-month, published by invesco.com",
+  "distributionRate": null,
+  "secYield": 3.83,
+  "secYieldText": "3.83%",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
+ },
+ "returns": {
+  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
+  "monthEnd": {
+   "asOfDate": "—",
+   "mo1": null,
+   "mo1Text": "—",
+   "qtd": null,
+   "qtdText": "—",
+   "ytd": -0.17,
+   "ytdText": "-0.17%",
+   "yr1": 31.83,
+   "yr1Text": "31.83%",
+   "yr3": 6.83,
+   "yr3Text": "6.83%",
+   "yr5": 11.83,
+   "yr5Text": "11.83%",
+   "yr10": 17.83,
+   "yr10Text": "17.83%",
+   "sinceInception": 8.83,
+   "sinceInceptionText": "8.83%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": null,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": []
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "invesco.com per-fund holdings download"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "—",
+  "source": "previous run"
+ }
+}

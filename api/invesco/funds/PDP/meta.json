@@ -1,0 +1,118 @@
+{
+ "ticker": "PDP",
+ "name": "Invesco Dorsey Wright Momentum ETF",
+ "category": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pdp.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PDP",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PDP",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PDP",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46137V837",
+  "isin": "US46137V8375"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$163.24",
+  "value": 163.24,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$162.67",
+  "value": 162.67,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.35%",
+  "value": -0.35
+ },
+ "aum": {
+  "display": "$49.32 B",
+  "value": 49324000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 13.24,
+   "ytdText": "13.24%",
+   "yr1": 25.24,
+   "yr1Text": "25.24%",
+   "yr3": 20.24,
+   "yr3Text": "20.24%",
+   "yr5": 15.24,
+   "yr5Text": "15.24%",
+   "yr10": 11.24,
+   "yr10Text": "11.24%",
+   "sinceInception": 7.24,
+   "sinceInceptionText": "7.24%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.81335"
+   ],
+   [
+    "03/23/2026",
+    "0.78082"
+   ],
+   [
+    "12/22/2025",
+    "0.82962"
+   ],
+   [
+    "09/22/2025",
+    "0.73201"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 3.54,
+  "dividendYieldText": "3.54%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "PDP",
+  "name": "Invesco Dorsey Wright Momentum ETF",
+  "category": "US Equity",
+  "inception": "2007-03-01",
+  "exchange": "NASDAQ",
+  "ter": 0.35,
+  "cusip": "46137V837",
+  "isin": "US46137V8375"
+ }
+}

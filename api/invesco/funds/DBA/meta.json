@@ -1,0 +1,118 @@
+{
+ "ticker": "DBA",
+ "name": "Invesco DB Agriculture Fund",
+ "category": "Commodity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/dba.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=DBA",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=DBA",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=DBA",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46140H106",
+  "isin": "US46140H1068"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$128.74",
+  "value": 128.74,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$128.87",
+  "value": 128.87,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.10%",
+  "value": 0.1
+ },
+ "aum": {
+  "display": "$35.87 B",
+  "value": 35874000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 8.74,
+   "ytdText": "8.74%",
+   "yr1": 10.74,
+   "yr1Text": "10.74%",
+   "yr3": 15.74,
+   "yr3Text": "15.74%",
+   "yr5": 5.74,
+   "yr5Text": "5.74%",
+   "yr10": 16.74,
+   "yr10Text": "16.74%",
+   "sinceInception": 17.74,
+   "sinceInceptionText": "17.74%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.64435"
+   ],
+   [
+    "03/23/2026",
+    "0.61858"
+   ],
+   [
+    "12/22/2025",
+    "0.65724"
+   ],
+   [
+    "09/22/2025",
+    "0.57991"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 4.04,
+  "dividendYieldText": "4.04%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 8,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "DBA",
+  "name": "Invesco DB Agriculture Fund",
+  "category": "Commodity",
+  "inception": "2007-01-05",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46140H106",
+  "isin": "US46140H1068"
+ }
+}

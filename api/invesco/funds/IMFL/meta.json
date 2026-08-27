@@ -1,0 +1,118 @@
+{
+ "ticker": "IMFL",
+ "name": "Invesco International Developed Dynamic Multifactor ETF",
+ "category": "International",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/imfl.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=IMFL",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=IMFL",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=IMFL",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138J437",
+  "isin": "US46138J4379"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$122.86",
+  "value": 122.86,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$122.43",
+  "value": 122.43,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.35%",
+  "value": -0.35
+ },
+ "aum": {
+  "display": "$30.29 B",
+  "value": 30286000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 2.86,
+   "ytdText": "2.86%",
+   "yr1": 14.86,
+   "yr1Text": "14.86%",
+   "yr3": 9.86,
+   "yr3Text": "9.86%",
+   "yr5": 24.86,
+   "yr5Text": "24.86%",
+   "yr10": 20.86,
+   "yr10Text": "20.86%",
+   "sinceInception": 11.86,
+   "sinceInceptionText": "11.86%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.61215"
+   ],
+   [
+    "03/23/2026",
+    "0.58766"
+   ],
+   [
+    "12/22/2025",
+    "0.62439"
+   ],
+   [
+    "09/22/2025",
+    "0.55093"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 3.16,
+  "dividendYieldText": "3.16%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "IMFL",
+  "name": "Invesco International Developed Dynamic Multifactor ETF",
+  "category": "International",
+  "inception": "2021-02-24",
+  "exchange": "Cboe BZX Exchange, Inc.",
+  "ter": 0.35,
+  "cusip": "46138J437",
+  "isin": "US46138J4379"
+ }
+}

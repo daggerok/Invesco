@@ -1,0 +1,118 @@
+{
+ "ticker": "QQHG",
+ "name": "Invesco QQQ Hedged Advantage ETF",
+ "category": "Hedged US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/qqhg.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=QQHG",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=QQHG",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=QQHG",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46090A106",
+  "isin": "US46090A1065"
+ },
+ "expenseRatio": {
+  "display": "0.45%",
+  "value": 0.45
+ },
+ "nav": {
+  "display": "$159.23",
+  "value": 159.23,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$159.23",
+  "value": 159.23,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.00%",
+  "value": 0.0
+ },
+ "aum": {
+  "display": "$48.92 B",
+  "value": 48923000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 9.23,
+   "ytdText": "9.23%",
+   "yr1": 1.23,
+   "yr1Text": "1.23%",
+   "yr3": 16.23,
+   "yr3Text": "16.23%",
+   "yr5": 11.23,
+   "yr5Text": "11.23%",
+   "yr10": 7.23,
+   "yr10Text": "7.23%",
+   "sinceInception": 18.23,
+   "sinceInceptionText": "18.23%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.79615"
+   ],
+   [
+    "03/23/2026",
+    "0.76430"
+   ],
+   [
+    "12/22/2025",
+    "0.81207"
+   ],
+   [
+    "09/22/2025",
+    "0.71653"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 4.53,
+  "dividendYieldText": "4.53%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "QQHG",
+  "name": "Invesco QQQ Hedged Advantage ETF",
+  "category": "Hedged US Equity",
+  "inception": "2025-05-07",
+  "exchange": "NASDAQ",
+  "ter": 0.45,
+  "cusip": "46090A106",
+  "isin": "US46090A1065"
+ }
+}

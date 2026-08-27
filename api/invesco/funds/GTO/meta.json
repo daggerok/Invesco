@@ -1,0 +1,118 @@
+{
+ "ticker": "GTO",
+ "name": "Invesco Total Return Bond ETF",
+ "category": "Fixed Income",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/gto.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=GTO",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=GTO",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=GTO",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46090A804",
+  "isin": "US46090A8045"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$129.91",
+  "value": 129.91,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$129.85",
+  "value": 129.85,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.05%",
+  "value": -0.05
+ },
+ "aum": {
+  "display": "$5.99 B",
+  "value": 5991000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 9.91,
+   "ytdText": "9.91%",
+   "yr1": 31.91,
+   "yr1Text": "31.91%",
+   "yr3": 16.91,
+   "yr3Text": "16.91%",
+   "yr5": 6.91,
+   "yr5Text": "6.91%",
+   "yr10": 17.91,
+   "yr10Text": "17.91%",
+   "sinceInception": 18.91,
+   "sinceInceptionText": "18.91%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.64925"
+   ],
+   [
+    "03/23/2026",
+    "0.62328"
+   ],
+   [
+    "12/22/2025",
+    "0.66224"
+   ],
+   [
+    "09/22/2025",
+    "0.58432"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 5.21,
+  "dividendYieldText": "5.21%",
+  "secYield": 4.91,
+  "secYieldText": "4.91%"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "GTO",
+  "name": "Invesco Total Return Bond ETF",
+  "category": "Fixed Income",
+  "inception": "2016-02-10",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46090A804",
+  "isin": "US46090A8045"
+ }
+}

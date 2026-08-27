@@ -1,0 +1,118 @@
+{
+ "ticker": "PWB",
+ "name": "Invesco Large Cap Growth ETF",
+ "category": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pwb.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PWB",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PWB",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PWB",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46137V746",
+  "isin": "US46137V7468"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$80.71",
+  "value": 80.71,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$80.31",
+  "value": 80.31,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.50%",
+  "value": -0.5
+ },
+ "aum": {
+  "display": "$11.07 B",
+  "value": 11071000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 20.71,
+   "ytdText": "20.71%",
+   "yr1": 2.71,
+   "yr1Text": "2.71%",
+   "yr3": 27.71,
+   "yr3Text": "27.71%",
+   "yr5": 7.71,
+   "yr5Text": "7.71%",
+   "yr10": 8.71,
+   "yr10Text": "8.71%",
+   "sinceInception": 14.71,
+   "sinceInceptionText": "14.71%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.40155"
+   ],
+   [
+    "03/23/2026",
+    "0.38549"
+   ],
+   [
+    "12/22/2025",
+    "0.40958"
+   ],
+   [
+    "09/22/2025",
+    "0.36139"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 1.01,
+  "dividendYieldText": "1.01%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "PWB",
+  "name": "Invesco Large Cap Growth ETF",
+  "category": "US Equity",
+  "inception": "2005-03-03",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46137V746",
+  "isin": "US46137V7468"
+ }
+}

@@ -1,0 +1,118 @@
+{
+ "ticker": "HBRD",
+ "name": "Invesco U.S. Hybrid Bond ETF",
+ "category": "Fixed Income",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/hbrd.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=HBRD",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=HBRD",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=HBRD",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46090A109",
+  "isin": "US46090A1099"
+ },
+ "expenseRatio": {
+  "display": "0.40%",
+  "value": 0.4
+ },
+ "nav": {
+  "display": "$170.17",
+  "value": 170.17,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$169.57",
+  "value": 169.57,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.35%",
+  "value": -0.35
+ },
+ "aum": {
+  "display": "$50.02 B",
+  "value": 50017000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 20.17,
+   "ytdText": "20.17%",
+   "yr1": 12.17,
+   "yr1Text": "12.17%",
+   "yr3": 27.17,
+   "yr3Text": "27.17%",
+   "yr5": 22.17,
+   "yr5Text": "22.17%",
+   "yr10": 18.17,
+   "yr10Text": "18.17%",
+   "sinceInception": 14.17,
+   "sinceInceptionText": "14.17%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.84785"
+   ],
+   [
+    "03/23/2026",
+    "0.81394"
+   ],
+   [
+    "12/22/2025",
+    "0.86481"
+   ],
+   [
+    "09/22/2025",
+    "0.76306"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 0.47,
+  "dividendYieldText": "0.47%",
+  "secYield": 1.67,
+  "secYieldText": "1.67%"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "HBRD",
+  "name": "Invesco U.S. Hybrid Bond ETF",
+  "category": "Fixed Income",
+  "inception": "2026-02-25",
+  "exchange": "NYSE Arca",
+  "ter": 0.4,
+  "cusip": "46090A109",
+  "isin": "US46090A1099"
+ }
+}

@@ -1,0 +1,118 @@
+{
+ "ticker": "PZA",
+ "name": "Invesco National AMT-Free Municipal Bond ETF",
+ "category": "Fixed Income",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pza.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PZA",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PZA",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PZA",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138E537",
+  "isin": "US46138E5371"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$78.46",
+  "value": 78.46,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$78.77",
+  "value": 78.77,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.40%",
+  "value": 0.4
+ },
+ "aum": {
+  "display": "$846.00 M",
+  "value": 846000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 18.46,
+   "ytdText": "18.46%",
+   "yr1": 20.46,
+   "yr1Text": "20.46%",
+   "yr3": 25.46,
+   "yr3Text": "25.46%",
+   "yr5": 5.46,
+   "yr5Text": "5.46%",
+   "yr10": 6.46,
+   "yr10Text": "6.46%",
+   "sinceInception": 12.46,
+   "sinceInceptionText": "12.46%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.39385"
+   ],
+   [
+    "03/23/2026",
+    "0.37810"
+   ],
+   [
+    "12/22/2025",
+    "0.40173"
+   ],
+   [
+    "09/22/2025",
+    "0.35446"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 3.76,
+  "dividendYieldText": "3.76%",
+  "secYield": 2.96,
+  "secYieldText": "2.96%"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "PZA",
+  "name": "Invesco National AMT-Free Municipal Bond ETF",
+  "category": "Fixed Income",
+  "inception": "2007-10-11",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46138E537",
+  "isin": "US46138E5371"
+ }
+}

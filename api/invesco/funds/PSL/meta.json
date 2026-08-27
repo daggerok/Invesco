@@ -1,0 +1,118 @@
+{
+ "ticker": "PSL",
+ "name": "Invesco Dorsey Wright Consumer Staples Momentum ETF",
+ "category": "Sector",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/psl.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PSL",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PSL",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PSL",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46137V886",
+  "isin": "US46137V8862"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$123.45",
+  "value": 123.45,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$122.96",
+  "value": 122.96,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.40%",
+  "value": -0.4
+ },
+ "aum": {
+  "display": "$50.34 B",
+  "value": 50345000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 3.45,
+   "ytdText": "3.45%",
+   "yr1": 35.45,
+   "yr1Text": "35.45%",
+   "yr3": 10.45,
+   "yr3Text": "10.45%",
+   "yr5": 25.45,
+   "yr5Text": "25.45%",
+   "yr10": 21.45,
+   "yr10Text": "21.45%",
+   "sinceInception": 12.45,
+   "sinceInceptionText": "12.45%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.61480"
+   ],
+   [
+    "03/23/2026",
+    "0.59021"
+   ],
+   [
+    "12/22/2025",
+    "0.62710"
+   ],
+   [
+    "09/22/2025",
+    "0.55332"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 3.75,
+  "dividendYieldText": "3.75%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "PSL",
+  "name": "Invesco Dorsey Wright Consumer Staples Momentum ETF",
+  "category": "Sector",
+  "inception": "2006-10-12",
+  "exchange": "NASDAQ",
+  "ter": 0.35,
+  "cusip": "46137V886",
+  "isin": "US46137V8862"
+ }
+}

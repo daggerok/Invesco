@@ -1,0 +1,118 @@
+{
+ "ticker": "PXJ",
+ "name": "Invesco Oil & Gas Services ETF",
+ "category": "Commodity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pxj.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PXJ",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PXJ",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PXJ",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46137Y872",
+  "isin": "US46137V6700"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$139.12",
+  "value": 139.12,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$139.26",
+  "value": 139.26,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.10%",
+  "value": 0.1
+ },
+ "aum": {
+  "display": "$26.91 B",
+  "value": 26912000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 19.12,
+   "ytdText": "19.12%",
+   "yr1": 21.12,
+   "yr1Text": "21.12%",
+   "yr3": 26.12,
+   "yr3Text": "26.12%",
+   "yr5": 16.12,
+   "yr5Text": "16.12%",
+   "yr10": 7.12,
+   "yr10Text": "7.12%",
+   "sinceInception": 13.12,
+   "sinceInceptionText": "13.12%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.69630"
+   ],
+   [
+    "03/23/2026",
+    "0.66845"
+   ],
+   [
+    "12/22/2025",
+    "0.71023"
+   ],
+   [
+    "09/22/2025",
+    "0.62667"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 4.42,
+  "dividendYieldText": "4.42%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 8,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "PXJ",
+  "name": "Invesco Oil & Gas Services ETF",
+  "category": "Commodity",
+  "inception": "2005-10-26",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46137Y872",
+  "isin": "US46137V6700"
+ }
+}

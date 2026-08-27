@@ -1,0 +1,118 @@
+{
+ "ticker": "PBD",
+ "name": "Invesco Global Clean Energy ETF",
+ "category": "Global Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pbd.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PBD",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PBD",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PBD",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138G847",
+  "isin": "US46138G8472"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$156.18",
+  "value": 156.18,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$156.26",
+  "value": 156.26,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.05%",
+  "value": 0.05
+ },
+ "aum": {
+  "display": "$38.62 B",
+  "value": 38618000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 6.18,
+   "ytdText": "6.18%",
+   "yr1": 18.18,
+   "yr1Text": "18.18%",
+   "yr3": 13.18,
+   "yr3Text": "13.18%",
+   "yr5": 8.18,
+   "yr5Text": "8.18%",
+   "yr10": 4.18,
+   "yr10Text": "4.18%",
+   "sinceInception": 15.18,
+   "sinceInceptionText": "15.18%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.78130"
+   ],
+   [
+    "03/23/2026",
+    "0.75005"
+   ],
+   [
+    "12/22/2025",
+    "0.79693"
+   ],
+   [
+    "09/22/2025",
+    "0.70317"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 1.48,
+  "dividendYieldText": "1.48%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "PBD",
+  "name": "Invesco Global Clean Energy ETF",
+  "category": "Global Equity",
+  "inception": "2007-06-13",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46138G847",
+  "isin": "US46138G8472"
+ }
+}

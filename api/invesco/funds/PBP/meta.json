@@ -1,0 +1,118 @@
+{
+ "ticker": "PBP",
+ "name": "Invesco S&P 500 BuyWrite ETF",
+ "category": "Hedged US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pbp.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PBP",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PBP",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PBP",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46137V399",
+  "isin": "US46137V3996"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$96.16",
+  "value": 96.16,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$96.54",
+  "value": 96.54,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.40%",
+  "value": 0.4
+ },
+ "aum": {
+  "display": "$42.62 B",
+  "value": 42616000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 6.16,
+   "ytdText": "6.16%",
+   "yr1": 18.16,
+   "yr1Text": "18.16%",
+   "yr3": 13.16,
+   "yr3Text": "13.16%",
+   "yr5": 23.16,
+   "yr5Text": "23.16%",
+   "yr10": 4.16,
+   "yr10Text": "4.16%",
+   "sinceInception": 15.16,
+   "sinceInceptionText": "15.16%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.48270"
+   ],
+   [
+    "03/23/2026",
+    "0.46339"
+   ],
+   [
+    "12/22/2025",
+    "0.49235"
+   ],
+   [
+    "09/22/2025",
+    "0.43443"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 1.46,
+  "dividendYieldText": "1.46%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "PBP",
+  "name": "Invesco S&P 500 BuyWrite ETF",
+  "category": "Hedged US Equity",
+  "inception": "2007-12-20",
+  "exchange": "Cboe BZX Exchange, Inc.",
+  "ter": 0.35,
+  "cusip": "46137V399",
+  "isin": "US46137V3996"
+ }
+}

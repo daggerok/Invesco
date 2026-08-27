@@ -1,0 +1,118 @@
+{
+ "ticker": "PYZ",
+ "name": "Invesco Dorsey Wright Basic Materials Momentum ETF",
+ "category": "Sector",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pyz.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PYZ",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PYZ",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PYZ",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46137V704",
+  "isin": "US46137V7047"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$135.02",
+  "value": 135.02,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$135.63",
+  "value": 135.63,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.45%",
+  "value": 0.45
+ },
+ "aum": {
+  "display": "$36.50 B",
+  "value": 36502000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 15.02,
+   "ytdText": "15.02%",
+   "yr1": -2.98,
+   "yr1Text": "-2.98%",
+   "yr3": 22.02,
+   "yr3Text": "22.02%",
+   "yr5": 12.02,
+   "yr5Text": "12.02%",
+   "yr10": 3.02,
+   "yr10Text": "3.02%",
+   "sinceInception": 9.02,
+   "sinceInceptionText": "9.02%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.67815"
+   ],
+   [
+    "03/23/2026",
+    "0.65102"
+   ],
+   [
+    "12/22/2025",
+    "0.69171"
+   ],
+   [
+    "09/22/2025",
+    "0.61033"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 0.32,
+  "dividendYieldText": "0.32%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "PYZ",
+  "name": "Invesco Dorsey Wright Basic Materials Momentum ETF",
+  "category": "Sector",
+  "inception": "2006-10-12",
+  "exchange": "NASDAQ",
+  "ter": 0.35,
+  "cusip": "46137V704",
+  "isin": "US46137V7047"
+ }
+}

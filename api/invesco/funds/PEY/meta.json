@@ -1,0 +1,118 @@
+{
+ "ticker": "PEY",
+ "name": "Invesco High Yield Equity Dividend Achievers\u2122 ETF",
+ "category": "Fixed Income",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pey.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PEY",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PEY",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PEY",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46137V563",
+  "isin": "US46137V5637"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$85.27",
+  "value": 85.27,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$84.97",
+  "value": 84.97,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.35%",
+  "value": -0.35
+ },
+ "aum": {
+  "display": "$36.53 B",
+  "value": 36527000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": -4.73,
+   "ytdText": "-4.73%",
+   "yr1": -2.73,
+   "yr1Text": "-2.73%",
+   "yr3": 2.27,
+   "yr3Text": "2.27%",
+   "yr5": 12.27,
+   "yr5Text": "12.27%",
+   "yr10": 3.27,
+   "yr10Text": "3.27%",
+   "sinceInception": 4.27,
+   "sinceInceptionText": "4.27%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.42485"
+   ],
+   [
+    "03/23/2026",
+    "0.40786"
+   ],
+   [
+    "12/22/2025",
+    "0.43335"
+   ],
+   [
+    "09/22/2025",
+    "0.38236"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 0.57,
+  "dividendYieldText": "0.57%",
+  "secYield": 2.27,
+  "secYieldText": "2.27%"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "PEY",
+  "name": "Invesco High Yield Equity Dividend Achievers\u2122 ETF",
+  "category": "Fixed Income",
+  "inception": "2004-12-09",
+  "exchange": "NASDAQ",
+  "ter": 0.35,
+  "cusip": "46137V563",
+  "isin": "US46137V5637"
+ }
+}

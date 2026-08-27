@@ -1,0 +1,118 @@
+{
+ "ticker": "CSD",
+ "name": "Invesco S&P Spin-Off ETF",
+ "category": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/csd.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=CSD",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=CSD",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=CSD",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46137V159",
+  "isin": "US46137V1594"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$53.68",
+  "value": 53.68,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$53.49",
+  "value": 53.49,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.35%",
+  "value": -0.35
+ },
+ "aum": {
+  "display": "$23.37 B",
+  "value": 23368000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 23.68,
+   "ytdText": "23.68%",
+   "yr1": 5.68,
+   "yr1Text": "5.68%",
+   "yr3": 30.68,
+   "yr3Text": "30.68%",
+   "yr5": 5.68,
+   "yr5Text": "5.68%",
+   "yr10": 11.68,
+   "yr10Text": "11.68%",
+   "sinceInception": 17.68,
+   "sinceInceptionText": "17.68%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.26745"
+   ],
+   [
+    "03/23/2026",
+    "0.25675"
+   ],
+   [
+    "12/22/2025",
+    "0.27280"
+   ],
+   [
+    "09/22/2025",
+    "0.24071"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 3.98,
+  "dividendYieldText": "3.98%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "CSD",
+  "name": "Invesco S&P Spin-Off ETF",
+  "category": "US Equity",
+  "inception": "2006-12-15",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46137V159",
+  "isin": "US46137V1594"
+ }
+}

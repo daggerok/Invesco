@@ -1,0 +1,118 @@
+{
+ "ticker": "UDN",
+ "name": "Invesco DB US Dollar Index Bearish Fund",
+ "category": "Currency",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/udn.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=UDN",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=UDN",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=UDN",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46141D104",
+  "isin": "US46141D1046"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$53.60",
+  "value": 53.6,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$53.44",
+  "value": 53.44,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.30%",
+  "value": -0.3
+ },
+ "aum": {
+  "display": "$28.36 B",
+  "value": 28360000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 23.6,
+   "ytdText": "23.60%",
+   "yr1": 15.6,
+   "yr1Text": "15.60%",
+   "yr3": 30.6,
+   "yr3Text": "30.60%",
+   "yr5": 5.6,
+   "yr5Text": "5.60%",
+   "yr10": 21.6,
+   "yr10Text": "21.60%",
+   "sinceInception": 17.6,
+   "sinceInceptionText": "17.60%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.26720"
+   ],
+   [
+    "03/23/2026",
+    "0.25651"
+   ],
+   [
+    "12/22/2025",
+    "0.27254"
+   ],
+   [
+    "09/22/2025",
+    "0.24048"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 3.9,
+  "dividendYieldText": "3.90%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 4,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "UDN",
+  "name": "Invesco DB US Dollar Index Bearish Fund",
+  "category": "Currency",
+  "inception": "2007-02-20",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46141D104",
+  "isin": "US46141D1046"
+ }
+}

@@ -1,0 +1,118 @@
+{
+ "ticker": "PSCM",
+ "name": "Invesco S&P SmallCap Materials ETF",
+ "category": "Sector",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pscm.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PSCM",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PSCM",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PSCM",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138G201",
+  "isin": "US46138G2012"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$72.96",
+  "value": 72.96,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$73.11",
+  "value": 73.11,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.21%",
+  "value": 0.21
+ },
+ "aum": {
+  "display": "$40.30 B",
+  "value": 40296000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 12.96,
+   "ytdText": "12.96%",
+   "yr1": 34.96,
+   "yr1Text": "34.96%",
+   "yr3": 19.96,
+   "yr3Text": "19.96%",
+   "yr5": 24.96,
+   "yr5Text": "24.96%",
+   "yr10": 20.96,
+   "yr10Text": "20.96%",
+   "sinceInception": 6.96,
+   "sinceInceptionText": "6.96%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.36555"
+   ],
+   [
+    "03/23/2026",
+    "0.35093"
+   ],
+   [
+    "12/22/2025",
+    "0.37286"
+   ],
+   [
+    "09/22/2025",
+    "0.32899"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 3.26,
+  "dividendYieldText": "3.26%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "PSCM",
+  "name": "Invesco S&P SmallCap Materials ETF",
+  "category": "Sector",
+  "inception": "2010-04-07",
+  "exchange": "NASDAQ",
+  "ter": 0.35,
+  "cusip": "46138G201",
+  "isin": "US46138G2012"
+ }
+}

@@ -1,0 +1,118 @@
+{
+ "ticker": "RSPS",
+ "name": "Invesco S&P 500\u00ae Equal Weight Consumer Staples ETF",
+ "category": "Sector",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/rsps.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=RSPS",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=RSPS",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=RSPS",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46137V373",
+  "isin": "US46137V3731"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$119.83",
+  "value": 119.83,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$120.31",
+  "value": 120.31,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.40%",
+  "value": 0.4
+ },
+ "aum": {
+  "display": "$19.98 B",
+  "value": 19983000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": -0.17,
+   "ytdText": "-0.17%",
+   "yr1": 31.83,
+   "yr1Text": "31.83%",
+   "yr3": 6.83,
+   "yr3Text": "6.83%",
+   "yr5": 21.83,
+   "yr5Text": "21.83%",
+   "yr10": 17.83,
+   "yr10Text": "17.83%",
+   "sinceInception": 8.83,
+   "sinceInceptionText": "8.83%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.60155"
+   ],
+   [
+    "03/23/2026",
+    "0.57749"
+   ],
+   [
+    "12/22/2025",
+    "0.61358"
+   ],
+   [
+    "09/22/2025",
+    "0.54139"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 5.13,
+  "dividendYieldText": "5.13%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "RSPS",
+  "name": "Invesco S&P 500\u00ae Equal Weight Consumer Staples ETF",
+  "category": "Sector",
+  "inception": "2006-11-01",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46137V373",
+  "isin": "US46137V3731"
+ }
+}

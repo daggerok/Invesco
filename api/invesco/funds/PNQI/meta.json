@@ -1,0 +1,118 @@
+{
+ "ticker": "PNQI",
+ "name": "Invesco NASDAQ Internet ETF",
+ "category": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pnqi.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PNQI",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PNQI",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PNQI",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46137V530",
+  "isin": "US46137V5306"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$54.81",
+  "value": 54.81,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$55.00",
+  "value": 55.0,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "aum": {
+  "display": "$13.48 B",
+  "value": 13481000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 24.81,
+   "ytdText": "24.81%",
+   "yr1": 26.81,
+   "yr1Text": "26.81%",
+   "yr3": 31.81,
+   "yr3Text": "31.81%",
+   "yr5": 6.81,
+   "yr5Text": "6.81%",
+   "yr10": 12.81,
+   "yr10Text": "12.81%",
+   "sinceInception": 18.81,
+   "sinceInceptionText": "18.81%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.27500"
+   ],
+   [
+    "03/23/2026",
+    "0.26400"
+   ],
+   [
+    "12/22/2025",
+    "0.28050"
+   ],
+   [
+    "09/22/2025",
+    "0.24750"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 5.11,
+  "dividendYieldText": "5.11%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "PNQI",
+  "name": "Invesco NASDAQ Internet ETF",
+  "category": "US Equity",
+  "inception": "2008-06-12",
+  "exchange": "NASDAQ",
+  "ter": 0.35,
+  "cusip": "46137V530",
+  "isin": "US46137V5306"
+ }
+}

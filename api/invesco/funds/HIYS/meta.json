@@ -1,0 +1,118 @@
+{
+ "ticker": "HIYS",
+ "name": "Invesco High Yield Select ETF",
+ "category": "Fixed Income",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/hiys.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=HIYS",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=HIYS",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=HIYS",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46090A754",
+  "isin": "US46090A7542"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$110.26",
+  "value": 110.26,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$109.71",
+  "value": 109.71,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.50%",
+  "value": -0.5
+ },
+ "aum": {
+  "display": "$49.03 B",
+  "value": 49026000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 20.26,
+   "ytdText": "20.26%",
+   "yr1": 22.26,
+   "yr1Text": "22.26%",
+   "yr3": 27.26,
+   "yr3Text": "27.26%",
+   "yr5": 12.26,
+   "yr5Text": "12.26%",
+   "yr10": 8.26,
+   "yr10Text": "8.26%",
+   "sinceInception": 14.26,
+   "sinceInceptionText": "14.26%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.54855"
+   ],
+   [
+    "03/23/2026",
+    "0.52661"
+   ],
+   [
+    "12/22/2025",
+    "0.55952"
+   ],
+   [
+    "09/22/2025",
+    "0.49369"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 0.56,
+  "dividendYieldText": "0.56%",
+  "secYield": 4.76,
+  "secYieldText": "4.76%"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "HIYS",
+  "name": "Invesco High Yield Select ETF",
+  "category": "Fixed Income",
+  "inception": "2022-12-09",
+  "exchange": "CBOE",
+  "ter": 0.35,
+  "cusip": "46090A754",
+  "isin": "US46090A7542"
+ }
+}

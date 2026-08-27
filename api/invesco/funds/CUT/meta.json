@@ -1,0 +1,118 @@
+{
+ "ticker": "CUT",
+ "name": "Invesco MSCI Global Timber ETF",
+ "category": "Global Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/cut.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=CUT",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=CUT",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=CUT",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138E545",
+  "isin": "US46138E5454"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$161.17",
+  "value": 161.17,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$161.57",
+  "value": 161.57,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.25%",
+  "value": 0.25
+ },
+ "aum": {
+  "display": "$14.12 B",
+  "value": 14117000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 11.17,
+   "ytdText": "11.17%",
+   "yr1": 33.17,
+   "yr1Text": "33.17%",
+   "yr3": 18.17,
+   "yr3Text": "18.17%",
+   "yr5": 13.17,
+   "yr5Text": "13.17%",
+   "yr10": 19.17,
+   "yr10Text": "19.17%",
+   "sinceInception": 5.17,
+   "sinceInceptionText": "5.17%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.80785"
+   ],
+   [
+    "03/23/2026",
+    "0.77554"
+   ],
+   [
+    "12/22/2025",
+    "0.82401"
+   ],
+   [
+    "09/22/2025",
+    "0.72706"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 1.47,
+  "dividendYieldText": "1.47%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "CUT",
+  "name": "Invesco MSCI Global Timber ETF",
+  "category": "Global Equity",
+  "inception": "2007-11-09",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46138E545",
+  "isin": "US46138E5454"
+ }
+}

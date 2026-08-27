@@ -1,0 +1,118 @@
+{
+ "ticker": "DVVY",
+ "name": "Invesco Diversified Dividend Opportunities ETF",
+ "category": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/dvvy.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=DVVY",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=DVVY",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=DVVY",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46090A116",
+  "isin": "US46090A1164"
+ },
+ "expenseRatio": {
+  "display": "0.33%",
+  "value": 0.33
+ },
+ "nav": {
+  "display": "$129.48",
+  "value": 129.48,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$128.96",
+  "value": 128.96,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.40%",
+  "value": -0.4
+ },
+ "aum": {
+  "display": "$45.95 B",
+  "value": 45948000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 9.48,
+   "ytdText": "9.48%",
+   "yr1": 11.48,
+   "yr1Text": "11.48%",
+   "yr3": 16.48,
+   "yr3Text": "16.48%",
+   "yr5": 6.48,
+   "yr5Text": "6.48%",
+   "yr10": 17.48,
+   "yr10Text": "17.48%",
+   "sinceInception": 18.48,
+   "sinceInceptionText": "18.48%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.64480"
+   ],
+   [
+    "03/23/2026",
+    "0.61901"
+   ],
+   [
+    "12/22/2025",
+    "0.65770"
+   ],
+   [
+    "09/22/2025",
+    "0.58032"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 4.78,
+  "dividendYieldText": "4.78%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "DVVY",
+  "name": "Invesco Diversified Dividend Opportunities ETF",
+  "category": "US Equity",
+  "inception": "2026-03-18",
+  "exchange": "NYSE Arca",
+  "ter": 0.33,
+  "cusip": "46090A116",
+  "isin": "US46090A1164"
+ }
+}

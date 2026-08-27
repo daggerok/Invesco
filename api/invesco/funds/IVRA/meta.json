@@ -1,0 +1,118 @@
+{
+ "ticker": "IVRA",
+ "name": "Invesco Real Assets ESG ETF",
+ "category": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/ivra.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=IVRA",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=IVRA",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=IVRA",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46090A788",
+  "isin": "US46090A7963"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$90.54",
+  "value": 90.54,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$90.59",
+  "value": 90.59,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.06%",
+  "value": 0.06
+ },
+ "aum": {
+  "display": "$32.05 B",
+  "value": 32054000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 0.54,
+   "ytdText": "0.54%",
+   "yr1": 12.54,
+   "yr1Text": "12.54%",
+   "yr3": 7.54,
+   "yr3Text": "7.54%",
+   "yr5": 17.54,
+   "yr5Text": "17.54%",
+   "yr10": 18.54,
+   "yr10Text": "18.54%",
+   "sinceInception": 9.54,
+   "sinceInceptionText": "9.54%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.45295"
+   ],
+   [
+    "03/23/2026",
+    "0.43483"
+   ],
+   [
+    "12/22/2025",
+    "0.46201"
+   ],
+   [
+    "09/22/2025",
+    "0.40765"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 0.84,
+  "dividendYieldText": "0.84%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "IVRA",
+  "name": "Invesco Real Assets ESG ETF",
+  "category": "US Equity",
+  "inception": "2020-12-22",
+  "exchange": "Cboe BZX Exchange, Inc.",
+  "ter": 0.35,
+  "cusip": "46090A788",
+  "isin": "US46090A7963"
+ }
+}

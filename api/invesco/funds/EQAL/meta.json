@@ -1,0 +1,118 @@
+{
+ "ticker": "EQAL",
+ "name": "Invesco Russell 1000 Equal Weight ETF",
+ "category": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/eqal.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=EQAL",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=EQAL",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=EQAL",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138E420",
+  "isin": "US46138E4200"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$96.28",
+  "value": 96.28,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$96.38",
+  "value": 96.38,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.10%",
+  "value": 0.1
+ },
+ "aum": {
+  "display": "$47.63 B",
+  "value": 47628000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 6.28,
+   "ytdText": "6.28%",
+   "yr1": 8.28,
+   "yr1Text": "8.28%",
+   "yr3": 13.28,
+   "yr3Text": "13.28%",
+   "yr5": 23.28,
+   "yr5Text": "23.28%",
+   "yr10": 14.28,
+   "yr10Text": "14.28%",
+   "sinceInception": 15.28,
+   "sinceInceptionText": "15.28%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.48190"
+   ],
+   [
+    "03/23/2026",
+    "0.46262"
+   ],
+   [
+    "12/22/2025",
+    "0.49154"
+   ],
+   [
+    "09/22/2025",
+    "0.43371"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 1.58,
+  "dividendYieldText": "1.58%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "EQAL",
+  "name": "Invesco Russell 1000 Equal Weight ETF",
+  "category": "US Equity",
+  "inception": "2014-12-23",
+  "exchange": "NYSE ",
+  "ter": 0.35,
+  "cusip": "46138E420",
+  "isin": "US46138E4200"
+ }
+}

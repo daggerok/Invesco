@@ -1,0 +1,118 @@
+{
+ "ticker": "PTH",
+ "name": "Invesco Dorsey Wright Healthcare Momentum ETF",
+ "category": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pth.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PTH",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PTH",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PTH",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46137V852",
+  "isin": "US46137V8524"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$109.41",
+  "value": 109.41,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$108.97",
+  "value": 108.97,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.40%",
+  "value": -0.4
+ },
+ "aum": {
+  "display": "$23.94 B",
+  "value": 23941000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 19.41,
+   "ytdText": "19.41%",
+   "yr1": 11.41,
+   "yr1Text": "11.41%",
+   "yr3": 26.41,
+   "yr3Text": "26.41%",
+   "yr5": 11.41,
+   "yr5Text": "11.41%",
+   "yr10": 17.41,
+   "yr10Text": "17.41%",
+   "sinceInception": 13.41,
+   "sinceInceptionText": "13.41%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.54485"
+   ],
+   [
+    "03/23/2026",
+    "0.52306"
+   ],
+   [
+    "12/22/2025",
+    "0.55575"
+   ],
+   [
+    "09/22/2025",
+    "0.49036"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 4.71,
+  "dividendYieldText": "4.71%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "PTH",
+  "name": "Invesco Dorsey Wright Healthcare Momentum ETF",
+  "category": "US Equity",
+  "inception": "2006-10-12",
+  "exchange": "NASDAQ",
+  "ter": 0.35,
+  "cusip": "46137V852",
+  "isin": "US46137V8524"
+ }
+}

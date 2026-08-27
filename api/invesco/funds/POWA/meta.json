@@ -1,0 +1,118 @@
+{
+ "ticker": "POWA",
+ "name": "Invesco Bloomberg Pricing Power ETF",
+ "category": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/powa.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=POWA",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=POWA",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=POWA",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138J775",
+  "isin": "US46138J7752"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$68.81",
+  "value": 68.81,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$68.71",
+  "value": 68.71,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.15%",
+  "value": -0.15
+ },
+ "aum": {
+  "display": "$39.88 B",
+  "value": 39881000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 8.81,
+   "ytdText": "8.81%",
+   "yr1": 30.81,
+   "yr1Text": "30.81%",
+   "yr3": 15.81,
+   "yr3Text": "15.81%",
+   "yr5": 20.81,
+   "yr5Text": "20.81%",
+   "yr10": 16.81,
+   "yr10Text": "16.81%",
+   "sinceInception": 17.81,
+   "sinceInceptionText": "17.81%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.34355"
+   ],
+   [
+    "03/23/2026",
+    "0.32981"
+   ],
+   [
+    "12/22/2025",
+    "0.35042"
+   ],
+   [
+    "09/22/2025",
+    "0.30919"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 4.11,
+  "dividendYieldText": "4.11%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "POWA",
+  "name": "Invesco Bloomberg Pricing Power ETF",
+  "category": "US Equity",
+  "inception": "2006-12-15",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46138J775",
+  "isin": "US46138J7752"
+ }
+}

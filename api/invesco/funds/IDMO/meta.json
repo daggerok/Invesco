@@ -1,0 +1,118 @@
+{
+ "ticker": "IDMO",
+ "name": "Invesco S&P International Developed Momentum ETF",
+ "category": "International",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/idmo.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=IDMO",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=IDMO",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=IDMO",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138E222",
+  "isin": "US46138E2220"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$132.82",
+  "value": 132.82,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$132.16",
+  "value": 132.16,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.50%",
+  "value": -0.5
+ },
+ "aum": {
+  "display": "$26.28 B",
+  "value": 26282000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 12.82,
+   "ytdText": "12.82%",
+   "yr1": 14.82,
+   "yr1Text": "14.82%",
+   "yr3": 19.82,
+   "yr3Text": "19.82%",
+   "yr5": 9.82,
+   "yr5Text": "9.82%",
+   "yr10": 20.82,
+   "yr10Text": "20.82%",
+   "sinceInception": 6.82,
+   "sinceInceptionText": "6.82%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.66080"
+   ],
+   [
+    "03/23/2026",
+    "0.63437"
+   ],
+   [
+    "12/22/2025",
+    "0.67402"
+   ],
+   [
+    "09/22/2025",
+    "0.59472"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 3.12,
+  "dividendYieldText": "3.12%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "IDMO",
+  "name": "Invesco S&P International Developed Momentum ETF",
+  "category": "International",
+  "inception": "2012-02-24",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46138E222",
+  "isin": "US46138E2220"
+ }
+}

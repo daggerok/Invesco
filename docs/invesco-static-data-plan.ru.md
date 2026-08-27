@@ -45,7 +45,7 @@ Invesco не публикует документированного bulk-API, �
 
 Из этих источников собираются три независимых слоя:
 
-1. **investco.com** — каталог, официальные доходности (YTD/1Y/3Y/5Y/10Y/SI),
+1. **invesco.com** — каталог, официальные доходности (YTD/1Y/3Y/5Y/10Y/SI),
    TER, NAV, close, premium/discount, `Fund Assets`, trailing-12M дивидендная
    доходность и SEC 30-Day доходность (публикуется не для всех фондов), holdings;
 2. **Yahoo Finance chart API** (`/v8/finance/chart/…?events=div`) — ежедневная

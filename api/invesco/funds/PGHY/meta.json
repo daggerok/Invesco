@@ -1,0 +1,118 @@
+{
+ "ticker": "PGHY",
+ "name": "Invesco Global ex-US High Yield Corporate Bond ETF",
+ "category": "Fixed Income",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pghy.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PGHY",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PGHY",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PGHY",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138E669",
+  "isin": "US46138E6692"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$38.90",
+  "value": 38.9,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$39.08",
+  "value": 39.08,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.46%",
+  "value": 0.46
+ },
+ "aum": {
+  "display": "$6.89 B",
+  "value": 6890000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 8.9,
+   "ytdText": "8.90%",
+   "yr1": 20.9,
+   "yr1Text": "20.90%",
+   "yr3": 15.9,
+   "yr3Text": "15.90%",
+   "yr5": 15.9,
+   "yr5Text": "15.90%",
+   "yr10": 6.9,
+   "yr10Text": "6.90%",
+   "sinceInception": 17.9,
+   "sinceInceptionText": "17.90%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.19540"
+   ],
+   [
+    "03/23/2026",
+    "0.18758"
+   ],
+   [
+    "12/22/2025",
+    "0.19931"
+   ],
+   [
+    "09/22/2025",
+    "0.17586"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 4.2,
+  "dividendYieldText": "4.20%",
+  "secYield": 0.9,
+  "secYieldText": "0.90%"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "PGHY",
+  "name": "Invesco Global ex-US High Yield Corporate Bond ETF",
+  "category": "Fixed Income",
+  "inception": "2013-06-20",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46138E669",
+  "isin": "US46138E6692"
+ }
+}

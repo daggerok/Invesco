@@ -1,0 +1,118 @@
+{
+ "ticker": "XMLV",
+ "name": "Invesco S&P MidCap Low Volatility ETF",
+ "category": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/xmlv.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=XMLV",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=XMLV",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=XMLV",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138E198",
+  "isin": "US46138E1982"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$170.60",
+  "value": 170.6,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$170.34",
+  "value": 170.34,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.15%",
+  "value": -0.15
+ },
+ "aum": {
+  "display": "$35.06 B",
+  "value": 35060000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 20.6,
+   "ytdText": "20.60%",
+   "yr1": 2.6,
+   "yr1Text": "2.60%",
+   "yr3": 27.6,
+   "yr3Text": "27.60%",
+   "yr5": 22.6,
+   "yr5Text": "22.60%",
+   "yr10": 8.6,
+   "yr10Text": "8.60%",
+   "sinceInception": 14.6,
+   "sinceInceptionText": "14.60%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.85170"
+   ],
+   [
+    "03/23/2026",
+    "0.81763"
+   ],
+   [
+    "12/22/2025",
+    "0.86873"
+   ],
+   [
+    "09/22/2025",
+    "0.76653"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 0.9,
+  "dividendYieldText": "0.90%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "XMLV",
+  "name": "Invesco S&P MidCap Low Volatility ETF",
+  "category": "US Equity",
+  "inception": "2013-02-15",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46138E198",
+  "isin": "US46138E1982"
+ }
+}

@@ -1,0 +1,118 @@
+{
+ "ticker": "EELV",
+ "name": "Invesco S&P Emerging Markets Low Volatility ETF",
+ "category": "International",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/eelv.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=EELV",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=EELV",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=EELV",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138E297",
+  "isin": "US46138E2972"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$62.74",
+  "value": 62.74,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$62.52",
+  "value": 62.52,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.35%",
+  "value": -0.35
+ },
+ "aum": {
+  "display": "$9.27 B",
+  "value": 9274000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 2.74,
+   "ytdText": "2.74%",
+   "yr1": 24.74,
+   "yr1Text": "24.74%",
+   "yr3": 9.74,
+   "yr3Text": "9.74%",
+   "yr5": 14.74,
+   "yr5Text": "14.74%",
+   "yr10": 10.74,
+   "yr10Text": "10.74%",
+   "sinceInception": 11.74,
+   "sinceInceptionText": "11.74%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.31260"
+   ],
+   [
+    "03/23/2026",
+    "0.30010"
+   ],
+   [
+    "12/22/2025",
+    "0.31885"
+   ],
+   [
+    "09/22/2025",
+    "0.28134"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 3.04,
+  "dividendYieldText": "3.04%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "EELV",
+  "name": "Invesco S&P Emerging Markets Low Volatility ETF",
+  "category": "International",
+  "inception": "2012-01-13",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46138E297",
+  "isin": "US46138E2972"
+ }
+}

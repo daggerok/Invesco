@@ -1,0 +1,118 @@
+{
+ "ticker": "PHO",
+ "name": "Invesco Water Resources ETF",
+ "category": "Thematic",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pho.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PHO",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PHO",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PHO",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46137V142",
+  "isin": "US46137V1420"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$112.51",
+  "value": 112.51,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$112.45",
+  "value": 112.45,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.05%",
+  "value": -0.05
+ },
+ "aum": {
+  "display": "$44.25 B",
+  "value": 44251000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 22.51,
+   "ytdText": "22.51%",
+   "yr1": 14.51,
+   "yr1Text": "14.51%",
+   "yr3": 29.51,
+   "yr3Text": "29.51%",
+   "yr5": 14.51,
+   "yr5Text": "14.51%",
+   "yr10": 20.51,
+   "yr10Text": "20.51%",
+   "sinceInception": 16.51,
+   "sinceInceptionText": "16.51%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.56225"
+   ],
+   [
+    "03/23/2026",
+    "0.53976"
+   ],
+   [
+    "12/22/2025",
+    "0.57350"
+   ],
+   [
+    "09/22/2025",
+    "0.50602"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 2.81,
+  "dividendYieldText": "2.81%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "PHO",
+  "name": "Invesco Water Resources ETF",
+  "category": "Thematic",
+  "inception": "2005-12-06",
+  "exchange": "NASDAQ",
+  "ter": 0.35,
+  "cusip": "46137V142",
+  "isin": "US46137V1420"
+ }
+}

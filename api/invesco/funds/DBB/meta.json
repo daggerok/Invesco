@@ -1,0 +1,118 @@
+{
+ "ticker": "DBB",
+ "name": "Invesco DB Base Metals Fund",
+ "category": "Commodity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/dbb.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=DBB",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=DBB",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=DBB",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46140H700",
+  "isin": "US46140H7008"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$42.65",
+  "value": 42.65,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$42.46",
+  "value": 42.46,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.45%",
+  "value": -0.45
+ },
+ "aum": {
+  "display": "$47.27 B",
+  "value": 47265000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 12.65,
+   "ytdText": "12.65%",
+   "yr1": 24.65,
+   "yr1Text": "24.65%",
+   "yr3": 19.65,
+   "yr3Text": "19.65%",
+   "yr5": 19.65,
+   "yr5Text": "19.65%",
+   "yr10": 10.65,
+   "yr10Text": "10.65%",
+   "sinceInception": 6.65,
+   "sinceInceptionText": "6.65%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.21230"
+   ],
+   [
+    "03/23/2026",
+    "0.20381"
+   ],
+   [
+    "12/22/2025",
+    "0.21655"
+   ],
+   [
+    "09/22/2025",
+    "0.19107"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 2.95,
+  "dividendYieldText": "2.95%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 8,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "DBB",
+  "name": "Invesco DB Base Metals Fund",
+  "category": "Commodity",
+  "inception": "2007-01-05",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46140H700",
+  "isin": "US46140H7008"
+ }
+}

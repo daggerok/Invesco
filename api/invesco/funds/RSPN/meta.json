@@ -1,0 +1,118 @@
+{
+ "ticker": "RSPN",
+ "name": "Invesco S&P 500\u00ae Equal Weight Industrials ETF",
+ "category": "Sector",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/rspn.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=RSPN",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=RSPN",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=RSPN",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46137V324",
+  "isin": "US46137V3244"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$127.92",
+  "value": 127.92,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$128.56",
+  "value": 128.56,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.50%",
+  "value": 0.5
+ },
+ "aum": {
+  "display": "$35.79 B",
+  "value": 35792000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 7.92,
+   "ytdText": "7.92%",
+   "yr1": 29.92,
+   "yr1Text": "29.92%",
+   "yr3": 14.92,
+   "yr3Text": "14.92%",
+   "yr5": 4.92,
+   "yr5Text": "4.92%",
+   "yr10": 15.92,
+   "yr10Text": "15.92%",
+   "sinceInception": 16.92,
+   "sinceInceptionText": "16.92%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.64280"
+   ],
+   [
+    "03/23/2026",
+    "0.61709"
+   ],
+   [
+    "12/22/2025",
+    "0.65566"
+   ],
+   [
+    "09/22/2025",
+    "0.57852"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 3.22,
+  "dividendYieldText": "3.22%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "RSPN",
+  "name": "Invesco S&P 500\u00ae Equal Weight Industrials ETF",
+  "category": "Sector",
+  "inception": "2006-11-01",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46137V324",
+  "isin": "US46137V3244"
+ }
+}

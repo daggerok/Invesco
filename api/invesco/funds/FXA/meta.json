@@ -1,0 +1,118 @@
+{
+ "ticker": "FXA",
+ "name": "Invesco CurrencyShares\u00ae Australian Dollar Trust",
+ "category": "Currency",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/fxa.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=FXA",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=FXA",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=FXA",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46090N103",
+  "isin": "US46090N1037"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$102.99",
+  "value": 102.99,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$102.73",
+  "value": 102.73,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.25%",
+  "value": -0.25
+ },
+ "aum": {
+  "display": "$13.30 B",
+  "value": 13299000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 12.99,
+   "ytdText": "12.99%",
+   "yr1": 24.99,
+   "yr1Text": "24.99%",
+   "yr3": 19.99,
+   "yr3Text": "19.99%",
+   "yr5": 4.99,
+   "yr5Text": "4.99%",
+   "yr10": 10.99,
+   "yr10Text": "10.99%",
+   "sinceInception": 6.99,
+   "sinceInceptionText": "6.99%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.51365"
+   ],
+   [
+    "03/23/2026",
+    "0.49310"
+   ],
+   [
+    "12/22/2025",
+    "0.52392"
+   ],
+   [
+    "09/22/2025",
+    "0.46229"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 3.29,
+  "dividendYieldText": "3.29%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 4,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "FXA",
+  "name": "Invesco CurrencyShares\u00ae Australian Dollar Trust",
+  "category": "Currency",
+  "inception": "2006-06-21",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46090N103",
+  "isin": "US46090N1037"
+ }
+}

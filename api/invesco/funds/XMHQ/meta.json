@@ -1,0 +1,118 @@
+{
+ "ticker": "XMHQ",
+ "name": "Invesco S&P MidCap Quality ETF",
+ "category": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/xmhq.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=XMHQ",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=XMHQ",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=XMHQ",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46137V472",
+  "isin": "US46137V4721"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$58.77",
+  "value": 58.77,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$58.89",
+  "value": 58.89,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.20%",
+  "value": 0.2
+ },
+ "aum": {
+  "display": "$18.88 B",
+  "value": 18877000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": -1.23,
+   "ytdText": "-1.23%",
+   "yr1": 20.77,
+   "yr1Text": "20.77%",
+   "yr3": 5.77,
+   "yr3Text": "5.77%",
+   "yr5": 10.77,
+   "yr5Text": "10.77%",
+   "yr10": 6.77,
+   "yr10Text": "6.77%",
+   "sinceInception": 7.77,
+   "sinceInceptionText": "7.77%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.29445"
+   ],
+   [
+    "03/23/2026",
+    "0.28267"
+   ],
+   [
+    "12/22/2025",
+    "0.30034"
+   ],
+   [
+    "09/22/2025",
+    "0.26500"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 4.07,
+  "dividendYieldText": "4.07%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "XMHQ",
+  "name": "Invesco S&P MidCap Quality ETF",
+  "category": "US Equity",
+  "inception": "2006-12-01",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46137V472",
+  "isin": "US46137V4721"
+ }
+}

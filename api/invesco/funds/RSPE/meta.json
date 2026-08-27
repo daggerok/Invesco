@@ -1,0 +1,118 @@
+{
+ "ticker": "RSPE",
+ "name": "Invesco ESG S&P 500 Equal Weight ETF",
+ "category": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/rspe.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=RSPE",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=RSPE",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=RSPE",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138G516",
+  "isin": "US46138G5163"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$107.63",
+  "value": 107.63,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$107.95",
+  "value": 107.95,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.30%",
+  "value": 0.3
+ },
+ "aum": {
+  "display": "$13.76 B",
+  "value": 13763000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 17.63,
+   "ytdText": "17.63%",
+   "yr1": 29.63,
+   "yr1Text": "29.63%",
+   "yr3": 24.63,
+   "yr3Text": "24.63%",
+   "yr5": 9.63,
+   "yr5Text": "9.63%",
+   "yr10": 15.63,
+   "yr10Text": "15.63%",
+   "sinceInception": 11.63,
+   "sinceInceptionText": "11.63%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.53975"
+   ],
+   [
+    "03/23/2026",
+    "0.51816"
+   ],
+   [
+    "12/22/2025",
+    "0.55055"
+   ],
+   [
+    "09/22/2025",
+    "0.48577"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 2.93,
+  "dividendYieldText": "2.93%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "RSPE",
+  "name": "Invesco ESG S&P 500 Equal Weight ETF",
+  "category": "US Equity",
+  "inception": "2021-11-17",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46138G516",
+  "isin": "US46138G5163"
+ }
+}

@@ -1,0 +1,118 @@
+{
+ "ticker": "BSMR",
+ "name": "Invesco BulletShares 2027 Municipal Bond ETF",
+ "category": "Fixed Income",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/bsmr.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=BSMR",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=BSMR",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=BSMR",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138J494",
+  "isin": "US46138J4940"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$107.13",
+  "value": 107.13,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$107.02",
+  "value": 107.02,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.10%",
+  "value": -0.1
+ },
+ "aum": {
+  "display": "$23.71 B",
+  "value": 23713000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 17.13,
+   "ytdText": "17.13%",
+   "yr1": 29.13,
+   "yr1Text": "29.13%",
+   "yr3": 24.13,
+   "yr3Text": "24.13%",
+   "yr5": 9.13,
+   "yr5Text": "9.13%",
+   "yr10": 15.13,
+   "yr10Text": "15.13%",
+   "sinceInception": 11.13,
+   "sinceInceptionText": "11.13%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.53510"
+   ],
+   [
+    "03/23/2026",
+    "0.51370"
+   ],
+   [
+    "12/22/2025",
+    "0.54580"
+   ],
+   [
+    "09/22/2025",
+    "0.48159"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 2.43,
+  "dividendYieldText": "2.43%",
+  "secYield": 4.63,
+  "secYieldText": "4.63%"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "BSMR",
+  "name": "Invesco BulletShares 2027 Municipal Bond ETF",
+  "category": "Fixed Income",
+  "inception": "2019-09-25",
+  "exchange": "Nasdaq",
+  "ter": 0.35,
+  "cusip": "46138J494",
+  "isin": "US46138J4940"
+ }
+}

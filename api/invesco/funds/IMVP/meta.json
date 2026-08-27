@@ -1,0 +1,118 @@
+{
+ "ticker": "IMVP",
+ "name": "Invesco India ETF",
+ "category": "Asia-Pacific Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/imvp.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=IMVP",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=IMVP",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=IMVP",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46137V704",
+  "isin": "US46137V7047"
+ },
+ "expenseRatio": {
+  "display": "0.78%",
+  "value": 0.78
+ },
+ "nav": {
+  "display": "$88.88",
+  "value": 88.88,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$88.48",
+  "value": 88.48,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.45%",
+  "value": -0.45
+ },
+ "aum": {
+  "display": "$46.89 B",
+  "value": 46888000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": -1.12,
+   "ytdText": "-1.12%",
+   "yr1": 20.88,
+   "yr1Text": "20.88%",
+   "yr3": 5.88,
+   "yr3Text": "5.88%",
+   "yr5": 15.88,
+   "yr5Text": "15.88%",
+   "yr10": 6.88,
+   "yr10Text": "6.88%",
+   "sinceInception": 7.88,
+   "sinceInceptionText": "7.88%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.44240"
+   ],
+   [
+    "03/23/2026",
+    "0.42470"
+   ],
+   [
+    "12/22/2025",
+    "0.45125"
+   ],
+   [
+    "09/22/2025",
+    "0.39816"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 4.18,
+  "dividendYieldText": "4.18%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "IMVP",
+  "name": "Invesco India ETF",
+  "category": "Asia-Pacific Equity",
+  "inception": "2008-03-05",
+  "exchange": "NYSE Arca",
+  "ter": 0.78,
+  "cusip": "46137V704",
+  "isin": "US46137V7047"
+ }
+}

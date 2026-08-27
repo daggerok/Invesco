@@ -1,0 +1,118 @@
+{
+ "ticker": "CQQQ",
+ "name": "Invesco China Technology ETF",
+ "category": "International",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/cqqq.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=CQQQ",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=CQQQ",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=CQQQ",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138E800",
+  "isin": "US46138E8003"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$169.36",
+  "value": 169.36,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$169.02",
+  "value": 169.02,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.20%",
+  "value": -0.2
+ },
+ "aum": {
+  "display": "$44.94 B",
+  "value": 44936000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 19.36,
+   "ytdText": "19.36%",
+   "yr1": 21.36,
+   "yr1Text": "21.36%",
+   "yr3": 26.36,
+   "yr3Text": "26.36%",
+   "yr5": 21.36,
+   "yr5Text": "21.36%",
+   "yr10": 7.36,
+   "yr10Text": "7.36%",
+   "sinceInception": 13.36,
+   "sinceInceptionText": "13.36%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.84510"
+   ],
+   [
+    "03/23/2026",
+    "0.81130"
+   ],
+   [
+    "12/22/2025",
+    "0.86200"
+   ],
+   [
+    "09/22/2025",
+    "0.76059"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 4.66,
+  "dividendYieldText": "4.66%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "CQQQ",
+  "name": "Invesco China Technology ETF",
+  "category": "International",
+  "inception": "2009-12-08",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46138E800",
+  "isin": "US46138E8003"
+ }
+}

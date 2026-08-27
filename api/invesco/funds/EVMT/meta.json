@@ -1,0 +1,118 @@
+{
+ "ticker": "EVMT",
+ "name": "Invesco Electric Vehicle Metals Commodity Strategy No K-1 ETF",
+ "category": "Commodity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/evmt.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=EVMT",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=EVMT",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=EVMT",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46090F209",
+  "isin": "US46090F2092"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$128.35",
+  "value": 128.35,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$128.29",
+  "value": 128.29,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.05%",
+  "value": -0.05
+ },
+ "aum": {
+  "display": "$30.84 B",
+  "value": 30835000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 8.35,
+   "ytdText": "8.35%",
+   "yr1": 0.35,
+   "yr1Text": "0.35%",
+   "yr3": 15.35,
+   "yr3Text": "15.35%",
+   "yr5": 5.35,
+   "yr5Text": "5.35%",
+   "yr10": 6.35,
+   "yr10Text": "6.35%",
+   "sinceInception": 17.35,
+   "sinceInceptionText": "17.35%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.64145"
+   ],
+   [
+    "03/23/2026",
+    "0.61579"
+   ],
+   [
+    "12/22/2025",
+    "0.65428"
+   ],
+   [
+    "09/22/2025",
+    "0.57730"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 3.65,
+  "dividendYieldText": "3.65%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 8,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "EVMT",
+  "name": "Invesco Electric Vehicle Metals Commodity Strategy No K-1 ETF",
+  "category": "Commodity",
+  "inception": "2022-04-27",
+  "exchange": "NASDAQ",
+  "ter": 0.35,
+  "cusip": "46090F209",
+  "isin": "US46090F2092"
+ }
+}

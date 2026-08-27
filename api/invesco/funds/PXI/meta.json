@@ -1,0 +1,118 @@
+{
+ "ticker": "PXI",
+ "name": "Invesco Dorsey Wright Energy Momentum ETF",
+ "category": "Sector",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pxi.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PXI",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PXI",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PXI",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46137V878",
+  "isin": "US46137V8789"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$166.63",
+  "value": 166.63,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$166.80",
+  "value": 166.8,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.10%",
+  "value": 0.1
+ },
+ "aum": {
+  "display": "$9.66 B",
+  "value": 9663000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 16.63,
+   "ytdText": "16.63%",
+   "yr1": 28.63,
+   "yr1Text": "28.63%",
+   "yr3": 23.63,
+   "yr3Text": "23.63%",
+   "yr5": 18.63,
+   "yr5Text": "18.63%",
+   "yr10": 14.63,
+   "yr10Text": "14.63%",
+   "sinceInception": 10.63,
+   "sinceInceptionText": "10.63%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.83400"
+   ],
+   [
+    "03/23/2026",
+    "0.80064"
+   ],
+   [
+    "12/22/2025",
+    "0.85068"
+   ],
+   [
+    "09/22/2025",
+    "0.75060"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 1.93,
+  "dividendYieldText": "1.93%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "PXI",
+  "name": "Invesco Dorsey Wright Energy Momentum ETF",
+  "category": "Sector",
+  "inception": "2006-10-12",
+  "exchange": "NASDAQ",
+  "ter": 0.35,
+  "cusip": "46137V878",
+  "isin": "US46137V8789"
+ }
+}

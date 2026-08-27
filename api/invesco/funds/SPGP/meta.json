@@ -1,0 +1,118 @@
+{
+ "ticker": "SPGP",
+ "name": "Invesco S&P 500 GARP ETF",
+ "category": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/spgp.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=SPGP",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=SPGP",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=SPGP",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46137V431",
+  "isin": "US46137V4317"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$107.33",
+  "value": 107.33,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$107.81",
+  "value": 107.81,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.45%",
+  "value": 0.45
+ },
+ "aum": {
+  "display": "$13.73 B",
+  "value": 13733000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 17.33,
+   "ytdText": "17.33%",
+   "yr1": 29.33,
+   "yr1Text": "29.33%",
+   "yr3": 24.33,
+   "yr3Text": "24.33%",
+   "yr5": 9.33,
+   "yr5Text": "9.33%",
+   "yr10": 15.33,
+   "yr10Text": "15.33%",
+   "sinceInception": 11.33,
+   "sinceInceptionText": "11.33%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.53905"
+   ],
+   [
+    "03/23/2026",
+    "0.51749"
+   ],
+   [
+    "12/22/2025",
+    "0.54983"
+   ],
+   [
+    "09/22/2025",
+    "0.48514"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 2.63,
+  "dividendYieldText": "2.63%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "SPGP",
+  "name": "Invesco S&P 500 GARP ETF",
+  "category": "US Equity",
+  "inception": "2011-06-16",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46137V431",
+  "isin": "US46137V4317"
+ }
+}

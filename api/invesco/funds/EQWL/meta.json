@@ -1,0 +1,118 @@
+{
+ "ticker": "EQWL",
+ "name": "Invesco S&P 100 Equal Weight ETF",
+ "category": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/eqwl.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=EQWL",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=EQWL",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=EQWL",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46137V449",
+  "isin": "US46137V4499"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$174.51",
+  "value": 174.51,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$174.86",
+  "value": 174.86,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.20%",
+  "value": 0.2
+ },
+ "aum": {
+  "display": "$30.45 B",
+  "value": 30451000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 24.51,
+   "ytdText": "24.51%",
+   "yr1": 16.51,
+   "yr1Text": "16.51%",
+   "yr3": 31.51,
+   "yr3Text": "31.51%",
+   "yr5": 26.51,
+   "yr5Text": "26.51%",
+   "yr10": 22.51,
+   "yr10Text": "22.51%",
+   "sinceInception": 18.51,
+   "sinceInceptionText": "18.51%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.87430"
+   ],
+   [
+    "03/23/2026",
+    "0.83933"
+   ],
+   [
+    "12/22/2025",
+    "0.89179"
+   ],
+   [
+    "09/22/2025",
+    "0.78687"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 4.81,
+  "dividendYieldText": "4.81%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "EQWL",
+  "name": "Invesco S&P 100 Equal Weight ETF",
+  "category": "US Equity",
+  "inception": "2006-12-01",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46137V449",
+  "isin": "US46137V4499"
+ }
+}

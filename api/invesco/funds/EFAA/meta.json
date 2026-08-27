@@ -1,0 +1,118 @@
+{
+ "ticker": "EFAA",
+ "name": "Invesco MSCI EAFE Income Advantage ETF",
+ "category": "International",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/efaa.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=EFAA",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=EFAA",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=EFAA",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46090A713",
+  "isin": "US46090A7138"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$41.07",
+  "value": 41.07,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$41.09",
+  "value": 41.09,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.05%",
+  "value": 0.05
+ },
+ "aum": {
+  "display": "$32.11 B",
+  "value": 32107000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 11.07,
+   "ytdText": "11.07%",
+   "yr1": 33.07,
+   "yr1Text": "33.07%",
+   "yr3": 18.07,
+   "yr3Text": "18.07%",
+   "yr5": 18.07,
+   "yr5Text": "18.07%",
+   "yr10": 19.07,
+   "yr10Text": "19.07%",
+   "sinceInception": 5.07,
+   "sinceInceptionText": "5.07%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.20545"
+   ],
+   [
+    "03/23/2026",
+    "0.19723"
+   ],
+   [
+    "12/22/2025",
+    "0.20956"
+   ],
+   [
+    "09/22/2025",
+    "0.18491"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 1.37,
+  "dividendYieldText": "1.37%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "EFAA",
+  "name": "Invesco MSCI EAFE Income Advantage ETF",
+  "category": "International",
+  "inception": "2024-07-17",
+  "exchange": "NYSE",
+  "ter": 0.35,
+  "cusip": "46090A713",
+  "isin": "US46090A7138"
+ }
+}

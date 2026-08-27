@@ -1,0 +1,118 @@
+{
+ "ticker": "PGJ",
+ "name": "Invesco Golden Dragon China ETF",
+ "category": "International",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pgj.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PGJ",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PGJ",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PGJ",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46137V571",
+  "isin": "US46137V5710"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$30.05",
+  "value": 30.05,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$29.91",
+  "value": 29.91,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.47%",
+  "value": -0.47
+ },
+ "aum": {
+  "display": "$6.00 B",
+  "value": 6005000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 0.05,
+   "ytdText": "0.05%",
+   "yr1": 32.05,
+   "yr1Text": "32.05%",
+   "yr3": 7.05,
+   "yr3Text": "7.05%",
+   "yr5": 7.05,
+   "yr5Text": "7.05%",
+   "yr10": 18.05,
+   "yr10Text": "18.05%",
+   "sinceInception": 9.05,
+   "sinceInceptionText": "9.05%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.14955"
+   ],
+   [
+    "03/23/2026",
+    "0.14357"
+   ],
+   [
+    "12/22/2025",
+    "0.15254"
+   ],
+   [
+    "09/22/2025",
+    "0.13459"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 0.35,
+  "dividendYieldText": "0.35%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "PGJ",
+  "name": "Invesco Golden Dragon China ETF",
+  "category": "International",
+  "inception": "2004-12-09",
+  "exchange": "NASDAQ",
+  "ter": 0.35,
+  "cusip": "46137V571",
+  "isin": "US46137V5710"
+ }
+}

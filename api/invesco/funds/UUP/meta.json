@@ -1,0 +1,118 @@
+{
+ "ticker": "UUP",
+ "name": "Invesco DB US Dollar Index Bullish Fund",
+ "category": "Currency",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/uup.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=UUP",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=UUP",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=UUP",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46141D203",
+  "isin": "US46141D2036"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$173.25",
+  "value": 173.25,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$173.60",
+  "value": 173.6,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.20%",
+  "value": 0.2
+ },
+ "aum": {
+  "display": "$45.33 B",
+  "value": 45325000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 23.25,
+   "ytdText": "23.25%",
+   "yr1": 5.25,
+   "yr1Text": "5.25%",
+   "yr3": 30.25,
+   "yr3Text": "30.25%",
+   "yr5": 25.25,
+   "yr5Text": "25.25%",
+   "yr10": 11.25,
+   "yr10Text": "11.25%",
+   "sinceInception": 17.25,
+   "sinceInceptionText": "17.25%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.86800"
+   ],
+   [
+    "03/23/2026",
+    "0.83328"
+   ],
+   [
+    "12/22/2025",
+    "0.88536"
+   ],
+   [
+    "09/22/2025",
+    "0.78120"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 3.55,
+  "dividendYieldText": "3.55%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 4,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "UUP",
+  "name": "Invesco DB US Dollar Index Bullish Fund",
+  "category": "Currency",
+  "inception": "2007-02-20",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46141D203",
+  "isin": "US46141D2036"
+ }
+}

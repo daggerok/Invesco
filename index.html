@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Invesco ETF holdings to Watchlist from the static api/invesco JSON feed, generated from the investco.com product-list and daily holdings downloads plus Yahoo Finance." />
+  <meta name="description" content="Invesco ETF holdings to Watchlist from the static api/invesco JSON feed, generated from the invesco.com product-list and daily holdings downloads plus Yahoo Finance." />
   <title>Invesco ETF Holdings to Watchlist</title>
   <link rel="icon" type="image/x-icon" href="./favicon.ico">
 
@@ -112,7 +112,7 @@
         <span id="app-subtitle" class="basis-full sm:basis-auto text-sm text-slate-500 dark:text-slate-400">
           Search Invesco ETFs, select rows, then use the Watchlist tab. Data comes from
           <a href="./api/invesco/index.json" target="_blank" rel="noopener noreferrer" class="font-semibold text-blue-600 dark:text-blue-400 hover:underline">api/invesco/index.json</a> generated from
-          <a href="https://www.invesco.com/us/en/financial-products/etfs.html" target="_blank" rel="noopener noreferrer" class="font-semibold text-blue-600 dark:text-blue-400 hover:underline">investco.com ETF downloads</a> + Yahoo Finance
+          <a href="https://www.invesco.com/us/en/financial-products/etfs.html" target="_blank" rel="noopener noreferrer" class="font-semibold text-blue-600 dark:text-blue-400 hover:underline">invesco.com ETF downloads</a> + Yahoo Finance
         </span>
       </div>
       <div class="flex items-center gap-3 shrink-0">
@@ -147,7 +147,7 @@
           <div
             id="dropzone"
             class="flex items-center gap-2 border border-dashed border-slate-300 dark:border-slate-600 hover:border-blue-500 bg-slate-50 dark:bg-slate-900/60 transition-all rounded-lg px-3.5 py-2 cursor-pointer text-sm text-slate-600 dark:text-slate-300"
-            title="Upload SEC Form N-PORT-P primary_doc.xml (Invesco ETF holdings from EDGAR, used by the feed only when investco.com publishes no holdings CSV for a fund). Parsed in your browser; uploads live for this session only."
+            title="Upload SEC Form N-PORT-P primary_doc.xml (Invesco ETF holdings from EDGAR, used by the feed only when invesco.com publishes no holdings CSV for a fund). Parsed in your browser; uploads live for this session only."
           >
             <input type="file" id="file-input" accept=".xml" class="hidden" />
             <svg class="w-4 h-4 text-blue-500 dark:text-blue-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -340,10 +340,10 @@
       '#': 'Row index in current table view.',
       Use: 'Use / Multi-ETF Selection — Check this box to include this ETF\'s underlying holdings in the combined Watchlist tab.',
       Ticker: 'Ticker Symbol — Unique stock market identifier. For holdings: the exchange ticker resolved from public SEC / exchange data at data-build time. "—" when the position has no exchange ticker (bond, private debt) — then the Identifier is the key.',
-      'Fund Name': 'Fund Name — Official legal name of the Invesco exchange-traded fund (ETF), as published on the investco.com product list.',
-      Category: 'Category — investco.com groups its ETFs by asset class and sub-category ("Equity, US Equity"); the tab shows the asset class, the full grouping is kept in meta.json.',
+      'Fund Name': 'Fund Name — Official legal name of the Invesco exchange-traded fund (ETF), as published on the invesco.com product list.',
+      Category: 'Category — invesco.com groups its ETFs by asset class and sub-category ("Equity, US Equity"); the tab shows the asset class, the full grouping is kept in meta.json.',
       Name: 'Security Name — Full registered legal name of the company or underlying financial asset.',
-      Identifier: 'CUSIP / ISIN — Security identifier as published by investco.com (or taken from the N-PORT filing when that fallback supplied the sheet). Positions without an exchange ticker (bonds, cash, futures) are identified in the Watchlist by this.',
+      Identifier: 'CUSIP / ISIN — Security identifier as published by invesco.com (or taken from the N-PORT filing when that fallback supplied the sheet). Positions without an exchange ticker (bonds, cash, futures) are identified in the Watchlist by this.',
       SEDOL: 'SEDOL — Stock Exchange Daily Official List identifier.',
       TER: 'Gross Expense Ratio — Total annual fund operating expenses as a % of assets.',
       NAV: 'NAV (Net Asset Value) — Per-share dollar value of the fund.',
@@ -353,10 +353,10 @@
       'Max Weight': 'Max Weight — Highest single-fund weight for this holding across selected ETFs (%).',
       '# ETFs': 'Number of selected ETFs that currently hold this security.',
       ETFs: 'Selected ETFs holding this security.',
-      Type: 'Category — the asset-class part of the investco.com grouping (see the Category column). Same source as the category tabs.',
+      Type: 'Category — the asset-class part of the invesco.com grouping (see the Category column). Same source as the category tabs.',
       Expense: 'Gross Expense Ratio — Total annual fund operating expenses as a % of assets.',
-      'Dividend Yield': 'Dividend Yield — the trailing-12-month yield published by investco.com when present; otherwise indicated (latest distribution per share x payments per year / market price) from the Yahoo dividend history.',
-      'SEC Yield': 'SEC Yield (30-Day) — The 30-day SEC yield as published by investco.com (mostly fixed income funds); "—" when Invesco lists none for the fund.',
+      'Dividend Yield': 'Dividend Yield — the trailing-12-month yield published by invesco.com when present; otherwise indicated (latest distribution per share x payments per year / market price) from the Yahoo dividend history.',
+      'SEC Yield': 'SEC Yield (30-Day) — The 30-day SEC yield as published by invesco.com (mostly fixed income funds); "—" when Invesco lists none for the fund.',
       'YTD Return': 'YTD Return — Market-price total return since the start of the year, computed from adjusted closes (Yahoo). Not an official NAV return.',
       'TR 1Y': 'TR 1Y (1-Year Total Return) — NAV total return over the past year, including reinvested distributions.',
       'TR 3Y': 'TR 3Y (3-Year Total Return) — Cumulative market-price return over 3 years, derived exactly from the 3Y CAGR: (1 + CAGR 3Y)^3 - 1 (adjusted closes).',
@@ -618,7 +618,7 @@
         cagr5y: metrics.cagr5y ?? monthEnd.yr5 ?? null,
         cagr10y: metrics.cagr10y ?? monthEnd.yr10 ?? null,
         dividendYield: metrics.dividendYield ?? null,
-        secYield: metrics.secYield ?? null, // investco.com publishes it for most fixed income funds only.
+        secYield: metrics.secYield ?? null, // invesco.com publishes it for most fixed income funds only.
         returnAsOf: monthEnd.asOfDate ?? null,
         searchIndex: '',
       };
@@ -1421,7 +1421,7 @@
         { section: 'Distributions', metric: 'Ex-Date', value: fund.distributions ? fund.distributions.exDate : null },
         { section: 'Distributions', metric: 'Latest Dividend', value: fund.distributions ? fund.distributions.dividend : null },
         { section: 'Distributions', metric: 'Dividend Yield (indicated)', value: fund.dividendYield === null || fund.dividendYield === undefined ? null : `${fund.dividendYield.toFixed(2)}% (latest distribution x frequency / NAV)` },
-        { section: 'Distributions', metric: 'SEC Yield (30-day)', value: meta && meta.yields ? (meta.yields.secYieldText || '—') : (fund.secYield === null || fund.secYield === undefined ? 'not published by investco.com for this fund' : `${fund.secYield.toFixed(2)}%`) },
+        { section: 'Distributions', metric: 'SEC Yield (30-day)', value: meta && meta.yields ? (meta.yields.secYieldText || '—') : (fund.secYield === null || fund.secYield === undefined ? 'not published by invesco.com for this fund' : `${fund.secYield.toFixed(2)}%`) },
         { section: 'Distributions', metric: 'Dividend Yield Basis', value: meta && meta.yields ? meta.yields.dividendYieldKind : null },
         { section: 'Distributions', metric: 'SEC Yield Basis', value: meta && meta.yields ? meta.yields.secYieldKind : null },
         { section: 'Holdings', metric: 'Holdings Rows', value: fund.holdings },
@@ -1514,7 +1514,7 @@
       const base = text ? String(text) : 'Search Invesco ETFs, select rows, then use the Watchlist tab.';
       el.subtitle.innerHTML = `
         <span class="block sm:inline">${escapeHtml(base)}</span>
-        <span class="block sm:inline">·${generated ? ` updated ${escapeHtml(generated)}` : ''}${countsText ? ` · ${escapeHtml(countsText)}.` : '.'} Data: <a href="./api/invesco/index.json" target="_blank" rel="noopener noreferrer" class="font-semibold text-blue-600 dark:text-blue-400 hover:underline">api/invesco/index.json</a> generated from <a href="https://www.invesco.com/us/en/financial-products/etfs.html" target="_blank" rel="noopener noreferrer" class="font-semibold text-blue-600 dark:text-blue-400 hover:underline">investco.com ETF downloads</a> + Yahoo Finance</span>
+        <span class="block sm:inline">·${generated ? ` updated ${escapeHtml(generated)}` : ''}${countsText ? ` · ${escapeHtml(countsText)}.` : '.'} Data: <a href="./api/invesco/index.json" target="_blank" rel="noopener noreferrer" class="font-semibold text-blue-600 dark:text-blue-400 hover:underline">api/invesco/index.json</a> generated from <a href="https://www.invesco.com/us/en/financial-products/etfs.html" target="_blank" rel="noopener noreferrer" class="font-semibold text-blue-600 dark:text-blue-400 hover:underline">invesco.com ETF downloads</a> + Yahoo Finance</span>
       `;
     }
 

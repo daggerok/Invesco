@@ -1,0 +1,118 @@
+{
+ "ticker": "XSHQ",
+ "name": "Invesco S&P SmallCap Quality ETF",
+ "category": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/xshq.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=XSHQ",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=XSHQ",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=XSHQ",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138G300",
+  "isin": "US46138G3002"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$47.81",
+  "value": 47.81,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$48.03",
+  "value": 48.03,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.46%",
+  "value": 0.46
+ },
+ "aum": {
+  "display": "$42.78 B",
+  "value": 42781000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 17.81,
+   "ytdText": "17.81%",
+   "yr1": 19.81,
+   "yr1Text": "19.81%",
+   "yr3": 24.81,
+   "yr3Text": "24.81%",
+   "yr5": 24.81,
+   "yr5Text": "24.81%",
+   "yr10": 5.81,
+   "yr10Text": "5.81%",
+   "sinceInception": 11.81,
+   "sinceInceptionText": "11.81%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.24015"
+   ],
+   [
+    "03/23/2026",
+    "0.23054"
+   ],
+   [
+    "12/22/2025",
+    "0.24495"
+   ],
+   [
+    "09/22/2025",
+    "0.21613"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 3.11,
+  "dividendYieldText": "3.11%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "XSHQ",
+  "name": "Invesco S&P SmallCap Quality ETF",
+  "category": "US Equity",
+  "inception": "2017-04-06",
+  "exchange": "Cboe BZX Exchange, Inc.",
+  "ter": 0.35,
+  "cusip": "46138G300",
+  "isin": "US46138G3002"
+ }
+}

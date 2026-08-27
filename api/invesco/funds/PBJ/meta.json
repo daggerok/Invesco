@@ -1,0 +1,118 @@
+{
+ "ticker": "PBJ",
+ "name": "Invesco Food & Beverage ETF",
+ "category": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pbj.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PBJ",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PBJ",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PBJ",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46137V753",
+  "isin": "US46137V7534"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$52.14",
+  "value": 52.14,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$52.32",
+  "value": 52.32,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "aum": {
+  "display": "$23.21 B",
+  "value": 23214000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 22.14,
+   "ytdText": "22.14%",
+   "yr1": 4.14,
+   "yr1Text": "4.14%",
+   "yr3": 29.14,
+   "yr3Text": "29.14%",
+   "yr5": 4.14,
+   "yr5Text": "4.14%",
+   "yr10": 10.14,
+   "yr10Text": "10.14%",
+   "sinceInception": 16.14,
+   "sinceInceptionText": "16.14%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.26160"
+   ],
+   [
+    "03/23/2026",
+    "0.25114"
+   ],
+   [
+    "12/22/2025",
+    "0.26683"
+   ],
+   [
+    "09/22/2025",
+    "0.23544"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 2.44,
+  "dividendYieldText": "2.44%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "PBJ",
+  "name": "Invesco Food & Beverage ETF",
+  "category": "US Equity",
+  "inception": "2005-06-23",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46137V753",
+  "isin": "US46137V7534"
+ }
+}

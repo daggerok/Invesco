@@ -1,0 +1,107 @@
+{
+ "ticker": "RSP",
+ "name": "Invesco S&P 500 Equal Weight ETF",
+ "category": "US Equity",
+ "categoryPath": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/invesco-sp-500-equal-weight-etf.html",
+  "holdingsDownload": null,
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=RSP",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/RSP?period1=0&period2=1787867701&interval=1d&events=div%7Csplit",
+  "holdingsSource": "invesco.com per-fund holdings download",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
+ },
+ "expenseRatio": {
+  "display": "0.2%",
+  "value": 0.2
+ },
+ "nav": {
+  "display": "$222.11",
+  "value": 222.11,
+  "asOfDate": "—"
+ },
+ "marketPrice": {
+  "display": "$222.11",
+  "value": 222.11,
+  "asOfDate": "—"
+ },
+ "premiumDiscount": {
+  "display": "0.00%",
+  "value": 0
+ },
+ "aum": {
+  "display": "$100,970.00 M",
+  "value": 100970000000,
+  "asOfDate": "—",
+  "source": "Invesco product list \"Fund Assets\" column"
+ },
+ "yields": {
+  "dividendYield": 1.44,
+  "dividendYieldText": "1.44%",
+  "dividendYieldKind": "trailing 12-month, published by invesco.com",
+  "distributionRate": null,
+  "secYield": 1.45,
+  "secYieldText": "1.45%",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
+ },
+ "returns": {
+  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
+  "monthEnd": {
+   "asOfDate": "—",
+   "mo1": null,
+   "mo1Text": "—",
+   "qtd": null,
+   "qtdText": "—",
+   "ytd": 12.03,
+   "ytdText": "12.03%",
+   "yr1": 18.93,
+   "yr1Text": "18.93%",
+   "yr3": 14.32,
+   "yr3Text": "14.32%",
+   "yr5": 8.92,
+   "yr5Text": "8.92%",
+   "yr10": 12.14,
+   "yr10Text": "12.14%",
+   "sinceInception": 11.33,
+   "sinceInceptionText": "11.33%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": null,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": []
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 15,
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "invesco.com per-fund holdings download"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "—",
+  "source": "previous run"
+ }
+}

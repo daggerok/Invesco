@@ -1,0 +1,118 @@
+{
+ "ticker": "FXF",
+ "name": "Invesco CurrencyShares\u00ae Swiss Franc Trust",
+ "category": "Currency",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/fxf.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=FXF",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=FXF",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=FXF",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138R108",
+  "isin": "US46138R1086"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$142.29",
+  "value": 142.29,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$142.57",
+  "value": 142.57,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.20%",
+  "value": 0.2
+ },
+ "aum": {
+  "display": "$22.23 B",
+  "value": 22229000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 22.29,
+   "ytdText": "22.29%",
+   "yr1": 14.29,
+   "yr1Text": "14.29%",
+   "yr3": 29.29,
+   "yr3Text": "29.29%",
+   "yr5": 19.29,
+   "yr5Text": "19.29%",
+   "yr10": 20.29,
+   "yr10Text": "20.29%",
+   "sinceInception": 16.29,
+   "sinceInceptionText": "16.29%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.71285"
+   ],
+   [
+    "03/23/2026",
+    "0.68434"
+   ],
+   [
+    "12/22/2025",
+    "0.72711"
+   ],
+   [
+    "09/22/2025",
+    "0.64156"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 2.59,
+  "dividendYieldText": "2.59%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 4,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "FXF",
+  "name": "Invesco CurrencyShares\u00ae Swiss Franc Trust",
+  "category": "Currency",
+  "inception": "2006-06-21",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46138R108",
+  "isin": "US46138R1086"
+ }
+}

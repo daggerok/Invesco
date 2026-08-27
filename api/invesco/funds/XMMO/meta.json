@@ -1,0 +1,118 @@
+{
+ "ticker": "XMMO",
+ "name": "Invesco S&P MidCap Momentum ETF",
+ "category": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/xmmo.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=XMMO",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=XMMO",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=XMMO",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46137V464",
+  "isin": "US46137V4648"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$134.32",
+  "value": 134.32,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$134.25",
+  "value": 134.25,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.05%",
+  "value": -0.05
+ },
+ "aum": {
+  "display": "$1.43 B",
+  "value": 1432000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 14.32,
+   "ytdText": "14.32%",
+   "yr1": 6.32,
+   "yr1Text": "6.32%",
+   "yr3": 21.32,
+   "yr3Text": "21.32%",
+   "yr5": 11.32,
+   "yr5Text": "11.32%",
+   "yr10": 12.32,
+   "yr10Text": "12.32%",
+   "sinceInception": 8.32,
+   "sinceInceptionText": "8.32%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.67125"
+   ],
+   [
+    "03/23/2026",
+    "0.64440"
+   ],
+   [
+    "12/22/2025",
+    "0.68468"
+   ],
+   [
+    "09/22/2025",
+    "0.60412"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 4.62,
+  "dividendYieldText": "4.62%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "XMMO",
+  "name": "Invesco S&P MidCap Momentum ETF",
+  "category": "US Equity",
+  "inception": "2005-03-03",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46137V464",
+  "isin": "US46137V4648"
+ }
+}
