@@ -46,7 +46,9 @@ The **Update Invesco ETF data** GitHub Actions workflow exposes the same setting
 | Catalog (all US Invesco ETFs), official returns, TER, NAV, close, premium/discount, `Fund Assets`, trailing-12M dividend yield, 30-day SEC yield | `https://www.invesco.com/us/financial-products/etfs/performance/prices/main/performance/0?audienceType=Advisor&action=download` (the "Excel Product List Download" behind the ETF page; the `asOfDate` / `showNav` / `monthly` flavors are reachable via `PRODUCT_LIST_URL`) |
 | Latest holdings per fund | `https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker={TICKER}` |
 | Daily history (close / adjusted close), distributions, listing date, exchange | Yahoo Finance public chart API (`/v8/finance/chart/{TICKER}?period1=0&period2=…&interval=1d&events=div\|split`) |
-| Holdings fallback (funds with no invesco.com holdings CSV) | SEC EDGAR Form **N-PORT-P** of the Invesco ETF registrant, discovered through `efts.sec.gov` full-text search (no hand-kept CIK table) |
+| Holdings fallback (funds with no invesco.com holdings CSV) | SEC EDGAR Form **N-PORT-P** of the fund itself: the official `https://www.sec.gov/files/company_tickers_mf.json` table maps the ticker to its registrant CIK + series id, `browse-edgar` (`output=atom`, `type=NPORT-P`) returns that series' newest filing and `primary_doc.xml` carries the positions and reported net assets; `efts.sec.gov` full-text search stays as the last resort (no hand-kept CIK table) |
+| Exchange tickers for N-PORT positions | `https://www.sec.gov/files/company_tickers.json` (issuer name → symbol), so filed positions still land in the Watchlist with a real ticker |
+| Catalog fallback (invesco.com unreachable) | The previously published `api/invesco/index.json` plus every share class the Invesco ETF registrants list in the SEC fund-ticker table, so a full pass still covers the whole product line |
 | Optional daily NAV/close history | `https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker={TICKER}` (`PRICES_HISTORY=1`) |
 
 Each fund carries a derived `metrics` object that powers the catalog columns shared with the sibling sites:
@@ -66,6 +68,7 @@ Known value limitations (documented honestly, like the sibling feeds):
 - **SEC Yield (30-day)** is missing for most equity funds; those rows render `—` (the UI contract's "not published" state).
 - **Dividend Yield** is either Invesco's trailing-12M figure or *indicated* — `meta.json` records which (`yields.dividendYieldKind`), and the Overview tab shows it.
 - **Returns fall back to adjusted market-price closes** (Yahoo) only for funds the product list omits; `returnsBasis` in `metrics` and `returns.derivedFrom` say so explicitly.
+- **Holdings taken from N-PORT-P** carry no ticker in the filing itself; the SEC company-ticker table restores the symbol for listed issuers, and bonds, loans, cash and derivatives legitimately keep `Ticker: "-"`.
 - **Bond, cash and futures positions carry no exchange ticker** in the Invesco CSV (`Ticker: "-"`). They are identified by CUSIP/ISIN (`Identifier`); the Watchlist deduplicates by `Ticker` when present and falls back to `Identifier` — the exact same convention as the SPDR and iShares feeds.
 - **Fund-level CSV column drift is expected**: the Investor and Advisor flavors rename columns and reorder them, so the parser locates the header row by content and matches headers case/punctuation-insensitively; `AUDIENCE_TYPE` switches the flavor.
 
@@ -73,7 +76,7 @@ Known value limitations (documented honestly, like the sibling feeds):
 
 | Environment variable | Default | Meaning |
 | --- | --: | --- |
-| `MAX_FETCHES` | all | Batch size: with a positive value the updater continues after the committed cursor in `api/invesco/update-state.json`; empty or `0` means all. The legacy `INVESCO_LIMIT` name remains supported. |
+| `MAX_FETCHES` | all | Batch size: with a positive value the updater continues after the committed cursor in `api/invesco/update-state.json`; empty or `0` (the default) is a **full pass** — every fund in the catalog is refreshed in one run, starting from the first ticker, and the cursor is reset when it completes. The legacy `INVESCO_LIMIT` name remains supported. |
 | `REQUEST_SLEEP` | `1` | Minimum delay in seconds between outgoing request starts, including retries. invesco.com and Yahoo throttle bursty clients; keep ≥ 1. |
 | `CONCURRENCY` | `2` | Number of parallel fund update workers. Request starts are still globally spaced by `REQUEST_SLEEP`. |
 | `AUM` | `:` | Net Assets range. Each bound may be a USD amount or `K`/`M`/`B`/`T`, or one of `nano`, `micro`, `small`, `mid`, `large`. |
@@ -98,9 +101,11 @@ Known value limitations (documented honestly, like the sibling feeds):
 
 `TICKERS` combines with AUM, TER, dividend-yield and return filters using AND logic; it does not override them. Funds not selected for a successful update keep their prior published metadata and data files.
 
-### Resuming bounded runs
+### Full passes and resuming bounded runs
 
-A positive `MAX_FETCHES` is a batch size, not a permanent first-page limit. Eligible funds are processed in alphabetical ticker order, and the cursor in `api/invesco/update-state.json` remembers where the last run stopped; the next run continues after it and wraps around at the end.
+Running the updater with no arguments and no environment variables (`./scripts/update-data.ts`, exactly what the GitHub Actions workflow does) refreshes **every** Invesco ETF in the catalog in one pass: the saved cursor is ignored, funds are processed in alphabetical ticker order, and `api/invesco/update-state.json` is reset (`cursor: null`) when the pass finishes.
+
+A positive `MAX_FETCHES` is a batch size, not a permanent first-page limit. Bounded runs continue after the committed cursor and wrap around at the end, so repeated batches still walk the whole catalog.
 
 ### Strict range syntax
 
