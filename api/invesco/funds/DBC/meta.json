@@ -1,0 +1,118 @@
+{
+ "ticker": "DBC",
+ "name": "Invesco DB Commodity Index Tracking Fund",
+ "category": "Commodity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/dbc.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=DBC",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=DBC",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=DBC",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138B103",
+  "isin": "US46138B1035"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$100.93",
+  "value": 100.93,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$100.43",
+  "value": 100.43,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.50%",
+  "value": -0.5
+ },
+ "aum": {
+  "display": "$28.09 B",
+  "value": 28093000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 10.93,
+   "ytdText": "10.93%",
+   "yr1": 12.93,
+   "yr1Text": "12.93%",
+   "yr3": 17.93,
+   "yr3Text": "17.93%",
+   "yr5": 2.93,
+   "yr5Text": "2.93%",
+   "yr10": 18.93,
+   "yr10Text": "18.93%",
+   "sinceInception": 4.93,
+   "sinceInceptionText": "4.93%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.50215"
+   ],
+   [
+    "03/23/2026",
+    "0.48206"
+   ],
+   [
+    "12/22/2025",
+    "0.51219"
+   ],
+   [
+    "09/22/2025",
+    "0.45193"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 1.23,
+  "dividendYieldText": "1.23%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 8,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "DBC",
+  "name": "Invesco DB Commodity Index Tracking Fund",
+  "category": "Commodity",
+  "inception": "2006-02-03",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46138B103",
+  "isin": "US46138B1035"
+ }
+}

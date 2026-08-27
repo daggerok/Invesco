@@ -1,0 +1,118 @@
+{
+ "ticker": "SPHQ",
+ "name": "Invesco S&P 500\u00ae Quality ETF",
+ "category": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/sphq.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=SPHQ",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=SPHQ",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=SPHQ",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46137V241",
+  "isin": "US46137V2410"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$49.07",
+  "value": 49.07,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$48.92",
+  "value": 48.92,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.31%",
+  "value": -0.31
+ },
+ "aum": {
+  "display": "$32.91 B",
+  "value": 32907000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 19.07,
+   "ytdText": "19.07%",
+   "yr1": 1.07,
+   "yr1Text": "1.07%",
+   "yr3": 26.07,
+   "yr3Text": "26.07%",
+   "yr5": 26.07,
+   "yr5Text": "26.07%",
+   "yr10": 7.07,
+   "yr10Text": "7.07%",
+   "sinceInception": 13.07,
+   "sinceInceptionText": "13.07%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.24460"
+   ],
+   [
+    "03/23/2026",
+    "0.23482"
+   ],
+   [
+    "12/22/2025",
+    "0.24949"
+   ],
+   [
+    "09/22/2025",
+    "0.22014"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 4.37,
+  "dividendYieldText": "4.37%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "SPHQ",
+  "name": "Invesco S&P 500\u00ae Quality ETF",
+  "category": "US Equity",
+  "inception": "2005-12-06",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46137V241",
+  "isin": "US46137V2410"
+ }
+}

@@ -1,0 +1,118 @@
+{
+ "ticker": "FXY",
+ "name": "Invesco CurrencyShares\u00ae Japanese Yen Trust",
+ "category": "Currency",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/fxy.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=FXY",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=FXY",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=FXY",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138W107",
+  "isin": "US46138W1071"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$27.33",
+  "value": 27.33,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$27.22",
+  "value": 27.22,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.40%",
+  "value": -0.4
+ },
+ "aum": {
+  "display": "$45.73 B",
+  "value": 45733000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": -2.67,
+   "ytdText": "-2.67%",
+   "yr1": 9.33,
+   "yr1Text": "9.33%",
+   "yr3": 4.33,
+   "yr3Text": "4.33%",
+   "yr5": 4.33,
+   "yr5Text": "4.33%",
+   "yr10": 15.33,
+   "yr10Text": "15.33%",
+   "sinceInception": 6.33,
+   "sinceInceptionText": "6.33%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.13610"
+   ],
+   [
+    "03/23/2026",
+    "0.13066"
+   ],
+   [
+    "12/22/2025",
+    "0.13882"
+   ],
+   [
+    "09/22/2025",
+    "0.12249"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 2.63,
+  "dividendYieldText": "2.63%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 4,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "FXY",
+  "name": "Invesco CurrencyShares\u00ae Japanese Yen Trust",
+  "category": "Currency",
+  "inception": "2007-02-12",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46138W107",
+  "isin": "US46138W1071"
+ }
+}

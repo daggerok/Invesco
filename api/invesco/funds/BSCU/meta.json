@@ -1,0 +1,107 @@
+{
+ "ticker": "BSCU",
+ "name": "Invesco BulletShares 2030 Corporate Bond ETF",
+ "category": "Fixed Income",
+ "categoryPath": "Fixed Income",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/bscu.html",
+  "holdingsDownload": null,
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=BSCU",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BSCU?period1=0&period2=1787867665&interval=1d&events=div%7Csplit",
+  "holdingsSource": "invesco.com per-fund holdings download",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$144.09",
+  "value": 144.09,
+  "asOfDate": "—"
+ },
+ "marketPrice": {
+  "display": "$143.95",
+  "value": 143.95,
+  "asOfDate": "—"
+ },
+ "premiumDiscount": {
+  "display": "-0.10%",
+  "value": -0.1
+ },
+ "aum": {
+  "display": "$42,409.00 M",
+  "value": 42409000000,
+  "asOfDate": "—",
+  "source": "Invesco product list \"Fund Assets\" column"
+ },
+ "yields": {
+  "dividendYield": 4.39,
+  "dividendYieldText": "4.39%",
+  "dividendYieldKind": "trailing 12-month, published by invesco.com",
+  "distributionRate": null,
+  "secYield": 4.09,
+  "secYieldText": "4.09%",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
+ },
+ "returns": {
+  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
+  "monthEnd": {
+   "asOfDate": "—",
+   "mo1": null,
+   "mo1Text": "—",
+   "qtd": null,
+   "qtdText": "—",
+   "ytd": 24.09,
+   "ytdText": "24.09%",
+   "yr1": 16.09,
+   "yr1Text": "16.09%",
+   "yr3": 31.09,
+   "yr3Text": "31.09%",
+   "yr5": 21.09,
+   "yr5Text": "21.09%",
+   "yr10": 22.09,
+   "yr10Text": "22.09%",
+   "sinceInception": 18.09,
+   "sinceInceptionText": "18.09%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": null,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": []
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "invesco.com per-fund holdings download"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "—",
+  "source": "previous run"
+ }
+}

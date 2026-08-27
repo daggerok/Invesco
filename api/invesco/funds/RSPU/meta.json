@@ -1,0 +1,118 @@
+{
+ "ticker": "RSPU",
+ "name": "Invesco S&P 500\u00ae Equal Weight Utilities ETF",
+ "category": "Sector",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/rspu.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=RSPU",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=RSPU",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=RSPU",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46137V274",
+  "isin": "US46137V2741"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$113.86",
+  "value": 113.86,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$113.80",
+  "value": 113.8,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.05%",
+  "value": -0.05
+ },
+ "aum": {
+  "display": "$14.39 B",
+  "value": 14386000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 23.86,
+   "ytdText": "23.86%",
+   "yr1": 35.86,
+   "yr1Text": "35.86%",
+   "yr3": 30.86,
+   "yr3Text": "30.86%",
+   "yr5": 15.86,
+   "yr5Text": "15.86%",
+   "yr10": 21.86,
+   "yr10Text": "21.86%",
+   "sinceInception": 17.86,
+   "sinceInceptionText": "17.86%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.56900"
+   ],
+   [
+    "03/23/2026",
+    "0.54624"
+   ],
+   [
+    "12/22/2025",
+    "0.58038"
+   ],
+   [
+    "09/22/2025",
+    "0.51210"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 4.16,
+  "dividendYieldText": "4.16%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "RSPU",
+  "name": "Invesco S&P 500\u00ae Equal Weight Utilities ETF",
+  "category": "Sector",
+  "inception": "2006-11-01",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46137V274",
+  "isin": "US46137V2741"
+ }
+}

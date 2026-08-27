@@ -1,0 +1,118 @@
+{
+ "ticker": "PSR",
+ "name": "Invesco Active U.S. Real Estate ETF",
+ "category": "Real Estate",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/psr.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PSR",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PSR",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PSR",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46090A101",
+  "isin": "US46090A1016"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$141.54",
+  "value": 141.54,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$141.82",
+  "value": 141.82,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.20%",
+  "value": 0.2
+ },
+ "aum": {
+  "display": "$37.15 B",
+  "value": 37154000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 21.54,
+   "ytdText": "21.54%",
+   "yr1": 3.54,
+   "yr1Text": "3.54%",
+   "yr3": 28.54,
+   "yr3Text": "28.54%",
+   "yr5": 18.54,
+   "yr5Text": "18.54%",
+   "yr10": 9.54,
+   "yr10Text": "9.54%",
+   "sinceInception": 15.54,
+   "sinceInceptionText": "15.54%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.70910"
+   ],
+   [
+    "03/23/2026",
+    "0.68074"
+   ],
+   [
+    "12/22/2025",
+    "0.72328"
+   ],
+   [
+    "09/22/2025",
+    "0.63819"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 1.84,
+  "dividendYieldText": "1.84%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "PSR",
+  "name": "Invesco Active U.S. Real Estate ETF",
+  "category": "Real Estate",
+  "inception": "2008-11-20",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46090A101",
+  "isin": "US46090A1016"
+ }
+}

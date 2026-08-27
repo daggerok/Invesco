@@ -1,0 +1,118 @@
+{
+ "ticker": "ISDB",
+ "name": "Invesco Short Duration Bond ETF",
+ "category": "Fixed Income",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/isdb.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=ISDB",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=ISDB",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=ISDB",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46090A739",
+  "isin": "US46090A7393"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$131.37",
+  "value": 131.37,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$131.63",
+  "value": 131.63,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.20%",
+  "value": 0.2
+ },
+ "aum": {
+  "display": "$11.14 B",
+  "value": 11137000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 11.37,
+   "ytdText": "11.37%",
+   "yr1": 3.37,
+   "yr1Text": "3.37%",
+   "yr3": 18.37,
+   "yr3Text": "18.37%",
+   "yr5": 8.37,
+   "yr5Text": "8.37%",
+   "yr10": 9.37,
+   "yr10Text": "9.37%",
+   "sinceInception": 5.37,
+   "sinceInceptionText": "5.37%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.65815"
+   ],
+   [
+    "03/23/2026",
+    "0.63182"
+   ],
+   [
+    "12/22/2025",
+    "0.67131"
+   ],
+   [
+    "09/22/2025",
+    "0.59233"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 1.67,
+  "dividendYieldText": "1.67%",
+  "secYield": 4.87,
+  "secYieldText": "4.87%"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "ISDB",
+  "name": "Invesco Short Duration Bond ETF",
+  "category": "Fixed Income",
+  "inception": "2022-12-09",
+  "exchange": "CBOE",
+  "ter": 0.35,
+  "cusip": "46090A739",
+  "isin": "US46090A7393"
+ }
+}

@@ -1,0 +1,118 @@
+{
+ "ticker": "PXE",
+ "name": "Invesco Energy Exploration & Production ETF",
+ "category": "Sector",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pxe.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PXE",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PXE",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PXE",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46137V761",
+  "isin": "US46137V7617"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$65.85",
+  "value": 65.85,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$66.18",
+  "value": 66.18,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.50%",
+  "value": 0.5
+ },
+ "aum": {
+  "display": "$9.59 B",
+  "value": 9585000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 5.85,
+   "ytdText": "5.85%",
+   "yr1": 27.85,
+   "yr1Text": "27.85%",
+   "yr3": 12.85,
+   "yr3Text": "12.85%",
+   "yr5": 17.85,
+   "yr5Text": "17.85%",
+   "yr10": 13.85,
+   "yr10Text": "13.85%",
+   "sinceInception": 14.85,
+   "sinceInceptionText": "14.85%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.33090"
+   ],
+   [
+    "03/23/2026",
+    "0.31766"
+   ],
+   [
+    "12/22/2025",
+    "0.33752"
+   ],
+   [
+    "09/22/2025",
+    "0.29781"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 1.15,
+  "dividendYieldText": "1.15%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "PXE",
+  "name": "Invesco Energy Exploration & Production ETF",
+  "category": "Sector",
+  "inception": "2005-10-26",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46137V761",
+  "isin": "US46137V7617"
+ }
+}

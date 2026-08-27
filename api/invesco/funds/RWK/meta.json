@@ -1,0 +1,118 @@
+{
+ "ticker": "RWK",
+ "name": "Invesco S&P MidCap 400 Revenue ETF",
+ "category": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/rwk.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=RWK",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=RWK",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=RWK",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138G672",
+  "isin": "US46138G6724"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$116.17",
+  "value": 116.17,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$115.59",
+  "value": 115.59,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.50%",
+  "value": -0.5
+ },
+ "aum": {
+  "display": "$4.62 B",
+  "value": 4617000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": -3.83,
+   "ytdText": "-3.83%",
+   "yr1": -1.83,
+   "yr1Text": "-1.83%",
+   "yr3": 3.17,
+   "yr3Text": "3.17%",
+   "yr5": 18.17,
+   "yr5Text": "18.17%",
+   "yr10": 4.17,
+   "yr10Text": "4.17%",
+   "sinceInception": 5.17,
+   "sinceInceptionText": "5.17%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.57795"
+   ],
+   [
+    "03/23/2026",
+    "0.55483"
+   ],
+   [
+    "12/22/2025",
+    "0.58951"
+   ],
+   [
+    "09/22/2025",
+    "0.52015"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 1.47,
+  "dividendYieldText": "1.47%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "RWK",
+  "name": "Invesco S&P MidCap 400 Revenue ETF",
+  "category": "US Equity",
+  "inception": "2008-02-20",
+  "exchange": "NYSE Arca, Inc.",
+  "ter": 0.35,
+  "cusip": "46138G672",
+  "isin": "US46138G6724"
+ }
+}

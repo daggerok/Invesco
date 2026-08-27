@@ -1,0 +1,118 @@
+{
+ "ticker": "PBW",
+ "name": "Invesco WilderHill Clean Energy ETF",
+ "category": "Thematic",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pbw.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PBW",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PBW",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PBW",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46137V134",
+  "isin": "US46137V1347"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$31.49",
+  "value": 31.49,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$31.54",
+  "value": 31.54,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.16%",
+  "value": 0.16
+ },
+ "aum": {
+  "display": "$21.15 B",
+  "value": 21149000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 1.49,
+   "ytdText": "1.49%",
+   "yr1": 23.49,
+   "yr1Text": "23.49%",
+   "yr3": 8.49,
+   "yr3Text": "8.49%",
+   "yr5": 8.49,
+   "yr5Text": "8.49%",
+   "yr10": 9.49,
+   "yr10Text": "9.49%",
+   "sinceInception": 10.49,
+   "sinceInceptionText": "10.49%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.15770"
+   ],
+   [
+    "03/23/2026",
+    "0.15139"
+   ],
+   [
+    "12/22/2025",
+    "0.16085"
+   ],
+   [
+    "09/22/2025",
+    "0.14193"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 1.79,
+  "dividendYieldText": "1.79%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "PBW",
+  "name": "Invesco WilderHill Clean Energy ETF",
+  "category": "Thematic",
+  "inception": "2005-03-03",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46137V134",
+  "isin": "US46137V1347"
+ }
+}

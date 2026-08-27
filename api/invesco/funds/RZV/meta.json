@@ -1,0 +1,118 @@
+{
+ "ticker": "RZV",
+ "name": "Invesco S&P SmallCap 600\u00ae Pure Value ETF",
+ "category": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/rzv.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=RZV",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=RZV",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=RZV",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46137V167",
+  "isin": "US46137V1594"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$59.51",
+  "value": 59.51,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$59.42",
+  "value": 59.42,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.15%",
+  "value": -0.15
+ },
+ "aum": {
+  "display": "$33.95 B",
+  "value": 33951000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": -0.49,
+   "ytdText": "-0.49%",
+   "yr1": 11.51,
+   "yr1Text": "11.51%",
+   "yr3": 6.51,
+   "yr3Text": "6.51%",
+   "yr5": 11.51,
+   "yr5Text": "11.51%",
+   "yr10": 17.51,
+   "yr10Text": "17.51%",
+   "sinceInception": 8.51,
+   "sinceInceptionText": "8.51%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.29710"
+   ],
+   [
+    "03/23/2026",
+    "0.28522"
+   ],
+   [
+    "12/22/2025",
+    "0.30304"
+   ],
+   [
+    "09/22/2025",
+    "0.26739"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 4.81,
+  "dividendYieldText": "4.81%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "RZV",
+  "name": "Invesco S&P SmallCap 600\u00ae Pure Value ETF",
+  "category": "US Equity",
+  "inception": "2006-03-01",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46137V167",
+  "isin": "US46137V1594"
+ }
+}

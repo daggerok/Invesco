@@ -1,0 +1,118 @@
+{
+ "ticker": "QQQJ",
+ "name": "Invesco NASDAQ Next Gen 100 ETF",
+ "category": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/qqqj.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=QQQJ",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=QQQJ",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=QQQJ",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138G631",
+  "isin": "US46138G6310"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$140.08",
+  "value": 140.08,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$140.22",
+  "value": 140.22,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.10%",
+  "value": 0.1
+ },
+ "aum": {
+  "display": "$7.01 B",
+  "value": 7008000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 20.08,
+   "ytdText": "20.08%",
+   "yr1": 2.08,
+   "yr1Text": "2.08%",
+   "yr3": 27.08,
+   "yr3Text": "27.08%",
+   "yr5": 17.08,
+   "yr5Text": "17.08%",
+   "yr10": 8.08,
+   "yr10Text": "8.08%",
+   "sinceInception": 14.08,
+   "sinceInceptionText": "14.08%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.70110"
+   ],
+   [
+    "03/23/2026",
+    "0.67306"
+   ],
+   [
+    "12/22/2025",
+    "0.71512"
+   ],
+   [
+    "09/22/2025",
+    "0.63099"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 0.38,
+  "dividendYieldText": "0.38%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "QQQJ",
+  "name": "Invesco NASDAQ Next Gen 100 ETF",
+  "category": "US Equity",
+  "inception": "2020-10-13",
+  "exchange": "Nasdaq",
+  "ter": 0.35,
+  "cusip": "46138G631",
+  "isin": "US46138G6310"
+ }
+}

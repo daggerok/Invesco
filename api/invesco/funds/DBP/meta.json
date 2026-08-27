@@ -1,0 +1,118 @@
+{
+ "ticker": "DBP",
+ "name": "Invesco DB Precious Metals Fund",
+ "category": "Commodity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/dbp.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=DBP",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=DBP",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=DBP",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46140H502",
+  "isin": "US46140H5028"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$144.39",
+  "value": 144.39,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$144.03",
+  "value": 144.03,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.25%",
+  "value": -0.25
+ },
+ "aum": {
+  "display": "$27.44 B",
+  "value": 27439000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 24.39,
+   "ytdText": "24.39%",
+   "yr1": 6.39,
+   "yr1Text": "6.39%",
+   "yr3": 31.39,
+   "yr3Text": "31.39%",
+   "yr5": 21.39,
+   "yr5Text": "21.39%",
+   "yr10": 12.39,
+   "yr10Text": "12.39%",
+   "sinceInception": 18.39,
+   "sinceInceptionText": "18.39%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.72015"
+   ],
+   [
+    "03/23/2026",
+    "0.69134"
+   ],
+   [
+    "12/22/2025",
+    "0.73455"
+   ],
+   [
+    "09/22/2025",
+    "0.64813"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 4.69,
+  "dividendYieldText": "4.69%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 8,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "DBP",
+  "name": "Invesco DB Precious Metals Fund",
+  "category": "Commodity",
+  "inception": "2007-01-05",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46140H502",
+  "isin": "US46140H5028"
+ }
+}

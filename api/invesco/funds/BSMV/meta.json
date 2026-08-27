@@ -1,0 +1,118 @@
+{
+ "ticker": "BSMV",
+ "name": "Invesco BulletShares 2031 Municipal Bond ETF",
+ "category": "Fixed Income",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/bsmv.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=BSMV",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=BSMV",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=BSMV",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138J411",
+  "isin": "US46138J4114"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$160.20",
+  "value": 160.2,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$160.76",
+  "value": 160.76,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "aum": {
+  "display": "$34.02 B",
+  "value": 34020000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 10.2,
+   "ytdText": "10.20%",
+   "yr1": 32.2,
+   "yr1Text": "32.20%",
+   "yr3": 17.2,
+   "yr3Text": "17.20%",
+   "yr5": 12.2,
+   "yr5Text": "12.20%",
+   "yr10": 18.2,
+   "yr10Text": "18.20%",
+   "sinceInception": 4.2,
+   "sinceInceptionText": "4.20%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.80380"
+   ],
+   [
+    "03/23/2026",
+    "0.77165"
+   ],
+   [
+    "12/22/2025",
+    "0.81988"
+   ],
+   [
+    "09/22/2025",
+    "0.72342"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 0.5,
+  "dividendYieldText": "0.50%",
+  "secYield": 2.2,
+  "secYieldText": "2.20%"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "BSMV",
+  "name": "Invesco BulletShares 2031 Municipal Bond ETF",
+  "category": "Fixed Income",
+  "inception": "2021-09-15",
+  "exchange": "Nasdaq",
+  "ter": 0.35,
+  "cusip": "46138J411",
+  "isin": "US46138J4114"
+ }
+}

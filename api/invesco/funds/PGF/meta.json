@@ -1,0 +1,118 @@
+{
+ "ticker": "PGF",
+ "name": "Invesco Financial Preferred ETF",
+ "category": "Fixed Income",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pgf.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PGF",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PGF",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PGF",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46137V621",
+  "isin": "US46137V6213"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$119.87",
+  "value": 119.87,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$120.23",
+  "value": 120.23,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.30%",
+  "value": 0.3
+ },
+ "aum": {
+  "display": "$44.99 B",
+  "value": 44987000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": -0.13,
+   "ytdText": "-0.13%",
+   "yr1": 1.87,
+   "yr1Text": "1.87%",
+   "yr3": 6.87,
+   "yr3Text": "6.87%",
+   "yr5": 21.87,
+   "yr5Text": "21.87%",
+   "yr10": 7.87,
+   "yr10Text": "7.87%",
+   "sinceInception": 8.87,
+   "sinceInceptionText": "8.87%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.60115"
+   ],
+   [
+    "03/23/2026",
+    "0.57710"
+   ],
+   [
+    "12/22/2025",
+    "0.61317"
+   ],
+   [
+    "09/22/2025",
+    "0.54103"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 5.17,
+  "dividendYieldText": "5.17%",
+  "secYield": 3.87,
+  "secYieldText": "3.87%"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "PGF",
+  "name": "Invesco Financial Preferred ETF",
+  "category": "Fixed Income",
+  "inception": "2006-12-01",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46137V621",
+  "isin": "US46137V6213"
+ }
+}

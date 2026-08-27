@@ -1,0 +1,118 @@
+{
+ "ticker": "IDHQ",
+ "name": "Invesco S&P International Developed Quality ETF",
+ "category": "International",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/idhq.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=IDHQ",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=IDHQ",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=IDHQ",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138E214",
+  "isin": "US46138E2147"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$57.70",
+  "value": 57.7,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$57.93",
+  "value": 57.93,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.40%",
+  "value": 0.4
+ },
+ "aum": {
+  "display": "$48.77 B",
+  "value": 48770000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": -2.3,
+   "ytdText": "-2.30%",
+   "yr1": -0.3,
+   "yr1Text": "-0.30%",
+   "yr3": 4.7,
+   "yr3Text": "4.70%",
+   "yr5": 9.7,
+   "yr5Text": "9.70%",
+   "yr10": 5.7,
+   "yr10Text": "5.70%",
+   "sinceInception": 6.7,
+   "sinceInceptionText": "6.70%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.28965"
+   ],
+   [
+    "03/23/2026",
+    "0.27806"
+   ],
+   [
+    "12/22/2025",
+    "0.29544"
+   ],
+   [
+    "09/22/2025",
+    "0.26069"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 3.0,
+  "dividendYieldText": "3.00%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "IDHQ",
+  "name": "Invesco S&P International Developed Quality ETF",
+  "category": "International",
+  "inception": "2007-06-13",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46138E214",
+  "isin": "US46138E2147"
+ }
+}

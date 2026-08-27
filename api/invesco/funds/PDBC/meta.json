@@ -1,0 +1,118 @@
+{
+ "ticker": "PDBC",
+ "name": "Invesco Optimum Yield Diversified Commodity Strategy No K-1 ETF",
+ "category": "Commodity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pdbc.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PDBC",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PDBC",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PDBC",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46090F100",
+  "isin": "US46090F1003"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$47.26",
+  "value": 47.26,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$47.02",
+  "value": 47.02,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.51%",
+  "value": -0.51
+ },
+ "aum": {
+  "display": "$17.73 B",
+  "value": 17726000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 17.26,
+   "ytdText": "17.26%",
+   "yr1": 9.26,
+   "yr1Text": "9.26%",
+   "yr3": 24.26,
+   "yr3Text": "24.26%",
+   "yr5": 24.26,
+   "yr5Text": "24.26%",
+   "yr10": 15.26,
+   "yr10Text": "15.26%",
+   "sinceInception": 11.26,
+   "sinceInceptionText": "11.26%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.23510"
+   ],
+   [
+    "03/23/2026",
+    "0.22570"
+   ],
+   [
+    "12/22/2025",
+    "0.23980"
+   ],
+   [
+    "09/22/2025",
+    "0.21159"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 2.56,
+  "dividendYieldText": "2.56%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 8,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "PDBC",
+  "name": "Invesco Optimum Yield Diversified Commodity Strategy No K-1 ETF",
+  "category": "Commodity",
+  "inception": "2014-11-07",
+  "exchange": "NASDAQ",
+  "ter": 0.35,
+  "cusip": "46090F100",
+  "isin": "US46090F1003"
+ }
+}

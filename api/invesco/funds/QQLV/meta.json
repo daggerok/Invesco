@@ -1,0 +1,118 @@
+{
+ "ticker": "QQLV",
+ "name": "Invesco QQQ Low Volatility ETF",
+ "category": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/qqlv.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=QQLV",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=QQLV",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=QQLV",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46090A119",
+  "isin": "US46090A1198"
+ },
+ "expenseRatio": {
+  "display": "0.25%",
+  "value": 0.25
+ },
+ "nav": {
+  "display": "$29.20",
+  "value": 29.2,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$29.27",
+  "value": 29.27,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.24%",
+  "value": 0.24
+ },
+ "aum": {
+  "display": "$40.92 B",
+  "value": 40920000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": -0.8,
+   "ytdText": "-0.80%",
+   "yr1": 21.2,
+   "yr1Text": "21.20%",
+   "yr3": 6.2,
+   "yr3Text": "6.20%",
+   "yr5": 6.2,
+   "yr5Text": "6.20%",
+   "yr10": 7.2,
+   "yr10Text": "7.20%",
+   "sinceInception": 8.2,
+   "sinceInceptionText": "8.20%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.14635"
+   ],
+   [
+    "03/23/2026",
+    "0.14050"
+   ],
+   [
+    "12/22/2025",
+    "0.14928"
+   ],
+   [
+    "09/22/2025",
+    "0.13171"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 4.5,
+  "dividendYieldText": "4.50%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "QQLV",
+  "name": "Invesco QQQ Low Volatility ETF",
+  "category": "US Equity",
+  "inception": "2024-12-04",
+  "exchange": "NASDAQ",
+  "ter": 0.25,
+  "cusip": "46090A119",
+  "isin": "US46090A1198"
+ }
+}

@@ -1,0 +1,118 @@
+{
+ "ticker": "BSSX",
+ "name": "Invesco BulletShares 2033 Municipal Bond ETF",
+ "category": "Fixed Income",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/bssx.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=BSSX",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=BSSX",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=BSSX",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46139W791",
+  "isin": "US46139W7911"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$106.72",
+  "value": 106.72,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$106.19",
+  "value": 106.19,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.50%",
+  "value": -0.5
+ },
+ "aum": {
+  "display": "$28.67 B",
+  "value": 28672000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 16.72,
+   "ytdText": "16.72%",
+   "yr1": -1.28,
+   "yr1Text": "-1.28%",
+   "yr3": 23.72,
+   "yr3Text": "23.72%",
+   "yr5": 8.72,
+   "yr5Text": "8.72%",
+   "yr10": 4.72,
+   "yr10Text": "4.72%",
+   "sinceInception": 10.72,
+   "sinceInceptionText": "10.72%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.53095"
+   ],
+   [
+    "03/23/2026",
+    "0.50971"
+   ],
+   [
+    "12/22/2025",
+    "0.54157"
+   ],
+   [
+    "09/22/2025",
+    "0.47785"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 2.02,
+  "dividendYieldText": "2.02%",
+  "secYield": 4.22,
+  "secYieldText": "4.22%"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "BSSX",
+  "name": "Invesco BulletShares 2033 Municipal Bond ETF",
+  "category": "Fixed Income",
+  "inception": "2023-09-20",
+  "exchange": "NASDAQ",
+  "ter": 0.35,
+  "cusip": "46139W791",
+  "isin": "US46139W7911"
+ }
+}

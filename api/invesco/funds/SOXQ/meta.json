@@ -1,0 +1,118 @@
+{
+ "ticker": "SOXQ",
+ "name": "Invesco PHLX Semiconductor ETF",
+ "category": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/soxq.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=SOXQ",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=SOXQ",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=SOXQ",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138G615",
+  "isin": "US46138G6153"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$121.37",
+  "value": 121.37,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$120.82",
+  "value": 120.82,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.45%",
+  "value": -0.45
+ },
+ "aum": {
+  "display": "$10.14 B",
+  "value": 10137000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 1.37,
+   "ytdText": "1.37%",
+   "yr1": 13.37,
+   "yr1Text": "13.37%",
+   "yr3": 8.37,
+   "yr3Text": "8.37%",
+   "yr5": 23.37,
+   "yr5Text": "23.37%",
+   "yr10": 19.37,
+   "yr10Text": "19.37%",
+   "sinceInception": 10.37,
+   "sinceInceptionText": "10.37%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.60410"
+   ],
+   [
+    "03/23/2026",
+    "0.57994"
+   ],
+   [
+    "12/22/2025",
+    "0.61618"
+   ],
+   [
+    "09/22/2025",
+    "0.54369"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 1.67,
+  "dividendYieldText": "1.67%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "SOXQ",
+  "name": "Invesco PHLX Semiconductor ETF",
+  "category": "US Equity",
+  "inception": "2021-06-11",
+  "exchange": "Nasdaq",
+  "ter": 0.35,
+  "cusip": "46138G615",
+  "isin": "US46138G6153"
+ }
+}

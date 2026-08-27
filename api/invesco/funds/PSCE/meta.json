@@ -1,0 +1,118 @@
+{
+ "ticker": "PSCE",
+ "name": "Invesco S&P SmallCap Energy ETF",
+ "category": "Sector",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/psce.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PSCE",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PSCE",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PSCE",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138G474",
+  "isin": "US46138E1644"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$63.69",
+  "value": 63.69,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$63.91",
+  "value": 63.91,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "aum": {
+  "display": "$9.37 B",
+  "value": 9369000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 3.69,
+   "ytdText": "3.69%",
+   "yr1": 25.69,
+   "yr1Text": "25.69%",
+   "yr3": 10.69,
+   "yr3Text": "10.69%",
+   "yr5": 15.69,
+   "yr5Text": "15.69%",
+   "yr10": 11.69,
+   "yr10Text": "11.69%",
+   "sinceInception": 12.69,
+   "sinceInceptionText": "12.69%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.31955"
+   ],
+   [
+    "03/23/2026",
+    "0.30677"
+   ],
+   [
+    "12/22/2025",
+    "0.32594"
+   ],
+   [
+    "09/22/2025",
+    "0.28759"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 3.99,
+  "dividendYieldText": "3.99%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "PSCE",
+  "name": "Invesco S&P SmallCap Energy ETF",
+  "category": "Sector",
+  "inception": "2010-04-07",
+  "exchange": "NASDAQ",
+  "ter": 0.35,
+  "cusip": "46138G474",
+  "isin": "US46138E1644"
+ }
+}

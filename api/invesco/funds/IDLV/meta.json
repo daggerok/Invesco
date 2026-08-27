@@ -1,0 +1,118 @@
+{
+ "ticker": "IDLV",
+ "name": "Invesco S&P International Developed Low Volatility ETF",
+ "category": "International",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/idlv.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=IDLV",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=IDLV",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=IDLV",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138E230",
+  "isin": "US46138E2303"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$86.95",
+  "value": 86.95,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$86.52",
+  "value": 86.52,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.49%",
+  "value": -0.49
+ },
+ "aum": {
+  "display": "$46.70 B",
+  "value": 46695000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": -3.05,
+   "ytdText": "-3.05%",
+   "yr1": -1.05,
+   "yr1Text": "-1.05%",
+   "yr3": 3.95,
+   "yr3Text": "3.95%",
+   "yr5": 13.95,
+   "yr5Text": "13.95%",
+   "yr10": 4.95,
+   "yr10Text": "4.95%",
+   "sinceInception": 5.95,
+   "sinceInceptionText": "5.95%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.43260"
+   ],
+   [
+    "03/23/2026",
+    "0.41530"
+   ],
+   [
+    "12/22/2025",
+    "0.44125"
+   ],
+   [
+    "09/22/2025",
+    "0.38934"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 2.25,
+  "dividendYieldText": "2.25%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "IDLV",
+  "name": "Invesco S&P International Developed Low Volatility ETF",
+  "category": "International",
+  "inception": "2012-01-13",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46138E230",
+  "isin": "US46138E2303"
+ }
+}

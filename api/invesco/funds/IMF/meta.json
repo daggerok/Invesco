@@ -1,0 +1,118 @@
+{
+ "ticker": "IMF",
+ "name": "Invesco Managed Futures Strategy ETF",
+ "category": "Alternatives",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/imf.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=IMF",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=IMF",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=IMF",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46090A101",
+  "isin": "US46090A1016"
+ },
+ "expenseRatio": {
+  "display": "0.80%",
+  "value": 0.8
+ },
+ "nav": {
+  "display": "$109.78",
+  "value": 109.78,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$109.89",
+  "value": 109.89,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.10%",
+  "value": 0.1
+ },
+ "aum": {
+  "display": "$3.98 B",
+  "value": 3978000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 19.78,
+   "ytdText": "19.78%",
+   "yr1": 11.78,
+   "yr1Text": "11.78%",
+   "yr3": 26.78,
+   "yr3Text": "26.78%",
+   "yr5": 11.78,
+   "yr5Text": "11.78%",
+   "yr10": 17.78,
+   "yr10Text": "17.78%",
+   "sinceInception": 13.78,
+   "sinceInceptionText": "13.78%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.54945"
+   ],
+   [
+    "03/23/2026",
+    "0.52747"
+   ],
+   [
+    "12/22/2025",
+    "0.56044"
+   ],
+   [
+    "09/22/2025",
+    "0.49450"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 5.08,
+  "dividendYieldText": "5.08%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "IMF",
+  "name": "Invesco Managed Futures Strategy ETF",
+  "category": "Alternatives",
+  "inception": "2025-03-19",
+  "exchange": "CBOE",
+  "ter": 0.8,
+  "cusip": "46090A101",
+  "isin": "US46090A1016"
+ }
+}

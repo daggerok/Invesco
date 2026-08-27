@@ -1,0 +1,118 @@
+{
+ "ticker": "RSPA",
+ "name": "Invesco S&P 500 Equal Weight Income Advantage ETF",
+ "category": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/rspa.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=RSPA",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=RSPA",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=RSPA",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46090A697",
+  "isin": "US46090A6973"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$162.17",
+  "value": 162.17,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$161.93",
+  "value": 161.93,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.15%",
+  "value": -0.15
+ },
+ "aum": {
+  "display": "$39.22 B",
+  "value": 39217000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 12.17,
+   "ytdText": "12.17%",
+   "yr1": 24.17,
+   "yr1Text": "24.17%",
+   "yr3": 19.17,
+   "yr3Text": "19.17%",
+   "yr5": 14.17,
+   "yr5Text": "14.17%",
+   "yr10": 10.17,
+   "yr10Text": "10.17%",
+   "sinceInception": 6.17,
+   "sinceInceptionText": "6.17%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.80965"
+   ],
+   [
+    "03/23/2026",
+    "0.77726"
+   ],
+   [
+    "12/22/2025",
+    "0.82584"
+   ],
+   [
+    "09/22/2025",
+    "0.72869"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 2.47,
+  "dividendYieldText": "2.47%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "RSPA",
+  "name": "Invesco S&P 500 Equal Weight Income Advantage ETF",
+  "category": "US Equity",
+  "inception": "2024-07-17",
+  "exchange": "NYSE",
+  "ter": 0.35,
+  "cusip": "46090A697",
+  "isin": "US46090A6973"
+ }
+}

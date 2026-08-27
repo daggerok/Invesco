@@ -1,0 +1,118 @@
+{
+ "ticker": "PGX",
+ "name": "Invesco Preferred ETF",
+ "category": "Fixed Income",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pgx.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PGX",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PGX",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PGX",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138E511",
+  "isin": "US46138E5116"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$140.75",
+  "value": 140.75,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$140.96",
+  "value": 140.96,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.15%",
+  "value": 0.15
+ },
+ "aum": {
+  "display": "$22.07 B",
+  "value": 22075000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 20.75,
+   "ytdText": "20.75%",
+   "yr1": 32.75,
+   "yr1Text": "32.75%",
+   "yr3": 27.75,
+   "yr3Text": "27.75%",
+   "yr5": 17.75,
+   "yr5Text": "17.75%",
+   "yr10": 18.75,
+   "yr10Text": "18.75%",
+   "sinceInception": 14.75,
+   "sinceInceptionText": "14.75%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.70480"
+   ],
+   [
+    "03/23/2026",
+    "0.67661"
+   ],
+   [
+    "12/22/2025",
+    "0.71890"
+   ],
+   [
+    "09/22/2025",
+    "0.63432"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 1.05,
+  "dividendYieldText": "1.05%",
+  "secYield": 0.75,
+  "secYieldText": "0.75%"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "PGX",
+  "name": "Invesco Preferred ETF",
+  "category": "Fixed Income",
+  "inception": "2008-01-31",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46138E511",
+  "isin": "US46138E5116"
+ }
+}

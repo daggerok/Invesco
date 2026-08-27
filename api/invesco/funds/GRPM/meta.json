@@ -1,0 +1,118 @@
+{
+ "ticker": "GRPM",
+ "name": "Invesco S&P MidCap 400\u00ae GARP ETF",
+ "category": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/grpm.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=GRPM",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=GRPM",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=GRPM",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46137V225",
+  "isin": "US46137V2253"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$132.71",
+  "value": 132.71,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$132.31",
+  "value": 132.31,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.30%",
+  "value": -0.3
+ },
+ "aum": {
+  "display": "$11.27 B",
+  "value": 11271000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 12.71,
+   "ytdText": "12.71%",
+   "yr1": 4.71,
+   "yr1Text": "4.71%",
+   "yr3": 19.71,
+   "yr3Text": "19.71%",
+   "yr5": 9.71,
+   "yr5Text": "9.71%",
+   "yr10": 10.71,
+   "yr10Text": "10.71%",
+   "sinceInception": 6.71,
+   "sinceInceptionText": "6.71%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.66155"
+   ],
+   [
+    "03/23/2026",
+    "0.63509"
+   ],
+   [
+    "12/22/2025",
+    "0.67478"
+   ],
+   [
+    "09/22/2025",
+    "0.59540"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 3.01,
+  "dividendYieldText": "3.01%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "GRPM",
+  "name": "Invesco S&P MidCap 400\u00ae GARP ETF",
+  "category": "US Equity",
+  "inception": "2010-12-03",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46137V225",
+  "isin": "US46137V2253"
+ }
+}

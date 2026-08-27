@@ -1,0 +1,118 @@
+{
+ "ticker": "OMFS",
+ "name": "Invesco Russell 2000\u00ae\u00a0Dynamic Multifactor ETF",
+ "category": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/omfs.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=OMFS",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=OMFS",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=OMFS",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138J593",
+  "isin": "US46138J5939"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$98.76",
+  "value": 98.76,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$98.51",
+  "value": 98.51,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.25%",
+  "value": -0.25
+ },
+ "aum": {
+  "display": "$42.88 B",
+  "value": 42876000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 8.76,
+   "ytdText": "8.76%",
+   "yr1": 0.76,
+   "yr1Text": "0.76%",
+   "yr3": 15.76,
+   "yr3Text": "15.76%",
+   "yr5": 25.76,
+   "yr5Text": "25.76%",
+   "yr10": 6.76,
+   "yr10Text": "6.76%",
+   "sinceInception": 17.76,
+   "sinceInceptionText": "17.76%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.49255"
+   ],
+   [
+    "03/23/2026",
+    "0.47285"
+   ],
+   [
+    "12/22/2025",
+    "0.50240"
+   ],
+   [
+    "09/22/2025",
+    "0.44329"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 4.06,
+  "dividendYieldText": "4.06%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "OMFS",
+  "name": "Invesco Russell 2000\u00ae\u00a0Dynamic Multifactor ETF",
+  "category": "US Equity",
+  "inception": "2017-11-08",
+  "exchange": "Cboe BZX Exchange, Inc.",
+  "ter": 0.35,
+  "cusip": "46138J593",
+  "isin": "US46138J5939"
+ }
+}

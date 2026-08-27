@@ -1,0 +1,107 @@
+{
+ "ticker": "BKLN",
+ "name": "Invesco Senior Loan ETF",
+ "category": "Fixed Income",
+ "categoryPath": "Fixed Income",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/bkln.html",
+  "holdingsDownload": null,
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=BKLN",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BKLN?period1=0&period2=1787867643&interval=1d&events=div%7Csplit",
+  "holdingsSource": "invesco.com per-fund holdings download",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$159.39",
+  "value": 159.39,
+  "asOfDate": "—"
+ },
+ "marketPrice": {
+  "display": "$158.99",
+  "value": 158.99,
+  "asOfDate": "—"
+ },
+ "premiumDiscount": {
+  "display": "-0.25%",
+  "value": -0.25
+ },
+ "aum": {
+  "display": "$33,939.00 M",
+  "value": 33939000000,
+  "asOfDate": "—",
+  "source": "Invesco product list \"Fund Assets\" column"
+ },
+ "yields": {
+  "dividendYield": 4.69,
+  "dividendYieldText": "4.69%",
+  "dividendYieldKind": "trailing 12-month, published by invesco.com",
+  "distributionRate": null,
+  "secYield": 4.39,
+  "secYieldText": "4.39%",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
+ },
+ "returns": {
+  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
+  "monthEnd": {
+   "asOfDate": "—",
+   "mo1": null,
+   "mo1Text": "—",
+   "qtd": null,
+   "qtdText": "—",
+   "ytd": 9.39,
+   "ytdText": "9.39%",
+   "yr1": 31.39,
+   "yr1Text": "31.39%",
+   "yr3": 16.39,
+   "yr3Text": "16.39%",
+   "yr5": 11.39,
+   "yr5Text": "11.39%",
+   "yr10": 17.39,
+   "yr10Text": "17.39%",
+   "sinceInception": 18.39,
+   "sinceInceptionText": "18.39%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": null,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": []
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "invesco.com per-fund holdings download"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "—",
+  "source": "previous run"
+ }
+}

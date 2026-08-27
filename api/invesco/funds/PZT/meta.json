@@ -1,0 +1,118 @@
+{
+ "ticker": "PZT",
+ "name": "Invesco New York AMT-Free Municipal Bond ETF",
+ "category": "Fixed Income",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pzt.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PZT",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PZT",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PZT",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138E529",
+  "isin": "US46138E5298"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$157.99",
+  "value": 157.99,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$157.44",
+  "value": 157.44,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.35%",
+  "value": -0.35
+ },
+ "aum": {
+  "display": "$33.80 B",
+  "value": 33799000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 7.99,
+   "ytdText": "7.99%",
+   "yr1": 29.99,
+   "yr1Text": "29.99%",
+   "yr3": 14.99,
+   "yr3Text": "14.99%",
+   "yr5": 9.99,
+   "yr5Text": "9.99%",
+   "yr10": 15.99,
+   "yr10Text": "15.99%",
+   "sinceInception": 16.99,
+   "sinceInceptionText": "16.99%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.78720"
+   ],
+   [
+    "03/23/2026",
+    "0.75571"
+   ],
+   [
+    "12/22/2025",
+    "0.80294"
+   ],
+   [
+    "09/22/2025",
+    "0.70848"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 3.29,
+  "dividendYieldText": "3.29%",
+  "secYield": 1.49,
+  "secYieldText": "1.49%"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "PZT",
+  "name": "Invesco New York AMT-Free Municipal Bond ETF",
+  "category": "Fixed Income",
+  "inception": "2007-10-11",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46138E529",
+  "isin": "US46138E5298"
+ }
+}

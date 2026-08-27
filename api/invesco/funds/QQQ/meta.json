@@ -1,0 +1,107 @@
+{
+ "ticker": "QQQ",
+ "name": "Invesco QQQ Trust, Series 1",
+ "category": "US Equity",
+ "categoryPath": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/invesco-qqq-trust-series-1.html",
+  "holdingsDownload": null,
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=QQQ",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/QQQ?period1=0&period2=1787870215&interval=1d&events=div%7Csplit",
+  "holdingsSource": "invesco.com per-fund holdings download",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
+ },
+ "expenseRatio": {
+  "display": "0.18%",
+  "value": 0.18
+ },
+ "nav": {
+  "display": "$711.19",
+  "value": 711.19,
+  "asOfDate": "—"
+ },
+ "marketPrice": {
+  "display": "$711.37",
+  "value": 711.37,
+  "asOfDate": "—"
+ },
+ "premiumDiscount": {
+  "display": "0.03%",
+  "value": 0.03
+ },
+ "aum": {
+  "display": "$483,260.00 M",
+  "value": 483260000000,
+  "asOfDate": "—",
+  "source": "Invesco product list \"Fund Assets\" column"
+ },
+ "yields": {
+  "dividendYield": 0.43,
+  "dividendYieldText": "0.43%",
+  "dividendYieldKind": "trailing 12-month, published by invesco.com",
+  "distributionRate": null,
+  "secYield": 0.41,
+  "secYieldText": "0.41%",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
+ },
+ "returns": {
+  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
+  "monthEnd": {
+   "asOfDate": "—",
+   "mo1": null,
+   "mo1Text": "—",
+   "qtd": null,
+   "qtdText": "—",
+   "ytd": 12.25,
+   "ytdText": "12.25%",
+   "yr1": 22.3,
+   "yr1Text": "22.30%",
+   "yr3": 22.15,
+   "yr3Text": "22.15%",
+   "yr5": 14.23,
+   "yr5Text": "14.23%",
+   "yr10": 20.41,
+   "yr10Text": "20.41%",
+   "sinceInception": 10.65,
+   "sinceInceptionText": "10.65%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": null,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": []
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 15,
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "invesco.com per-fund holdings download"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "—",
+  "source": "previous run"
+ }
+}

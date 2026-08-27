@@ -1,0 +1,118 @@
+{
+ "ticker": "KBWP",
+ "name": "Invesco KBW Property & Casualty Insurance ETF",
+ "category": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/kbwp.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=KBWP",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=KBWP",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=KBWP",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138E586",
+  "isin": "US46138E5868"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$149.33",
+  "value": 149.33,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$148.88",
+  "value": 148.88,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.30%",
+  "value": -0.3
+ },
+ "aum": {
+  "display": "$37.93 B",
+  "value": 37933000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": -0.67,
+   "ytdText": "-0.67%",
+   "yr1": 11.33,
+   "yr1Text": "11.33%",
+   "yr3": 6.33,
+   "yr3Text": "6.33%",
+   "yr5": 26.33,
+   "yr5Text": "26.33%",
+   "yr10": 17.33,
+   "yr10Text": "17.33%",
+   "sinceInception": 8.33,
+   "sinceInceptionText": "8.33%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.74440"
+   ],
+   [
+    "03/23/2026",
+    "0.71462"
+   ],
+   [
+    "12/22/2025",
+    "0.75929"
+   ],
+   [
+    "09/22/2025",
+    "0.66996"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 4.63,
+  "dividendYieldText": "4.63%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "KBWP",
+  "name": "Invesco KBW Property & Casualty Insurance ETF",
+  "category": "US Equity",
+  "inception": "2010-12-02",
+  "exchange": "NASDAQ",
+  "ter": 0.35,
+  "cusip": "46138E586",
+  "isin": "US46138E5868"
+ }
+}

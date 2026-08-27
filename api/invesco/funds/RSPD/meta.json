@@ -1,0 +1,118 @@
+{
+ "ticker": "RSPD",
+ "name": "Invesco S&P 500\u00ae Equal Weight Consumer Discretionary ETF",
+ "category": "Sector",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/rspd.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=RSPD",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=RSPD",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=RSPD",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46137V381",
+  "isin": "US46137V3814"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$101.41",
+  "value": 101.41,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$101.21",
+  "value": 101.21,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.20%",
+  "value": -0.2
+ },
+ "aum": {
+  "display": "$8.14 B",
+  "value": 8141000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 11.41,
+   "ytdText": "11.41%",
+   "yr1": 33.41,
+   "yr1Text": "33.41%",
+   "yr3": 18.41,
+   "yr3Text": "18.41%",
+   "yr5": 3.41,
+   "yr5Text": "3.41%",
+   "yr10": 19.41,
+   "yr10Text": "19.41%",
+   "sinceInception": 5.41,
+   "sinceInceptionText": "5.41%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.50605"
+   ],
+   [
+    "03/23/2026",
+    "0.48581"
+   ],
+   [
+    "12/22/2025",
+    "0.51617"
+   ],
+   [
+    "09/22/2025",
+    "0.45544"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 1.71,
+  "dividendYieldText": "1.71%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "RSPD",
+  "name": "Invesco S&P 500\u00ae Equal Weight Consumer Discretionary ETF",
+  "category": "Sector",
+  "inception": "2006-11-01",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46137V381",
+  "isin": "US46137V3814"
+ }
+}

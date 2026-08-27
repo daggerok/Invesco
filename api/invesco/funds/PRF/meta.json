@@ -1,0 +1,118 @@
+{
+ "ticker": "PRF",
+ "name": "Invesco FTSE RAFI US 1000 ETF",
+ "category": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/prf.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PRF",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PRF",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PRF",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46137V613",
+  "isin": "US46137V5975"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$89.71",
+  "value": 89.71,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$90.07",
+  "value": 90.07,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.40%",
+  "value": 0.4
+ },
+ "aum": {
+  "display": "$16.97 B",
+  "value": 16971000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": -0.29,
+   "ytdText": "-0.29%",
+   "yr1": 21.71,
+   "yr1Text": "21.71%",
+   "yr3": 6.71,
+   "yr3Text": "6.71%",
+   "yr5": 16.71,
+   "yr5Text": "16.71%",
+   "yr10": 7.71,
+   "yr10Text": "7.71%",
+   "sinceInception": 8.71,
+   "sinceInceptionText": "8.71%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.45035"
+   ],
+   [
+    "03/23/2026",
+    "0.43234"
+   ],
+   [
+    "12/22/2025",
+    "0.45936"
+   ],
+   [
+    "09/22/2025",
+    "0.40531"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 5.01,
+  "dividendYieldText": "5.01%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "PRF",
+  "name": "Invesco FTSE RAFI US 1000 ETF",
+  "category": "US Equity",
+  "inception": "2005-12-19",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46137V613",
+  "isin": "US46137V5975"
+ }
+}

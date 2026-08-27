@@ -1,0 +1,118 @@
+{
+ "ticker": "BTCO",
+ "name": "Invesco Galaxy Bitcoin ETF",
+ "category": "Digital Assets",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/btco.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=BTCO",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=BTCO",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=BTCO",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46091J101",
+  "isin": "US46091J1016"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$136.16",
+  "value": 136.16,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$136.16",
+  "value": 136.16,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.00%",
+  "value": 0.0
+ },
+ "aum": {
+  "display": "$46.62 B",
+  "value": 46616000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 16.16,
+   "ytdText": "16.16%",
+   "yr1": -1.84,
+   "yr1Text": "-1.84%",
+   "yr3": 23.16,
+   "yr3Text": "23.16%",
+   "yr5": 13.16,
+   "yr5Text": "13.16%",
+   "yr10": 4.16,
+   "yr10Text": "4.16%",
+   "sinceInception": 10.16,
+   "sinceInceptionText": "10.16%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.68080"
+   ],
+   [
+    "03/23/2026",
+    "0.65357"
+   ],
+   [
+    "12/22/2025",
+    "0.69442"
+   ],
+   [
+    "09/22/2025",
+    "0.61272"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 1.46,
+  "dividendYieldText": "1.46%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 2,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "BTCO",
+  "name": "Invesco Galaxy Bitcoin ETF",
+  "category": "Digital Assets",
+  "inception": "2024-01-11",
+  "exchange": "CBOE",
+  "ter": 0.35,
+  "cusip": "46091J101",
+  "isin": "US46091J1016"
+ }
+}

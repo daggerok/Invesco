@@ -1,0 +1,118 @@
+{
+ "ticker": "PIN",
+ "name": "Invesco India ETF",
+ "category": "International",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pin.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PIN",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PIN",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PIN",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46137R109",
+  "isin": "US46137R1095"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$84.86",
+  "value": 84.86,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$84.99",
+  "value": 84.99,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.15%",
+  "value": 0.15
+ },
+ "aum": {
+  "display": "$36.49 B",
+  "value": 36486000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 24.86,
+   "ytdText": "24.86%",
+   "yr1": 16.86,
+   "yr1Text": "16.86%",
+   "yr3": 31.86,
+   "yr3Text": "31.86%",
+   "yr5": 11.86,
+   "yr5Text": "11.86%",
+   "yr10": 22.86,
+   "yr10Text": "22.86%",
+   "sinceInception": 18.86,
+   "sinceInceptionText": "18.86%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.42495"
+   ],
+   [
+    "03/23/2026",
+    "0.40795"
+   ],
+   [
+    "12/22/2025",
+    "0.43345"
+   ],
+   [
+    "09/22/2025",
+    "0.38245"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 5.16,
+  "dividendYieldText": "5.16%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "PIN",
+  "name": "Invesco India ETF",
+  "category": "International",
+  "inception": "2008-03-05",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46137R109",
+  "isin": "US46137R1095"
+ }
+}

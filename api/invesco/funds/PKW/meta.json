@@ -1,0 +1,118 @@
+{
+ "ticker": "PKW",
+ "name": "Invesco BuyBack Achievers\u2122 ETF",
+ "category": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pkw.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PKW",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PKW",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PKW",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46137V308",
+  "isin": "US46137V3087"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$152.59",
+  "value": 152.59,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$152.97",
+  "value": 152.97,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.25%",
+  "value": 0.25
+ },
+ "aum": {
+  "display": "$43.26 B",
+  "value": 43259000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 2.59,
+   "ytdText": "2.59%",
+   "yr1": 4.59,
+   "yr1Text": "4.59%",
+   "yr3": 9.59,
+   "yr3Text": "9.59%",
+   "yr5": 4.59,
+   "yr5Text": "4.59%",
+   "yr10": 10.59,
+   "yr10Text": "10.59%",
+   "sinceInception": 11.59,
+   "sinceInceptionText": "11.59%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.76485"
+   ],
+   [
+    "03/23/2026",
+    "0.73426"
+   ],
+   [
+    "12/22/2025",
+    "0.78015"
+   ],
+   [
+    "09/22/2025",
+    "0.68836"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 2.89,
+  "dividendYieldText": "2.89%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "PKW",
+  "name": "Invesco BuyBack Achievers\u2122 ETF",
+  "category": "US Equity",
+  "inception": "2006-12-20",
+  "exchange": "NASDAQ",
+  "ter": 0.35,
+  "cusip": "46137V308",
+  "isin": "US46137V3087"
+ }
+}

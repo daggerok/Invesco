@@ -1,0 +1,118 @@
+{
+ "ticker": "XLG",
+ "name": "Invesco S&P 500\u00ae Top 50 ETF",
+ "category": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/xlg.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=XLG",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=XLG",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=XLG",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46137V233",
+  "isin": "US46137V2337"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$114.19",
+  "value": 114.19,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$114.13",
+  "value": 114.13,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.05%",
+  "value": -0.05
+ },
+ "aum": {
+  "display": "$44.42 B",
+  "value": 44419000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 24.19,
+   "ytdText": "24.19%",
+   "yr1": 36.19,
+   "yr1Text": "36.19%",
+   "yr3": 31.19,
+   "yr3Text": "31.19%",
+   "yr5": 16.19,
+   "yr5Text": "16.19%",
+   "yr10": 22.19,
+   "yr10Text": "22.19%",
+   "sinceInception": 18.19,
+   "sinceInceptionText": "18.19%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.57065"
+   ],
+   [
+    "03/23/2026",
+    "0.54782"
+   ],
+   [
+    "12/22/2025",
+    "0.58206"
+   ],
+   [
+    "09/22/2025",
+    "0.51358"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 4.49,
+  "dividendYieldText": "4.49%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "XLG",
+  "name": "Invesco S&P 500\u00ae Top 50 ETF",
+  "category": "US Equity",
+  "inception": "2005-05-04",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46137V233",
+  "isin": "US46137V2337"
+ }
+}

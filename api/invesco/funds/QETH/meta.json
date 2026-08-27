@@ -1,0 +1,118 @@
+{
+ "ticker": "QETH",
+ "name": "Invesco Galaxy Ethereum ETF",
+ "category": "Digital Assets",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/qeth.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=QETH",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=QETH",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=QETH",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46148D107",
+  "isin": "US46148D1072"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$107.20",
+  "value": 107.2,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$106.82",
+  "value": 106.82,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.35%",
+  "value": -0.35
+ },
+ "aum": {
+  "display": "$48.72 B",
+  "value": 48720000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 17.2,
+   "ytdText": "17.20%",
+   "yr1": -0.8,
+   "yr1Text": "-0.80%",
+   "yr3": 24.2,
+   "yr3Text": "24.20%",
+   "yr5": 9.2,
+   "yr5Text": "9.20%",
+   "yr10": 5.2,
+   "yr10Text": "5.20%",
+   "sinceInception": 11.2,
+   "sinceInceptionText": "11.20%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.53410"
+   ],
+   [
+    "03/23/2026",
+    "0.51274"
+   ],
+   [
+    "12/22/2025",
+    "0.54478"
+   ],
+   [
+    "09/22/2025",
+    "0.48069"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 2.5,
+  "dividendYieldText": "2.50%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 2,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "QETH",
+  "name": "Invesco Galaxy Ethereum ETF",
+  "category": "Digital Assets",
+  "inception": "2024-07-23",
+  "exchange": "CBOE",
+  "ter": 0.35,
+  "cusip": "46148D107",
+  "isin": "US46148D1072"
+ }
+}

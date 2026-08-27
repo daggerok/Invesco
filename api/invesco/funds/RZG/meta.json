@@ -1,0 +1,118 @@
+{
+ "ticker": "RZG",
+ "name": "Invesco S&P SmallCap 600\u00ae Pure Growth ETF",
+ "category": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/rzg.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=RZG",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=RZG",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=RZG",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46137V175",
+  "isin": "US46137V1750"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$71.65",
+  "value": 71.65,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$71.83",
+  "value": 71.83,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.25%",
+  "value": 0.25
+ },
+ "aum": {
+  "display": "$45.16 B",
+  "value": 45165000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 11.65,
+   "ytdText": "11.65%",
+   "yr1": 3.65,
+   "yr1Text": "3.65%",
+   "yr3": 18.65,
+   "yr3Text": "18.65%",
+   "yr5": 23.65,
+   "yr5Text": "23.65%",
+   "yr10": 9.65,
+   "yr10Text": "9.65%",
+   "sinceInception": 5.65,
+   "sinceInceptionText": "5.65%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.35915"
+   ],
+   [
+    "03/23/2026",
+    "0.34478"
+   ],
+   [
+    "12/22/2025",
+    "0.36633"
+   ],
+   [
+    "09/22/2025",
+    "0.32323"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 1.95,
+  "dividendYieldText": "1.95%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "RZG",
+  "name": "Invesco S&P SmallCap 600\u00ae Pure Growth ETF",
+  "category": "US Equity",
+  "inception": "2006-03-01",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46137V175",
+  "isin": "US46137V1750"
+ }
+}

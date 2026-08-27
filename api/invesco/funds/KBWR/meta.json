@@ -1,0 +1,118 @@
+{
+ "ticker": "KBWR",
+ "name": "Invesco KBW Regional Banking ETF",
+ "category": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/kbwr.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=KBWR",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=KBWR",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=KBWR",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138E578",
+  "isin": "US46138E5785"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$137.94",
+  "value": 137.94,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$138.63",
+  "value": 138.63,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.50%",
+  "value": 0.5
+ },
+ "aum": {
+  "display": "$46.79 B",
+  "value": 46794000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 17.94,
+   "ytdText": "17.94%",
+   "yr1": 19.94,
+   "yr1Text": "19.94%",
+   "yr3": 24.94,
+   "yr3Text": "24.94%",
+   "yr5": 14.94,
+   "yr5Text": "14.94%",
+   "yr10": 5.94,
+   "yr10Text": "5.94%",
+   "sinceInception": 11.94,
+   "sinceInceptionText": "11.94%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.69315"
+   ],
+   [
+    "03/23/2026",
+    "0.66542"
+   ],
+   [
+    "12/22/2025",
+    "0.70701"
+   ],
+   [
+    "09/22/2025",
+    "0.62383"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 3.24,
+  "dividendYieldText": "3.24%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "KBWR",
+  "name": "Invesco KBW Regional Banking ETF",
+  "category": "US Equity",
+  "inception": "2011-11-01",
+  "exchange": "NASDAQ",
+  "ter": 0.35,
+  "cusip": "46138E578",
+  "isin": "US46138E5785"
+ }
+}

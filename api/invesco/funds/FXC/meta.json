@@ -1,0 +1,118 @@
+{
+ "ticker": "FXC",
+ "name": "Invesco CurrencyShares\u00ae Canadian Dollar Trust",
+ "category": "Currency",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/fxc.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=FXC",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=FXC",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=FXC",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138T104",
+  "isin": "US46138T1043"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$39.03",
+  "value": 39.03,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$39.05",
+  "value": 39.05,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.05%",
+  "value": 0.05
+ },
+ "aum": {
+  "display": "$26.90 B",
+  "value": 26903000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 9.03,
+   "ytdText": "9.03%",
+   "yr1": 21.03,
+   "yr1Text": "21.03%",
+   "yr3": 16.03,
+   "yr3Text": "16.03%",
+   "yr5": 16.03,
+   "yr5Text": "16.03%",
+   "yr10": 7.03,
+   "yr10Text": "7.03%",
+   "sinceInception": 18.03,
+   "sinceInceptionText": "18.03%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.19525"
+   ],
+   [
+    "03/23/2026",
+    "0.18744"
+   ],
+   [
+    "12/22/2025",
+    "0.19915"
+   ],
+   [
+    "09/22/2025",
+    "0.17572"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 4.33,
+  "dividendYieldText": "4.33%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 4,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "FXC",
+  "name": "Invesco CurrencyShares\u00ae Canadian Dollar Trust",
+  "category": "Currency",
+  "inception": "2006-06-21",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46138T104",
+  "isin": "US46138T1043"
+ }
+}

@@ -1,0 +1,118 @@
+{
+ "ticker": "PSCI",
+ "name": "Invesco S&P SmallCap Industrials ETF",
+ "category": "Sector",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/psci.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PSCI",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PSCI",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PSCI",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138E123",
+  "isin": "US46138E1230"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$117.53",
+  "value": 117.53,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$117.35",
+  "value": 117.35,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.15%",
+  "value": -0.15
+ },
+ "aum": {
+  "display": "$4.75 B",
+  "value": 4753000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": -2.47,
+   "ytdText": "-2.47%",
+   "yr1": 19.53,
+   "yr1Text": "19.53%",
+   "yr3": 4.53,
+   "yr3Text": "4.53%",
+   "yr5": 19.53,
+   "yr5Text": "19.53%",
+   "yr10": 5.53,
+   "yr10Text": "5.53%",
+   "sinceInception": 6.53,
+   "sinceInceptionText": "6.53%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.58675"
+   ],
+   [
+    "03/23/2026",
+    "0.56328"
+   ],
+   [
+    "12/22/2025",
+    "0.59849"
+   ],
+   [
+    "09/22/2025",
+    "0.52807"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 2.83,
+  "dividendYieldText": "2.83%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "PSCI",
+  "name": "Invesco S&P SmallCap Industrials ETF",
+  "category": "Sector",
+  "inception": "2010-04-07",
+  "exchange": "NASDAQ",
+  "ter": 0.35,
+  "cusip": "46138E123",
+  "isin": "US46138E1230"
+ }
+}

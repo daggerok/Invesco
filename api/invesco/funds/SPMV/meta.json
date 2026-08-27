@@ -1,0 +1,118 @@
+{
+ "ticker": "SPMV",
+ "name": "Invesco S&P 500 Minimum Variance ETF",
+ "category": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/spmv.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=SPMV",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=SPMV",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=SPMV",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138E347",
+  "isin": "US46138E3475"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$163.35",
+  "value": 163.35,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$162.70",
+  "value": 162.7,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.40%",
+  "value": -0.4
+ },
+ "aum": {
+  "display": "$49.34 B",
+  "value": 49335000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 13.35,
+   "ytdText": "13.35%",
+   "yr1": 25.35,
+   "yr1Text": "25.35%",
+   "yr3": 20.35,
+   "yr3Text": "20.35%",
+   "yr5": 15.35,
+   "yr5Text": "15.35%",
+   "yr10": 11.35,
+   "yr10Text": "11.35%",
+   "sinceInception": 7.35,
+   "sinceInceptionText": "7.35%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.81350"
+   ],
+   [
+    "03/23/2026",
+    "0.78096"
+   ],
+   [
+    "12/22/2025",
+    "0.82977"
+   ],
+   [
+    "09/22/2025",
+    "0.73215"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 3.65,
+  "dividendYieldText": "3.65%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "SPMV",
+  "name": "Invesco S&P 500 Minimum Variance ETF",
+  "category": "US Equity",
+  "inception": "2017-07-13",
+  "exchange": "Cboe BZX Exchange, Inc.",
+  "ter": 0.35,
+  "cusip": "46138E347",
+  "isin": "US46138E3475"
+ }
+}

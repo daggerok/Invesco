@@ -1,0 +1,118 @@
+{
+ "ticker": "BSMY",
+ "name": "Invesco BulletShares 2034 Municipal Bond ETF",
+ "category": "Fixed Income",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/bsmy.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=BSMY",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=BSMY",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=BSMY",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46139W767",
+  "isin": "US46139W7671"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$78.55",
+  "value": 78.55,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$78.51",
+  "value": 78.51,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.05%",
+  "value": -0.05
+ },
+ "aum": {
+  "display": "$30.86 B",
+  "value": 30855000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 18.55,
+   "ytdText": "18.55%",
+   "yr1": 0.55,
+   "yr1Text": "0.55%",
+   "yr3": 25.55,
+   "yr3Text": "25.55%",
+   "yr5": 5.55,
+   "yr5Text": "5.55%",
+   "yr10": 6.55,
+   "yr10Text": "6.55%",
+   "sinceInception": 12.55,
+   "sinceInceptionText": "12.55%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.39255"
+   ],
+   [
+    "03/23/2026",
+    "0.37685"
+   ],
+   [
+    "12/22/2025",
+    "0.40040"
+   ],
+   [
+    "09/22/2025",
+    "0.35329"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 3.85,
+  "dividendYieldText": "3.85%",
+  "secYield": 4.55,
+  "secYieldText": "4.55%"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "BSMY",
+  "name": "Invesco BulletShares 2034 Municipal Bond ETF",
+  "category": "Fixed Income",
+  "inception": "2024-09-11",
+  "exchange": "NASDAQ",
+  "ter": 0.35,
+  "cusip": "46139W767",
+  "isin": "US46139W7671"
+ }
+}

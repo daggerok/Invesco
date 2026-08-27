@@ -1,0 +1,118 @@
+{
+ "ticker": "PSCF",
+ "name": "Invesco S&P SmallCap Financials ETF",
+ "category": "Sector",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pscf.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PSCF",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PSCF",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PSCF",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138E156",
+  "isin": "US46138E1560"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$135.33",
+  "value": 135.33,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$136.01",
+  "value": 136.01,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.50%",
+  "value": 0.5
+ },
+ "aum": {
+  "display": "$11.53 B",
+  "value": 11533000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 15.33,
+   "ytdText": "15.33%",
+   "yr1": 7.33,
+   "yr1Text": "7.33%",
+   "yr3": 22.33,
+   "yr3Text": "22.33%",
+   "yr5": 12.33,
+   "yr5Text": "12.33%",
+   "yr10": 13.33,
+   "yr10Text": "13.33%",
+   "sinceInception": 9.33,
+   "sinceInceptionText": "9.33%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.68005"
+   ],
+   [
+    "03/23/2026",
+    "0.65285"
+   ],
+   [
+    "12/22/2025",
+    "0.69365"
+   ],
+   [
+    "09/22/2025",
+    "0.61204"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 0.63,
+  "dividendYieldText": "0.63%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "PSCF",
+  "name": "Invesco S&P SmallCap Financials ETF",
+  "category": "Sector",
+  "inception": "2010-04-07",
+  "exchange": "NASDAQ",
+  "ter": 0.35,
+  "cusip": "46138E156",
+  "isin": "US46138E1560"
+ }
+}

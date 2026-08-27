@@ -1,0 +1,118 @@
+{
+ "ticker": "PBE",
+ "name": "Invesco Biotechnology & Genome ETF",
+ "category": "Thematic",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pbe.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PBE",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PBE",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PBE",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46137V787",
+  "isin": "US46137V7872"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$46.30",
+  "value": 46.3,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$46.28",
+  "value": 46.28,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.04%",
+  "value": -0.04
+ },
+ "aum": {
+  "display": "$32.63 B",
+  "value": 32630000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 16.3,
+   "ytdText": "16.30%",
+   "yr1": 18.3,
+   "yr1Text": "18.30%",
+   "yr3": 23.3,
+   "yr3Text": "23.30%",
+   "yr5": 23.3,
+   "yr5Text": "23.30%",
+   "yr10": 4.3,
+   "yr10Text": "4.30%",
+   "sinceInception": 10.3,
+   "sinceInceptionText": "10.30%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.23140"
+   ],
+   [
+    "03/23/2026",
+    "0.22214"
+   ],
+   [
+    "12/22/2025",
+    "0.23603"
+   ],
+   [
+    "09/22/2025",
+    "0.20826"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 1.6,
+  "dividendYieldText": "1.60%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "PBE",
+  "name": "Invesco Biotechnology & Genome ETF",
+  "category": "Thematic",
+  "inception": "2005-06-23",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46137V787",
+  "isin": "US46137V7872"
+ }
+}

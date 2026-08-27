@@ -1,0 +1,118 @@
+{
+ "ticker": "SPVU",
+ "name": "Invesco S&P 500\u00ae Enhanced Value ETF",
+ "category": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/spvu.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=SPVU",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=SPVU",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=SPVU",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138E396",
+  "isin": "US46138E3962"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$158.79",
+  "value": 158.79,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$158.15",
+  "value": 158.15,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.40%",
+  "value": -0.4
+ },
+ "aum": {
+  "display": "$13.88 B",
+  "value": 13879000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 8.79,
+   "ytdText": "8.79%",
+   "yr1": 30.79,
+   "yr1Text": "30.79%",
+   "yr3": 15.79,
+   "yr3Text": "15.79%",
+   "yr5": 10.79,
+   "yr5Text": "10.79%",
+   "yr10": 16.79,
+   "yr10Text": "16.79%",
+   "sinceInception": 17.79,
+   "sinceInceptionText": "17.79%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.79075"
+   ],
+   [
+    "03/23/2026",
+    "0.75912"
+   ],
+   [
+    "12/22/2025",
+    "0.80657"
+   ],
+   [
+    "09/22/2025",
+    "0.71167"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 4.09,
+  "dividendYieldText": "4.09%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "SPVU",
+  "name": "Invesco S&P 500\u00ae Enhanced Value ETF",
+  "category": "US Equity",
+  "inception": "2015-10-09",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46138E396",
+  "isin": "US46138E3962"
+ }
+}

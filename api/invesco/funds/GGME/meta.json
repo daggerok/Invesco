@@ -1,0 +1,118 @@
+{
+ "ticker": "GGME",
+ "name": "Invesco Next Gen Media and Gaming ETF",
+ "category": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/ggme.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=GGME",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=GGME",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=GGME",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46137V696",
+  "isin": "US46137V6965"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$38.80",
+  "value": 38.8,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$38.72",
+  "value": 38.72,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.21%",
+  "value": -0.21
+ },
+ "aum": {
+  "display": "$46.88 B",
+  "value": 46880000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 8.8,
+   "ytdText": "8.80%",
+   "yr1": 0.8,
+   "yr1Text": "0.80%",
+   "yr3": 15.8,
+   "yr3Text": "15.80%",
+   "yr5": 15.8,
+   "yr5Text": "15.80%",
+   "yr10": 6.8,
+   "yr10Text": "6.80%",
+   "sinceInception": 17.8,
+   "sinceInceptionText": "17.80%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.19360"
+   ],
+   [
+    "03/23/2026",
+    "0.18586"
+   ],
+   [
+    "12/22/2025",
+    "0.19747"
+   ],
+   [
+    "09/22/2025",
+    "0.17424"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 4.1,
+  "dividendYieldText": "4.10%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "GGME",
+  "name": "Invesco Next Gen Media and Gaming ETF",
+  "category": "US Equity",
+  "inception": "2005-06-23",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46137V696",
+  "isin": "US46137V6965"
+ }
+}

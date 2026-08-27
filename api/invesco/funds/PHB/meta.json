@@ -1,0 +1,118 @@
+{
+ "ticker": "PHB",
+ "name": "Invesco Fundamental High Yield\u00ae Corporate Bond ETF",
+ "category": "Fixed Income",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/phb.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PHB",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PHB",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PHB",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138E719",
+  "isin": "US46138E7195"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$134.96",
+  "value": 134.96,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$135.36",
+  "value": 135.36,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.30%",
+  "value": 0.3
+ },
+ "aum": {
+  "display": "$11.50 B",
+  "value": 11496000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 14.96,
+   "ytdText": "14.96%",
+   "yr1": 6.96,
+   "yr1Text": "6.96%",
+   "yr3": 21.96,
+   "yr3Text": "21.96%",
+   "yr5": 11.96,
+   "yr5Text": "11.96%",
+   "yr10": 12.96,
+   "yr10Text": "12.96%",
+   "sinceInception": 8.96,
+   "sinceInceptionText": "8.96%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.67680"
+   ],
+   [
+    "03/23/2026",
+    "0.64973"
+   ],
+   [
+    "12/22/2025",
+    "0.69034"
+   ],
+   [
+    "09/22/2025",
+    "0.60912"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 5.26,
+  "dividendYieldText": "5.26%",
+  "secYield": 0.96,
+  "secYieldText": "0.96%"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "PHB",
+  "name": "Invesco Fundamental High Yield\u00ae Corporate Bond ETF",
+  "category": "Fixed Income",
+  "inception": "2007-11-15",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46138E719",
+  "isin": "US46138E7195"
+ }
+}

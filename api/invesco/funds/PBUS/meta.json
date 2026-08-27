@@ -1,0 +1,118 @@
+{
+ "ticker": "PBUS",
+ "name": "Invesco MSCI USA ETF",
+ "category": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pbus.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PBUS",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PBUS",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PBUS",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138E461",
+  "isin": "US46138E4614"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$138.46",
+  "value": 138.46,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$137.98",
+  "value": 137.98,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.35%",
+  "value": -0.35
+ },
+ "aum": {
+  "display": "$16.85 B",
+  "value": 16846000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 18.46,
+   "ytdText": "18.46%",
+   "yr1": 20.46,
+   "yr1Text": "20.46%",
+   "yr3": 25.46,
+   "yr3Text": "25.46%",
+   "yr5": 15.46,
+   "yr5Text": "15.46%",
+   "yr10": 6.46,
+   "yr10Text": "6.46%",
+   "sinceInception": 12.46,
+   "sinceInceptionText": "12.46%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.68990"
+   ],
+   [
+    "03/23/2026",
+    "0.66230"
+   ],
+   [
+    "12/22/2025",
+    "0.70370"
+   ],
+   [
+    "09/22/2025",
+    "0.62091"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 3.76,
+  "dividendYieldText": "3.76%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "PBUS",
+  "name": "Invesco MSCI USA ETF",
+  "category": "US Equity",
+  "inception": "2017-09-22",
+  "exchange": "Cboe BZX Exchange, Inc.",
+  "ter": 0.35,
+  "cusip": "46138E461",
+  "isin": "US46138E4614"
+ }
+}

@@ -1,0 +1,118 @@
+{
+ "ticker": "QEW",
+ "name": "Invesco QQQ Equal Weight ETF",
+ "category": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/qew.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=QEW",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=QEW",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=QEW",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46090A118",
+  "isin": "US46090A1180"
+ },
+ "expenseRatio": {
+  "display": "0.25%",
+  "value": 0.25
+ },
+ "nav": {
+  "display": "$103.47",
+  "value": 103.47,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$103.83",
+  "value": 103.83,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "aum": {
+  "display": "$23.35 B",
+  "value": 23347000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 13.47,
+   "ytdText": "13.47%",
+   "yr1": 5.47,
+   "yr1Text": "5.47%",
+   "yr3": 20.47,
+   "yr3Text": "20.47%",
+   "yr5": 5.47,
+   "yr5Text": "5.47%",
+   "yr10": 11.47,
+   "yr10Text": "11.47%",
+   "sinceInception": 7.47,
+   "sinceInceptionText": "7.47%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.51915"
+   ],
+   [
+    "03/23/2026",
+    "0.49838"
+   ],
+   [
+    "12/22/2025",
+    "0.52953"
+   ],
+   [
+    "09/22/2025",
+    "0.46723"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 3.77,
+  "dividendYieldText": "3.77%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "QEW",
+  "name": "Invesco QQQ Equal Weight ETF",
+  "category": "US Equity",
+  "inception": "2026-03-18",
+  "exchange": "NASDAQ",
+  "ter": 0.25,
+  "cusip": "46090A118",
+  "isin": "US46090A1180"
+ }
+}

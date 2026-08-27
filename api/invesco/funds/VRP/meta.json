@@ -1,0 +1,118 @@
+{
+ "ticker": "VRP",
+ "name": "Invesco Variable Rate Preferred ETF",
+ "category": "Fixed Income",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/vrp.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=VRP",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=VRP",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=VRP",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138G870",
+  "isin": "US46138G8704"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$120.50",
+  "value": 120.5,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$120.14",
+  "value": 120.14,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.30%",
+  "value": -0.3
+ },
+ "aum": {
+  "display": "$30.05 B",
+  "value": 30050000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 0.5,
+   "ytdText": "0.50%",
+   "yr1": 32.5,
+   "yr1Text": "32.50%",
+   "yr3": 7.5,
+   "yr3Text": "7.50%",
+   "yr5": 22.5,
+   "yr5Text": "22.50%",
+   "yr10": 18.5,
+   "yr10Text": "18.50%",
+   "sinceInception": 9.5,
+   "sinceInceptionText": "9.50%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.60070"
+   ],
+   [
+    "03/23/2026",
+    "0.57667"
+   ],
+   [
+    "12/22/2025",
+    "0.61271"
+   ],
+   [
+    "09/22/2025",
+    "0.54063"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 0.8,
+  "dividendYieldText": "0.80%",
+  "secYield": 3.0,
+  "secYieldText": "3.00%"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "VRP",
+  "name": "Invesco Variable Rate Preferred ETF",
+  "category": "Fixed Income",
+  "inception": "2014-05-01",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46138G870",
+  "isin": "US46138G8704"
+ }
+}

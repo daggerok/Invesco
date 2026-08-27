@@ -1,0 +1,118 @@
+{
+ "ticker": "PSCD",
+ "name": "Invesco S&P SmallCap Consumer Discretionary ETF",
+ "category": "Sector",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pscd.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PSCD",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PSCD",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PSCD",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138E180",
+  "isin": "US46138E1800"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$153.13",
+  "value": 153.13,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$153.74",
+  "value": 153.74,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.40%",
+  "value": 0.4
+ },
+ "aum": {
+  "display": "$28.31 B",
+  "value": 28313000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 3.13,
+   "ytdText": "3.13%",
+   "yr1": 15.13,
+   "yr1Text": "15.13%",
+   "yr3": 10.13,
+   "yr3Text": "10.13%",
+   "yr5": 5.13,
+   "yr5Text": "5.13%",
+   "yr10": 21.13,
+   "yr10Text": "21.13%",
+   "sinceInception": 12.13,
+   "sinceInceptionText": "12.13%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.76870"
+   ],
+   [
+    "03/23/2026",
+    "0.73795"
+   ],
+   [
+    "12/22/2025",
+    "0.78407"
+   ],
+   [
+    "09/22/2025",
+    "0.69183"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 3.43,
+  "dividendYieldText": "3.43%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "PSCD",
+  "name": "Invesco S&P SmallCap Consumer Discretionary ETF",
+  "category": "Sector",
+  "inception": "2010-04-07",
+  "exchange": "NASDAQ",
+  "ter": 0.35,
+  "cusip": "46138E180",
+  "isin": "US46138E1800"
+ }
+}

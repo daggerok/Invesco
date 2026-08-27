@@ -1,0 +1,118 @@
+{
+ "ticker": "PEJ",
+ "name": "Invesco Leisure and Entertainment ETF",
+ "category": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pej.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PEJ",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PEJ",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PEJ",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46137V720",
+  "isin": "US46137V7203"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$144.92",
+  "value": 144.92,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$144.27",
+  "value": 144.27,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.45%",
+  "value": -0.45
+ },
+ "aum": {
+  "display": "$7.49 B",
+  "value": 7492000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 24.92,
+   "ytdText": "24.92%",
+   "yr1": 6.92,
+   "yr1Text": "6.92%",
+   "yr3": 31.92,
+   "yr3Text": "31.92%",
+   "yr5": 21.92,
+   "yr5Text": "21.92%",
+   "yr10": 12.92,
+   "yr10Text": "12.92%",
+   "sinceInception": 18.92,
+   "sinceInceptionText": "18.92%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.72135"
+   ],
+   [
+    "03/23/2026",
+    "0.69250"
+   ],
+   [
+    "12/22/2025",
+    "0.73578"
+   ],
+   [
+    "09/22/2025",
+    "0.64921"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 5.22,
+  "dividendYieldText": "5.22%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "PEJ",
+  "name": "Invesco Leisure and Entertainment ETF",
+  "category": "US Equity",
+  "inception": "2005-06-23",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46137V720",
+  "isin": "US46137V7203"
+ }
+}

@@ -1,0 +1,118 @@
+{
+ "ticker": "PFM",
+ "name": "Invesco Dividend Achievers\u2122 ETF",
+ "category": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pfm.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PFM",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PFM",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PFM",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46137V506",
+  "isin": "US46137V5066"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$43.36",
+  "value": 43.36,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$43.27",
+  "value": 43.27,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.21%",
+  "value": -0.21
+ },
+ "aum": {
+  "display": "$22.34 B",
+  "value": 22336000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 13.36,
+   "ytdText": "13.36%",
+   "yr1": 35.36,
+   "yr1Text": "35.36%",
+   "yr3": 20.36,
+   "yr3Text": "20.36%",
+   "yr5": 20.36,
+   "yr5Text": "20.36%",
+   "yr10": 21.36,
+   "yr10Text": "21.36%",
+   "sinceInception": 7.36,
+   "sinceInceptionText": "7.36%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.21635"
+   ],
+   [
+    "03/23/2026",
+    "0.20770"
+   ],
+   [
+    "12/22/2025",
+    "0.22068"
+   ],
+   [
+    "09/22/2025",
+    "0.19471"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 3.66,
+  "dividendYieldText": "3.66%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "PFM",
+  "name": "Invesco Dividend Achievers\u2122 ETF",
+  "category": "US Equity",
+  "inception": "2005-09-15",
+  "exchange": "NASDAQ",
+  "ter": 0.35,
+  "cusip": "46137V506",
+  "isin": "US46137V5066"
+ }
+}

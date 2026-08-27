@@ -1,0 +1,118 @@
+{
+ "ticker": "PRFZ",
+ "name": "Invesco FTSE RAFI US 1500 Small-Mid ETF",
+ "category": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/prfz.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PRFZ",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PRFZ",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PRFZ",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46137V597",
+  "isin": "US46137V5975"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$62.95",
+  "value": 62.95,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$62.92",
+  "value": 62.92,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.05%",
+  "value": -0.05
+ },
+ "aum": {
+  "display": "$34.30 B",
+  "value": 34295000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 2.95,
+   "ytdText": "2.95%",
+   "yr1": 14.95,
+   "yr1Text": "14.95%",
+   "yr3": 9.95,
+   "yr3Text": "9.95%",
+   "yr5": 14.95,
+   "yr5Text": "14.95%",
+   "yr10": 20.95,
+   "yr10Text": "20.95%",
+   "sinceInception": 11.95,
+   "sinceInceptionText": "11.95%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.31460"
+   ],
+   [
+    "03/23/2026",
+    "0.30202"
+   ],
+   [
+    "12/22/2025",
+    "0.32089"
+   ],
+   [
+    "09/22/2025",
+    "0.28314"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 3.25,
+  "dividendYieldText": "3.25%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "PRFZ",
+  "name": "Invesco FTSE RAFI US 1500 Small-Mid ETF",
+  "category": "US Equity",
+  "inception": "2006-09-20",
+  "exchange": "NASDAQ",
+  "ter": 0.35,
+  "cusip": "46137V597",
+  "isin": "US46137V5975"
+ }
+}

@@ -1,0 +1,118 @@
+{
+ "ticker": "ERTH",
+ "name": "Invesco MSCI Sustainable Future ETF",
+ "category": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/erth.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=ERTH",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=ERTH",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=ERTH",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46137V407",
+  "isin": "US46137V4077"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$136.21",
+  "value": 136.21,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$136.55",
+  "value": 136.55,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.25%",
+  "value": 0.25
+ },
+ "aum": {
+  "display": "$11.62 B",
+  "value": 11621000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 16.21,
+   "ytdText": "16.21%",
+   "yr1": 28.21,
+   "yr1Text": "28.21%",
+   "yr3": 23.21,
+   "yr3Text": "23.21%",
+   "yr5": 13.21,
+   "yr5Text": "13.21%",
+   "yr10": 14.21,
+   "yr10Text": "14.21%",
+   "sinceInception": 10.21,
+   "sinceInceptionText": "10.21%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.68275"
+   ],
+   [
+    "03/23/2026",
+    "0.65544"
+   ],
+   [
+    "12/22/2025",
+    "0.69641"
+   ],
+   [
+    "09/22/2025",
+    "0.61447"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 1.51,
+  "dividendYieldText": "1.51%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "ERTH",
+  "name": "Invesco MSCI Sustainable Future ETF",
+  "category": "US Equity",
+  "inception": "2006-10-24",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46137V407",
+  "isin": "US46137V4077"
+ }
+}

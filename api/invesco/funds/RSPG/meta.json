@@ -1,0 +1,118 @@
+{
+ "ticker": "RSPG",
+ "name": "Invesco S&P 500\u00ae Equal Weight Energy ETF",
+ "category": "Sector",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/rspg.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=RSPG",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=RSPG",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=RSPG",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46137V365",
+  "isin": "US46137V3657"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$27.77",
+  "value": 27.77,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$27.85",
+  "value": 27.85,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.29%",
+  "value": 0.29
+ },
+ "aum": {
+  "display": "$40.78 B",
+  "value": 40777000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": -2.23,
+   "ytdText": "-2.23%",
+   "yr1": -0.23,
+   "yr1Text": "-0.23%",
+   "yr3": 4.77,
+   "yr3Text": "4.77%",
+   "yr5": 4.77,
+   "yr5Text": "4.77%",
+   "yr10": 5.77,
+   "yr10Text": "5.77%",
+   "sinceInception": 6.77,
+   "sinceInceptionText": "6.77%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.13925"
+   ],
+   [
+    "03/23/2026",
+    "0.13368"
+   ],
+   [
+    "12/22/2025",
+    "0.14204"
+   ],
+   [
+    "09/22/2025",
+    "0.12532"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 3.07,
+  "dividendYieldText": "3.07%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "RSPG",
+  "name": "Invesco S&P 500\u00ae Equal Weight Energy ETF",
+  "category": "Sector",
+  "inception": "2006-11-01",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46137V365",
+  "isin": "US46137V3657"
+ }
+}

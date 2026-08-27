@@ -1,0 +1,118 @@
+{
+ "ticker": "PSI",
+ "name": "Invesco Semiconductors ETF",
+ "category": "Thematic",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/psi.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PSI",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PSI",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PSI",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46137V647",
+  "isin": "US46137V6478"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$156.30",
+  "value": 156.3,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$156.61",
+  "value": 156.61,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.20%",
+  "value": 0.2
+ },
+ "aum": {
+  "display": "$18.63 B",
+  "value": 18630000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 6.3,
+   "ytdText": "6.30%",
+   "yr1": 18.3,
+   "yr1Text": "18.30%",
+   "yr3": 13.3,
+   "yr3Text": "13.30%",
+   "yr5": 8.3,
+   "yr5Text": "8.30%",
+   "yr10": 4.3,
+   "yr10Text": "4.30%",
+   "sinceInception": 15.3,
+   "sinceInceptionText": "15.30%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.78305"
+   ],
+   [
+    "03/23/2026",
+    "0.75173"
+   ],
+   [
+    "12/22/2025",
+    "0.79871"
+   ],
+   [
+    "09/22/2025",
+    "0.70474"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 1.6,
+  "dividendYieldText": "1.60%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "PSI",
+  "name": "Invesco Semiconductors ETF",
+  "category": "Thematic",
+  "inception": "2005-06-23",
+  "exchange": "NYSE Arca",
+  "ter": 0.35,
+  "cusip": "46137V647",
+  "isin": "US46137V6478"
+ }
+}

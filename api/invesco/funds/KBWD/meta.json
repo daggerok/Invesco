@@ -1,0 +1,118 @@
+{
+ "ticker": "KBWD",
+ "name": "Invesco KBW High Dividend Yield Financial ETF",
+ "category": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/kbwd.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=KBWD",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=KBWD",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=KBWD",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46138E610",
+  "isin": "US46138E6106"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35
+ },
+ "nav": {
+  "display": "$40.22",
+  "value": 40.22,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$40.40",
+  "value": 40.4,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.45%",
+  "value": 0.45
+ },
+ "aum": {
+  "display": "$37.02 B",
+  "value": 37022000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 10.22,
+   "ytdText": "10.22%",
+   "yr1": 22.22,
+   "yr1Text": "22.22%",
+   "yr3": 17.22,
+   "yr3Text": "17.22%",
+   "yr5": 17.22,
+   "yr5Text": "17.22%",
+   "yr10": 8.22,
+   "yr10Text": "8.22%",
+   "sinceInception": 4.22,
+   "sinceInceptionText": "4.22%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.20200"
+   ],
+   [
+    "03/23/2026",
+    "0.19392"
+   ],
+   [
+    "12/22/2025",
+    "0.20604"
+   ],
+   [
+    "09/22/2025",
+    "0.18180"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 0.52,
+  "dividendYieldText": "0.52%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "KBWD",
+  "name": "Invesco KBW High Dividend Yield Financial ETF",
+  "category": "US Equity",
+  "inception": "2010-12-02",
+  "exchange": "NASDAQ",
+  "ter": 0.35,
+  "cusip": "46138E610",
+  "isin": "US46138E6106"
+ }
+}

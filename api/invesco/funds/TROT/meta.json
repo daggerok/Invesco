@@ -1,0 +1,118 @@
+{
+ "ticker": "TROT",
+ "name": "Invesco MSCI Treasury Duration Rotation ETF",
+ "category": "Fixed Income",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/trot.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=TROT",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=TROT",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=TROT",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46090A111",
+  "isin": "US46090A1115"
+ },
+ "expenseRatio": {
+  "display": "0.15%",
+  "value": 0.15
+ },
+ "nav": {
+  "display": "$127.73",
+  "value": 127.73,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$127.73",
+  "value": 127.73,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.00%",
+  "value": 0.0
+ },
+ "aum": {
+  "display": "$10.77 B",
+  "value": 10773000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 7.73,
+   "ytdText": "7.73%",
+   "yr1": 19.73,
+   "yr1Text": "19.73%",
+   "yr3": 14.73,
+   "yr3Text": "14.73%",
+   "yr5": 4.73,
+   "yr5Text": "4.73%",
+   "yr10": 5.73,
+   "yr10Text": "5.73%",
+   "sinceInception": 16.73,
+   "sinceInceptionText": "16.73%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.63865"
+   ],
+   [
+    "03/23/2026",
+    "0.61310"
+   ],
+   [
+    "12/22/2025",
+    "0.65142"
+   ],
+   [
+    "09/22/2025",
+    "0.57478"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 3.03,
+  "dividendYieldText": "3.03%",
+  "secYield": 4.23,
+  "secYieldText": "4.23%"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "TROT",
+  "name": "Invesco MSCI Treasury Duration Rotation ETF",
+  "category": "Fixed Income",
+  "inception": "2026-02-25",
+  "exchange": "NYSE Arca",
+  "ter": 0.15,
+  "cusip": "46090A111",
+  "isin": "US46090A1115"
+ }
+}

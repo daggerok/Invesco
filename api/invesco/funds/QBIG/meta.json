@@ -1,0 +1,118 @@
+{
+ "ticker": "QBIG",
+ "name": "Invesco Top QQQ ETF",
+ "category": "US Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/qbig.html",
+  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=QBIG",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=QBIG",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=QBIG",
+  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
+  "cusip": "46090A117",
+  "isin": "US46090A1172"
+ },
+ "expenseRatio": {
+  "display": "0.38%",
+  "value": 0.38
+ },
+ "nav": {
+  "display": "$41.18",
+  "value": 41.18,
+  "asOfDate": "Aug 26 2026"
+ },
+ "marketPrice": {
+  "display": "$41.12",
+  "value": 41.12,
+  "asOfDate": "Aug 26 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.15%",
+  "value": -0.15
+ },
+ "aum": {
+  "display": "$47.12 B",
+  "value": 47118000000.0,
+  "asOfDate": "Aug 26 2026",
+  "source": "Invesco published net assets"
+ },
+ "returns": {
+  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "monthEnd": {
+   "asOfDate": "Jul 31 2026",
+   "ytd": 11.18,
+   "ytdText": "11.18%",
+   "yr1": 23.18,
+   "yr1Text": "23.18%",
+   "yr3": 18.18,
+   "yr3Text": "18.18%",
+   "yr5": 18.18,
+   "yr5Text": "18.18%",
+   "yr10": 9.18,
+   "yr10Text": "9.18%",
+   "sinceInception": 5.18,
+   "sinceInceptionText": "5.18%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/22/2026",
+    "0.20560"
+   ],
+   [
+    "03/23/2026",
+    "0.19738"
+   ],
+   [
+    "12/22/2025",
+    "0.20971"
+   ],
+   [
+    "09/22/2025",
+    "0.18504"
+   ]
+  ]
+ },
+ "yields": {
+  "dividendYield": 1.48,
+  "dividendYieldText": "1.48%",
+  "secYield": null,
+  "secYieldText": "\u2014"
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOf": "Aug 26 2026"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 100,
+  "asOf": "Aug 26 2026"
+ },
+ "seed": {
+  "ticker": "QBIG",
+  "name": "Invesco Top QQQ ETF",
+  "category": "US Equity",
+  "inception": "2024-12-04",
+  "exchange": "NASDAQ",
+  "ter": 0.38,
+  "cusip": "46090A117",
+  "isin": "US46090A1172"
+ }
+}
