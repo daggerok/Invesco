@@ -2,55 +2,74 @@
  "ticker": "PXJ",
  "name": "Invesco Oil & Gas Services ETF",
  "category": "Commodity",
+ "categoryPath": "Commodity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pxj.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PXJ",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PXJ",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PXJ",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46137Y872",
-  "isin": "US46137V6700"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/PXJ?period1=0&period2=1787874538&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000880, report period 2026-04-30)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$139.12",
-  "value": 139.12,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$139.26",
-  "value": 139.26,
-  "asOfDate": "Aug 26 2026"
+  "display": "$46.23",
+  "value": 46.23,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "0.10%",
-  "value": 0.1
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$26.91 B",
-  "value": 26912000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$138.03 M",
+  "value": 138032963.69,
+  "asOfDate": "Apr 30 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-04-30)"
+ },
+ "yields": {
+  "dividendYield": 2.86,
+  "dividendYieldText": "2.86%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 19.12,
-   "ytdText": "19.12%",
-   "yr1": 21.12,
-   "yr1Text": "21.12%",
-   "yr3": 26.12,
-   "yr3Text": "26.12%",
-   "yr5": 16.12,
-   "yr5Text": "16.12%",
-   "yr10": 7.12,
-   "yr10Text": "7.12%",
-   "sinceInception": 13.12,
-   "sinceInceptionText": "13.12%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 10.23,
+   "mo1Text": "10.23%",
+   "qtd": 22.17,
+   "qtdText": "22.17%",
+   "ytd": 59.63,
+   "ytdText": "59.63%",
+   "yr1": 77.46,
+   "yr1Text": "77.46%",
+   "yr3": 20.59,
+   "yr3Text": "20.59%",
+   "yr5": 25.21,
+   "yr5Text": "25.21%",
+   "yr10": 0.75,
+   "yr10Text": "0.75%",
+   "sinceInception": -1.39,
+   "sinceInceptionText": "-1.39%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -66,53 +85,245 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.69630"
+    "06/20/2008",
+    "0.02"
    ],
    [
-    "03/23/2026",
-    "0.66845"
+    "12/19/2008",
+    "0.205"
    ],
    [
-    "12/22/2025",
-    "0.71023"
+    "06/19/2009",
+    "0.11"
+   ],
+   [
+    "09/18/2009",
+    "0.065"
+   ],
+   [
+    "12/18/2009",
+    "0.215"
+   ],
+   [
+    "12/17/2010",
+    "0.39"
+   ],
+   [
+    "12/16/2011",
+    "0.01"
+   ],
+   [
+    "12/21/2012",
+    "0.13"
+   ],
+   [
+    "06/21/2013",
+    "0.12"
+   ],
+   [
+    "09/20/2013",
+    "0.17"
+   ],
+   [
+    "12/20/2013",
+    "0.145"
+   ],
+   [
+    "06/20/2014",
+    "0.455"
+   ],
+   [
+    "09/19/2014",
+    "0.145"
+   ],
+   [
+    "12/19/2014",
+    "0.38"
+   ],
+   [
+    "03/20/2015",
+    "0.295"
+   ],
+   [
+    "06/19/2015",
+    "0.435"
+   ],
+   [
+    "09/18/2015",
+    "0.29"
+   ],
+   [
+    "12/18/2015",
+    "0.375"
+   ],
+   [
+    "06/17/2016",
+    "0.16"
+   ],
+   [
+    "12/16/2016",
+    "0.6"
+   ],
+   [
+    "06/16/2017",
+    "0.12"
+   ],
+   [
+    "09/18/2017",
+    "0.205"
+   ],
+   [
+    "12/18/2017",
+    "0.99"
+   ],
+   [
+    "06/18/2018",
+    "0.135"
+   ],
+   [
+    "09/24/2018",
+    "0.09"
+   ],
+   [
+    "12/24/2018",
+    "0.065"
+   ],
+   [
+    "03/18/2019",
+    "0.29"
+   ],
+   [
+    "06/24/2019",
+    "0.14"
+   ],
+   [
+    "09/23/2019",
+    "0.09"
+   ],
+   [
+    "03/23/2020",
+    "0.29"
+   ],
+   [
+    "06/22/2020",
+    "0.14"
+   ],
+   [
+    "09/21/2020",
+    "0.135"
+   ],
+   [
+    "12/21/2020",
+    "0.125"
+   ],
+   [
+    "03/22/2021",
+    "0.04"
+   ],
+   [
+    "06/21/2021",
+    "0.03"
+   ],
+   [
+    "12/20/2021",
+    "0.01"
+   ],
+   [
+    "03/21/2022",
+    "0.01"
+   ],
+   [
+    "06/21/2022",
+    "0.04"
+   ],
+   [
+    "09/19/2022",
+    "0.04"
+   ],
+   [
+    "12/19/2022",
+    "0.08"
+   ],
+   [
+    "03/20/2023",
+    "0.065"
+   ],
+   [
+    "06/20/2023",
+    "0.155"
+   ],
+   [
+    "09/18/2023",
+    "0.206"
+   ],
+   [
+    "12/18/2023",
+    "0.147"
+   ],
+   [
+    "03/18/2024",
+    "0.097"
+   ],
+   [
+    "06/24/2024",
+    "0.356"
+   ],
+   [
+    "09/23/2024",
+    "0.264"
+   ],
+   [
+    "12/23/2024",
+    "0.212"
+   ],
+   [
+    "03/24/2025",
+    "0.118"
+   ],
+   [
+    "06/23/2025",
+    "0.261"
    ],
    [
     "09/22/2025",
-    "0.62667"
+    "0.22"
+   ],
+   [
+    "12/22/2025",
+    "0.254"
+   ],
+   [
+    "03/23/2026",
+    "0.207"
+   ],
+   [
+    "06/22/2026",
+    "0.33"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 4.42,
-  "dividendYieldText": "4.42%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 8,
-  "asOf": "Aug 26 2026"
+  "totalRows": 33,
+  "asOfDate": "2026-04-30",
+  "asOf": "Apr 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000880, report period 2026-04-30)"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json",
+   "history/004.json",
+   "history/005.json",
+   "history/006.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "PXJ",
-  "name": "Invesco Oil & Gas Services ETF",
-  "category": "Commodity",
-  "inception": "2005-10-26",
-  "exchange": "NYSE Arca",
-  "ter": 0.35,
-  "cusip": "46137Y872",
-  "isin": "US46137V6700"
+  "totalRows": 5241,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

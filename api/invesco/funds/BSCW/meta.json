@@ -5,9 +5,9 @@
  "categoryPath": "Fixed Income",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/bscw.html",
-  "holdingsDownload": null,
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=BSCW",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=BSCW",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BSCW?period1=0&period2=1787867668&interval=1d&events=div%7Csplit",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BSCW?period1=0&period2=1787874218&interval=1d&events=div%7Csplit",
   "holdingsSource": "invesco.com per-fund holdings download",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
@@ -18,58 +18,58 @@
   "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$51.67",
-  "value": 51.67,
-  "asOfDate": "—"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$51.72",
-  "value": 51.72,
-  "asOfDate": "—"
+  "display": "$20.27",
+  "value": 20.275,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "0.10%",
-  "value": 0.1
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$48,167.00 M",
-  "value": 48167000000,
+  "display": "—",
+  "value": null,
   "asOfDate": "—",
-  "source": "Invesco product list \"Fund Assets\" column"
+  "source": "previous run"
  },
  "yields": {
-  "dividendYield": 1.97,
-  "dividendYieldText": "1.97%",
-  "dividendYieldKind": "trailing 12-month, published by invesco.com",
+  "dividendYield": 4.97,
+  "dividendYieldText": "4.97%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
   "distributionRate": null,
-  "secYield": 1.67,
-  "secYieldText": "1.67%",
+  "secYield": null,
+  "secYieldText": "—",
   "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "—",
-   "mo1": null,
-   "mo1Text": "—",
-   "qtd": null,
-   "qtdText": "—",
-   "ytd": 21.67,
-   "ytdText": "21.67%",
-   "yr1": 13.67,
-   "yr1Text": "13.67%",
-   "yr3": 28.67,
-   "yr3Text": "28.67%",
-   "yr5": 3.67,
-   "yr5Text": "3.67%",
-   "yr10": 19.67,
-   "yr10Text": "19.67%",
-   "sinceInception": 15.67,
-   "sinceInceptionText": "15.67%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 0.61,
+   "mo1Text": "0.61%",
+   "qtd": -0.23,
+   "qtdText": "-0.23%",
+   "ytd": 0.26,
+   "ytdText": "0.26%",
+   "yr1": 2.48,
+   "yr1Text": "2.48%",
+   "yr3": 6.22,
+   "yr3Text": "6.22%",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 5.19,
+   "sinceInceptionText": "5.19%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -77,20 +77,207 @@
   }
  },
  "distributions": {
-  "frequency": "Quarterly",
-  "paymentsPerYear": null,
+  "frequency": "Monthly",
+  "paymentsPerYear": 12,
   "headers": [
    "Ex-Date",
    "Amount"
   ],
-  "rows": []
+  "rows": [
+   [
+    "10/24/2022",
+    "0.078"
+   ],
+   [
+    "11/21/2022",
+    "0.081"
+   ],
+   [
+    "12/19/2022",
+    "0.064"
+   ],
+   [
+    "01/23/2023",
+    "0.089"
+   ],
+   [
+    "02/21/2023",
+    "0.081"
+   ],
+   [
+    "03/20/2023",
+    "0.079"
+   ],
+   [
+    "04/24/2023",
+    "0.079"
+   ],
+   [
+    "05/22/2023",
+    "0.088"
+   ],
+   [
+    "06/20/2023",
+    "0.083"
+   ],
+   [
+    "07/24/2023",
+    "0.081"
+   ],
+   [
+    "08/21/2023",
+    "0.074"
+   ],
+   [
+    "09/18/2023",
+    "0.082"
+   ],
+   [
+    "10/23/2023",
+    "0.072"
+   ],
+   [
+    "11/20/2023",
+    "0.078"
+   ],
+   [
+    "12/18/2023",
+    "0.109"
+   ],
+   [
+    "01/22/2024",
+    "0.081"
+   ],
+   [
+    "02/20/2024",
+    "0.079"
+   ],
+   [
+    "03/18/2024",
+    "0.079"
+   ],
+   [
+    "04/22/2024",
+    "0.081"
+   ],
+   [
+    "05/20/2024",
+    "0.087"
+   ],
+   [
+    "06/24/2024",
+    "0.091"
+   ],
+   [
+    "07/22/2024",
+    "0.092"
+   ],
+   [
+    "08/19/2024",
+    "0.092"
+   ],
+   [
+    "09/23/2024",
+    "0.083"
+   ],
+   [
+    "10/21/2024",
+    "0.084"
+   ],
+   [
+    "11/18/2024",
+    "0.083"
+   ],
+   [
+    "12/23/2024",
+    "0.086"
+   ],
+   [
+    "01/21/2025",
+    "0.081"
+   ],
+   [
+    "02/24/2025",
+    "0.081"
+   ],
+   [
+    "03/24/2025",
+    "0.082"
+   ],
+   [
+    "04/21/2025",
+    "0.084"
+   ],
+   [
+    "05/19/2025",
+    "0.089"
+   ],
+   [
+    "06/23/2025",
+    "0.086"
+   ],
+   [
+    "07/21/2025",
+    "0.084"
+   ],
+   [
+    "08/18/2025",
+    "0.085"
+   ],
+   [
+    "09/22/2025",
+    "0.083"
+   ],
+   [
+    "10/20/2025",
+    "0.084"
+   ],
+   [
+    "11/24/2025",
+    "0.082"
+   ],
+   [
+    "12/22/2025",
+    "0.083"
+   ],
+   [
+    "01/20/2026",
+    "0.08"
+   ],
+   [
+    "02/23/2026",
+    "0.079"
+   ],
+   [
+    "03/23/2026",
+    "0.08"
+   ],
+   [
+    "04/20/2026",
+    "0.081"
+   ],
+   [
+    "05/18/2026",
+    "0.084"
+   ],
+   [
+    "06/22/2026",
+    "0.083"
+   ],
+   [
+    "07/20/2026",
+    "0.083"
+   ],
+   [
+    "08/24/2026",
+    "0.084"
+   ]
+  ]
  },
  "holdings": {
-  "pages": [
-   "holdings/001.json"
-  ],
+  "pages": [],
   "pageSize": 250,
-  "totalRows": 10,
+  "totalRows": 0,
   "asOfDate": null,
   "asOf": "—",
   "source": "invesco.com per-fund holdings download"
@@ -100,8 +287,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "—",
-  "source": "previous run"
+  "totalRows": 995,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

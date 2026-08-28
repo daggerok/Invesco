@@ -1,56 +1,75 @@
 {
  "ticker": "OMFS",
- "name": "Invesco Russell 2000\u00ae\u00a0Dynamic Multifactor ETF",
+ "name": "Invesco Russell 2000 Dynamic Multifactor ETF",
  "category": "US Equity",
+ "categoryPath": "US Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/omfs.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=OMFS",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=OMFS",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=OMFS",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46138J593",
-  "isin": "US46138J5939"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/OMFS?period1=0&period2=1787874383&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001657201-26-000587, report period 2026-05-31)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$98.76",
-  "value": 98.76,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$98.51",
-  "value": 98.51,
-  "asOfDate": "Aug 26 2026"
+  "display": "$53.30",
+  "value": 53.3,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "-0.25%",
-  "value": -0.25
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$42.88 B",
-  "value": 42876000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$283.35 M",
+  "value": 283349116.57,
+  "asOfDate": "May 31 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-05-31)"
+ },
+ "yields": {
+  "dividendYield": 1.4,
+  "dividendYieldText": "1.40%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 8.76,
-   "ytdText": "8.76%",
-   "yr1": 0.76,
-   "yr1Text": "0.76%",
-   "yr3": 15.76,
-   "yr3Text": "15.76%",
-   "yr5": 25.76,
-   "yr5Text": "25.76%",
-   "yr10": 6.76,
-   "yr10Text": "6.76%",
-   "sinceInception": 17.76,
-   "sinceInceptionText": "17.76%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 1.13,
+   "mo1Text": "1.13%",
+   "qtd": -0.06,
+   "qtdText": "-0.06%",
+   "ytd": 20.69,
+   "ytdText": "20.69%",
+   "yr1": 24.24,
+   "yr1Text": "24.24%",
+   "yr3": 16.16,
+   "yr3Text": "16.16%",
+   "yr5": 6.96,
+   "yr5Text": "6.96%",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 10.44,
+   "sinceInceptionText": "10.44%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -66,53 +85,166 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.49255"
+    "03/16/2018",
+    "0.03"
    ],
    [
-    "03/23/2026",
-    "0.47285"
+    "06/19/2018",
+    "0.061"
    ],
    [
-    "12/22/2025",
-    "0.50240"
+    "09/25/2018",
+    "0.135"
+   ],
+   [
+    "12/26/2018",
+    "0.122"
+   ],
+   [
+    "03/19/2019",
+    "0.087"
+   ],
+   [
+    "06/24/2019",
+    "0.096"
+   ],
+   [
+    "09/23/2019",
+    "0.089"
+   ],
+   [
+    "12/23/2019",
+    "0.102"
+   ],
+   [
+    "03/23/2020",
+    "0.097"
+   ],
+   [
+    "06/22/2020",
+    "0.076"
+   ],
+   [
+    "09/21/2020",
+    "0.079"
+   ],
+   [
+    "12/21/2020",
+    "0.101"
+   ],
+   [
+    "03/22/2021",
+    "0.07"
+   ],
+   [
+    "06/21/2021",
+    "0.058"
+   ],
+   [
+    "09/20/2021",
+    "0.064"
+   ],
+   [
+    "12/20/2021",
+    "0.086"
+   ],
+   [
+    "03/21/2022",
+    "0.106"
+   ],
+   [
+    "06/21/2022",
+    "0.157"
+   ],
+   [
+    "09/19/2022",
+    "0.209"
+   ],
+   [
+    "12/19/2022",
+    "0.155"
+   ],
+   [
+    "03/20/2023",
+    "0.119"
+   ],
+   [
+    "06/20/2023",
+    "0.136"
+   ],
+   [
+    "09/18/2023",
+    "0.157"
+   ],
+   [
+    "12/18/2023",
+    "0.083"
+   ],
+   [
+    "03/18/2024",
+    "0.175"
+   ],
+   [
+    "06/24/2024",
+    "0.159"
+   ],
+   [
+    "09/23/2024",
+    "0.205"
+   ],
+   [
+    "12/23/2024",
+    "0.2"
+   ],
+   [
+    "03/24/2025",
+    "0.042"
+   ],
+   [
+    "06/23/2025",
+    "0.075"
    ],
    [
     "09/22/2025",
-    "0.44329"
+    "0.135"
+   ],
+   [
+    "12/22/2025",
+    "0.103"
+   ],
+   [
+    "03/23/2026",
+    "0.148"
+   ],
+   [
+    "06/22/2026",
+    "0.186"
    ]
   ]
  },
- "yields": {
-  "dividendYield": 4.06,
-  "dividendYieldText": "4.06%",
-  "secYield": null,
-  "secYieldText": "\u2014"
- },
  "holdings": {
   "pages": [
-   "holdings/001.json"
+   "holdings/001.json",
+   "holdings/002.json",
+   "holdings/003.json",
+   "holdings/004.json",
+   "holdings/005.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 1107,
+  "asOfDate": "2026-05-31",
+  "asOf": "May 31 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001657201-26-000587, report period 2026-05-31)"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "OMFS",
-  "name": "Invesco Russell 2000\u00ae\u00a0Dynamic Multifactor ETF",
-  "category": "US Equity",
-  "inception": "2017-11-08",
-  "exchange": "Cboe BZX Exchange, Inc.",
-  "ter": 0.35,
-  "cusip": "46138J593",
-  "isin": "US46138J5939"
+  "totalRows": 2209,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

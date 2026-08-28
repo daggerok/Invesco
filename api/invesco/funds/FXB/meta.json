@@ -1,56 +1,75 @@
 {
  "ticker": "FXB",
- "name": "Invesco CurrencyShares\u00ae British Pound Sterling Trust",
+ "name": "Invesco CurrencyShares® British Pound Sterling Trust",
  "category": "Currency",
+ "categoryPath": "Currency",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/fxb.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=FXB",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=FXB",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=FXB",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46138M109",
-  "isin": "US46138M1099"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/FXB?period1=0&period2=1787874298&interval=1d&events=div%7Csplit",
+  "holdingsSource": "invesco.com per-fund holdings download",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$133.69",
-  "value": 133.69,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$133.42",
-  "value": 133.42,
-  "asOfDate": "Aug 26 2026"
+  "display": "$130.70",
+  "value": 130.704,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "-0.20%",
-  "value": -0.2
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$11.37 B",
-  "value": 11369000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "—",
+  "value": null,
+  "asOfDate": "—",
+  "source": "previous run"
+ },
+ "yields": {
+  "dividendYield": 2.07,
+  "dividendYieldText": "2.07%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 13.69,
-   "ytdText": "13.69%",
-   "yr1": 25.69,
-   "yr1Text": "25.69%",
-   "yr3": 20.69,
-   "yr3Text": "20.69%",
-   "yr5": 10.69,
-   "yr5Text": "10.69%",
-   "yr10": 11.69,
-   "yr10Text": "11.69%",
-   "sinceInception": 7.69,
-   "sinceInceptionText": "7.69%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 2.39,
+   "mo1Text": "2.39%",
+   "qtd": 2.64,
+   "qtdText": "2.64%",
+   "ytd": 2.13,
+   "ytdText": "2.13%",
+   "yr1": 2.8,
+   "yr1Text": "2.80%",
+   "yr3": 5.38,
+   "yr3Text": "5.38%",
+   "yr5": 1.7,
+   "yr5Text": "1.70%",
+   "yr10": 1.18,
+   "yr10Text": "1.18%",
+   "sinceInception": -0.62,
+   "sinceInceptionText": "-0.62%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -58,61 +77,355 @@
   }
  },
  "distributions": {
-  "frequency": "Quarterly",
-  "paymentsPerYear": 4,
+  "frequency": "Monthly",
+  "paymentsPerYear": 12,
   "headers": [
    "Ex-Date",
    "Amount"
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.66710"
+    "07/03/2006",
+    "0.204"
    ],
    [
-    "03/23/2026",
-    "0.64042"
+    "08/01/2006",
+    "0.6"
    ],
    [
-    "12/22/2025",
-    "0.68044"
+    "09/01/2006",
+    "0.653"
    ],
    [
-    "09/22/2025",
-    "0.60039"
+    "10/02/2006",
+    "0.619"
+   ],
+   [
+    "11/01/2006",
+    "0.657"
+   ],
+   [
+    "12/01/2006",
+    "0.683"
+   ],
+   [
+    "01/03/2007",
+    "0.719"
+   ],
+   [
+    "02/01/2007",
+    "0.744"
+   ],
+   [
+    "03/01/2007",
+    "0.685"
+   ],
+   [
+    "04/02/2007",
+    "0.758"
+   ],
+   [
+    "05/01/2007",
+    "0.744"
+   ],
+   [
+    "06/01/2007",
+    "0.791"
+   ],
+   [
+    "07/02/2007",
+    "0.801"
+   ],
+   [
+    "08/01/2007",
+    "0.893"
+   ],
+   [
+    "09/04/2007",
+    "0.914"
+   ],
+   [
+    "10/01/2007",
+    "0.812"
+   ],
+   [
+    "11/01/2007",
+    "0.884"
+   ],
+   [
+    "12/03/2007",
+    "0.848"
+   ],
+   [
+    "01/02/2008",
+    "0.811"
+   ],
+   [
+    "02/01/2008",
+    "0.801"
+   ],
+   [
+    "03/03/2008",
+    "0.72"
+   ],
+   [
+    "04/01/2008",
+    "0.764"
+   ],
+   [
+    "05/01/2008",
+    "0.703"
+   ],
+   [
+    "06/02/2008",
+    "0.717"
+   ],
+   [
+    "07/01/2008",
+    "0.697"
+   ],
+   [
+    "08/01/2008",
+    "0.714"
+   ],
+   [
+    "09/02/2008",
+    "0.655"
+   ],
+   [
+    "10/01/2008",
+    "0.599"
+   ],
+   [
+    "11/03/2008",
+    "0.5"
+   ],
+   [
+    "12/01/2008",
+    "0.26"
+   ],
+   [
+    "01/02/2009",
+    "0.103"
+   ],
+   [
+    "02/02/2009",
+    "0.07"
+   ],
+   [
+    "03/02/2009",
+    "0.014"
+   ],
+   [
+    "09/01/2022",
+    "0.038"
+   ],
+   [
+    "10/03/2022",
+    "0.062"
+   ],
+   [
+    "11/01/2022",
+    "0.092"
+   ],
+   [
+    "12/01/2022",
+    "0.146"
+   ],
+   [
+    "01/03/2023",
+    "0.158"
+   ],
+   [
+    "02/01/2023",
+    "0.194"
+   ],
+   [
+    "04/03/2023",
+    "0.236"
+   ],
+   [
+    "05/01/2023",
+    "0.246"
+   ],
+   [
+    "06/01/2023",
+    "0.263"
+   ],
+   [
+    "07/03/2023",
+    "0.276"
+   ],
+   [
+    "08/01/2023",
+    "0.315"
+   ],
+   [
+    "09/01/2023",
+    "0.335"
+   ],
+   [
+    "10/02/2023",
+    "0.314"
+   ],
+   [
+    "11/01/2023",
+    "0.323"
+   ],
+   [
+    "12/01/2023",
+    "0.325"
+   ],
+   [
+    "01/02/2024",
+    "0.339"
+   ],
+   [
+    "02/01/2024",
+    "0.337"
+   ],
+   [
+    "03/01/2024",
+    "0.314"
+   ],
+   [
+    "04/01/2024",
+    "0.335"
+   ],
+   [
+    "05/01/2024",
+    "0.321"
+   ],
+   [
+    "06/03/2024",
+    "0.339"
+   ],
+   [
+    "07/01/2024",
+    "0.325"
+   ],
+   [
+    "08/01/2024",
+    "0.342"
+   ],
+   [
+    "09/03/2024",
+    "0.328"
+   ],
+   [
+    "10/01/2024",
+    "0.323"
+   ],
+   [
+    "11/01/2024",
+    "0.322"
+   ],
+   [
+    "12/02/2024",
+    "0.292"
+   ],
+   [
+    "01/02/2025",
+    "0.292"
+   ],
+   [
+    "02/03/2025",
+    "0.289"
+   ],
+   [
+    "03/03/2025",
+    "0.25"
+   ],
+   [
+    "04/01/2025",
+    "0.28"
+   ],
+   [
+    "05/01/2025",
+    "0.28"
+   ],
+   [
+    "06/02/2025",
+    "0.275"
+   ],
+   [
+    "07/01/2025",
+    "0.266"
+   ],
+   [
+    "08/01/2025",
+    "0.265"
+   ],
+   [
+    "09/02/2025",
+    "0.253"
+   ],
+   [
+    "10/01/2025",
+    "0.24"
+   ],
+   [
+    "11/03/2025",
+    "0.24"
+   ],
+   [
+    "12/01/2025",
+    "0.236"
+   ],
+   [
+    "01/02/2026",
+    "0.239"
+   ],
+   [
+    "02/02/2026",
+    "0.228"
+   ],
+   [
+    "03/02/2026",
+    "0.204"
+   ],
+   [
+    "04/01/2026",
+    "0.222"
+   ],
+   [
+    "05/01/2026",
+    "0.221"
+   ],
+   [
+    "06/01/2026",
+    "0.226"
+   ],
+   [
+    "07/01/2026",
+    "0.215"
+   ],
+   [
+    "08/03/2026",
+    "0.226"
    ]
   ]
  },
- "yields": {
-  "dividendYield": 3.99,
-  "dividendYieldText": "3.99%",
-  "secYield": null,
-  "secYieldText": "\u2014"
- },
  "holdings": {
-  "pages": [
-   "holdings/001.json"
-  ],
+  "pages": [],
   "pageSize": 250,
-  "totalRows": 4,
-  "asOf": "Aug 26 2026"
+  "totalRows": 0,
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "invesco.com per-fund holdings download"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json",
+   "history/004.json",
+   "history/005.json",
+   "history/006.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "FXB",
-  "name": "Invesco CurrencyShares\u00ae British Pound Sterling Trust",
-  "category": "Currency",
-  "inception": "2006-06-21",
-  "exchange": "NYSE Arca",
-  "ter": 0.35,
-  "cusip": "46138M109",
-  "isin": "US46138M1099"
+  "totalRows": 5075,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

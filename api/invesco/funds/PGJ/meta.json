@@ -2,55 +2,74 @@
  "ticker": "PGJ",
  "name": "Invesco Golden Dragon China ETF",
  "category": "International",
+ "categoryPath": "International",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pgj.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PGJ",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PGJ",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PGJ",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46137V571",
-  "isin": "US46137V5710"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/PGJ?period1=0&period2=1787874431&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000916, report period 2026-04-30)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$30.05",
-  "value": 30.05,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$29.91",
-  "value": 29.91,
-  "asOfDate": "Aug 26 2026"
+  "display": "$23.91",
+  "value": 23.91,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "-0.47%",
-  "value": -0.47
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$6.00 B",
-  "value": 6005000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$114.65 M",
+  "value": 114648454.02,
+  "asOfDate": "Apr 30 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-04-30)"
+ },
+ "yields": {
+  "dividendYield": 1.15,
+  "dividendYieldText": "1.15%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 0.05,
-   "ytdText": "0.05%",
-   "yr1": 32.05,
-   "yr1Text": "32.05%",
-   "yr3": 7.05,
-   "yr3Text": "7.05%",
-   "yr5": 7.05,
-   "yr5Text": "7.05%",
-   "yr10": 18.05,
-   "yr10Text": "18.05%",
-   "sinceInception": 9.05,
-   "sinceInceptionText": "9.05%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": -0.99,
+   "mo1Text": "-0.99%",
+   "qtd": 2.93,
+   "qtdText": "2.93%",
+   "ytd": -16.73,
+   "ytdText": "-16.73%",
+   "yr1": -19.17,
+   "yr1Text": "-19.17%",
+   "yr3": -0.73,
+   "yr3Text": "-0.73%",
+   "yr5": -9.64,
+   "yr5Text": "-9.64%",
+   "yr10": -1.09,
+   "yr10Text": "-1.09%",
+   "sinceInception": 3.69,
+   "sinceInceptionText": "3.69%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -66,53 +85,269 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.14955"
+    "06/17/2005",
+    "0.05"
    ],
    [
-    "03/23/2026",
-    "0.14357"
+    "09/16/2005",
+    "0.112"
    ],
    [
-    "12/22/2025",
-    "0.15254"
+    "12/16/2005",
+    "0.001"
+   ],
+   [
+    "06/16/2006",
+    "0.124"
+   ],
+   [
+    "09/15/2006",
+    "0.08"
+   ],
+   [
+    "12/15/2006",
+    "0.006"
+   ],
+   [
+    "06/15/2007",
+    "0.163"
+   ],
+   [
+    "09/21/2007",
+    "0.049"
+   ],
+   [
+    "06/20/2008",
+    "0.038"
+   ],
+   [
+    "09/19/2008",
+    "0.133"
+   ],
+   [
+    "06/19/2009",
+    "0.046"
+   ],
+   [
+    "09/18/2009",
+    "0.03"
+   ],
+   [
+    "12/18/2009",
+    "0.123"
+   ],
+   [
+    "06/18/2010",
+    "0.041"
+   ],
+   [
+    "09/17/2010",
+    "0.027"
+   ],
+   [
+    "12/17/2010",
+    "0.11"
+   ],
+   [
+    "06/17/2011",
+    "0.138"
+   ],
+   [
+    "09/16/2011",
+    "0.139"
+   ],
+   [
+    "12/16/2011",
+    "0.179"
+   ],
+   [
+    "03/16/2012",
+    "0.018"
+   ],
+   [
+    "06/15/2012",
+    "0.247"
+   ],
+   [
+    "09/21/2012",
+    "0.099"
+   ],
+   [
+    "12/21/2012",
+    "0.097"
+   ],
+   [
+    "06/21/2013",
+    "0.068"
+   ],
+   [
+    "09/20/2013",
+    "0.08"
+   ],
+   [
+    "12/20/2013",
+    "0.143"
+   ],
+   [
+    "06/20/2014",
+    "0.129"
+   ],
+   [
+    "09/19/2014",
+    "0.038"
+   ],
+   [
+    "12/19/2014",
+    "0.081"
+   ],
+   [
+    "06/19/2015",
+    "0.092"
+   ],
+   [
+    "09/18/2015",
+    "0.03"
+   ],
+   [
+    "06/17/2016",
+    "0.042"
+   ],
+   [
+    "09/16/2016",
+    "0.032"
+   ],
+   [
+    "12/16/2016",
+    "0.481"
+   ],
+   [
+    "06/16/2017",
+    "0.197"
+   ],
+   [
+    "09/18/2017",
+    "0.108"
+   ],
+   [
+    "12/18/2017",
+    "0.614"
+   ],
+   [
+    "06/18/2018",
+    "0.027"
+   ],
+   [
+    "09/24/2018",
+    "0.071"
+   ],
+   [
+    "06/24/2019",
+    "0.052"
+   ],
+   [
+    "09/23/2019",
+    "0.019"
+   ],
+   [
+    "03/23/2020",
+    "0.085"
+   ],
+   [
+    "06/22/2020",
+    "0.028"
+   ],
+   [
+    "12/21/2020",
+    "0.082"
+   ],
+   [
+    "06/21/2022",
+    "0.076"
+   ],
+   [
+    "09/19/2022",
+    "0.07"
+   ],
+   [
+    "12/19/2022",
+    "0.083"
+   ],
+   [
+    "03/20/2023",
+    "0.023"
+   ],
+   [
+    "06/20/2023",
+    "0.088"
+   ],
+   [
+    "09/18/2023",
+    "0.144"
+   ],
+   [
+    "12/18/2023",
+    "0.396"
+   ],
+   [
+    "06/24/2024",
+    "1.013"
+   ],
+   [
+    "09/23/2024",
+    "0.152"
+   ],
+   [
+    "12/23/2024",
+    "0.065"
+   ],
+   [
+    "03/24/2025",
+    "0.072"
+   ],
+   [
+    "06/23/2025",
+    "0.215"
    ],
    [
     "09/22/2025",
-    "0.13459"
+    "0.483"
+   ],
+   [
+    "12/22/2025",
+    "0.203"
+   ],
+   [
+    "03/23/2026",
+    "0.011"
+   ],
+   [
+    "06/22/2026",
+    "0.069"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 0.35,
-  "dividendYieldText": "0.35%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 74,
+  "asOfDate": "2026-04-30",
+  "asOf": "Apr 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000916, report period 2026-04-30)"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json",
+   "history/004.json",
+   "history/005.json",
+   "history/006.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "PGJ",
-  "name": "Invesco Golden Dragon China ETF",
-  "category": "International",
-  "inception": "2004-12-09",
-  "exchange": "NASDAQ",
-  "ter": 0.35,
-  "cusip": "46137V571",
-  "isin": "US46137V5710"
+  "totalRows": 5463,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

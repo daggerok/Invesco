@@ -2,55 +2,74 @@
  "ticker": "PNQI",
  "name": "Invesco NASDAQ Internet ETF",
  "category": "US Equity",
+ "categoryPath": "US Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pnqi.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PNQI",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PNQI",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PNQI",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46137V530",
-  "isin": "US46137V5306"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/PNQI?period1=0&period2=1787874449&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000891, report period 2026-04-30)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$54.81",
-  "value": 54.81,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$55.00",
-  "value": 55.0,
-  "asOfDate": "Aug 26 2026"
+  "display": "$52.64",
+  "value": 52.641,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$13.48 B",
-  "value": 13481000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$558.61 M",
+  "value": 558610420.21,
+  "asOfDate": "Apr 30 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-04-30)"
+ },
+ "yields": {
+  "dividendYield": null,
+  "dividendYieldText": "—",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 24.81,
-   "ytdText": "24.81%",
-   "yr1": 26.81,
-   "yr1Text": "26.81%",
-   "yr3": 31.81,
-   "yr3Text": "31.81%",
-   "yr5": 6.81,
-   "yr5Text": "6.81%",
-   "yr10": 12.81,
-   "yr10Text": "12.81%",
-   "sinceInception": 18.81,
-   "sinceInceptionText": "18.81%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 10.45,
+   "mo1Text": "10.45%",
+   "qtd": 12.07,
+   "qtdText": "12.07%",
+   "ytd": -2.43,
+   "ytdText": "-2.43%",
+   "yr1": -2.17,
+   "yr1Text": "-2.17%",
+   "yr3": 19.43,
+   "yr3Text": "19.43%",
+   "yr5": 0.83,
+   "yr5Text": "0.83%",
+   "yr10": 12.06,
+   "yr10Text": "12.06%",
+   "sinceInception": 13.93,
+   "sinceInceptionText": "13.93%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -58,61 +77,52 @@
   }
  },
  "distributions": {
-  "frequency": "Quarterly",
-  "paymentsPerYear": 4,
+  "frequency": "Unknown",
+  "paymentsPerYear": null,
   "headers": [
    "Ex-Date",
    "Amount"
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.27500"
+    "12/19/2008",
+    "0.0026"
    ],
    [
-    "03/23/2026",
-    "0.26400"
+    "12/21/2012",
+    "0.0044"
    ],
    [
-    "12/22/2025",
-    "0.28050"
+    "12/18/2017",
+    "0.0054"
    ],
    [
-    "09/22/2025",
-    "0.24750"
+    "06/23/2025",
+    "0.009"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 5.11,
-  "dividendYieldText": "5.11%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 80,
+  "asOfDate": "2026-04-30",
+  "asOf": "Apr 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000891, report period 2026-04-30)"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json",
+   "history/004.json",
+   "history/005.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "PNQI",
-  "name": "Invesco NASDAQ Internet ETF",
-  "category": "US Equity",
-  "inception": "2008-06-12",
-  "exchange": "NASDAQ",
-  "ter": 0.35,
-  "cusip": "46137V530",
-  "isin": "US46137V5306"
+  "totalRows": 4580,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

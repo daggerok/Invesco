@@ -2,55 +2,74 @@
  "ticker": "IQSZ",
  "name": "Invesco Global Equity Net Zero ETF",
  "category": "Global Equity",
+ "categoryPath": "Global Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/iqsz.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=IQSZ",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=IQSZ",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=IQSZ",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46090A104",
-  "isin": "US46090A1040"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/IQSZ?period1=0&period2=1787874357&interval=1d&events=div%7Csplit",
+  "holdingsSource": "invesco.com per-fund holdings download",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.19%",
-  "value": 0.19
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$108.01",
-  "value": 108.01,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 20 2026"
  },
  "marketPrice": {
-  "display": "$107.63",
-  "value": 107.63,
-  "asOfDate": "Aug 26 2026"
+  "display": "$32.60",
+  "value": 32.5969,
+  "asOfDate": "Aug 20 2026"
  },
  "premiumDiscount": {
-  "display": "-0.35%",
-  "value": -0.35
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$38.80 B",
-  "value": 38801000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "—",
+  "value": null,
+  "asOfDate": "—",
+  "source": "previous run"
+ },
+ "yields": {
+  "dividendYield": 1.82,
+  "dividendYieldText": "1.82%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 18.01,
-   "ytdText": "18.01%",
-   "yr1": 0.01,
-   "yr1Text": "0.01%",
-   "yr3": 25.01,
-   "yr3Text": "25.01%",
-   "yr5": 10.01,
-   "yr5Text": "10.01%",
-   "yr10": 6.01,
-   "yr10Text": "6.01%",
-   "sinceInception": 12.01,
-   "sinceInceptionText": "12.01%"
+   "asOfDate": "Aug 26 2026",
+   "mo1": 4.01,
+   "mo1Text": "4.01%",
+   "qtd": 3.52,
+   "qtdText": "3.52%",
+   "ytd": 17.07,
+   "ytdText": "17.07%",
+   "yr1": 27.51,
+   "yr1Text": "27.51%",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 28.99,
+   "sinceInceptionText": "28.99%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -66,53 +85,38 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.53815"
-   ],
-   [
-    "03/23/2026",
-    "0.51662"
+    "09/22/2025",
+    "0.084"
    ],
    [
     "12/22/2025",
-    "0.54891"
+    "0.205"
    ],
    [
-    "09/22/2025",
-    "0.48433"
+    "03/23/2026",
+    "0.121"
+   ],
+   [
+    "06/22/2026",
+    "0.148"
    ]
   ]
  },
- "yields": {
-  "dividendYield": 3.31,
-  "dividendYieldText": "3.31%",
-  "secYield": null,
-  "secYieldText": "\u2014"
- },
  "holdings": {
-  "pages": [
-   "holdings/001.json"
-  ],
+  "pages": [],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 0,
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "invesco.com per-fund holdings download"
  },
  "history": {
   "pages": [
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "IQSZ",
-  "name": "Invesco Global Equity Net Zero ETF",
-  "category": "Global Equity",
-  "inception": "2025-07-16",
-  "exchange": "NASDAQ",
-  "ter": 0.19,
-  "cusip": "46090A104",
-  "isin": "US46090A1040"
+  "totalRows": 281,
+  "asOf": "Aug 26 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

@@ -2,55 +2,74 @@
  "ticker": "PKB",
  "name": "Invesco Building & Construction ETF",
  "category": "US Equity",
+ "categoryPath": "US Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pkb.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PKB",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PKB",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PKB",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46137V779",
-  "isin": "US46137V7799"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/PKB?period1=0&period2=1787874447&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000901, report period 2026-04-30)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$108.99",
-  "value": 108.99,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$109.53",
-  "value": 109.53,
-  "asOfDate": "Aug 26 2026"
+  "display": "$99.44",
+  "value": 99.44,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "0.50%",
-  "value": 0.5
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$18.90 B",
-  "value": 18899000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$456.74 M",
+  "value": 456743984.54,
+  "asOfDate": "Apr 30 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-04-30)"
+ },
+ "yields": {
+  "dividendYield": 0.44,
+  "dividendYieldText": "0.44%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 18.99,
-   "ytdText": "18.99%",
-   "yr1": 20.99,
-   "yr1Text": "20.99%",
-   "yr3": 25.99,
-   "yr3Text": "25.99%",
-   "yr5": 10.99,
-   "yr5Text": "10.99%",
-   "yr10": 6.99,
-   "yr10Text": "6.99%",
-   "sinceInception": 12.99,
-   "sinceInceptionText": "12.99%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": -3.26,
+   "mo1Text": "-3.26%",
+   "qtd": -8.83,
+   "qtdText": "-8.83%",
+   "ytd": 7.54,
+   "ytdText": "7.54%",
+   "yr1": 7.88,
+   "yr1Text": "7.88%",
+   "yr3": 23.66,
+   "yr3Text": "23.66%",
+   "yr5": 14.31,
+   "yr5Text": "14.31%",
+   "yr10": 14.49,
+   "yr10Text": "14.49%",
+   "sinceInception": 9.96,
+   "sinceInceptionText": "9.96%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -66,53 +85,237 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.54765"
+    "12/16/2005",
+    "0.007"
    ],
    [
-    "03/23/2026",
-    "0.52574"
+    "06/16/2006",
+    "0.004"
    ],
    [
-    "12/22/2025",
-    "0.55860"
+    "06/15/2007",
+    "0.021"
+   ],
+   [
+    "06/20/2008",
+    "0.023"
+   ],
+   [
+    "06/19/2009",
+    "0.009"
+   ],
+   [
+    "12/18/2009",
+    "0.006"
+   ],
+   [
+    "12/17/2010",
+    "0.78"
+   ],
+   [
+    "09/16/2011",
+    "0.012"
+   ],
+   [
+    "12/16/2011",
+    "0.004"
+   ],
+   [
+    "06/15/2012",
+    "0.01"
+   ],
+   [
+    "12/21/2012",
+    "0.081"
+   ],
+   [
+    "06/20/2014",
+    "0.005"
+   ],
+   [
+    "12/19/2014",
+    "0.017"
+   ],
+   [
+    "06/19/2015",
+    "0.012"
+   ],
+   [
+    "12/18/2015",
+    "0.014"
+   ],
+   [
+    "06/17/2016",
+    "0.044"
+   ],
+   [
+    "12/16/2016",
+    "0.043"
+   ],
+   [
+    "06/16/2017",
+    "0.024"
+   ],
+   [
+    "09/18/2017",
+    "0.011"
+   ],
+   [
+    "12/18/2017",
+    "0.025"
+   ],
+   [
+    "06/18/2018",
+    "0.053"
+   ],
+   [
+    "09/24/2018",
+    "0.028"
+   ],
+   [
+    "12/24/2018",
+    "0.048"
+   ],
+   [
+    "03/18/2019",
+    "0.003"
+   ],
+   [
+    "06/24/2019",
+    "0.051"
+   ],
+   [
+    "09/23/2019",
+    "0.036"
+   ],
+   [
+    "12/23/2019",
+    "0.033"
+   ],
+   [
+    "03/23/2020",
+    "0.019"
+   ],
+   [
+    "06/22/2020",
+    "0.044"
+   ],
+   [
+    "09/21/2020",
+    "0.041"
+   ],
+   [
+    "12/21/2020",
+    "0.019"
+   ],
+   [
+    "03/22/2021",
+    "0.019"
+   ],
+   [
+    "06/21/2021",
+    "0.042"
+   ],
+   [
+    "12/20/2021",
+    "0.04"
+   ],
+   [
+    "03/21/2022",
+    "0.02"
+   ],
+   [
+    "06/21/2022",
+    "0.041"
+   ],
+   [
+    "09/19/2022",
+    "0.049"
+   ],
+   [
+    "12/19/2022",
+    "0.066"
+   ],
+   [
+    "03/20/2023",
+    "0.041"
+   ],
+   [
+    "06/20/2023",
+    "0.075"
+   ],
+   [
+    "09/18/2023",
+    "0.049"
+   ],
+   [
+    "12/18/2023",
+    "0.041"
+   ],
+   [
+    "03/18/2024",
+    "0.027"
+   ],
+   [
+    "06/24/2024",
+    "0.049"
+   ],
+   [
+    "09/23/2024",
+    "0.068"
+   ],
+   [
+    "12/23/2024",
+    "0.029"
+   ],
+   [
+    "03/24/2025",
+    "0.006"
+   ],
+   [
+    "06/23/2025",
+    "0.061"
    ],
    [
     "09/22/2025",
-    "0.49288"
+    "0.023"
+   ],
+   [
+    "12/22/2025",
+    "0.035"
+   ],
+   [
+    "03/23/2026",
+    "0.027"
+   ],
+   [
+    "06/22/2026",
+    "0.11"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 4.29,
-  "dividendYieldText": "4.29%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 33,
+  "asOfDate": "2026-04-30",
+  "asOf": "Apr 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000901, report period 2026-04-30)"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json",
+   "history/004.json",
+   "history/005.json",
+   "history/006.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "PKB",
-  "name": "Invesco Building & Construction ETF",
-  "category": "US Equity",
-  "inception": "2005-10-26",
-  "exchange": "NYSE Arca",
-  "ter": 0.35,
-  "cusip": "46137V779",
-  "isin": "US46137V7799"
+  "totalRows": 5241,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

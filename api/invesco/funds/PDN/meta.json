@@ -1,56 +1,75 @@
 {
  "ticker": "PDN",
- "name": "Invesco FTSE RAFI Developed Markets ex-U.S. Small-Mid ETF",
+ "name": "Invesco RAFI Developed Markets ex-U.S. Small-Mid ETF",
  "category": "International",
+ "categoryPath": "International",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pdn.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PDN",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PDN",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PDN",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46138E735",
-  "isin": "US46138E7351"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/PDN?period1=0&period2=1787874417&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001141, report period 2026-04-30)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$140.28",
-  "value": 140.28,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$140.14",
-  "value": 140.14,
-  "asOfDate": "Aug 26 2026"
+  "display": "$47.78",
+  "value": 47.78,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "-0.10%",
-  "value": -0.1
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$12.03 B",
-  "value": 12028000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$388.74 M",
+  "value": 388738843.22,
+  "asOfDate": "Apr 30 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-04-30)"
+ },
+ "yields": {
+  "dividendYield": 3.49,
+  "dividendYieldText": "3.49%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 20.28,
-   "ytdText": "20.28%",
-   "yr1": 32.28,
-   "yr1Text": "32.28%",
-   "yr3": 27.28,
-   "yr3Text": "27.28%",
-   "yr5": 17.28,
-   "yr5Text": "17.28%",
-   "yr10": 18.28,
-   "yr10Text": "18.28%",
-   "sinceInception": 14.28,
-   "sinceInceptionText": "14.28%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 5.73,
+   "mo1Text": "5.73%",
+   "qtd": 6.04,
+   "qtdText": "6.04%",
+   "ytd": 15.06,
+   "ytdText": "15.06%",
+   "yr1": 21.94,
+   "yr1Text": "21.94%",
+   "yr3": 20.07,
+   "yr3Text": "20.07%",
+   "yr5": 7.6,
+   "yr5Text": "7.60%",
+   "yr10": 8.68,
+   "yr10Text": "8.68%",
+   "sinceInception": 5.92,
+   "sinceInceptionText": "5.92%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -66,53 +85,322 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.70070"
+    "12/21/2007",
+    "0.035"
    ],
    [
-    "03/23/2026",
-    "0.67267"
+    "03/20/2008",
+    "0.031"
    ],
    [
-    "12/22/2025",
-    "0.71471"
+    "06/20/2008",
+    "0.243"
+   ],
+   [
+    "12/19/2008",
+    "0.068"
+   ],
+   [
+    "06/19/2009",
+    "0.08"
+   ],
+   [
+    "08/21/2009",
+    "0.058"
+   ],
+   [
+    "09/18/2009",
+    "0.022"
+   ],
+   [
+    "12/18/2009",
+    "0.548"
+   ],
+   [
+    "03/19/2010",
+    "0.022"
+   ],
+   [
+    "06/18/2010",
+    "0.045"
+   ],
+   [
+    "09/17/2010",
+    "0.012"
+   ],
+   [
+    "12/17/2010",
+    "0.361"
+   ],
+   [
+    "03/18/2011",
+    "0.011"
+   ],
+   [
+    "06/17/2011",
+    "0.271"
+   ],
+   [
+    "12/16/2011",
+    "0.217"
+   ],
+   [
+    "03/16/2012",
+    "0.011"
+   ],
+   [
+    "06/15/2012",
+    "0.208"
+   ],
+   [
+    "09/21/2012",
+    "0.037"
+   ],
+   [
+    "12/21/2012",
+    "0.286"
+   ],
+   [
+    "03/15/2013",
+    "0.022"
+   ],
+   [
+    "06/21/2013",
+    "0.121"
+   ],
+   [
+    "09/20/2013",
+    "0.153"
+   ],
+   [
+    "12/20/2013",
+    "0.303"
+   ],
+   [
+    "03/21/2014",
+    "0.033"
+   ],
+   [
+    "06/20/2014",
+    "0.236"
+   ],
+   [
+    "09/19/2014",
+    "0.039"
+   ],
+   [
+    "12/19/2014",
+    "0.201"
+   ],
+   [
+    "03/20/2015",
+    "0.01"
+   ],
+   [
+    "06/19/2015",
+    "0.227"
+   ],
+   [
+    "09/18/2015",
+    "0.02"
+   ],
+   [
+    "12/18/2015",
+    "0.276"
+   ],
+   [
+    "06/17/2016",
+    "0.273"
+   ],
+   [
+    "09/16/2016",
+    "0.068"
+   ],
+   [
+    "12/16/2016",
+    "0.242"
+   ],
+   [
+    "03/17/2017",
+    "0.018"
+   ],
+   [
+    "06/16/2017",
+    "0.283"
+   ],
+   [
+    "09/18/2017",
+    "0.076"
+   ],
+   [
+    "12/18/2017",
+    "0.457"
+   ],
+   [
+    "03/19/2018",
+    "0.045"
+   ],
+   [
+    "06/18/2018",
+    "0.343"
+   ],
+   [
+    "09/24/2018",
+    "0.099"
+   ],
+   [
+    "12/24/2018",
+    "0.123"
+   ],
+   [
+    "03/18/2019",
+    "0.048"
+   ],
+   [
+    "06/24/2019",
+    "0.322"
+   ],
+   [
+    "09/23/2019",
+    "0.254"
+   ],
+   [
+    "12/23/2019",
+    "0.206"
+   ],
+   [
+    "03/23/2020",
+    "0.188"
+   ],
+   [
+    "06/22/2020",
+    "0.114"
+   ],
+   [
+    "09/21/2020",
+    "0.132"
+   ],
+   [
+    "12/21/2020",
+    "0.185"
+   ],
+   [
+    "03/22/2021",
+    "0.162"
+   ],
+   [
+    "06/21/2021",
+    "0.182"
+   ],
+   [
+    "09/20/2021",
+    "0.171"
+   ],
+   [
+    "12/20/2021",
+    "0.374"
+   ],
+   [
+    "03/21/2022",
+    "0.219"
+   ],
+   [
+    "06/21/2022",
+    "0.273"
+   ],
+   [
+    "09/19/2022",
+    "0.196"
+   ],
+   [
+    "12/19/2022",
+    "0.106"
+   ],
+   [
+    "03/20/2023",
+    "0.235"
+   ],
+   [
+    "06/20/2023",
+    "0.297"
+   ],
+   [
+    "09/18/2023",
+    "0.226"
+   ],
+   [
+    "12/18/2023",
+    "0.268"
+   ],
+   [
+    "03/18/2024",
+    "0.182"
+   ],
+   [
+    "06/24/2024",
+    "0.283"
+   ],
+   [
+    "09/23/2024",
+    "0.258"
+   ],
+   [
+    "12/23/2024",
+    "0.338"
+   ],
+   [
+    "03/24/2025",
+    "0.275"
+   ],
+   [
+    "06/23/2025",
+    "0.361"
    ],
    [
     "09/22/2025",
-    "0.63063"
+    "0.273"
+   ],
+   [
+    "12/22/2025",
+    "0.507"
+   ],
+   [
+    "03/23/2026",
+    "0.284"
+   ],
+   [
+    "06/22/2026",
+    "0.417"
    ]
   ]
  },
- "yields": {
-  "dividendYield": 0.58,
-  "dividendYieldText": "0.58%",
-  "secYield": null,
-  "secYieldText": "\u2014"
- },
  "holdings": {
   "pages": [
-   "holdings/001.json"
+   "holdings/001.json",
+   "holdings/002.json",
+   "holdings/003.json",
+   "holdings/004.json",
+   "holdings/005.json",
+   "holdings/006.json",
+   "holdings/007.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 1583,
+  "asOfDate": "2026-04-30",
+  "asOf": "Apr 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001141, report period 2026-04-30)"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json",
+   "history/004.json",
+   "history/005.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "PDN",
-  "name": "Invesco FTSE RAFI Developed Markets ex-U.S. Small-Mid ETF",
-  "category": "International",
-  "inception": "2007-09-27",
-  "exchange": "NYSE Arca",
-  "ter": 0.35,
-  "cusip": "46138E735",
-  "isin": "US46138E7351"
+  "totalRows": 4758,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

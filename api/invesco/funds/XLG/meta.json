@@ -1,14 +1,14 @@
 {
  "ticker": "XLG",
- "name": "Invesco S&P 500® Top 50 ETF",
+ "name": "Invesco S&P 500 Top 50 ETF",
  "category": "US Equity",
  "categoryPath": "US Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/xlg.html",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=XLG",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=XLG",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/XLG?period1=0&period2=1787870902&interval=1d&events=div%7Csplit",
-  "holdingsSource": "invesco.com per-fund holdings download",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/XLG?period1=0&period2=1787874635&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000881, report period 2026-04-30)",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
  },
@@ -18,58 +18,58 @@
   "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$114.19",
-  "value": 114.19,
+  "display": "—",
+  "value": null,
   "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$114.13",
-  "value": 114.13,
+  "display": "$62.66",
+  "value": 62.66,
   "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "-0.05%",
-  "value": -0.05
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$44,419.00 M",
-  "value": 44419000000,
-  "asOfDate": "—",
-  "source": "Invesco product list \"Fund Assets\" column"
+  "display": "$10,739.57 M",
+  "value": 10739566254.27,
+  "asOfDate": "Apr 30 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-04-30)"
  },
  "yields": {
-  "dividendYield": 4.49,
-  "dividendYieldText": "4.49%",
-  "dividendYieldKind": "trailing 12-month, published by invesco.com",
+  "dividendYield": 0.75,
+  "dividendYieldText": "0.75%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
   "distributionRate": null,
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
    "asOfDate": "Aug 27 2026",
    "mo1": 4.82,
    "mo1Text": "4.82%",
    "qtd": 2.7,
    "qtdText": "2.70%",
-   "ytd": 24.19,
-   "ytdText": "24.19%",
-   "yr1": 36.19,
-   "yr1Text": "36.19%",
-   "yr3": 31.19,
-   "yr3Text": "31.19%",
-   "yr5": 16.19,
-   "yr5Text": "16.19%",
-   "yr10": 22.19,
-   "yr10Text": "22.19%",
-   "sinceInception": 18.19,
-   "sinceInceptionText": "18.19%"
+   "ytd": 6.09,
+   "ytdText": "6.09%",
+   "yr1": 14.46,
+   "yr1Text": "14.46%",
+   "yr3": 22.57,
+   "yr3Text": "22.57%",
+   "yr5": 13.67,
+   "yr5Text": "13.67%",
+   "yr10": 16.61,
+   "yr10Text": "16.61%",
+   "sinceInception": 11.41,
+   "sinceInceptionText": "11.41%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -419,10 +419,10 @@
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOfDate": null,
-  "asOf": "—",
-  "source": "invesco.com per-fund holdings download"
+  "totalRows": 52,
+  "asOfDate": "2026-04-30",
+  "asOf": "Apr 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000881, report period 2026-04-30)"
  },
  "history": {
   "pages": [

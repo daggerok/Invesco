@@ -2,55 +2,74 @@
  "ticker": "BSMV",
  "name": "Invesco BulletShares 2031 Municipal Bond ETF",
  "category": "Fixed Income",
+ "categoryPath": "Fixed Income",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/bsmv.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=BSMV",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=BSMV",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=BSMV",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46138J411",
-  "isin": "US46138J4114"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BSMV?period1=0&period2=1787874239&interval=1d&events=div%7Csplit",
+  "holdingsSource": "invesco.com per-fund holdings download",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$160.20",
-  "value": 160.2,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$160.76",
-  "value": 160.76,
-  "asOfDate": "Aug 26 2026"
+  "display": "$20.73",
+  "value": 20.735,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$34.02 B",
-  "value": 34020000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "—",
+  "value": null,
+  "asOfDate": "—",
+  "source": "previous run"
+ },
+ "yields": {
+  "dividendYield": 3.18,
+  "dividendYieldText": "3.18%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 10.2,
-   "ytdText": "10.20%",
-   "yr1": 32.2,
-   "yr1Text": "32.20%",
-   "yr3": 17.2,
-   "yr3Text": "17.20%",
-   "yr5": 12.2,
-   "yr5Text": "12.20%",
-   "yr10": 18.2,
-   "yr10Text": "18.20%",
-   "sinceInception": 4.2,
-   "sinceInceptionText": "4.20%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 0.39,
+   "mo1Text": "0.39%",
+   "qtd": -0.63,
+   "qtdText": "-0.63%",
+   "ytd": 0.05,
+   "ytdText": "0.05%",
+   "yr1": 2.86,
+   "yr1Text": "2.86%",
+   "yr3": 3.17,
+   "yr3Text": "3.17%",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": -1.06,
+   "sinceInceptionText": "-1.06%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -58,61 +77,263 @@
   }
  },
  "distributions": {
-  "frequency": "Quarterly",
-  "paymentsPerYear": 4,
+  "frequency": "Monthly",
+  "paymentsPerYear": 12,
   "headers": [
    "Ex-Date",
    "Amount"
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.80380"
+    "11/22/2021",
+    "0.03"
    ],
    [
-    "03/23/2026",
-    "0.77165"
+    "12/20/2021",
+    "0.03"
    ],
    [
-    "12/22/2025",
-    "0.81988"
+    "01/24/2022",
+    "0.03"
+   ],
+   [
+    "02/22/2022",
+    "0.031"
+   ],
+   [
+    "03/21/2022",
+    "0.036"
+   ],
+   [
+    "04/18/2022",
+    "0.035"
+   ],
+   [
+    "05/23/2022",
+    "0.036"
+   ],
+   [
+    "06/21/2022",
+    "0.033"
+   ],
+   [
+    "07/18/2022",
+    "0.044"
+   ],
+   [
+    "08/22/2022",
+    "0.042"
+   ],
+   [
+    "09/19/2022",
+    "0.042"
+   ],
+   [
+    "10/24/2022",
+    "0.088"
+   ],
+   [
+    "11/21/2022",
+    "0.043"
+   ],
+   [
+    "12/19/2022",
+    "0.043"
+   ],
+   [
+    "01/23/2023",
+    "0.044"
+   ],
+   [
+    "02/21/2023",
+    "0.042"
+   ],
+   [
+    "03/20/2023",
+    "0.048"
+   ],
+   [
+    "04/24/2023",
+    "0.046"
+   ],
+   [
+    "05/22/2023",
+    "0.047"
+   ],
+   [
+    "06/20/2023",
+    "0.046"
+   ],
+   [
+    "07/24/2023",
+    "0.047"
+   ],
+   [
+    "08/21/2023",
+    "0.047"
+   ],
+   [
+    "09/18/2023",
+    "0.047"
+   ],
+   [
+    "10/23/2023",
+    "0.048"
+   ],
+   [
+    "11/20/2023",
+    "0.044"
+   ],
+   [
+    "12/18/2023",
+    "0.054"
+   ],
+   [
+    "01/22/2024",
+    "0.053"
+   ],
+   [
+    "02/20/2024",
+    "0.052"
+   ],
+   [
+    "03/18/2024",
+    "0.054"
+   ],
+   [
+    "04/22/2024",
+    "0.055"
+   ],
+   [
+    "05/20/2024",
+    "0.056"
+   ],
+   [
+    "06/24/2024",
+    "0.056"
+   ],
+   [
+    "07/22/2024",
+    "0.057"
+   ],
+   [
+    "08/19/2024",
+    "0.056"
+   ],
+   [
+    "09/23/2024",
+    "0.053"
+   ],
+   [
+    "10/21/2024",
+    "0.054"
+   ],
+   [
+    "11/18/2024",
+    "0.054"
+   ],
+   [
+    "12/23/2024",
+    "0.05"
+   ],
+   [
+    "01/21/2025",
+    "0.05"
+   ],
+   [
+    "02/24/2025",
+    "0.05"
+   ],
+   [
+    "03/24/2025",
+    "0.052"
+   ],
+   [
+    "04/21/2025",
+    "0.053"
+   ],
+   [
+    "05/19/2025",
+    "0.056"
+   ],
+   [
+    "06/23/2025",
+    "0.055"
+   ],
+   [
+    "07/21/2025",
+    "0.055"
+   ],
+   [
+    "08/18/2025",
+    "0.046"
    ],
    [
     "09/22/2025",
-    "0.72342"
+    "0.051"
+   ],
+   [
+    "10/20/2025",
+    "0.05"
+   ],
+   [
+    "11/24/2025",
+    "0.051"
+   ],
+   [
+    "12/22/2025",
+    "0.05"
+   ],
+   [
+    "01/20/2026",
+    "0.047"
+   ],
+   [
+    "02/23/2026",
+    "0.049"
+   ],
+   [
+    "03/23/2026",
+    "0.051"
+   ],
+   [
+    "04/20/2026",
+    "0.051"
+   ],
+   [
+    "05/18/2026",
+    "0.053"
+   ],
+   [
+    "06/22/2026",
+    "0.053"
+   ],
+   [
+    "07/20/2026",
+    "0.053"
+   ],
+   [
+    "08/24/2026",
+    "0.055"
    ]
   ]
  },
- "yields": {
-  "dividendYield": 0.5,
-  "dividendYieldText": "0.50%",
-  "secYield": 2.2,
-  "secYieldText": "2.20%"
- },
  "holdings": {
-  "pages": [
-   "holdings/001.json"
-  ],
+  "pages": [],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 0,
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "invesco.com per-fund holdings download"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "BSMV",
-  "name": "Invesco BulletShares 2031 Municipal Bond ETF",
-  "category": "Fixed Income",
-  "inception": "2021-09-15",
-  "exchange": "Nasdaq",
-  "ter": 0.35,
-  "cusip": "46138J411",
-  "isin": "US46138J4114"
+  "totalRows": 1218,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

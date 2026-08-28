@@ -2,55 +2,74 @@
  "ticker": "PSCC",
  "name": "Invesco S&P SmallCap Consumer Staples ETF",
  "category": "Sector",
+ "categoryPath": "Sector",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pscc.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PSCC",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PSCC",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PSCC",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46138E172",
-  "isin": "US46138E1727"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/PSCC?period1=0&period2=1787874463&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001353, report period 2026-05-31)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$39.08",
-  "value": 39.08,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$39.14",
-  "value": 39.14,
-  "asOfDate": "Aug 26 2026"
+  "display": "$37.28",
+  "value": 37.285,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "0.15%",
-  "value": 0.15
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$26.91 B",
-  "value": 26908000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$33.14 M",
+  "value": 33143577.69,
+  "asOfDate": "May 31 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-05-31)"
+ },
+ "yields": {
+  "dividendYield": 1.24,
+  "dividendYieldText": "1.24%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 9.08,
-   "ytdText": "9.08%",
-   "yr1": 1.08,
-   "yr1Text": "1.08%",
-   "yr3": 16.08,
-   "yr3Text": "16.08%",
-   "yr5": 16.08,
-   "yr5Text": "16.08%",
-   "yr10": 7.08,
-   "yr10Text": "7.08%",
-   "sinceInception": 18.08,
-   "sinceInceptionText": "18.08%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 0.61,
+   "mo1Text": "0.61%",
+   "qtd": 3.83,
+   "qtdText": "3.83%",
+   "ytd": 20.87,
+   "ytdText": "20.87%",
+   "yr1": 7.84,
+   "yr1Text": "7.84%",
+   "yr3": 2.84,
+   "yr3Text": "2.84%",
+   "yr5": 3.73,
+   "yr5Text": "3.73%",
+   "yr10": 6.98,
+   "yr10Text": "6.98%",
+   "sinceInception": 10.96,
+   "sinceInceptionText": "10.96%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -66,53 +85,264 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.19570"
+    "06/18/2010",
+    "0.003"
    ],
    [
-    "03/23/2026",
-    "0.18787"
+    "09/17/2010",
+    "0.013333"
    ],
    [
-    "12/22/2025",
-    "0.19961"
+    "12/17/2010",
+    "0.081"
+   ],
+   [
+    "06/17/2011",
+    "0.004667"
+   ],
+   [
+    "09/16/2011",
+    "0.017"
+   ],
+   [
+    "12/16/2011",
+    "0.024667"
+   ],
+   [
+    "03/16/2012",
+    "0.008667"
+   ],
+   [
+    "06/15/2012",
+    "0.021667"
+   ],
+   [
+    "09/21/2012",
+    "0.02"
+   ],
+   [
+    "12/21/2012",
+    "0.056333"
+   ],
+   [
+    "03/15/2013",
+    "0.014"
+   ],
+   [
+    "09/20/2013",
+    "0.008333"
+   ],
+   [
+    "12/20/2013",
+    "0.047"
+   ],
+   [
+    "06/20/2014",
+    "0.006333"
+   ],
+   [
+    "09/19/2014",
+    "0.026"
+   ],
+   [
+    "12/19/2014",
+    "0.076"
+   ],
+   [
+    "12/24/2014",
+    "0.182"
+   ],
+   [
+    "06/19/2015",
+    "0.025"
+   ],
+   [
+    "09/18/2015",
+    "0.019"
+   ],
+   [
+    "12/18/2015",
+    "0.201667"
+   ],
+   [
+    "03/18/2016",
+    "0.015333"
+   ],
+   [
+    "06/17/2016",
+    "0.043"
+   ],
+   [
+    "09/16/2016",
+    "0.028333"
+   ],
+   [
+    "12/16/2016",
+    "0.253"
+   ],
+   [
+    "06/16/2017",
+    "0.015"
+   ],
+   [
+    "09/18/2017",
+    "0.118333"
+   ],
+   [
+    "12/18/2017",
+    "0.177667"
+   ],
+   [
+    "09/24/2018",
+    "0.084667"
+   ],
+   [
+    "12/24/2018",
+    "0.132"
+   ],
+   [
+    "03/18/2019",
+    "0.035333"
+   ],
+   [
+    "06/24/2019",
+    "0.127333"
+   ],
+   [
+    "09/23/2019",
+    "0.149667"
+   ],
+   [
+    "12/23/2019",
+    "0.158"
+   ],
+   [
+    "03/23/2020",
+    "0.015"
+   ],
+   [
+    "06/22/2020",
+    "0.121"
+   ],
+   [
+    "09/21/2020",
+    "0.149667"
+   ],
+   [
+    "12/21/2020",
+    "0.175333"
+   ],
+   [
+    "03/22/2021",
+    "0.153"
+   ],
+   [
+    "06/21/2021",
+    "0.063333"
+   ],
+   [
+    "09/20/2021",
+    "0.157667"
+   ],
+   [
+    "12/20/2021",
+    "0.071"
+   ],
+   [
+    "03/21/2022",
+    "0.051667"
+   ],
+   [
+    "06/21/2022",
+    "0.118333"
+   ],
+   [
+    "09/19/2022",
+    "0.153667"
+   ],
+   [
+    "12/19/2022",
+    "0.113333"
+   ],
+   [
+    "03/20/2023",
+    "0.158667"
+   ],
+   [
+    "06/20/2023",
+    "0.151"
+   ],
+   [
+    "09/18/2023",
+    "0.145"
+   ],
+   [
+    "12/18/2023",
+    "0.116"
+   ],
+   [
+    "03/18/2024",
+    "0.131"
+   ],
+   [
+    "06/24/2024",
+    "0.192"
+   ],
+   [
+    "09/23/2024",
+    "0.255"
+   ],
+   [
+    "12/23/2024",
+    "0.137"
+   ],
+   [
+    "03/24/2025",
+    "0.172"
+   ],
+   [
+    "06/23/2025",
+    "0.201"
    ],
    [
     "09/22/2025",
-    "0.17613"
+    "0.217"
+   ],
+   [
+    "12/22/2025",
+    "0.141"
+   ],
+   [
+    "03/23/2026",
+    "0.13"
+   ],
+   [
+    "06/22/2026",
+    "0.116"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 4.38,
-  "dividendYieldText": "4.38%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 28,
+  "asOfDate": "2026-05-31",
+  "asOf": "May 31 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001353, report period 2026-05-31)"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json",
+   "history/004.json",
+   "history/005.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "PSCC",
-  "name": "Invesco S&P SmallCap Consumer Staples ETF",
-  "category": "Sector",
-  "inception": "2010-04-07",
-  "exchange": "NASDAQ",
-  "ter": 0.35,
-  "cusip": "46138E172",
-  "isin": "US46138E1727"
+  "totalRows": 4124,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

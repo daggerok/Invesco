@@ -1,3 +1,5 @@
+// Bun's test runner provides these globals at runtime.
+// @ts-ignore bun types are intentionally not required for this zero-dependency Bun script.
 import { describe, expect, test } from 'bun:test';
 import {
   parseRange,
@@ -17,6 +19,10 @@ import {
   parseNportAccessions,
   nportUrlFor,
   pickEftsCik,
+  parseFundTickerMap,
+  parseCompanyTickerMap,
+  edgarSeriesFilingsUrl,
+  parseEdgarAtomFilings,
   parseChart,
   parsePricesCsv,
   priceReturns,
@@ -434,6 +440,17 @@ describe('nport fixtures', () => {
     expect(parsed.holdings[1].Identifier).toBe('912810H80');
     expect(parsed.holdings[1].Name).toBe('US TREASURY 4.125% 05/15/2028');
     expect(parsed.totalValue).toBeCloseTo(26317554069.9, 1);
+    expect(parsed.netAssets).toBeNull();
+  });
+
+  test('reads the reported net assets when the filing carries a fundInfo block', () => {
+    const parsed = parseNport(
+      '<genInfo><seriesName>Invesco S&amp;P 500 Equal Weight ETF</seriesName><repPdDate>2026-04-30</repPdDate></genInfo>' +
+        '<fundInfo><totAssets>88500000000.00</totAssets><netAssets>87850000000.00</netAssets></fundInfo>' +
+        '<invstOrSec><name>MGM Resorts International</name><cusip>552953101</cusip><valUSD>180990316.32</valUSD><pctVal>0.2059893365</pctVal></invstOrSec>',
+    );
+    expect(parsed.netAssets).toBe(87850000000);
+    expect(parsed.holdings.length).toBe(1);
   });
 
   test('falls back to other identifiers when the CUSIP is N/A', () => {
@@ -481,6 +498,100 @@ describe('pickEftsCik', () => {
 
   test('returns null when nothing matches', () => {
     expect(pickEftsCik(payload, 'Unknown Fund')).toBeNull();
+  });
+
+  test('reads the real EDGAR full-text search payload shape', () => {
+    const real = {
+      hits: {
+        total: { value: 2, relation: 'eq' },
+        hits: [
+          { _source: { ciks: ['0001667919'], display_names: ['FIRST TRUST EXCHANGE-TRADED FUND VIII  (CIK 0001667919)'] } },
+          { _source: { ciks: ['0001209466'], display_names: ['INVESCO EXCHANGE-TRADED FUND TRUST  (CIK 0001209466)'] } },
+        ],
+      },
+    };
+    expect(pickEftsCik(real, 'Invesco Exchange-Traded Fund Trust')).toBe('0001209466');
+    expect(pickEftsCik(real, '')).toBe('0001667919');
+  });
+});
+
+describe('SEC lookup tables', () => {
+  const fundTickers = {
+    fields: ['cik', 'seriesId', 'classId', 'symbol'],
+    data: [
+      [1209466, 'S000060812', 'C000197628', 'RSP'],
+      [1067839, 'S000101292', 'C000271435', 'QQQ'],
+      [1378872, 'S000019246', 'C000053072', 'bab'],
+      [0, 'S000000000', 'C000000000', 'ZZZ'],
+    ],
+  };
+
+  test('maps every ticker to its registrant CIK and series', () => {
+    const map = parseFundTickerMap(fundTickers);
+    expect(map.get('RSP')).toEqual({ cik: '0001209466', seriesId: 'S000060812', classId: 'C000197628' });
+    expect(map.get('QQQ')?.cik).toBe('0001067839');
+    expect(map.get('BAB')?.seriesId).toBe('S000019246');
+    expect(map.has('ZZZ')).toBe(false);
+  });
+
+  test('tolerates an unusable payload', () => {
+    expect(parseFundTickerMap({}).size).toBe(0);
+    expect(parseFundTickerMap({ fields: ['cik'], data: ['nope'] }).size).toBe(0);
+  });
+
+  test('maps issuer names back to exchange tickers', () => {
+    const map = parseCompanyTickerMap({
+      '0': { cik_str: 1045810, ticker: 'NVDA', title: 'NVIDIA CORP' },
+      '1': { cik_str: 320193, ticker: 'AAPL', title: 'Apple Inc.' },
+      '2': { cik_str: 1, ticker: '', title: 'No Ticker Inc' },
+    });
+    expect(map.get(normalizeHoldingName('NVIDIA Corp'))).toBe('NVDA');
+    expect(map.get(normalizeHoldingName('Apple Inc.'))).toBe('AAPL');
+    expect(map.get(normalizeHoldingName('No Ticker Inc'))).toBeUndefined();
+  });
+});
+
+describe('EDGAR series filings', () => {
+  const atom = `<?xml version="1.0" encoding="ISO-8859-1"?>
+    <feed>
+      <entry>
+        <accession-number>0001209466-26-000952</accession-number>
+        <filing-date>2026-06-29</filing-date>
+        <filing-href>https://www.sec.gov/Archives/edgar/data/1209466/000120946626000952/0001209466-26-000952-index.htm</filing-href>
+        <filing-type>NPORT-P</filing-type>
+      </entry>
+      <entry>
+        <accession-number>0001209466-26-000514</accession-number>
+        <filing-date>2026-04-01</filing-date>
+        <filing-href>https://www.sec.gov/Archives/edgar/data/1209466/000120946626000514/0001209466-26-000514-index.htm</filing-href>
+        <filing-type>NPORT-P</filing-type>
+      </entry>
+      <entry>
+        <accession-number>0001209466-26-000001</accession-number>
+        <filing-date>2026-01-05</filing-date>
+        <filing-type>N-CEN</filing-type>
+      </entry>
+    </feed>`;
+
+  test('builds the browse-edgar Atom URL for one series', () => {
+    const url = edgarSeriesFilingsUrl('S000060812', 5);
+    expect(url).toContain('https://www.sec.gov/cgi-bin/browse-edgar?');
+    expect(url).toContain('CIK=S000060812');
+    expect(url).toContain('type=NPORT-P');
+    expect(url).toContain('output=atom');
+    expect(url).toContain('count=5');
+  });
+
+  test('keeps N-PORT-P entries newest first and builds the primary document URL', () => {
+    const filings = parseEdgarAtomFilings(atom);
+    expect(filings.map((entry) => entry.accession)).toEqual(['0001209466-26-000952', '0001209466-26-000514']);
+    expect(filings[0].filed).toBe('2026-06-29');
+    expect(filings[0].url).toBe('https://www.sec.gov/Archives/edgar/data/1209466/000120946626000952/primary_doc.xml');
+  });
+
+  test('tolerates an empty or unrelated feed', () => {
+    expect(parseEdgarAtomFilings('')).toEqual([]);
+    expect(parseEdgarAtomFilings('<feed><entry><filing-type>10-K</filing-type></entry></feed>')).toEqual([]);
   });
 });
 

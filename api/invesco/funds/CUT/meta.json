@@ -2,55 +2,74 @@
  "ticker": "CUT",
  "name": "Invesco MSCI Global Timber ETF",
  "category": "Global Equity",
+ "categoryPath": "Global Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/cut.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=CUT",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=CUT",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=CUT",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46138E545",
-  "isin": "US46138E5454"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/CUT?period1=0&period2=1787874265&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001102, report period 2026-04-30)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$161.17",
-  "value": 161.17,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$161.57",
-  "value": 161.57,
-  "asOfDate": "Aug 26 2026"
+  "display": "$30.21",
+  "value": 30.2074,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "0.25%",
-  "value": 0.25
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$14.12 B",
-  "value": 14117000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$30.46 M",
+  "value": 30456126.33,
+  "asOfDate": "Apr 30 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-04-30)"
+ },
+ "yields": {
+  "dividendYield": 2.37,
+  "dividendYieldText": "2.37%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 11.17,
-   "ytdText": "11.17%",
-   "yr1": 33.17,
-   "yr1Text": "33.17%",
-   "yr3": 18.17,
-   "yr3Text": "18.17%",
-   "yr5": 13.17,
-   "yr5Text": "13.17%",
-   "yr10": 19.17,
-   "yr10Text": "19.17%",
-   "sinceInception": 5.17,
-   "sinceInceptionText": "5.17%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 2.68,
+   "mo1Text": "2.68%",
+   "qtd": 8.62,
+   "qtdText": "8.62%",
+   "ytd": 3.95,
+   "ytdText": "3.95%",
+   "yr1": 0.02,
+   "yr1Text": "0.02%",
+   "yr3": 3.15,
+   "yr3Text": "3.15%",
+   "yr5": -2.77,
+   "yr5Text": "-2.77%",
+   "yr10": 4.42,
+   "yr10Text": "4.42%",
+   "sinceInception": 3.2,
+   "sinceInceptionText": "3.20%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -58,61 +77,112 @@
   }
  },
  "distributions": {
-  "frequency": "Quarterly",
-  "paymentsPerYear": 4,
+  "frequency": "Annually",
+  "paymentsPerYear": 1,
   "headers": [
    "Ex-Date",
    "Amount"
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.80785"
+    "12/26/2007",
+    "0.084"
    ],
    [
-    "03/23/2026",
-    "0.77554"
+    "12/24/2008",
+    "0.408"
+   ],
+   [
+    "12/24/2009",
+    "0.049"
+   ],
+   [
+    "12/27/2010",
+    "0.594"
+   ],
+   [
+    "12/23/2011",
+    "0.387"
+   ],
+   [
+    "12/24/2012",
+    "0.253"
+   ],
+   [
+    "12/24/2013",
+    "0.36"
+   ],
+   [
+    "12/24/2014",
+    "0.685"
+   ],
+   [
+    "12/24/2015",
+    "0.358"
+   ],
+   [
+    "12/23/2016",
+    "0.515"
+   ],
+   [
+    "12/26/2017",
+    "0.499"
+   ],
+   [
+    "12/24/2018",
+    "0.825"
+   ],
+   [
+    "12/23/2019",
+    "0.771"
+   ],
+   [
+    "12/21/2020",
+    "0.553"
+   ],
+   [
+    "12/20/2021",
+    "0.582"
+   ],
+   [
+    "12/19/2022",
+    "0.78"
+   ],
+   [
+    "12/18/2023",
+    "0.782"
+   ],
+   [
+    "12/23/2024",
+    "0.967"
    ],
    [
     "12/22/2025",
-    "0.82401"
-   ],
-   [
-    "09/22/2025",
-    "0.72706"
+    "0.716"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 1.47,
-  "dividendYieldText": "1.47%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 56,
+  "asOfDate": "2026-04-30",
+  "asOf": "Apr 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001102, report period 2026-04-30)"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json",
+   "history/004.json",
+   "history/005.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "CUT",
-  "name": "Invesco MSCI Global Timber ETF",
-  "category": "Global Equity",
-  "inception": "2007-11-09",
-  "exchange": "NYSE Arca",
-  "ter": 0.35,
-  "cusip": "46138E545",
-  "isin": "US46138E5454"
+  "totalRows": 4728,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

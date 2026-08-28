@@ -2,55 +2,74 @@
  "ticker": "EELV",
  "name": "Invesco S&P Emerging Markets Low Volatility ETF",
  "category": "International",
+ "categoryPath": "International",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/eelv.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=EELV",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=EELV",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=EELV",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46138E297",
-  "isin": "US46138E2972"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/EELV?period1=0&period2=1787874284&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001121, report period 2026-04-30)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$62.74",
-  "value": 62.74,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$62.52",
-  "value": 62.52,
-  "asOfDate": "Aug 26 2026"
+  "display": "$28.91",
+  "value": 28.91,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "-0.35%",
-  "value": -0.35
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$9.27 B",
-  "value": 9274000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$441.86 M",
+  "value": 441858059.65,
+  "asOfDate": "Apr 30 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-04-30)"
+ },
+ "yields": {
+  "dividendYield": 6,
+  "dividendYieldText": "6.00%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 2.74,
-   "ytdText": "2.74%",
-   "yr1": 24.74,
-   "yr1Text": "24.74%",
-   "yr3": 9.74,
-   "yr3Text": "9.74%",
-   "yr5": 14.74,
-   "yr5Text": "14.74%",
-   "yr10": 10.74,
-   "yr10Text": "10.74%",
-   "sinceInception": 11.74,
-   "sinceInceptionText": "11.74%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 1.8,
+   "mo1Text": "1.80%",
+   "qtd": 4.75,
+   "qtdText": "4.75%",
+   "ytd": 8.04,
+   "ytdText": "8.04%",
+   "yr1": 14.19,
+   "yr1Text": "14.19%",
+   "yr3": 12.02,
+   "yr3Text": "12.02%",
+   "yr5": 7.37,
+   "yr5Text": "7.37%",
+   "yr10": 6.23,
+   "yr10Text": "6.23%",
+   "sinceInception": 4.32,
+   "sinceInceptionText": "4.32%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -66,53 +85,239 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.31260"
+    "06/15/2012",
+    "0.101"
    ],
    [
-    "03/23/2026",
-    "0.30010"
+    "09/21/2012",
+    "0.085"
    ],
    [
-    "12/22/2025",
-    "0.31885"
+    "12/21/2012",
+    "0.096"
+   ],
+   [
+    "03/15/2013",
+    "0.02"
+   ],
+   [
+    "06/21/2013",
+    "0.238"
+   ],
+   [
+    "09/20/2013",
+    "0.141"
+   ],
+   [
+    "12/20/2013",
+    "0.183"
+   ],
+   [
+    "03/21/2014",
+    "0.066"
+   ],
+   [
+    "06/20/2014",
+    "0.163"
+   ],
+   [
+    "09/19/2014",
+    "0.31"
+   ],
+   [
+    "12/19/2014",
+    "0.291"
+   ],
+   [
+    "06/19/2015",
+    "0.096"
+   ],
+   [
+    "09/18/2015",
+    "0.269"
+   ],
+   [
+    "12/18/2015",
+    "0.148"
+   ],
+   [
+    "06/17/2016",
+    "0.133"
+   ],
+   [
+    "09/16/2016",
+    "0.206"
+   ],
+   [
+    "12/16/2016",
+    "0.141"
+   ],
+   [
+    "03/17/2017",
+    "0.039"
+   ],
+   [
+    "06/16/2017",
+    "0.134"
+   ],
+   [
+    "09/18/2017",
+    "0.294"
+   ],
+   [
+    "12/18/2017",
+    "0.271"
+   ],
+   [
+    "03/19/2018",
+    "0.023"
+   ],
+   [
+    "06/18/2018",
+    "0.15"
+   ],
+   [
+    "09/24/2018",
+    "0.564"
+   ],
+   [
+    "12/24/2018",
+    "0.515"
+   ],
+   [
+    "03/18/2019",
+    "0.045"
+   ],
+   [
+    "06/24/2019",
+    "0.224"
+   ],
+   [
+    "09/23/2019",
+    "0.331"
+   ],
+   [
+    "12/23/2019",
+    "0.154"
+   ],
+   [
+    "03/23/2020",
+    "0.211"
+   ],
+   [
+    "06/22/2020",
+    "0.146"
+   ],
+   [
+    "12/21/2020",
+    "0.067"
+   ],
+   [
+    "03/22/2021",
+    "0.161"
+   ],
+   [
+    "06/21/2021",
+    "0.199"
+   ],
+   [
+    "12/20/2021",
+    "0.471"
+   ],
+   [
+    "03/21/2022",
+    "0.158"
+   ],
+   [
+    "06/21/2022",
+    "0.228"
+   ],
+   [
+    "09/19/2022",
+    "0.314"
+   ],
+   [
+    "12/19/2022",
+    "0.096"
+   ],
+   [
+    "03/20/2023",
+    "0.147"
+   ],
+   [
+    "06/20/2023",
+    "0.204"
+   ],
+   [
+    "09/18/2023",
+    "0.294"
+   ],
+   [
+    "12/18/2023",
+    "0.317"
+   ],
+   [
+    "03/18/2024",
+    "0.155"
+   ],
+   [
+    "06/24/2024",
+    "0.299"
+   ],
+   [
+    "09/23/2024",
+    "0.282"
+   ],
+   [
+    "12/23/2024",
+    "0.365"
+   ],
+   [
+    "03/24/2025",
+    "0.272"
+   ],
+   [
+    "06/23/2025",
+    "0.35"
    ],
    [
     "09/22/2025",
-    "0.28134"
+    "0.311"
+   ],
+   [
+    "12/22/2025",
+    "0.097"
+   ],
+   [
+    "03/23/2026",
+    "0.26"
+   ],
+   [
+    "06/22/2026",
+    "0.434"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 3.04,
-  "dividendYieldText": "3.04%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 205,
+  "asOfDate": "2026-04-30",
+  "asOf": "Apr 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001121, report period 2026-04-30)"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json",
+   "history/004.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "EELV",
-  "name": "Invesco S&P Emerging Markets Low Volatility ETF",
-  "category": "International",
-  "inception": "2012-01-13",
-  "exchange": "NYSE Arca",
-  "ter": 0.35,
-  "cusip": "46138E297",
-  "isin": "US46138E2972"
+  "totalRows": 3676,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

@@ -2,55 +2,74 @@
  "ticker": "MTRA",
  "name": "Invesco International Growth Focus ETF",
  "category": "Global Equity",
+ "categoryPath": "Global Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/mtra.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=MTRA",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=MTRA",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=MTRA",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46090A105",
-  "isin": "US46090A1057"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/MTRA?period1=0&period2=1787874394&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001418144-26-000289, report period 2026-04-30)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.54%",
-  "value": 0.54
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$95.49",
-  "value": 95.49,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$95.68",
-  "value": 95.68,
-  "asOfDate": "Aug 26 2026"
+  "display": "$27.36",
+  "value": 27.3631,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "0.20%",
-  "value": 0.2
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$2.55 B",
-  "value": 2549000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$142.37 M",
+  "value": 142374949.92,
+  "asOfDate": "Apr 30 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-04-30)"
+ },
+ "yields": {
+  "dividendYield": null,
+  "dividendYieldText": "—",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 5.49,
-   "ytdText": "5.49%",
-   "yr1": -2.51,
-   "yr1Text": "-2.51%",
-   "yr3": 12.49,
-   "yr3Text": "12.49%",
-   "yr5": 22.49,
-   "yr5Text": "22.49%",
-   "yr10": 3.49,
-   "yr10Text": "3.49%",
-   "sinceInception": 14.49,
-   "sinceInceptionText": "14.49%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 4.7,
+   "mo1Text": "4.70%",
+   "qtd": 1.15,
+   "qtdText": "1.15%",
+   "ytd": 4.42,
+   "ytdText": "4.42%",
+   "yr1": 9.49,
+   "yr1Text": "9.49%",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 7.82,
+   "sinceInceptionText": "7.82%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -58,61 +77,36 @@
   }
  },
  "distributions": {
-  "frequency": "Quarterly",
-  "paymentsPerYear": 4,
+  "frequency": "Unknown",
+  "paymentsPerYear": null,
   "headers": [
    "Ex-Date",
    "Amount"
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.47840"
-   ],
-   [
-    "03/23/2026",
-    "0.45926"
-   ],
-   [
     "12/22/2025",
-    "0.48797"
-   ],
-   [
-    "09/22/2025",
-    "0.43056"
+    "0.18"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 0.79,
-  "dividendYieldText": "0.79%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 61,
+  "asOfDate": "2026-04-30",
+  "asOf": "Apr 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001418144-26-000289, report period 2026-04-30)"
  },
  "history": {
   "pages": [
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "MTRA",
-  "name": "Invesco International Growth Focus ETF",
-  "category": "Global Equity",
-  "inception": "2025-06-11",
-  "exchange": "NASDAQ",
-  "ter": 0.54,
-  "cusip": "46090A105",
-  "isin": "US46090A1057"
+  "totalRows": 305,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

@@ -2,55 +2,74 @@
  "ticker": "IBBQ",
  "name": "Invesco Nasdaq Biotechnology ETF",
  "category": "Thematic",
+ "categoryPath": "Thematic",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/ibbq.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=IBBQ",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=IBBQ",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=IBBQ",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46138G599",
-  "isin": "US46138G5999"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/IBBQ?period1=0&period2=1787874324&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001339, report period 2026-05-31)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$60.08",
-  "value": 60.08,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$60.08",
-  "value": 60.08,
-  "asOfDate": "Aug 26 2026"
+  "display": "$36.45",
+  "value": 36.45,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "0.00%",
-  "value": 0.0
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$34.01 B",
-  "value": 34008000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$67.37 M",
+  "value": 67373541.14,
+  "asOfDate": "May 31 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-05-31)"
+ },
+ "yields": {
+  "dividendYield": 0.37,
+  "dividendYieldText": "0.37%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 0.08,
-   "ytdText": "0.08%",
-   "yr1": 32.08,
-   "yr1Text": "32.08%",
-   "yr3": 7.08,
-   "yr3Text": "7.08%",
-   "yr5": 12.08,
-   "yr5Text": "12.08%",
-   "yr10": 18.08,
-   "yr10Text": "18.08%",
-   "sinceInception": 9.08,
-   "sinceInceptionText": "9.08%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 12.43,
+   "mo1Text": "12.43%",
+   "qtd": 11.54,
+   "qtdText": "11.54%",
+   "ytd": 28.68,
+   "ytdText": "28.68%",
+   "yr1": 56.47,
+   "yr1Text": "56.47%",
+   "yr3": 22.31,
+   "yr3Text": "22.31%",
+   "yr5": 7.3,
+   "yr5Text": "7.30%",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 7.99,
+   "sinceInceptionText": "7.99%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -66,53 +85,106 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.30040"
+    "09/20/2021",
+    "0.043"
    ],
    [
-    "03/23/2026",
-    "0.28838"
+    "12/20/2021",
+    "0.105"
    ],
    [
-    "12/22/2025",
-    "0.30641"
+    "03/21/2022",
+    "0.038"
+   ],
+   [
+    "06/21/2022",
+    "0.043"
+   ],
+   [
+    "09/19/2022",
+    "0.038"
+   ],
+   [
+    "12/19/2022",
+    "0.042"
+   ],
+   [
+    "03/20/2023",
+    "0.038"
+   ],
+   [
+    "06/20/2023",
+    "0.045"
+   ],
+   [
+    "09/18/2023",
+    "0.041"
+   ],
+   [
+    "12/18/2023",
+    "0.053"
+   ],
+   [
+    "03/18/2024",
+    "0.044"
+   ],
+   [
+    "06/24/2024",
+    "0.051"
+   ],
+   [
+    "09/23/2024",
+    "0.089"
+   ],
+   [
+    "12/23/2024",
+    "0.062"
+   ],
+   [
+    "03/24/2025",
+    "0.04"
+   ],
+   [
+    "06/23/2025",
+    "0.029"
    ],
    [
     "09/22/2025",
-    "0.27036"
+    "0.096"
+   ],
+   [
+    "12/22/2025",
+    "0.091"
+   ],
+   [
+    "03/23/2026",
+    "0.036"
+   ],
+   [
+    "06/22/2026",
+    "0.034"
    ]
   ]
  },
- "yields": {
-  "dividendYield": 0.38,
-  "dividendYieldText": "0.38%",
-  "secYield": null,
-  "secYieldText": "\u2014"
- },
  "holdings": {
   "pages": [
-   "holdings/001.json"
+   "holdings/001.json",
+   "holdings/002.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 261,
+  "asOfDate": "2026-05-31",
+  "asOf": "May 31 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001339, report period 2026-05-31)"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "IBBQ",
-  "name": "Invesco Nasdaq Biotechnology ETF",
-  "category": "Thematic",
-  "inception": "2021-06-11",
-  "exchange": "Nasdaq",
-  "ter": 0.35,
-  "cusip": "46138G599",
-  "isin": "US46138G5999"
+  "totalRows": 1309,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

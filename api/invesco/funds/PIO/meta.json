@@ -2,55 +2,74 @@
  "ticker": "PIO",
  "name": "Invesco Global Water ETF",
  "category": "Global Equity",
+ "categoryPath": "Global Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pio.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PIO",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PIO",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PIO",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46138E651",
-  "isin": "US46138E6510"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/PIO?period1=0&period2=1787874444&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001120, report period 2026-04-30)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$145.04",
-  "value": 145.04,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$145.48",
-  "value": 145.48,
-  "asOfDate": "Aug 26 2026"
+  "display": "$45.14",
+  "value": 45.136,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "0.30%",
-  "value": 0.3
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$37.50 B",
-  "value": 37504000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$280.79 M",
+  "value": 280794553.44,
+  "asOfDate": "Apr 30 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-04-30)"
+ },
+ "yields": {
+  "dividendYield": 2.71,
+  "dividendYieldText": "2.71%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": -4.96,
-   "ytdText": "-4.96%",
-   "yr1": 27.04,
-   "yr1Text": "27.04%",
-   "yr3": 2.04,
-   "yr3Text": "2.04%",
-   "yr5": 22.04,
-   "yr5Text": "22.04%",
-   "yr10": 13.04,
-   "yr10Text": "13.04%",
-   "sinceInception": 4.04,
-   "sinceInceptionText": "4.04%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 1.7,
+   "mo1Text": "1.70%",
+   "qtd": 0.12,
+   "qtdText": "0.12%",
+   "ytd": 3.04,
+   "ytdText": "3.04%",
+   "yr1": 0.88,
+   "yr1Text": "0.88%",
+   "yr3": 9.75,
+   "yr3Text": "9.75%",
+   "yr5": 2.19,
+   "yr5Text": "2.19%",
+   "yr10": 8.68,
+   "yr10Text": "8.68%",
+   "sinceInception": 4.49,
+   "sinceInceptionText": "4.49%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -66,53 +85,268 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.72740"
+    "12/19/2008",
+    "0.165"
    ],
    [
-    "03/23/2026",
-    "0.69830"
+    "06/19/2009",
+    "0.008"
    ],
    [
-    "12/22/2025",
-    "0.74195"
+    "09/18/2009",
+    "0.045"
+   ],
+   [
+    "12/18/2009",
+    "0.179"
+   ],
+   [
+    "06/18/2010",
+    "0.048"
+   ],
+   [
+    "09/17/2010",
+    "0.023"
+   ],
+   [
+    "12/17/2010",
+    "0.103"
+   ],
+   [
+    "06/17/2011",
+    "0.115"
+   ],
+   [
+    "09/16/2011",
+    "0.069"
+   ],
+   [
+    "12/16/2011",
+    "0.071"
+   ],
+   [
+    "06/15/2012",
+    "0.186"
+   ],
+   [
+    "09/21/2012",
+    "0.078"
+   ],
+   [
+    "12/21/2012",
+    "0.063"
+   ],
+   [
+    "06/21/2013",
+    "0.11"
+   ],
+   [
+    "09/20/2013",
+    "0.146"
+   ],
+   [
+    "12/20/2013",
+    "0.09"
+   ],
+   [
+    "06/20/2014",
+    "0.214"
+   ],
+   [
+    "09/19/2014",
+    "0.034"
+   ],
+   [
+    "12/19/2014",
+    "0.078"
+   ],
+   [
+    "06/19/2015",
+    "0.182"
+   ],
+   [
+    "09/18/2015",
+    "0.042"
+   ],
+   [
+    "12/18/2015",
+    "0.116"
+   ],
+   [
+    "06/17/2016",
+    "0.146"
+   ],
+   [
+    "09/16/2016",
+    "0.043"
+   ],
+   [
+    "12/16/2016",
+    "0.113"
+   ],
+   [
+    "06/16/2017",
+    "0.118"
+   ],
+   [
+    "09/18/2017",
+    "0.05"
+   ],
+   [
+    "12/18/2017",
+    "0.092"
+   ],
+   [
+    "06/18/2018",
+    "0.276"
+   ],
+   [
+    "09/24/2018",
+    "0.079"
+   ],
+   [
+    "12/24/2018",
+    "0.107"
+   ],
+   [
+    "06/24/2019",
+    "0.229"
+   ],
+   [
+    "09/23/2019",
+    "0.079"
+   ],
+   [
+    "12/23/2019",
+    "0.061"
+   ],
+   [
+    "03/23/2020",
+    "0.009"
+   ],
+   [
+    "06/22/2020",
+    "0.17"
+   ],
+   [
+    "09/21/2020",
+    "0.046"
+   ],
+   [
+    "12/21/2020",
+    "0.082"
+   ],
+   [
+    "03/22/2021",
+    "0.006"
+   ],
+   [
+    "06/21/2021",
+    "0.147"
+   ],
+   [
+    "09/20/2021",
+    "0.19"
+   ],
+   [
+    "12/20/2021",
+    "0.174"
+   ],
+   [
+    "03/21/2022",
+    "0.027"
+   ],
+   [
+    "06/21/2022",
+    "0.144"
+   ],
+   [
+    "09/19/2022",
+    "0.091"
+   ],
+   [
+    "12/19/2022",
+    "0.072"
+   ],
+   [
+    "03/20/2023",
+    "0.018"
+   ],
+   [
+    "06/20/2023",
+    "0.193"
+   ],
+   [
+    "09/18/2023",
+    "0.038"
+   ],
+   [
+    "12/18/2023",
+    "0.084"
+   ],
+   [
+    "03/18/2024",
+    "0.008"
+   ],
+   [
+    "06/24/2024",
+    "0.22"
+   ],
+   [
+    "09/23/2024",
+    "0.028"
+   ],
+   [
+    "12/23/2024",
+    "0.05"
+   ],
+   [
+    "03/24/2025",
+    "0.054"
+   ],
+   [
+    "06/23/2025",
+    "0.351"
    ],
    [
     "09/22/2025",
-    "0.65466"
+    "0.014"
+   ],
+   [
+    "12/22/2025",
+    "0.039"
+   ],
+   [
+    "03/23/2026",
+    "0.045"
+   ],
+   [
+    "06/22/2026",
+    "0.306"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 0.34,
-  "dividendYieldText": "0.34%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 39,
+  "asOfDate": "2026-04-30",
+  "asOf": "Apr 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001120, report period 2026-04-30)"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json",
+   "history/004.json",
+   "history/005.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "PIO",
-  "name": "Invesco Global Water ETF",
-  "category": "Global Equity",
-  "inception": "2007-06-13",
-  "exchange": "NASDAQ",
-  "ter": 0.35,
-  "cusip": "46138E651",
-  "isin": "US46138E6510"
+  "totalRows": 4833,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

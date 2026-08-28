@@ -2,55 +2,74 @@
  "ticker": "PXI",
  "name": "Invesco Dorsey Wright Energy Momentum ETF",
  "category": "Sector",
+ "categoryPath": "Sector",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pxi.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PXI",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PXI",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PXI",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46137V878",
-  "isin": "US46137V8789"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/PXI?period1=0&period2=1787874530&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000872, report period 2026-04-30)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$166.63",
-  "value": 166.63,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$166.80",
-  "value": 166.8,
-  "asOfDate": "Aug 26 2026"
+  "display": "$62.93",
+  "value": 62.929,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "0.10%",
-  "value": 0.1
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$9.66 B",
-  "value": 9663000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$84.63 M",
+  "value": 84634465.07,
+  "asOfDate": "Apr 30 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-04-30)"
+ },
+ "yields": {
+  "dividendYield": 1.16,
+  "dividendYieldText": "1.16%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 16.63,
-   "ytdText": "16.63%",
-   "yr1": 28.63,
-   "yr1Text": "28.63%",
-   "yr3": 23.63,
-   "yr3Text": "23.63%",
-   "yr5": 18.63,
-   "yr5Text": "18.63%",
-   "yr10": 14.63,
-   "yr10Text": "14.63%",
-   "sinceInception": 10.63,
-   "sinceInceptionText": "10.63%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 8.86,
+   "mo1Text": "8.86%",
+   "qtd": 15.74,
+   "qtdText": "15.74%",
+   "ytd": 39.85,
+   "ytdText": "39.85%",
+   "yr1": 45.94,
+   "yr1Text": "45.94%",
+   "yr3": 14.14,
+   "yr3Text": "14.14%",
+   "yr5": 21.79,
+   "yr5Text": "21.79%",
+   "yr10": 6.33,
+   "yr10Text": "6.33%",
+   "sinceInception": 5.9,
+   "sinceInceptionText": "5.90%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -66,53 +85,312 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.83400"
+    "12/15/2006",
+    "0.024"
    ],
    [
-    "03/23/2026",
-    "0.80064"
+    "03/16/2007",
+    "0.008"
    ],
    [
-    "12/22/2025",
-    "0.85068"
+    "06/15/2007",
+    "0.029"
+   ],
+   [
+    "09/21/2007",
+    "0.049"
+   ],
+   [
+    "12/21/2007",
+    "0.002"
+   ],
+   [
+    "03/20/2008",
+    "0.004"
+   ],
+   [
+    "06/20/2008",
+    "0.099"
+   ],
+   [
+    "09/19/2008",
+    "0.037"
+   ],
+   [
+    "06/19/2009",
+    "0.053"
+   ],
+   [
+    "09/18/2009",
+    "0.09"
+   ],
+   [
+    "12/18/2009",
+    "0.087"
+   ],
+   [
+    "06/18/2010",
+    "0.045"
+   ],
+   [
+    "09/17/2010",
+    "0.043"
+   ],
+   [
+    "12/17/2010",
+    "0.127"
+   ],
+   [
+    "06/17/2011",
+    "0.152"
+   ],
+   [
+    "09/16/2011",
+    "0.06"
+   ],
+   [
+    "12/16/2011",
+    "0.034"
+   ],
+   [
+    "06/15/2012",
+    "0.097"
+   ],
+   [
+    "09/21/2012",
+    "0.057"
+   ],
+   [
+    "12/21/2012",
+    "0.415"
+   ],
+   [
+    "03/15/2013",
+    "0.092"
+   ],
+   [
+    "06/21/2013",
+    "0.183"
+   ],
+   [
+    "09/20/2013",
+    "0.062"
+   ],
+   [
+    "12/20/2013",
+    "0.081"
+   ],
+   [
+    "06/20/2014",
+    "0.202"
+   ],
+   [
+    "09/19/2014",
+    "0.062"
+   ],
+   [
+    "12/19/2014",
+    "0.252"
+   ],
+   [
+    "03/20/2015",
+    "0.099"
+   ],
+   [
+    "06/19/2015",
+    "0.336"
+   ],
+   [
+    "09/18/2015",
+    "0.116"
+   ],
+   [
+    "12/18/2015",
+    "0.142"
+   ],
+   [
+    "03/18/2016",
+    "0.067"
+   ],
+   [
+    "06/17/2016",
+    "0.079"
+   ],
+   [
+    "09/16/2016",
+    "0.129"
+   ],
+   [
+    "12/16/2016",
+    "0.044"
+   ],
+   [
+    "06/16/2017",
+    "0.068"
+   ],
+   [
+    "09/18/2017",
+    "0.114"
+   ],
+   [
+    "12/18/2017",
+    "0.132"
+   ],
+   [
+    "06/18/2018",
+    "0.147"
+   ],
+   [
+    "09/24/2018",
+    "0.035"
+   ],
+   [
+    "12/24/2018",
+    "0.081"
+   ],
+   [
+    "03/18/2019",
+    "0.09"
+   ],
+   [
+    "06/24/2019",
+    "0.24"
+   ],
+   [
+    "09/23/2019",
+    "0.175"
+   ],
+   [
+    "12/23/2019",
+    "0.28"
+   ],
+   [
+    "03/23/2020",
+    "0.094"
+   ],
+   [
+    "06/22/2020",
+    "0.099"
+   ],
+   [
+    "09/21/2020",
+    "0.089"
+   ],
+   [
+    "12/21/2020",
+    "0.022"
+   ],
+   [
+    "03/22/2021",
+    "0.002"
+   ],
+   [
+    "06/21/2021",
+    "0.035"
+   ],
+   [
+    "09/20/2021",
+    "0.063"
+   ],
+   [
+    "12/20/2021",
+    "0.074"
+   ],
+   [
+    "03/21/2022",
+    "0.099"
+   ],
+   [
+    "06/21/2022",
+    "0.214"
+   ],
+   [
+    "09/19/2022",
+    "0.447"
+   ],
+   [
+    "12/19/2022",
+    "0.598"
+   ],
+   [
+    "03/20/2023",
+    "0.23"
+   ],
+   [
+    "06/20/2023",
+    "0.21"
+   ],
+   [
+    "09/18/2023",
+    "0.219"
+   ],
+   [
+    "12/18/2023",
+    "0.156"
+   ],
+   [
+    "03/18/2024",
+    "0.077"
+   ],
+   [
+    "06/24/2024",
+    "0.193"
+   ],
+   [
+    "09/23/2024",
+    "0.218"
+   ],
+   [
+    "12/23/2024",
+    "0.185"
+   ],
+   [
+    "03/24/2025",
+    "0.157"
+   ],
+   [
+    "06/23/2025",
+    "0.208"
    ],
    [
     "09/22/2025",
-    "0.75060"
+    "0.224"
+   ],
+   [
+    "12/22/2025",
+    "0.23"
+   ],
+   [
+    "03/23/2026",
+    "0.104"
+   ],
+   [
+    "06/22/2026",
+    "0.182"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 1.93,
-  "dividendYieldText": "1.93%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 45,
+  "asOfDate": "2026-04-30",
+  "asOf": "Apr 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000872, report period 2026-04-30)"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json",
+   "history/004.json",
+   "history/005.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "PXI",
-  "name": "Invesco Dorsey Wright Energy Momentum ETF",
-  "category": "Sector",
-  "inception": "2006-10-12",
-  "exchange": "NASDAQ",
-  "ter": 0.35,
-  "cusip": "46137V878",
-  "isin": "US46137V8789"
+  "totalRows": 4999,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

@@ -1,0 +1,286 @@
+{
+ "ticker": "GTOS",
+ "name": "Invesco Short Duration Total Return Bond ETF",
+ "category": "ETF",
+ "categoryPath": "ETF",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=GTOS",
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=GTOS",
+  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=GTOS",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/GTOS?period1=0&period2=1787874326&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001418144-26-000331, report period 2026-04-30)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
+ },
+ "expenseRatio": {
+  "display": "—",
+  "value": null
+ },
+ "nav": {
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
+ },
+ "marketPrice": {
+  "display": "$24.88",
+  "value": 24.88,
+  "asOfDate": "Aug 27 2026"
+ },
+ "premiumDiscount": {
+  "display": "—",
+  "value": null
+ },
+ "aum": {
+  "display": "$121.22 M",
+  "value": 121218429.86,
+  "asOfDate": "Apr 30 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-04-30)"
+ },
+ "yields": {
+  "dividendYield": 4.73,
+  "dividendYieldText": "4.73%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
+ },
+ "returns": {
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
+  "monthEnd": {
+   "asOfDate": "Aug 27 2026",
+   "mo1": 0.58,
+   "mo1Text": "0.58%",
+   "qtd": 0.55,
+   "qtdText": "0.55%",
+   "ytd": 1.81,
+   "ytdText": "1.81%",
+   "yr1": 3.95,
+   "yr1Text": "3.95%",
+   "yr3": 5.68,
+   "yr3Text": "5.68%",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 5.03,
+   "sinceInceptionText": "5.03%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Jun 30 2026",
+   "null": null
+  }
+ },
+ "distributions": {
+  "frequency": "Monthly",
+  "paymentsPerYear": 12,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "01/23/2023",
+    "0.103"
+   ],
+   [
+    "02/21/2023",
+    "0.101"
+   ],
+   [
+    "03/20/2023",
+    "0.117"
+   ],
+   [
+    "04/24/2023",
+    "0.119"
+   ],
+   [
+    "05/22/2023",
+    "0.121"
+   ],
+   [
+    "06/20/2023",
+    "0.115"
+   ],
+   [
+    "07/24/2023",
+    "0.117"
+   ],
+   [
+    "08/21/2023",
+    "0.117"
+   ],
+   [
+    "09/18/2023",
+    "0.113"
+   ],
+   [
+    "10/23/2023",
+    "0.132"
+   ],
+   [
+    "11/20/2023",
+    "0.115"
+   ],
+   [
+    "12/18/2023",
+    "0.129"
+   ],
+   [
+    "01/22/2024",
+    "0.117"
+   ],
+   [
+    "02/20/2024",
+    "0.115"
+   ],
+   [
+    "03/18/2024",
+    "0.114"
+   ],
+   [
+    "04/22/2024",
+    "0.112"
+   ],
+   [
+    "05/20/2024",
+    "0.114"
+   ],
+   [
+    "06/24/2024",
+    "0.115"
+   ],
+   [
+    "07/22/2024",
+    "0.115"
+   ],
+   [
+    "08/19/2024",
+    "0.113"
+   ],
+   [
+    "09/23/2024",
+    "0.113"
+   ],
+   [
+    "10/21/2024",
+    "0.108"
+   ],
+   [
+    "11/18/2024",
+    "0.108"
+   ],
+   [
+    "12/23/2024",
+    "0.124"
+   ],
+   [
+    "01/21/2025",
+    "0.109"
+   ],
+   [
+    "02/24/2025",
+    "0.106"
+   ],
+   [
+    "03/24/2025",
+    "0.108"
+   ],
+   [
+    "04/21/2025",
+    "0.105"
+   ],
+   [
+    "05/19/2025",
+    "0.107"
+   ],
+   [
+    "06/23/2025",
+    "0.106"
+   ],
+   [
+    "07/21/2025",
+    "0.107"
+   ],
+   [
+    "08/18/2025",
+    "0.108"
+   ],
+   [
+    "09/22/2025",
+    "0.097"
+   ],
+   [
+    "10/20/2025",
+    "0.105"
+   ],
+   [
+    "11/24/2025",
+    "0.086"
+   ],
+   [
+    "12/22/2025",
+    "0.088"
+   ],
+   [
+    "01/20/2026",
+    "0.088"
+   ],
+   [
+    "02/23/2026",
+    "0.087"
+   ],
+   [
+    "03/23/2026",
+    "0.087"
+   ],
+   [
+    "04/20/2026",
+    "0.093"
+   ],
+   [
+    "05/18/2026",
+    "0.094"
+   ],
+   [
+    "06/22/2026",
+    "0.094"
+   ],
+   [
+    "07/20/2026",
+    "0.098"
+   ],
+   [
+    "08/24/2026",
+    "0.098"
+   ]
+  ]
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json",
+   "holdings/002.json",
+   "holdings/003.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 614,
+  "asOfDate": "2026-04-30",
+  "asOf": "Apr 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001418144-26-000331, report period 2026-04-30)"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 929,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
+ }
+}

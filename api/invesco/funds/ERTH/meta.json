@@ -2,55 +2,74 @@
  "ticker": "ERTH",
  "name": "Invesco MSCI Sustainable Future ETF",
  "category": "US Equity",
+ "categoryPath": "US Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/erth.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=ERTH",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=ERTH",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=ERTH",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46137V407",
-  "isin": "US46137V4077"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/ERTH?period1=0&period2=1787874293&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000941, report period 2026-04-30)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$136.21",
-  "value": 136.21,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$136.55",
-  "value": 136.55,
-  "asOfDate": "Aug 26 2026"
+  "display": "$46.75",
+  "value": 46.7473,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "0.25%",
-  "value": 0.25
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$11.62 B",
-  "value": 11621000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$147.10 M",
+  "value": 147095403.07,
+  "asOfDate": "Apr 30 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-04-30)"
+ },
+ "yields": {
+  "dividendYield": 3.51,
+  "dividendYieldText": "3.51%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 16.21,
-   "ytdText": "16.21%",
-   "yr1": 28.21,
-   "yr1Text": "28.21%",
-   "yr3": 23.21,
-   "yr3Text": "23.21%",
-   "yr5": 13.21,
-   "yr5Text": "13.21%",
-   "yr10": 14.21,
-   "yr10Text": "14.21%",
-   "sinceInception": 10.21,
-   "sinceInceptionText": "10.21%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 2.11,
+   "mo1Text": "2.11%",
+   "qtd": -0.58,
+   "qtdText": "-0.58%",
+   "ytd": 0.06,
+   "ytdText": "0.06%",
+   "yr1": 4.71,
+   "yr1Text": "4.71%",
+   "yr3": 1.23,
+   "yr3Text": "1.23%",
+   "yr5": -5.86,
+   "yr5Text": "-5.86%",
+   "yr10": 6.12,
+   "yr10Text": "6.12%",
+   "sinceInception": 4.76,
+   "sinceInceptionText": "4.76%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -66,53 +85,240 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.68275"
+    "06/19/2009",
+    "0.016"
    ],
    [
-    "03/23/2026",
-    "0.65544"
+    "12/18/2009",
+    "0.034"
    ],
    [
-    "12/22/2025",
-    "0.69641"
+    "06/18/2010",
+    "0.006"
+   ],
+   [
+    "06/17/2011",
+    "0.037"
+   ],
+   [
+    "12/16/2011",
+    "0.148"
+   ],
+   [
+    "03/16/2012",
+    "0.027"
+   ],
+   [
+    "06/15/2012",
+    "0.158"
+   ],
+   [
+    "09/21/2012",
+    "0.028"
+   ],
+   [
+    "12/21/2012",
+    "0.033"
+   ],
+   [
+    "06/21/2013",
+    "0.191"
+   ],
+   [
+    "09/20/2013",
+    "0.024"
+   ],
+   [
+    "12/20/2013",
+    "0.055"
+   ],
+   [
+    "06/20/2014",
+    "0.18"
+   ],
+   [
+    "09/19/2014",
+    "0.039"
+   ],
+   [
+    "12/19/2014",
+    "0.022"
+   ],
+   [
+    "06/19/2015",
+    "0.155"
+   ],
+   [
+    "09/18/2015",
+    "0.055"
+   ],
+   [
+    "12/18/2015",
+    "0.021"
+   ],
+   [
+    "06/17/2016",
+    "0.123"
+   ],
+   [
+    "09/16/2016",
+    "0.078"
+   ],
+   [
+    "12/16/2016",
+    "0.146"
+   ],
+   [
+    "06/16/2017",
+    "0.335"
+   ],
+   [
+    "09/18/2017",
+    "0.017"
+   ],
+   [
+    "12/18/2017",
+    "0.015"
+   ],
+   [
+    "06/18/2018",
+    "0.21"
+   ],
+   [
+    "12/24/2018",
+    "0.016"
+   ],
+   [
+    "03/18/2019",
+    "0.102"
+   ],
+   [
+    "06/24/2019",
+    "0.173"
+   ],
+   [
+    "09/23/2019",
+    "0.016"
+   ],
+   [
+    "12/23/2019",
+    "0.062"
+   ],
+   [
+    "03/23/2020",
+    "0.075"
+   ],
+   [
+    "06/22/2020",
+    "0.08"
+   ],
+   [
+    "03/22/2021",
+    "0.102"
+   ],
+   [
+    "06/21/2021",
+    "9.953"
+   ],
+   [
+    "12/20/2021",
+    "0.032"
+   ],
+   [
+    "03/21/2022",
+    "0.052"
+   ],
+   [
+    "06/21/2022",
+    "0.332"
+   ],
+   [
+    "09/19/2022",
+    "0.176"
+   ],
+   [
+    "12/19/2022",
+    "0.025"
+   ],
+   [
+    "03/20/2023",
+    "0.056"
+   ],
+   [
+    "06/20/2023",
+    "0.237"
+   ],
+   [
+    "09/18/2023",
+    "0.155"
+   ],
+   [
+    "12/18/2023",
+    "0.155"
+   ],
+   [
+    "03/18/2024",
+    "0.067"
+   ],
+   [
+    "06/24/2024",
+    "0.147"
+   ],
+   [
+    "09/23/2024",
+    "0.139"
+   ],
+   [
+    "12/23/2024",
+    "0.05"
+   ],
+   [
+    "03/24/2025",
+    "0.046"
+   ],
+   [
+    "06/23/2025",
+    "0.207"
    ],
    [
     "09/22/2025",
-    "0.61447"
+    "0.222"
+   ],
+   [
+    "12/22/2025",
+    "0.212"
+   ],
+   [
+    "03/23/2026",
+    "0.062"
+   ],
+   [
+    "06/22/2026",
+    "0.41"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 1.51,
-  "dividendYieldText": "1.51%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 163,
+  "asOfDate": "2026-04-30",
+  "asOf": "Apr 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000941, report period 2026-04-30)"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json",
+   "history/004.json",
+   "history/005.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "ERTH",
-  "name": "Invesco MSCI Sustainable Future ETF",
-  "category": "US Equity",
-  "inception": "2006-10-24",
-  "exchange": "NYSE Arca",
-  "ter": 0.35,
-  "cusip": "46137V407",
-  "isin": "US46137V4077"
+  "totalRows": 4991,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

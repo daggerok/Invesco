@@ -2,55 +2,74 @@
  "ticker": "BTCO",
  "name": "Invesco Galaxy Bitcoin ETF",
  "category": "Digital Assets",
+ "categoryPath": "Digital Assets",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/btco.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=BTCO",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=BTCO",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=BTCO",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46091J101",
-  "isin": "US46091J1016"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BTCO?period1=0&period2=1787874244&interval=1d&events=div%7Csplit",
+  "holdingsSource": "invesco.com per-fund holdings download",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$136.16",
-  "value": 136.16,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$136.16",
-  "value": 136.16,
-  "asOfDate": "Aug 26 2026"
+  "display": "$79.51",
+  "value": 79.51,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "0.00%",
-  "value": 0.0
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$46.62 B",
-  "value": 46616000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "—",
+  "value": null,
+  "asOfDate": "—",
+  "source": "previous run"
+ },
+ "yields": {
+  "dividendYield": null,
+  "dividendYieldText": "—",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 16.16,
-   "ytdText": "16.16%",
-   "yr1": -1.84,
-   "yr1Text": "-1.84%",
-   "yr3": 23.16,
-   "yr3Text": "23.16%",
-   "yr5": 13.16,
-   "yr5Text": "13.16%",
-   "yr10": 4.16,
-   "yr10Text": "4.16%",
-   "sinceInception": 10.16,
-   "sinceInceptionText": "10.16%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 23.16,
+   "mo1Text": "23.16%",
+   "qtd": 33.25,
+   "qtdText": "33.25%",
+   "ytd": -8.79,
+   "ytdText": "-8.79%",
+   "yr1": -28.88,
+   "yr1Text": "-28.88%",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 22.64,
+   "sinceInceptionText": "22.64%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -58,61 +77,29 @@
   }
  },
  "distributions": {
-  "frequency": "Quarterly",
-  "paymentsPerYear": 4,
+  "frequency": "—",
+  "paymentsPerYear": null,
   "headers": [
    "Ex-Date",
    "Amount"
   ],
-  "rows": [
-   [
-    "06/22/2026",
-    "0.68080"
-   ],
-   [
-    "03/23/2026",
-    "0.65357"
-   ],
-   [
-    "12/22/2025",
-    "0.69442"
-   ],
-   [
-    "09/22/2025",
-    "0.61272"
-   ]
-  ]
- },
- "yields": {
-  "dividendYield": 1.46,
-  "dividendYieldText": "1.46%",
-  "secYield": null,
-  "secYieldText": "\u2014"
+  "rows": []
  },
  "holdings": {
-  "pages": [
-   "holdings/001.json"
-  ],
+  "pages": [],
   "pageSize": 250,
-  "totalRows": 2,
-  "asOf": "Aug 26 2026"
+  "totalRows": 0,
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "invesco.com per-fund holdings download"
  },
  "history": {
   "pages": [
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "BTCO",
-  "name": "Invesco Galaxy Bitcoin ETF",
-  "category": "Digital Assets",
-  "inception": "2024-01-11",
-  "exchange": "CBOE",
-  "ter": 0.35,
-  "cusip": "46091J101",
-  "isin": "US46091J1016"
+  "totalRows": 659,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

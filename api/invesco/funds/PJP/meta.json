@@ -2,55 +2,74 @@
  "ticker": "PJP",
  "name": "Invesco Pharmaceuticals ETF",
  "category": "US Equity",
+ "categoryPath": "US Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pjp.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PJP",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PJP",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PJP",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46137V662",
-  "isin": "US46137V6627"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/PJP?period1=0&period2=1787874447&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000876, report period 2026-04-30)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$134.86",
-  "value": 134.86,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$134.59",
-  "value": 134.59,
-  "asOfDate": "Aug 26 2026"
+  "display": "$128.79",
+  "value": 128.789,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "-0.20%",
-  "value": -0.2
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$36.49 B",
-  "value": 36486000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$333.09 M",
+  "value": 333093287.93,
+  "asOfDate": "Apr 30 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-04-30)"
+ },
+ "yields": {
+  "dividendYield": 0.85,
+  "dividendYieldText": "0.85%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 14.86,
-   "ytdText": "14.86%",
-   "yr1": 16.86,
-   "yr1Text": "16.86%",
-   "yr3": 21.86,
-   "yr3Text": "21.86%",
-   "yr5": 11.86,
-   "yr5Text": "11.86%",
-   "yr10": 22.86,
-   "yr10Text": "22.86%",
-   "sinceInception": 8.86,
-   "sinceInceptionText": "8.86%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 6.79,
+   "mo1Text": "6.79%",
+   "qtd": 9.54,
+   "qtdText": "9.54%",
+   "ytd": 23.88,
+   "ytdText": "23.88%",
+   "yr1": 43.07,
+   "yr1Text": "43.07%",
+   "yr3": 19.55,
+   "yr3Text": "19.55%",
+   "yr5": 10.7,
+   "yr5Text": "10.70%",
+   "yr10": 8.09,
+   "yr10Text": "8.09%",
+   "sinceInception": 12.04,
+   "sinceInceptionText": "12.04%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -66,53 +85,345 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.67295"
+    "09/16/2005",
+    "0.015"
    ],
    [
-    "03/23/2026",
-    "0.64603"
+    "12/16/2005",
+    "0.016"
    ],
    [
-    "12/22/2025",
-    "0.68641"
+    "03/17/2006",
+    "0.012"
+   ],
+   [
+    "06/16/2006",
+    "0.024"
+   ],
+   [
+    "12/15/2006",
+    "0.055"
+   ],
+   [
+    "03/16/2007",
+    "0.016"
+   ],
+   [
+    "06/15/2007",
+    "0.021"
+   ],
+   [
+    "09/21/2007",
+    "0.021"
+   ],
+   [
+    "12/21/2007",
+    "0.022"
+   ],
+   [
+    "06/20/2008",
+    "0.053"
+   ],
+   [
+    "09/19/2008",
+    "0.03"
+   ],
+   [
+    "12/19/2008",
+    "0.042"
+   ],
+   [
+    "06/19/2009",
+    "0.065"
+   ],
+   [
+    "09/18/2009",
+    "0.066"
+   ],
+   [
+    "12/18/2009",
+    "0.128"
+   ],
+   [
+    "06/18/2010",
+    "0.035"
+   ],
+   [
+    "09/17/2010",
+    "0.036"
+   ],
+   [
+    "12/17/2010",
+    "0.055"
+   ],
+   [
+    "06/17/2011",
+    "0.061"
+   ],
+   [
+    "09/16/2011",
+    "0.055"
+   ],
+   [
+    "12/16/2011",
+    "0.064"
+   ],
+   [
+    "03/16/2012",
+    "0.018"
+   ],
+   [
+    "06/15/2012",
+    "0.094"
+   ],
+   [
+    "09/21/2012",
+    "0.063"
+   ],
+   [
+    "12/21/2012",
+    "0.373"
+   ],
+   [
+    "03/15/2013",
+    "0.01"
+   ],
+   [
+    "06/21/2013",
+    "0.119"
+   ],
+   [
+    "09/20/2013",
+    "0.042"
+   ],
+   [
+    "12/20/2013",
+    "0.065"
+   ],
+   [
+    "06/20/2014",
+    "0.145"
+   ],
+   [
+    "09/19/2014",
+    "0.082"
+   ],
+   [
+    "12/19/2014",
+    "0.091"
+   ],
+   [
+    "12/24/2014",
+    "1.651"
+   ],
+   [
+    "03/20/2015",
+    "0.018"
+   ],
+   [
+    "06/19/2015",
+    "0.138"
+   ],
+   [
+    "09/18/2015",
+    "0.086"
+   ],
+   [
+    "12/18/2015",
+    "2.47"
+   ],
+   [
+    "12/24/2015",
+    "1.132"
+   ],
+   [
+    "03/18/2016",
+    "0.018"
+   ],
+   [
+    "06/17/2016",
+    "0.179"
+   ],
+   [
+    "09/16/2016",
+    "0.107"
+   ],
+   [
+    "12/16/2016",
+    "0.207"
+   ],
+   [
+    "03/17/2017",
+    "0.037"
+   ],
+   [
+    "06/16/2017",
+    "0.156"
+   ],
+   [
+    "09/18/2017",
+    "0.123"
+   ],
+   [
+    "12/18/2017",
+    "0.101"
+   ],
+   [
+    "03/19/2018",
+    "0.056"
+   ],
+   [
+    "06/18/2018",
+    "0.115"
+   ],
+   [
+    "09/24/2018",
+    "0.159"
+   ],
+   [
+    "12/24/2018",
+    "0.364"
+   ],
+   [
+    "03/18/2019",
+    "0.061"
+   ],
+   [
+    "06/24/2019",
+    "0.128"
+   ],
+   [
+    "09/23/2019",
+    "0.149"
+   ],
+   [
+    "12/23/2019",
+    "0.162"
+   ],
+   [
+    "03/23/2020",
+    "0.136"
+   ],
+   [
+    "06/22/2020",
+    "0.156"
+   ],
+   [
+    "09/21/2020",
+    "0.117"
+   ],
+   [
+    "12/21/2020",
+    "0.131"
+   ],
+   [
+    "03/22/2021",
+    "0.153"
+   ],
+   [
+    "06/21/2021",
+    "0.148"
+   ],
+   [
+    "12/20/2021",
+    "0.185"
+   ],
+   [
+    "03/21/2022",
+    "0.202"
+   ],
+   [
+    "06/21/2022",
+    "0.207"
+   ],
+   [
+    "09/19/2022",
+    "0.169"
+   ],
+   [
+    "12/19/2022",
+    "0.168"
+   ],
+   [
+    "03/20/2023",
+    "0.202"
+   ],
+   [
+    "06/20/2023",
+    "0.176"
+   ],
+   [
+    "09/18/2023",
+    "0.201"
+   ],
+   [
+    "12/18/2023",
+    "0.191"
+   ],
+   [
+    "03/18/2024",
+    "0.17"
+   ],
+   [
+    "06/24/2024",
+    "0.21"
+   ],
+   [
+    "09/23/2024",
+    "0.2"
+   ],
+   [
+    "12/23/2024",
+    "0.223"
+   ],
+   [
+    "03/24/2025",
+    "0.273"
+   ],
+   [
+    "06/23/2025",
+    "0.267"
    ],
    [
     "09/22/2025",
-    "0.60565"
+    "0.236"
+   ],
+   [
+    "12/22/2025",
+    "0.246"
+   ],
+   [
+    "03/23/2026",
+    "0.309"
+   ],
+   [
+    "06/22/2026",
+    "0.273"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 5.16,
-  "dividendYieldText": "5.16%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 34,
+  "asOfDate": "2026-04-30",
+  "asOf": "Apr 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000876, report period 2026-04-30)"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json",
+   "history/004.json",
+   "history/005.json",
+   "history/006.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "PJP",
-  "name": "Invesco Pharmaceuticals ETF",
-  "category": "US Equity",
-  "inception": "2005-06-23",
-  "exchange": "NYSE Arca",
-  "ter": 0.35,
-  "cusip": "46137V662",
-  "isin": "US46137V6627"
+  "totalRows": 5328,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

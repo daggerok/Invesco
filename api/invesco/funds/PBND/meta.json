@@ -1,56 +1,75 @@
 {
  "ticker": "PBND",
- "name": "Invesco PureBeta\u2120 US Aggregate Bond ETF",
+ "name": "Invesco PureBeta℠ US Aggregate Bond ETF",
  "category": "Fixed Income",
+ "categoryPath": "Fixed Income",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pbnd.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PBND",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PBND",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PBND",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46138E446",
-  "isin": "US46138E4465"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/PBND?period1=0&period2=1787874387&interval=1d&events=div%7Csplit",
+  "holdingsSource": "invesco.com per-fund holdings download",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$81.49",
-  "value": 81.49,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Jun 23 2023"
  },
  "marketPrice": {
-  "display": "$81.33",
-  "value": 81.33,
-  "asOfDate": "Aug 26 2026"
+  "display": "$21.77",
+  "value": 21.77,
+  "asOfDate": "Jun 23 2023"
  },
  "premiumDiscount": {
-  "display": "-0.20%",
-  "value": -0.2
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$46.15 B",
-  "value": 46149000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "—",
+  "value": null,
+  "asOfDate": "—",
+  "source": "previous run"
+ },
+ "yields": {
+  "dividendYield": null,
+  "dividendYieldText": "—",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 21.49,
-   "ytdText": "21.49%",
-   "yr1": 13.49,
-   "yr1Text": "13.49%",
-   "yr3": 28.49,
-   "yr3Text": "28.49%",
-   "yr5": 8.49,
-   "yr5Text": "8.49%",
-   "yr10": 19.49,
-   "yr10Text": "19.49%",
-   "sinceInception": 15.49,
-   "sinceInceptionText": "15.49%"
+   "asOfDate": "Jul 03 2023",
+   "mo1": null,
+   "mo1Text": "—",
+   "qtd": null,
+   "qtdText": "—",
+   "ytd": null,
+   "ytdText": "—",
+   "yr1": null,
+   "yr1Text": "—",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": -3.57,
+   "yr5Text": "-3.57%",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": -2.34,
+   "sinceInceptionText": "-2.34%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -58,61 +77,30 @@
   }
  },
  "distributions": {
-  "frequency": "Quarterly",
-  "paymentsPerYear": 4,
+  "frequency": "—",
+  "paymentsPerYear": null,
   "headers": [
    "Ex-Date",
    "Amount"
   ],
-  "rows": [
-   [
-    "06/22/2026",
-    "0.40665"
-   ],
-   [
-    "03/23/2026",
-    "0.39038"
-   ],
-   [
-    "12/22/2025",
-    "0.41478"
-   ],
-   [
-    "09/22/2025",
-    "0.36598"
-   ]
-  ]
- },
- "yields": {
-  "dividendYield": 1.79,
-  "dividendYieldText": "1.79%",
-  "secYield": 4.49,
-  "secYieldText": "4.49%"
+  "rows": []
  },
  "holdings": {
-  "pages": [
-   "holdings/001.json"
-  ],
+  "pages": [],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 0,
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "invesco.com per-fund holdings download"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "PBND",
-  "name": "Invesco PureBeta\u2120 US Aggregate Bond ETF",
-  "category": "Fixed Income",
-  "inception": "2017-09-29",
-  "exchange": "Cboe BZX Exchange, Inc.",
-  "ter": 0.35,
-  "cusip": "46138E446",
-  "isin": "US46138E4465"
+  "totalRows": 1450,
+  "asOf": "Jul 03 2023",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

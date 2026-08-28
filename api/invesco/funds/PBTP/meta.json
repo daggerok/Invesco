@@ -2,55 +2,74 @@
  "ticker": "PBTP",
  "name": "Invesco 0-5 Yr US TIPS ETF",
  "category": "Fixed Income",
+ "categoryPath": "Fixed Income",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pbtp.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PBTP",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PBTP",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PBTP",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46138E495",
-  "isin": "US46138E4952"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/PBTP?period1=0&period2=1787874393&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001118, report period 2026-04-30)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$159.99",
-  "value": 159.99,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$160.55",
-  "value": 160.55,
-  "asOfDate": "Aug 26 2026"
+  "display": "$25.77",
+  "value": 25.765,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$19.00 B",
-  "value": 18999000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$65.96 M",
+  "value": 65962852.39,
+  "asOfDate": "Apr 30 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-04-30)"
+ },
+ "yields": {
+  "dividendYield": 10.54,
+  "dividendYieldText": "10.54%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 9.99,
-   "ytdText": "9.99%",
-   "yr1": 1.99,
-   "yr1Text": "1.99%",
-   "yr3": 16.99,
-   "yr3Text": "16.99%",
-   "yr5": 11.99,
-   "yr5Text": "11.99%",
-   "yr10": 7.99,
-   "yr10Text": "7.99%",
-   "sinceInception": 18.99,
-   "sinceInceptionText": "18.99%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 0.55,
+   "mo1Text": "0.55%",
+   "qtd": 0.51,
+   "qtdText": "0.51%",
+   "ytd": 2.2,
+   "ytdText": "2.20%",
+   "yr1": 2.45,
+   "yr1Text": "2.45%",
+   "yr3": 5.22,
+   "yr3Text": "5.22%",
+   "yr5": 3.06,
+   "yr5Text": "3.06%",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 3.34,
+   "sinceInceptionText": "3.34%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -66,53 +85,154 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.80275"
+    "12/18/2017",
+    "0.18"
    ],
    [
-    "03/23/2026",
-    "0.77064"
+    "06/18/2018",
+    "0.291"
    ],
    [
-    "12/22/2025",
-    "0.81881"
+    "09/24/2018",
+    "0.2"
+   ],
+   [
+    "12/24/2018",
+    "0.078"
+   ],
+   [
+    "06/24/2019",
+    "0.293"
+   ],
+   [
+    "09/23/2019",
+    "0.118"
+   ],
+   [
+    "12/23/2019",
+    "0.118"
+   ],
+   [
+    "03/23/2020",
+    "0.001"
+   ],
+   [
+    "06/22/2020",
+    "0.01"
+   ],
+   [
+    "09/21/2020",
+    "0.082"
+   ],
+   [
+    "12/21/2020",
+    "0.232"
+   ],
+   [
+    "06/21/2021",
+    "0.127"
+   ],
+   [
+    "09/20/2021",
+    "0.348"
+   ],
+   [
+    "12/20/2021",
+    "0.351"
+   ],
+   [
+    "03/21/2022",
+    "0.131"
+   ],
+   [
+    "06/21/2022",
+    "0.401"
+   ],
+   [
+    "09/19/2022",
+    "0.51"
+   ],
+   [
+    "12/19/2022",
+    "0.258"
+   ],
+   [
+    "03/20/2023",
+    "0.007"
+   ],
+   [
+    "06/20/2023",
+    "0.292"
+   ],
+   [
+    "09/18/2023",
+    "0.159"
+   ],
+   [
+    "12/18/2023",
+    "0.13"
+   ],
+   [
+    "03/18/2024",
+    "0.029"
+   ],
+   [
+    "06/24/2024",
+    "0.432"
+   ],
+   [
+    "09/23/2024",
+    "0.092"
+   ],
+   [
+    "12/23/2024",
+    "0.106"
+   ],
+   [
+    "03/24/2025",
+    "0.206"
+   ],
+   [
+    "06/23/2025",
+    "0.266"
    ],
    [
     "09/22/2025",
-    "0.72247"
+    "0.22"
+   ],
+   [
+    "12/22/2025",
+    "0.299"
+   ],
+   [
+    "03/23/2026",
+    "0.036"
+   ],
+   [
+    "06/22/2026",
+    "0.679"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 5.29,
-  "dividendYieldText": "5.29%",
-  "secYield": 1.99,
-  "secYieldText": "1.99%"
  },
  "holdings": {
   "pages": [
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 25,
+  "asOfDate": "2026-04-30",
+  "asOf": "Apr 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001118, report period 2026-04-30)"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "PBTP",
-  "name": "Invesco 0-5 Yr US TIPS ETF",
-  "category": "Fixed Income",
-  "inception": "2017-09-22",
-  "exchange": "Cboe BZX Exchange, Inc.",
-  "ter": 0.35,
-  "cusip": "46138E495",
-  "isin": "US46138E4952"
+  "totalRows": 2243,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

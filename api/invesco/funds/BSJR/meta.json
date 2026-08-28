@@ -5,10 +5,10 @@
  "categoryPath": "Fixed Income",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/bsjr.html",
-  "holdingsDownload": null,
+  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=BSJR",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=BSJR",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BSJR?period1=0&period2=1787867686&interval=1d&events=div%7Csplit",
-  "holdingsSource": "invesco.com per-fund holdings download",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BSJR?period1=0&period2=1787874222&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001657201-26-000590, report period 2026-05-31)",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
  },
@@ -18,58 +18,58 @@
   "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$64.52",
-  "value": 64.52,
-  "asOfDate": "—"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$64.71",
-  "value": 64.71,
-  "asOfDate": "—"
+  "display": "$22.37",
+  "value": 22.366,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "0.29%",
-  "value": 0.29
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$19,452.00 M",
-  "value": 19452000000,
-  "asOfDate": "—",
-  "source": "Invesco product list \"Fund Assets\" column"
+  "display": "$849.54 M",
+  "value": 849542041.45,
+  "asOfDate": "May 31 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-05-31)"
  },
  "yields": {
-  "dividendYield": 4.82,
-  "dividendYieldText": "4.82%",
-  "dividendYieldKind": "trailing 12-month, published by invesco.com",
+  "dividendYield": 5.26,
+  "dividendYieldText": "5.26%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
   "distributionRate": null,
-  "secYield": 4.02,
-  "secYieldText": "4.02%",
+  "secYield": null,
+  "secYieldText": "—",
   "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "—",
-   "mo1": null,
-   "mo1Text": "—",
-   "qtd": null,
-   "qtdText": "—",
-   "ytd": 4.52,
-   "ytdText": "4.52%",
-   "yr1": 26.52,
-   "yr1Text": "26.52%",
-   "yr3": 11.52,
-   "yr3Text": "11.52%",
-   "yr5": 16.52,
-   "yr5Text": "16.52%",
-   "yr10": 12.52,
-   "yr10Text": "12.52%",
-   "sinceInception": 13.52,
-   "sinceInceptionText": "13.52%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 0.85,
+   "mo1Text": "0.85%",
+   "qtd": 1.07,
+   "qtdText": "1.07%",
+   "ytd": 2.45,
+   "ytdText": "2.45%",
+   "yr1": 3.93,
+   "yr1Text": "3.93%",
+   "yr3": 7.75,
+   "yr3Text": "7.75%",
+   "yr5": 3.36,
+   "yr5Text": "3.36%",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 4.12,
+   "sinceInceptionText": "4.12%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -77,31 +77,365 @@
   }
  },
  "distributions": {
-  "frequency": "Quarterly",
-  "paymentsPerYear": null,
+  "frequency": "Monthly",
+  "paymentsPerYear": 12,
   "headers": [
    "Ex-Date",
    "Amount"
   ],
-  "rows": []
+  "rows": [
+   [
+    "10/21/2019",
+    "0.102"
+   ],
+   [
+    "11/18/2019",
+    "0.098"
+   ],
+   [
+    "12/23/2019",
+    "0.106"
+   ],
+   [
+    "01/21/2020",
+    "0.1"
+   ],
+   [
+    "02/24/2020",
+    "0.092"
+   ],
+   [
+    "03/23/2020",
+    "0.099"
+   ],
+   [
+    "04/20/2020",
+    "0.097"
+   ],
+   [
+    "05/18/2020",
+    "0.096"
+   ],
+   [
+    "06/22/2020",
+    "0.083"
+   ],
+   [
+    "07/20/2020",
+    "0.089"
+   ],
+   [
+    "08/24/2020",
+    "0.093"
+   ],
+   [
+    "09/21/2020",
+    "0.097"
+   ],
+   [
+    "10/19/2020",
+    "0.105"
+   ],
+   [
+    "11/23/2020",
+    "0.104"
+   ],
+   [
+    "12/21/2020",
+    "0.106"
+   ],
+   [
+    "01/19/2021",
+    "0.103"
+   ],
+   [
+    "02/22/2021",
+    "0.086"
+   ],
+   [
+    "03/22/2021",
+    "0.091"
+   ],
+   [
+    "04/19/2021",
+    "0.085"
+   ],
+   [
+    "05/24/2021",
+    "0.082"
+   ],
+   [
+    "06/21/2021",
+    "0.081"
+   ],
+   [
+    "07/19/2021",
+    "0.076"
+   ],
+   [
+    "08/23/2021",
+    "0.081"
+   ],
+   [
+    "09/20/2021",
+    "0.082"
+   ],
+   [
+    "10/18/2021",
+    "0.088"
+   ],
+   [
+    "11/22/2021",
+    "0.085"
+   ],
+   [
+    "12/20/2021",
+    "0.201"
+   ],
+   [
+    "01/24/2022",
+    "0.088"
+   ],
+   [
+    "02/22/2022",
+    "0.083"
+   ],
+   [
+    "03/21/2022",
+    "0.094"
+   ],
+   [
+    "04/18/2022",
+    "0.09"
+   ],
+   [
+    "05/23/2022",
+    "0.095"
+   ],
+   [
+    "06/21/2022",
+    "0.096"
+   ],
+   [
+    "07/18/2022",
+    "0.101"
+   ],
+   [
+    "08/22/2022",
+    "0.107"
+   ],
+   [
+    "09/19/2022",
+    "0.097"
+   ],
+   [
+    "10/24/2022",
+    "0.103"
+   ],
+   [
+    "11/21/2022",
+    "0.101"
+   ],
+   [
+    "12/19/2022",
+    "0.094"
+   ],
+   [
+    "01/23/2023",
+    "0.116"
+   ],
+   [
+    "02/21/2023",
+    "0.109"
+   ],
+   [
+    "03/20/2023",
+    "0.122"
+   ],
+   [
+    "04/24/2023",
+    "0.122"
+   ],
+   [
+    "05/22/2023",
+    "0.126"
+   ],
+   [
+    "06/20/2023",
+    "0.122"
+   ],
+   [
+    "07/24/2023",
+    "0.12"
+   ],
+   [
+    "08/21/2023",
+    "0.122"
+   ],
+   [
+    "09/18/2023",
+    "0.119"
+   ],
+   [
+    "10/23/2023",
+    "0.12"
+   ],
+   [
+    "11/20/2023",
+    "0.126"
+   ],
+   [
+    "12/18/2023",
+    "0.127"
+   ],
+   [
+    "01/22/2024",
+    "0.118"
+   ],
+   [
+    "02/20/2024",
+    "0.123"
+   ],
+   [
+    "03/18/2024",
+    "0.123"
+   ],
+   [
+    "04/22/2024",
+    "0.125"
+   ],
+   [
+    "05/20/2024",
+    "0.129"
+   ],
+   [
+    "06/24/2024",
+    "0.126"
+   ],
+   [
+    "07/22/2024",
+    "0.131"
+   ],
+   [
+    "08/19/2024",
+    "0.141"
+   ],
+   [
+    "09/23/2024",
+    "0.116"
+   ],
+   [
+    "10/21/2024",
+    "0.126"
+   ],
+   [
+    "11/18/2024",
+    "0.128"
+   ],
+   [
+    "12/23/2024",
+    "0.125"
+   ],
+   [
+    "01/21/2025",
+    "0.122"
+   ],
+   [
+    "02/24/2025",
+    "0.119"
+   ],
+   [
+    "03/24/2025",
+    "0.12"
+   ],
+   [
+    "04/21/2025",
+    "0.124"
+   ],
+   [
+    "05/19/2025",
+    "0.127"
+   ],
+   [
+    "06/23/2025",
+    "0.119"
+   ],
+   [
+    "07/21/2025",
+    "0.118"
+   ],
+   [
+    "08/18/2025",
+    "0.111"
+   ],
+   [
+    "09/22/2025",
+    "0.108"
+   ],
+   [
+    "10/20/2025",
+    "0.113"
+   ],
+   [
+    "11/24/2025",
+    "0.108"
+   ],
+   [
+    "12/22/2025",
+    "0.111"
+   ],
+   [
+    "01/20/2026",
+    "0.105"
+   ],
+   [
+    "02/23/2026",
+    "0.098"
+   ],
+   [
+    "03/23/2026",
+    "0.094"
+   ],
+   [
+    "04/20/2026",
+    "0.099"
+   ],
+   [
+    "05/18/2026",
+    "0.101"
+   ],
+   [
+    "06/22/2026",
+    "0.098"
+   ],
+   [
+    "07/20/2026",
+    "0.099"
+   ],
+   [
+    "08/24/2026",
+    "0.098"
+   ]
+  ]
  },
  "holdings": {
   "pages": [
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOfDate": null,
-  "asOf": "—",
-  "source": "invesco.com per-fund holdings download"
+  "totalRows": 105,
+  "asOfDate": "2026-05-31",
+  "asOf": "May 31 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001657201-26-000590, report period 2026-05-31)"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "—",
-  "source": "previous run"
+  "totalRows": 1748,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

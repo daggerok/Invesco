@@ -1,14 +1,14 @@
 {
  "ticker": "RZG",
- "name": "Invesco S&P SmallCap 600® Pure Growth ETF",
+ "name": "Invesco S&P Smallcap 600 Pure Growth ETF",
  "category": "US Equity",
  "categoryPath": "US Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/rzg.html",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=RZG",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=RZG",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/RZG?period1=0&period2=1787870737&interval=1d&events=div%7Csplit",
-  "holdingsSource": "invesco.com per-fund holdings download",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/RZG?period1=0&period2=1787874619&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000907, report period 2026-04-30)",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
  },
@@ -18,58 +18,58 @@
   "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$71.65",
-  "value": 71.65,
+  "display": "—",
+  "value": null,
   "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$71.83",
-  "value": 71.83,
+  "display": "$68.51",
+  "value": 68.5141,
   "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "0.25%",
-  "value": 0.25
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$45,165.00 M",
-  "value": 45165000000,
-  "asOfDate": "—",
-  "source": "Invesco product list \"Fund Assets\" column"
+  "display": "$121.80 M",
+  "value": 121801657.26,
+  "asOfDate": "Apr 30 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-04-30)"
  },
  "yields": {
-  "dividendYield": 1.95,
-  "dividendYieldText": "1.95%",
-  "dividendYieldKind": "trailing 12-month, published by invesco.com",
+  "dividendYield": 0.5,
+  "dividendYieldText": "0.50%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
   "distributionRate": null,
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
    "asOfDate": "Aug 27 2026",
    "mo1": -0.88,
    "mo1Text": "-0.88%",
    "qtd": -5.11,
    "qtdText": "-5.11%",
-   "ytd": 11.65,
-   "ytdText": "11.65%",
-   "yr1": 3.65,
-   "yr1Text": "3.65%",
-   "yr3": 18.65,
-   "yr3Text": "18.65%",
-   "yr5": 23.65,
-   "yr5Text": "23.65%",
-   "yr10": 9.65,
-   "yr10Text": "9.65%",
-   "sinceInception": 5.65,
-   "sinceInceptionText": "5.65%"
+   "ytd": 26.41,
+   "ytdText": "26.41%",
+   "yr1": 26.91,
+   "yr1Text": "26.91%",
+   "yr3": 18.87,
+   "yr3Text": "18.87%",
+   "yr5": 5.41,
+   "yr5Text": "5.41%",
+   "yr10": 9.7,
+   "yr10Text": "9.70%",
+   "sinceInception": 9.17,
+   "sinceInceptionText": "9.17%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -355,10 +355,10 @@
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOfDate": null,
-  "asOf": "—",
-  "source": "invesco.com per-fund holdings download"
+  "totalRows": 135,
+  "asOfDate": "2026-04-30",
+  "asOf": "Apr 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000907, report period 2026-04-30)"
  },
  "history": {
   "pages": [

@@ -2,55 +2,74 @@
  "ticker": "ISDB",
  "name": "Invesco Short Duration Bond ETF",
  "category": "Fixed Income",
+ "categoryPath": "Fixed Income",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/isdb.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=ISDB",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=ISDB",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=ISDB",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46090A739",
-  "isin": "US46090A7393"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/ISDB?period1=0&period2=1787874357&interval=1d&events=div%7Csplit",
+  "holdingsSource": "invesco.com per-fund holdings download",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$131.37",
-  "value": 131.37,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Jun 11 2025"
  },
  "marketPrice": {
-  "display": "$131.63",
-  "value": 131.63,
-  "asOfDate": "Aug 26 2026"
+  "display": "$24.99",
+  "value": 24.994,
+  "asOfDate": "Jun 11 2025"
  },
  "premiumDiscount": {
-  "display": "0.20%",
-  "value": 0.2
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$11.14 B",
-  "value": 11137000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "—",
+  "value": null,
+  "asOfDate": "—",
+  "source": "previous run"
+ },
+ "yields": {
+  "dividendYield": 4.7,
+  "dividendYieldText": "4.70%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 11.37,
-   "ytdText": "11.37%",
-   "yr1": 3.37,
-   "yr1Text": "3.37%",
-   "yr3": 18.37,
-   "yr3Text": "18.37%",
-   "yr5": 8.37,
-   "yr5Text": "8.37%",
-   "yr10": 9.37,
-   "yr10Text": "9.37%",
-   "sinceInception": 5.37,
-   "sinceInceptionText": "5.37%"
+   "asOfDate": "Jul 17 2026",
+   "mo1": null,
+   "mo1Text": "—",
+   "qtd": null,
+   "qtdText": "—",
+   "ytd": null,
+   "ytdText": "—",
+   "yr1": null,
+   "yr1Text": "—",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": null,
+   "sinceInceptionText": "—"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -58,61 +77,38 @@
   }
  },
  "distributions": {
-  "frequency": "Quarterly",
-  "paymentsPerYear": 4,
+  "frequency": "Monthly",
+  "paymentsPerYear": 12,
   "headers": [
    "Ex-Date",
    "Amount"
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.65815"
+    "07/20/2026",
+    "0.0983"
    ],
    [
-    "03/23/2026",
-    "0.63182"
-   ],
-   [
-    "12/22/2025",
-    "0.67131"
-   ],
-   [
-    "09/22/2025",
-    "0.59233"
+    "08/24/2026",
+    "0.09783"
    ]
   ]
  },
- "yields": {
-  "dividendYield": 1.67,
-  "dividendYieldText": "1.67%",
-  "secYield": 4.87,
-  "secYieldText": "4.87%"
- },
  "holdings": {
-  "pages": [
-   "holdings/001.json"
-  ],
+  "pages": [],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 0,
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "invesco.com per-fund holdings download"
  },
  "history": {
   "pages": [
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "ISDB",
-  "name": "Invesco Short Duration Bond ETF",
-  "category": "Fixed Income",
-  "inception": "2022-12-09",
-  "exchange": "CBOE",
-  "ter": 0.35,
-  "cusip": "46090A739",
-  "isin": "US46090A7393"
+  "totalRows": 1,
+  "asOf": "Jul 17 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

@@ -2,55 +2,74 @@
  "ticker": "IHYF",
  "name": "Invesco High Yield Bond Factor ETF",
  "category": "Fixed Income",
+ "categoryPath": "Fixed Income",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/ihyf.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=IHYF",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=IHYF",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=IHYF",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46090A853",
-  "isin": "US46090A8532"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/IHYF?period1=0&period2=1787874333&interval=1d&events=div%7Csplit",
+  "holdingsSource": "invesco.com per-fund holdings download",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$64.47",
-  "value": 64.47,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Feb 20 2026"
  },
  "marketPrice": {
-  "display": "$64.79",
-  "value": 64.79,
-  "asOfDate": "Aug 26 2026"
+  "display": "$22.75",
+  "value": 22.745,
+  "asOfDate": "Feb 20 2026"
  },
  "premiumDiscount": {
-  "display": "0.50%",
-  "value": 0.5
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$49.45 B",
-  "value": 49447000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "—",
+  "value": null,
+  "asOfDate": "—",
+  "source": "previous run"
+ },
+ "yields": {
+  "dividendYield": 7.12,
+  "dividendYieldText": "7.12%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 4.47,
-   "ytdText": "4.47%",
-   "yr1": 6.47,
-   "yr1Text": "6.47%",
-   "yr3": 11.47,
-   "yr3Text": "11.47%",
-   "yr5": 16.47,
-   "yr5Text": "16.47%",
-   "yr10": 12.47,
-   "yr10Text": "12.47%",
-   "sinceInception": 13.47,
-   "sinceInceptionText": "13.47%"
+   "asOfDate": "Jul 17 2026",
+   "mo1": null,
+   "mo1Text": "—",
+   "qtd": null,
+   "qtdText": "—",
+   "ytd": null,
+   "ytdText": "—",
+   "yr1": null,
+   "yr1Text": "—",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": null,
+   "sinceInceptionText": "—"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -58,61 +77,38 @@
   }
  },
  "distributions": {
-  "frequency": "Quarterly",
-  "paymentsPerYear": 4,
+  "frequency": "Monthly",
+  "paymentsPerYear": 12,
   "headers": [
    "Ex-Date",
    "Amount"
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.32395"
+    "07/20/2026",
+    "0.12725"
    ],
    [
-    "03/23/2026",
-    "0.31099"
-   ],
-   [
-    "12/22/2025",
-    "0.33043"
-   ],
-   [
-    "09/22/2025",
-    "0.29156"
+    "08/24/2026",
+    "0.13488"
    ]
   ]
  },
- "yields": {
-  "dividendYield": 4.77,
-  "dividendYieldText": "4.77%",
-  "secYield": 3.97,
-  "secYieldText": "3.97%"
- },
  "holdings": {
-  "pages": [
-   "holdings/001.json"
-  ],
+  "pages": [],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 0,
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "invesco.com per-fund holdings download"
  },
  "history": {
   "pages": [
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "IHYF",
-  "name": "Invesco High Yield Bond Factor ETF",
-  "category": "Fixed Income",
-  "inception": "2020-12-02",
-  "exchange": "Nasdaq",
-  "ter": 0.35,
-  "cusip": "46090A853",
-  "isin": "US46090A8532"
+  "totalRows": 1,
+  "asOf": "Jul 17 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

@@ -7,7 +7,7 @@
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/rspa.html",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=RSPA",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=RSPA",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/RSPA?period1=0&period2=1787870617&interval=1d&events=div%7Csplit",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/RSPA?period1=0&period2=1787874568&interval=1d&events=div%7Csplit",
   "holdingsSource": "invesco.com per-fund holdings download",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
@@ -18,58 +18,58 @@
   "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$162.17",
-  "value": 162.17,
+  "display": "—",
+  "value": null,
   "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$161.93",
-  "value": 161.93,
+  "display": "$54.50",
+  "value": 54.5,
   "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "-0.15%",
-  "value": -0.15
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$39,217.00 M",
-  "value": 39217000000,
+  "display": "—",
+  "value": null,
   "asOfDate": "—",
-  "source": "Invesco product list \"Fund Assets\" column"
+  "source": "previous run"
  },
  "yields": {
-  "dividendYield": 2.47,
-  "dividendYieldText": "2.47%",
-  "dividendYieldKind": "trailing 12-month, published by invesco.com",
+  "dividendYield": 9.18,
+  "dividendYieldText": "9.18%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
   "distributionRate": null,
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
    "asOfDate": "Aug 27 2026",
    "mo1": 1.62,
    "mo1Text": "1.62%",
    "qtd": 2.53,
    "qtdText": "2.53%",
-   "ytd": 12.17,
-   "ytdText": "12.17%",
-   "yr1": 24.17,
-   "yr1Text": "24.17%",
-   "yr3": 19.17,
-   "yr3Text": "19.17%",
-   "yr5": 14.17,
-   "yr5Text": "14.17%",
-   "yr10": 10.17,
-   "yr10Text": "10.17%",
-   "sinceInception": 6.17,
-   "sinceInceptionText": "6.17%"
+   "ytd": 12.93,
+   "ytdText": "12.93%",
+   "yr1": 17.32,
+   "yr1Text": "17.32%",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 13.26,
+   "sinceInceptionText": "13.26%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -183,11 +183,9 @@
   ]
  },
  "holdings": {
-  "pages": [
-   "holdings/001.json"
-  ],
+  "pages": [],
   "pageSize": 250,
-  "totalRows": 10,
+  "totalRows": 0,
   "asOfDate": null,
   "asOf": "—",
   "source": "invesco.com per-fund holdings download"

@@ -2,55 +2,74 @@
  "ticker": "PTH",
  "name": "Invesco Dorsey Wright Healthcare Momentum ETF",
  "category": "US Equity",
+ "categoryPath": "US Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pth.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PTH",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PTH",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PTH",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46137V852",
-  "isin": "US46137V8524"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/PTH?period1=0&period2=1787874491&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000892, report period 2026-04-30)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$109.41",
-  "value": 109.41,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$108.97",
-  "value": 108.97,
-  "asOfDate": "Aug 26 2026"
+  "display": "$63.53",
+  "value": 63.533,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "-0.40%",
-  "value": -0.4
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$23.94 B",
-  "value": 23941000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$120.91 M",
+  "value": 120908517.46,
+  "asOfDate": "Apr 30 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-04-30)"
+ },
+ "yields": {
+  "dividendYield": 4.8,
+  "dividendYieldText": "4.80%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 19.41,
-   "ytdText": "19.41%",
-   "yr1": 11.41,
-   "yr1Text": "11.41%",
-   "yr3": 26.41,
-   "yr3Text": "26.41%",
-   "yr5": 11.41,
-   "yr5Text": "11.41%",
-   "yr10": 17.41,
-   "yr10Text": "17.41%",
-   "sinceInception": 13.41,
-   "sinceInceptionText": "13.41%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 8.94,
+   "mo1Text": "8.94%",
+   "qtd": 5.68,
+   "qtdText": "5.68%",
+   "ytd": 27.83,
+   "ytdText": "27.83%",
+   "yr1": 63.42,
+   "yr1Text": "63.42%",
+   "yr3": 21.87,
+   "yr3Text": "21.87%",
+   "yr5": 3.05,
+   "yr5Text": "3.05%",
+   "yr10": 15.24,
+   "yr10Text": "15.24%",
+   "sinceInception": 11.06,
+   "sinceInceptionText": "11.06%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -58,61 +77,72 @@
   }
  },
  "distributions": {
-  "frequency": "Quarterly",
-  "paymentsPerYear": 4,
+  "frequency": "Semiannually",
+  "paymentsPerYear": 2,
   "headers": [
    "Ex-Date",
    "Amount"
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.54485"
+    "06/19/2009",
+    "0.008333"
    ],
    [
-    "03/23/2026",
-    "0.52306"
+    "12/18/2009",
+    "0.019333"
+   ],
+   [
+    "06/15/2012",
+    "0.008333"
+   ],
+   [
+    "12/21/2012",
+    "0.109"
+   ],
+   [
+    "06/21/2013",
+    "0.036667"
+   ],
+   [
+    "09/20/2013",
+    "0.002667"
+   ],
+   [
+    "12/20/2013",
+    "0.011333"
+   ],
+   [
+    "06/24/2024",
+    "0.025"
    ],
    [
     "12/22/2025",
-    "0.55575"
-   ],
-   [
-    "09/22/2025",
-    "0.49036"
+    "1.526"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 4.71,
-  "dividendYieldText": "4.71%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 61,
+  "asOfDate": "2026-04-30",
+  "asOf": "Apr 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000892, report period 2026-04-30)"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json",
+   "history/004.json",
+   "history/005.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "PTH",
-  "name": "Invesco Dorsey Wright Healthcare Momentum ETF",
-  "category": "US Equity",
-  "inception": "2006-10-12",
-  "exchange": "NASDAQ",
-  "ter": 0.35,
-  "cusip": "46137V852",
-  "isin": "US46137V8524"
+  "totalRows": 4999,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

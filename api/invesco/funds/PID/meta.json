@@ -1,56 +1,75 @@
 {
  "ticker": "PID",
- "name": "Invesco International Dividend Achievers\u2122 ETF",
+ "name": "Invesco International Dividend AchieversTM ETF",
  "category": "International",
+ "categoryPath": "International",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pid.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PID",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PID",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PID",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46137V548",
-  "isin": "US46137V5488"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/PID?period1=0&period2=1787874461&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000875, report period 2026-04-30)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$78.56",
-  "value": 78.56,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$78.80",
-  "value": 78.8,
-  "asOfDate": "Aug 26 2026"
+  "display": "$22.84",
+  "value": 22.845,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "0.31%",
-  "value": 0.31
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$40.86 B",
-  "value": 40856000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$928.58 M",
+  "value": 928577269.48,
+  "asOfDate": "Apr 30 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-04-30)"
+ },
+ "yields": {
+  "dividendYield": 5.48,
+  "dividendYieldText": "5.48%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 18.56,
-   "ytdText": "18.56%",
-   "yr1": 20.56,
-   "yr1Text": "20.56%",
-   "yr3": 25.56,
-   "yr3Text": "25.56%",
-   "yr5": 5.56,
-   "yr5Text": "5.56%",
-   "yr10": 6.56,
-   "yr10Text": "6.56%",
-   "sinceInception": 12.56,
-   "sinceInceptionText": "12.56%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": -0.98,
+   "mo1Text": "-0.98%",
+   "qtd": 2.77,
+   "qtdText": "2.77%",
+   "ytd": 6.27,
+   "ytdText": "6.27%",
+   "yr1": 10.83,
+   "yr1Text": "10.83%",
+   "yr3": 13.72,
+   "yr3Text": "13.72%",
+   "yr5": 8.69,
+   "yr5Text": "8.69%",
+   "yr10": 8.57,
+   "yr10Text": "8.57%",
+   "sinceInception": 5.58,
+   "sinceInceptionText": "5.58%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -66,53 +85,361 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.39400"
+    "12/16/2005",
+    "0.077"
    ],
    [
-    "03/23/2026",
-    "0.37824"
+    "03/17/2006",
+    "0.016"
    ],
    [
-    "12/22/2025",
-    "0.40188"
+    "06/16/2006",
+    "0.126"
+   ],
+   [
+    "09/15/2006",
+    "0.126"
+   ],
+   [
+    "12/15/2006",
+    "0.167"
+   ],
+   [
+    "03/16/2007",
+    "0.11"
+   ],
+   [
+    "06/15/2007",
+    "0.143"
+   ],
+   [
+    "09/21/2007",
+    "0.101"
+   ],
+   [
+    "12/21/2007",
+    "0.114"
+   ],
+   [
+    "03/20/2008",
+    "0.198"
+   ],
+   [
+    "06/20/2008",
+    "0.296"
+   ],
+   [
+    "09/19/2008",
+    "0.139"
+   ],
+   [
+    "12/19/2008",
+    "0.087"
+   ],
+   [
+    "03/20/2009",
+    "0.026"
+   ],
+   [
+    "06/19/2009",
+    "0.135"
+   ],
+   [
+    "09/18/2009",
+    "0.071"
+   ],
+   [
+    "12/18/2009",
+    "0.241"
+   ],
+   [
+    "03/19/2010",
+    "0.023"
+   ],
+   [
+    "06/18/2010",
+    "0.078"
+   ],
+   [
+    "09/17/2010",
+    "0.105"
+   ],
+   [
+    "12/17/2010",
+    "0.217"
+   ],
+   [
+    "03/18/2011",
+    "0.065"
+   ],
+   [
+    "06/17/2011",
+    "0.195"
+   ],
+   [
+    "09/16/2011",
+    "0.097"
+   ],
+   [
+    "12/16/2011",
+    "0.127"
+   ],
+   [
+    "03/16/2012",
+    "0.071"
+   ],
+   [
+    "06/15/2012",
+    "0.209"
+   ],
+   [
+    "09/21/2012",
+    "0.075"
+   ],
+   [
+    "12/21/2012",
+    "0.071"
+   ],
+   [
+    "03/15/2013",
+    "0.054"
+   ],
+   [
+    "06/21/2013",
+    "0.164"
+   ],
+   [
+    "09/20/2013",
+    "0.101"
+   ],
+   [
+    "12/20/2013",
+    "0.08"
+   ],
+   [
+    "03/21/2014",
+    "0.294"
+   ],
+   [
+    "06/20/2014",
+    "0.121"
+   ],
+   [
+    "09/19/2014",
+    "0.14"
+   ],
+   [
+    "12/19/2014",
+    "0.132"
+   ],
+   [
+    "03/20/2015",
+    "0.083"
+   ],
+   [
+    "06/19/2015",
+    "0.203"
+   ],
+   [
+    "09/18/2015",
+    "0.129"
+   ],
+   [
+    "12/18/2015",
+    "0.193"
+   ],
+   [
+    "03/18/2016",
+    "0.013"
+   ],
+   [
+    "06/17/2016",
+    "0.22"
+   ],
+   [
+    "09/16/2016",
+    "0.151"
+   ],
+   [
+    "12/16/2016",
+    "0.179"
+   ],
+   [
+    "03/17/2017",
+    "0.017"
+   ],
+   [
+    "06/16/2017",
+    "0.227"
+   ],
+   [
+    "09/18/2017",
+    "0.154"
+   ],
+   [
+    "12/18/2017",
+    "0.175"
+   ],
+   [
+    "03/19/2018",
+    "0.044"
+   ],
+   [
+    "06/18/2018",
+    "0.152"
+   ],
+   [
+    "09/24/2018",
+    "0.203"
+   ],
+   [
+    "12/24/2018",
+    "0.147"
+   ],
+   [
+    "03/18/2019",
+    "0.037"
+   ],
+   [
+    "06/24/2019",
+    "0.301"
+   ],
+   [
+    "09/23/2019",
+    "0.135"
+   ],
+   [
+    "12/23/2019",
+    "0.209"
+   ],
+   [
+    "03/23/2020",
+    "0.081"
+   ],
+   [
+    "06/22/2020",
+    "0.21"
+   ],
+   [
+    "09/21/2020",
+    "0.082"
+   ],
+   [
+    "12/21/2020",
+    "0.114"
+   ],
+   [
+    "03/22/2021",
+    "0.098"
+   ],
+   [
+    "06/21/2021",
+    "0.2"
+   ],
+   [
+    "09/20/2021",
+    "0.103"
+   ],
+   [
+    "12/20/2021",
+    "0.207"
+   ],
+   [
+    "03/21/2022",
+    "0.113"
+   ],
+   [
+    "06/21/2022",
+    "0.189"
+   ],
+   [
+    "09/19/2022",
+    "0.169"
+   ],
+   [
+    "12/19/2022",
+    "0.079"
+   ],
+   [
+    "03/20/2023",
+    "0.177"
+   ],
+   [
+    "06/20/2023",
+    "0.163"
+   ],
+   [
+    "09/18/2023",
+    "0.173"
+   ],
+   [
+    "12/18/2023",
+    "0.098"
+   ],
+   [
+    "03/18/2024",
+    "0.175"
+   ],
+   [
+    "06/24/2024",
+    "0.229"
+   ],
+   [
+    "09/23/2024",
+    "0.213"
+   ],
+   [
+    "12/23/2024",
+    "0.093"
+   ],
+   [
+    "03/24/2025",
+    "0.167"
+   ],
+   [
+    "06/23/2025",
+    "0.264"
    ],
    [
     "09/22/2025",
-    "0.35460"
+    "0.172"
+   ],
+   [
+    "12/22/2025",
+    "0.119"
+   ],
+   [
+    "03/23/2026",
+    "0.198"
+   ],
+   [
+    "06/22/2026",
+    "0.313"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 3.86,
-  "dividendYieldText": "3.86%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 65,
+  "asOfDate": "2026-04-30",
+  "asOf": "Apr 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000875, report period 2026-04-30)"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json",
+   "history/004.json",
+   "history/005.json",
+   "history/006.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "PID",
-  "name": "Invesco International Dividend Achievers\u2122 ETF",
-  "category": "International",
-  "inception": "2005-09-15",
-  "exchange": "NASDAQ",
-  "ter": 0.35,
-  "cusip": "46137V548",
-  "isin": "US46137V5488"
+  "totalRows": 5270,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

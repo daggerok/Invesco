@@ -2,55 +2,74 @@
  "ticker": "KLMT",
  "name": "Invesco MSCI Global Climate 500 ETF",
  "category": "Global Equity",
+ "categoryPath": "Global Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/klmt.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=KLMT",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=KLMT",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=KLMT",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46138G433",
-  "isin": "US46138G4331"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/KLMT?period1=0&period2=1787874369&interval=1d&events=div%7Csplit",
+  "holdingsSource": "invesco.com per-fund holdings download",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$128.29",
-  "value": 128.29,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 25 2026"
  },
  "marketPrice": {
-  "display": "$127.65",
-  "value": 127.65,
-  "asOfDate": "Aug 26 2026"
+  "display": "$35.44",
+  "value": 35.4444,
+  "asOfDate": "Aug 25 2026"
  },
  "premiumDiscount": {
-  "display": "-0.50%",
-  "value": -0.5
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$10.83 B",
-  "value": 10829000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "—",
+  "value": null,
+  "asOfDate": "—",
+  "source": "previous run"
+ },
+ "yields": {
+  "dividendYield": 1.74,
+  "dividendYieldText": "1.74%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 8.29,
-   "ytdText": "8.29%",
-   "yr1": 20.29,
-   "yr1Text": "20.29%",
-   "yr3": 15.29,
-   "yr3Text": "15.29%",
-   "yr5": 5.29,
-   "yr5Text": "5.29%",
-   "yr10": 6.29,
-   "yr10Text": "6.29%",
-   "sinceInception": 17.29,
-   "sinceInceptionText": "17.29%"
+   "asOfDate": "Aug 26 2026",
+   "mo1": 3.73,
+   "mo1Text": "3.73%",
+   "qtd": 3.13,
+   "qtdText": "3.13%",
+   "ytd": 14.94,
+   "ytdText": "14.94%",
+   "yr1": 21.97,
+   "yr1Text": "21.97%",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 19.22,
+   "sinceInceptionText": "19.22%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -66,53 +85,54 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.63825"
+    "09/23/2024",
+    "0.083"
    ],
    [
-    "03/23/2026",
-    "0.61272"
+    "12/23/2024",
+    "0.139"
    ],
    [
-    "12/22/2025",
-    "0.65102"
+    "03/24/2025",
+    "0.121"
+   ],
+   [
+    "06/23/2025",
+    "0.154"
    ],
    [
     "09/22/2025",
-    "0.57442"
+    "0.12"
+   ],
+   [
+    "12/22/2025",
+    "0.209"
+   ],
+   [
+    "03/23/2026",
+    "0.122"
+   ],
+   [
+    "06/22/2026",
+    "0.154"
    ]
   ]
  },
- "yields": {
-  "dividendYield": 3.59,
-  "dividendYieldText": "3.59%",
-  "secYield": null,
-  "secYieldText": "\u2014"
- },
  "holdings": {
-  "pages": [
-   "holdings/001.json"
-  ],
+  "pages": [],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 0,
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "invesco.com per-fund holdings download"
  },
  "history": {
   "pages": [
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "KLMT",
-  "name": "Invesco MSCI Global Climate 500 ETF",
-  "category": "Global Equity",
-  "inception": "2024-06-26",
-  "exchange": "NYSE Arca",
-  "ter": 0.35,
-  "cusip": "46138G433",
-  "isin": "US46138G4331"
+  "totalRows": 544,
+  "asOf": "Aug 26 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

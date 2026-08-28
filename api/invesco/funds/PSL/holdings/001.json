@@ -2,7 +2,7 @@
  "ticker": "PSL",
  "page": 1,
  "pageSize": 250,
- "totalRows": 10,
+ "totalRows": 50,
  "headers": [
   "Name",
   "Ticker",
@@ -14,94 +14,454 @@
  ],
  "rows": [
   {
-   "Name": "NVIDIA Corp",
-   "Ticker": "NVDA",
-   "Identifier": "67066G104",
-   "Weight": "8.20",
-   "Market Value": "82000000.00",
-   "Shares Held": "819999",
-   "Asset Category": "Equity"
+   "Name": "Archer-Daniels-Midland Co.",
+   "Ticker": "ADM",
+   "Identifier": "039483102",
+   "Weight": "3.2146121111",
+   "Market Value": "2702745.86",
+   "Shares Held": "36259",
+   "Asset Category": "EC"
   },
   {
-   "Name": "Apple Inc",
-   "Ticker": "AAPL",
-   "Identifier": "037833100",
-   "Weight": "7.50",
-   "Market Value": "75000000.00",
-   "Shares Held": "750000",
-   "Asset Category": "Equity"
+   "Name": "Seaboard Corp.",
+   "Ticker": "SEB",
+   "Identifier": "811543107",
+   "Weight": "1.6365913089",
+   "Market Value": "1375995.06",
+   "Shares Held": "242",
+   "Asset Category": "EC"
   },
   {
-   "Name": "Microsoft Corp",
-   "Ticker": "MSFT",
-   "Identifier": "594918104",
-   "Weight": "6.80",
-   "Market Value": "68000000.00",
-   "Shares Held": "680000",
-   "Asset Category": "Equity"
+   "Name": "US Foods Holding Corp.",
+   "Ticker": "USFD",
+   "Identifier": "912008109",
+   "Weight": "5.4151260331",
+   "Market Value": "4552869.51",
+   "Shares Held": "48699",
+   "Asset Category": "EC"
   },
   {
-   "Name": "Amazon.com Inc",
-   "Ticker": "AMZN",
-   "Identifier": "023135106",
-   "Weight": "5.50",
-   "Market Value": "55000000.00",
-   "Shares Held": "550000",
-   "Asset Category": "Equity"
+   "Name": "EZCORP, Inc.",
+   "Ticker": "EZPW",
+   "Identifier": "302301106",
+   "Weight": "1.9435578758",
+   "Market Value": "1634083",
+   "Shares Held": "49850",
+   "Asset Category": "EC"
   },
   {
-   "Name": "Alphabet Inc Class A",
-   "Ticker": "GOOGL",
-   "Identifier": "02079K305",
-   "Weight": "4.20",
-   "Market Value": "42000000.00",
-   "Shares Held": "420000",
-   "Asset Category": "Equity"
+   "Name": "Edgewell Personal Care Co.",
+   "Ticker": "EPC",
+   "Identifier": "28035Q102",
+   "Weight": "1.0815174177",
+   "Market Value": "909306.2",
+   "Shares Held": "40324",
+   "Asset Category": "EC"
   },
   {
-   "Name": "Meta Platforms Inc",
-   "Ticker": "META",
-   "Identifier": "30303M102",
-   "Weight": "3.80",
-   "Market Value": "38000000.00",
-   "Shares Held": "380000",
-   "Asset Category": "Equity"
+   "Name": "Performance Food Group Co.",
+   "Ticker": "PFGC",
+   "Identifier": "71377A103",
+   "Weight": "4.3458129323",
+   "Market Value": "3653824.32",
+   "Shares Held": "40347",
+   "Asset Category": "EC"
   },
   {
-   "Name": "Broadcom Inc",
-   "Ticker": "AVGO",
-   "Identifier": "11135F101",
-   "Weight": "3.10",
-   "Market Value": "31000000.00",
-   "Shares Held": "310000",
-   "Asset Category": "Equity"
+   "Name": "Costco Wholesale Corp.",
+   "Ticker": "COST",
+   "Identifier": "22160K105",
+   "Weight": "5.8909594687",
+   "Market Value": "4952935.46",
+   "Shares Held": "4882",
+   "Asset Category": "EC"
   },
   {
-   "Name": "Tesla Inc",
-   "Ticker": "TSLA",
-   "Identifier": "88160R101",
-   "Weight": "2.90",
-   "Market Value": "29000000.00",
-   "Shares Held": "290000",
-   "Asset Category": "Equity"
+   "Name": "Philip Morris International Inc.",
+   "Ticker": "PM",
+   "Identifier": "718172109",
+   "Weight": "3.7825360259",
+   "Market Value": "3180238.62",
+   "Shares Held": "19266",
+   "Asset Category": "EC"
   },
   {
-   "Name": "JPMorgan Chase & Co",
-   "Ticker": "JPM",
-   "Identifier": "46625H100",
-   "Weight": "2.50",
-   "Market Value": "25000000.00",
-   "Shares Held": "250000",
-   "Asset Category": "Equity"
+   "Name": "Casey's General Stores, Inc.",
+   "Ticker": "CASY",
+   "Identifier": "147528103",
+   "Weight": "6.6875498244",
+   "Market Value": "5622683.85",
+   "Shares Held": "6839",
+   "Asset Category": "EC"
   },
   {
-   "Name": "Berkshire Hathaway Inc Class B",
-   "Ticker": "BRK.B",
-   "Identifier": "084670702",
-   "Weight": "2.20",
-   "Market Value": "22000000.00",
-   "Shares Held": "220000",
-   "Asset Category": "Equity"
+   "Name": "Church & Dwight Co., Inc.",
+   "Ticker": "CHD",
+   "Identifier": "171340102",
+   "Weight": "5.0790994591",
+   "Market Value": "4270348.82",
+   "Shares Held": "43997",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Coca-Cola Consolidated, Inc.",
+   "Ticker": "COKE",
+   "Identifier": "191098102",
+   "Weight": "2.583470277",
+   "Market Value": "2172101.44",
+   "Shares Held": "10592",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Altria Group, Inc.",
+   "Ticker": "MO",
+   "Identifier": "02209S103",
+   "Weight": "3.6673708229",
+   "Market Value": "3083411.3",
+   "Shares Held": "42442",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Freshpet, Inc.",
+   "Ticker": "FRPT",
+   "Identifier": "358039105",
+   "Weight": "1.256128921",
+   "Market Value": "1056114.12",
+   "Shares Held": "15674",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Post Holdings, Inc.",
+   "Ticker": "POST",
+   "Identifier": "737446104",
+   "Weight": "1.2940990818",
+   "Market Value": "1088038.25",
+   "Shares Held": "10387",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Universal Technical Institute, Inc.",
+   "Ticker": "UTI",
+   "Identifier": "913915104",
+   "Weight": "1.0149723057",
+   "Market Value": "853357.14",
+   "Shares Held": "22738",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Laureate Education, Inc.",
+   "Ticker": "LAUR",
+   "Identifier": "518613203",
+   "Weight": "2.2035165901",
+   "Market Value": "1852648.2",
+   "Shares Held": "61560",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Coca-Cola Co. (The)",
+   "Ticker": "KO",
+   "Identifier": "191216100",
+   "Weight": "2.7493015791",
+   "Market Value": "2311527.24",
+   "Shares Held": "29349",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "United Natural Foods, Inc.",
+   "Ticker": "UNFI",
+   "Identifier": "911163103",
+   "Weight": "1.3237823518",
+   "Market Value": "1112995.02",
+   "Shares Held": "22251",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Tyson Foods, Inc.",
+   "Ticker": "TSN",
+   "Identifier": "902494103",
+   "Weight": "1.7645811301",
+   "Market Value": "1483604.92",
+   "Shares Held": "23156",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Strategic Education, Inc.",
+   "Ticker": "STRA",
+   "Identifier": "86272C103",
+   "Weight": "0.98236746",
+   "Market Value": "825944",
+   "Shares Held": "10535",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "H&R Block, Inc.",
+   "Ticker": "HRB",
+   "Identifier": "093671105",
+   "Weight": "1.1994293208",
+   "Market Value": "1008442.86",
+   "Shares Held": "31782",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Primo Brands Corp.",
+   "Ticker": "PRMB",
+   "Identifier": "741623102",
+   "Weight": "2.1767508282",
+   "Market Value": "1830144.38",
+   "Shares Held": "89801",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Invesco Private Prime Fund",
+   "Ticker": "-",
+   "Identifier": "2487474",
+   "Weight": "11.0151435483",
+   "Market Value": "9261190.0264",
+   "Shares Held": "9260264",
+   "Asset Category": "STIV"
+  },
+  {
+   "Name": "Bunge Global S.A.",
+   "Ticker": "BG",
+   "Identifier": "H11356104",
+   "Weight": "2.0858205966",
+   "Market Value": "1753693.07",
+   "Shares Held": "13801",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Perdoceo Education Corp.",
+   "Ticker": "PRDO",
+   "Identifier": "71363P106",
+   "Weight": "1.4677736213",
+   "Market Value": "1234058.4",
+   "Shares Held": "36360",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Kroger Co. (The)",
+   "Ticker": "KR",
+   "Identifier": "501044101",
+   "Weight": "4.1143069119",
+   "Market Value": "3459181.26",
+   "Shares Held": "50818",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Spectrum Brands Holdings, Inc.",
+   "Ticker": "SPB",
+   "Identifier": "84790A105",
+   "Weight": "1.1278343074",
+   "Market Value": "948248",
+   "Shares Held": "11480",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Procter & Gamble Co. (The)",
+   "Ticker": "PG",
+   "Identifier": "742718109",
+   "Weight": "2.0946404995",
+   "Market Value": "1761108.57",
+   "Shares Held": "11973",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Turning Point Brands, Inc.",
+   "Ticker": "TPB",
+   "Identifier": "90041L105",
+   "Weight": "1.9972109551",
+   "Market Value": "1679192.84",
+   "Shares Held": "20813",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Darling Ingredients Inc.",
+   "Ticker": "DAR",
+   "Identifier": "237266101",
+   "Weight": "3.8719716613",
+   "Market Value": "3255433.32",
+   "Shares Held": "50684",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Herbalife Ltd.",
+   "Ticker": "HLF",
+   "Identifier": "G4412G101",
+   "Weight": "1.3823644194",
+   "Market Value": "1162249",
+   "Shares Held": "70015",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Stride, Inc.",
+   "Ticker": "LRN",
+   "Identifier": "86333M108",
+   "Weight": "1.3470932762",
+   "Market Value": "1132594.12",
+   "Shares Held": "11657",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Boston Beer Co., Inc. (The)",
+   "Ticker": "SAM",
+   "Identifier": "100557107",
+   "Weight": "1.1939837578",
+   "Market Value": "1003864.4",
+   "Shares Held": "4235",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Sysco Corp.",
+   "Ticker": "SYY",
+   "Identifier": "871829107",
+   "Weight": "1.4454716187",
+   "Market Value": "1215307.57",
+   "Shares Held": "16267",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "BJ's Wholesale Club Holdings, Inc.",
+   "Ticker": "BJ",
+   "Identifier": "05550J101",
+   "Weight": "3.0796791454",
+   "Market Value": "2589298.42",
+   "Shares Held": "27578",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Lincoln Educational Services Corp.",
+   "Ticker": "LINC",
+   "Identifier": "533535100",
+   "Weight": "1.6886715898",
+   "Market Value": "1419782.54",
+   "Shares Held": "34511",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Monster Beverage Corp.",
+   "Ticker": "MNST",
+   "Identifier": "61174X109",
+   "Weight": "3.4307868911",
+   "Market Value": "2884498.89",
+   "Shares Held": "37427",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Invesco Government & Agency Portfolio",
+   "Ticker": "-",
+   "Identifier": "825252885",
+   "Weight": "0.2331183064",
+   "Market Value": "195998.62",
+   "Shares Held": "195998.62",
+   "Asset Category": "STIV"
+  },
+  {
+   "Name": "Covista Inc.",
+   "Ticker": "CVSA",
+   "Identifier": "00737L103",
+   "Weight": "1.2796909726",
+   "Market Value": "1075924.36",
+   "Shares Held": "9338",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Hershey Co. (The)",
+   "Ticker": "HSY",
+   "Identifier": "427866108",
+   "Weight": "1.5530453301",
+   "Market Value": "1305752.2",
+   "Shares Held": "7030",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Andersons, Inc. (The)",
+   "Ticker": "ANDE",
+   "Identifier": "034164103",
+   "Weight": "1.267634675",
+   "Market Value": "1065787.8",
+   "Shares Held": "13570",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Invesco Private Government Fund",
+   "Ticker": "-",
+   "Identifier": "2442116",
+   "Weight": "4.2493158082",
+   "Market Value": "3572692.54",
+   "Shares Held": "3572692.54",
+   "Asset Category": "STIV"
+  },
+  {
+   "Name": "Sprouts Farmers Market, Inc.",
+   "Ticker": "SFM",
+   "Identifier": "85208M102",
+   "Weight": "1.6742487917",
+   "Market Value": "1407656.3",
+   "Shares Held": "17198",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Chefs' Warehouse, Inc. (The)",
+   "Ticker": "CHEF",
+   "Identifier": "163086101",
+   "Weight": "1.8764795138",
+   "Market Value": "1577685.6",
+   "Shares Held": "20331",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Estee Lauder Cos. Inc. (The)",
+   "Ticker": "-",
+   "Identifier": "518439104",
+   "Weight": "1.6832482802",
+   "Market Value": "1415222.79",
+   "Shares Held": "18449",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Ingredion Inc.",
+   "Ticker": "INGR",
+   "Identifier": "457187102",
+   "Weight": "1.2187127888",
+   "Market Value": "1024655.8",
+   "Shares Held": "9170",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Bright Horizons Family Solutions Inc.",
+   "Ticker": "BFAM",
+   "Identifier": "109194100",
+   "Weight": "1.244092843",
+   "Market Value": "1045994.56",
+   "Shares Held": "12896",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "American Public Education, Inc.",
+   "Ticker": "APEI",
+   "Identifier": "02913V103",
+   "Weight": "1.7243689858",
+   "Market Value": "1449795.8",
+   "Shares Held": "24932",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Grand Canyon Education, Inc.",
+   "Ticker": "LOPE",
+   "Identifier": "38526M106",
+   "Weight": "1.4333676861",
+   "Market Value": "1205130.96",
+   "Shares Held": "7128",
+   "Asset Category": "EC"
+  },
+  {
+   "Name": "Service Corp. International",
+   "Ticker": "SCI",
+   "Identifier": "817565104",
+   "Weight": "2.7290811236",
+   "Market Value": "2294526.51",
+   "Shares Held": "28317",
+   "Asset Category": "EC"
   }
  ]
 }

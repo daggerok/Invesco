@@ -2,55 +2,74 @@
  "ticker": "DIVG",
  "name": "Invesco S&P 500 High Dividend Growers ETF",
  "category": "US Equity",
+ "categoryPath": "US Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/divg.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=DIVG",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=DIVG",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=DIVG",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46138G458",
-  "isin": "US46138G4588"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/DIVG?period1=0&period2=1787874280&interval=1d&events=div%7Csplit",
+  "holdingsSource": "invesco.com per-fund holdings download",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$60.58",
-  "value": 60.58,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$60.55",
-  "value": 60.55,
-  "asOfDate": "Aug 26 2026"
+  "display": "$38.25",
+  "value": 38.2486,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "-0.05%",
-  "value": -0.05
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$9.06 B",
-  "value": 9058000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "—",
+  "value": null,
+  "asOfDate": "—",
+  "source": "previous run"
+ },
+ "yields": {
+  "dividendYield": 2.98,
+  "dividendYieldText": "2.98%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 0.58,
-   "ytdText": "0.58%",
-   "yr1": 2.58,
-   "yr1Text": "2.58%",
-   "yr3": 7.58,
-   "yr3Text": "7.58%",
-   "yr5": 12.58,
-   "yr5Text": "12.58%",
-   "yr10": 8.58,
-   "yr10Text": "8.58%",
-   "sinceInception": 9.58,
-   "sinceInceptionText": "9.58%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 1.29,
+   "mo1Text": "1.29%",
+   "qtd": 5.21,
+   "qtdText": "5.21%",
+   "ytd": 19.35,
+   "ytdText": "19.35%",
+   "yr1": 21.02,
+   "yr1Text": "21.02%",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 19.57,
+   "sinceInceptionText": "19.57%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -58,61 +77,150 @@
   }
  },
  "distributions": {
-  "frequency": "Quarterly",
-  "paymentsPerYear": 4,
+  "frequency": "Monthly",
+  "paymentsPerYear": 12,
   "headers": [
    "Ex-Date",
    "Amount"
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.30275"
+    "02/20/2024",
+    "0.079"
    ],
    [
-    "03/23/2026",
-    "0.29064"
+    "03/18/2024",
+    "0.098"
    ],
    [
-    "12/22/2025",
-    "0.30880"
+    "04/22/2024",
+    "0.111"
+   ],
+   [
+    "05/20/2024",
+    "0.101"
+   ],
+   [
+    "06/24/2024",
+    "0.09"
+   ],
+   [
+    "07/22/2024",
+    "0.092"
+   ],
+   [
+    "08/19/2024",
+    "0.171"
+   ],
+   [
+    "09/23/2024",
+    "0.118"
+   ],
+   [
+    "10/21/2024",
+    "0.131"
+   ],
+   [
+    "11/18/2024",
+    "0.114"
+   ],
+   [
+    "12/23/2024",
+    "0.133"
+   ],
+   [
+    "01/21/2025",
+    "0.084"
+   ],
+   [
+    "02/24/2025",
+    "0.081"
+   ],
+   [
+    "03/24/2025",
+    "0.08"
+   ],
+   [
+    "04/21/2025",
+    "0.079"
+   ],
+   [
+    "05/19/2025",
+    "0.079"
+   ],
+   [
+    "06/23/2025",
+    "0.08"
+   ],
+   [
+    "07/21/2025",
+    "0.085"
+   ],
+   [
+    "08/18/2025",
+    "0.089"
    ],
    [
     "09/22/2025",
-    "0.27247"
+    "0.087"
+   ],
+   [
+    "10/20/2025",
+    "0.099"
+   ],
+   [
+    "11/24/2025",
+    "0.097"
+   ],
+   [
+    "12/22/2025",
+    "0.091"
+   ],
+   [
+    "01/20/2026",
+    "0.098"
+   ],
+   [
+    "02/23/2026",
+    "0.098"
+   ],
+   [
+    "03/23/2026",
+    "0.085"
+   ],
+   [
+    "04/20/2026",
+    "0.096"
+   ],
+   [
+    "05/18/2026",
+    "0.1"
+   ],
+   [
+    "06/22/2026",
+    "0.092"
+   ],
+   [
+    "07/20/2026",
+    "0.095"
    ]
   ]
  },
- "yields": {
-  "dividendYield": 0.88,
-  "dividendYieldText": "0.88%",
-  "secYield": null,
-  "secYieldText": "\u2014"
- },
  "holdings": {
-  "pages": [
-   "holdings/001.json"
-  ],
+  "pages": [],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 0,
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "invesco.com per-fund holdings download"
  },
  "history": {
   "pages": [
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "DIVG",
-  "name": "Invesco S&P 500 High Dividend Growers ETF",
-  "category": "US Equity",
-  "inception": "2023-12-06",
-  "exchange": "NYSE",
-  "ter": 0.35,
-  "cusip": "46138G458",
-  "isin": "US46138G4588"
+  "totalRows": 682,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

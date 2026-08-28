@@ -2,55 +2,74 @@
  "ticker": "QOWZ",
  "name": "Invesco Nasdaq Free Cash Flow Achievers ETF",
  "category": "US Equity",
+ "categoryPath": "US Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/qowz.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=QOWZ",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=QOWZ",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=QOWZ",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46138G466",
-  "isin": "US46138G4661"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/QOWZ?period1=0&period2=1787874540&interval=1d&events=div%7Csplit",
+  "holdingsSource": "invesco.com per-fund holdings download",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$50.58",
-  "value": 50.58,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$50.83",
-  "value": 50.83,
-  "asOfDate": "Aug 26 2026"
+  "display": "$38.28",
+  "value": 38.2753,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "0.49%",
-  "value": 0.49
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$38.06 B",
-  "value": 38058000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "—",
+  "value": null,
+  "asOfDate": "—",
+  "source": "previous run"
+ },
+ "yields": {
+  "dividendYield": 0.32,
+  "dividendYieldText": "0.32%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 20.58,
-   "ytdText": "20.58%",
-   "yr1": 32.58,
-   "yr1Text": "32.58%",
-   "yr3": 27.58,
-   "yr3Text": "27.58%",
-   "yr5": 2.58,
-   "yr5Text": "2.58%",
-   "yr10": 18.58,
-   "yr10Text": "18.58%",
-   "sinceInception": 14.58,
-   "sinceInceptionText": "14.58%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 10.66,
+   "mo1Text": "10.66%",
+   "qtd": 12.32,
+   "qtdText": "12.32%",
+   "ytd": 7.03,
+   "ytdText": "7.03%",
+   "yr1": 6.26,
+   "yr1Text": "6.26%",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 19.57,
+   "sinceInceptionText": "19.57%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -66,53 +85,62 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.25415"
+    "03/18/2024",
+    "0.031"
    ],
    [
-    "03/23/2026",
-    "0.24398"
+    "06/24/2024",
+    "0.032"
    ],
    [
-    "12/22/2025",
-    "0.25923"
+    "09/23/2024",
+    "0.065"
+   ],
+   [
+    "12/23/2024",
+    "0.094"
+   ],
+   [
+    "03/24/2025",
+    "0.03"
+   ],
+   [
+    "06/23/2025",
+    "0.036"
    ],
    [
     "09/22/2025",
-    "0.22873"
+    "0.016"
+   ],
+   [
+    "12/22/2025",
+    "0.018"
+   ],
+   [
+    "03/23/2026",
+    "0.023"
+   ],
+   [
+    "06/22/2026",
+    "0.031"
    ]
   ]
  },
- "yields": {
-  "dividendYield": 0.88,
-  "dividendYieldText": "0.88%",
-  "secYield": null,
-  "secYieldText": "\u2014"
- },
  "holdings": {
-  "pages": [
-   "holdings/001.json"
-  ],
+  "pages": [],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 0,
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "invesco.com per-fund holdings download"
  },
  "history": {
   "pages": [
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "QOWZ",
-  "name": "Invesco Nasdaq Free Cash Flow Achievers ETF",
-  "category": "US Equity",
-  "inception": "2023-12-06",
-  "exchange": "Nasdaq",
-  "ter": 0.35,
-  "cusip": "46138G466",
-  "isin": "US46138G4661"
+  "totalRows": 683,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

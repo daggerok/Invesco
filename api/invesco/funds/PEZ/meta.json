@@ -2,55 +2,74 @@
  "ticker": "PEZ",
  "name": "Invesco Dorsey Wright Consumer Cyclicals Momentum ETF",
  "category": "US Equity",
+ "categoryPath": "US Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pez.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=PEZ",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PEZ",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PEZ",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46137V803",
-  "isin": "US46137V8037"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/PEZ?period1=0&period2=1787874434&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000926, report period 2026-04-30)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$56.43",
-  "value": 56.43,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$56.46",
-  "value": 56.46,
-  "asOfDate": "Aug 26 2026"
+  "display": "$98.29",
+  "value": 98.293,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "0.05%",
-  "value": 0.05
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$48.64 B",
-  "value": 48643000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$23.28 M",
+  "value": 23276167.73,
+  "asOfDate": "Apr 30 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-04-30)"
+ },
+ "yields": {
+  "dividendYield": 0.61,
+  "dividendYieldText": "0.61%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": -3.57,
-   "ytdText": "-3.57%",
-   "yr1": 18.43,
-   "yr1Text": "18.43%",
-   "yr3": 3.43,
-   "yr3Text": "3.43%",
-   "yr5": 8.43,
-   "yr5Text": "8.43%",
-   "yr10": 4.43,
-   "yr10Text": "4.43%",
-   "sinceInception": 5.43,
-   "sinceInceptionText": "5.43%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": -2.56,
+   "mo1Text": "-2.56%",
+   "qtd": -4.06,
+   "qtdText": "-4.06%",
+   "ytd": -5.21,
+   "ytdText": "-5.21%",
+   "yr1": -3.19,
+   "yr1Text": "-3.19%",
+   "yr3": 13.88,
+   "yr3Text": "13.88%",
+   "yr5": 1.58,
+   "yr5Text": "1.58%",
+   "yr10": 9.01,
+   "yr10Text": "9.01%",
+   "sinceInception": 7.6,
+   "sinceInceptionText": "7.60%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -66,53 +85,268 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.28230"
+    "12/15/2006",
+    "0.164"
+   ],
+   [
+    "06/15/2007",
+    "0.089"
+   ],
+   [
+    "12/21/2007",
+    "0.041"
+   ],
+   [
+    "09/19/2008",
+    "0.02"
+   ],
+   [
+    "12/19/2008",
+    "0.143"
+   ],
+   [
+    "06/19/2009",
+    "0.02"
+   ],
+   [
+    "12/18/2009",
+    "0.035"
+   ],
+   [
+    "06/18/2010",
+    "0.013"
+   ],
+   [
+    "09/17/2010",
+    "0.027"
+   ],
+   [
+    "12/17/2010",
+    "0.13"
+   ],
+   [
+    "06/17/2011",
+    "0.065"
+   ],
+   [
+    "09/16/2011",
+    "0.026"
+   ],
+   [
+    "12/16/2011",
+    "0.101"
+   ],
+   [
+    "06/15/2012",
+    "0.049"
+   ],
+   [
+    "09/21/2012",
+    "0.042"
+   ],
+   [
+    "12/21/2012",
+    "0.228"
+   ],
+   [
+    "03/15/2013",
+    "0.02"
+   ],
+   [
+    "06/21/2013",
+    "0.09"
+   ],
+   [
+    "09/20/2013",
+    "0.026"
+   ],
+   [
+    "12/20/2013",
+    "0.053"
+   ],
+   [
+    "03/21/2014",
+    "0.026"
+   ],
+   [
+    "06/20/2014",
+    "0.015"
+   ],
+   [
+    "12/19/2014",
+    "0.025"
+   ],
+   [
+    "03/20/2015",
+    "0.154"
+   ],
+   [
+    "06/19/2015",
+    "0.053"
+   ],
+   [
+    "09/18/2015",
+    "0.034"
+   ],
+   [
+    "12/18/2015",
+    "0.042"
+   ],
+   [
+    "06/17/2016",
+    "0.221"
+   ],
+   [
+    "09/16/2016",
+    "0.054"
+   ],
+   [
+    "12/16/2016",
+    "0.073"
+   ],
+   [
+    "06/16/2017",
+    "0.027"
+   ],
+   [
+    "09/18/2017",
+    "0.135"
+   ],
+   [
+    "12/18/2017",
+    "0.048"
+   ],
+   [
+    "03/19/2018",
+    "0.015"
+   ],
+   [
+    "06/18/2018",
+    "0.082"
+   ],
+   [
+    "09/24/2018",
+    "0.038"
+   ],
+   [
+    "12/24/2018",
+    "0.052"
+   ],
+   [
+    "06/24/2019",
+    "0.002"
+   ],
+   [
+    "09/23/2019",
+    "0.002"
+   ],
+   [
+    "12/23/2019",
+    "0.003"
+   ],
+   [
+    "03/23/2020",
+    "0.101"
+   ],
+   [
+    "06/22/2020",
+    "0.036"
+   ],
+   [
+    "09/21/2020",
+    "0.074"
+   ],
+   [
+    "12/21/2020",
+    "0.084"
+   ],
+   [
+    "03/22/2021",
+    "0.011"
+   ],
+   [
+    "06/21/2021",
+    "0.011"
+   ],
+   [
+    "09/20/2021",
+    "0.078"
+   ],
+   [
+    "12/20/2021",
+    "0.108"
+   ],
+   [
+    "03/21/2022",
+    "0.011"
+   ],
+   [
+    "06/21/2022",
+    "0.011"
+   ],
+   [
+    "09/19/2022",
+    "0.141"
+   ],
+   [
+    "12/19/2022",
+    "0.11"
+   ],
+   [
+    "03/20/2023",
+    "0.23"
+   ],
+   [
+    "06/20/2023",
+    "0.143"
+   ],
+   [
+    "09/18/2023",
+    "0.094"
+   ],
+   [
+    "12/18/2023",
+    "0.032"
+   ],
+   [
+    "03/18/2024",
+    "0.116"
+   ],
+   [
+    "06/23/2025",
+    "0.117"
    ],
    [
     "03/23/2026",
-    "0.27101"
+    "0.098"
    ],
    [
-    "12/22/2025",
-    "0.28795"
-   ],
-   [
-    "09/22/2025",
-    "0.25407"
+    "06/22/2026",
+    "0.151"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 1.73,
-  "dividendYieldText": "1.73%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 48,
+  "asOfDate": "2026-04-30",
+  "asOf": "Apr 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000926, report period 2026-04-30)"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json",
+   "history/003.json",
+   "history/004.json",
+   "history/005.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "PEZ",
-  "name": "Invesco Dorsey Wright Consumer Cyclicals Momentum ETF",
-  "category": "US Equity",
-  "inception": "2006-10-12",
-  "exchange": "NASDAQ",
-  "ter": 0.35,
-  "cusip": "46137V803",
-  "isin": "US46137V8037"
+  "totalRows": 4999,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

@@ -2,55 +2,74 @@
  "ticker": "QQQS",
  "name": "Invesco NASDAQ Future Gen 200 ETF",
  "category": "US Equity",
+ "categoryPath": "US Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/qqqs.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=QQQS",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=QQQS",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=QQQS",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46138G482",
-  "isin": "US46138G4828"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/QQQS?period1=0&period2=1787874556&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001395, report period 2026-05-31)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$125.84",
-  "value": 125.84,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$125.84",
-  "value": 125.84,
-  "asOfDate": "Aug 26 2026"
+  "display": "$45.20",
+  "value": 45.204,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "0.00%",
-  "value": 0.0
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$10.58 B",
-  "value": 10584000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$18.91 M",
+  "value": 18905194.02,
+  "asOfDate": "May 31 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-05-31)"
+ },
+ "yields": {
+  "dividendYield": 0.26,
+  "dividendYieldText": "0.26%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 5.84,
-   "ytdText": "5.84%",
-   "yr1": 17.84,
-   "yr1Text": "17.84%",
-   "yr3": 12.84,
-   "yr3Text": "12.84%",
-   "yr5": 2.84,
-   "yr5Text": "2.84%",
-   "yr10": 3.84,
-   "yr10Text": "3.84%",
-   "sinceInception": 14.84,
-   "sinceInceptionText": "14.84%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 7.63,
+   "mo1Text": "7.63%",
+   "qtd": 2,
+   "qtdText": "2.00%",
+   "ytd": 32.9,
+   "ytdText": "32.90%",
+   "yr1": 52.78,
+   "yr1Text": "52.78%",
+   "yr3": 22.88,
+   "yr3Text": "22.88%",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 17.76,
+   "sinceInceptionText": "17.76%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -66,53 +85,80 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.62920"
+    "12/19/2022",
+    "0.011"
    ],
    [
-    "03/23/2026",
-    "0.60403"
+    "03/20/2023",
+    "0.077"
    ],
    [
-    "12/22/2025",
-    "0.64178"
+    "06/20/2023",
+    "0.036"
+   ],
+   [
+    "09/18/2023",
+    "0.028"
+   ],
+   [
+    "12/18/2023",
+    "0.037"
+   ],
+   [
+    "03/18/2024",
+    "0.067"
+   ],
+   [
+    "09/23/2024",
+    "0.114"
+   ],
+   [
+    "12/23/2024",
+    "0.048"
+   ],
+   [
+    "03/24/2025",
+    "0.061"
+   ],
+   [
+    "06/23/2025",
+    "0.092"
    ],
    [
     "09/22/2025",
-    "0.56628"
+    "0.399"
+   ],
+   [
+    "12/22/2025",
+    "0.633"
+   ],
+   [
+    "03/23/2026",
+    "0.061"
+   ],
+   [
+    "06/22/2026",
+    "0.029"
    ]
   ]
- },
- "yields": {
-  "dividendYield": 1.14,
-  "dividendYieldText": "1.14%",
-  "secYield": null,
-  "secYieldText": "\u2014"
  },
  "holdings": {
   "pages": [
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 204,
+  "asOfDate": "2026-05-31",
+  "asOf": "May 31 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001395, report period 2026-05-31)"
  },
  "history": {
   "pages": [
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "QQQS",
-  "name": "Invesco NASDAQ Future Gen 200 ETF",
-  "category": "US Equity",
-  "inception": "2022-10-13",
-  "exchange": "Nasdaq",
-  "ter": 0.35,
-  "cusip": "46138G482",
-  "isin": "US46138G4828"
+  "totalRows": 971,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

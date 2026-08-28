@@ -1,56 +1,75 @@
 {
  "ticker": "IUS",
- "name": "Invesco RAFI\u2122 Strategic US ETF",
+ "name": "Invesco RAFI Strategic US ETF",
  "category": "US Equity",
+ "categoryPath": "US Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/ius.html",
-  "invescoDetail": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=IUS",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=IUS",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=IUS",
-  "provider": "Invesco Ltd. (US ETFs) + Yahoo Finance public chart API",
-  "cusip": "46138J742",
-  "isin": "US46138J7422"
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/IUS?period1=0&period2=1787874358&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001657201-26-000568, report period 2026-05-31)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "indexTicker": null
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35
+  "display": "—",
+  "value": null
  },
  "nav": {
-  "display": "$166.96",
-  "value": 166.96,
-  "asOfDate": "Aug 26 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Aug 27 2026"
  },
  "marketPrice": {
-  "display": "$167.63",
-  "value": 167.63,
-  "asOfDate": "Aug 26 2026"
+  "display": "$69.87",
+  "value": 69.87,
+  "asOfDate": "Aug 27 2026"
  },
  "premiumDiscount": {
-  "display": "0.40%",
-  "value": 0.4
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$4.70 B",
-  "value": 4696000000.0,
-  "asOfDate": "Aug 26 2026",
-  "source": "Invesco published net assets"
+  "display": "$860.83 M",
+  "value": 860828377.05,
+  "asOfDate": "May 31 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-05-31)"
+ },
+ "yields": {
+  "dividendYield": 1.17,
+  "dividendYieldText": "1.17%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "Invesco official fund performance + Yahoo chart",
+  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Jul 31 2026",
-   "ytd": 16.96,
-   "ytdText": "16.96%",
-   "yr1": 18.96,
-   "yr1Text": "18.96%",
-   "yr3": 23.96,
-   "yr3Text": "23.96%",
-   "yr5": 18.96,
-   "yr5Text": "18.96%",
-   "yr10": 4.96,
-   "yr10Text": "4.96%",
-   "sinceInception": 10.96,
-   "sinceInceptionText": "10.96%"
+   "asOfDate": "Aug 27 2026",
+   "mo1": 3.87,
+   "mo1Text": "3.87%",
+   "qtd": 5.93,
+   "qtdText": "5.93%",
+   "ytd": 23.08,
+   "ytdText": "23.08%",
+   "yr1": 31.42,
+   "yr1Text": "31.42%",
+   "yr3": 21.84,
+   "yr3Text": "21.84%",
+   "yr5": 14.59,
+   "yr5Text": "14.59%",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 15.73,
+   "sinceInceptionText": "15.73%"
   },
   "quarterEnd": {
    "asOfDate": "Jun 30 2026",
@@ -66,53 +85,151 @@
   ],
   "rows": [
    [
-    "06/22/2026",
-    "0.83815"
+    "12/24/2018",
+    "0.16"
    ],
    [
-    "03/23/2026",
-    "0.80462"
+    "03/18/2019",
+    "0.112"
    ],
    [
-    "12/22/2025",
-    "0.85491"
+    "06/24/2019",
+    "0.123"
+   ],
+   [
+    "09/23/2019",
+    "0.123"
+   ],
+   [
+    "12/23/2019",
+    "0.132"
+   ],
+   [
+    "03/23/2020",
+    "0.147"
+   ],
+   [
+    "06/22/2020",
+    "0.121"
+   ],
+   [
+    "09/21/2020",
+    "0.13"
+   ],
+   [
+    "12/21/2020",
+    "0.143"
+   ],
+   [
+    "03/22/2021",
+    "0.147"
+   ],
+   [
+    "06/21/2021",
+    "0.123"
+   ],
+   [
+    "09/20/2021",
+    "0.141"
+   ],
+   [
+    "12/20/2021",
+    "0.18"
+   ],
+   [
+    "03/21/2022",
+    "0.159"
+   ],
+   [
+    "06/21/2022",
+    "0.189"
+   ],
+   [
+    "09/19/2022",
+    "0.156"
+   ],
+   [
+    "12/19/2022",
+    "0.147"
+   ],
+   [
+    "03/20/2023",
+    "0.172"
+   ],
+   [
+    "06/20/2023",
+    "0.174"
+   ],
+   [
+    "09/18/2023",
+    "0.204"
+   ],
+   [
+    "12/18/2023",
+    "0.195"
+   ],
+   [
+    "03/18/2024",
+    "0.174"
+   ],
+   [
+    "06/24/2024",
+    "0.177"
+   ],
+   [
+    "09/23/2024",
+    "0.207"
+   ],
+   [
+    "12/23/2024",
+    "0.197"
+   ],
+   [
+    "03/24/2025",
+    "0.213"
+   ],
+   [
+    "06/23/2025",
+    "0.207"
    ],
    [
     "09/22/2025",
-    "0.75433"
+    "0.214"
+   ],
+   [
+    "12/22/2025",
+    "0.211"
+   ],
+   [
+    "03/23/2026",
+    "0.215"
+   ],
+   [
+    "06/22/2026",
+    "0.205"
    ]
   ]
  },
- "yields": {
-  "dividendYield": 2.26,
-  "dividendYieldText": "2.26%",
-  "secYield": null,
-  "secYieldText": "\u2014"
- },
  "holdings": {
   "pages": [
-   "holdings/001.json"
+   "holdings/001.json",
+   "holdings/002.json",
+   "holdings/003.json"
   ],
   "pageSize": 250,
-  "totalRows": 10,
-  "asOf": "Aug 26 2026"
+  "totalRows": 546,
+  "asOfDate": "2026-05-31",
+  "asOf": "May 31 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001657201-26-000568, report period 2026-05-31)"
  },
  "history": {
   "pages": [
-   "history/001.json"
+   "history/001.json",
+   "history/002.json"
   ],
   "pageSize": 1000,
-  "totalRows": 100,
-  "asOf": "Aug 26 2026"
- },
- "seed": {
-  "ticker": "IUS",
-  "name": "Invesco RAFI\u2122 Strategic US ETF",
-  "category": "US Equity",
-  "inception": "2018-09-12",
-  "exchange": "NASDAQ",
-  "ter": 0.35,
-  "cusip": "46138J742",
-  "isin": "US46138J7422"
+  "totalRows": 2000,
+  "asOf": "Aug 27 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }
