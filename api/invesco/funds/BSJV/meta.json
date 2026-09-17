@@ -7,7 +7,7 @@
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/bsjv.html",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=BSJV",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=BSJV",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BSJV?period1=0&period2=1787874224&interval=1d&events=div%7Csplit",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BSJV?period1=0&period2=1789627940&interval=1d&events=div%7Csplit",
   "holdingsSource": "invesco.com per-fund holdings download",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
@@ -24,12 +24,12 @@
  "nav": {
   "display": "—",
   "value": null,
-  "asOfDate": "Aug 27 2026"
+  "asOfDate": "Sep 16 2026"
  },
  "marketPrice": {
   "display": "$25.98",
   "value": 25.975,
-  "asOfDate": "Aug 27 2026"
+  "asOfDate": "Sep 16 2026"
  },
  "premiumDiscount": {
   "display": "—",
@@ -44,20 +44,20 @@
  "yields": {
   "dividendYield": 6.79,
   "dividendYieldText": "6.79%",
-  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "dividendYieldKind": "trailing 12-month, published by invesco.com",
   "distributionRate": null,
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
+  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
   "monthEnd": {
-   "asOfDate": "Aug 27 2026",
-   "mo1": 1.09,
-   "mo1Text": "1.09%",
-   "qtd": 0.06,
-   "qtdText": "0.06%",
+   "asOfDate": "Sep 16 2026",
+   "mo1": -1.32,
+   "mo1Text": "-1.32%",
+   "qtd": -1.25,
+   "qtdText": "-1.25%",
    "ytd": 1.6,
    "ytdText": "1.60%",
    "yr1": 3.99,
@@ -239,8 +239,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 737,
-  "asOf": "Aug 27 2026",
+  "totalRows": 750,
+  "asOf": "Sep 16 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

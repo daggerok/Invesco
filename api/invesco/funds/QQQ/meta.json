@@ -7,8 +7,8 @@
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/invesco-qqq-trust-series-1.html",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=QQQ",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=QQQ",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/QQQ?period1=0&period2=1787874773&interval=1d&events=div%7Csplit",
-  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001067839-26-000024, report period 2026-03-31)",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/QQQ?period1=0&period2=1789629001&interval=1d&events=div%7Csplit",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001067839-26-000030, report period 2026-06-30)",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
  },
@@ -24,22 +24,22 @@
  "nav": {
   "display": "—",
   "value": null,
-  "asOfDate": "Aug 27 2026"
+  "asOfDate": "Sep 16 2026"
  },
  "marketPrice": {
   "display": "$721.11",
   "value": 721.11,
-  "asOfDate": "Aug 27 2026"
+  "asOfDate": "Sep 16 2026"
  },
  "premiumDiscount": {
   "display": "—",
   "value": null
  },
  "aum": {
-  "display": "$372,507.31 M",
-  "value": 372507306132.08,
-  "asOfDate": "Mar 31 2026",
-  "source": "SEC Form N-PORT-P net assets (report period 2026-03-31)"
+  "display": "$490,103.18 M",
+  "value": 490103179941.66,
+  "asOfDate": "Jun 30 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-06-30)"
  },
  "yields": {
   "dividendYield": 0.45,
@@ -53,11 +53,11 @@
  "returns": {
   "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
   "monthEnd": {
-   "asOfDate": "Aug 27 2026",
-   "mo1": 5.72,
-   "mo1Text": "5.72%",
-   "qtd": -0.56,
-   "qtdText": "-0.56%",
+   "asOfDate": "Sep 16 2026",
+   "mo1": -3.45,
+   "mo1Text": "-3.45%",
+   "qtd": -2.82,
+   "qtdText": "-2.82%",
    "ytd": 17.66,
    "ytdText": "17.66%",
    "yr1": 26.35,
@@ -447,10 +447,10 @@
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 102,
-  "asOfDate": "2026-03-31",
-  "asOf": "Mar 31 2026",
-  "source": "SEC EDGAR Form N-PORT-P (accession 0001067839-26-000024, report period 2026-03-31)"
+  "totalRows": 105,
+  "asOfDate": "2026-06-30",
+  "asOf": "Jun 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001067839-26-000030, report period 2026-06-30)"
  },
  "history": {
   "pages": [
@@ -463,8 +463,8 @@
    "history/007.json"
   ],
   "pageSize": 1000,
-  "totalRows": 6910,
-  "asOf": "Aug 27 2026",
+  "totalRows": 6923,
+  "asOf": "Sep 16 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

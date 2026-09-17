@@ -7,7 +7,7 @@
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/qeth.html",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=QETH",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=QETH",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/QETH?period1=0&period2=1787874536&interval=1d&events=div%7Csplit",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/QETH?period1=0&period2=1789628957&interval=1d&events=div%7Csplit",
   "holdingsSource": "invesco.com per-fund holdings download",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
@@ -24,12 +24,12 @@
  "nav": {
   "display": "—",
   "value": null,
-  "asOfDate": "Aug 27 2026"
+  "asOfDate": "Sep 16 2026"
  },
  "marketPrice": {
   "display": "$24.87",
   "value": 24.87,
-  "asOfDate": "Aug 27 2026"
+  "asOfDate": "Sep 16 2026"
  },
  "premiumDiscount": {
   "display": "—",
@@ -51,13 +51,13 @@
   "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
+  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
   "monthEnd": {
-   "asOfDate": "Aug 27 2026",
-   "mo1": 28.33,
-   "mo1Text": "28.33%",
-   "qtd": 54.76,
-   "qtdText": "54.76%",
+   "asOfDate": "Sep 16 2026",
+   "mo1": 26.2,
+   "mo1Text": "26.20%",
+   "qtd": 48.97,
+   "qtdText": "48.97%",
    "ytd": -15.89,
    "ytdText": "-15.89%",
    "yr1": -45.41,
@@ -98,8 +98,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 527,
-  "asOf": "Aug 27 2026",
+  "totalRows": 540,
+  "asOf": "Sep 16 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

@@ -7,7 +7,7 @@
   "fundPage": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=GTOS",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=GTOS",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=GTOS",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/GTOS?period1=0&period2=1787874326&interval=1d&events=div%7Csplit",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/GTOS?period1=0&period2=1789628434&interval=1d&events=div%7Csplit",
   "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001418144-26-000331, report period 2026-04-30)",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
@@ -24,12 +24,12 @@
  "nav": {
   "display": "—",
   "value": null,
-  "asOfDate": "Aug 27 2026"
+  "asOfDate": "Sep 16 2026"
  },
  "marketPrice": {
   "display": "$24.88",
   "value": 24.88,
-  "asOfDate": "Aug 27 2026"
+  "asOfDate": "Sep 16 2026"
  },
  "premiumDiscount": {
   "display": "—",
@@ -44,20 +44,20 @@
  "yields": {
   "dividendYield": 4.73,
   "dividendYieldText": "4.73%",
-  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "dividendYieldKind": "trailing 12-month, published by invesco.com",
   "distributionRate": null,
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
+  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
   "monthEnd": {
-   "asOfDate": "Aug 27 2026",
-   "mo1": 0.58,
-   "mo1Text": "0.58%",
-   "qtd": 0.55,
-   "qtdText": "0.55%",
+   "asOfDate": "Sep 16 2026",
+   "mo1": -0.53,
+   "mo1Text": "-0.53%",
+   "qtd": 0,
+   "qtdText": "0.00%",
    "ytd": 1.81,
    "ytdText": "1.81%",
    "yr1": 3.95,
@@ -279,8 +279,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 929,
-  "asOf": "Aug 27 2026",
+  "totalRows": 942,
+  "asOf": "Sep 16 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

@@ -1820,7 +1820,7 @@ async function processFund(
     config,
   );
   if (reasons.length) {
-    console.log(`[${ticker.padEnd(5)}] skipped (${reasons.join(', ')})`);
+    console.log(`[ ${ticker.padEnd(5)} ] skipped (${reasons.join(', ')})`);
     return null;
   }
 
@@ -1833,7 +1833,7 @@ async function processFund(
   let holdingsEdgar: ParsedNport | null = null;
   if (!config.skipInvesco) {
     try {
-      const csv = await fetchText(invescoHoldingsDownloadUrl(ticker, config.audienceType), `[holdings] ${ticker}`, invescoHeaders(), config);
+      const csv = await fetchText(invescoHoldingsDownloadUrl(ticker, config.audienceType), `[ holdings ] ${ticker}`, invescoHeaders(), config);
       const parsed = parseInvescoHoldings(csv, ticker);
       const sum = weightsSum(parsed.rows);
       if (sum > 0 && sum < 1) {
@@ -1847,7 +1847,7 @@ async function processFund(
         await writeFile(new URL(`holdings-${(holdings.asOfDate || 'latest').replace(/-/g, '')}.csv`, rawDir), csv, 'utf8');
       }
     } catch (error) {
-      console.warn(`[holdings] ${ticker}: ${errorMessage(error)}${config.edgarFallback ? ' — trying SEC EDGAR N-PORT-P' : ''}`);
+      console.warn(`[ holdings ] ${ticker}: ${errorMessage(error)}${config.edgarFallback ? ' — trying SEC EDGAR N-PORT-P' : ''}`);
     }
   }
 
@@ -1855,7 +1855,7 @@ async function processFund(
     try {
       const filing = await resolveNportFiling(fund, config);
       if (filing) {
-        const parsed = parseNport(await fetchText(filing.accession.url, `[nport   ] ${ticker}`, secHeaders(config), config));
+        const parsed = parseNport(await fetchText(filing.accession.url, `[ nport    ] ${ticker}`, secHeaders(config), config));
         // A registrant files one N-PORT-P per series: only accept the document
         // that really belongs to this fund, never the trust's newest filing.
         const filedSeries = normalizeHoldingName(parsed.seriesName);
@@ -1864,7 +1864,7 @@ async function processFund(
           ? !parsed.seriesId || parsed.seriesId.toUpperCase() === filing.seriesId.toUpperCase()
           : Boolean(filedSeries && wantedSeries && (filedSeries === wantedSeries || filedSeries.includes(wantedSeries) || wantedSeries.includes(filedSeries)));
         if (!belongsToFund) {
-          console.warn(`[edgar   ] ${ticker}: ${filing.accession.accession} reports "${parsed.seriesName || 'unknown series'}" — skipped`);
+          console.warn(`[ edgar    ] ${ticker}: ${filing.accession.accession} reports "${parsed.seriesName || 'unknown series'}" — skipped`);
         } else if (parsed.holdings.length) {
           holdingsEdgar = parsed;
           holdings = {
@@ -1876,7 +1876,7 @@ async function processFund(
         }
       }
     } catch (error) {
-      console.warn(`[edgar   ] ${ticker}: ${errorMessage(error)} — keeping previous holdings`);
+      console.warn(`[ edgar    ] ${ticker}: ${errorMessage(error)} — keeping previous holdings`);
     }
   }
 
@@ -1902,7 +1902,7 @@ async function processFund(
   if (config.pricesHistory && !config.skipInvesco) {
     try {
       const parsed = parsePricesCsv(
-        await fetchText(invescoPricesDownloadUrl(ticker, config.audienceType), `[prices  ] ${ticker}`, invescoHeaders(), config),
+        await fetchText(invescoPricesDownloadUrl(ticker, config.audienceType), `[ prices   ] ${ticker}`, invescoHeaders(), config),
         ticker,
       );
       if (parsed.days.length) {
@@ -1915,13 +1915,13 @@ async function processFund(
         if (typeof lastNav === 'number') navFromChart = lastNav;
       }
     } catch (error) {
-      console.warn(`[prices  ] ${ticker}: ${errorMessage(error)} — using the Yahoo chart feed`);
+      console.warn(`[ prices   ] ${ticker}: ${errorMessage(error)} — using the Yahoo chart feed`);
     }
   }
 
   if (!config.skipYahoo) {
     try {
-      const chart = parseChart(await fetchJson(chartUrl(ticker, config), `[chart   ] ${ticker}`, yahooHeaders(), config));
+      const chart = parseChart(await fetchJson(chartUrl(ticker, config), `[ chart    ] ${ticker}`, yahooHeaders(), config));
       exchangeName = chart.exchangeName;
       navFromChart = chart.navPrice ?? navFromChart;
       priceFromChart = chart.regularMarketPrice;
@@ -1930,7 +1930,7 @@ async function processFund(
       dividends = chart.dividends;
       if (!chartDays.length) chartDays = chart.days;
     } catch (error) {
-      console.warn(`[chart   ] ${ticker}: ${errorMessage(error)} — keeping previous history`);
+      console.warn(`[ chart    ] ${ticker}: ${errorMessage(error)} — keeping previous history`);
     }
   }
 
@@ -2088,9 +2088,9 @@ async function loadFundTickerMap(config: UpdaterConfig): Promise<Map<string, Sec
   try {
     const payload = await fetchJson(SEC_FUND_TICKERS_URL, '[edgar   ] fund ticker table', secHeaders(config), config);
     fundTickerMap = parseFundTickerMap(payload);
-    console.log(`[edgar   ] SEC fund ticker table: ${fundTickerMap.size} ETF / mutual-fund share classes`);
+    console.log(`[ edgar    ] SEC fund ticker table: ${fundTickerMap.size} ETF / mutual-fund share classes`);
   } catch (error) {
-    console.warn(`[edgar   ] fund ticker table: ${errorMessage(error)} — falling back to full-text search`);
+    console.warn(`[ edgar    ] fund ticker table: ${errorMessage(error)} — falling back to full-text search`);
     fundTickerMap = new Map<string, SecSeriesRef>();
   }
   return fundTickerMap;
@@ -2099,11 +2099,11 @@ async function loadFundTickerMap(config: UpdaterConfig): Promise<Map<string, Sec
 async function loadCompanyTickerMap(config: UpdaterConfig): Promise<Map<string, string>> {
   if (companyTickerMap) return companyTickerMap;
   try {
-    const payload = await fetchJson(SEC_COMPANY_TICKERS_URL, '[edgar   ] company ticker table', secHeaders(config), config);
+    const payload = await fetchJson(SEC_COMPANY_TICKERS_URL, '[ edgar    ] company ticker table', secHeaders(config), config);
     companyTickerMap = parseCompanyTickerMap(payload);
-    console.log(`[edgar   ] SEC company ticker table: ${companyTickerMap.size} issuer names`);
+    console.log(`[ edgar    ] SEC company ticker table: ${companyTickerMap.size} issuer names`);
   } catch (error) {
-    console.warn(`[edgar   ] company ticker table: ${errorMessage(error)} — N-PORT tickers stay "-"`);
+    console.warn(`[ edgar    ] company ticker table: ${errorMessage(error)} — N-PORT tickers stay "-"`);
     companyTickerMap = new Map<string, string>();
   }
   return companyTickerMap;
@@ -2134,7 +2134,7 @@ async function resolveRegistrantCik(fund: CatalogFund, config: UpdaterConfig): P
       const payload = await fetchJson(eftsSearchUrl(fund.ticker), `[edgar   ] search ${fund.ticker}`, secHeaders(config), config);
       cik = pickEftsCik(payload, fund.name);
     } catch (error) {
-      console.warn(`[edgar   ] search ${fund.ticker}: ${errorMessage(error)}`);
+      console.warn(`[ edgar    ] search ${fund.ticker}: ${errorMessage(error)}`);
     }
   }
   cikByTicker.set(fund.ticker, cik);
@@ -2156,7 +2156,7 @@ async function resolveNportFiling(
       const [newest] = parseEdgarAtomFilings(atom);
       if (newest) return { accession: newest, cik: ref.cik, seriesId: ref.seriesId };
     } catch (error) {
-      console.warn(`[edgar   ] ${fund.ticker} series ${ref.seriesId}: ${errorMessage(error)} — scanning registrant submissions`);
+      console.warn(`[ edgar    ] ${fund.ticker} series ${ref.seriesId}: ${errorMessage(error)} — scanning registrant submissions`);
     }
   }
   const cik = ref?.cik || (await resolveRegistrantCik(fund, config));
@@ -2166,7 +2166,7 @@ async function resolveNportFiling(
     const [newest] = parseNportAccessions(submissions);
     if (newest) return { accession: newest, cik, seriesId: ref?.seriesId || '' };
   } catch (error) {
-    console.warn(`[edgar   ] ${fund.ticker}: ${errorMessage(error)}`);
+    console.warn(`[ edgar    ] ${fund.ticker}: ${errorMessage(error)}`);
   }
   return null;
 }
@@ -2196,7 +2196,7 @@ async function main(): Promise<void> {
     try {
       fundPages = parseCatalogFundPages(await fetchText(config.catalogHtmlUrl, '[catalog ] fund pages', invescoHeaders(), config));
     } catch (error) {
-      console.warn(`[catalog ] ${errorMessage(error)} — using ?ticker= links`);
+      console.warn(`[ catalog  ] ${errorMessage(error)} — using ?ticker= links`);
     }
     try {
       const csv = await fetchText(config.productListUrl, '[catalog ] product list', invescoHeaders(), config);
@@ -2208,7 +2208,7 @@ async function main(): Promise<void> {
       }
       catalogSource = 'invesco.com ETF product list download';
     } catch (error) {
-      console.warn(`[catalog ] ${errorMessage(error)} — falling back to the published feed`);
+      console.warn(`[ catalog  ] ${errorMessage(error)} — falling back to the published feed`);
     }
   }
 
@@ -2240,7 +2240,7 @@ async function main(): Promise<void> {
       discovered += 1;
     }
     if (discovered) {
-      console.log(`[catalog ] +${discovered} funds discovered through the SEC registrant tables`);
+      console.log(`[ catalog  ] +${discovered} funds discovered through the SEC registrant tables`);
       catalogSource = `${catalogSource} + SEC registrant tables`;
     }
   }
@@ -2254,7 +2254,7 @@ async function main(): Promise<void> {
     );
     return;
   }
-  console.log(`[catalog ] ${universe.length} Invesco ETFs (${catalogSource})`);
+  console.log(`[ catalog  ] ${universe.length} Invesco ETFs (${catalogSource})`);
 
   // 2) Bounded, resumable batch run over the catalog (iShares/SPDR cursor).
   const state = await readUpdateState();
@@ -2289,10 +2289,10 @@ async function main(): Promise<void> {
         }
       } catch (error) {
         failures += 1;
-        console.warn(`[error   ] ${item.fund.ticker}: ${errorMessage(error)}`);
+        console.warn(`[ error    ] ${item.fund.ticker}: ${errorMessage(error)}`);
       }
       if (config.maxFetches > 0 && processed >= config.maxFetches) {
-        console.log(`[cursor  ] batch of ${config.maxFetches} reached — rerun to continue after ${lastProcessedTicker}`);
+        console.log(`[ cursor   ] batch of ${config.maxFetches} reached — rerun to continue after ${lastProcessedTicker}`);
         return;
       }
     }
@@ -2335,10 +2335,10 @@ async function main(): Promise<void> {
   await writeUpdateState(config.maxFetches > 0 ? lastProcessedTicker : null);
 
   console.log('');
-  console.log(`[done    ] ${results.length} funds updated, ${keptFromPrevious.length} kept from previous runs, ${failures} failures`);
-  console.log(`[done    ] counts: ${counts.funds} funds / ${counts.holdings.toLocaleString('en-US')} holdings rows / ${counts.history.toLocaleString('en-US')} history rows`);
+  console.log(`[ done     ] ${results.length} funds updated, ${keptFromPrevious.length} kept from previous runs, ${failures} failures`);
+  console.log(`[ done     ] counts: ${counts.funds} funds / ${counts.holdings.toLocaleString('en-US')} holdings rows / ${counts.history.toLocaleString('en-US')} history rows`);
   console.log(
-    `[cursor  ] ${config.maxFetches > 0 && lastProcessedTicker ? `next run continues after ${lastProcessedTicker}` : 'full pass complete (cursor reset)'}`,
+    `[ cursor   ] ${config.maxFetches > 0 && lastProcessedTicker ? `next run continues after ${lastProcessedTicker}` : 'full pass complete (cursor reset)'}`,
   );
 
   if (process.env.GITHUB_STEP_SUMMARY) {

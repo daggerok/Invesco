@@ -7,7 +7,7 @@
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/rspa.html",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=RSPA",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=RSPA",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/RSPA?period1=0&period2=1787874568&interval=1d&events=div%7Csplit",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/RSPA?period1=0&period2=1789629092&interval=1d&events=div%7Csplit",
   "holdingsSource": "invesco.com per-fund holdings download",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
@@ -24,12 +24,12 @@
  "nav": {
   "display": "—",
   "value": null,
-  "asOfDate": "Aug 27 2026"
+  "asOfDate": "Sep 16 2026"
  },
  "marketPrice": {
   "display": "$54.50",
   "value": 54.5,
-  "asOfDate": "Aug 27 2026"
+  "asOfDate": "Sep 16 2026"
  },
  "premiumDiscount": {
   "display": "—",
@@ -44,20 +44,20 @@
  "yields": {
   "dividendYield": 9.18,
   "dividendYieldText": "9.18%",
-  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "dividendYieldKind": "trailing 12-month, published by invesco.com",
   "distributionRate": null,
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
+  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
   "monthEnd": {
-   "asOfDate": "Aug 27 2026",
-   "mo1": 1.62,
-   "mo1Text": "1.62%",
-   "qtd": 2.53,
-   "qtdText": "2.53%",
+   "asOfDate": "Sep 16 2026",
+   "mo1": -2.89,
+   "mo1Text": "-2.89%",
+   "qtd": -0.25,
+   "qtdText": "-0.25%",
    "ytd": 12.93,
    "ytdText": "12.93%",
    "yr1": 17.32,
@@ -179,6 +179,10 @@
    [
     "07/20/2026",
     "0.417"
+   ],
+   [
+    "08/24/2026",
+    "0.425"
    ]
   ]
  },
@@ -195,8 +199,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 531,
-  "asOf": "Aug 27 2026",
+  "totalRows": 544,
+  "asOf": "Sep 16 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

@@ -7,7 +7,7 @@
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/bsmm.html",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=BSMM",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=BSMM",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BSMM?period1=0&period2=1787874225&interval=1d&events=div%7Csplit",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BSMM?period1=0&period2=1789627957&interval=1d&events=div%7Csplit",
   "holdingsSource": "invesco.com per-fund holdings download",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
@@ -51,9 +51,9 @@
   "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
+  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
   "monthEnd": {
-   "asOfDate": "Dec 22 2022",
+   "asOfDate": "Dec 15 2022",
    "mo1": null,
    "mo1Text": "—",
    "qtd": null,
@@ -98,8 +98,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 819,
-  "asOf": "Dec 22 2022",
+  "totalRows": 1,
+  "asOf": "Dec 15 2022",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }
