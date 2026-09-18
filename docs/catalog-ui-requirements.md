@@ -1,5 +1,7 @@
 # Catalog UI implementation plan: distribution frequency column + pinned columns
 
+> **Status note (2026-09):** Section 2 (pinned catalog columns) has been implemented in `app.tsx` / `index.html` — with one deliberate extension from the shared UI contract ([`docs/ui-contract.md`](./ui-contract.md)): the **Watchlist Ticker column is pinned at the left edge too** (`.watchlist-sticky-ticker`), superseding this plan's "do not touch the Watchlist table" instruction. Section 1 (distribution **Frequency** column) is still an unbuilt plan; the line numbers below refer to the pre-implementation code and have drifted.
+
 This is a concrete, Invesco-specific implementation plan for two catalog-table features that have already been built and verified in the sibling `daggerok/SPDR` repository. It is written for an implementing agent that has no access to SPDR or to the investigation that produced this plan — every instruction below cites the actual file, line numbers, function names, class names, and colors currently in this repo (as of this writing). Follow it mechanically; do not redesign anything.
 
 Both features apply to the **`All ETFs` catalog table only** — the table rendered by `renderFundsTable()` in `app.tsx`. The Watchlist table (`renderWatchlistTable`-style code around line 1063) and the per-fund detail sheets (holdings/history/overview/distributions) all reuse the same `#table-scroll` / `#table-head` / `#table-body` DOM elements, but must **not** be touched by either change below — see the "do not touch" notes in each section.
