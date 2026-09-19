@@ -1,6 +1,7 @@
 // Bun's test runner provides these globals at runtime.
 // @ts-ignore bun types are intentionally not required for this zero-dependency Bun script.
 import { describe, expect, test } from 'bun:test';
+import { readFileSync } from 'node:fs';
 import {
   parseRange,
   parseAumRange,
@@ -882,5 +883,70 @@ describe('invesco URL builders', () => {
   test('invescoProductListUrl builds catalog download URL', () => {
     expect(invescoProductListUrl()).toBe('https://www.invesco.com/us/financial-products/etfs/performance/prices/main/performance/0?audienceType=Advisor&action=download');
     expect(invescoProductListUrl('Investor')).toBe('https://www.invesco.com/us/financial-products/etfs/performance/prices/main/performance/0?audienceType=Investor&action=download');
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Client-side catalog helpers (app.tsx)
+//
+// app.tsx is compiled in the browser by Babel standalone and calls init() at
+// module scope, so it cannot be imported here. The catalog's frequency column
+// is nevertheless a pure function of the published data and its coded labels
+// are what the column sorts on, so its source is extracted and exercised
+// directly instead of being left untested.
+// ---------------------------------------------------------------------------
+
+const APP_SOURCE = readFileSync(new URL('../app.tsx', import.meta.url), 'utf8');
+
+function extractClientFunction(name: string): (...args: any[]) => any {
+  const match = new RegExp(`function ${name}\\(([^)]*)\\)[^{]*\\{([\\s\\S]*?)\\n    \\}`).exec(APP_SOURCE);
+  if (!match) throw new Error(`${name} not found in app.tsx`);
+  const parameters = match[1]
+    .split(',')
+    .map(parameter => parameter.split(':')[0].split('=')[0].trim())
+    .filter(Boolean)
+    .join(', ');
+  return new Function(parameters, match[2]) as (...args: any[]) => any;
+}
+
+const formatDistributionFrequency = extractClientFunction('formatDistributionFrequency');
+
+describe('formatDistributionFrequency (catalog Frequency column)', () => {
+  test('codes the published cadences with a sortable two-digit prefix', () => {
+    expect(formatDistributionFrequency('Monthly')).toBe('01 - Monthly');
+    expect(formatDistributionFrequency('Quarterly')).toBe('04 - Quarterly');
+    expect(formatDistributionFrequency('Semiannually')).toBe('06 - Semi-annually');
+    expect(formatDistributionFrequency('Annually')).toBe('12 - Annually');
+    expect(formatDistributionFrequency('None')).toBe('00 - None');
+    expect(formatDistributionFrequency('Unknown')).toBe('00 - Unknown');
+    expect(formatDistributionFrequency('Irregular')).toBe('99 - Irregular');
+  });
+
+  test('accepts the hyphenated spellings and is case-insensitive', () => {
+    expect(formatDistributionFrequency('semi-annually')).toBe('06 - Semi-annually');
+    expect(formatDistributionFrequency('Semi-Annual')).toBe('06 - Semi-annually');
+    expect(formatDistributionFrequency('semiannual')).toBe('06 - Semi-annually');
+    expect(formatDistributionFrequency('annual')).toBe('12 - Annually');
+    expect(formatDistributionFrequency('monthly')).toBe('01 - Monthly');
+  });
+
+  test('treats missing data as "00 - —" instead of dropping the cell', () => {
+    expect(formatDistributionFrequency(undefined)).toBe('00 - —');
+    expect(formatDistributionFrequency(null)).toBe('00 - —');
+    expect(formatDistributionFrequency('')).toBe('00 - —');
+    expect(formatDistributionFrequency('  ')).toBe('00 - —');
+    expect(formatDistributionFrequency('-')).toBe('00 - —');
+    expect(formatDistributionFrequency('—')).toBe('00 - —');
+  });
+
+  test('passes an unknown published value through unchanged', () => {
+    expect(formatDistributionFrequency('Weekly')).toBe('Weekly');
+  });
+
+  test('coded labels sort in descending cadence order without extra comparators', () => {
+    const codes = ['Monthly', 'Quarterly', 'Semiannually', 'Annually', 'None', 'Irregular']
+      .map(formatDistributionFrequency)
+      .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+    expect(codes).toEqual(['00 - None', '01 - Monthly', '04 - Quarterly', '06 - Semi-annually', '12 - Annually', '99 - Irregular']);
   });
 });
