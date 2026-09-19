@@ -7,7 +7,7 @@
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/btco.html",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=BTCO",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=BTCO",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BTCO?period1=0&period2=1789628064&interval=1d&events=div%7Csplit",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BTCO?period1=0&period2=1789795032&interval=1d&events=div%7Csplit",
   "holdingsSource": "invesco.com per-fund holdings download",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
@@ -24,12 +24,12 @@
  "nav": {
   "display": "—",
   "value": null,
-  "asOfDate": "Sep 16 2026"
+  "asOfDate": "Sep 18 2026"
  },
  "marketPrice": {
   "display": "$79.51",
   "value": 79.51,
-  "asOfDate": "Sep 16 2026"
+  "asOfDate": "Sep 18 2026"
  },
  "premiumDiscount": {
   "display": "—",
@@ -53,11 +53,11 @@
  "returns": {
   "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
   "monthEnd": {
-   "asOfDate": "Sep 16 2026",
-   "mo1": 18.14,
-   "mo1Text": "18.14%",
-   "qtd": 26.61,
-   "qtdText": "26.61%",
+   "asOfDate": "Sep 18 2026",
+   "mo1": 18.6,
+   "mo1Text": "18.60%",
+   "qtd": 35.36,
+   "qtdText": "35.36%",
    "ytd": -8.79,
    "ytdText": "-8.79%",
    "yr1": -28.88,
@@ -98,8 +98,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 672,
-  "asOf": "Sep 16 2026",
+  "totalRows": 674,
+  "asOf": "Sep 18 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

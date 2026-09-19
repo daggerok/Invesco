@@ -7,7 +7,7 @@
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/mtra.html",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=MTRA",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=MTRA",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/MTRA?period1=0&period2=1789628596&interval=1d&events=div%7Csplit",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/MTRA?period1=0&period2=1789795624&interval=1d&events=div%7Csplit",
   "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001418144-26-000289, report period 2026-04-30)",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
@@ -53,11 +53,11 @@
  "returns": {
   "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
   "monthEnd": {
-   "asOfDate": "Sep 16 2026",
-   "mo1": -5.38,
-   "mo1Text": "-5.38%",
-   "qtd": -4.09,
-   "qtdText": "-4.09%",
+   "asOfDate": "Sep 18 2026",
+   "mo1": -2.49,
+   "mo1Text": "-2.49%",
+   "qtd": -2.6,
+   "qtdText": "-2.60%",
    "ytd": 4.42,
    "ytdText": "4.42%",
    "yr1": 9.49,
@@ -105,8 +105,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 318,
-  "asOf": "Sep 16 2026",
+  "totalRows": 320,
+  "asOf": "Sep 18 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

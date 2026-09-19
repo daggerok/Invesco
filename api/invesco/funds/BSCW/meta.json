@@ -7,7 +7,7 @@
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/bscw.html",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=BSCW",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=BSCW",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BSCW?period1=0&period2=1789627830&interval=1d&events=div%7Csplit",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BSCW?period1=0&period2=1789794857&interval=1d&events=div%7Csplit",
   "holdingsSource": "invesco.com per-fund holdings download",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
@@ -24,12 +24,12 @@
  "nav": {
   "display": "—",
   "value": null,
-  "asOfDate": "Sep 16 2026"
+  "asOfDate": "Sep 18 2026"
  },
  "marketPrice": {
   "display": "$20.27",
   "value": 20.275,
-  "asOfDate": "Sep 16 2026"
+  "asOfDate": "Sep 18 2026"
  },
  "premiumDiscount": {
   "display": "—",
@@ -53,11 +53,11 @@
  "returns": {
   "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
   "monthEnd": {
-   "asOfDate": "Sep 16 2026",
-   "mo1": -1.68,
-   "mo1Text": "-1.68%",
-   "qtd": -2.12,
-   "qtdText": "-2.12%",
+   "asOfDate": "Sep 18 2026",
+   "mo1": -1.76,
+   "mo1Text": "-1.76%",
+   "qtd": -2.01,
+   "qtdText": "-2.01%",
    "ytd": 0.26,
    "ytdText": "0.26%",
    "yr1": 2.48,
@@ -288,8 +288,8 @@
    "history/002.json"
   ],
   "pageSize": 1000,
-  "totalRows": 1008,
-  "asOf": "Sep 16 2026",
+  "totalRows": 1010,
+  "asOf": "Sep 18 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

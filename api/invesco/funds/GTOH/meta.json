@@ -7,7 +7,7 @@
   "fundPage": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=GTOH",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=GTOH",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=GTOH",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/GTOH?period1=0&period2=1789628417&interval=1d&events=div%7Csplit",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/GTOH?period1=0&period2=1789795382&interval=1d&events=div%7Csplit",
   "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001418144-26-000307, report period 2026-04-30)",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
@@ -24,12 +24,12 @@
  "nav": {
   "display": "—",
   "value": null,
-  "asOfDate": "Sep 16 2026"
+  "asOfDate": "Sep 18 2026"
  },
  "marketPrice": {
   "display": "$25.33",
   "value": 25.33,
-  "asOfDate": "Sep 16 2026"
+  "asOfDate": "Sep 18 2026"
  },
  "premiumDiscount": {
   "display": "—",
@@ -53,11 +53,11 @@
  "returns": {
   "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
   "monthEnd": {
-   "asOfDate": "Sep 16 2026",
-   "mo1": -0.48,
-   "mo1Text": "-0.48%",
-   "qtd": -0.27,
-   "qtdText": "-0.27%",
+   "asOfDate": "Sep 18 2026",
+   "mo1": -0.46,
+   "mo1Text": "-0.46%",
+   "qtd": -0.15,
+   "qtdText": "-0.15%",
    "ytd": 2.56,
    "ytdText": "2.56%",
    "yr1": 4.94,
@@ -277,8 +277,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 942,
-  "asOf": "Sep 16 2026",
+  "totalRows": 944,
+  "asOf": "Sep 18 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

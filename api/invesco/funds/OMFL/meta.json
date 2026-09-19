@@ -7,7 +7,7 @@
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/omfl.html",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=OMFL",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=OMFL",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/OMFL?period1=0&period2=1789628579&interval=1d&events=div%7Csplit",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/OMFL?period1=0&period2=1789795624&interval=1d&events=div%7Csplit",
   "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001657201-26-000571, report period 2026-05-31)",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
@@ -24,12 +24,12 @@
  "nav": {
   "display": "—",
   "value": null,
-  "asOfDate": "Sep 16 2026"
+  "asOfDate": "Sep 18 2026"
  },
  "marketPrice": {
   "display": "$71.05",
   "value": 71.05,
-  "asOfDate": "Sep 16 2026"
+  "asOfDate": "Sep 18 2026"
  },
  "premiumDiscount": {
   "display": "—",
@@ -53,11 +53,11 @@
  "returns": {
   "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
   "monthEnd": {
-   "asOfDate": "Sep 16 2026",
-   "mo1": -2.48,
-   "mo1Text": "-2.48%",
-   "qtd": 0.99,
-   "qtdText": "0.99%",
+   "asOfDate": "Sep 18 2026",
+   "mo1": -1.76,
+   "mo1Text": "-1.76%",
+   "qtd": 1.83,
+   "qtdText": "1.83%",
    "ytd": 16.76,
    "ytdText": "16.76%",
    "yr1": 20.89,
@@ -240,8 +240,8 @@
    "history/003.json"
   ],
   "pageSize": 1000,
-  "totalRows": 2222,
-  "asOf": "Sep 16 2026",
+  "totalRows": 2224,
+  "asOf": "Sep 18 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

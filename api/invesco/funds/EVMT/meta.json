@@ -7,7 +7,7 @@
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/evmt.html",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=EVMT",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=EVMT",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/EVMT?period1=0&period2=1789628262&interval=1d&events=div%7Csplit",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/EVMT?period1=0&period2=1789795285&interval=1d&events=div%7Csplit",
   "holdingsSource": "invesco.com per-fund holdings download",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
@@ -24,12 +24,12 @@
  "nav": {
   "display": "—",
   "value": null,
-  "asOfDate": "Sep 16 2026"
+  "asOfDate": "Sep 18 2026"
  },
  "marketPrice": {
   "display": "$17.80",
   "value": 17.8,
-  "asOfDate": "Sep 16 2026"
+  "asOfDate": "Sep 18 2026"
  },
  "premiumDiscount": {
   "display": "—",
@@ -53,11 +53,11 @@
  "returns": {
   "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
   "monthEnd": {
-   "asOfDate": "Sep 16 2026",
-   "mo1": -1.63,
-   "mo1Text": "-1.63%",
-   "qtd": 0.69,
-   "qtdText": "0.69%",
+   "asOfDate": "Sep 18 2026",
+   "mo1": 0.16,
+   "mo1Text": "0.16%",
+   "qtd": 2.69,
+   "qtdText": "2.69%",
    "ytd": 4.98,
    "ytdText": "4.98%",
    "yr1": 28.99,
@@ -116,8 +116,8 @@
    "history/002.json"
   ],
   "pageSize": 1000,
-  "totalRows": 1102,
-  "asOf": "Sep 16 2026",
+  "totalRows": 1104,
+  "asOf": "Sep 18 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

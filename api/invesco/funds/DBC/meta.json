@@ -7,7 +7,7 @@
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/dbc.html",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=DBC",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=DBC",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/DBC?period1=0&period2=1789628134&interval=1d&events=div%7Csplit",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/DBC?period1=0&period2=1789795144&interval=1d&events=div%7Csplit",
   "holdingsSource": "invesco.com per-fund holdings download",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
@@ -24,12 +24,12 @@
  "nav": {
   "display": "—",
   "value": null,
-  "asOfDate": "Sep 16 2026"
+  "asOfDate": "Sep 18 2026"
  },
  "marketPrice": {
   "display": "$30.86",
   "value": 30.86,
-  "asOfDate": "Sep 16 2026"
+  "asOfDate": "Sep 18 2026"
  },
  "premiumDiscount": {
   "display": "—",
@@ -53,11 +53,11 @@
  "returns": {
   "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
   "monthEnd": {
-   "asOfDate": "Sep 16 2026",
-   "mo1": 8.51,
-   "mo1Text": "8.51%",
-   "qtd": 25.37,
-   "qtdText": "25.37%",
+   "asOfDate": "Sep 18 2026",
+   "mo1": 7.05,
+   "mo1Text": "7.05%",
+   "qtd": 24.5,
+   "qtdText": "24.50%",
    "ytd": 38.01,
    "ytdText": "38.01%",
    "yr1": 44.73,
@@ -140,8 +140,8 @@
    "history/006.json"
   ],
   "pageSize": 1000,
-  "totalRows": 5185,
-  "asOf": "Sep 16 2026",
+  "totalRows": 5187,
+  "asOf": "Sep 18 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

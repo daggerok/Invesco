@@ -7,7 +7,7 @@
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/qqa.html",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=QQA",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=QQA",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/QQA?period1=0&period2=1789628978&interval=1d&events=div%7Csplit",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/QQA?period1=0&period2=1789796180&interval=1d&events=div%7Csplit",
   "holdingsSource": "invesco.com per-fund holdings download",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
@@ -24,12 +24,12 @@
  "nav": {
   "display": "—",
   "value": null,
-  "asOfDate": "Sep 16 2026"
+  "asOfDate": "Sep 18 2026"
  },
  "marketPrice": {
   "display": "$56.36",
   "value": 56.36,
-  "asOfDate": "Sep 16 2026"
+  "asOfDate": "Sep 18 2026"
  },
  "premiumDiscount": {
   "display": "—",
@@ -53,11 +53,11 @@
  "returns": {
   "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
   "monthEnd": {
-   "asOfDate": "Sep 16 2026",
-   "mo1": -1.72,
-   "mo1Text": "-1.72%",
-   "qtd": -0.7,
-   "qtdText": "-0.70%",
+   "asOfDate": "Sep 18 2026",
+   "mo1": 1.38,
+   "mo1Text": "1.38%",
+   "qtd": 1.12,
+   "qtdText": "1.12%",
    "ytd": 13.89,
    "ytdText": "13.89%",
    "yr1": 21.96,
@@ -199,8 +199,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 544,
-  "asOf": "Sep 16 2026",
+  "totalRows": 546,
+  "asOf": "Sep 18 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

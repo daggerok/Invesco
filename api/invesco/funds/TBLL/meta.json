@@ -7,7 +7,7 @@
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/tbll.html",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=TBLL",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=TBLL",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/TBLL?period1=0&period2=1789629249&interval=1d&events=div%7Csplit",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/TBLL?period1=0&period2=1789796590&interval=1d&events=div%7Csplit",
   "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001404, report period 2026-05-31)",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
@@ -24,12 +24,12 @@
  "nav": {
   "display": "—",
   "value": null,
-  "asOfDate": "Sep 16 2026"
+  "asOfDate": "Sep 18 2026"
  },
  "marketPrice": {
   "display": "$105.62",
   "value": 105.62,
-  "asOfDate": "Sep 16 2026"
+  "asOfDate": "Sep 18 2026"
  },
  "premiumDiscount": {
   "display": "—",
@@ -53,11 +53,11 @@
  "returns": {
   "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
   "monthEnd": {
-   "asOfDate": "Sep 16 2026",
-   "mo1": 0.2,
-   "mo1Text": "0.20%",
-   "qtd": 0.73,
-   "qtdText": "0.73%",
+   "asOfDate": "Sep 18 2026",
+   "mo1": 0.23,
+   "mo1Text": "0.23%",
+   "qtd": 0.78,
+   "qtdText": "0.78%",
    "ytd": 2.03,
    "ytdText": "2.03%",
    "yr1": 3.47,
@@ -467,8 +467,8 @@
    "history/003.json"
   ],
   "pageSize": 1000,
-  "totalRows": 2426,
-  "asOf": "Sep 16 2026",
+  "totalRows": 2428,
+  "asOf": "Sep 18 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

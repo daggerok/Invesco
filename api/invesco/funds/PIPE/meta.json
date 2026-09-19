@@ -7,7 +7,7 @@
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pipe.html",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PIPE",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PIPE",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/PIPE?period1=0&period2=1789628765&interval=1d&events=div%7Csplit",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/PIPE?period1=0&period2=1789795875&interval=1d&events=div%7Csplit",
   "holdingsSource": "invesco.com per-fund holdings download",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
@@ -24,12 +24,12 @@
  "nav": {
   "display": "—",
   "value": null,
-  "asOfDate": "Sep 16 2026"
+  "asOfDate": "Sep 18 2026"
  },
  "marketPrice": {
   "display": "$30.88",
   "value": 30.881,
-  "asOfDate": "Sep 16 2026"
+  "asOfDate": "Sep 18 2026"
  },
  "premiumDiscount": {
   "display": "—",
@@ -53,11 +53,11 @@
  "returns": {
   "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
   "monthEnd": {
-   "asOfDate": "Sep 16 2026",
-   "mo1": -2.12,
-   "mo1Text": "-2.12%",
-   "qtd": 2.5,
-   "qtdText": "2.50%",
+   "asOfDate": "Sep 18 2026",
+   "mo1": -1.43,
+   "mo1Text": "-1.43%",
+   "qtd": 3.52,
+   "qtdText": "3.52%",
    "ytd": 31.78,
    "ytdText": "31.78%",
    "yr1": 33.87,
@@ -171,8 +171,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 393,
-  "asOf": "Sep 16 2026",
+  "totalRows": 395,
+  "asOf": "Sep 18 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

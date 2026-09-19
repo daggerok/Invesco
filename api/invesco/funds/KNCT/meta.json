@@ -7,7 +7,7 @@
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/knct.html",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=KNCT",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=KNCT",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/KNCT?period1=0&period2=1789628573&interval=1d&events=div%7Csplit",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/KNCT?period1=0&period2=1789795624&interval=1d&events=div%7Csplit",
   "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000911, report period 2026-04-30)",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
@@ -24,12 +24,12 @@
  "nav": {
   "display": "—",
   "value": null,
-  "asOfDate": "Sep 16 2026"
+  "asOfDate": "Sep 18 2026"
  },
  "marketPrice": {
   "display": "$199.38",
   "value": 199.376,
-  "asOfDate": "Sep 16 2026"
+  "asOfDate": "Sep 18 2026"
  },
  "premiumDiscount": {
   "display": "—",
@@ -53,11 +53,11 @@
  "returns": {
   "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
   "monthEnd": {
-   "asOfDate": "Sep 16 2026",
-   "mo1": -2.85,
-   "mo1Text": "-2.85%",
-   "qtd": -2.79,
-   "qtdText": "-2.79%",
+   "asOfDate": "Sep 18 2026",
+   "mo1": 3.82,
+   "mo1Text": "3.82%",
+   "qtd": -0.49,
+   "qtdText": "-0.49%",
    "ytd": 49.42,
    "ytdText": "49.42%",
    "yr1": 68.74,
@@ -246,8 +246,8 @@
    "history/006.json"
   ],
   "pageSize": 1000,
-  "totalRows": 5341,
-  "asOf": "Sep 16 2026",
+  "totalRows": 5343,
+  "asOf": "Sep 18 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

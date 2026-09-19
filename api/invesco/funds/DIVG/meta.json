@@ -7,7 +7,7 @@
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/divg.html",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=DIVG",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=DIVG",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/DIVG?period1=0&period2=1789628178&interval=1d&events=div%7Csplit",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/DIVG?period1=0&period2=1789795144&interval=1d&events=div%7Csplit",
   "holdingsSource": "invesco.com per-fund holdings download",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
@@ -24,12 +24,12 @@
  "nav": {
   "display": "—",
   "value": null,
-  "asOfDate": "Sep 16 2026"
+  "asOfDate": "Sep 18 2026"
  },
  "marketPrice": {
   "display": "$38.25",
   "value": 38.2486,
-  "asOfDate": "Sep 16 2026"
+  "asOfDate": "Sep 18 2026"
  },
  "premiumDiscount": {
   "display": "—",
@@ -53,11 +53,11 @@
  "returns": {
   "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
   "monthEnd": {
-   "asOfDate": "Sep 16 2026",
-   "mo1": -3.36,
-   "mo1Text": "-3.36%",
-   "qtd": 2.14,
-   "qtdText": "2.14%",
+   "asOfDate": "Sep 18 2026",
+   "mo1": -3.6,
+   "mo1Text": "-3.60%",
+   "qtd": 2.13,
+   "qtdText": "2.13%",
    "ytd": 19.35,
    "ytdText": "19.35%",
    "yr1": 21.02,
@@ -223,8 +223,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 695,
-  "asOf": "Sep 16 2026",
+  "totalRows": 697,
+  "asOf": "Sep 18 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

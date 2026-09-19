@@ -7,7 +7,7 @@
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/psci.html",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PSCI",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PSCI",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/PSCI?period1=0&period2=1789628845&interval=1d&events=div%7Csplit",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/PSCI?period1=0&period2=1789796004&interval=1d&events=div%7Csplit",
   "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001340, report period 2026-05-31)",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
@@ -24,12 +24,12 @@
  "nav": {
   "display": "—",
   "value": null,
-  "asOfDate": "Sep 16 2026"
+  "asOfDate": "Sep 18 2026"
  },
  "marketPrice": {
   "display": "$176.04",
   "value": 176.04,
-  "asOfDate": "Sep 16 2026"
+  "asOfDate": "Sep 18 2026"
  },
  "premiumDiscount": {
   "display": "—",
@@ -53,11 +53,11 @@
  "returns": {
   "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
   "monthEnd": {
-   "asOfDate": "Sep 16 2026",
-   "mo1": -10.12,
-   "mo1Text": "-10.12%",
-   "qtd": -10.27,
-   "qtdText": "-10.27%",
+   "asOfDate": "Sep 18 2026",
+   "mo1": -8.27,
+   "mo1Text": "-8.27%",
+   "qtd": -10.77,
+   "qtdText": "-10.77%",
    "ytd": 17.6,
    "ytdText": "17.60%",
    "yr1": 19.19,
@@ -357,8 +357,8 @@
    "history/005.json"
   ],
   "pageSize": 1000,
-  "totalRows": 4137,
-  "asOf": "Sep 16 2026",
+  "totalRows": 4139,
+  "asOf": "Sep 18 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

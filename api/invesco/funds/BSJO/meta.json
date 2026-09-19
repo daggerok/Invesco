@@ -7,7 +7,7 @@
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/bsjo.html",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=BSJO",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=BSJO",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BSJO?period1=0&period2=1789627879&interval=1d&events=div%7Csplit",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BSJO?period1=0&period2=1789794925&interval=1d&events=div%7Csplit",
   "holdingsSource": "invesco.com per-fund holdings download",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
@@ -24,12 +24,12 @@
  "nav": {
   "display": "—",
   "value": null,
-  "asOfDate": "Dec 13 2024"
+  "asOfDate": "—"
  },
  "marketPrice": {
   "display": "$22.68",
   "value": 22.68,
-  "asOfDate": "Dec 13 2024"
+  "asOfDate": "—"
  },
  "premiumDiscount": {
   "display": "—",
@@ -53,7 +53,7 @@
  "returns": {
   "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
   "monthEnd": {
-   "asOfDate": "Dec 13 2024",
+   "asOfDate": "—",
    "mo1": null,
    "mo1Text": "—",
    "qtd": null,
@@ -83,12 +83,7 @@
    "Ex-Date",
    "Amount"
   ],
-  "rows": [
-   [
-    "11/18/2024",
-    "0.10368"
-   ]
-  ]
+  "rows": []
  },
  "holdings": {
   "pages": [],
@@ -104,7 +99,7 @@
   ],
   "pageSize": 1000,
   "totalRows": 1,
-  "asOf": "Dec 13 2024",
-  "source": "Yahoo Finance public chart API (adjusted close)"
+  "asOf": "—",
+  "source": "previous run"
  }
 }
