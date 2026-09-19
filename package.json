@@ -1,11 +1,14 @@
 {
   "scripts": {
-    "test": "bun test scripts/update-data.test.ts",
+    "test": "bun test scripts/update-data.test.ts scripts/ui-contract.test.ts",
+    "test:updater": "bun test scripts/update-data.test.ts",
+    "test:ui": "bun test scripts/ui-contract.test.ts",
     "update": "bun scripts/update-data.ts"
   },
   "dependencies": {},
   "devDependencies": {
     "@types/bun": "1.4.0",
-    "@types/node": "26.2.0"
+    "@types/node": "26.2.0",
+    "happy-dom": "^20.14.5"
   }
 }
