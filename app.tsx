@@ -203,6 +203,7 @@
       tickerCount: byId('ticker-count'),
       subtitle: byId('app-subtitle'),
       searchInput: byId('search-input'),
+      searchClearBtn: byId('search-clear-btn'),
       tabsBar: byId('tabs-bar'),
       selectedTabsPanel: byId('selected-tabs-panel'),
       selectedTabsBar: byId('selected-tabs-bar'),
@@ -830,6 +831,8 @@
       if (!tabIds.includes(state.activeTab)) {
         state.activeTab = 'All';
         applySortForTab(state.activeTab);
+        el.searchInput.value = currentQuery();
+        syncSearchInput();
       }
     }
 
@@ -837,6 +840,7 @@
       const tabIds = getAllTabIds();
       if (!tabIds.includes(state.activeTab)) state.activeTab = 'All';
       applySortForTab(state.activeTab);
+      el.searchInput.value = currentQuery();
       syncSearchInput();
     }
 
@@ -887,6 +891,7 @@
             void ensureHoldingsForSelection();
           }
           if (previousActiveFund !== state.activeFundTicker) resetSheetPaging();
+          el.searchInput.value = currentQuery();
           syncSearchInput();
           render();
           maybeLoadMoreRows();
@@ -995,6 +1000,11 @@
       persistSearches();
     }
 
+    function updateSearchClearBtn(): void {
+      if (!el.searchClearBtn) return;
+      el.searchClearBtn.classList.toggle('hidden', !el.searchInput.value);
+    }
+
     function syncSearchInput(): void {
       const query = currentQuery();
       if (document.activeElement !== el.searchInput && el.searchInput.value !== query) {
@@ -1003,6 +1013,17 @@
       el.searchInput.placeholder = isEtfCatalogTab(state.activeTab)
         ? 'Search ETFs, fund names, holdings, tickers, CUSIPs/ISINs, SEDOLs...'
         : `Search ${tabLabel(state.activeTab)}...`;
+      updateSearchClearBtn();
+    }
+
+    function clearActiveSearchFilter(): void {
+      el.searchInput.value = '';
+      delete state.queryByTab[state.activeTab];
+      persistSearches();
+      updateSearchClearBtn();
+      el.searchInput.focus?.();
+      if (state.activeTab === 'watchlist') watchlistVisibleLimit = WATCHLIST_PAGE_SIZE;
+      render();
     }
 
     function filterRows(rows: any[]): any[] {
@@ -1762,6 +1783,7 @@
       persistSelection();
       localStorage.removeItem(ACTIVE_FUND_KEY);
       el.searchInput.value = '';
+      updateSearchClearBtn();
       persistSearches();
       render();
     }
@@ -2245,7 +2267,13 @@
 
       el.searchInput.addEventListener('input', () => {
         setCurrentQuery(el.searchInput.value.trim());
+        updateSearchClearBtn();
+        if (state.activeTab === 'watchlist') watchlistVisibleLimit = WATCHLIST_PAGE_SIZE;
         render();
+      });
+
+      el.searchClearBtn.addEventListener('click', () => {
+        clearActiveSearchFilter();
       });
 
       // N-PORT dropzone (iShares dropzone parity)
