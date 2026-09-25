@@ -1826,6 +1826,7 @@ async function processFund(
   fund: CatalogFund,
   config: UpdaterConfig,
   previous: JsonRecord,
+  invescoReachable: boolean,
 ): Promise<JsonRecord | null> {
   const ticker = fund.ticker;
 
@@ -1926,7 +1927,7 @@ async function processFund(
   let firstTradeDate: number | null = null;
   let historySource = 'Yahoo Finance public chart API (adjusted close)';
 
-  if (config.pricesHistory && !config.skipInvesco) {
+  if (config.pricesHistory && !config.skipInvesco && invescoReachable) {
     try {
       const parsed = parsePricesCsv(
         await fetchText(invescoPricesDownloadUrl(ticker, config.audienceType), `[ prices   ] ${ticker}`, invescoHeaders(), config),
@@ -2257,10 +2258,18 @@ async function main(): Promise<void> {
   }
 
 
+  // Captured before any later reassignment below: true only when invesco.com
+  // actually answered the catalog request this run. When it didn't, invesco.com
+  // is almost certainly blocking this run's requests wholesale (the same CDN/WAF
+  // in front of every invesco.com endpoint), so per-fund code skips the prices
+  // & yields download too instead of repeating a request that's already known
+  // to fail for every fund — same fallback result, without the wasted round trip.
+  const invescoReachable = catalogSource === 'invesco.com ETF product list download';
+
   // When invesco.com is unreachable the SEC registrant tables still list every
   // share class of the Invesco ETF trusts, so a no-argument full pass keeps
   // covering the complete product line instead of only the published feed.
-  if (catalogSource !== 'invesco.com ETF product list download' && config.edgarFallback) {
+  if (!invescoReachable && config.edgarFallback) {
     const table = await loadFundTickerMap(config);
     const registrantCiks = new Set<string>();
     for (const ticker of catalog.keys()) {
@@ -2316,7 +2325,7 @@ async function main(): Promise<void> {
       if (config.maxFetches > 0 && processed >= config.maxFetches) return;
       processed += 1;
       try {
-        const row = await processFund(item.fund, config, previousIndex.get(item.fund.ticker) || {});
+        const row = await processFund(item.fund, config, previousIndex.get(item.fund.ticker) || {}, invescoReachable);
         if (row) {
           results.push(row);
           lastProcessedTicker = item.fund.ticker;
