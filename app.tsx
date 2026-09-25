@@ -1195,7 +1195,7 @@
       el.tableBody.querySelectorAll('input[data-checkbox]').forEach((checkbox: any) => {
         checkbox.addEventListener('change', (event: any) => {
           event.stopPropagation();
-          const ticker = (checkbox as any).dataset.checkbox || '';
+          const ticker = checkbox.dataset.checkbox || '';
           toggleFund(ticker);
         });
         checkbox.addEventListener('click', (event: any) => event.stopPropagation());
@@ -1696,7 +1696,7 @@
       const countsText = state.counts
         ? `${state.counts.funds} ETFs · ${(state.counts.holdings || 0).toLocaleString('en-US')} holdings rows · ${(state.counts.history || 0).toLocaleString('en-US')} history rows`
         : '';
-      const base = text ? String(text) : 'Search Invesco ETFs, select rows, then use the Watchlist tab.';
+      const base = text ? String(text) : 'Search Invesco ETFs, select ETFs via the “Use” checkbox, then use the Watchlist tab.';
       el.subtitle.innerHTML = `
         <span class="block sm:inline">${escapeHtml(base)}</span>
         <span class="block sm:inline">·${generated ? ` updated ${escapeHtml(generated)}` : ''}${countsText ? ` · ${escapeHtml(countsText)}.` : '.'} Data: <a href="./api/invesco/index.json" target="_blank" rel="noopener noreferrer" class="font-semibold text-blue-600 dark:text-blue-400 hover:underline">api/invesco/index.json</a> generated from <a href="https://www.invesco.com/us/en/financial-products/etfs.html" target="_blank" rel="noopener noreferrer" class="font-semibold text-blue-600 dark:text-blue-400 hover:underline">invesco.com ETF downloads</a> + Yahoo Finance</span>
