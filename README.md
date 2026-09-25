@@ -1,6 +1,6 @@
 # Invesco
 
-Invesco ETF holdings to Watchlist. A single-file client-side tool that reads the generated `./api/invesco` static feed (invesco.com product-list / performance CSVs, per-fund daily holdings CSVs, Yahoo Finance daily history and distributions, SEC EDGAR N-PORT-P only as a fallback) into a searchable ETF/asset-class catalog with per-fund tabs, watchlist aggregation, ticker copy and CSV/TXT export — the same look, feel, columns and business logic as the sibling applications.
+Invesco ETF holdings to Watchlist. A single-file client-side tool that reads the generated `./api/invesco` static feed (invesco.com product-list / performance CSVs, per-fund daily holdings CSVs, the official per-fund prices & yields CSV as the default daily NAV/close history source, Yahoo Finance for distributions and as the history fallback, SEC EDGAR N-PORT-P only as a holdings fallback) into a searchable ETF/asset-class catalog with per-fund tabs, watchlist aggregation, ticker copy and CSV/TXT export — the same look, feel, columns and business logic as the sibling applications.
 
 ## Using Bun
 
@@ -31,7 +31,8 @@ The **Update Invesco ETF data** GitHub Actions workflow exposes the same setting
 | --- | --- |
 | Catalog (all US Invesco ETFs) | `https://www.invesco.com/us/financial-products/etfs/performance/prices/main/performance/0?audienceType=Advisor&action=download` (product list CSV) |
 | Holdings per fund | `https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker={TICKER}` (per-fund holdings CSV) |
-| Daily history, distributions | Yahoo Finance chart API for daily history and distributions |
+| Daily NAV/close history (default) | `https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker={TICKER}` (official per-fund prices & yields CSV) |
+| Distributions; history fallback | Yahoo Finance chart API — used for distributions/exchange/quote, and for daily closes only when the official CSV above fails or is empty |
 | Fallback | SEC EDGAR N-PORT-P as fallback for funds with no Invesco CSV |
 
 Each fund carries a derived `metrics` object that powers the catalog columns shared with the sibling sites:
@@ -58,6 +59,7 @@ Each fund carries a derived `metrics` object that powers the catalog columns sha
 | `HISTORY_PAGE_SIZE` | `1000` | Rows in each generated daily-history JSON page. |
 | `MAX_RETRIES` | `2` | Retries after the initial request. Only network errors and HTTP 408/425/429/5xx are retried with exponential backoff. |
 | `SEC_UA` | declared UA | Override the SEC User-Agent. SEC policy requires automated tools to declare a contact. |
+| `PRICES_HISTORY` | **on** | Use the official per-fund prices & yields CSV as the daily NAV/close history source, falling back to Yahoo's closes only when that CSV request fails or returns no rows. Set `0`/`false` to use Yahoo's closes for every fund instead. |
 | `SKIP_YAHOO` | off | Skip Yahoo Finance history updates. |
 
 `TICKERS` combines with AUM, TER, yield filters using AND logic; it does not override them. Funds not selected for a successful update keep their prior published metadata and data files.

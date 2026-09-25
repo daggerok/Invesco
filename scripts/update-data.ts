@@ -3,11 +3,17 @@
 // Invesco Ltd. (US ETFs) static data updater.
 //
 // Fetches the public Invesco US ETF catalog, the per-fund daily holdings CSV
-// and the Yahoo Finance public chart feed (daily close / adjusted close /
-// volume + dividend history), then writes a deterministic, paginated static
-// JSON API under ./api/invesco — the same design as the daggerok/SPDR,
+// and the per-fund invesco.com "prices & yields" CSV (daily NAV / close
+// history) plus the Yahoo Finance public chart feed (adjusted close / volume
+// + dividend history), then writes a deterministic, paginated static JSON API
+// under ./api/invesco — the same design as the daggerok/SPDR,
 // daggerok/Fidelity and daggerok/iShares updaters (zero dependencies, Bun
 // only: node:fs/promises + fetch).
+//
+// Official issuer data wins whenever it exists and is non-empty for a fund;
+// Yahoo is used only for what the official sources don't cover (dividends,
+// exchange listing, live quote) or when an official request fails/is empty
+// for that fund (see PRICES_HISTORY in --help).
 //
 // Data sources
 //   - catalog + fund metrics  : invesco.com "Excel Product List Download"
@@ -16,7 +22,11 @@
 //     trailing-12m dividend yield, 30-day SEC yield, official returns)
 //   - per-fund daily holdings : invesco.com per-fund "download holdings" CSV
 //     (equity, bond and futures column flavours are normalized)
-//   - history + distributions : Yahoo Finance public chart API
+//   - daily NAV/close history : invesco.com per-fund "prices & yields" CSV
+//     (default; falls back to the Yahoo chart feed per fund on failure/empty)
+//   - distributions, exchange,
+//     live quote               : Yahoo Finance public chart API (the only
+//     source for these; queried every run regardless of PRICES_HISTORY)
 //   - holdings fallback       : SEC EDGAR Form N-PORT-P filings of the
 //     Invesco ETF registrant (used only when the Invesco download has no
 //     positions for a fund)
@@ -352,7 +362,7 @@ function readConfig(env: Record<string, string | undefined> = process.env): Upda
     secUa: envValue(env, 'SEC_UA') || SEC_UA_DEFAULT,
     skipYahoo: parseBoolean(envValue(env, 'SKIP_YAHOO'), false),
     skipInvesco: parseBoolean(envValue(env, 'SKIP_INVESCO'), false),
-    pricesHistory: parseBoolean(envValue(env, 'PRICES_HISTORY'), false),
+    pricesHistory: parseBoolean(envValue(env, 'PRICES_HISTORY'), true),
     edgarFallback: parseBoolean(envValue(env, 'EDGAR_FALLBACK'), true),
     aumRange: parseAumRange(envValue(env, 'AUM')),
     terRange: parseRange(envValue(env, 'TER'), 'TER'),
@@ -441,16 +451,26 @@ Environment variables (all optional; strict "min:max" ranges; AND logic):
                        date: ...?audienceType=Advisor&action=download&asOfDate=MM/DD/YYYY
   CATALOG_HTML_URL     invesco.com catalog page scraped for the canonical
                        per-fund page URLs (falls back to ?ticker= links).
-  PRICES_HISTORY       1/true to also pull the per-fund prices & yields CSV
-                       (daily NAV / close history) instead of relying on the
-                       Yahoo chart feed alone for the History tab.
+  PRICES_HISTORY       0/false to skip the per-fund invesco.com "prices &
+                       yields" CSV (daily NAV / close history) and use the
+                       Yahoo chart feed for daily closes instead. Default on:
+                       the official CSV is tried first for every fund, and
+                       Yahoo's closes are only used for a fund when that CSV
+                       request fails or returns no rows. Yahoo is still
+                       queried on every run regardless of this flag, since it
+                       is the only source for dividends, exchange listing and
+                       the live quote.
   EDGAR_FALLBACK       0/false to skip the SEC EDGAR Form N-PORT-P fallback for
                        funds whose Invesco holdings download is empty
                        (default on; needs the declared SEC_UA).
   SEC_UA               Override the declared SEC User-Agent (SEC policy
                        requires a declared contact for automated access).
-  SKIP_YAHOO           1/true to update invesco.com data only, keeping the
-                       previously published history and distributions.
+  SKIP_YAHOO           1/true to skip the Yahoo chart request entirely. Daily
+                       close/NAV history still updates from the invesco.com
+                       prices & yields CSV when PRICES_HISTORY is on (the
+                       default); distributions, exchange listing and the live
+                       quote keep their previously published values, since
+                       only Yahoo carries those.
   SKIP_INVESCO         1/true to update history only (Yahoo), keeping the
                        previously published catalog values and holdings. Useful
                        when invesco.com is down and only prices moved.
@@ -1377,8 +1397,11 @@ function chartUrl(ticker: string, config: UpdaterConfig): string {
 }
 
 // The per-fund "prices & yields" download: one row per business day with the
-// NAV, close, premium/discount and published yields. Used instead of the
-// Yahoo chart feed only when PRICES_HISTORY=1.
+// NAV, close, premium/discount and published yields. This is the default
+// source for the History tab's daily close/NAV rows (PRICES_HISTORY=1 by
+// default); the Yahoo chart feed's closes are used instead only when this
+// request fails or returns no rows for the fund (PRICES_HISTORY=0 disables
+// this source entirely).
 export function parsePricesCsv(text: string, ticker: string): { days: ChartDay[]; navByDate: Map<string, number>; asOfDate: string | null } {
   const rows = parseCsv(text);
   const headerIndex = findHeaderRowIndex(rows, ['Date']);
@@ -1547,6 +1570,7 @@ export function deriveCatalogMetrics(
   latestDistribution: number | null,
   paymentsPerYear: number | null,
   price: number | null,
+  derivedCloseSource = 'Yahoo chart API',
 ): JsonRecord {
   const coalesce = (value: number | null | undefined): number | null => (typeof value === 'number' && Number.isFinite(value) ? value : null);
   const ytd = coalesce(official.ytd) ?? coalesce(derived.ytd);
@@ -1573,7 +1597,7 @@ export function deriveCatalogMetrics(
     secYieldText: text(coalesce(publishedSecYield)) ?? '—',
     returnsBasis: Object.values(official).some((value) => value !== null)
       ? 'official Invesco returns (product list download)'
-      : 'adjusted market-price closes (Yahoo chart API), not official NAV returns',
+      : `adjusted market-price closes (${derivedCloseSource}), not official NAV returns`,
   };
 }
 
@@ -1763,6 +1787,7 @@ function returnsBlock(
   official: CatalogReturns,
   asOfDate: string | null,
   previous: JsonRecord,
+  derivedCloseSource = 'Yahoo chart API',
 ): JsonRecord | null {
   const hasOfficial = Object.values(official).some((value) => value !== null);
   const hasDerived = Boolean(derived.asOfDate);
@@ -1772,8 +1797,8 @@ function returnsBlock(
   const asOf = asOfDate || derived.asOfDate;
   return {
     derivedFrom: hasOfficial
-      ? 'official Invesco returns (product list download); mo1/qtd derived from adjusted closes'
-      : 'adjusted market-price closes (Yahoo chart API), not official NAV returns',
+      ? `official Invesco returns (product list download); mo1/qtd derived from adjusted closes (${derivedCloseSource})`
+      : `adjusted market-price closes (${derivedCloseSource}), not official NAV returns`,
     monthEnd: {
       asOfDate: asOf ? formatEdgarDate(asOf) : '—',
       mo1: derived.mo1,
@@ -1889,7 +1914,9 @@ async function processFund(
   const holdingsManifest = await writePages(fundDir, ticker, 'holdings', holdingsHeaders, holdingsRows, config.holdingsPageSize);
   const holdingsAsOf = holdings?.asOfDate || (((previous.holdings as JsonRecord)?.asOfDate as string) ?? null);
 
-  // 2) invesco.com prices & yields history (optional), then Yahoo chart.
+  // 2) invesco.com prices & yields history (default source), then Yahoo
+  //    chart for dividends/exchange/quote — and for daily closes only when
+  //    the official CSV above failed or returned no rows for this fund.
   let chartDays: ChartDay[] = [];
   let dividends: Array<{ epoch: number; amount: number }> = [];
   let exchangeName = '';
@@ -1923,7 +1950,10 @@ async function processFund(
     try {
       const chart = parseChart(await fetchJson(chartUrl(ticker, config), `[ chart    ] ${ticker}`, yahooHeaders(), config));
       exchangeName = chart.exchangeName;
-      navFromChart = chart.navPrice ?? navFromChart;
+      // The official invesco.com prices CSV (when it ran above) already set
+      // navFromChart from a published NAV; Yahoo's own navPrice estimate only
+      // fills the gap when the official source didn't supply one.
+      navFromChart = navFromChart ?? chart.navPrice;
       priceFromChart = chart.regularMarketPrice;
       marketTime = chart.regularMarketTime;
       firstTradeDate = chart.firstTradeDate;
@@ -1940,6 +1970,9 @@ async function processFund(
   const frequency = dividends.length
     ? inferDistributionFrequency(dividends)
     : { frequency: String((previous.distributions as JsonRecord)?.frequency || '—'), paymentsPerYear: null };
+  // Provenance for the derived (non-official) return/close figures: whichever
+  // source the daily closes above actually came from, not always Yahoo.
+  const derivedCloseSource = historySource.startsWith('invesco.com') ? 'invesco.com prices & yields CSV' : 'Yahoo chart API';
 
   const metrics = deriveCatalogMetrics(
     fund.returns,
@@ -1949,6 +1982,7 @@ async function processFund(
     latestDividend ? latestDividend.amount : null,
     frequency.paymentsPerYear,
     fund.close ?? priceFromChart,
+    derivedCloseSource,
   );
 
   const historyHeaders = ['Date', 'Close', 'Adj Close', 'Volume'];
@@ -1972,7 +2006,7 @@ async function processFund(
     : null;
   const catalogNetAssets = fund.source === 'invesco' ? fund.netAssets : null;
   const netAssets = catalogNetAssets ?? nportNetAssets ?? fund.netAssets ?? numberOrNull(previous.aumValue);
-  const returnsData = returnsBlock(derived, fund.returns, fund.asOfDate, previous);
+  const returnsData = returnsBlock(derived, fund.returns, fund.asOfDate, previous, derivedCloseSource);
   const asOfLabel = fund.asOfDate ? formatEdgarDate(fund.asOfDate) : marketTime ? formatEpochDate(marketTime) : '—';
 
   const meta: JsonRecord = {
