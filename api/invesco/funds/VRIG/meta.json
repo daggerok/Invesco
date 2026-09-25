@@ -7,7 +7,7 @@
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/vrig.html",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=VRIG",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=VRIG",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/VRIG?period1=0&period2=1789796681&interval=1d&events=div%7Csplit",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/VRIG?period1=0&period2=1790305644&interval=1d&events=div%7Csplit",
   "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001418144-26-000296, report period 2026-04-30)",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
@@ -24,12 +24,12 @@
  "nav": {
   "display": "—",
   "value": null,
-  "asOfDate": "Sep 18 2026"
+  "asOfDate": "Sep 24 2026"
  },
  "marketPrice": {
   "display": "$25.05",
   "value": 25.055,
-  "asOfDate": "Sep 18 2026"
+  "asOfDate": "Sep 24 2026"
  },
  "premiumDiscount": {
   "display": "—",
@@ -51,13 +51,13 @@
   "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
+  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
-   "asOfDate": "Sep 18 2026",
-   "mo1": 0.24,
-   "mo1Text": "0.24%",
-   "qtd": 0.81,
-   "qtdText": "0.81%",
+   "asOfDate": "Sep 24 2026",
+   "mo1": 0.3,
+   "mo1Text": "0.30%",
+   "qtd": 0.9,
+   "qtdText": "0.90%",
    "ytd": 2.83,
    "ytdText": "2.83%",
    "yr1": 4.57,
@@ -66,8 +66,8 @@
    "yr3Text": "5.72%",
    "yr5": 4.6,
    "yr5Text": "4.60%",
-   "yr10": null,
-   "yr10Text": "—",
+   "yr10": 3.47,
+   "yr10Text": "3.47%",
    "sinceInception": 3.47,
    "sinceInceptionText": "3.47%"
   },
@@ -559,6 +559,10 @@
    [
     "08/24/2026",
     "0.091"
+   ],
+   [
+    "09/21/2026",
+    "0.091"
    ]
   ]
  },
@@ -580,8 +584,8 @@
    "history/003.json"
   ],
   "pageSize": 1000,
-  "totalRows": 2511,
-  "asOf": "Sep 18 2026",
+  "totalRows": 2514,
+  "asOf": "Sep 24 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

@@ -7,7 +7,7 @@
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/rfg.html",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=RFG",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=RFG",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/RFG?period1=0&period2=1789796346&interval=1d&events=div%7Csplit",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/RFG?period1=0&period2=1790305624&interval=1d&events=div%7Csplit",
   "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000919, report period 2026-04-30)",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
@@ -24,12 +24,12 @@
  "nav": {
   "display": "—",
   "value": null,
-  "asOfDate": "Sep 18 2026"
+  "asOfDate": "Sep 24 2026"
  },
  "marketPrice": {
   "display": "$62.09",
   "value": 62.09,
-  "asOfDate": "Sep 18 2026"
+  "asOfDate": "Sep 24 2026"
  },
  "premiumDiscount": {
   "display": "—",
@@ -51,13 +51,13 @@
   "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes",
+  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
-   "asOfDate": "Sep 18 2026",
-   "mo1": -5.88,
-   "mo1Text": "-5.88%",
-   "qtd": -7.27,
-   "qtdText": "-7.27%",
+   "asOfDate": "Sep 24 2026",
+   "mo1": -3.08,
+   "mo1Text": "-3.08%",
+   "qtd": -6.11,
+   "qtdText": "-6.11%",
    "ytd": 18.44,
    "ytdText": "18.44%",
    "yr1": 22.74,
@@ -359,6 +359,10 @@
    [
     "06/22/2026",
     "0.008"
+   ],
+   [
+    "09/21/2026",
+    "0.016"
    ]
   ]
  },
@@ -382,8 +386,8 @@
    "history/006.json"
   ],
   "pageSize": 1000,
-  "totalRows": 5167,
-  "asOf": "Sep 18 2026",
+  "totalRows": 5170,
+  "asOf": "Sep 24 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

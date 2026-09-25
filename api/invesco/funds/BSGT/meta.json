@@ -7,7 +7,7 @@
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/bsgt.html",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=BSGT",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=BSGT",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BSGT?period1=0&period2=1789794857&interval=1d&events=div%7Csplit",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BSGT?period1=0&period2=1790305546&interval=1d&events=div%7Csplit",
   "holdingsSource": "invesco.com per-fund holdings download",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
@@ -24,12 +24,12 @@
  "nav": {
   "display": "—",
   "value": null,
-  "asOfDate": "Sep 18 2026"
+  "asOfDate": "Sep 24 2026"
  },
  "marketPrice": {
   "display": "$24.98",
   "value": 24.985,
-  "asOfDate": "Sep 18 2026"
+  "asOfDate": "Sep 24 2026"
  },
  "premiumDiscount": {
   "display": "—",
@@ -53,11 +53,11 @@
  "returns": {
   "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Sep 18 2026",
-   "mo1": -1.11,
-   "mo1Text": "-1.11%",
-   "qtd": -0.73,
-   "qtdText": "-0.73%",
+   "asOfDate": "Sep 24 2026",
+   "mo1": -1.48,
+   "mo1Text": "-1.48%",
+   "qtd": -1.01,
+   "qtdText": "-1.01%",
    "ytd": null,
    "ytdText": "—",
    "yr1": null,
@@ -91,6 +91,10 @@
    [
     "08/24/2026",
     "0.092"
+   ],
+   [
+    "09/21/2026",
+    "0.084"
    ]
   ]
  },
@@ -107,8 +111,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 70,
-  "asOf": "Sep 18 2026",
+  "totalRows": 73,
+  "asOf": "Sep 24 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }
