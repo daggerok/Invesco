@@ -69,7 +69,7 @@ on:
         default: "Investor"
         type: string
       prices_history:
-        description: "Also pull the per-fund invesco.com prices & yields CSV instead of the Yahoo chart alone (true/1)"
+        description: "On by default: use the per-fund invesco.com prices & yields CSV for daily history, falling back to the Yahoo chart only when it fails/is empty. Set false/0 to use the Yahoo chart alone"
         required: false
         default: ""
         type: string
