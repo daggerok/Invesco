@@ -1,4 +1,6 @@
 #!/usr/bin/env bun
+// Bun provides Node-compatible fs/promises and process globals for this script.
+/// <reference types="bun" />
 import { readFile as outputReadFile, readdir as outputReadDir } from 'node:fs/promises';
 import { createHash as outputCreateHash } from 'node:crypto';
 import { join as outputJoin } from 'node:path';
@@ -8,6 +10,9 @@ import { fileURLToPath as outputFileURLToPath } from 'node:url';
 /** Presentation only: no requests, writes, filtering, or changes to updater state. */
 
 const outputClean = (value: unknown): string => String(value ?? 'null').replace(/[\r\n\t]+/g, ' ');
+/** Presentation only: per-fund retry and fallback notices are printed when VERBOSE is enabled. */
+const outputVerbose = (): boolean => /^(1|true|yes|on)$/i.test((globalThis as any).process?.env?.VERBOSE ?? '');
+function outputNote(message: string): void { if (outputVerbose()) console.warn(message); }
 /** Names are the canonical environment knobs, not internal parser properties. */
 function outputConfigEntries(config: Record<string, any>): [string, string][] {
   const values = new Map<string, string>();
@@ -36,7 +41,8 @@ function outputConfigEntries(config: Record<string, any>): [string, string][] {
   });
 }
 function outputPrintConfig(brand: string, config: Record<string, any>): void {
-  console.log(`[ config ] ${brand} updater:\n${outputConfigEntries(config).map(([key, value]) => `            ${key}=${/TOKEN|PASSWORD|SECRET|COOKIE/i.test(key) ? '<redacted>' : outputClean(value)}`).join('\n')}`);
+  const entries: [string, string][] = [...outputConfigEntries(config), ['VERBOSE', String(outputVerbose())]];
+  console.log(`[ config   ] ${brand} updater:\n${entries.map(([key, value]) => `              ${key}=${/TOKEN|PASSWORD|SECRET|COOKIE/i.test(key) ? '<redacted>' : outputClean(value)}`).join('\n')}`);
 }
 function outputHasOutputFilters(config: Record<string, any>): boolean {
   return outputConfigEntries(config).some(([name, value]) =>
@@ -44,7 +50,7 @@ function outputHasOutputFilters(config: Record<string, any>): boolean {
     !['', ':', 'null', 'all'].includes(value));
 }
 function outputPrintFilter(selected: number, total: number, deferred = false): void {
-  console.log(`[ filter ] ${selected} of ${total} funds ${deferred ? 'selected for evaluation (data-dependent filters applied per fund)' : 'pass filters'}`);
+  console.log(`[ filter   ] ${selected} of ${total} funds ${deferred ? 'selected for evaluation (data-dependent filters applied per fund)' : 'pass filters'}`);
 }
 function outputStable(value: any): any {
   if (Array.isArray(value)) return value.map(outputStable);
@@ -88,19 +94,27 @@ function outputMoney(value: any): string {
 function outputFundLine(index: number, total: number, ticker: string, status: string, data: any = {}, reason?: unknown): string {
   const width = Math.max(2, String(total).length);
   const metrics = data.metrics ?? {};
+  // Presentation only. Keep valid zero/false values; omit unavailable fields.
+  // outputMoney returns the string 'null' for an unavailable monetary value.
+  const field = (key: string, value: unknown): string =>
+    value === null || value === undefined || value === 'null' ? '' : `${key}=${outputClean(value)}`;
+  const sources = [
+    field('official', data.officialHistoryCount),
+    field('yahoo', data.yahooHistoryCount),
+  ].filter(part => part !== '').join(' ');
   const detail = [
-    `port=${outputClean(data.portId ?? data.portfolioId)}`,
-    `history=${outputClean(outputCount(data.history ?? data.historyCount))}`,
-    `(official=${outputClean(data.officialHistoryCount)} yahoo=${outputClean(data.yahooHistoryCount)})`,
-    `holdings=${outputClean(outputCount(data.holdings ?? data.holdingsCount))}`,
-    `divs=${outputClean(outputCount(data.worksheets?.Distributions ?? data.distributions))}`,
-    `netAssets=${outputMoney(data.netAssets ?? data.aum)}`,
-    `total=${outputMoney(data.totalFundNetAssets ?? data.totalNetAssets)}`,
-    `div=${outputClean(outputScalar(data.trailingYield ?? data.yields?.effectiveYield ?? data.yields?.dividendYield ?? data.dividendYield ?? metrics.dividendYield))}`,
-    `sec=${outputClean(outputScalar(data.secYield ?? data.yields?.secYield ?? metrics.secYield))}`,
-    `wp=${outputClean(data.workplaceRaw)}`,
-  ].join(' ');
-  return `[ ${String(index).padStart(width)}/${String(total).padEnd(width)}  ] ${outputClean(ticker).padEnd(5)} ${status.padEnd(9)} ${detail}${reason ? ` reason=${outputClean(reason)}` : ''}`;
+    field('port', data.portId ?? data.portfolioId),
+    field('history', outputCount(data.history ?? data.historyCount)),
+    sources ? `(${sources})` : '',
+    field('holdings', outputCount(data.holdings ?? data.holdingsCount)),
+    field('divs', outputCount(data.worksheets?.Distributions ?? data.distributions)),
+    field('netAssets', outputMoney(data.netAssets ?? data.aum)),
+    field('total', outputMoney(data.totalFundNetAssets ?? data.totalNetAssets)),
+    field('div', outputScalar(data.trailingYield ?? data.yields?.effectiveYield ?? data.yields?.dividendYield ?? data.dividendYield ?? metrics.dividendYield)),
+    field('sec', outputScalar(data.secYield ?? data.yields?.secYield ?? metrics.secYield)),
+    field('wp', data.workplaceRaw),
+  ].filter(part => part !== '').join(' ');
+  return `[ ${String(index).padStart(width)}/${String(total).padEnd(width)}  ] ${outputClean(ticker).padEnd(5)} ${status.padEnd(9)}${detail ? ` ${detail}` : ''}${reason ? ` reason=${outputClean(reason)}` : ''}`;
 }
 function outputCreateReporter(root: URL | string, total: number) {
   let completed = 0;
@@ -147,8 +161,6 @@ function outputCreateReporter(root: URL | string, total: number) {
 //
 // Usage: bun ./scripts/update-data.ts   (or ./scripts/update-data.ts --help)
 
-// Bun provides Node-compatible fs/promises and process globals for this script.
-/// <reference types="bun" />
 import { mkdir, readFile, writeFile, readdir, rm, appendFile } from 'node:fs/promises';
 
 declare const process: {
@@ -1986,7 +1998,7 @@ async function processFund(
         await writeFile(new URL(`holdings-${(holdings.asOfDate || 'latest').replace(/-/g, '')}.csv`, rawDir), csv, 'utf8');
       }
     } catch (error) {
-      console.warn(`[ holdings ] ${ticker}: ${errorMessage(error)}${config.edgarFallback ? ' — trying SEC EDGAR N-PORT-P' : ''}`);
+      outputNote(`[ ${'holdings'.padEnd(9)}] ${ticker}: ${errorMessage(error)}${config.edgarFallback ? ' — trying SEC EDGAR N-PORT-P' : ''}`);
     }
   }
 
@@ -2003,7 +2015,7 @@ async function processFund(
           ? !parsed.seriesId || parsed.seriesId.toUpperCase() === filing.seriesId.toUpperCase()
           : Boolean(filedSeries && wantedSeries && (filedSeries === wantedSeries || filedSeries.includes(wantedSeries) || wantedSeries.includes(filedSeries)));
         if (!belongsToFund) {
-          console.warn(`[ edgar    ] ${ticker}: ${filing.accession.accession} reports "${parsed.seriesName || 'unknown series'}" — skipped`);
+          outputNote(`[ ${'edgar'.padEnd(9)}] ${ticker}: ${filing.accession.accession} reports "${parsed.seriesName || 'unknown series'}" — skipped`);
         } else if (parsed.holdings.length) {
           holdingsEdgar = parsed;
           holdings = {
@@ -2015,7 +2027,7 @@ async function processFund(
         }
       }
     } catch (error) {
-      console.warn(`[ edgar    ] ${ticker}: ${errorMessage(error)} — keeping previous holdings`);
+      outputNote(`[ ${'edgar'.padEnd(9)}] ${ticker}: ${errorMessage(error)} — keeping previous holdings`);
     }
   }
 
@@ -2056,7 +2068,7 @@ async function processFund(
         if (typeof lastNav === 'number') navFromChart = lastNav;
       }
     } catch (error) {
-      console.warn(`[ prices   ] ${ticker}: ${errorMessage(error)} — using the Yahoo chart feed`);
+      outputNote(`[ ${'prices'.padEnd(9)}] ${ticker}: ${errorMessage(error)} — using the Yahoo chart feed`);
     }
   }
 
@@ -2074,7 +2086,7 @@ async function processFund(
       dividends = chart.dividends;
       if (!chartDays.length) chartDays = chart.days;
     } catch (error) {
-      console.warn(`[ chart    ] ${ticker}: ${errorMessage(error)} — keeping previous history`);
+      outputNote(`[ ${'chart'.padEnd(9)}] ${ticker}: ${errorMessage(error)} — keeping previous history`);
     }
   }
 
@@ -2236,7 +2248,7 @@ async function loadFundTickerMap(config: UpdaterConfig): Promise<Map<string, Sec
   try {
     const payload = await fetchJson(SEC_FUND_TICKERS_URL, '[edgar   ] fund ticker table', secHeaders(config), config);
     fundTickerMap = parseFundTickerMap(payload);
-    console.log(`[ edgar    ] SEC fund ticker table: ${fundTickerMap.size} ETF / mutual-fund share classes`);
+    outputNote(`[ ${'edgar'.padEnd(9)}] SEC fund ticker table: ${fundTickerMap.size} ETF / mutual-fund share classes`);
   } catch (error) {
     console.warn(`[ edgar    ] fund ticker table: ${errorMessage(error)} — falling back to full-text search`);
     fundTickerMap = new Map<string, SecSeriesRef>();
@@ -2282,7 +2294,7 @@ async function resolveRegistrantCik(fund: CatalogFund, config: UpdaterConfig): P
       const payload = await fetchJson(eftsSearchUrl(fund.ticker), `[edgar   ] search ${fund.ticker}`, secHeaders(config), config);
       cik = pickEftsCik(payload, fund.name);
     } catch (error) {
-      console.warn(`[ edgar    ] search ${fund.ticker}: ${errorMessage(error)}`);
+      outputNote(`[ ${'edgar'.padEnd(9)}] search ${fund.ticker}: ${errorMessage(error)}`);
     }
   }
   cikByTicker.set(fund.ticker, cik);
@@ -2304,7 +2316,7 @@ async function resolveNportFiling(
       const [newest] = parseEdgarAtomFilings(atom);
       if (newest) return { accession: newest, cik: ref.cik, seriesId: ref.seriesId };
     } catch (error) {
-      console.warn(`[ edgar    ] ${fund.ticker} series ${ref.seriesId}: ${errorMessage(error)} — scanning registrant submissions`);
+      outputNote(`[ ${'edgar'.padEnd(9)}] ${fund.ticker} series ${ref.seriesId}: ${errorMessage(error)} — scanning registrant submissions`);
     }
   }
   const cik = ref?.cik || (await resolveRegistrantCik(fund, config));
@@ -2314,7 +2326,7 @@ async function resolveNportFiling(
     const [newest] = parseNportAccessions(submissions);
     if (newest) return { accession: newest, cik, seriesId: ref?.seriesId || '' };
   } catch (error) {
-    console.warn(`[ edgar    ] ${fund.ticker}: ${errorMessage(error)}`);
+    outputNote(`[ ${'edgar'.padEnd(9)}] ${fund.ticker}: ${errorMessage(error)}`);
   }
   return null;
 }
@@ -2394,7 +2406,7 @@ async function main(): Promise<void> {
       discovered += 1;
     }
     if (discovered) {
-      console.log(`[ catalog  ] +${discovered} funds discovered through the SEC registrant tables`);
+      console.log(`[ ${'catalog'.padEnd(9)}] +${discovered} funds discovered through the SEC registrant tables`);
       catalogSource = `${catalogSource} + SEC registrant tables`;
     }
   }
@@ -2408,7 +2420,7 @@ async function main(): Promise<void> {
     );
     return;
   }
-  console.log(`[ catalog  ] ${universe.length} Invesco ETFs (${catalogSource})`);
+  console.log(`[ ${'catalog'.padEnd(9)}] ${universe.length} Invesco ETFs (${catalogSource})`);
 
   // 2) Bounded, resumable batch run over the catalog (iShares/SPDR cursor).
   const state = await readUpdateState();
@@ -2450,7 +2462,7 @@ async function main(): Promise<void> {
         await output.result(item.fund.ticker, before, 'failed', String(error));
       }
       if (config.maxFetches > 0 && processed >= config.maxFetches) {
-        console.log(`[ cursor   ] batch of ${config.maxFetches} reached — rerun to continue after ${lastProcessedTicker}`);
+        console.log(`[ ${'cursor'.padEnd(9)}] batch of ${config.maxFetches} reached — rerun to continue after ${lastProcessedTicker}`);
         return;
       }
     }
@@ -2493,8 +2505,8 @@ async function main(): Promise<void> {
   await writeUpdateState(config.maxFetches > 0 ? lastProcessedTicker : null);
 
   console.log('');
-  console.log(`[ done     ] ${results.length} funds updated, ${keptFromPrevious.length} kept from previous runs, ${failures} failures`);
-  console.log(`[ done     ] counts: ${counts.funds} funds / ${counts.holdings.toLocaleString('en-US')} holdings rows / ${counts.history.toLocaleString('en-US')} history rows`);
+  console.log(`[ ${'done'.padEnd(9)}] ${results.length} funds updated, ${keptFromPrevious.length} kept from previous runs, ${failures} failures`);
+  console.log(`[ ${'done'.padEnd(9)}] counts: ${counts.funds} funds / ${counts.holdings.toLocaleString('en-US')} holdings rows / ${counts.history.toLocaleString('en-US')} history rows`);
   console.log(
     `[ cursor   ] ${config.maxFetches > 0 && lastProcessedTicker ? `next run continues after ${lastProcessedTicker}` : 'full pass complete (cursor reset)'}`,
   );
