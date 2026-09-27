@@ -7,7 +7,7 @@
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/iqsz.html",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=IQSZ",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=IQSZ",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/IQSZ?period1=0&period2=1790316852&interval=1d&events=div%7Csplit",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/IQSZ?period1=0&period2=1790478980&interval=1d&events=div%7Csplit",
   "holdingsSource": "invesco.com per-fund holdings download",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
@@ -53,11 +53,11 @@
  "returns": {
   "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
-   "asOfDate": "Sep 24 2026",
-   "mo1": -0.76,
-   "mo1Text": "-0.76%",
-   "qtd": 2.9,
-   "qtdText": "2.90%",
+   "asOfDate": "Sep 25 2026",
+   "mo1": -0.2,
+   "mo1Text": "-0.20%",
+   "qtd": 3.63,
+   "qtdText": "3.63%",
    "ytd": 17.07,
    "ytdText": "17.07%",
    "yr1": 27.51,
@@ -119,8 +119,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 300,
-  "asOf": "Sep 24 2026",
+  "totalRows": 302,
+  "asOf": "Sep 25 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

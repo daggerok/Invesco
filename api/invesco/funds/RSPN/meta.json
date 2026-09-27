@@ -7,7 +7,7 @@
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/rspn.html",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=RSPN",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=RSPN",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/RSPN?period1=0&period2=1790316867&interval=1d&events=div%7Csplit",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/RSPN?period1=0&period2=1790478991&interval=1d&events=div%7Csplit",
   "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000929, report period 2026-04-30)",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
@@ -24,12 +24,12 @@
  "nav": {
   "display": "—",
   "value": null,
-  "asOfDate": "Sep 24 2026"
+  "asOfDate": "Sep 25 2026"
  },
  "marketPrice": {
   "display": "$62.75",
   "value": 62.75,
-  "asOfDate": "Sep 24 2026"
+  "asOfDate": "Sep 25 2026"
  },
  "premiumDiscount": {
   "display": "—",
@@ -53,11 +53,11 @@
  "returns": {
   "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
-   "asOfDate": "Sep 24 2026",
-   "mo1": -6.28,
-   "mo1Text": "-6.28%",
-   "qtd": -7.87,
-   "qtdText": "-7.87%",
+   "asOfDate": "Sep 25 2026",
+   "mo1": -5.73,
+   "mo1Text": "-5.73%",
+   "qtd": -7.08,
+   "qtdText": "-7.08%",
    "ytd": 11.3,
    "ytdText": "11.30%",
    "yr1": 12.3,
@@ -410,11 +410,12 @@
    "history/002.json",
    "history/003.json",
    "history/004.json",
-   "history/005.json"
+   "history/005.json",
+   "history/006.json"
   ],
   "pageSize": 1000,
-  "totalRows": 4999,
-  "asOf": "Sep 24 2026",
+  "totalRows": 5001,
+  "asOf": "Sep 25 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

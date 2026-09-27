@@ -7,7 +7,7 @@
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/sphd.html",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=SPHD",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=SPHD",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/SPHD?period1=0&period2=1790316868&interval=1d&events=div%7Csplit",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/SPHD?period1=0&period2=1790478992&interval=1d&events=div%7Csplit",
   "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001396, report period 2026-05-31)",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
@@ -24,12 +24,12 @@
  "nav": {
   "display": "—",
   "value": null,
-  "asOfDate": "Sep 24 2026"
+  "asOfDate": "Sep 25 2026"
  },
  "marketPrice": {
   "display": "$52.71",
   "value": 52.71,
-  "asOfDate": "Sep 24 2026"
+  "asOfDate": "Sep 25 2026"
  },
  "premiumDiscount": {
   "display": "—",
@@ -53,11 +53,11 @@
  "returns": {
   "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
-   "asOfDate": "Sep 24 2026",
-   "mo1": -7.91,
-   "mo1Text": "-7.91%",
-   "qtd": -3.45,
-   "qtdText": "-3.45%",
+   "asOfDate": "Sep 25 2026",
+   "mo1": -6.76,
+   "mo1Text": "-6.76%",
+   "qtd": -3.31,
+   "qtdText": "-3.31%",
    "ytd": 13.06,
    "ytdText": "13.06%",
    "yr1": 11.58,
@@ -760,8 +760,8 @@
    "history/004.json"
   ],
   "pageSize": 1000,
-  "totalRows": 3495,
-  "asOf": "Sep 24 2026",
+  "totalRows": 3497,
+  "asOf": "Sep 25 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

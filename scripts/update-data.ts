@@ -1,4 +1,132 @@
 #!/usr/bin/env bun
+// Bun provides Node-compatible fs/promises and process globals for this script.
+/// <reference types="bun" />
+import { readFile as outputReadFile, readdir as outputReadDir } from 'node:fs/promises';
+import { createHash as outputCreateHash } from 'node:crypto';
+import { join as outputJoin } from 'node:path';
+import { fileURLToPath as outputFileURLToPath } from 'node:url';
+
+// Console presentation; no changes to provider requests or persisted data.
+/** Presentation only: no requests, writes, filtering, or changes to updater state. */
+
+const outputClean = (value: unknown): string => String(value ?? 'null').replace(/[\r\n\t]+/g, ' ');
+/** Presentation only: per-fund retry and fallback notices are printed when VERBOSE is enabled. */
+const outputVerbose = (): boolean => /^(1|true|yes|on)$/i.test((globalThis as any).process?.env?.VERBOSE ?? '');
+function outputNote(message: string): void { if (outputVerbose()) console.warn(message); }
+/** Names are the canonical environment knobs, not internal parser properties. */
+function outputConfigEntries(config: Record<string, any>): [string, string][] {
+  const values = new Map<string, string>();
+  const aliases: Record<string, string> = {
+    requestSleepSeconds: 'REQUEST_SLEEP', categories: 'CATEGORY',
+    aumRange: 'AUM', terRange: 'TER', dividendYieldRange: 'DIVIDEND_YIELD', secYieldRange: 'SEC_YIELD',
+    performanceRanges: 'PERFORMANCE', totalReturnRanges: 'TOTAL_RETURN',
+    skipVanEck: 'SKIP_VANECK', skipProShares: 'SKIP_PROSHARES',
+    skipWisdomTree: 'SKIP_WISDOMTREE', skipGoldmanSachs: 'SKIP_GOLDMANSACHS',
+  };
+  const range = (v: any): string => v?.source ?? `${Number.isFinite(v?.min) ? v.min : ''}:${Number.isFinite(v?.max) ? v.max : ''}`;
+  for (const [key, value] of Object.entries(config)) {
+    const name = aliases[key] ?? key.replace(/([a-z0-9])([A-Z])/g, '$1_$2').toUpperCase();
+    if (name === 'PERFORMANCE' || name === 'TOTAL_RETURN') {
+      for (const period of ['YTD', '1Y', '3Y', '5Y', '10Y']) values.set(`${name}_${period}`, range(value?.[period]));
+    } else if (['AUM', 'TER', 'DIVIDEND_YIELD', 'SEC_YIELD'].includes(name)) {
+      values.set(name, range(value));
+    } else {
+      values.set(name, value instanceof Set ? [...value].join(',') || 'all' : Array.isArray(value) ? value.join(',') || 'all' : outputClean(value));
+    }
+  }
+  const first = ['MAX_FETCHES', 'REQUEST_SLEEP', 'CONCURRENCY'];
+  return [...values].sort(([a], [b]) => {
+    const ai = first.indexOf(a), bi = first.indexOf(b);
+    return (ai < 0 ? first.length : ai) - (bi < 0 ? first.length : bi) || a.localeCompare(b);
+  });
+}
+function outputPrintConfig(brand: string, config: Record<string, any>): void {
+  const entries: [string, string][] = [...outputConfigEntries(config), ['VERBOSE', String(outputVerbose())]];
+  console.log(`[ config   ] ${brand} updater:\n${entries.map(([key, value]) => `              ${key}=${/TOKEN|PASSWORD|SECRET|COOKIE/i.test(key) ? '<redacted>' : outputClean(value)}`).join('\n')}`);
+}
+function outputHasOutputFilters(config: Record<string, any>): boolean {
+  return outputConfigEntries(config).some(([name, value]) =>
+    /^(TICKERS|CATEGORY|AUM|TER|DIVIDEND_YIELD|SEC_YIELD|PERFORMANCE_|TOTAL_RETURN_)/.test(name) &&
+    !['', ':', 'null', 'all'].includes(value));
+}
+function outputPrintFilter(selected: number, total: number, deferred = false): void {
+  console.log(`[ filter   ] ${selected} of ${total} funds ${deferred ? 'selected for evaluation (data-dependent filters applied per fund)' : 'pass filters'}`);
+}
+function outputStable(value: any): any {
+  if (Array.isArray(value)) return value.map(outputStable);
+  if (value && typeof value === 'object') return Object.fromEntries(Object.keys(value).sort().filter(key => !['generatedAt', 'catalogReadAt'].includes(key)).map(key => [key, outputStable(value[key])]));
+  return value;
+}
+function outputContentKey(value: unknown): string { return JSON.stringify(outputStable(value)) ?? 'null'; }
+async function outputInspectFund(root: URL | string, ticker: string): Promise<{ digest: string; meta: any }> {
+  const dir = outputJoin(root instanceof URL ? outputFileURLToPath(root) : root, 'funds', ticker);
+  const hash = outputCreateHash('sha256');
+  async function visit(path: string): Promise<void> {
+    const entries = await outputReadDir(path, { withFileTypes: true }).catch(() => []);
+    for (const entry of entries.sort((a, b) => a.name.localeCompare(b.name))) {
+      if (entry.isDirectory()) await visit(outputJoin(path, entry.name));
+      else if (entry.name.endsWith('.json')) {
+        const text = await outputReadFile(outputJoin(path, entry.name), 'utf8').catch(() => '');
+        hash.update(outputJoin(path.slice(dir.length), entry.name));
+        try { hash.update(outputContentKey(JSON.parse(text))); } catch { hash.update(text); }
+      }
+    }
+  }
+  await visit(dir);
+  const meta = await outputReadFile(outputJoin(dir, 'meta.json'), 'utf8').then(JSON.parse).catch(() => ({}));
+  return { digest: hash.digest('hex'), meta };
+}
+const outputCount = (value: any): unknown => typeof value === 'number' ? value : Array.isArray(value) ? value.length : value?.totalRows ?? value?.rows?.length ?? null;
+const outputScalar = (value: any): any => value && typeof value === 'object' ? value.display ?? value.value ?? null : value;
+function outputMoney(value: any): string {
+  const raw = outputScalar(value);
+  if (raw === null || raw === undefined || raw === '—' || raw === '--') return 'null';
+  const text = String(raw).replace(/[$,\s]/g, '');
+  const match = text.match(/^([+-]?[\d.]+)([KMBT])?$/i);
+  if (!match) return outputClean(raw);
+  const number = Number(match[1]) * ({ K: 1e3, M: 1e6, B: 1e9, T: 1e12 }[match[2]?.toUpperCase() as 'K' | 'M' | 'B' | 'T'] ?? 1);
+  if (!Number.isFinite(number)) return 'null';
+  for (const [unit, scale] of [['T', 1e12], ['B', 1e9], ['M', 1e6], ['K', 1e3]] as const) {
+    if (Math.abs(number) >= scale) return `$${(number / scale).toFixed(1)}${unit}`;
+  }
+  return `$${number.toFixed(2)}`;
+}
+function outputFundLine(index: number, total: number, ticker: string, status: string, data: any = {}, reason?: unknown): string {
+  const width = Math.max(2, String(total).length);
+  const metrics = data.metrics ?? {};
+  // Presentation only. Keep valid zero/false values; omit unavailable fields.
+  // outputMoney returns the string 'null' for an unavailable monetary value.
+  const field = (key: string, value: unknown): string =>
+    value === null || value === undefined || value === 'null' ? '' : `${key}=${outputClean(value)}`;
+  const sources = [
+    field('official', data.officialHistoryCount),
+    field('yahoo', data.yahooHistoryCount),
+  ].filter(part => part !== '').join(' ');
+  const detail = [
+    field('port', data.portId ?? data.portfolioId),
+    field('history', outputCount(data.history ?? data.historyCount)),
+    sources ? `(${sources})` : '',
+    field('holdings', outputCount(data.holdings ?? data.holdingsCount)),
+    field('divs', outputCount(data.worksheets?.Distributions ?? data.distributions)),
+    field('netAssets', outputMoney(data.netAssets ?? data.aum)),
+    field('total', outputMoney(data.totalFundNetAssets ?? data.totalNetAssets)),
+    field('div', outputScalar(data.trailingYield ?? data.yields?.effectiveYield ?? data.yields?.dividendYield ?? data.dividendYield ?? metrics.dividendYield)),
+    field('sec', outputScalar(data.secYield ?? data.yields?.secYield ?? metrics.secYield)),
+    field('wp', data.workplaceRaw),
+  ].filter(part => part !== '').join(' ');
+  return `[ ${String(index).padStart(width)}/${String(total).padEnd(width)}  ] ${outputClean(ticker).padEnd(5)} ${status.padEnd(9)}${detail ? ` ${detail}` : ''}${reason ? ` reason=${outputClean(reason)}` : ''}`;
+}
+function outputCreateReporter(root: URL | string, total: number) {
+  let completed = 0;
+  return {
+    before: (ticker: string) => outputInspectFund(root, ticker),
+    async result(ticker: string, before: { digest: string }, status?: string, reason?: unknown, extra: any = {}) {
+      const after = await outputInspectFund(root, ticker);
+      console.log(outputFundLine(++completed, total, ticker, status ?? (before.digest === after.digest ? 'unchanged' : 'updated'), { ...after.meta, ...extra }, reason));
+    },
+  };
+}
+
 
 // Invesco Ltd. (US ETFs) static data updater.
 //
@@ -33,8 +161,6 @@
 //
 // Usage: bun ./scripts/update-data.ts   (or ./scripts/update-data.ts --help)
 
-// Bun provides Node-compatible fs/promises and process globals for this script.
-/// <reference types="bun" />
 import { mkdir, readFile, writeFile, readdir, rm, appendFile } from 'node:fs/promises';
 
 declare const process: {
@@ -1846,7 +1972,6 @@ async function processFund(
     config,
   );
   if (reasons.length) {
-    console.log(`[ ${ticker.padEnd(5)} ] skipped (${reasons.join(', ')})`);
     return null;
   }
 
@@ -1873,7 +1998,7 @@ async function processFund(
         await writeFile(new URL(`holdings-${(holdings.asOfDate || 'latest').replace(/-/g, '')}.csv`, rawDir), csv, 'utf8');
       }
     } catch (error) {
-      console.warn(`[ holdings ] ${ticker}: ${errorMessage(error)}${config.edgarFallback ? ' — trying SEC EDGAR N-PORT-P' : ''}`);
+      outputNote(`[ ${'holdings'.padEnd(9)}] ${ticker}: ${errorMessage(error)}${config.edgarFallback ? ' — trying SEC EDGAR N-PORT-P' : ''}`);
     }
   }
 
@@ -1890,7 +2015,7 @@ async function processFund(
           ? !parsed.seriesId || parsed.seriesId.toUpperCase() === filing.seriesId.toUpperCase()
           : Boolean(filedSeries && wantedSeries && (filedSeries === wantedSeries || filedSeries.includes(wantedSeries) || wantedSeries.includes(filedSeries)));
         if (!belongsToFund) {
-          console.warn(`[ edgar    ] ${ticker}: ${filing.accession.accession} reports "${parsed.seriesName || 'unknown series'}" — skipped`);
+          outputNote(`[ ${'edgar'.padEnd(9)}] ${ticker}: ${filing.accession.accession} reports "${parsed.seriesName || 'unknown series'}" — skipped`);
         } else if (parsed.holdings.length) {
           holdingsEdgar = parsed;
           holdings = {
@@ -1902,7 +2027,7 @@ async function processFund(
         }
       }
     } catch (error) {
-      console.warn(`[ edgar    ] ${ticker}: ${errorMessage(error)} — keeping previous holdings`);
+      outputNote(`[ ${'edgar'.padEnd(9)}] ${ticker}: ${errorMessage(error)} — keeping previous holdings`);
     }
   }
 
@@ -1943,7 +2068,7 @@ async function processFund(
         if (typeof lastNav === 'number') navFromChart = lastNav;
       }
     } catch (error) {
-      console.warn(`[ prices   ] ${ticker}: ${errorMessage(error)} — using the Yahoo chart feed`);
+      outputNote(`[ ${'prices'.padEnd(9)}] ${ticker}: ${errorMessage(error)} — using the Yahoo chart feed`);
     }
   }
 
@@ -1961,7 +2086,7 @@ async function processFund(
       dividends = chart.dividends;
       if (!chartDays.length) chartDays = chart.days;
     } catch (error) {
-      console.warn(`[ chart    ] ${ticker}: ${errorMessage(error)} — keeping previous history`);
+      outputNote(`[ ${'chart'.padEnd(9)}] ${ticker}: ${errorMessage(error)} — keeping previous history`);
     }
   }
 
@@ -2123,7 +2248,7 @@ async function loadFundTickerMap(config: UpdaterConfig): Promise<Map<string, Sec
   try {
     const payload = await fetchJson(SEC_FUND_TICKERS_URL, '[edgar   ] fund ticker table', secHeaders(config), config);
     fundTickerMap = parseFundTickerMap(payload);
-    console.log(`[ edgar    ] SEC fund ticker table: ${fundTickerMap.size} ETF / mutual-fund share classes`);
+    outputNote(`[ ${'edgar'.padEnd(9)}] SEC fund ticker table: ${fundTickerMap.size} ETF / mutual-fund share classes`);
   } catch (error) {
     console.warn(`[ edgar    ] fund ticker table: ${errorMessage(error)} — falling back to full-text search`);
     fundTickerMap = new Map<string, SecSeriesRef>();
@@ -2169,7 +2294,7 @@ async function resolveRegistrantCik(fund: CatalogFund, config: UpdaterConfig): P
       const payload = await fetchJson(eftsSearchUrl(fund.ticker), `[edgar   ] search ${fund.ticker}`, secHeaders(config), config);
       cik = pickEftsCik(payload, fund.name);
     } catch (error) {
-      console.warn(`[ edgar    ] search ${fund.ticker}: ${errorMessage(error)}`);
+      outputNote(`[ ${'edgar'.padEnd(9)}] search ${fund.ticker}: ${errorMessage(error)}`);
     }
   }
   cikByTicker.set(fund.ticker, cik);
@@ -2191,7 +2316,7 @@ async function resolveNportFiling(
       const [newest] = parseEdgarAtomFilings(atom);
       if (newest) return { accession: newest, cik: ref.cik, seriesId: ref.seriesId };
     } catch (error) {
-      console.warn(`[ edgar    ] ${fund.ticker} series ${ref.seriesId}: ${errorMessage(error)} — scanning registrant submissions`);
+      outputNote(`[ ${'edgar'.padEnd(9)}] ${fund.ticker} series ${ref.seriesId}: ${errorMessage(error)} — scanning registrant submissions`);
     }
   }
   const cik = ref?.cik || (await resolveRegistrantCik(fund, config));
@@ -2201,7 +2326,7 @@ async function resolveNportFiling(
     const [newest] = parseNportAccessions(submissions);
     if (newest) return { accession: newest, cik, seriesId: ref?.seriesId || '' };
   } catch (error) {
-    console.warn(`[ edgar    ] ${fund.ticker}: ${errorMessage(error)}`);
+    outputNote(`[ ${'edgar'.padEnd(9)}] ${fund.ticker}: ${errorMessage(error)}`);
   }
   return null;
 }
@@ -2214,9 +2339,7 @@ async function main(): Promise<void> {
   const config = readConfig();
   requestSleepMs = Math.max(0, config.requestSleep) * 1000;
 
-  console.log('Invesco ETF static data updater');
-  console.log('Sources: invesco.com product-list + per-fund holdings CSVs, Yahoo Finance public chart API, SEC EDGAR N-PORT-P (fallback)');
-  for (const line of configLines(config)) console.log(`  ${line}`);
+  outputPrintConfig('Invesco', config);
   console.log('');
 
 
@@ -2283,7 +2406,7 @@ async function main(): Promise<void> {
       discovered += 1;
     }
     if (discovered) {
-      console.log(`[ catalog  ] +${discovered} funds discovered through the SEC registrant tables`);
+      console.log(`[ ${'catalog'.padEnd(9)}] +${discovered} funds discovered through the SEC registrant tables`);
       catalogSource = `${catalogSource} + SEC registrant tables`;
     }
   }
@@ -2297,7 +2420,7 @@ async function main(): Promise<void> {
     );
     return;
   }
-  console.log(`[ catalog  ] ${universe.length} Invesco ETFs (${catalogSource})`);
+  console.log(`[ ${'catalog'.padEnd(9)}] ${universe.length} Invesco ETFs (${catalogSource})`);
 
   // 2) Bounded, resumable batch run over the catalog (iShares/SPDR cursor).
   const state = await readUpdateState();
@@ -2318,24 +2441,28 @@ async function main(): Promise<void> {
   let lastProcessedTicker: string | null = cursor;
   let failures = 0;
 
+  outputPrintFilter(universe.length, universe.length, outputHasOutputFilters(config));
+  const output = outputCreateReporter(API_ROOT, config.maxFetches > 0 ? Math.min(config.maxFetches, ordered.length) : ordered.length);
   async function worker(): Promise<void> {
     for (;;) {
       const item = queue.shift();
       if (!item) return;
       if (config.maxFetches > 0 && processed >= config.maxFetches) return;
       processed += 1;
+      const before = await output.before(item.fund.ticker);
       try {
         const row = await processFund(item.fund, config, previousIndex.get(item.fund.ticker) || {}, invescoReachable);
         if (row) {
           results.push(row);
           lastProcessedTicker = item.fund.ticker;
         }
+        await output.result(item.fund.ticker, before, row ? undefined : 'skipped');
       } catch (error) {
         failures += 1;
-        console.warn(`[ error    ] ${item.fund.ticker}: ${errorMessage(error)}`);
+        await output.result(item.fund.ticker, before, 'failed', String(error));
       }
       if (config.maxFetches > 0 && processed >= config.maxFetches) {
-        console.log(`[ cursor   ] batch of ${config.maxFetches} reached — rerun to continue after ${lastProcessedTicker}`);
+        console.log(`[ ${'cursor'.padEnd(9)}] batch of ${config.maxFetches} reached — rerun to continue after ${lastProcessedTicker}`);
         return;
       }
     }
@@ -2378,8 +2505,8 @@ async function main(): Promise<void> {
   await writeUpdateState(config.maxFetches > 0 ? lastProcessedTicker : null);
 
   console.log('');
-  console.log(`[ done     ] ${results.length} funds updated, ${keptFromPrevious.length} kept from previous runs, ${failures} failures`);
-  console.log(`[ done     ] counts: ${counts.funds} funds / ${counts.holdings.toLocaleString('en-US')} holdings rows / ${counts.history.toLocaleString('en-US')} history rows`);
+  console.log(`[ ${'done'.padEnd(9)}] ${results.length} funds updated, ${keptFromPrevious.length} kept from previous runs, ${failures} failures`);
+  console.log(`[ ${'done'.padEnd(9)}] counts: ${counts.funds} funds / ${counts.holdings.toLocaleString('en-US')} holdings rows / ${counts.history.toLocaleString('en-US')} history rows`);
   console.log(
     `[ cursor   ] ${config.maxFetches > 0 && lastProcessedTicker ? `next run continues after ${lastProcessedTicker}` : 'full pass complete (cursor reset)'}`,
   );
