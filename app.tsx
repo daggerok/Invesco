@@ -341,7 +341,7 @@
     function formatDistributionFrequency(value: unknown): string {
       const raw = String(value ?? '').trim();
       const normalized = raw.toLowerCase().replace(/[‐‑‒–—]/g, '-').replace(/\s+/g, ' ');
-      if (!normalized || normalized === '-' || normalized === '—') return '00 - —';
+      if (!normalized || normalized === '-' || normalized === '—') return '00 - None';
       if (normalized === 'monthly') return '01 - Monthly';
       if (normalized === 'quarterly') return '04 - Quarterly';
       if (normalized === 'semiannually' || normalized === 'semi-annually' || normalized === 'semi-annual' || normalized === 'semiannual') return '06 - Semi-annually';
@@ -1172,7 +1172,7 @@
               <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${escapeHtml(fund.ter || '—')}</td>
               <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatPercent(fund.dividendYield)}</td>
               <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">—</td>
-              <td class="py-2.5 px-4 text-slate-600 dark:text-slate-300 font-mono">${escapeHtml(fund.frequencyCode || '00 - —')}</td>
+              <td class="py-2.5 px-4 text-slate-600 dark:text-slate-300 font-mono">${escapeHtml(fund.frequencyCode || '00 - None')}</td>
               <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatPercent(fund.ytd)}</td>
               <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatPercent(fund.yr1)}</td>
               <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatPercent(fund.tr3y)}</td>
