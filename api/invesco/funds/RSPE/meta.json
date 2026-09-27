@@ -7,7 +7,7 @@
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/rspe.html",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=RSPE",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=RSPE",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/RSPE?period1=0&period2=1790316866&interval=1d&events=div%7Csplit",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/RSPE?period1=0&period2=1790478911&interval=1d&events=div%7Csplit",
   "holdingsSource": "invesco.com per-fund holdings download",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
@@ -24,12 +24,12 @@
  "nav": {
   "display": "—",
   "value": null,
-  "asOfDate": "Sep 24 2026"
+  "asOfDate": "Sep 25 2026"
  },
  "marketPrice": {
   "display": "$35.21",
   "value": 35.2094,
-  "asOfDate": "Sep 24 2026"
+  "asOfDate": "Sep 25 2026"
  },
  "premiumDiscount": {
   "display": "—",
@@ -53,11 +53,11 @@
  "returns": {
   "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
-   "asOfDate": "Sep 24 2026",
-   "mo1": -4.06,
-   "mo1Text": "-4.06%",
-   "qtd": -0.5,
-   "qtdText": "-0.50%",
+   "asOfDate": "Sep 25 2026",
+   "mo1": -3.5,
+   "mo1Text": "-3.50%",
+   "qtd": -0.1,
+   "qtdText": "-0.10%",
    "ytd": 19.16,
    "ytdText": "19.16%",
    "yr1": 24.86,
@@ -180,8 +180,8 @@
    "history/002.json"
   ],
   "pageSize": 1000,
-  "totalRows": 1216,
-  "asOf": "Sep 24 2026",
+  "totalRows": 1218,
+  "asOf": "Sep 25 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

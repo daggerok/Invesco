@@ -7,7 +7,7 @@
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/qqhg.html",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=QQHG",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=QQHG",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/QQHG?period1=0&period2=1790316865&interval=1d&events=div%7Csplit",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/QQHG?period1=0&period2=1790478909&interval=1d&events=div%7Csplit",
   "holdingsSource": "invesco.com per-fund holdings download",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
@@ -24,12 +24,12 @@
  "nav": {
   "display": "—",
   "value": null,
-  "asOfDate": "Sep 24 2026"
+  "asOfDate": "Sep 25 2026"
  },
  "marketPrice": {
   "display": "$66.45",
   "value": 66.452,
-  "asOfDate": "Sep 24 2026"
+  "asOfDate": "Sep 25 2026"
  },
  "premiumDiscount": {
   "display": "—",
@@ -53,11 +53,11 @@
  "returns": {
   "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
-   "asOfDate": "Sep 24 2026",
-   "mo1": 2.88,
-   "mo1Text": "2.88%",
-   "qtd": 2.41,
-   "qtdText": "2.41%",
+   "asOfDate": "Sep 25 2026",
+   "mo1": 2.17,
+   "mo1Text": "2.17%",
+   "qtd": 2.62,
+   "qtdText": "2.62%",
    "ytd": 10.8,
    "ytdText": "10.80%",
    "yr1": 17.92,
@@ -119,8 +119,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 347,
-  "asOf": "Sep 24 2026",
+  "totalRows": 349,
+  "asOf": "Sep 25 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

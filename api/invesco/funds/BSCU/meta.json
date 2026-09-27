@@ -7,7 +7,7 @@
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/bscu.html",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=BSCU",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=BSCU",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BSCU?period1=0&period2=1790316837&interval=1d&events=div%7Csplit",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BSCU?period1=0&period2=1790478892&interval=1d&events=div%7Csplit",
   "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001657201-26-000582, report period 2026-05-31)",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
@@ -24,12 +24,12 @@
  "nav": {
   "display": "—",
   "value": null,
-  "asOfDate": "Sep 24 2026"
+  "asOfDate": "Sep 25 2026"
  },
  "marketPrice": {
   "display": "$16.52",
   "value": 16.525,
-  "asOfDate": "Sep 24 2026"
+  "asOfDate": "Sep 25 2026"
  },
  "premiumDiscount": {
   "display": "—",
@@ -53,11 +53,11 @@
  "returns": {
   "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
-   "asOfDate": "Sep 24 2026",
-   "mo1": -2.01,
-   "mo1Text": "-2.01%",
-   "qtd": -1.69,
-   "qtdText": "-1.69%",
+   "asOfDate": "Sep 25 2026",
+   "mo1": -1.68,
+   "mo1Text": "-1.68%",
+   "qtd": -1.5,
+   "qtdText": "-1.50%",
    "ytd": 0.67,
    "ytdText": "0.67%",
    "yr1": 2.37,
@@ -387,8 +387,8 @@
    "history/002.json"
   ],
   "pageSize": 1000,
-  "totalRows": 1510,
-  "asOf": "Sep 24 2026",
+  "totalRows": 1512,
+  "asOf": "Sep 25 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }
