@@ -1492,7 +1492,12 @@ export function parseChart(payload: JsonRecord): ParsedChart {
     days.push({
       date: epochToIsoDate(timestamps[i]),
       close: round(close, 6),
-      adjClose: round(adjClose, 6),
+      // Yahoo recomputes the split/dividend-adjusted close on every request;
+      // at 6 decimals the last digit or two jitters between otherwise
+      // identical requests, making every history row (and the fund) look
+      // "updated" on every single run. 2 decimals is well past any
+      // meaningful precision for a price and absorbs that jitter.
+      adjClose: round(adjClose, 2),
       volume: typeof volumes[i] === 'number' ? (volumes[i] as number) : 0,
     });
   }
@@ -1774,6 +1779,20 @@ function fundFilterReasons(
 // Deterministic writers (iShares/SPDR/Fidelity-style)
 // ---------------------------------------------------------------------------
 
+// Comparing raw text would treat a run that only refreshed generatedAt (with
+// every fund's actual data unchanged) as a real change and rewrite the file
+// every time. Compare with both timestamps stripped instead.
+export function samePublishedContent(previous: string, value: unknown): boolean {
+  const withoutRunTimestamp = (item: unknown): unknown => {
+    if (!item || typeof item !== 'object' || Array.isArray(item)) return item;
+    const { generatedAt, savedAt, ...content } = item as Record<string, unknown>;
+    return content;
+  };
+  try {
+    return JSON.stringify(withoutRunTimestamp(JSON.parse(previous))) === JSON.stringify(withoutRunTimestamp(value));
+  } catch { return false; }
+}
+
 async function writeIfChanged(file: URL, value: unknown): Promise<boolean> {
   const next = `${JSON.stringify(value, null, 1)}\n`;
   let previous: string | null = null;
@@ -1782,7 +1801,7 @@ async function writeIfChanged(file: URL, value: unknown): Promise<boolean> {
   } catch {
     // First write.
   }
-  if (previous === next) return false;
+  if (previous === next || (previous !== null && samePublishedContent(previous, value))) return false;
   await writeFile(file, next, 'utf8');
   return true;
 }
@@ -2144,7 +2163,10 @@ async function processFund(
       fundPage: fund.fundPage,
       holdingsDownload: config.skipInvesco ? (((previous.source as JsonRecord)?.holdingsDownload as string) ?? null) : invescoHoldingsDownloadUrl(ticker, config.audienceType),
       pricesDownload: invescoPricesDownloadUrl(ticker, config.audienceType),
-      yahooChart: chartUrl(ticker, config),
+      // A stable provenance URL, not the live fetch URL: chartUrl(ticker, config)
+      // embeds the current timestamp in period2, which would make this field
+      // (and the file's digest) change on every single run.
+      yahooChart: `${YAHOO_CHART_URL}/${encodeURIComponent(ticker)}`,
       holdingsSource,
       historySource,
       provider: 'Invesco Ltd. public ETF downloads + Yahoo Finance public chart API',
