@@ -930,13 +930,13 @@ describe('formatDistributionFrequency (catalog Frequency column)', () => {
     expect(formatDistributionFrequency('monthly')).toBe('01 - Monthly');
   });
 
-  test('treats missing data as "00 - —" instead of dropping the cell', () => {
-    expect(formatDistributionFrequency(undefined)).toBe('00 - —');
-    expect(formatDistributionFrequency(null)).toBe('00 - —');
-    expect(formatDistributionFrequency('')).toBe('00 - —');
-    expect(formatDistributionFrequency('  ')).toBe('00 - —');
-    expect(formatDistributionFrequency('-')).toBe('00 - —');
-    expect(formatDistributionFrequency('—')).toBe('00 - —');
+  test('treats missing data as "00 - None" instead of dropping the cell', () => {
+    expect(formatDistributionFrequency(undefined)).toBe('00 - None');
+    expect(formatDistributionFrequency(null)).toBe('00 - None');
+    expect(formatDistributionFrequency('')).toBe('00 - None');
+    expect(formatDistributionFrequency('  ')).toBe('00 - None');
+    expect(formatDistributionFrequency('-')).toBe('00 - None');
+    expect(formatDistributionFrequency('—')).toBe('00 - None');
   });
 
   test('passes an unknown published value through unchanged', () => {
@@ -949,4 +949,25 @@ describe('formatDistributionFrequency (catalog Frequency column)', () => {
       .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
     expect(codes).toEqual(['00 - None', '01 - Monthly', '04 - Quarterly', '06 - Semi-annually', '12 - Annually', '99 - Irregular']);
   });
+});
+
+
+import { test as frequencyLabelTest, expect as frequencyLabelExpect } from 'bun:test';
+frequencyLabelTest('Frequency placeholders display None and existing cadence labels stay unchanged', async () => {
+  const text = await Bun.file(new URL('../app.tsx', import.meta.url)).text();
+  const start = /^([ \t]*)function (formatDividendFrequency|formatDistributionFrequency)\(/m.exec(text);
+  frequencyLabelExpect(start).not.toBeNull();
+  const tail = text.slice(start!.index);
+  const end = new RegExp('^' + start![1] + '\u007d', 'm').exec(tail);
+  frequencyLabelExpect(end).not.toBeNull();
+  const js = new Bun.Transpiler({ loader: 'ts' }).transformSync(tail.slice(0, end!.index + end![0].length));
+  const format = new Function(js + '; return ' + start![2] + ';')();
+  for (const value of [null, undefined, '', '  ', '-', '‐', '‑', '‒', '–', '—', ' — ']) {
+    frequencyLabelExpect(format(value)).toBe('00 - None');
+  }
+  for (const [input, expected] of [
+    ['None', '00 - None'], ['Unknown', '00 - Unknown'], ['Monthly', '01 - Monthly'],
+    ['Quarterly', '04 - Quarterly'], ['Semi-annually', '06 - Semi-annually'],
+    ['Annually', '12 - Annually'], ['Irregular', '99 - Irregular'],
+  ]) frequencyLabelExpect(format(input)).toBe(expected);
 });
