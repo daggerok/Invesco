@@ -64,6 +64,8 @@ Each fund carries a derived `metrics` object that powers the catalog columns sha
 
 `TICKERS` combines with AUM, TER, yield filters using AND logic; it does not override them. Funds not selected for a successful update keep their prior published metadata and data files.
 
+For scheduled/manual GitHub Actions runs, optional repository variables `STORE_RAW_DOWNLOADS` and `INVESCO_AUDIENCE_TYPE` control raw-download retention and the Invesco audience (`Investor` by default). Set them under **Settings → Secrets and variables → Actions → Variables**. They replace two low-frequency per-run dispatch controls so the workflow stays within GitHub’s 25-input limit.
+
 ### Examples
 
 ```bash
