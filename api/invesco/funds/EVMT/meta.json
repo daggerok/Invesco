@@ -4,78 +4,80 @@
  "category": "Commodity",
  "categoryPath": "Commodity",
  "source": {
-  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/evmt.html",
-  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=EVMT",
-  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=EVMT",
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/invesco-electric-vehicle-metals-commodity-strategy-no-k-1-etf.html",
+  "holdingsApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46090F209/holdings/fund?idType=cusip&productType=ETF",
+  "performanceApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46090F209/performance/standard?idType=cusip&productType=ETF&performanceSubType=annualized&performancePeriod=monthly",
+  "pricesApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46090F209/prices?idType=cusip&productType=ETF&variationType=priceListing&productSubType=ETF",
+  "yieldsApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46090F209?expand=nav&idType=cusip&productType=ETF&variationType=yieldInformation&managementFeeWaiver=0.0",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/EVMT",
-  "holdingsSource": "invesco.com per-fund holdings download",
+  "holdingsSource": "invesco.com fund holdings API (dng-api.invesco.com)",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
-  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+  "provider": "invesco.com fund pages and fund API + Yahoo Finance public chart API"
  },
  "identifiers": {
-  "cusip": null,
-  "isin": null,
+  "cusip": "46090F209",
+  "isin": "US46090F2092",
   "indexTicker": null
  },
  "expenseRatio": {
-  "display": "—",
-  "value": null
+  "display": "0.74%",
+  "value": 0.74
  },
  "nav": {
-  "display": "—",
-  "value": null,
+  "display": "$17.24",
+  "value": 17.241586,
   "asOfDate": "Oct 01 2026"
  },
  "marketPrice": {
-  "display": "$17.80",
-  "value": 17.8,
+  "display": "$17.33",
+  "value": 17.33,
   "asOfDate": "Oct 01 2026"
  },
  "premiumDiscount": {
-  "display": "—",
-  "value": null
+  "display": "0.51%",
+  "value": 0.51
  },
  "aum": {
-  "display": "—",
-  "value": null,
-  "asOfDate": "—",
-  "source": "previous run"
+  "display": "$6.90 M",
+  "value": 6896651.82,
+  "asOfDate": "Oct 01 2026",
+  "source": "Invesco fund API prices endpoint (net assets / market value)"
  },
  "yields": {
-  "dividendYield": 11.24,
-  "dividendYieldText": "11.24%",
-  "dividendYieldKind": "trailing 12-month, published by invesco.com",
-  "distributionRate": null,
-  "secYield": null,
-  "secYieldText": "—",
-  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
+  "dividendYield": 11.43,
+  "dividendYieldText": "11.43%",
+  "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
+  "distributionRate": 11.43,
+  "secYield": 2.52,
+  "secYieldText": "2.52%",
+  "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes (Yahoo chart API)",
+  "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
-   "asOfDate": "Oct 01 2026",
+   "asOfDate": "Aug 31 2026",
    "mo1": -2.31,
    "mo1Text": "-2.31%",
    "qtd": null,
    "qtdText": "—",
-   "ytd": 4.98,
-   "ytdText": "4.98%",
-   "yr1": 28.99,
-   "yr1Text": "28.99%",
-   "yr3": 3.18,
-   "yr3Text": "3.18%",
+   "ytd": 5.38,
+   "ytdText": "5.38%",
+   "yr1": 27.71,
+   "yr1Text": "27.71%",
+   "yr3": 3.26,
+   "yr3Text": "3.26%",
    "yr5": null,
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": -6.8,
-   "sinceInceptionText": "-6.80%"
+   "sinceInception": -6.91,
+   "sinceInceptionText": "-6.91%"
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
    "null": null
   },
-  "returnsBasis": "official Invesco NAV total returns (product list download); periods Invesco does not publish (young funds) are filled from adjusted closes",
+  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close, so the date is the official one",
   "performanceAsOf": "2026-08-31"
  },
  "distributions": {
@@ -105,12 +107,14 @@
   ]
  },
  "holdings": {
-  "pages": [],
+  "pages": [
+   "holdings/001.json"
+  ],
   "pageSize": 250,
-  "totalRows": 0,
-  "asOfDate": null,
-  "asOf": "—",
-  "source": "invesco.com per-fund holdings download"
+  "totalRows": 3,
+  "asOfDate": "2026-09-30",
+  "asOf": "Sep 30 2026",
+  "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
   "pages": [

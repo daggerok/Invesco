@@ -1,0 +1,44 @@
+{
+ "ticker": "FXE",
+ "page": 1,
+ "pageSize": 250,
+ "totalRows": 3,
+ "headers": [
+  "Name",
+  "Ticker",
+  "Identifier",
+  "Weight",
+  "Market Value",
+  "Shares Held",
+  "Asset Category"
+ ],
+ "rows": [
+  {
+   "Name": "CASH & EQUIVALENTS",
+   "Ticker": "EUR",
+   "Identifier": "CASHEUR08",
+   "Weight": "100.008278",
+   "Market Value": "290628654.25",
+   "Shares Held": "290628654.25",
+   "Asset Category": "Currency"
+  },
+  {
+   "Name": "CASH & EQUIVALENTS",
+   "Ticker": "USD",
+   "Identifier": "CASHUSD00",
+   "Weight": "-0.008278",
+   "Market Value": "-24087.91",
+   "Shares Held": "-24087.91",
+   "Asset Category": "Currency"
+  },
+  {
+   "Name": "USD Pending Dividends",
+   "Ticker": "USDPDV",
+   "Identifier": "-",
+   "Weight": "",
+   "Market Value": "372460.97",
+   "Shares Held": "0",
+   "Asset Category": "Currency"
+  }
+ ]
+}

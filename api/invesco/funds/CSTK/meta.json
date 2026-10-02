@@ -1,0 +1,132 @@
+{
+ "ticker": "CSTK",
+ "name": "Invesco Comstock Contrarian Equity ETF",
+ "category": "US Equity",
+ "categoryPath": "Equity, U.S. Equity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/invesco-comstock-contrarian-equity-etf.html",
+  "holdingsApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46127B205/holdings/fund?idType=cusip&productType=ETF",
+  "performanceApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46127B205/performance/standard?idType=cusip&productType=ETF&performanceSubType=annualized&performancePeriod=monthly",
+  "pricesApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46127B205/prices?idType=cusip&productType=ETF&variationType=priceListing&productSubType=ETF",
+  "yieldsApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46127B205?expand=nav&idType=cusip&productType=ETF&variationType=yieldInformation&managementFeeWaiver=0.0",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/CSTK",
+  "holdingsSource": "invesco.com fund holdings API (dng-api.invesco.com)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "invesco.com fund pages and fund API + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": "46127B205",
+  "isin": "US46127B2051",
+  "indexTicker": null
+ },
+ "expenseRatio": {
+  "display": "0.36%",
+  "value": 0.36
+ },
+ "nav": {
+  "display": "$32.52",
+  "value": 32.519478,
+  "asOfDate": "Oct 01 2026"
+ },
+ "marketPrice": {
+  "display": "$32.52",
+  "value": 32.5211,
+  "asOfDate": "Oct 01 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.00%",
+  "value": 0
+ },
+ "aum": {
+  "display": "$173.33 M",
+  "value": 173328849.51,
+  "asOfDate": "Oct 01 2026",
+  "source": "Invesco fund API prices endpoint (net assets / market value)"
+ },
+ "yields": {
+  "dividendYield": 1.84,
+  "dividendYieldText": "1.84%",
+  "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
+  "distributionRate": 1.49,
+  "secYield": 1.67,
+  "secYieldText": "1.67%",
+  "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
+ },
+ "returns": {
+  "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
+  "monthEnd": {
+   "asOfDate": "Aug 31 2026",
+   "mo1": -2.66,
+   "mo1Text": "-2.66%",
+   "qtd": null,
+   "qtdText": "—",
+   "ytd": 16.52,
+   "ytdText": "16.52%",
+   "yr1": 22.15,
+   "yr1Text": "22.15%",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 27.59,
+   "sinceInceptionText": "27.59%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Sep 30 2026",
+   "null": null
+  },
+  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close, so the date is the official one",
+  "performanceAsOf": "2026-08-31"
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "09/22/2025",
+    "0.23"
+   ],
+   [
+    "12/22/2025",
+    "0.19"
+   ],
+   [
+    "03/23/2026",
+    "0.151"
+   ],
+   [
+    "06/22/2026",
+    "0.135"
+   ],
+   [
+    "09/21/2026",
+    "0.121"
+   ]
+  ]
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 59,
+  "asOfDate": "2026-09-30",
+  "asOf": "Sep 30 2026",
+  "source": "invesco.com fund holdings API (dng-api.invesco.com)"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 353,
+  "asOf": "Oct 01 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
+ }
+}

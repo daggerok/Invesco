@@ -2,7 +2,7 @@
  "ticker": "IMF",
  "page": 1,
  "pageSize": 250,
- "totalRows": 52,
+ "totalRows": 78,
  "headers": [
   "Name",
   "Ticker",
@@ -14,472 +14,706 @@
  ],
  "rows": [
   {
+   "Name": "Invesco Premier US Government Money Portfolio",
+   "Ticker": "IUGXX",
+   "Identifier": "00142W843",
+   "Weight": "73.621097",
+   "Market Value": "232362459.42",
+   "Shares Held": "232362459.42",
+   "Asset Category": "Money Market Fund, Taxable"
+  },
+  {
+   "Name": "INVESCO MANAGED FUTURES STRATEGY CAYMAN LTD",
+   "Ticker": "-",
+   "Identifier": "9017639K0",
+   "Weight": "23.223562",
+   "Market Value": "73518018.63",
+   "Shares Held": "1217926.8813",
+   "Asset Category": "Hedge Fund"
+  },
+  {
+   "Name": "CONTRA FUTURE C$ CURRENCY FUT DEC26CDZ6 COMB",
+   "Ticker": "-",
+   "Identifier": "CDZ6",
+   "Weight": "9.292602",
+   "Market Value": "29417265",
+   "Shares Held": "417",
+   "Asset Category": "Synthetic Cash"
+  },
+  {
+   "Name": "CBOT 2 Year US Treasury Note Future",
+   "Ticker": "-",
+   "Identifier": "-",
+   "Weight": "8.284611",
+   "Market Value": "26226304.75",
+   "Shares Held": "129",
+   "Asset Category": "Synthetic Cash"
+  },
+  {
+   "Name": "Eurex 2 Year Euro SCHATZ Future",
+   "Ticker": "-",
+   "Identifier": "-",
+   "Weight": "8.262698",
+   "Market Value": "26156934.78",
+   "Shares Held": "220",
+   "Asset Category": "Synthetic Cash"
+  },
+  {
+   "Name": "CONTRA FUTURE FUTURE DEC 14 26",
+   "Ticker": "-",
+   "Identifier": "ECZ6",
+   "Weight": "8.258644",
+   "Market Value": "26144100",
+   "Shares Held": "184",
+   "Asset Category": "Synthetic Cash"
+  },
+  {
+   "Name": "Eurex 5 Year Euro BOBL Future",
+   "Ticker": "-",
+   "Identifier": "-",
+   "Weight": "8.246211",
+   "Market Value": "26104742.45",
+   "Shares Held": "205",
+   "Asset Category": "Synthetic Cash"
+  },
+  {
+   "Name": "CBOT 5 Year US Treasury Note",
+   "Ticker": "-",
+   "Identifier": "-",
+   "Weight": "8.222857",
+   "Market Value": "26030812.5",
+   "Shares Held": "252",
+   "Asset Category": "Synthetic Cash"
+  },
+  {
+   "Name": "CBOT 10 Year US Treasury Note",
+   "Ticker": "-",
+   "Identifier": "-",
+   "Weight": "8.163332",
+   "Market Value": "25842375",
+   "Shares Held": "248",
+   "Asset Category": "Synthetic Cash"
+  },
+  {
+   "Name": "SFE 3 Year Australian Bond Future",
+   "Ticker": "-",
+   "Identifier": "-",
+   "Weight": "8.143817",
+   "Market Value": "25780597.9",
+   "Shares Held": "360",
+   "Asset Category": "Synthetic Cash"
+  },
+  {
+   "Name": "SFE 10 Year Australian Bond Future",
+   "Ticker": "-",
+   "Identifier": "-",
+   "Weight": "8.085979",
+   "Market Value": "25597500.87",
+   "Shares Held": "351",
+   "Asset Category": "Synthetic Cash"
+  },
+  {
+   "Name": "CONTRA FUTURE FUTURE DEC18 26",
+   "Ticker": "-",
+   "Identifier": "-",
+   "Weight": "8.074653",
+   "Market Value": "25561648.18",
+   "Shares Held": "315",
+   "Asset Category": "Synthetic Cash"
+  },
+  {
+   "Name": "French Government Bond Futures",
+   "Ticker": "-",
+   "Identifier": "-",
+   "Weight": "7.557836",
+   "Market Value": "23925579.07",
+   "Shares Held": "193",
+   "Asset Category": "Synthetic Cash"
+  },
+  {
+   "Name": "Eurex 10 Year Euro BUND Future",
+   "Ticker": "-",
+   "Identifier": "-",
+   "Weight": "7.444408",
+   "Market Value": "23566502.63",
+   "Shares Held": "173",
+   "Asset Category": "Synthetic Cash"
+  },
+  {
+   "Name": "Long Gilt Future",
+   "Ticker": "-",
+   "Identifier": "-",
+   "Weight": "6.768011",
+   "Market Value": "21425255.05",
+   "Shares Held": "192",
+   "Asset Category": "Synthetic Cash"
+  },
+  {
+   "Name": "CME Australian Dollar Currency Future",
+   "Ticker": "ADZ6",
+   "Identifier": "ADZ6",
+   "Weight": "6.33658",
+   "Market Value": "20059490",
+   "Shares Held": "289",
+   "Asset Category": "Currency Future"
+  },
+  {
+   "Name": "CME New Zealand Dollar Currency Future",
+   "Ticker": "-",
+   "Identifier": "-",
+   "Weight": "6.261788",
+   "Market Value": "19822725",
+   "Shares Held": "351",
+   "Asset Category": "Synthetic Cash"
+  },
+  {
+   "Name": "CONTRA FUTURE JPN YEN CURR FUT DEC26JYZ6 COMB",
+   "Ticker": "-",
+   "Identifier": "JYZ6",
+   "Weight": "6.135133",
+   "Market Value": "19421775",
+   "Shares Held": "243",
+   "Asset Category": "Synthetic Cash"
+  },
+  {
+   "Name": "CONTRA FUTURE CHF CURRENCY FUT DEC26SFZ6 COMB",
+   "Ticker": "-",
+   "Identifier": "SFZ6",
+   "Weight": "6.007624",
+   "Market Value": "19018125",
+   "Shares Held": "126",
+   "Asset Category": "Synthetic Cash"
+  },
+  {
+   "Name": "Montreal Exchange S&P/TSX 60 Index Future",
+   "Ticker": "PTZ6",
+   "Identifier": "PTZ6",
+   "Weight": "5.909791",
+   "Market Value": "18708420.49",
+   "Shares Held": "64",
+   "Asset Category": "Index Future"
+  },
+  {
+   "Name": "CBOT US Treasure Bond Futures",
+   "Ticker": "-",
+   "Identifier": "-",
+   "Weight": "5.383051",
+   "Market Value": "17040937.5",
+   "Shares Held": "166",
+   "Asset Category": "Synthetic Cash"
+  },
+  {
+   "Name": "Euro-BTP Italian Bond Futures",
+   "Ticker": "-",
+   "Identifier": "-",
+   "Weight": "5.120576",
+   "Market Value": "16210030.13",
+   "Shares Held": "129",
+   "Asset Category": "Synthetic Cash"
+  },
+  {
+   "Name": "CME E-Mini Standard & Poor's 500 Index Future",
+   "Ticker": "ESZ6",
+   "Identifier": "ESZ6",
+   "Weight": "5.118214",
+   "Market Value": "16202550",
+   "Shares Held": "42",
+   "Asset Category": "Index Future"
+  },
+  {
+   "Name": "FTSE 100 Index Future",
+   "Ticker": "-",
+   "Identifier": "Z Z6",
+   "Weight": "4.563082",
+   "Market Value": "14445189.11",
+   "Shares Held": "102",
+   "Asset Category": "Index Future"
+  },
+  {
+   "Name": "TSE TOPIX (Tokyo Price Index) Future",
+   "Ticker": "TPZ6",
+   "Identifier": "TPZ6",
+   "Weight": "4.14123",
+   "Market Value": "13109746.39",
+   "Shares Held": "50",
+   "Asset Category": "Index Future"
+  },
+  {
+   "Name": "OML Stockholm OMXS30 Index Future",
+   "Ticker": "QCV6",
+   "Identifier": "QCV6",
+   "Weight": "4.137921",
+   "Market Value": "13099272.44",
+   "Shares Held": "399",
+   "Asset Category": "Index Future"
+  },
+  {
+   "Name": "MEFF Madrid IBEX 35 Index Future",
+   "Ticker": "IBV6",
+   "Identifier": "IBV6",
+   "Weight": "3.906456",
+   "Market Value": "12366532.16",
+   "Shares Held": "56",
+   "Asset Category": "Index Future"
+  },
+  {
+   "Name": "Eurex 30 Year Euro BUXL Future",
+   "Ticker": "-",
+   "Identifier": "-",
+   "Weight": "3.715629",
+   "Market Value": "11762436.85",
+   "Shares Held": "103",
+   "Asset Category": "Synthetic Cash"
+  },
+  {
+   "Name": "Eurex EURO STOXX 50 Future",
+   "Ticker": "VGZ6",
+   "Identifier": "VGZ6",
+   "Weight": "3.7048",
+   "Market Value": "11728156.88",
+   "Shares Held": "164",
+   "Asset Category": "Index Future"
+  },
+  {
+   "Name": "Eurex DAX Index Future",
+   "Ticker": "GXZ6",
+   "Identifier": "GXZ6",
+   "Weight": "3.641278",
+   "Market Value": "11527065.9",
+   "Shares Held": "16",
+   "Asset Category": "Index Future"
+  },
+  {
+   "Name": "ICE US MSCI Emerging Markets EM Index Futures",
+   "Ticker": "MESZ6",
+   "Identifier": "MESZ6",
+   "Weight": "3.432091",
+   "Market Value": "10864850",
+   "Shares Held": "127",
+   "Asset Category": "Index Future"
+  },
+  {
+   "Name": "CONTRA FUTURE BP CURRENCY FUT DEC26BPZ6 COMB",
+   "Ticker": "-",
+   "Identifier": "BPZ6",
+   "Weight": "3.221758",
+   "Market Value": "10199006.25",
+   "Shares Held": "123",
+   "Asset Category": "Synthetic Cash"
+  },
+  {
+   "Name": "CME E-mini Russell 2000 Index Futures",
+   "Ticker": "RTYZ6",
+   "Identifier": "RTYZ6",
+   "Weight": "2.670055",
+   "Market Value": "8452500",
+   "Shares Held": "60",
+   "Asset Category": "Index Future"
+  },
+  {
+   "Name": "FTSE/MIB Index Future",
+   "Ticker": "STZ6",
+   "Identifier": "STZ6",
+   "Weight": "2.569942",
+   "Market Value": "8135575.12",
+   "Shares Held": "28",
+   "Asset Category": "Index Future"
+  },
+  {
+   "Name": "CASH COLLATERAL",
+   "Ticker": "-",
+   "Identifier": "JPYMTM",
+   "Weight": "1.724071",
+   "Market Value": "5457831.51",
+   "Shares Held": "857616355",
+   "Asset Category": "Currency Collateral"
+  },
+  {
    "Name": "SFE S&P ASX Share Price Index 200 Future",
    "Ticker": "-",
    "Identifier": "-",
-   "Weight": "0.0276327015",
-   "Market Value": "88314.95",
-   "Shares Held": "73",
-   "Asset Category": "DE"
-  },
-  {
-   "Name": "N/A",
-   "Ticker": "-",
-   "Identifier": "GB00N10HYT24",
-   "Weight": "0.159847808",
-   "Market Value": "510878.43",
-   "Shares Held": "116",
-   "Asset Category": "DE"
-  },
-  {
-   "Name": "N/A",
-   "Ticker": "-",
-   "Identifier": "N/A",
-   "Weight": "-0.02938873",
-   "Market Value": "-93927.27",
-   "Shares Held": "80",
-   "Asset Category": "DCO"
-  },
-  {
-   "Name": "N/A",
-   "Ticker": "-",
-   "Identifier": "AQ7629332",
-   "Weight": "0.0021167009",
-   "Market Value": "6765.04",
-   "Shares Held": "-430",
-   "Asset Category": "DIR"
-  },
-  {
-   "Name": "N/A",
-   "Ticker": "-",
-   "Identifier": "CASHJPY06",
-   "Weight": "-0.0345902483",
-   "Market Value": "-110551.48",
-   "Shares Held": "-284",
-   "Asset Category": "DFE"
-  },
-  {
-   "Name": "N/A",
-   "Ticker": "-",
-   "Identifier": "CASHGBP00",
-   "Weight": "-0.0116540887",
-   "Market Value": "-37246.82",
-   "Shares Held": "-60",
-   "Asset Category": "DFE"
-  },
-  {
-   "Name": "N/A",
-   "Ticker": "-",
-   "Identifier": "-",
-   "Weight": "0.0344816824",
-   "Market Value": "110204.5",
-   "Shares Held": "35",
-   "Asset Category": "DE"
-  },
-  {
-   "Name": "N/A",
-   "Ticker": "-",
-   "Identifier": "912810UB2",
-   "Weight": "0.2009622968",
-   "Market Value": "642281.58",
-   "Shares Held": "-153",
-   "Asset Category": "DIR"
-  },
-  {
-   "Name": "N/A",
-   "Ticker": "-",
-   "Identifier": "ES0B00182641",
-   "Weight": "0.0974609142",
-   "Market Value": "311488.03",
-   "Shares Held": "59",
-   "Asset Category": "DE"
-  },
-  {
-   "Name": "N/A",
-   "Ticker": "-",
-   "Identifier": "FREX03189708",
-   "Weight": "0.0506698646",
-   "Market Value": "161942.42",
-   "Shares Held": "132",
-   "Asset Category": "DE"
-  },
-  {
-   "Name": "N/A",
-   "Ticker": "-",
-   "Identifier": "-",
-   "Weight": "-0.1553860042",
-   "Market Value": "-496618.37",
-   "Shares Held": "91",
-   "Asset Category": "DE"
-  },
-  {
-   "Name": "N/A",
-   "Ticker": "-",
-   "Identifier": "-",
-   "Weight": "0.0908804633",
-   "Market Value": "290456.71",
-   "Shares Held": "68",
-   "Asset Category": "DE"
-  },
-  {
-   "Name": "Invesco Premier U.S. Government Money Portfolio",
-   "Ticker": "-",
-   "Identifier": "00142W843",
-   "Weight": "69.7468706413",
-   "Market Value": "222913108.51",
-   "Shares Held": "222913108.51",
-   "Asset Category": "STIV"
-  },
-  {
-   "Name": "N/A",
-   "Ticker": "-",
-   "Identifier": "GB00GKD7VC10",
-   "Weight": "0.0385753639",
-   "Market Value": "123288.03",
-   "Shares Held": "98",
-   "Asset Category": "DCO"
-  },
-  {
-   "Name": "N/A",
-   "Ticker": "-",
-   "Identifier": "N/A",
-   "Weight": "-0.1881253188",
-   "Market Value": "-601254.21",
-   "Shares Held": "207",
-   "Asset Category": "DCO"
-  },
-  {
-   "Name": "N/A",
-   "Ticker": "-",
-   "Identifier": "-",
-   "Weight": "0.004005228",
-   "Market Value": "12800.83",
-   "Shares Held": "42",
-   "Asset Category": "DCO"
-  },
-  {
-   "Name": "N/A",
-   "Ticker": "-",
-   "Identifier": "-",
-   "Weight": "0.0939541858",
-   "Market Value": "300280.42",
-   "Shares Held": "47",
-   "Asset Category": "DE"
-  },
-  {
-   "Name": "N/A",
-   "Ticker": "-",
-   "Identifier": "91282CQT1",
-   "Weight": "0.1164928429",
-   "Market Value": "372314.65",
-   "Shares Held": "-236",
-   "Asset Category": "DIR"
-  },
-  {
-   "Name": "N/A",
-   "Ticker": "-",
-   "Identifier": "135087S21",
-   "Weight": "0.0635823925",
-   "Market Value": "203211.25",
-   "Shares Held": "-275",
-   "Asset Category": "DIR"
-  },
-  {
-   "Name": "N/A",
-   "Ticker": "-",
-   "Identifier": "DE000F3A9ER7",
-   "Weight": "0.0156580089",
-   "Market Value": "50043.47",
-   "Shares Held": "-141",
-   "Asset Category": "DIR"
-  },
-  {
-   "Name": "N/A",
-   "Ticker": "-",
-   "Identifier": "CASHEUR08",
-   "Weight": "-0.0180249858",
-   "Market Value": "-57608.4",
-   "Shares Held": "-145",
-   "Asset Category": "DFE"
-  },
-  {
-   "Name": "N/A",
-   "Ticker": "-",
-   "Identifier": "SE0028825224",
-   "Weight": "0.1092734181",
-   "Market Value": "349241.15",
-   "Shares Held": "388",
-   "Asset Category": "DE"
-  },
-  {
-   "Name": "N/A",
-   "Ticker": "-",
-   "Identifier": "CASHCAD09",
-   "Weight": "0.0755691095",
-   "Market Value": "241521.16",
-   "Shares Held": "-372",
-   "Asset Category": "DFE"
-  },
-  {
-   "Name": "N/A",
-   "Ticker": "-",
-   "Identifier": "DE000F3A9EW7",
-   "Weight": "0.0304590014",
-   "Market Value": "97347.89",
-   "Shares Held": "-94",
-   "Asset Category": "DIR"
-  },
-  {
-   "Name": "N/A",
-   "Ticker": "-",
-   "Identifier": "N/A",
-   "Weight": "0.022615152",
-   "Market Value": "72278.71",
-   "Shares Held": "-7",
-   "Asset Category": "DCO"
-  },
-  {
-   "Name": "N/A",
-   "Ticker": "-",
-   "Identifier": "N/A",
-   "Weight": "0.0705027964",
-   "Market Value": "225329.07",
+   "Weight": "1.016811",
+   "Market Value": "3218882.55",
    "Shares Held": "21",
-   "Asset Category": "DCO"
+   "Asset Category": "Synthetic Cash"
   },
   {
-   "Name": "N/A",
+   "Name": "CASH COLLATERAL",
+   "Ticker": "-",
+   "Identifier": "CADMTM",
+   "Weight": "0.683503",
+   "Market Value": "2163741.57",
+   "Shares Held": "3071972.09",
+   "Asset Category": "Currency Collateral"
+  },
+  {
+   "Name": "CASH COLLATERAL",
+   "Ticker": "-",
+   "Identifier": "USDMTM",
+   "Weight": "0.630777",
+   "Market Value": "1996827.99",
+   "Shares Held": "1996827.99",
+   "Asset Category": "Currency Collateral"
+  },
+  {
+   "Name": "CASH COLLATERAL",
+   "Ticker": "-",
+   "Identifier": "SEKMTM",
+   "Weight": "0.587778",
+   "Market Value": "1860707.83",
+   "Shares Held": "18567259.16",
+   "Asset Category": "Currency Collateral"
+  },
+  {
+   "Name": "CASH COLLATERAL",
+   "Ticker": "-",
+   "Identifier": "EURMTM",
+   "Weight": "0.474944",
+   "Market Value": "1503514.04",
+   "Shares Held": "1323690",
+   "Asset Category": "Currency Collateral"
+  },
+  {
+   "Name": "CASH & EQUIVALENTS",
+   "Ticker": "USD",
+   "Identifier": "CASHUSD00",
+   "Weight": "0.114601",
+   "Market Value": "362788.12",
+   "Shares Held": "362788.12",
+   "Asset Category": "Currency"
+  },
+  {
+   "Name": "CASH COLLATERAL",
+   "Ticker": "-",
+   "Identifier": "HKDMTM",
+   "Weight": "-0.23769",
+   "Market Value": "-752447.24",
+   "Shares Held": "-5904265.37",
+   "Asset Category": "Currency Collateral"
+  },
+  {
+   "Name": "CASH COLLATERAL",
+   "Ticker": "-",
+   "Identifier": "GBPMTM",
+   "Weight": "-0.286829",
+   "Market Value": "-908003.94",
+   "Shares Held": "-683505.87",
+   "Asset Category": "Currency Collateral"
+  },
+  {
+   "Name": "CASH COLLATERAL",
+   "Ticker": "-",
+   "Identifier": "AUDMTM",
+   "Weight": "-0.535814",
+   "Market Value": "-1696207.52",
+   "Shares Held": "-2438130.39",
+   "Asset Category": "Currency Collateral"
+  },
+  {
+   "Name": "SFE S&P ASX Share Price Index 200 Future",
+   "Ticker": "XPZ6",
+   "Identifier": "XPZ6",
+   "Weight": "-1.016811",
+   "Market Value": "-3218882.55",
+   "Shares Held": "-21",
+   "Asset Category": "Index Future"
+  },
+  {
+   "Name": "CONTRA FUTURE FTSE/MIB IDX FUT DEC26STZ6",
+   "Ticker": "-",
+   "Identifier": "STZ6",
+   "Weight": "-2.569942",
+   "Market Value": "-8135575.12",
+   "Shares Held": "-28",
+   "Asset Category": "Synthetic Cash"
+  },
+  {
+   "Name": "CME E-mini Russell 2000 Index Futures",
    "Ticker": "-",
    "Identifier": "-",
-   "Weight": "-0.0052149131",
-   "Market Value": "-16667.02",
-   "Shares Held": "79",
-   "Asset Category": "DE"
+   "Weight": "-2.670055",
+   "Market Value": "-8452500",
+   "Shares Held": "-60",
+   "Asset Category": "Synthetic Cash"
   },
   {
-   "Name": "N/A",
-   "Ticker": "-",
-   "Identifier": "DE000C757930",
-   "Weight": "0.0411947978",
-   "Market Value": "131659.82",
-   "Shares Held": "156",
-   "Asset Category": "DE"
+   "Name": "CME British Pound Currency Future",
+   "Ticker": "BPZ6",
+   "Identifier": "BPZ6",
+   "Weight": "-3.221758",
+   "Market Value": "-10199006.25",
+   "Shares Held": "-123",
+   "Asset Category": "Currency Future"
   },
   {
-   "Name": "N/A",
+   "Name": "CONTRA FUTURE FUTURE DEC 18 26",
    "Ticker": "-",
-   "Identifier": "-",
-   "Weight": "0.3251667188",
-   "Market Value": "1039242.67",
-   "Shares Held": "-125",
-   "Asset Category": "DCO"
+   "Identifier": "MESZ6",
+   "Weight": "-3.432091",
+   "Market Value": "-10864850",
+   "Shares Held": "-127",
+   "Asset Category": "Synthetic Cash"
   },
   {
-   "Name": "Invesco Liquidity Funds PLC, Invesco US Dollar Liquidity Portfolio",
+   "Name": "CONTRA FUTURE DAX INDEX FUTURE DEC26GXZ6",
    "Ticker": "-",
-   "Identifier": "G8114D431",
-   "Weight": "22.1340832206",
-   "Market Value": "70741199.56",
-   "Shares Held": "70741199.56",
-   "Asset Category": "STIV"
-  },
-  {
-   "Name": "N/A",
-   "Ticker": "-",
-   "Identifier": "GB00GKD7VC10",
-   "Weight": "0.0042518559",
-   "Market Value": "13589.06",
-   "Shares Held": "-71",
-   "Asset Category": "DCO"
-  },
-  {
-   "Name": "N/A",
-   "Ticker": "-",
-   "Identifier": "GB00H7Q1BB78",
-   "Weight": "-0.0317142086",
-   "Market Value": "-101359.57",
-   "Shares Held": "46",
-   "Asset Category": "DCO"
-  },
-  {
-   "Name": "N/A",
-   "Ticker": "-",
-   "Identifier": "N/A",
-   "Weight": "0.0085215276",
-   "Market Value": "27235.06",
-   "Shares Held": "-2",
-   "Asset Category": "DCO"
-  },
-  {
-   "Name": "N/A",
-   "Ticker": "-",
-   "Identifier": "N/A",
-   "Weight": "0.1107180321",
-   "Market Value": "353858.18",
-   "Shares Held": "48",
-   "Asset Category": "DCO"
-  },
-  {
-   "Name": "N/A",
-   "Ticker": "-",
-   "Identifier": "GB00GDWC3776",
-   "Weight": "-0.0667957507",
-   "Market Value": "-213481.24",
+   "Identifier": "GXZ6",
+   "Weight": "-3.641278",
+   "Market Value": "-11527065.9",
    "Shares Held": "-16",
-   "Asset Category": "DCO"
+   "Asset Category": "Synthetic Cash"
   },
   {
-   "Name": "N/A",
+   "Name": "CONTRA FUTURE FUTURE DEC 18 26",
    "Ticker": "-",
-   "Identifier": "91282CHK0",
-   "Weight": "0.0323324849",
-   "Market Value": "103335.6",
-   "Shares Held": "-124",
-   "Asset Category": "DIR"
+   "Identifier": "-",
+   "Weight": "-3.7048",
+   "Market Value": "-11728156.88",
+   "Shares Held": "-164",
+   "Asset Category": "Synthetic Cash"
   },
   {
-   "Name": "N/A",
-   "Ticker": "-",
-   "Identifier": "CASHAUD07",
-   "Weight": "0.1056650824",
-   "Market Value": "337708.8",
-   "Shares Held": "280",
-   "Asset Category": "DFE"
+   "Name": "Eurex 30 Year Euro BUXL Future",
+   "Ticker": "UBZ6",
+   "Identifier": "UBZ6",
+   "Weight": "-3.715629",
+   "Market Value": "-11762436.85",
+   "Shares Held": "-103",
+   "Asset Category": "Fixed Income Future"
   },
   {
-   "Name": "N/A",
+   "Name": "MEFF Madrid IBEX 35 Index Future",
    "Ticker": "-",
-   "Identifier": "DE000F3A9EY3",
-   "Weight": "0.0363658698",
-   "Market Value": "116226.42",
-   "Shares Held": "-199",
-   "Asset Category": "DIR"
+   "Identifier": "-",
+   "Weight": "-3.906456",
+   "Market Value": "-12366532.16",
+   "Shares Held": "-56",
+   "Asset Category": "Synthetic Cash"
   },
   {
-   "Name": "N/A",
+   "Name": "CONTRA FUTURE OMXS30 IND FUTURE OCT26QCV6",
    "Ticker": "-",
-   "Identifier": "N/A",
-   "Weight": "0.0238101126",
-   "Market Value": "76097.84",
-   "Shares Held": "87",
-   "Asset Category": "DCO"
+   "Identifier": "QCV6",
+   "Weight": "-4.137921",
+   "Market Value": "-13099272.44",
+   "Shares Held": "-399",
+   "Asset Category": "Synthetic Cash"
   },
   {
-   "Name": "N/A",
+   "Name": "TSE TOPIX (Tokyo Price Index) Future",
    "Ticker": "-",
-   "Identifier": "GB00HBC8RP68",
-   "Weight": "0.1491359444",
-   "Market Value": "476642.99",
-   "Shares Held": "36",
-   "Asset Category": "DCO"
+   "Identifier": "-",
+   "Weight": "-4.14123",
+   "Market Value": "-13109746.39",
+   "Shares Held": "-50",
+   "Asset Category": "Synthetic Cash"
   },
   {
-   "Name": "N/A",
+   "Name": "CONTRA FUTURE FUTURE DEC 18 26",
    "Ticker": "-",
-   "Identifier": "DE000F3A9ET3",
-   "Weight": "0.0440213668",
-   "Market Value": "140693.62",
-   "Shares Held": "-159",
-   "Asset Category": "DIR"
+   "Identifier": "-",
+   "Weight": "-4.563082",
+   "Market Value": "-14445189.11",
+   "Shares Held": "-102",
+   "Asset Category": "Synthetic Cash"
   },
   {
-   "Name": "N/A",
+   "Name": "CONTRA FUTURE FUTURE DEC 18 26",
    "Ticker": "-",
-   "Identifier": "GB00N8ZJ8230",
-   "Weight": "0.2106968667",
-   "Market Value": "673393.56",
-   "Shares Held": "-209",
-   "Asset Category": "DIR"
+   "Identifier": "-",
+   "Weight": "-5.118214",
+   "Market Value": "-16202550",
+   "Shares Held": "-42",
+   "Asset Category": "Synthetic Cash"
   },
   {
-   "Name": "N/A",
-   "Ticker": "-",
-   "Identifier": "EK5446753",
-   "Weight": "0.0235726398",
-   "Market Value": "75338.87",
-   "Shares Held": "-414",
-   "Asset Category": "DIR"
+   "Name": "Euro-BTP Italian Bond Futures",
+   "Ticker": "IKZ6",
+   "Identifier": "IKZ6",
+   "Weight": "-5.120576",
+   "Market Value": "-16210030.13",
+   "Shares Held": "-129",
+   "Asset Category": "Fixed Income Future"
   },
   {
-   "Name": "N/A",
-   "Ticker": "-",
-   "Identifier": "CASHCHF02",
-   "Weight": "0.1035748206",
-   "Market Value": "331028.26",
-   "Shares Held": "-121",
-   "Asset Category": "DFE"
+   "Name": "CBOT US Treasure Bond Futures",
+   "Ticker": "USZ6",
+   "Identifier": "USZ6",
+   "Weight": "-5.383051",
+   "Market Value": "-17040937.5",
+   "Shares Held": "-166",
+   "Asset Category": "Fixed Income Future"
   },
   {
-   "Name": "N/A",
+   "Name": "CONTRA FUTURE FUTURE DEC 17 26",
    "Ticker": "-",
-   "Identifier": "N/A",
-   "Weight": "-0.0758465818",
-   "Market Value": "-242407.97",
-   "Shares Held": "-301",
-   "Asset Category": "DFE"
+   "Identifier": "-",
+   "Weight": "-5.909791",
+   "Market Value": "-18708420.49",
+   "Shares Held": "-64",
+   "Asset Category": "Synthetic Cash"
   },
   {
-   "Name": "N/A",
-   "Ticker": "-",
-   "Identifier": "DE000F3A9EU1",
-   "Weight": "0.0616113223",
-   "Market Value": "196911.65",
-   "Shares Held": "-197",
-   "Asset Category": "DIR"
+   "Name": "CME Swiss Franc Currency Future",
+   "Ticker": "SFZ6",
+   "Identifier": "SFZ6",
+   "Weight": "-6.007624",
+   "Market Value": "-19018125",
+   "Shares Held": "-126",
+   "Asset Category": "Currency Future"
   },
   {
-   "Name": "N/A",
-   "Ticker": "-",
-   "Identifier": "DE000C758FW4",
-   "Weight": "0.0750169182",
-   "Market Value": "239756.34",
-   "Shares Held": "16",
-   "Asset Category": "DE"
+   "Name": "CME Japanese Yen Currency Future",
+   "Ticker": "JYZ6",
+   "Identifier": "JYZ6",
+   "Weight": "-6.135133",
+   "Market Value": "-19421775",
+   "Shares Held": "-243",
+   "Asset Category": "Currency Future"
   },
   {
-   "Name": "N/A",
-   "Ticker": "-",
-   "Identifier": "91282CPN5",
-   "Weight": "0.0800485133",
-   "Market Value": "255837.47",
-   "Shares Held": "-241",
-   "Asset Category": "DIR"
+   "Name": "CME New Zealand Dollar Currency Future",
+   "Ticker": "NVZ6",
+   "Identifier": "NVZ6",
+   "Weight": "-6.261788",
+   "Market Value": "-19822725",
+   "Shares Held": "-351",
+   "Asset Category": "Currency Future"
   },
   {
-   "Name": "N/A",
+   "Name": "CONTRA FUTURE AUDUSD CRNCY FUT DEC26ADZ6 COMB",
    "Ticker": "-",
-   "Identifier": "N/A",
-   "Weight": "-0.0241153787",
-   "Market Value": "-77073.48",
-   "Shares Held": "189",
-   "Asset Category": "DCO"
+   "Identifier": "ADZ6",
+   "Weight": "-6.33658",
+   "Market Value": "-20059490",
+   "Shares Held": "-289",
+   "Asset Category": "Synthetic Cash"
   },
   {
-   "Name": "N/A",
+   "Name": "Long Gilt Future",
    "Ticker": "-",
-   "Identifier": "DE000F3A9EV9",
-   "Weight": "0.0225448836",
-   "Market Value": "72054.13",
-   "Shares Held": "-213",
-   "Asset Category": "DIR"
+   "Identifier": "G Z6",
+   "Weight": "-6.768011",
+   "Market Value": "-21425255.05",
+   "Shares Held": "-192",
+   "Asset Category": "Fixed Income Future"
   },
   {
-   "Name": "N/A",
-   "Ticker": "-",
-   "Identifier": "GB00GDWC3776",
-   "Weight": "0.0950763404",
-   "Market Value": "303866.86",
-   "Shares Held": "51",
-   "Asset Category": "DCO"
+   "Name": "Eurex 10 Year Euro BUND Future",
+   "Ticker": "RXZ6",
+   "Identifier": "RXZ6",
+   "Weight": "-7.444408",
+   "Market Value": "-23566502.63",
+   "Shares Held": "-173",
+   "Asset Category": "Fixed Income Future"
   },
   {
-   "Name": "N/A",
-   "Ticker": "-",
-   "Identifier": "IT0024847870",
-   "Weight": "-0.0069291459",
-   "Market Value": "-22145.76",
-   "Shares Held": "36",
-   "Asset Category": "DE"
+   "Name": "French Government Bond Futures",
+   "Ticker": "OATZ6",
+   "Identifier": "OATZ6",
+   "Weight": "-7.557836",
+   "Market Value": "-23925579.07",
+   "Shares Held": "-193",
+   "Asset Category": "Fixed Income Future"
+  },
+  {
+   "Name": "Montreal Exchange 10 Year Canadian Bond Future",
+   "Ticker": "CNZ6",
+   "Identifier": "CNZ6",
+   "Weight": "-8.074653",
+   "Market Value": "-25561648.18",
+   "Shares Held": "-315",
+   "Asset Category": "Fixed Income Future"
+  },
+  {
+   "Name": "SFE 10 Year Australian Bond Future",
+   "Ticker": "XMZ6",
+   "Identifier": "XMZ6",
+   "Weight": "-8.085979",
+   "Market Value": "-25597500.87",
+   "Shares Held": "-351",
+   "Asset Category": "Fixed Income Future"
+  },
+  {
+   "Name": "SFE 3 Year Australian Bond Future",
+   "Ticker": "YMZ6",
+   "Identifier": "YMZ6",
+   "Weight": "-8.143817",
+   "Market Value": "-25780597.9",
+   "Shares Held": "-360",
+   "Asset Category": "Fixed Income Future"
+  },
+  {
+   "Name": "CBOT 10 Year US Treasury Note",
+   "Ticker": "TYZ6",
+   "Identifier": "TYZ6",
+   "Weight": "-8.163332",
+   "Market Value": "-25842375",
+   "Shares Held": "-248",
+   "Asset Category": "Fixed Income Future"
+  },
+  {
+   "Name": "CBOT 5 Year US Treasury Note",
+   "Ticker": "FVZ6",
+   "Identifier": "FVZ6",
+   "Weight": "-8.222857",
+   "Market Value": "-26030812.5",
+   "Shares Held": "-252",
+   "Asset Category": "Fixed Income Future"
+  },
+  {
+   "Name": "Eurex 5 Year Euro BOBL Future",
+   "Ticker": "OEZ6",
+   "Identifier": "OEZ6",
+   "Weight": "-8.246211",
+   "Market Value": "-26104742.45",
+   "Shares Held": "-205",
+   "Asset Category": "Fixed Income Future"
+  },
+  {
+   "Name": "CME Euro Foreign Exchange Currency Future",
+   "Ticker": "ECZ6",
+   "Identifier": "ECZ6",
+   "Weight": "-8.258644",
+   "Market Value": "-26144100",
+   "Shares Held": "-184",
+   "Asset Category": "Currency Future"
+  },
+  {
+   "Name": "Eurex 2 Year Euro SCHATZ Future",
+   "Ticker": "DUZ6",
+   "Identifier": "DUZ6",
+   "Weight": "-8.262698",
+   "Market Value": "-26156934.78",
+   "Shares Held": "-220",
+   "Asset Category": "Fixed Income Future"
+  },
+  {
+   "Name": "CBOT 2 Year US Treasury Note Future",
+   "Ticker": "TUZ6",
+   "Identifier": "TUZ6",
+   "Weight": "-8.284611",
+   "Market Value": "-26226304.75",
+   "Shares Held": "-129",
+   "Asset Category": "Fixed Income Future"
+  },
+  {
+   "Name": "CME Canadian Dollar Currency Future",
+   "Ticker": "CDZ6",
+   "Identifier": "CDZ6",
+   "Weight": "-9.292602",
+   "Market Value": "-29417265",
+   "Shares Held": "-417",
+   "Asset Category": "Currency Future"
+  },
+  {
+   "Name": "USD Pending Dividends",
+   "Ticker": "USDPDV",
+   "Identifier": "-",
+   "Weight": "",
+   "Market Value": "697278.57",
+   "Shares Held": "0",
+   "Asset Category": "Currency"
   }
  ]
 }

@@ -1,0 +1,141 @@
+{
+ "ticker": "KLMN",
+ "name": "Invesco MSCI North America Climate ETF",
+ "category": "Thematic",
+ "categoryPath": "Equity, Thematic",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/invesco-msci-north-america-climate-etf.html",
+  "holdingsApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46138G417/holdings/fund?idType=cusip&productType=ETF",
+  "performanceApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46138G417/performance/standard?idType=cusip&productType=ETF&performanceSubType=annualized&performancePeriod=monthly",
+  "pricesApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46138G417/prices?idType=cusip&productType=ETF&variationType=priceListing&productSubType=ETF",
+  "yieldsApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46138G417?expand=nav&idType=cusip&productType=ETF&variationType=yieldInformation&managementFeeWaiver=0.0",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/KLMN",
+  "holdingsSource": "invesco.com fund holdings API (dng-api.invesco.com)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "invesco.com fund pages and fund API + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": "46138G417",
+  "isin": "US46138G4174",
+  "indexTicker": "NaN"
+ },
+ "expenseRatio": {
+  "display": "0.09%",
+  "value": 0.09
+ },
+ "nav": {
+  "display": "$31.38",
+  "value": 31.37567,
+  "asOfDate": "Oct 01 2026"
+ },
+ "marketPrice": {
+  "display": "$31.39",
+  "value": 31.3929,
+  "asOfDate": "Oct 01 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.05%",
+  "value": 0.05
+ },
+ "aum": {
+  "display": "$2,447.30 M",
+  "value": 2447302256.95,
+  "asOfDate": "Oct 01 2026",
+  "source": "Invesco fund API prices endpoint (net assets / market value)"
+ },
+ "yields": {
+  "dividendYield": 1.16,
+  "dividendYieldText": "1.16%",
+  "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
+  "distributionRate": 0.97,
+  "secYield": 1.07,
+  "secYieldText": "1.07%",
+  "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
+ },
+ "returns": {
+  "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
+  "monthEnd": {
+   "asOfDate": "Aug 31 2026",
+   "mo1": 0.38,
+   "mo1Text": "0.38%",
+   "qtd": null,
+   "qtdText": "—",
+   "ytd": 13.44,
+   "ytdText": "13.44%",
+   "yr1": 20.83,
+   "yr1Text": "20.83%",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 16.12,
+   "sinceInceptionText": "16.12%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Sep 30 2026",
+   "null": null
+  },
+  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close, so the date is the official one",
+  "performanceAsOf": "2026-08-31"
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "03/24/2025",
+    "0.081"
+   ],
+   [
+    "06/23/2025",
+    "0.095"
+   ],
+   [
+    "09/22/2025",
+    "0.084"
+   ],
+   [
+    "12/22/2025",
+    "0.091"
+   ],
+   [
+    "03/23/2026",
+    "0.126"
+   ],
+   [
+    "06/22/2026",
+    "0.069"
+   ],
+   [
+    "09/21/2026",
+    "0.076"
+   ]
+  ]
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json",
+   "holdings/002.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 277,
+  "asOfDate": "2026-09-30",
+  "asOf": "Sep 30 2026",
+  "source": "invesco.com fund holdings API (dng-api.invesco.com)"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 450,
+  "asOf": "Oct 01 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
+ }
+}

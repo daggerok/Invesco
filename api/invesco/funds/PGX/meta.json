@@ -4,78 +4,80 @@
  "category": "Fixed Income",
  "categoryPath": "Fixed Income",
  "source": {
-  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pgx.html",
-  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PGX",
-  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PGX",
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/invesco-preferred-etf.html",
+  "holdingsApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46138E511/holdings/fund?idType=cusip&productType=ETF",
+  "performanceApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46138E511/performance/standard?idType=cusip&productType=ETF&performanceSubType=annualized&performancePeriod=monthly",
+  "pricesApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46138E511/prices?idType=cusip&productType=ETF&variationType=priceListing&productSubType=ETF",
+  "yieldsApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46138E511?expand=nav&idType=cusip&productType=ETF&variationType=yieldInformation&managementFeeWaiver=0.0",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/PGX",
-  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001384, report period 2026-05-31)",
+  "holdingsSource": "invesco.com fund holdings API (dng-api.invesco.com)",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
-  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+  "provider": "invesco.com fund pages and fund API + Yahoo Finance public chart API"
  },
  "identifiers": {
-  "cusip": null,
-  "isin": null,
-  "indexTicker": null
+  "cusip": "46138E511",
+  "isin": "US46138E5116",
+  "indexTicker": "P0P4"
  },
  "expenseRatio": {
-  "display": "—",
-  "value": null
+  "display": "0.5%",
+  "value": 0.5
  },
  "nav": {
-  "display": "—",
-  "value": null,
+  "display": "$10.14",
+  "value": 10.144649,
   "asOfDate": "Oct 01 2026"
  },
  "marketPrice": {
-  "display": "$10.64",
-  "value": 10.64,
+  "display": "$10.16",
+  "value": 10.16,
   "asOfDate": "Oct 01 2026"
  },
  "premiumDiscount": {
-  "display": "—",
-  "value": null
+  "display": "0.15%",
+  "value": 0.15
  },
  "aum": {
-  "display": "$3,820.01 M",
-  "value": 3820013512.76,
-  "asOfDate": "May 31 2026",
-  "source": "SEC Form N-PORT-P net assets (report period 2026-05-31)"
+  "display": "$3,637.87 M",
+  "value": 3637870953.28,
+  "asOfDate": "Oct 01 2026",
+  "source": "Invesco fund API prices endpoint (net assets / market value)"
  },
  "yields": {
-  "dividendYield": 6.99,
-  "dividendYieldText": "6.99%",
-  "dividendYieldKind": "trailing 12-month, published by invesco.com",
-  "distributionRate": null,
-  "secYield": null,
-  "secYieldText": "—",
-  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
+  "dividendYield": 6.85,
+  "dividendYieldText": "6.85%",
+  "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
+  "distributionRate": 6.82,
+  "secYield": 6.85,
+  "secYieldText": "6.85%",
+  "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes (Yahoo chart API)",
+  "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
-   "asOfDate": "Oct 01 2026",
+   "asOfDate": "Aug 31 2026",
    "mo1": -2.87,
    "mo1Text": "-2.87%",
    "qtd": null,
    "qtdText": "—",
-   "ytd": -1.92,
-   "ytdText": "-1.92%",
-   "yr1": -2.14,
-   "yr1Text": "-2.14%",
-   "yr3": 4.94,
-   "yr3Text": "4.94%",
-   "yr5": -1.34,
-   "yr5Text": "-1.34%",
-   "yr10": 1.94,
-   "yr10Text": "1.94%",
-   "sinceInception": 2.7,
-   "sinceInceptionText": "2.70%"
+   "ytd": -1.93,
+   "ytdText": "-1.93%",
+   "yr1": -1.56,
+   "yr1Text": "-1.56%",
+   "yr3": 4.21,
+   "yr3Text": "4.21%",
+   "yr5": -1.21,
+   "yr5Text": "-1.21%",
+   "yr10": 1.98,
+   "yr10Text": "1.98%",
+   "sinceInception": 2.82,
+   "sinceInceptionText": "2.82%"
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
    "null": null
   },
-  "returnsBasis": "official Invesco NAV total returns (product list download); periods Invesco does not publish (young funds) are filled from adjusted closes",
+  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close, so the date is the official one",
   "performanceAsOf": "2026-08-31"
  },
  "distributions": {
@@ -978,10 +980,10 @@
    "holdings/002.json"
   ],
   "pageSize": 250,
-  "totalRows": 268,
-  "asOfDate": "2026-05-31",
-  "asOf": "May 31 2026",
-  "source": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001384, report period 2026-05-31)"
+  "totalRows": 274,
+  "asOfDate": "2026-09-30",
+  "asOf": "Sep 30 2026",
+  "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
   "pages": [

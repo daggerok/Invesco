@@ -2,7 +2,7 @@
  "ticker": "PGX",
  "page": 2,
  "pageSize": 250,
- "totalRows": 268,
+ "totalRows": 274,
  "headers": [
   "Name",
   "Ticker",
@@ -10,170 +10,274 @@
   "Weight",
   "Market Value",
   "Shares Held",
-  "Asset Category"
+  "Asset Category",
+  "Coupon",
+  "Maturity"
  ],
  "rows": [
   {
-   "Name": "Bank of America Corp.",
-   "Ticker": "BAC",
-   "Identifier": "06053U601",
-   "Weight": "1.1417897935",
-   "Market Value": "43616524.4",
-   "Shares Held": "2000758",
-   "Asset Category": "EP"
-  },
-  {
-   "Name": "Athene Holding Ltd.",
-   "Ticker": "ATH-PA",
-   "Identifier": "04686J200",
-   "Weight": "0.2473760024",
-   "Market Value": "9449796.72",
-   "Shares Held": "498407",
-   "Asset Category": "EP"
-  },
-  {
-   "Name": "American Financial Group, Inc.",
-   "Ticker": "AFG",
-   "Identifier": "025932872",
-   "Weight": "0.1126839469",
-   "Market Value": "4304542",
-   "Shares Held": "216200",
-   "Asset Category": "EP"
-  },
-  {
-   "Name": "MetLife, Inc.",
-   "Ticker": "MET",
-   "Identifier": "59156R876",
-   "Weight": "0.6839182509",
-   "Market Value": "26125769.6",
-   "Shares Held": "1166329",
-   "Asset Category": "EP"
-  },
-  {
-   "Name": "Hartford Insurance Group, Inc. (The)",
-   "Ticker": "HIG",
-   "Identifier": "416518603",
-   "Weight": "0.3251806654",
-   "Market Value": "12421945.36",
-   "Shares Held": "499676",
-   "Asset Category": "EP"
-  },
-  {
-   "Name": "Huntington Bancshares Inc.",
+   "Name": "Federal Realty Investment Trust",
    "Ticker": "-",
-   "Identifier": "446150757",
-   "Weight": "0.137304624",
-   "Market Value": "5245055.19",
-   "Shares Held": "256733",
-   "Asset Category": "EP"
+   "Identifier": "313745200",
+   "Weight": "0.11459",
+   "Market Value": "4132828.54",
+   "Shares Held": "221362",
+   "Asset Category": "Equity / BBB-/Baa2",
+   "Coupon": "5",
+   "Maturity": "Dec 31 2079"
   },
   {
-   "Name": "W. R. Berkley Corp.",
+   "Name": "American Financial Group Inc/OH",
    "Ticker": "-",
-   "Identifier": "084423706",
-   "Weight": "0.1537594844",
-   "Market Value": "5873633.08",
-   "Shares Held": "269804",
-   "Asset Category": "EP"
+   "Identifier": "025932807",
+   "Weight": "0.111509",
+   "Market Value": "4021729.4",
+   "Shares Held": "184483",
+   "Asset Category": "Equity / BBB-/Baa2",
+   "Coupon": "5.875",
+   "Maturity": "Mar 30 2059"
   },
   {
-   "Name": "Brighthouse Financial, Inc.",
-   "Ticker": "BHF",
-   "Identifier": "10922N707",
-   "Weight": "0.2681283709",
-   "Market Value": "10242540",
-   "Shares Held": "831375",
-   "Asset Category": "EP"
-  },
-  {
-   "Name": "Corebridge Financial, Inc.",
-   "Ticker": "CRBG",
-   "Identifier": "21871X208",
-   "Weight": "0.5223714294",
-   "Market Value": "19954659.19",
-   "Shares Held": "868727",
-   "Asset Category": "EP"
-  },
-  {
-   "Name": "Pinnacle Financial Partners, Inc.",
-   "Ticker": "PNFP",
-   "Identifier": "72348N505",
-   "Weight": "0.2102562816",
-   "Market Value": "8031818.37",
-   "Shares Held": "326099",
-   "Asset Category": "EP"
-  },
-  {
-   "Name": "Citizens Financial Group, Inc.",
+   "Name": "Old National Bancorp/IN",
    "Ticker": "-",
-   "Identifier": "174610808",
-   "Weight": "0.3846366221",
-   "Market Value": "14693170.94",
-   "Shares Held": "579841",
-   "Asset Category": "EP"
+   "Identifier": "68003D204",
+   "Weight": "0.110627",
+   "Market Value": "3989898.64",
+   "Shares Held": "159341",
+   "Asset Category": "Equity / NA/Baa3",
+   "Coupon": "7",
+   "Maturity": "Dec 31 2079"
+  },
+  {
+   "Name": "Bank of Hawaii Corp",
+   "Ticker": "-",
+   "Identifier": "062545207",
+   "Weight": "0.110097",
+   "Market Value": "3970779.8",
+   "Shares Held": "265604",
+   "Asset Category": "Equity / NR/Ba1",
+   "Coupon": "4.375",
+   "Maturity": "Dec 31 2079"
+  },
+  {
+   "Name": "American Homes 4 Rent",
+   "Ticker": "-",
+   "Identifier": "02665T868",
+   "Weight": "0.10772",
+   "Market Value": "3885051.03",
+   "Shares Held": "169727",
+   "Asset Category": "Equity / BB+/Baa3",
+   "Coupon": "6.25",
+   "Maturity": "Dec 31 2079"
+  },
+  {
+   "Name": "EIDP Inc",
+   "Ticker": "-",
+   "Identifier": "263534307",
+   "Weight": "0.107651",
+   "Market Value": "3882588.48",
+   "Shares Held": "61746",
+   "Asset Category": "Equity / BBB-/NR",
+   "Coupon": "4.5",
+   "Maturity": "Dec 31 2079"
+  },
+  {
+   "Name": "Popular Capital Trust II",
+   "Ticker": "-",
+   "Identifier": "73317H206",
+   "Weight": "0.106506",
+   "Market Value": "3822349.3",
+   "Shares Held": "151081",
+   "Asset Category": "Equity / B+/Ba1",
+   "Coupon": "6.125",
+   "Maturity": "Dec 01 2034"
+  },
+  {
+   "Name": "Global Net Lease Inc",
+   "Ticker": "-",
+   "Identifier": "379378409",
+   "Weight": "0.105465",
+   "Market Value": "3803729.43",
+   "Shares Held": "174403",
+   "Asset Category": "Equity / NA/NA",
+   "Coupon": "6.875",
+   "Maturity": "Dec 31 2079"
+  },
+  {
+   "Name": "CNO Financial Group Inc",
+   "Ticker": "-",
+   "Identifier": "12621E301",
+   "Weight": "0.103105",
+   "Market Value": "3718596",
+   "Shares Held": "221345",
+   "Asset Category": "Equity / BB/Ba1",
+   "Coupon": "5.125",
+   "Maturity": "Nov 25 2060"
   },
   {
    "Name": "Public Storage",
-   "Ticker": "PSA",
-   "Identifier": "74460W461",
-   "Weight": "0.3624639113",
-   "Market Value": "13846170.39",
-   "Shares Held": "878007",
-   "Asset Category": "EP"
-  },
-  {
-   "Name": "Huntington Bancshares Inc.",
    "Ticker": "-",
-   "Identifier": "446150823",
-   "Weight": "0.3142357387",
-   "Market Value": "12003847.68",
-   "Shares Held": "722688",
-   "Asset Category": "EP"
+   "Identifier": "74460W487",
+   "Weight": "0.101342",
+   "Market Value": "3655034.43",
+   "Shares Held": "268161",
+   "Asset Category": "Equity / BBB+/A3",
+   "Coupon": "3.9",
+   "Maturity": "Dec 31 2079"
   },
   {
-   "Name": "Huntington Bancshares Inc.",
+   "Name": "American Homes 4 Rent",
    "Ticker": "-",
-   "Identifier": "446150773",
-   "Weight": "0.3086334637",
-   "Market Value": "11789840.02",
-   "Shares Held": "469154",
-   "Asset Category": "EP"
+   "Identifier": "02665T876",
+   "Weight": "0.100182",
+   "Market Value": "3613189.77",
+   "Shares Held": "169713",
+   "Asset Category": "Equity / BB+/NR",
+   "Coupon": "5.875",
+   "Maturity": "Dec 31 2079"
   },
   {
-   "Name": "W. R. Berkley Corp.",
+   "Name": "First Horizon Corp",
    "Ticker": "-",
-   "Identifier": "084423888",
-   "Weight": "0.153252272",
-   "Market Value": "5854257.5",
-   "Shares Held": "360262",
-   "Asset Category": "EP"
+   "Identifier": "320517865",
+   "Weight": "0.097796",
+   "Market Value": "3462117.32",
+   "Shares Held": "221363",
+   "Asset Category": "Equity / NA/Ba2",
+   "Coupon": "4.7",
+   "Maturity": "Dec 31 2079"
   },
   {
-   "Name": "Array Digital Infrastructure, Inc.",
-   "Ticker": "AD",
+   "Name": "Cullen/Frost Bankers Inc",
+   "Ticker": "-",
+   "Identifier": "229899307",
+   "Weight": "0.096668",
+   "Market Value": "3486467.25",
+   "Shares Held": "221363",
+   "Asset Category": "Equity / BBB-/Baa2",
+   "Coupon": "4.45",
+   "Maturity": "Dec 31 2079"
+  },
+  {
+   "Name": "Pacific Gas and Electric Co",
+   "Ticker": "-",
+   "Identifier": "694308206",
+   "Weight": "0.086564",
+   "Market Value": "3122026.18",
+   "Shares Held": "155402",
+   "Asset Category": "Equity / NR/WR",
+   "Coupon": "6",
+   "Maturity": "Nov 05 2049"
+  },
+  {
+   "Name": "Public Storage",
+   "Ticker": "-",
+   "Identifier": "74460W446",
+   "Weight": "0.080918",
+   "Market Value": "2918403.48",
+   "Shares Held": "212402",
+   "Asset Category": "Equity / BBB+/A3",
+   "Coupon": "3.95",
+   "Maturity": "Dec 31 2079"
+  },
+  {
+   "Name": "Array Digital Infrastructure Inc",
+   "Ticker": "-",
    "Identifier": "911684702",
-   "Weight": "0.0768681574",
-   "Market Value": "2936374",
-   "Shares Held": "154546",
-   "Asset Category": "EP"
+   "Weight": "0.078789",
+   "Market Value": "2841618.12",
+   "Shares Held": "158484",
+   "Asset Category": "Equity / BBB-/Ba2",
+   "Coupon": "6.25",
+   "Maturity": "Sep 01 2069"
   },
   {
-   "Name": "Duke Energy Corp.",
-   "Ticker": "DUK",
-   "Identifier": "26441C501",
-   "Weight": "0.9379281243",
-   "Market Value": "35828981.09",
-   "Shares Held": "1449979",
-   "Asset Category": "EP"
+   "Name": "Capital One Financial Corp",
+   "Ticker": "-",
+   "Identifier": "14040H774",
+   "Weight": "0.078722",
+   "Market Value": "2839193.37",
+   "Shares Held": "184483",
+   "Asset Category": "Equity / BB+/Baa3",
+   "Coupon": "4.625",
+   "Maturity": "Dec 31 2079"
   },
   {
-   "Name": "Entergy New Orleans, LLC",
-   "Ticker": "ENJ",
-   "Identifier": "29364P103",
-   "Weight": "0.173828872",
-   "Market Value": "6640286.4",
-   "Shares Held": "304880",
-   "Asset Category": "EP"
+   "Name": "Associated Banc-Corp",
+   "Ticker": "-",
+   "Identifier": "045487204",
+   "Weight": "0.076652",
+   "Market Value": "2764566.73",
+   "Shares Held": "147601",
+   "Asset Category": "Equity / BB-/Ba2",
+   "Coupon": "5.875",
+   "Maturity": "Dec 31 2079"
+  },
+  {
+   "Name": "Associated Banc-Corp",
+   "Ticker": "-",
+   "Identifier": "045487402",
+   "Weight": "0.07432",
+   "Market Value": "2680452.32",
+   "Shares Held": "147602",
+   "Asset Category": "Equity / BB-/Ba2",
+   "Coupon": "5.625",
+   "Maturity": "Dec 31 2079"
+  },
+  {
+   "Name": "Array Digital Infrastructure Inc",
+   "Ticker": "-",
+   "Identifier": "911684884",
+   "Weight": "0.069315",
+   "Market Value": "2499952",
+   "Shares Held": "156247",
+   "Asset Category": "Equity / BBB-/Ba2",
+   "Coupon": "5.5",
+   "Maturity": "Jun 01 2070"
+  },
+  {
+   "Name": "CASH & EQUIVALENTS",
+   "Ticker": "USD",
+   "Identifier": "CASHUSD00",
+   "Weight": "0.001825",
+   "Market Value": "65820.05",
+   "Shares Held": "65820.05",
+   "Asset Category": "Cash",
+   "Coupon": "0",
+   "Maturity": ""
+  },
+  {
+   "Name": "Public Storage",
+   "Ticker": "-",
+   "Identifier": "74460W362",
+   "Weight": "0.000453",
+   "Market Value": "16324.8",
+   "Shares Held": "716",
+   "Asset Category": "Equity / BBB+/NR",
+   "Coupon": "6",
+   "Maturity": "Dec 31 2079"
+  },
+  {
+   "Name": "SECURITIES LENDING - BNYM",
+   "Ticker": "-",
+   "Identifier": "BNYMLEND",
+   "Weight": "0",
+   "Market Value": "0.01",
+   "Shares Held": "1",
+   "Asset Category": "Cash",
+   "Coupon": "",
+   "Maturity": ""
+  },
+  {
+   "Name": "USD Pending Dividends",
+   "Ticker": "USDPDV",
+   "Identifier": "-",
+   "Weight": "",
+   "Market Value": "12076129.91",
+   "Shares Held": "0",
+   "Asset Category": "Cash",
+   "Coupon": "",
+   "Maturity": ""
   }
  ]
 }

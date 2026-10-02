@@ -1,0 +1,166 @@
+{
+ "ticker": "BSMZ",
+ "name": "Invesco BulletShares 2035 Municipal Bond ETF",
+ "category": "Fixed Income",
+ "categoryPath": "Fixed Income, Municipal",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/invesco-bulletshares-2035-municipal-bond-etf.html",
+  "holdingsApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46138J353/holdings/fund?idType=cusip&productType=ETF",
+  "performanceApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46138J353/performance/standard?idType=cusip&productType=ETF&performanceSubType=annualized&performancePeriod=monthly",
+  "pricesApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46138J353/prices?idType=cusip&productType=ETF&variationType=priceListing&productSubType=ETF",
+  "yieldsApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46138J353?expand=nav&idType=cusip&productType=ETF&variationType=yieldInformation&managementFeeWaiver=0.0",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BSMZ",
+  "holdingsSource": "invesco.com fund holdings API (dng-api.invesco.com)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "invesco.com fund pages and fund API + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": "46138J353",
+  "isin": "US46138J3538",
+  "indexTicker": "IIBSMBZ"
+ },
+ "expenseRatio": {
+  "display": "0.18%",
+  "value": 0.18
+ },
+ "nav": {
+  "display": "$23.63",
+  "value": 23.633834,
+  "asOfDate": "Oct 01 2026"
+ },
+ "marketPrice": {
+  "display": "$23.66",
+  "value": 23.6649,
+  "asOfDate": "Oct 01 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.13%",
+  "value": 0.13
+ },
+ "aum": {
+  "display": "—",
+  "value": null,
+  "asOfDate": "—",
+  "source": "previous run"
+ },
+ "yields": {
+  "dividendYield": 3.58,
+  "dividendYieldText": "3.58%",
+  "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
+  "distributionRate": 3.57,
+  "secYield": 4.49,
+  "secYieldText": "4.49%",
+  "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
+ },
+ "returns": {
+  "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
+  "monthEnd": {
+   "asOfDate": "Aug 31 2026",
+   "mo1": -3.43,
+   "mo1Text": "-3.43%",
+   "qtd": null,
+   "qtdText": "—",
+   "ytd": -0.47,
+   "ytdText": "-0.47%",
+   "yr1": -2.75,
+   "yr1Text": "-2.75%",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 1.25,
+   "sinceInceptionText": "1.25%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Sep 30 2026",
+   "null": null
+  },
+  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close, so the date is the official one",
+  "performanceAsOf": "2026-08-31"
+ },
+ "distributions": {
+  "frequency": "Monthly",
+  "paymentsPerYear": 12,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "10/20/2025",
+    "0.069"
+   ],
+   [
+    "11/24/2025",
+    "0.069"
+   ],
+   [
+    "12/22/2025",
+    "0.035"
+   ],
+   [
+    "01/20/2026",
+    "0.048"
+   ],
+   [
+    "02/23/2026",
+    "0.066"
+   ],
+   [
+    "03/23/2026",
+    "0.073"
+   ],
+   [
+    "04/20/2026",
+    "0.083"
+   ],
+   [
+    "05/18/2026",
+    "0.075"
+   ],
+   [
+    "06/22/2026",
+    "0.083"
+   ],
+   [
+    "07/20/2026",
+    "0.087"
+   ],
+   [
+    "08/24/2026",
+    "0.085"
+   ],
+   [
+    "09/21/2026",
+    "0.07"
+   ]
+  ]
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json",
+   "holdings/002.json",
+   "holdings/003.json",
+   "holdings/004.json",
+   "holdings/005.json",
+   "holdings/006.json",
+   "holdings/007.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 1735,
+  "asOfDate": "2026-09-30",
+  "asOf": "Sep 30 2026",
+  "source": "invesco.com fund holdings API (dng-api.invesco.com)"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 262,
+  "asOf": "Oct 01 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
+ }
+}

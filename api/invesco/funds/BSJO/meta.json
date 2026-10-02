@@ -5,12 +5,14 @@
  "categoryPath": "Fixed Income",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/bsjo.html",
-  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=BSJO",
-  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=BSJO",
+  "holdingsApi": null,
+  "performanceApi": null,
+  "pricesApi": null,
+  "yieldsApi": null,
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BSJO",
-  "holdingsSource": "invesco.com per-fund holdings download",
+  "holdingsSource": "invesco.com fund holdings API (dng-api.invesco.com)",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
-  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+  "provider": "invesco.com fund pages and fund API + Yahoo Finance public chart API"
  },
  "identifiers": {
   "cusip": null,
@@ -44,16 +46,16 @@
  "yields": {
   "dividendYield": 5.49,
   "dividendYieldText": "5.49%",
-  "dividendYieldKind": "trailing 12-month, published by invesco.com",
+  "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
   "distributionRate": null,
   "secYield": null,
   "secYieldText": "—",
-  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
+  "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes (Yahoo chart API)",
+  "derivedFrom": "last published official Invesco returns (not refreshed in this run); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
-   "asOfDate": "—",
+   "asOfDate": "Aug 31 2026",
    "mo1": null,
    "mo1Text": "—",
    "qtd": null,
@@ -75,7 +77,7 @@
    "asOfDate": "Sep 30 2026",
    "null": null
   },
-  "returnsBasis": "official Invesco NAV total returns (product list download); periods Invesco does not publish (young funds) are filled from adjusted closes",
+  "returnsBasis": "last published official Invesco NAV total returns (not refreshed in this run: invesco.com provided no month-end table for this fund, for example a renamed or delisted one); periods Invesco did not publish are filled from adjusted closes",
   "performanceAsOf": "2026-08-31"
  },
  "distributions": {
@@ -93,7 +95,7 @@
   "totalRows": 0,
   "asOfDate": null,
   "asOf": "—",
-  "source": "invesco.com per-fund holdings download"
+  "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
   "pages": [

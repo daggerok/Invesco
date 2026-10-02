@@ -1,0 +1,124 @@
+{
+ "ticker": "BSTU",
+ "name": "Invesco BulletShares 2030 Treasury Bond ETF",
+ "category": "Fixed Income",
+ "categoryPath": "Fixed Income, Target Maturity",
+ "source": {
+  "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/invesco-bulletshares-2030-treasury-bond-etf.html",
+  "holdingsApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46138J312/holdings/fund?idType=cusip&productType=ETF",
+  "performanceApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46138J312/performance/standard?idType=cusip&productType=ETF&performanceSubType=annualized&performancePeriod=monthly",
+  "pricesApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46138J312/prices?idType=cusip&productType=ETF&variationType=priceListing&productSubType=ETF",
+  "yieldsApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46138J312?expand=nav&idType=cusip&productType=ETF&variationType=yieldInformation&managementFeeWaiver=0.0",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BSTU",
+  "holdingsSource": "invesco.com fund holdings API (dng-api.invesco.com)",
+  "historySource": "Yahoo Finance public chart API (adjusted close)",
+  "provider": "invesco.com fund pages and fund API + Yahoo Finance public chart API"
+ },
+ "identifiers": {
+  "cusip": "46138J312",
+  "isin": "US46138J3124",
+  "indexTicker": "BSTBU"
+ },
+ "expenseRatio": {
+  "display": "0.07%",
+  "value": 0.07
+ },
+ "nav": {
+  "display": "$24.44",
+  "value": 24.435894,
+  "asOfDate": "Oct 01 2026"
+ },
+ "marketPrice": {
+  "display": "$24.45",
+  "value": 24.455,
+  "asOfDate": "Oct 01 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.08%",
+  "value": 0.08
+ },
+ "aum": {
+  "display": "—",
+  "value": null,
+  "asOfDate": "—",
+  "source": "previous run"
+ },
+ "yields": {
+  "dividendYield": 4.17,
+  "dividendYieldText": "4.17%",
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": 4.18,
+  "secYield": 4.78,
+  "secYieldText": "4.78%",
+  "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
+ },
+ "returns": {
+  "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
+  "monthEnd": {
+   "asOfDate": "Aug 31 2026",
+   "mo1": -1.17,
+   "mo1Text": "-1.17%",
+   "qtd": null,
+   "qtdText": "—",
+   "ytd": null,
+   "ytdText": "—",
+   "yr1": null,
+   "yr1Text": "—",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 0.16,
+   "sinceInceptionText": "0.16%"
+  },
+  "quarterEnd": {
+   "asOfDate": "Sep 30 2026",
+   "null": null
+  },
+  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close, so the date is the official one",
+  "performanceAsOf": "2026-08-31"
+ },
+ "distributions": {
+  "frequency": "Monthly",
+  "paymentsPerYear": 12,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "07/20/2026",
+    "0.117"
+   ],
+   [
+    "08/24/2026",
+    "0.092"
+   ],
+   [
+    "09/21/2026",
+    "0.085"
+   ]
+  ]
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 31,
+  "asOfDate": "2026-09-30",
+  "asOf": "Sep 30 2026",
+  "source": "invesco.com fund holdings API (dng-api.invesco.com)"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 79,
+  "asOf": "Oct 01 2026",
+  "source": "Yahoo Finance public chart API (adjusted close)"
+ }
+}

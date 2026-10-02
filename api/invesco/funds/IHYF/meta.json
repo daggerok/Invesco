@@ -5,12 +5,14 @@
  "categoryPath": "Fixed Income",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/ihyf.html",
-  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=IHYF",
-  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=IHYF",
+  "holdingsApi": null,
+  "performanceApi": null,
+  "pricesApi": null,
+  "yieldsApi": null,
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/IHYF",
-  "holdingsSource": "invesco.com per-fund holdings download",
+  "holdingsSource": "invesco.com fund holdings API (dng-api.invesco.com)",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
-  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+  "provider": "invesco.com fund pages and fund API + Yahoo Finance public chart API"
  },
  "identifiers": {
   "cusip": null,
@@ -44,11 +46,11 @@
  "yields": {
   "dividendYield": 7.12,
   "dividendYieldText": "7.12%",
-  "dividendYieldKind": "trailing 12-month, published by invesco.com",
+  "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
   "distributionRate": null,
   "secYield": null,
   "secYieldText": "—",
-  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
+  "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
  },
  "returns": {
   "monthEnd": {
@@ -92,7 +94,7 @@
   "totalRows": 0,
   "asOfDate": null,
   "asOf": "—",
-  "source": "invesco.com per-fund holdings download"
+  "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
   "pages": [

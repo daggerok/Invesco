@@ -5,12 +5,14 @@
  "categoryPath": "Fixed Income",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/bsmp.html",
-  "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=BSMP",
-  "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=BSMP",
+  "holdingsApi": null,
+  "performanceApi": null,
+  "pricesApi": null,
+  "yieldsApi": null,
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BSMP",
   "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001657201-26-000161, report period 2025-11-30)",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
-  "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
+  "provider": "invesco.com fund pages and fund API + Yahoo Finance public chart API"
  },
  "identifiers": {
   "cusip": null,
@@ -48,7 +50,7 @@
   "distributionRate": null,
   "secYield": null,
   "secYieldText": "—",
-  "secYieldKind": "SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)"
+  "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
  },
  "returns": {
   "monthEnd": {
