@@ -1,6 +1,6 @@
 # Invesco
 
-One of the app's features lets you select Invesco ETFs in the Watchlist and aggregate their holdings to see how often each ticker appears across the selected funds. Repeated holdings make overlapping exposure visible: the more selected funds include a ticker, the greater its potential influence on the portfolio; gains in that holding may help, while declines may hurt, and actual impact also depends on each fund's position size.  Another feature makes it faster and easier to find funds with stronger growth over different periods, higher dividend yields or distributions, greater Total Return (price performance plus dividends), and other key performance metrics. A single-file client-side tool that reads the generated `./api/invesco` static feed (invesco.com product-list / performance CSVs, per-fund daily holdings CSVs, the official per-fund prices & yields CSV as the default daily NAV/close history source, Yahoo Finance for distributions and as the history fallback, SEC EDGAR N-PORT-P only as a holdings fallback) into a searchable ETF/asset-class catalog with per-fund tabs, watchlist aggregation, ticker copy and CSV/TXT export — the same look, feel, columns and business logic as the sibling applications.
+One of the app's features lets you select Invesco ETFs in the Watchlist and aggregate their holdings to see how often each ticker appears across the selected funds. Repeated holdings make overlapping exposure visible: the more selected funds include a ticker, the greater its potential influence on the portfolio; gains in that holding may help, while declines may hurt, and actual impact also depends on each fund's position size.  Another feature makes it faster and easier to find funds with stronger growth over different periods, higher dividend yields or distributions, greater Total Return (price performance plus dividends), and other key performance metrics. A single-file client-side tool that reads the generated `./api/invesco` static feed (invesco.com fund pages and the JSON API behind them for month-end returns, NAV, net assets, yields, expense ratio and daily holdings, Yahoo Finance for daily market history and distributions, SEC EDGAR N-PORT-P only as a holdings fallback) into a searchable ETF/asset-class catalog with per-fund tabs, watchlist aggregation, ticker copy and CSV/TXT export — the same look, feel, columns and business logic as the sibling applications.
 
 ## Using Bun
 
@@ -26,30 +26,44 @@ Defaults for every supported control live in `scripts/update-data.config.json`. 
 
 ### Data sources
 
+The old invesco.com CSV downloads (product list, per-fund holdings, prices & yields) are gone: they redirect to the catalog page, and invesco.com answers HTTP 406 to every browser-like `User-Agent`. The updater now reads what the fund pages themselves use, without a key, with its own non-browser `User-Agent` (`daggerok-etf-feed/1.0`).
+
 | Block | Source |
 | --- | --- |
-| Catalog (all US Invesco ETFs) | `https://www.invesco.com/us/financial-products/etfs/performance/prices/main/performance/0?audienceType=Advisor&action=download` (product list CSV) |
-| Holdings per fund | `https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker={TICKER}` (per-fund holdings CSV) |
-| Daily NAV/close history (default) | `https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker={TICKER}` (official per-fund prices & yields CSV) |
-| Distributions; history fallback | Yahoo Finance chart API - used for distributions/exchange/quote, and for daily closes only when the official CSV above fails or is empty |
-| Fallback | SEC EDGAR N-PORT-P as fallback for funds with no Invesco CSV |
+| Fund list | `https://www.invesco.com/us/en/sitemap.xml` (canonical page of every live US ETF) plus every fund already published (`index.json` and `funds/*/meta.json`), so the feed never shrinks |
+| Fund facts, expense ratio | each fund page (`/us/en/financial-products/etfs/<slug>.html`): ticker, CUSIP, ISIN, index, total and net expense ratio are embedded as page JSON |
+| Month-end returns (official) | `dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/{CUSIP}/performance/standard?...performanceSubType=annualized&performancePeriod=monthly` (fund NAV row, with its effective date) |
+| NAV, close, net assets (AUM), yields | `.../{CUSIP}/prices` and `.../{CUSIP}?...variationType=yieldInformation` (daily, official) |
+| Holdings per fund | `.../{CUSIP}/holdings/fund` (all positions, daily, official) |
+| Daily market history, distributions, exchange, quote | Yahoo Finance chart API (adjusted close); invesco.com publishes NAV, not market closes |
+| Fallback | SEC EDGAR N-PORT-P holdings for funds invesco.com lists no page for (renamed, matured, delisted) or whose holdings request fails and that have no fresh official holdings yet |
+
+The quarterly table on the catalog page (`Performance (%) as of 06/30/2026`, 50 rows per page, filled by script) is not used: the fund API serves the newer month-end figures for every live fund.
 
 ### Metrics and caveats
 
 Each fund carries a derived `metrics` object that powers the catalog columns shared with the sibling sites:
 
-- `ytd` / `tr1y` - official YTD and 1-year returns -> *YTD Return*, *TR 1Y*
+- `ytd` / `tr1y` - official YTD and 1-year NAV returns -> *YTD Return*, *TR 1Y*
 - `cagr3y` / `cagr5y` / `cagr10y` - published annualized 3Y/5Y/10Y figures -> *CAGR 3Y/5Y/10Y*
 - `tr3y` / `tr5y` / `tr10y` - cumulative 3Y/5Y/10Y figures `(1 + CAGR)^n - 1` -> *TR 3Y/5Y/10Y*
 - `siAnn` - since-inception annualized -> *SI Ann.*
-- `dividendYield` - 12-month trailing yield or indicated yield (latest distribution x frequency / price), an estimate when derived here
-- `secYield` - 30-day SEC yield when published; unavailable values stay empty and are never shown as 0
-- `returnsBasis` - always a non-empty label of how the returns were computed: official Invesco NAV total returns from the product list (periods Invesco does not publish, for young funds, are filled from adjusted closes), or, for funds without official returns, estimates derived from adjusted market-price closes (the source is named)
-- `performanceAsOf` - ISO `YYYY-MM-DD` date the returns are as of, not the NAV date: the returns date printed with the Invesco product list (`Returns as of` line or the `Performance (%) as of` table caption) for official returns, the last close date used (or the newest stored close when no fresh history came) when derived, `null` when unknown. The legacy product list CSV download answers HTTP 406/301 to non-browser clients, CI included, so official returns are carried over from the published feed (last refreshed as of `2026-08-31`) until the list is reachable again
+- `dividendYield` - official trailing 12-month distribution rate; when Invesco publishes none, an indicated yield (latest distribution x frequency / price) that is an estimate
+- `secYield` - official 30-day SEC yield when published; unavailable values stay `null` and are never shown as 0
+- `returnsBasis` - always a non-empty label of how the returns were computed. Official month-end NAV total returns from the invesco.com fund API (periods Invesco does not publish, for young funds, are filled from adjusted closes: a mixed basis, said so in the label); `last published official ... (not refreshed in this run)` for a fund without a fresh month-end table (renamed, matured or delisted funds keep their last official figures with their old date); estimates derived from adjusted market-price closes (Yahoo, named in the label) for funds without any official returns
+- `performanceAsOf` - ISO `YYYY-MM-DD` date the returns are as of, not the NAV date: the effective date of Invesco's month-end performance table for official returns (month-end data appears 1-2 weeks after the month end, so mid-month it is still the previous month end, today `2026-08-31`), the last close used when derived, `null` when unknown
 
-Both fields are the last two keys of every `metrics` object and are repeated at the end of the `returns` block in each fund's `meta.json`.
+Both fields are the last two keys of every `metrics` object and are repeated at the end of the `returns` block in each fund's `meta.json`. The `monthEnd.asOfDate` of that block carries the same official date; `mo1` and `qtd` are always derived from Yahoo closes.
 
-Daily history comes from the official invesco.com prices & yields CSV (NAV and close); Yahoo closes are a market-price fallback used only when that CSV fails or is empty. Yahoo is still the only source for distributions, exchange listing and the live quote. Funds filtered out or failing in a run keep their previously published metadata and data files.
+Official and derived values, field by field:
+
+- official, daily: NAV (`navValue`), net assets (`aumValue`, dated by the prices endpoint), yields, holdings (as of the previous business day)
+- official, month-end: the return periods above
+- official, static: expense ratio (`terValue`, the total expense ratio shown on the fund page)
+- derived (Yahoo): daily market history, distributions and their frequency, premium/discount against the official NAV, exchange when the page has none
+- unavailable: `navValue`, `terValue` and fresh returns for funds the sitemap no longer lists (their last published values stay and are labelled); a fund that is not listed is never zero-filled
+
+Funds filtered out or failing in a run keep their previously published metadata and data files.
 
 ### Update controls
 
@@ -70,23 +84,19 @@ The table matches `scripts/update-data.config.json` exactly. Every control may a
 | `HISTORY_PAGE_SIZE` | `1000` | Rows in each generated daily-history JSON page |
 | `MAX_RETRIES` | `2` | Retries after the initial request (integer >= 1); only network errors and HTTP 403/408/425/429/5xx are retried with exponential backoff |
 | `HISTORY_RANGE` | `max` | Yahoo chart range for history rows (`max`, `10y`, `5y`, ...) |
-| `AUDIENCE_TYPE` | `Investor` | invesco.com `audienceType` parameter (`Investor` or `Advisor`) |
-| `PRODUCT_LIST_URL` | empty | Override the catalog CSV URL (https), e.g. to pin an as-of date; empty uses the built-in URL |
-| `CATALOG_HTML_URL` | empty | Override the catalog page scraped for per-fund page URLs (https); empty uses the built-in URL |
-| `STORE_RAW_DOWNLOADS` | `false` | Store the source holdings CSVs and product list under `api/invesco/raw` |
+| `SITEMAP_URL` | empty | Override the invesco.com sitemap (https) that lists the fund pages; empty uses the built-in URL |
 | `SEC_UA` | `daggerok ETF feed daggerok@gmail.com` | Declared SEC User-Agent (SEC policy requires a contact); redacted in logs; the protected `SEC_UA` Actions variable overrides it |
-| `PRICES_HISTORY` | `true` | Use the official per-fund prices & yields CSV for daily history, falling back to Yahoo closes only when it fails or is empty; `false` uses Yahoo closes for every fund |
-| `EDGAR_FALLBACK` | `true` | SEC EDGAR Form N-PORT-P fallback for funds without an invesco.com holdings download |
-| `SKIP_YAHOO` | `false` | Skip the Yahoo chart request; history still updates from the invesco.com CSV |
-| `SKIP_INVESCO` | `false` | Update history only (Yahoo), keeping the previously published catalog and holdings |
+| `EDGAR_FALLBACK` | `true` | SEC EDGAR Form N-PORT-P fallback for funds without invesco.com holdings |
+| `SKIP_YAHOO` | `false` | Skip the Yahoo chart request; the invesco.com data still updates, history and distributions keep their published values |
+| `SKIP_INVESCO` | `false` | Update history only (Yahoo), keeping the previously published fund facts, returns and holdings |
 | `VERBOSE` | `false` | Print per-fund retry and fallback notices |
 | `USE_SYSTEM_CA` | `auto` | TLS trust store: `auto` restarts the updater once with Bun's `--use-system-ca` when a request fails with an untrusted-certificate error; `true` always uses the system CA store; `false` never restarts. Not an individual workflow input: use `advanced`, the config file or the CLI environment. |
 
 `TICKERS` combines with the AUM, TER, yield and return filters using AND logic; it does not override them.
 
-The workflow exposes 24 individual inputs plus `advanced` (a JSON object of UPPER_CASE control names with scalar values) for everything else, for example `{"HISTORY_PAGE_SIZE": "500", "AUDIENCE_TYPE": "Advisor"}`. The output directory is fixed at `api/invesco` and is not a control.
+The workflow exposes 23 individual inputs plus `advanced` (a JSON object of UPPER_CASE control names with scalar values) for everything else, for example `{"HISTORY_PAGE_SIZE": "500", "SITEMAP_URL": "https://www.invesco.com/us/en/sitemap.xml"}`. The output directory is fixed at `api/invesco` and is not a control.
 
-Three controls are backed by repository Actions variables, which win over the file, `advanced` and inputs when nonblank: `SEC_UA` (`vars.SEC_UA`, the real contact for SEC requests, never printed), `AUDIENCE_TYPE` (`vars.INVESCO_AUDIENCE_TYPE`) and `STORE_RAW_DOWNLOADS` (`vars.STORE_RAW_DOWNLOADS`). Set them under **Settings -> Secrets and variables -> Actions -> Variables**.
+One control is backed by a repository Actions variable, which wins over the file, `advanced` and inputs when nonblank: `SEC_UA` (`vars.SEC_UA`, the real contact for SEC requests, never printed). Set it under **Settings -> Secrets and variables -> Actions -> Variables**. The controls of the retired CSV downloads (`PRODUCT_LIST_URL`, `CATALOG_HTML_URL`, `STORE_RAW_DOWNLOADS`, `PRICES_HISTORY`, `AUDIENCE_TYPE`) were removed, so the resolver rejects them instead of silently ignoring them.
 
 ### Examples
 
@@ -95,7 +105,7 @@ MAX_FETCHES=10 bun scripts/update-data.ts
 TICKERS="QQQ QQQM RSP PGX" bun scripts/update-data.ts
 AUM="1B:" TER=":0.5" bun scripts/update-data.ts
 PERFORMANCE_1Y="15:" bun scripts/update-data.ts
-STORE_RAW_DOWNLOADS=true SKIP_YAHOO=true bun scripts/update-data.ts
+SKIP_YAHOO=true bun scripts/update-data.ts
 ```
 
 ## TypeScript and verification
@@ -183,4 +193,4 @@ git diff --check
 
 [MIT — same as all sibling ETF repositories.](./LICENSE)
 
-Invesco® and the fund names/tickers referenced here are trademarks of Invesco Holding Company Limited, used under licence by Invesco Ltd. and its affiliates. This is an independent, unofficial tool; it is not affiliated with, endorsed by, or sponsored by Invesco. All data is reproduced from Invesco's own public downloads, public SEC EDGAR filings and Yahoo Finance for research purposes. All other trademarks, including index names, are the property of their respective owners.
+Invesco® and the fund names/tickers referenced here are trademarks of Invesco Holding Company Limited, used under licence by Invesco Ltd. and its affiliates. This is an independent, unofficial tool; it is not affiliated with, endorsed by, or sponsored by Invesco. All data is reproduced from Invesco's own public web pages and API, public SEC EDGAR filings and Yahoo Finance for research purposes. All other trademarks, including index names, are the property of their respective owners.

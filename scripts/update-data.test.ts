@@ -6,16 +6,7 @@ import {
   parseRange,
   parseAumRange,
   normalizeNumberText,
-  parseCsv,
-  findHeaderRowIndex,
-  csvRecords,
-  pickColumn,
   normalizeInvescoCategory,
-  readReturn,
-  parseProductList,
-  parseCatalogFundPages,
-  parseInvescoHoldings,
-  weightsSum,
   parseNport,
   parseNportAccessions,
   nportUrlFor,
@@ -25,7 +16,6 @@ import {
   edgarSeriesFilingsUrl,
   parseEdgarAtomFilings,
   parseChart,
-  parsePricesCsv,
   priceReturns,
   lastCompletedQuarterEnd,
   annualizedToTotal,
@@ -34,7 +24,6 @@ import {
   inferDistributionFrequency,
   deriveCatalogMetrics,
   returnsBasisFields,
-  parseReturnsAsOf,
   lastHistoryIsoDate,
   withReturnsBasis,
   formatEdgarDate,
@@ -45,11 +34,20 @@ import {
   normalizeHoldingName,
   normalizeHoldingNameCore,
   cleanHoldingTicker,
-  invescoFundPageUrl,
   invescoProductDetailUrl,
-  invescoHoldingsDownloadUrl,
-  invescoPricesDownloadUrl,
-  invescoProductListUrl,
+  dngUrl,
+  parseSitemapFundPages,
+  isFundPageUrl,
+  parseFundPage,
+  parseDngPerformance,
+  parseDngPrices,
+  parseDngYields,
+  parseDngHoldings,
+  indexRowFromMeta,
+  runUpdater,
+  setApiRootForTests,
+  OFFICIAL_RETURNS_BASIS,
+  STALE_OFFICIAL_RETURNS_BASIS,
   HOLDINGS_HEADERS,
   BOND_SHEET_HEADERS,
   CONTROL_NAMES,
@@ -162,147 +160,6 @@ describe('toIsoDate / formatInvescoDate / formatEdgarDate', () => {
   });
 });
 
-// ---------------------------------------------------------------------------
-// CSV layer
-// ---------------------------------------------------------------------------
-
-const PRODUCT_LIST_FIXTURE = [
-  'Invesco Ltd.',
-  'Exchange-Traded Funds (ETFs) - Performance and Prices',
-  'Prices as of 08/21/2026 Close. Returns as of 07/31/2026.',
-  'Please note: past performance is not a guide to future performance.',
-  '',
-  'Fund Name,Ticker,Inception_Date,Index_Ticker,CUSIP,ISIN,Exchange,Fund Type,As_Of_Date,Gross Expense Ratio,NAV,Close Price,Premium/Discount,Fund Assets ($m),Trailing 12m Dividend Rate (%),SEC 30 Day (%),YTD,12 M,3 Yr Ann,5 Yr Ann,10 Yr Ann,Since Inception Ann',
-  'Invesco QQQ Trust,QQQ,03/10/1999,NASDAQ105,460906109,US4609061099,NasdaqGM,"Equity, US Equity",08/21/2026,0.20%,706.3000,706.3200,0.00%,"452,800.00",0.44%,--,15.97,18.34,20.15,17.42,16.88,19.44',
-  'Invesco NASDAQ 100 ETF,QQQM,10/13/2020,NASDAQ105,460906409,US4609064096,NasdaqGM,"Equity, US Equity",08/21/2026,0.15%,220.1500,220.1300,-0.01%,"48,900.00",0.43%,--,15.99,18.30,20.11,17.38,--,13.02',
-  'Invesco Preferred ETF,PGX,01/31/2008,P0P2,46138E511,US46138E5116,NYSEArca,"Fixed Income, Preferred",08/21/2026,0.61%,41.7400,41.7200,-0.05%,"1,240.00",6.28%,5.94%,-2.10,4.11,1.10,0.42,0.55,2.21',
-  'Invesco Senior Loan ETF,BKLN,07/06/2011,L0L1,46137M720,US46137M7202,NYSEArca,"Fixed Income, Bank Loans",08/21/2026,0.67%,50.6600,50.6500,-0.02%,--,0.00%,--,-1.20,3.71,6.88,5.09,4.27,3.74',
-].join('\n');
-
-describe('parseCsv / header detection', () => {
-  test('handles quotes, embedded commas and CRLF', () => {
-    const rows = parseCsv('a,b\r\n"x, y","say ""hi"""\r\n');
-    expect(rows).toEqual([
-      ['a', 'b'],
-      ['x, y', 'say "hi"'],
-    ]);
-  });
-
-  test('drops blank lines and strips a BOM', () => {
-    const rows = parseCsv('\uFEFFTicker,Name\r\n\r\nQQQ,Invesco QQQ Trust\r\n');
-    expect(rows).toEqual([
-      ['Ticker', 'Name'],
-      ['QQQ', 'Invesco QQQ Trust'],
-    ]);
-  });
-
-  test('finds the header row after legal preamble lines', () => {
-    const rows = parseCsv(PRODUCT_LIST_FIXTURE);
-    expect(findHeaderRowIndex(rows, ['Ticker'])).toBe(4); // the blank preamble line is dropped
-    expect(findHeaderRowIndex(rows, ['Nope'])).toBe(-1);
-  });
-
-  test('csvRecords keeps the first of two identically named columns', () => {
-    const rows = parseCsv('Fund Ticker,Ticker,Name\nQQQ,QQQ,Apple Inc');
-    const records = csvRecords(rows, 0);
-    expect(pickColumn(records[0], ['Ticker'])).toBe('QQQ');
-    expect(pickColumn(records[0], ['Name'])).toBe('Apple Inc');
-    expect(pickColumn(records[0], ['Missing'])).toBe('');
-  });
-
-  test('csvRecords skips empty rows and trims cells', () => {
-    const rows = parseCsv('Ticker,Name\n QQQ , Invesco QQQ Trust \n,,\n');
-    expect(csvRecords(rows, 0)).toEqual([{ Ticker: 'QQQ', Name: 'Invesco QQQ Trust' }]);
-  });
-});
-
-// ---------------------------------------------------------------------------
-// Catalog: the invesco.com product-list download
-// ---------------------------------------------------------------------------
-
-describe('parseProductList', () => {
-  const funds = parseProductList(PRODUCT_LIST_FIXTURE);
-
-  test('reads the fund rows, alphabetized, and drops the preamble', () => {
-    expect(funds.map((fund) => fund.ticker)).toEqual(['BKLN', 'PGX', 'QQQ', 'QQQM']);
-    expect(funds[1].name).toBe('Invesco Preferred ETF');
-  });
-
-  test('converts "Fund Assets ($m)" into dollars', () => {
-    const qqq = funds.find((fund) => fund.ticker === 'QQQ')!;
-    expect(qqq.netAssets).toBe(452800000000);
-    // A tiny fund expressed as 452,800.00 must not be read as $452tn.
-    expect(qqq.netAssets).toBeGreaterThan(4e11);
-  });
-
-  test('keeps missing assets and yields as null', () => {
-    const bklN = funds.find((fund) => fund.ticker === 'BKLN')!;
-    expect(bklN.netAssets).toBeNull();
-    expect(bklN.secYield).toBeNull();
-    expect(bklN.dividendYield).toBe(0);
-  });
-
-  test('parses identifiers, exchange, category and as-of date', () => {
-    const qqm = funds.find((fund) => fund.ticker === 'QQQM')!;
-    expect(qqm.cusip).toBe('460906409');
-    expect(qqm.isin).toBe('US4609064096');
-    expect(qqm.exchange).toBe('NasdaqGM');
-    expect(qqm.category).toBe('US Equity');
-    expect(qqm.categoryPath).toBe('Equity, US Equity');
-    expect(qqm.asOfDate).toBe('2026-08-21');
-    expect(qqm.inception).toBe('2020-10-13');
-  });
-
-  test('reads NAV/close/premium-discount/TER as numbers', () => {
-    const pgx = funds.find((fund) => fund.ticker === 'PGX')!;
-    expect(pgx.nav).toBe(41.74);
-    expect(pgx.close).toBe(41.72);
-    expect(pgx.premiumDiscount).toBe(-0.05);
-    expect(pgx.ter).toBe(0.61);
-    expect(pgx.secYield).toBe(5.94);
-  });
-
-  test('derives premium/discount when the file leaves it out', () => {
-    const fundsWithout = parseProductList(
-      'Ticker,Fund Name,NAV,Close Price\nABC,Test ETF,10.00,10.20',
-    );
-    expect(fundsWithout[0].premiumDiscount).toBe(2);
-  });
-
-  test('12M/YTD stay cumulative, 3Y/5Y/10Y annualized figures stay annualized', () => {
-    const qqq = funds.find((fund) => fund.ticker === 'QQQ')!;
-    expect(qqq.returns.ytd).toBe(15.97);
-    expect(qqq.returns.yr1).toBe(18.34);
-    // 3Y/5Y/10Y are published annualized; the feed stores the cumulative
-    // total return (the UI's TR columns) and the annualized figure (CAGR).
-    expect(qqq.returns.yr3).toBe(73.45);
-    expect(qqq.returns.yr10).toBe(375.78);
-    expect(qqq.returns.yr5).toBe(123.21);
-    expect(qqq.returns.sinceInception).toBe(19.44);
-  });
-
-  test('rejects a file without a Ticker header or without rows', () => {
-    expect(() => parseProductList('a,b\n1,2')).toThrow(/no header row/);
-    expect(() => parseProductList('Ticker,Name,Extra\n')).toThrow(/no fund rows/);
-  });
-
-  test('the fallback fund page keeps the documented ?ticker= pattern', () => {
-    const qqq = funds.find((fund) => fund.ticker === 'QQQ')!;
-    expect(qqq.fundPage).toBe(
-      'https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=QQQ',
-    );
-  });
-});
-
-describe('readReturn', () => {
-  test('announces cumulative and annualized flavors separately', () => {
-    const record = { '3 Yr Ann': '10.00', YTD: '4.50' };
-    expect(readReturn(record, ['YTD'])).toBe(4.5);
-    expect(readReturn(record, ['3 Yr Ann'], 3)).toBe(33.1);
-    expect(readReturn(record, ['Missing'], 5)).toBeNull();
-  });
-});
-
 describe('normalizeInvescoCategory', () => {
   test('uses the asset class part of the Invesco grouping', () => {
     expect(normalizeInvescoCategory('Equity, US Equity')).toBe('US Equity');
@@ -317,118 +174,6 @@ describe('normalizeInvescoCategory', () => {
     expect(normalizeInvescoCategory('Something New, Detail')).toBe('Something New');
   });
 });
-
-describe('parseCatalogFundPages', () => {
-  test('picks the canonical fund URLs out of the catalog HTML', () => {
-    const html = `
-      <a href="/us/en/financial-products/etfs/invesco-nasdaq-100-etf.html"><span>QQQM</span></a>
-      <a href="https://www.invesco.com/us/en/financial-products/etfs/invesco-preferred-etf.html" class="x">PGX</a>
-      <a href="/us/en/financial-products/etfs/some-article.html">Read more</a>
-    `;
-    const pages = parseCatalogFundPages(html);
-    expect(pages.get('QQQM')).toBe('https://www.invesco.com/us/en/financial-products/etfs/invesco-nasdaq-100-etf.html');
-    expect(pages.get('PGX')).toBe('https://www.invesco.com/us/en/financial-products/etfs/invesco-preferred-etf.html');
-    expect(pages.has('READMORE')).toBe(false);
-    expect(pages.size).toBe(2);
-  });
-});
-
-// ---------------------------------------------------------------------------
-// Holdings: equity, bond and futures CSV flavours
-// ---------------------------------------------------------------------------
-
-const EQUITY_HOLDINGS_FIXTURE = [
-  'Invesco Ltd.',
-  'Portfolio Holdings as of 08/21/2026',
-  '',
-  'Fund Ticker,Ticker,Security Identifier,Holding Ticker,Name,Shares/Par Value,Market Value,Weight,Sector,Date',
-  'QQQ,QQQ,037833100,AAPL,"Apple Inc, Common Stock","124,827,810","26,312,454,069.90",8.24,"Information Technology",08/21/2026',
-  'QQQ,QQQ,594918104,MSFT,"Microsoft Corp, Common Stock","61,773,595","27,752,405,289.70",8.69,"Information Technology",08/21/2026',
-  'QQQ,QQQ,US46090E1038,--,Cash and Cash Equivalents,"1,200,000","1,200,000.00",0.04,"Cash",08/21/2026',
-].join('\n');
-
-describe('parseInvescoHoldings (equity flavour)', () => {
-  const parsed = parseInvescoHoldings(EQUITY_HOLDINGS_FIXTURE, 'QQQ');
-
-  test('normalizes to the shared sheet headers', () => {
-    expect(parsed.headers).toEqual(HOLDINGS_HEADERS);
-    expect(parsed.rows.length).toBe(3);
-    expect(parsed.rows[1]).toEqual({
-      Name: 'Microsoft Corp, Common Stock',
-      Ticker: 'MSFT',
-      Identifier: '594918104',
-      Weight: '8.69',
-      'Market Value': '27752405289.7',
-      'Shares Held': '61773595',
-      'Asset Category': 'Information Technology',
-    });
-  });
-
-  test('exposes the as-of date used by the Holdings As Of column', () => {
-    expect(parsed.asOfDate).toBe('2026-08-21');
-  });
-
-  test('rows without an exchange ticker keep "-" (Watchlist keys them by Identifier)', () => {
-    expect(parsed.rows[2].Ticker).toBe('-');
-    expect(parsed.rows[2].Identifier).toBe('US46090E1038');
-    expect(weightsSum(parsed.rows)).toBeCloseTo(16.97, 2);
-  });
-
-  test('drops rows belonging to another fund (misrouted download guard)', () => {
-    const csv = [
-      'Fund Ticker,Security Identifier,Holding Ticker,Name,Weight,Date',
-      'SPY,123,SPY,Wrong Fund,50.00,08/21/2026',
-      'QQQ,456,AAPL,Right Fund,50.00,08/21/2026',
-    ].join('\n');
-    const parsed2 = parseInvescoHoldings(csv, 'QQQ');
-    expect(parsed2.rows.length).toBe(1);
-    expect(parsed2.rows[0].Name).toBe('Right Fund');
-  });
-
-  test('rejects a file with no recognizable header row', () => {
-    expect(() => parseInvescoHoldings('a,b,c\n1,2,3', 'QQQ')).toThrow(/no recognizable header row/);
-  });
-});
-
-const BOND_HOLDINGS_FIXTURE = [
-  'Fund Ticker,Security Identifier,Holding Ticker,Name,PercentageOfFund,Shares/Par Value,Market Value,CouponRate,MaturityDate,Rating,PositionDate',
-  'PGX,912810H80,--,US TREASURY NTS,2.50,"5,000,000","5,100,000",4.125,05/15/2028,AAA,08/21/2026',
-  'PGX,00206RAF5,--,ALLSTATE CORP,1.10,"1,000,000","1,050,000",5.20,03/15/2033,A,08/21/2026',
-].join('\n');
-
-describe('parseInvescoHoldings (bond flavour)', () => {
-  const parsed = parseInvescoHoldings(BOND_HOLDINGS_FIXTURE, 'PGX');
-
-  test('keeps the bond columns in the sheet', () => {
-    expect(parsed.headers).toEqual(BOND_SHEET_HEADERS);
-    expect(parsed.rows[0]).toEqual({
-      Name: 'US TREASURY NTS',
-      Ticker: '-',
-      Identifier: '912810H80',
-      Weight: '2.5',
-      'Market Value': '5100000',
-      'Shares Held': '5000000',
-      'Asset Category': 'AAA',
-      Coupon: '4.125',
-      Maturity: 'May 15 2028',
-    });
-  });
-
-  test('has no exchange tickers at all', () => {
-    expect(parsed.rows.every((row) => row.Ticker === '-')).toBe(true);
-    expect(parsed.asOfDate).toBe('2026-08-21');
-  });
-});
-
-describe('weightsSum', () => {
-  test('is zero for an unreadable weight column', () => {
-    expect(weightsSum([{ Weight: '' }, { Weight: 'N/A' }])).toBe(0);
-  });
-});
-
-// ---------------------------------------------------------------------------
-// SEC EDGAR fallback layer
-// ---------------------------------------------------------------------------
 
 describe('nport fixtures', () => {
   test('parses positions, identifiers and the report period', () => {
@@ -671,26 +416,6 @@ describe('chart fixtures', () => {
   });
 });
 
-describe('parsePricesCsv', () => {
-  test('reads the daily NAV/close rows of the prices & yields download', () => {
-    const csv = [
-      'Invesco prices & yields',
-      'Date,NAV,Close Price,Premium/Discount,Volume',
-      '08/20/2026,41.70,41.68,-0.05%,"1,200,000"',
-      '08/21/2026,41.74,41.72,-0.05%,900000',
-    ].join('\n');
-    const parsed = parsePricesCsv(csv, 'PGX');
-    expect(parsed.days.map((day) => day.date)).toEqual(['2026-08-20', '2026-08-21']);
-    expect(parsed.days[1].close).toBe(41.72);
-    expect(parsed.navByDate.get('2026-08-21')).toBe(41.74);
-    expect(parsed.asOfDate).toBe('2026-08-21');
-  });
-
-  test('rejects a file without a Date header', () => {
-    expect(() => parsePricesCsv('a,b\n1,2', 'PGX')).toThrow(/no recognizable header row/);
-  });
-});
-
 describe('priceReturns', () => {
   const days = [
     { date: '2015-01-02', close: 100, adjClose: 100, volume: 1 },
@@ -802,7 +527,7 @@ describe('deriveCatalogMetrics', () => {
     expect(metrics.tr3y).toBe(annualizedToTotal(20.15, 3));
     expect(metrics.dividendYield).toBe(0.44);
     expect(metrics.secYield).toBeNull();
-    expect(metrics.returnsBasis).toContain('official Invesco NAV total returns');
+    expect(metrics.returnsBasis).toContain('official Invesco month-end NAV total returns');
     expect(metrics.performanceAsOf).toBe('2026-07-31');
     // returnsBasis then performanceAsOf close the object
     expect(Object.keys(metrics).slice(-2)).toEqual(['returnsBasis', 'performanceAsOf']);
@@ -852,28 +577,11 @@ describe('deriveCatalogMetrics', () => {
 });
 
 describe('returns as-of date (performanceAsOf source)', () => {
-  test('parseReturnsAsOf reads the preamble line, not the prices date', () => {
-    expect(parseReturnsAsOf('Prices as of 08/21/2026 Close. Returns as of 07/31/2026.')).toBe('2026-07-31');
-    expect(parseReturnsAsOf('Prices as of 08/21/2026 Close.')).toBeNull();
-  });
-
-  test('parseReturnsAsOf reads the caption of the live invesco.com performance table', () => {
-    // verbatim from https://www.invesco.com/us/en/financial-products/etfs.html (2026-10-02)
-    expect(parseReturnsAsOf('|  | Performance (%) as of 06/30/2026 |  |  |  |')).toBe('2026-06-30');
-    expect(parseReturnsAsOf('Ticker Product name | YTD | 1yr | 3yr')).toBeNull();
-  });
-
   test('lastHistoryIsoDate takes the newest stored close, label or ISO', () => {
     expect(lastHistoryIsoDate([{ Date: 'Dec 15 2025' }, { Date: 'Feb 23 2026' }])).toBe('2026-02-23');
     expect(lastHistoryIsoDate([{ Date: '2026-07-17' }, { Date: 'Jan 05 2026' }])).toBe('2026-07-17');
     expect(lastHistoryIsoDate([{ Date: '—' }])).toBeNull();
     expect(lastHistoryIsoDate([])).toBeNull();
-  });
-
-  test('parseProductList carries the returns date to every fund', () => {
-    const funds = parseProductList(PRODUCT_LIST_FIXTURE);
-    expect(funds.every((fund) => fund.returnsAsOf === '2026-07-31')).toBe(true);
-    expect(funds[0].asOfDate).toBe('2026-08-21');
   });
 
   test('withReturnsBasis appends basis and date at the end of the returns block', () => {
@@ -935,27 +643,11 @@ describe('cleanHoldingTicker', () => {
 });
 
 describe('invesco URL builders', () => {
-  test('invescoFundPageUrl builds canonical product URL', () => {
-    expect(invescoFundPageUrl('QQQ')).toBe('https://www.invesco.com/us/en/financial-products/etfs/qqq.html');
-  });
-
   test('invescoProductDetailUrl builds product detail URL with audience', () => {
     expect(invescoProductDetailUrl('QQQ')).toBe('https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=QQQ');
     expect(invescoProductDetailUrl('RSP', 'Advisor')).toBe('https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Advisor&ticker=RSP');
   });
 
-  test('invescoHoldingsDownloadUrl builds holdings CSV download URL', () => {
-    expect(invescoHoldingsDownloadUrl('QQQ')).toBe('https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=QQQ');
-  });
-
-  test('invescoPricesDownloadUrl builds prices & yields CSV URL', () => {
-    expect(invescoPricesDownloadUrl('QQQ')).toBe('https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=QQQ');
-  });
-
-  test('invescoProductListUrl builds catalog download URL', () => {
-    expect(invescoProductListUrl()).toBe('https://www.invesco.com/us/financial-products/etfs/performance/prices/main/performance/0?audienceType=Advisor&action=download');
-    expect(invescoProductListUrl('Investor')).toBe('https://www.invesco.com/us/financial-products/etfs/performance/prices/main/performance/0?audienceType=Investor&action=download');
-  });
 });
 
 // ---------------------------------------------------------------------------
@@ -1101,6 +793,378 @@ headerTest('header markup supplies a focusable counter and hidden rich panel wit
   headerExpect(html).toContain("trigger.addEventListener('pointerenter'");
 });
 
+// ---------------------------------------------------------------------------
+// Official invesco.com layer. The samples are trimmed from the real responses
+// of 2026-10-02 (sitemap, fund page, dng-api.invesco.com), including the HTML
+// entity escaping of the JSON embedded in the fund page.
+// ---------------------------------------------------------------------------
+
+const SITEMAP_SAMPLE = [
+  '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">',
+  '<url><loc>https://www.invesco.com/us/en/financial-professional.html</loc><lastmod>2026-09-28T13:14:51.869Z</lastmod></url>',
+  '<url><loc>https://www.invesco.com/us/en/financial-products/etfs/invesco-sp-500-equal-weight-etf.html</loc><lastmod>2026-09-30T08:00:00.000Z</lastmod>',
+  '<xhtml:link rel="alternate" hreflang="en-US" href="https://www.invesco.com/us/en/financial-products/etfs/invesco-sp-500-equal-weight-etf.html"/></url>',
+  '<url><loc>https://www.invesco.com/us/en/financial-products/etfs/invesco-qqq-trust-series-1.html</loc></url>',
+  '<url><loc>https://www.invesco.com/us/en/financial-products/etfs/invesco-qqq-trust-series-1.html</loc></url>',
+  '<url><loc>https://www.invesco.com/us/en/financial-products/etfs.html</loc></url>',
+  '<url><loc>https://www.invesco.com/us/en/financial-products/etfs/other/nested.html</loc></url>',
+  '</urlset>',
+].join('');
+
+const FUND_PAGE_SAMPLE = [
+  '<html><head><title>Invesco S&amp;P 500® Equal Weight ETF | Invesco US</title></head><body>',
+  '<div data-config="{&#34;id&#34;:&#34;product-hero-56f045f350&#34;,&#34;fundName&#34;:&#34;Invesco S&amp;P 500® Equal Weight ETF&#34;,&#34;assetType&#34;:&#34;&#34;,&#34;assetClass&#34;:&#34;Equity&#34;,&#34;assetSubClass&#34;:&#34;U.S. Equity&#34;,&#34;breadcrumbKeys&#34;:[]}"></div>',
+  '<div data-config="{&#34;tabularListFieldMap&#34;:{&#34;effectiveDate&#34;:{&#34;text&#34;:&#34;as of&#34;}},&#34;productListFieldValueMap&#34;:{&#34;ticker&#34;:&#34;RSP&#34;,&#34;cusip&#34;:&#34;46137V357&#34;,&#34;isin&#34;:&#34;US46137V3574&#34;,&#34;bloombergTicker&#34;:&#34;SPXEWTR&#34;,&#34;indexProvider&#34;:&#34;S&amp;P Dow Jones Indices LLC&#34;,&#34;exchange&#34;:&#34;NYSE ARCA&#34;,&#34;InceptionDate&#34;:&#34;2003-04-24&#34;,&#34;managementFee&#34;:&#34;0.2&#34;,&#34;acquiredFundFeesAndExpenses&#34;:null,&#34;futuresBrokerageFee&#34;:null,&#34;totalExpenseRatio&#34;:&#34;0.2&#34;,&#34;netExpenseRatio&#34;:&#34;0.19&#34;},&#34;displayComponent&#34;:true}"></div>',
+  '</body></html>',
+].join('\n');
+
+const PERFORMANCE_SAMPLE = {
+  effectiveDate: '2026-08-31',
+  performanceStartDate: '2003-04-24',
+  cusip: '46137V357',
+  currencyType: 'BASE',
+  currencyCode: 'USD',
+  annualizedPerformance: [
+    { ytd: 15.444784, y1: 18.251952, y3: 15.425061, y5: 8.801189, y10: 11.995326, inception: 11.389501, label: 'fund', benchmarkOrder: 0, displayLabel: 'Fund NAV' },
+    { ytd: 15.460576, y1: 18.180392, y3: 15.430324, y5: 8.816683, y10: 12.000022, inception: 11.390154, label: 'marketPrice', benchmarkOrder: 0, displayLabel: 'Fund market price' },
+    { ytd: 15.592969, y1: 18.49925, y3: 15.619777, y5: 9.010854, y10: 12.217589, inception: 11.812278, label: 'benchmark', benchmarkOrder: 10, displayLabel: 'S&amp;P 500 Equal Weight Index' },
+  ],
+};
+
+const PRICES_SAMPLE = {
+  effectiveDate: '2026-10-01', cusip: '46137V357', currency: 'USD', nav: 208.981986, marketValue: 95423821287.229996,
+  oneDayNetAssetValueChangePercent: 0.493898, sharesOutstanding: 456612663, openingPrice: 208.21, closingPrice: 209, medianBidAskSpread: 0,
+};
+
+const YIELDS_SAMPLE = {
+  cusip: '46137V357', effectiveDate: '2026-09-30', secYield30Day: 1.568944, secYield30DayEffectiveDate: null, distributionYield: 1.52941,
+  twelveMonthDistributionRate: 1.52943, secUnsubsidizedYield30Day: null,
+};
+
+const HOLDINGS_SAMPLE = {
+  cusip: '46137V357', effectiveDate: '2026-09-30', effectiveBusinessDate: '2026-09-30', totalNumberOfHoldings: 504,
+  holdings: [
+    { ticker: 'MRNA', issuerName: 'Moderna Inc', units: 1443681, percentageOfTotalNetAssets: 0.292069, securityTypeName: 'Common Stock', sectorName: 'Health Care', coupon: null, maturityDate: null, spMoodysRating: 'NR/NR', marketValueBase: 278009650.17, contractExpiryDate: null, cusip: '60770K107', currency: 'USD', securityTypeCode: 'COM' },
+    { ticker: 'LWEZ6', issuerName: 'E-mini S&amp;P 500 Equal Weight Futures', units: 1000, percentageOfTotalNetAssets: 0.178355, securityTypeName: 'Index Future', sectorName: null, coupon: null, maturityDate: '2026-12-18', spMoodysRating: 'NR/NR', marketValueBase: 169770000, contractExpiryDate: '2026-12-18', cusip: 'LWEZ6', currency: 'USD', securityTypeCode: 'IFUT' },
+    { ticker: null, issuerName: 'CONTRA FUTURE E-MIN S&amp;P 500 EWF DEC26LWEZ6', units: -1000, percentageOfTotalNetAssets: -0.178355, securityTypeName: 'Synthetic Cash', sectorName: null, coupon: null, maturityDate: '2026-12-18', spMoodysRating: 'NR/NR', marketValueBase: -169770000, contractExpiryDate: '2026-12-18', cusip: 'LWEZ6', currency: 'USD', securityTypeCode: 'SYN' },
+  ],
+};
+
+const BOND_HOLDINGS_SAMPLE = {
+  cusip: '46138G805', effectiveDate: '2026-09-30', totalNumberOfHoldings: 2073,
+  holdings: [
+    { ticker: 'ILS', issuerName: 'State of Illinois', units: 14197451.0041, percentageOfTotalNetAssets: 1.691692, securityTypeName: 'Municipal Bond', sectorName: 'Municipal', coupon: 5.1, maturityDate: '2033-06-01', nextCallDate: null, spMoodysRating: 'A/A1', marketValueBase: 13880270.01, cusip: '452151LF8', currency: 'USD', securityTypeCode: 'MUNI' },
+  ],
+};
+
+describe('invesco.com sitemap and fund page', () => {
+  test('the sitemap yields each canonical fund page once and nothing else', () => {
+    expect(parseSitemapFundPages(SITEMAP_SAMPLE)).toEqual([
+      'https://www.invesco.com/us/en/financial-products/etfs/invesco-sp-500-equal-weight-etf.html',
+      'https://www.invesco.com/us/en/financial-products/etfs/invesco-qqq-trust-series-1.html',
+    ]);
+    expect(parseSitemapFundPages('')).toEqual([]);
+  });
+
+  test('only slug pages count as fund pages, the guessed <ticker>.html does not', () => {
+    expect(isFundPageUrl('https://www.invesco.com/us/en/financial-products/etfs/invesco-qqq-trust-series-1.html', 'QQQ')).toBe(true);
+    expect(isFundPageUrl('https://www.invesco.com/us/en/financial-products/etfs/rsp.html', 'RSP')).toBe(false);
+    expect(isFundPageUrl('https://www.invesco.com/us/financial-products/etfs/product-detail?ticker=RSP', 'RSP')).toBe(false);
+    expect(isFundPageUrl(undefined)).toBe(false);
+  });
+
+  test('fund facts are read from the HTML-escaped page JSON', () => {
+    expect(parseFundPage(FUND_PAGE_SAMPLE)).toEqual({
+      ticker: 'RSP', cusip: '46137V357', isin: 'US46137V3574', name: 'Invesco S&P 500 Equal Weight ETF', benchmark: 'SPXEWTR',
+      exchange: 'NYSE ARCA', inception: '2003-04-24', ter: 0.2, netTer: 0.19, managementFee: 0.2, assetClass: 'Equity', assetSubClass: 'U.S. Equity',
+    });
+  });
+
+  test('pages without fund facts (country splash, 404, marketing microsite) are not fund pages', () => {
+    expect(parseFundPage('<html><head><title>Invesco QQQ ETF</title></head><body>total expense ratio is 0.18%.</body></html>')).toBeNull();
+    expect(parseFundPage('<html>&#34;productListFieldValueMap&#34;:{}</html>')).toBeNull();
+    expect(parseFundPage(FUND_PAGE_SAMPLE.replace('46137V357', 'bad'))).toBeNull();
+    expect(parseFundPage('')).toBeNull();
+  });
+});
+
+describe('invesco.com fund API (dng-api.invesco.com)', () => {
+  test('URLs are addressed by CUSIP', () => {
+    const base = 'https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46137V357';
+    expect(dngUrl('46137v357', 'performance')).toBe(`${base}/performance/standard?idType=cusip&productType=ETF&performanceSubType=annualized&performancePeriod=monthly`);
+    expect(dngUrl('46137V357', 'prices')).toBe(`${base}/prices?idType=cusip&productType=ETF&variationType=priceListing&productSubType=ETF`);
+    expect(dngUrl('46137V357', 'yields')).toBe(`${base}?expand=nav&idType=cusip&productType=ETF&variationType=yieldInformation&managementFeeWaiver=0.0`);
+    expect(dngUrl('46137V357', 'holdings')).toBe(`${base}/holdings/fund?idType=cusip&productType=ETF`);
+  });
+
+  test('month-end performance takes the fund NAV row and its effective date', () => {
+    expect(parseDngPerformance(PERFORMANCE_SAMPLE)).toEqual({
+      asOfDate: '2026-08-31',
+      returns: { ytd: 15.44, yr1: 18.25, yr3: 15.43, yr5: 8.8, yr10: 12, sinceInception: 11.39 },
+    });
+  });
+
+  test('periods a young fund does not have stay null, never 0', () => {
+    const young = { effectiveDate: '2026-08-31', annualizedPerformance: [{ ytd: 4.5, y1: null, y3: null, y5: null, y10: null, inception: 4.5, label: 'fund' }] };
+    expect(parseDngPerformance(young).returns).toEqual({ ytd: 4.5, yr1: null, yr3: null, yr5: null, yr10: null, sinceInception: 4.5 });
+  });
+
+  test('unusable performance, prices and yield payloads are rejected', () => {
+    expect(() => parseDngPerformance({ effectiveDate: '2026-08-31' })).toThrow();
+    expect(() => parseDngPerformance('' as unknown as Record<string, unknown>)).toThrow();
+    expect(() => parseDngPrices({ effectiveDate: '2026-10-01' })).toThrow();
+    expect(() => parseDngYields('' as unknown as Record<string, unknown>)).toThrow();
+  });
+
+  test('prices carry NAV, close, net assets and their date', () => {
+    expect(parseDngPrices(PRICES_SAMPLE)).toEqual({ asOfDate: '2026-10-01', nav: 208.981986, close: 209, netAssets: 95423821287.23 });
+  });
+
+  test('yields: SEC 30-day, trailing 12-month distribution rate and distribution rate', () => {
+    expect(parseDngYields(YIELDS_SAMPLE)).toEqual({ secYield: 1.57, dividendYield: 1.53, distributionRate: 1.53 });
+    expect(parseDngYields({ cusip: 'X', secYield30Day: null, twelveMonthDistributionRate: null, distributionYield: null })).toEqual({ secYield: null, dividendYield: null, distributionRate: null });
+  });
+
+  test('equity holdings keep percent weights; futures rows are not bonds and carry no bond columns', () => {
+    const parsed = parseDngHoldings(HOLDINGS_SAMPLE, 'RSP');
+    expect(parsed.asOfDate).toBe('2026-09-30');
+    expect(parsed.headers).toEqual(HOLDINGS_HEADERS);
+    expect(parsed.rows[0]).toEqual({
+      Name: 'Moderna Inc', Ticker: 'MRNA', Identifier: '60770K107', Weight: '0.292069', 'Market Value': '278009650.17', 'Shares Held': '1443681', 'Asset Category': 'Health Care',
+    });
+    expect(parsed.rows[1].Name).toBe('E-mini S&P 500 Equal Weight Futures');
+    expect(parsed.rows[1]['Asset Category']).toBe('Index Future');
+    expect(parsed.rows[2].Ticker).toBe('-');
+    expect(parsed.rows[2]['Shares Held']).toBe('-1000');
+  });
+
+  test('bond holdings add coupon and maturity, and use the CUSIP instead of an internal ticker code', () => {
+    const parsed = parseDngHoldings(BOND_HOLDINGS_SAMPLE, 'BAB');
+    expect(parsed.headers).toEqual(BOND_SHEET_HEADERS);
+    expect(parsed.rows[0]).toEqual({
+      Name: 'State of Illinois', Ticker: '-', Identifier: '452151LF8', Weight: '1.691692', 'Market Value': '13880270.01', 'Shares Held': '14197451.0041',
+      'Asset Category': 'Municipal / A/A1', Coupon: '5.1', Maturity: 'Jun 01 2033',
+    });
+  });
+
+  test('a payload without positions is an error, so the SEC fallback can take over', () => {
+    expect(() => parseDngHoldings({ effectiveDate: '2026-09-30', holdings: [] }, 'XYZ')).toThrow();
+    expect(() => parseDngHoldings({ message: 'Bad Request', status: 'error' }, 'XYZ')).toThrow();
+  });
+});
+
+describe('indexRowFromMeta', () => {
+  test('rebuilds a catalog row (with the metrics contract) from a published meta.json', () => {
+    const row = indexRowFromMeta({
+      ticker: 'DDD', name: 'Fund D', category: 'Fixed Income', source: { fundPage: 'https://www.invesco.com/us/en/financial-products/etfs/fund-d.html' },
+      identifiers: { cusip: '123456789', isin: null }, expenseRatio: { display: '0.28%', value: 0.28 }, nav: { display: '$25.38', value: 25.38, asOfDate: 'Oct 01 2026' },
+      aum: { display: '$1.00 M', value: 1000000 }, marketPrice: { display: '$25.35', value: 25.35 }, premiumDiscount: { display: '-0.12%', value: -0.12 },
+      yields: { dividendYield: 4.5, secYield: null }, distributions: { frequency: 'Monthly' },
+      returns: { monthEnd: { ytd: 1, yr1: 2, yr3: 3, yr5: null, yr10: null, sinceInception: 4 }, performanceAsOf: '2026-08-31', returnsBasis: OFFICIAL_RETURNS_BASIS },
+      holdings: { totalRows: 12 }, history: { totalRows: 34 },
+    });
+    expect(row.dataFile).toBe('./funds/DDD/meta.json');
+    expect(row.terValue).toBe(0.28);
+    expect(row.metrics.ytd).toBe(1);
+    expect(row.metrics.performanceAsOf).toBe('2026-08-31');
+    expect(row.metrics.returnsBasis.length).toBeGreaterThan(1);
+    expect([row.holdings, row.history]).toEqual([12, 34]);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Update pipeline on a mocked fetch, written into a temporary api root
+// ---------------------------------------------------------------------------
+
+type MockFund = { ticker: string; cusip: string; slug: string };
+const MOCK_FUNDS: MockFund[] = ['AAA', 'BBB', 'CCC', 'DDD', 'EEE', 'FFF'].map((ticker, i) => ({ ticker, cusip: `46137V35${i}`, slug: `invesco-fund-${ticker.toLowerCase()}-etf` }));
+const MOCK_PAGE_BASE = 'https://www.invesco.com/us/en/financial-products/etfs/';
+
+function mockFundPage(fund: MockFund): string {
+  return FUND_PAGE_SAMPLE.replace('RSP', fund.ticker).replace('46137V357', fund.cusip).replace('US46137V3574', `US${fund.cusip}4`);
+}
+
+function mockChart(): Record<string, unknown> {
+  const timestamp = [1_790_000_000, 1_790_086_400, 1_790_172_800];
+  return {
+    chart: { result: [{ meta: { fullExchangeName: 'NYSE Arca', longName: 'Mock Fund', regularMarketPrice: 101, regularMarketTime: 1_790_172_800, firstTradeDate: 1_000_000_000 },
+      timestamp, indicators: { quote: [{ close: [100, 100.5, 101], volume: [10, 20, 30] }], adjclose: [{ adjclose: [100, 100.5, 101] }] }, events: {} }] },
+  };
+}
+
+type MockRequest = { url: string; userAgent: string };
+
+function installMockFetch(options: { listed?: MockFund[]; unlisted?: MockFund[]; delayMs?: number } = {}): { requests: MockRequest[]; peak: () => number } {
+  const requests: MockRequest[] = [];
+  const listed = options.listed ?? MOCK_FUNDS;
+  let inFlight = 0;
+  let peak = 0;
+  globalThis.fetch = (async (input: RequestInfo | URL, init?: RequestInit) => {
+    const url = String(input);
+    const headers = new Headers(init?.headers);
+    requests.push({ url, userAgent: headers.get('user-agent') ?? '' });
+    inFlight += 1;
+    peak = Math.max(peak, inFlight);
+    try {
+      if (options.delayMs) await new Promise((resolve) => setTimeout(resolve, options.delayMs));
+      const json = (body: unknown): Response => new Response(JSON.stringify(body), { status: 200 });
+      // invesco.com answers HTTP 406 to browser-like User-Agents
+      if (/invesco\.com/.test(url) && /mozilla|chrome|safari/i.test(headers.get('user-agent') ?? '')) return new Response('', { status: 406 });
+      if (url.endsWith('/us/en/sitemap.xml')) {
+        return new Response(`<urlset>${listed.map((fund) => `<url><loc>${MOCK_PAGE_BASE}${fund.slug}.html</loc></url>`).join('')}</urlset>`, { status: 200 });
+      }
+      const page = listed.find((fund) => url === `${MOCK_PAGE_BASE}${fund.slug}.html`);
+      if (page) return new Response(mockFundPage(page), { status: 200 });
+      const api = /shareclasses\/([0-9A-Z]{9})(\/[a-z/]+)?\?/.exec(url);
+      if (api && listed.some((fund) => fund.cusip === api[1])) {
+        if (url.includes('/performance/standard')) return json(PERFORMANCE_SAMPLE);
+        if (url.includes('/prices?')) return json(PRICES_SAMPLE);
+        if (url.includes('/holdings/fund')) return json(HOLDINGS_SAMPLE);
+        if (url.includes('variationType=yieldInformation')) return json(YIELDS_SAMPLE);
+      }
+      if (url.includes('query1.finance.yahoo.com/v8/finance/chart/')) return json(mockChart());
+      return new Response('', { status: 404 });
+    } finally {
+      inFlight -= 1;
+    }
+  }) as typeof fetch;
+  return { requests, peak: () => peak };
+}
+
+function seedIndexRow(fund: MockFund, extra: Record<string, unknown> = {}): Record<string, unknown> {
+  return {
+    ticker: fund.ticker, name: `Fund ${fund.ticker}`, category: 'US Equity', fundPage: `${MOCK_PAGE_BASE}${fund.slug}.html`, dataFile: `./funds/${fund.ticker}/meta.json`,
+    cusip: null, isin: null, ter: '—', terValue: null, nav: '—', navValue: null, aum: '$1.00 M', aumValue: 1_000_000, asOfDate: '—', inceptionDate: '—', exchange: 'NYSEArca',
+    closePrice: '$50.00', closePriceValue: 50, premiumDiscount: '—', premiumDiscountValue: null, distributions: { frequency: 'Quarterly', exDate: '—', dividend: '—' },
+    returns: { monthEnd: { asOfDate: 'Aug 31 2026', ytd: 1.5, yr1: 2.5, yr3: 3.5, yr5: 4.5, yr10: 5.5, sinceInception: 6.5 }, quarterEnd: null },
+    metrics: { ytd: 1.5, tr1y: 2.5, tr3y: 10.87, tr5y: 24.62, tr10y: 71.4, cagr3y: 3.5, cagr5y: 4.5, cagr10y: 5.5, siAnn: 6.5, dividendYield: 1.1, dividendYieldText: '1.10%', secYield: null, secYieldText: '—',
+      returnsBasis: 'official Invesco NAV total returns (product list download)', performanceAsOf: '2026-08-31' },
+    holdings: 7, history: 9, ...extra,
+  };
+}
+
+async function withTempFeed<T>(rows: MockFund[], run: (root: URL) => Promise<T>, metaOnly: string[] = []): Promise<T> {
+  const { mkdtempSync, mkdirSync, writeFileSync } = await import('node:fs');
+  const { tmpdir } = await import('node:os');
+  const { join } = await import('node:path');
+  const { pathToFileURL } = await import('node:url');
+  const dir = mkdtempSync(join(tmpdir(), 'invesco-feed-'));
+  mkdirSync(join(dir, 'funds'), { recursive: true });
+  writeFileSync(join(dir, 'index.json'), JSON.stringify({ funds: rows.map((fund) => seedIndexRow(fund)) }));
+  for (const ticker of metaOnly) {
+    mkdirSync(join(dir, 'funds', ticker), { recursive: true });
+    writeFileSync(join(dir, 'funds', ticker, 'meta.json'), JSON.stringify({ ticker, name: `Fund ${ticker}`, category: 'US Equity', source: {}, returns: { monthEnd: {} } }));
+  }
+  const root = pathToFileURL(`${dir}/`);
+  setApiRootForTests(root);
+  try {
+    return await run(root);
+  } finally {
+    setApiRootForTests(new URL('../api/invesco/', import.meta.url));
+    (await import('node:fs')).rmSync(dir, { recursive: true, force: true });
+  }
+}
+
+const pipelineControls = (extra: Record<string, string> = {}) =>
+  readConfig({ REQUEST_SLEEP: '0', MAX_RETRIES: '1', EDGAR_FALLBACK: 'false', CONCURRENCY: '1', ...extra });
+
+async function readIndex(root: URL): Promise<{ funds: Record<string, any>[]; counts: Record<string, number> }> {
+  return JSON.parse(await Bun.file(new URL('index.json', root)).text());
+}
+
+describe('update pipeline (mocked fetch, temporary api root)', () => {
+  const realFetch = globalThis.fetch;
+  const realLog = console.log;
+  afterEach(() => { globalThis.fetch = realFetch; console.log = realLog; });
+  const quiet = () => { console.log = () => {}; };
+
+  test('a one-ticker run refreshes that fund from the official sources and keeps every published row', async () => {
+    quiet();
+    const mock = installMockFetch();
+    await withTempFeed(MOCK_FUNDS.slice(0, 3), async (root) => {
+      await runUpdater(pipelineControls({ TICKERS: 'AAA' }));
+      const index = await readIndex(root);
+      expect(index.funds.map((fund) => fund.ticker)).toEqual(['AAA', 'BBB', 'CCC']);
+      const [aaa, bbb] = index.funds;
+      expect(aaa.cusip).toBe('46137V350');
+      expect(aaa.terValue).toBe(0.2);
+      expect(aaa.navValue).toBe(208.981986);
+      expect(aaa.aumValue).toBe(95423821287.23);
+      expect(aaa.metrics.ytd).toBe(15.44);
+      expect(aaa.metrics.secYield).toBe(1.57);
+      expect(aaa.metrics.returnsBasis).toBe(OFFICIAL_RETURNS_BASIS);
+      expect(aaa.metrics.performanceAsOf).toBe('2026-08-31');
+      expect(aaa.returns.monthEnd.asOfDate).toBe('Aug 31 2026');
+      expect(aaa.holdings).toBe(3);
+      expect(bbb.metrics.ytd).toBe(1.5);
+      const meta = JSON.parse(await Bun.file(new URL('funds/AAA/meta.json', root)).text());
+      expect(meta.holdings.source).toContain('invesco.com fund holdings API');
+      expect(meta.returns.performanceAsOf).toBe('2026-08-31');
+      expect(meta.identifiers.indexTicker).toBe('SPXEWTR');
+    });
+    // the unselected funds cost no request, and every invesco.com request identifies itself honestly
+    expect(mock.requests.some((request) => request.url.includes('46137V351') || request.url.includes('fund-bbb'))).toBe(false);
+    const invesco = mock.requests.filter((request) => /invesco\.com/.test(request.url));
+    expect(invesco.length).toBeGreaterThan(4);
+    expect(invesco.every((request) => /^daggerok-etf-feed\//.test(request.userAgent) && !/mozilla/i.test(request.userAgent))).toBe(true);
+  });
+
+  test('a fund missing from the sitemap keeps its published returns, labelled as not refreshed, and is never zero-filled', async () => {
+    quiet();
+    const mock = installMockFetch({ listed: MOCK_FUNDS.slice(0, 2) });
+    await withTempFeed(MOCK_FUNDS.slice(0, 3), async (root) => {
+      await runUpdater(pipelineControls({ SKIP_YAHOO: 'true' }));
+      const index = await readIndex(root);
+      expect(index.funds.map((fund) => fund.ticker)).toEqual(['AAA', 'BBB', 'CCC']);
+      const ccc = index.funds[2];
+      expect(ccc.metrics.ytd).toBe(1.5);
+      expect(ccc.metrics.returnsBasis).toBe(STALE_OFFICIAL_RETURNS_BASIS);
+      expect(ccc.metrics.performanceAsOf).toBe('2026-08-31');
+      expect(ccc.terValue).toBeNull();
+      expect(ccc.navValue).toBeNull();
+      expect(index.funds[0].metrics.returnsBasis).toBe(OFFICIAL_RETURNS_BASIS);
+    });
+    expect(mock.requests.some((request) => request.url.includes('fund-ccc'))).toBe(false);
+  });
+
+  test('funds with a meta.json but no index row stay in the index, new sitemap funds are discovered', async () => {
+    quiet();
+    const newFund: MockFund = { ticker: 'NEW', cusip: '46137V399', slug: 'invesco-brand-new-etf' };
+    installMockFetch({ listed: [...MOCK_FUNDS.slice(0, 1), newFund] });
+    await withTempFeed(MOCK_FUNDS.slice(0, 1), async (root) => {
+      await runUpdater(pipelineControls({ SKIP_YAHOO: 'true' }));
+      const index = await readIndex(root);
+      expect(index.funds.map((fund) => fund.ticker)).toEqual(['AAA', 'NEW', 'ZZZ']);
+      const created = index.funds.find((fund) => fund.ticker === 'NEW')!;
+      expect(created.cusip).toBe('46137V399');
+      expect(created.category).toBe('US Equity');
+      expect(created.terValue).toBe(0.2);
+      expect(created.metrics.returnsBasis).toBe(OFFICIAL_RETURNS_BASIS);
+      expect(index.counts.funds).toBe(3);
+    }, ['ZZZ']);
+  });
+
+  test('a one-fund run makes exactly four fund API requests (returns, prices, yields, holdings)', async () => {
+    quiet();
+    const mock = installMockFetch();
+    await withTempFeed(MOCK_FUNDS.slice(0, 1), async () => {
+      await runUpdater(pipelineControls({ TICKERS: 'AAA', SKIP_YAHOO: 'true' }));
+    });
+    expect(mock.requests.filter((request) => /dng-api\.invesco\.com/.test(request.url)).length).toBe(4);
+  });
+
+  test('CONCURRENCY really runs funds in parallel: peak in-flight 1 at c=1, N at c=N', async () => {
+    quiet();
+    for (const [concurrency, expected] of [[1, 1], [3, 3]] as const) {
+      const mock = installMockFetch({ delayMs: 15 });
+      await withTempFeed(MOCK_FUNDS, async () => {
+        await runUpdater(pipelineControls({ CONCURRENCY: String(concurrency), SKIP_YAHOO: 'true' }));
+      });
+      expect(mock.peak()).toBe(expected);
+    }
+  });
+});
+
 // --- config, README and workflow parity (merged from the former config-docs test) ---
 
 const read = (path: string) => readFileSync(new URL(`../${path}`, import.meta.url), 'utf8');
@@ -1117,7 +1181,7 @@ test('precedence: file < advanced < nonblank input < environment', () => {
   expect(resolveControls({ TICKERS: 'QQQ' }, {}, {}, { TICKERS: '' }).TICKERS).toBe('');
   expect(resolveControls({ MAX_FETCHES: 5 }, {}, {}, { INVESCO_LIMIT: '7' }).MAX_FETCHES).toBe('7');
   expect(resolveControls({ HISTORY_PAGE_SIZE: 5 }, {}, {}, { HISTORICAL_PAGE_SIZE: '9' }).HISTORY_PAGE_SIZE).toBe('9');
-  expect(resolveControls({ STORE_RAW_DOWNLOADS: 'false' }, {}, {}, { INVESCO_STORE_RAW_DOWNLOADS: 'true' }).STORE_RAW_DOWNLOADS).toBe('true');
+  expect(resolveControls({ SKIP_YAHOO: 'false' }, {}, {}, { INVESCO_SKIP_YAHOO: 'true' }).SKIP_YAHOO).toBe('true');
 });
 
 test('blank input inherits the file value, advanced may deliberately blank a key', () => {
@@ -1137,9 +1201,6 @@ test('scheduled path (empty inputs and advanced) equals the config defaults', ()
   expect(config.historyPageSize).toBe(1000);
   expect(config.maxRetries).toBe(2);
   expect(config.historyRange).toBe('max');
-  expect(config.audienceType).toBe('Investor');
-  expect(config.storeRawDownloads).toBe(false);
-  expect(config.pricesHistory).toBe(true);
   expect(config.edgarFallback).toBe(true);
   expect(config.skipYahoo).toBe(false);
   expect(config.skipInvesco).toBe(false);
@@ -1148,25 +1209,27 @@ test('scheduled path (empty inputs and advanced) equals the config defaults', ()
   expect(config.dividendYieldRange).toBeUndefined();
   expect(config.performanceRanges).toEqual({});
   expect(config.totalReturnRanges).toEqual({});
-  expect(config.productListUrl).toContain('invesco.com');
-  expect(config.catalogHtmlUrl).toContain('invesco.com');
+  expect(config.sitemapUrl).toBe('https://www.invesco.com/us/en/sitemap.xml');
   expect(config.secUa).toBe('daggerok ETF feed daggerok@gmail.com');
   expect(file.SEC_UA).toBe('daggerok ETF feed daggerok@gmail.com');
 });
 
-test('protected variables (SEC_UA, AUDIENCE_TYPE, STORE_RAW_DOWNLOADS) win over file, advanced and inputs', () => {
-  const c = resolveControls(file, { AUDIENCE_TYPE: 'Advisor', SEC_UA: 'adv' }, { STORE_RAW_DOWNLOADS: 'false' }, { SEC_UA: 'protected-ua', AUDIENCE_TYPE: 'Advisor', STORE_RAW_DOWNLOADS: 'true' });
+test('the protected variable SEC_UA wins over file, advanced and inputs', () => {
+  const c = resolveControls(file, { SEC_UA: 'adv' }, { SEC_UA: 'input' }, { SEC_UA: 'protected-ua' });
   expect(c.SEC_UA).toBe('protected-ua');
-  const config = readConfig(c);
-  expect(config.audienceType).toBe('Advisor');
-  expect(config.storeRawDownloads).toBe(true);
-  expect(config.secUa).toBe('protected-ua');
+  expect(readConfig(c).secUa).toBe('protected-ua');
+});
+
+test('controls of the retired CSV downloads are gone: the resolver rejects them instead of ignoring them', () => {
+  for (const key of ['PRODUCT_LIST_URL', 'CATALOG_HTML_URL', 'STORE_RAW_DOWNLOADS', 'PRICES_HISTORY', 'AUDIENCE_TYPE']) {
+    expect(() => resolveControls({ [key]: 'x' })).toThrow('Unknown updater control');
+  }
 });
 
 test('resolver rejects unknown, invalid and environment-file injection values', () => {
   for (const value of [{ UNKNOWN: 1 }, { OUTPUT_DIR: 'x' }, { SEC_UA: 'x\nEVIL=yes' }, { CONCURRENCY: 0 }, { MAX_RETRIES: 0 }, { MAX_RETRIES: '0' }, { MAX_FETCHES: 1.5 }, { MAX_FETCHES: -1 },
     { HOLDINGS_PAGE_SIZE: 'abc' }, { REQUEST_SLEEP: '-1' }, { VERBOSE: 'maybe' }, { SKIP_YAHOO: 'perhaps' }, { AUM: 'huge' }, { AUM: '5:1' }, { TER: '1' },
-    { PERFORMANCE_1Y: '15' }, { PRODUCT_LIST_URL: 'http://example.com/x' }, { TICKERS: ['QQQ'] }, { TICKERS: { a: 1 } }, null, [], 'text']) {
+    { PERFORMANCE_1Y: '15' }, { SITEMAP_URL: 'http://example.com/x' }, { TICKERS: ['QQQ'] }, { TICKERS: { a: 1 } }, null, [], 'text']) {
     expect(() => resolveControls(value)).toThrow();
   }
   expect(() => resolveControls({}, '{}')).toThrow();
@@ -1218,10 +1281,8 @@ test('workflow: input limit, advanced, schedule, fixed output dir, no direct inp
     expect(inputs[name].default).toBe('');
   }
   // vars-backed controls stay out of the dispatch inputs and are applied as protected overrides
-  for (const hidden of ['sec_ua', 'audience_type', 'store_raw_downloads']) expect(names).not.toContain(hidden);
+  expect(names).not.toContain('sec_ua');
   expect(text).toContain('vars.SEC_UA');
-  expect(text).toContain('vars.INVESCO_AUDIENCE_TYPE');
-  expect(text).toContain('vars.STORE_RAW_DOWNLOADS');
   expect(workflow.on.schedule.some((s: { cron: string }) => s.cron === '0 0 * * 0')).toBe(true);
   expect(text).toContain('toJSON(inputs)');
   expect(text).toContain('resolveControls');
