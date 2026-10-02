@@ -7,7 +7,7 @@
   "fundPage": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=IFLN",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=IFLN",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=IFLN",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/IFLN?period1=0&period2=1790478980&interval=1d&events=div%7Csplit",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/IFLN",
   "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001351, report period 2026-05-31)",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
@@ -24,12 +24,12 @@
  "nav": {
   "display": "—",
   "value": null,
-  "asOfDate": "Sep 25 2026"
+  "asOfDate": "Oct 01 2026"
  },
  "marketPrice": {
   "display": "$18.22",
   "value": 18.22,
-  "asOfDate": "Sep 25 2026"
+  "asOfDate": "Oct 01 2026"
  },
  "premiumDiscount": {
   "display": "—",
@@ -53,11 +53,11 @@
  "returns": {
   "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
-   "asOfDate": "Sep 25 2026",
-   "mo1": -2.76,
-   "mo1Text": "-2.76%",
-   "qtd": -2.28,
-   "qtdText": "-2.28%",
+   "asOfDate": "Oct 01 2026",
+   "mo1": -3.16,
+   "mo1Text": "-3.16%",
+   "qtd": null,
+   "qtdText": "—",
    "ytd": 1.47,
    "ytdText": "1.47%",
    "yr1": 3.79,
@@ -72,7 +72,7 @@
    "sinceInceptionText": "3.60%"
   },
   "quarterEnd": {
-   "asOfDate": "Jun 30 2026",
+   "asOfDate": "Sep 30 2026",
    "null": null
   },
   "returnsBasis": "official Invesco NAV total returns (product list download); periods Invesco does not publish (young funds) are filled from adjusted closes",
@@ -999,8 +999,8 @@
    "history/005.json"
   ],
   "pageSize": 1000,
-  "totalRows": 4744,
-  "asOf": "Sep 25 2026",
+  "totalRows": 4748,
+  "asOf": "Oct 01 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

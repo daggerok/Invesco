@@ -7,7 +7,7 @@
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/dvvy.html",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=DVVY",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=DVVY",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/DVVY?period1=0&period2=1790478978&interval=1d&events=div%7Csplit",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/DVVY",
   "holdingsSource": "invesco.com per-fund holdings download",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
@@ -53,11 +53,11 @@
  "returns": {
   "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Sep 25 2026",
-   "mo1": -2.13,
-   "mo1Text": "-2.13%",
-   "qtd": 1.06,
-   "qtdText": "1.06%",
+   "asOfDate": "Oct 01 2026",
+   "mo1": -3.3,
+   "mo1Text": "-3.30%",
+   "qtd": null,
+   "qtdText": "—",
    "ytd": null,
    "ytdText": "—",
    "yr1": null,
@@ -72,11 +72,11 @@
    "sinceInceptionText": "—"
   },
   "quarterEnd": {
-   "asOfDate": "Jun 30 2026",
+   "asOfDate": "Sep 30 2026",
    "null": null
   },
   "returnsBasis": "derived from adjusted market-price closes (Yahoo chart API), estimates and not official NAV returns",
-  "performanceAsOf": "2026-09-25"
+  "performanceAsOf": "2026-10-01"
  },
  "distributions": {
   "frequency": "Quarterly",
@@ -109,8 +109,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 132,
-  "asOf": "Sep 25 2026",
+  "totalRows": 136,
+  "asOf": "Oct 01 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

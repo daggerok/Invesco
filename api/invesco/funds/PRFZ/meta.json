@@ -7,8 +7,8 @@
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/prfz.html",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PRFZ",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PRFZ",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/PRFZ?period1=0&period2=1790478986&interval=1d&events=div%7Csplit",
-  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000943, report period 2026-04-30)",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/PRFZ",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-001441, report period 2026-07-31)",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
  },
@@ -24,22 +24,22 @@
  "nav": {
   "display": "—",
   "value": null,
-  "asOfDate": "Sep 25 2026"
+  "asOfDate": "Oct 01 2026"
  },
  "marketPrice": {
   "display": "$55.84",
   "value": 55.84,
-  "asOfDate": "Sep 25 2026"
+  "asOfDate": "Oct 01 2026"
  },
  "premiumDiscount": {
   "display": "—",
   "value": null
  },
  "aum": {
-  "display": "$2,878.52 M",
-  "value": 2878518301.67,
-  "asOfDate": "Apr 30 2026",
-  "source": "SEC Form N-PORT-P net assets (report period 2026-04-30)"
+  "display": "$2,762.57 M",
+  "value": 2762567046.46,
+  "asOfDate": "Jul 31 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-07-31)"
  },
  "yields": {
   "dividendYield": 0.71,
@@ -53,11 +53,11 @@
  "returns": {
   "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
-   "asOfDate": "Sep 25 2026",
-   "mo1": -5.05,
-   "mo1Text": "-5.05%",
-   "qtd": -4.74,
-   "qtdText": "-4.74%",
+   "asOfDate": "Oct 01 2026",
+   "mo1": -2.26,
+   "mo1Text": "-2.26%",
+   "qtd": null,
+   "qtdText": "—",
    "ytd": 22.19,
    "ytdText": "22.19%",
    "yr1": 26.06,
@@ -72,7 +72,7 @@
    "sinceInceptionText": "10.24%"
   },
   "quarterEnd": {
-   "asOfDate": "Jun 30 2026",
+   "asOfDate": "Sep 30 2026",
    "null": null
   },
   "returnsBasis": "official Invesco NAV total returns (product list download); periods Invesco does not publish (young funds) are filled from adjusted closes",
@@ -419,10 +419,10 @@
    "holdings/007.json"
   ],
   "pageSize": 250,
-  "totalRows": 1545,
-  "asOfDate": "2026-04-30",
-  "asOf": "Apr 30 2026",
-  "source": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000943, report period 2026-04-30)"
+  "totalRows": 1507,
+  "asOfDate": "2026-07-31",
+  "asOf": "Jul 31 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-001441, report period 2026-07-31)"
  },
  "history": {
   "pages": [
@@ -434,8 +434,8 @@
    "history/006.json"
   ],
   "pageSize": 1000,
-  "totalRows": 5035,
-  "asOf": "Sep 25 2026",
+  "totalRows": 5039,
+  "asOf": "Oct 01 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

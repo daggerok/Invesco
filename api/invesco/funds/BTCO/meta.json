@@ -7,7 +7,7 @@
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/btco.html",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=BTCO",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=BTCO",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BTCO?period1=0&period2=1790478976&interval=1d&events=div%7Csplit",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BTCO",
   "holdingsSource": "invesco.com per-fund holdings download",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
@@ -24,12 +24,12 @@
  "nav": {
   "display": "—",
   "value": null,
-  "asOfDate": "Sep 25 2026"
+  "asOfDate": "Oct 01 2026"
  },
  "marketPrice": {
   "display": "$79.51",
   "value": 79.51,
-  "asOfDate": "Sep 25 2026"
+  "asOfDate": "Oct 01 2026"
  },
  "premiumDiscount": {
   "display": "—",
@@ -53,11 +53,11 @@
  "returns": {
   "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
-   "asOfDate": "Sep 25 2026",
-   "mo1": 5.01,
-   "mo1Text": "5.01%",
-   "qtd": 39.92,
-   "qtdText": "39.92%",
+   "asOfDate": "Oct 01 2026",
+   "mo1": 9.51,
+   "mo1Text": "9.51%",
+   "qtd": null,
+   "qtdText": "—",
    "ytd": -8.79,
    "ytdText": "-8.79%",
    "yr1": -28.88,
@@ -72,7 +72,7 @@
    "sinceInceptionText": "22.64%"
   },
   "quarterEnd": {
-   "asOfDate": "Jun 30 2026",
+   "asOfDate": "Sep 30 2026",
    "null": null
   },
   "returnsBasis": "official Invesco NAV total returns (product list download); periods Invesco does not publish (young funds) are filled from adjusted closes",
@@ -100,8 +100,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 679,
-  "asOf": "Sep 25 2026",
+  "totalRows": 683,
+  "asOf": "Oct 01 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

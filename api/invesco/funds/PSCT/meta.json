@@ -7,7 +7,7 @@
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/psct.html",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=PSCT",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=PSCT",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/PSCT?period1=0&period2=1790478986&interval=1d&events=div%7Csplit",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/PSCT",
   "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001378872-26-001360, report period 2026-05-31)",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
@@ -24,12 +24,12 @@
  "nav": {
   "display": "—",
   "value": null,
-  "asOfDate": "Sep 25 2026"
+  "asOfDate": "Oct 01 2026"
  },
  "marketPrice": {
   "display": "$79.29",
   "value": 79.286,
-  "asOfDate": "Sep 25 2026"
+  "asOfDate": "Oct 01 2026"
  },
  "premiumDiscount": {
   "display": "—",
@@ -53,11 +53,11 @@
  "returns": {
   "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
-   "asOfDate": "Sep 25 2026",
-   "mo1": 1.78,
-   "mo1Text": "1.78%",
-   "qtd": -10.03,
-   "qtdText": "-10.03%",
+   "asOfDate": "Oct 01 2026",
+   "mo1": 9.12,
+   "mo1Text": "9.12%",
+   "qtd": null,
+   "qtdText": "—",
    "ytd": 40.06,
    "ytdText": "40.06%",
    "yr1": 63.39,
@@ -72,7 +72,7 @@
    "sinceInceptionText": "14.81%"
   },
   "quarterEnd": {
-   "asOfDate": "Jun 30 2026",
+   "asOfDate": "Sep 30 2026",
    "null": null
   },
   "returnsBasis": "official Invesco NAV total returns (product list download); periods Invesco does not publish (young funds) are filled from adjusted closes",
@@ -239,8 +239,8 @@
    "history/005.json"
   ],
   "pageSize": 1000,
-  "totalRows": 4144,
-  "asOf": "Sep 25 2026",
+  "totalRows": 4148,
+  "asOf": "Oct 01 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

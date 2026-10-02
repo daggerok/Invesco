@@ -7,7 +7,7 @@
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/uup.html",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=UUP",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=UUP",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/UUP?period1=0&period2=1790478992&interval=1d&events=div%7Csplit",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/UUP",
   "holdingsSource": "invesco.com per-fund holdings download",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
@@ -24,12 +24,12 @@
  "nav": {
   "display": "—",
   "value": null,
-  "asOfDate": "Sep 25 2026"
+  "asOfDate": "Oct 01 2026"
  },
  "marketPrice": {
   "display": "$28.02",
   "value": 28.02,
-  "asOfDate": "Sep 25 2026"
+  "asOfDate": "Oct 01 2026"
  },
  "premiumDiscount": {
   "display": "—",
@@ -53,11 +53,11 @@
  "returns": {
   "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
-   "asOfDate": "Sep 25 2026",
-   "mo1": 2.14,
-   "mo1Text": "2.14%",
-   "qtd": 0.46,
-   "qtdText": "0.46%",
+   "asOfDate": "Oct 01 2026",
+   "mo1": 2.66,
+   "mo1Text": "2.66%",
+   "qtd": null,
+   "qtdText": "—",
    "ytd": 3.66,
    "ytdText": "3.66%",
    "yr1": 5.41,
@@ -72,7 +72,7 @@
    "sinceInceptionText": "1.60%"
   },
   "quarterEnd": {
-   "asOfDate": "Jun 30 2026",
+   "asOfDate": "Sep 30 2026",
    "null": null
   },
   "returnsBasis": "official Invesco NAV total returns (product list download); periods Invesco does not publish (young funds) are filled from adjusted closes",
@@ -141,8 +141,8 @@
    "history/005.json"
   ],
   "pageSize": 1000,
-  "totalRows": 4925,
-  "asOf": "Sep 25 2026",
+  "totalRows": 4929,
+  "asOf": "Oct 01 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

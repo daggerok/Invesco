@@ -7,8 +7,8 @@
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/knct.html",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=KNCT",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=KNCT",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/KNCT?period1=0&period2=1790478982&interval=1d&events=div%7Csplit",
-  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000911, report period 2026-04-30)",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/KNCT",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-001346, report period 2026-07-31)",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
  },
@@ -24,22 +24,22 @@
  "nav": {
   "display": "—",
   "value": null,
-  "asOfDate": "Sep 25 2026"
+  "asOfDate": "Oct 01 2026"
  },
  "marketPrice": {
   "display": "$199.38",
   "value": 199.376,
-  "asOfDate": "Sep 25 2026"
+  "asOfDate": "Oct 01 2026"
  },
  "premiumDiscount": {
   "display": "—",
   "value": null
  },
  "aum": {
-  "display": "$133.61 M",
-  "value": 133608119.06,
-  "asOfDate": "Apr 30 2026",
-  "source": "SEC Form N-PORT-P net assets (report period 2026-04-30)"
+  "display": "$153.87 M",
+  "value": 153870988.35,
+  "asOfDate": "Jul 31 2026",
+  "source": "SEC Form N-PORT-P net assets (report period 2026-07-31)"
  },
  "yields": {
   "dividendYield": 0.78,
@@ -53,11 +53,11 @@
  "returns": {
   "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
-   "asOfDate": "Sep 25 2026",
-   "mo1": 4.62,
-   "mo1Text": "4.62%",
-   "qtd": 3.03,
-   "qtdText": "3.03%",
+   "asOfDate": "Oct 01 2026",
+   "mo1": 6.71,
+   "mo1Text": "6.71%",
+   "qtd": null,
+   "qtdText": "—",
    "ytd": 49.42,
    "ytdText": "49.42%",
    "yr1": 68.74,
@@ -72,7 +72,7 @@
    "sinceInceptionText": "13.52%"
   },
   "quarterEnd": {
-   "asOfDate": "Jun 30 2026",
+   "asOfDate": "Sep 30 2026",
    "null": null
   },
   "returnsBasis": "official Invesco NAV total returns (product list download); periods Invesco does not publish (young funds) are filled from adjusted closes",
@@ -237,10 +237,10 @@
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 98,
-  "asOfDate": "2026-04-30",
-  "asOf": "Apr 30 2026",
-  "source": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-000911, report period 2026-04-30)"
+  "totalRows": 103,
+  "asOfDate": "2026-07-31",
+  "asOf": "Jul 31 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0001209466-26-001346, report period 2026-07-31)"
  },
  "history": {
   "pages": [
@@ -252,8 +252,8 @@
    "history/006.json"
   ],
   "pageSize": 1000,
-  "totalRows": 5348,
-  "asOf": "Sep 25 2026",
+  "totalRows": 5352,
+  "asOf": "Oct 01 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

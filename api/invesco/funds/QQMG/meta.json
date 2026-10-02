@@ -7,7 +7,7 @@
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/qqmg.html",
   "holdingsDownload": "https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker=QQMG",
   "pricesDownload": "https://www.invesco.com/us/financial-products/etfs/pricing/main/prices/0?audienceType=Investor&action=download&ticker=QQMG",
-  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/QQMG?period1=0&period2=1790478988&interval=1d&events=div%7Csplit",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/QQMG",
   "holdingsSource": "invesco.com per-fund holdings download",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "Invesco Ltd. public ETF downloads + Yahoo Finance public chart API"
@@ -24,12 +24,12 @@
  "nav": {
   "display": "—",
   "value": null,
-  "asOfDate": "Sep 25 2026"
+  "asOfDate": "Oct 01 2026"
  },
  "marketPrice": {
   "display": "$50.34",
   "value": 50.3364,
-  "asOfDate": "Sep 25 2026"
+  "asOfDate": "Oct 01 2026"
  },
  "premiumDiscount": {
   "display": "—",
@@ -53,11 +53,11 @@
  "returns": {
   "derivedFrom": "official Invesco returns (product list download); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
-   "asOfDate": "Sep 25 2026",
-   "mo1": 3.51,
-   "mo1Text": "3.51%",
-   "qtd": 3.47,
-   "qtdText": "3.47%",
+   "asOfDate": "Oct 01 2026",
+   "mo1": 5.52,
+   "mo1Text": "5.52%",
+   "qtd": null,
+   "qtdText": "—",
    "ytd": 19.03,
    "ytdText": "19.03%",
    "yr1": 28.39,
@@ -72,7 +72,7 @@
    "sinceInceptionText": "15.86%"
   },
   "quarterEnd": {
-   "asOfDate": "Jun 30 2026",
+   "asOfDate": "Sep 30 2026",
    "null": null
   },
   "returnsBasis": "official Invesco NAV total returns (product list download); periods Invesco does not publish (young funds) are filled from adjusted closes",
@@ -182,8 +182,8 @@
    "history/002.json"
   ],
   "pageSize": 1000,
-  "totalRows": 1232,
-  "asOf": "Sep 25 2026",
+  "totalRows": 1236,
+  "asOf": "Oct 01 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }
