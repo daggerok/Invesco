@@ -70,7 +70,7 @@ The table matches `scripts/update-data.config.json` exactly. Every control may a
 | `PRODUCT_LIST_URL` | empty | Override the catalog CSV URL (https), e.g. to pin an as-of date; empty uses the built-in URL |
 | `CATALOG_HTML_URL` | empty | Override the catalog page scraped for per-fund page URLs (https); empty uses the built-in URL |
 | `STORE_RAW_DOWNLOADS` | `false` | Store the source holdings CSVs and product list under `api/invesco/raw` |
-| `SEC_UA` | empty (declared UA) | SEC User-Agent; empty uses the built-in declared descriptor. SEC policy requires a declared contact, so set the protected variable below |
+| `SEC_UA` | `daggerok ETF feed daggerok@gmail.com` | Declared SEC User-Agent (SEC policy requires a contact); redacted in logs; the protected `SEC_UA` Actions variable overrides it |
 | `PRICES_HISTORY` | `true` | Use the official per-fund prices & yields CSV for daily history, falling back to Yahoo closes only when it fails or is empty; `false` uses Yahoo closes for every fund |
 | `EDGAR_FALLBACK` | `true` | SEC EDGAR Form N-PORT-P fallback for funds without an invesco.com holdings download |
 | `SKIP_YAHOO` | `false` | Skip the Yahoo chart request; history still updates from the invesco.com CSV |
@@ -95,7 +95,7 @@ STORE_RAW_DOWNLOADS=true SKIP_YAHOO=true bun scripts/update-data.ts
 
 ## TypeScript and verification
 
-The browser app is intentionally build-free: `index.html` carries the markup, styles and bootstrap, and `app.tsx` is TypeScript compiled in the browser with Babel standalone — no build step, no bundler, no `tsconfig.json` needed. Bun runs TypeScript out of the box.
+The browser app is intentionally build-free: `index.html` carries the markup, styles and bootstrap, and `app.tsx` is TypeScript compiled in the browser with Babel standalone - no build step, no bundler, no `tsconfig.json` needed. Bun runs TypeScript out of the box.
 
 Verification before every publish:
 
@@ -105,8 +105,6 @@ bun test
 bun build --target=bun scripts/update-data.ts --outfile=/dev/null
 git diff --check
 ```
-
-`bun test` also covers the config, README and workflow checks (`scripts/config-docs.test.ts`): config keys, `CONTROL_NAMES`, README rows and `--help` stay in sync, and the workflow keeps at most 25 inputs, a weekly schedule and the fixed `api/invesco` output.
 
 ## Brands table
 
@@ -131,7 +129,7 @@ git diff --check
 | **ProShares** | [proshares.com](https://www.proshares.com/our-etfs/find-proshares-etfs) \| [ProShares](https://daggerok.github.io/ProShares/) |
 | **Schwab** | [schwabassetmanagement.com](https://www.schwabassetmanagement.com/products) \| [Schwab](https://daggerok.github.io/Schwab/) |
 | **SPDR** | [ssga.com](https://www.ssga.com/us/en/intermediary/etfs/fund-finder) \| [SPDR](https://daggerok.github.io/SPDR/) |
-| **Sprott ETFs** | [sprottetfs.com](https://sprottetfs.com/) \| [Sprott](https://daggerok.github.io/Sprott/) (deployment pending) |
+| **Sprott ETFs** | [sprottetfs.com](https://sprottetfs.com/) \| [Sprott](https://daggerok.github.io/Sprott/) |
 | **Tema ETFs** | [temaetfs.com](https://temaetfs.com/funds) \| [Tema](https://daggerok.github.io/Tema/) |
 | **Themes ETFs** | [themesetfs.com/etfs](https://themesetfs.com/etfs) \| [Themes](https://daggerok.github.io/Themes/) |
 | **VanEck** | [vaneck.com](https://www.vaneck.com/us/en/etf-mutual-fund-finder/) \| [VanEck](https://daggerok.github.io/VanEck/) |
