@@ -865,6 +865,9 @@ export type CatalogFund = {
   secYield: number | null;
   distributionRate: number | null;
   asOfDate: string | null;
+  // ISO date the official returns are as of: the "Returns as of MM/DD/YYYY"
+  // line above the product list table (or a returns date column), else null.
+  returnsAsOf: string | null;
   returns: CatalogReturns;
   fundPage: string;
   trustCik: string | null;
@@ -940,10 +943,18 @@ export function readReturn(record: JsonRecord, candidates: string[], annualizedY
   return round(raw, 2);
 }
 
+// "Prices as of 08/21/2026 Close. Returns as of 07/31/2026." sits above the
+// table; the returns date is the performance as-of date (not the NAV date).
+export function parseReturnsAsOf(preamble: string): string | null {
+  const match = /returns?\s+(?:are\s+)?as\s+of\s*:?\s*(\d{1,2}\/\d{1,2}\/\d{4}|\d{4}-\d{2}-\d{2})/i.exec(preamble);
+  return match ? toIsoDate(match[1]) : null;
+}
+
 export function parseProductList(text: string, fundPages: Map<string, string> = new Map()): CatalogFund[] {
   const rows = parseCsv(text);
   const headerIndex = findHeaderRowIndex(rows, ['Ticker']);
   if (headerIndex < 0) throw new Error('product list: no header row with a "Ticker" column found');
+  const preambleReturnsAsOf = parseReturnsAsOf(rows.slice(0, headerIndex).map((row) => row.join(',')).join('\n'));
   const records = csvRecords(rows, headerIndex);
   const funds: CatalogFund[] = [];
   const seen = new Set<string>();
@@ -977,6 +988,7 @@ export function parseProductList(text: string, fundPages: Map<string, string> = 
       secYield: pickNumber(record, ['SEC 30 Day', '30 Day SEC Yield', 'SEC Yield', 'SEC 30-Day', 'SEC 30 Day Yield']),
       distributionRate: pickNumber(record, ['Distribution Rate', 'Distribution Rate (%)']),
       asOfDate: pickDate(record, ['As Of Date', 'As_Of_Date', 'Data Date', 'NAV Date', 'Pricing Date']) || null,
+      returnsAsOf: pickDate(record, ['Returns As Of', 'Returns_As_Of', 'Performance As Of', 'Performance Date']) || preambleReturnsAsOf,
       returns: {
         ytd: readReturn(record, ['YTD', 'YTD Return', 'YTD Gross']),
         yr1: readReturn(record, ['12 M', '12M', '1 Year', '1Y', 'Trailing 12 Month']),
@@ -1707,6 +1719,29 @@ export function lastCompletedQuarterEnd(now = new Date()): Date {
   return new Date(Date.UTC(year, 8, 30)); // Oct-Dec -> Sep 30
 }
 
+export const OFFICIAL_RETURNS_BASIS =
+  'official Invesco NAV total returns (product list download); periods Invesco does not publish (young funds) are filled from adjusted closes';
+
+/**
+ * `returnsBasis` and `performanceAsOf` (STANDARD.md 9a). Official returns are
+ * as of the product list's returns date (null when the list carries none);
+ * derived ones are as of the last close used. Never the NAV date.
+ */
+export function returnsBasisFields(
+  hasOfficial: boolean,
+  derivedAsOfDate: string | null | undefined,
+  derivedCloseSource = 'Yahoo chart API',
+  officialReturnsAsOf: string | null = null,
+): { returnsBasis: string; performanceAsOf: string | null } {
+  const iso = (value: string | null | undefined): string | null => (value && /^\d{4}-\d{2}-\d{2}$/.test(value) ? value : null);
+  return hasOfficial
+    ? { returnsBasis: OFFICIAL_RETURNS_BASIS, performanceAsOf: iso(officialReturnsAsOf) }
+    : {
+        returnsBasis: `derived from adjusted market-price closes (${derivedCloseSource}), estimates and not official NAV returns`,
+        performanceAsOf: iso(derivedAsOfDate),
+      };
+}
+
 /**
  * Merges the official Invesco returns with the ones derived from adjusted
  * closes. Official figures win wherever they exist (they are NAV total
@@ -1722,6 +1757,7 @@ export function deriveCatalogMetrics(
   paymentsPerYear: number | null,
   price: number | null,
   derivedCloseSource = 'Yahoo chart API',
+  officialReturnsAsOf: string | null = null,
 ): JsonRecord {
   const coalesce = (value: number | null | undefined): number | null => (typeof value === 'number' && Number.isFinite(value) ? value : null);
   const ytd = coalesce(official.ytd) ?? coalesce(derived.ytd);
@@ -1746,9 +1782,7 @@ export function deriveCatalogMetrics(
     dividendYieldText: text(dividendYield) ?? '—',
     secYield: coalesce(publishedSecYield),
     secYieldText: text(coalesce(publishedSecYield)) ?? '—',
-    returnsBasis: Object.values(official).some((value) => value !== null)
-      ? 'official Invesco returns (product list download)'
-      : `adjusted market-price closes (${derivedCloseSource}), not official NAV returns`,
+    ...returnsBasisFields(Object.values(official).some((value) => value !== null), derived.asOfDate, derivedCloseSource, officialReturnsAsOf),
   };
 }
 
@@ -1987,6 +2021,13 @@ function returnsBlock(
   };
 }
 
+// meta.json repeats the basis and as-of date of the index metrics at the end of its returns block.
+export function withReturnsBasis(block: JsonRecord | null, metrics: JsonRecord): JsonRecord | null {
+  if (!block) return block;
+  const { returnsBasis: _basis, performanceAsOf: _asOf, ...rest } = block;
+  return { ...rest, returnsBasis: metrics.returnsBasis, performanceAsOf: metrics.performanceAsOf ?? null };
+}
+
 async function processFund(
   fund: CatalogFund,
   config: UpdaterConfig,
@@ -2148,6 +2189,7 @@ async function processFund(
     frequency.paymentsPerYear,
     fund.close ?? priceFromChart,
     derivedCloseSource,
+    fund.returnsAsOf,
   );
 
   const historyHeaders = ['Date', 'Close', 'Adj Close', 'Volume'];
@@ -2221,7 +2263,7 @@ async function processFund(
       secYieldText: fund.secYield === null ? '—' : `${fund.secYield.toFixed(2)}%`,
       secYieldKind: 'SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)',
     },
-    returns: returnsData,
+    returns: withReturnsBasis(returnsData, metrics),
     distributions: { frequency: frequency.frequency, paymentsPerYear: frequency.paymentsPerYear, headers: ['Ex-Date', 'Amount'], rows: distributions },
     holdings: {
       ...holdingsManifest,
@@ -2569,7 +2611,11 @@ async function yahooSearchForTicker(name: string, config: UpdaterConfig): Promis
 
 function catalogFundFromIndex(ticker: string, row: JsonRecord): CatalogFund {
   const metrics = (row.metrics as JsonRecord) || {};
-  const monthEnd = ((row.returns as JsonRecord)?.monthEnd as JsonRecord) || {};
+  // Returns the previous run derived from closes are not official: leave them
+  // empty so this run derives them afresh instead of relabelling them official.
+  const wasDerived = typeof metrics.returnsBasis === 'string' && /^(derived|adjusted)/.test(metrics.returnsBasis);
+  const monthEnd = wasDerived ? {} : ((row.returns as JsonRecord)?.monthEnd as JsonRecord) || {};
+  const previousAsOf = typeof metrics.performanceAsOf === 'string' ? metrics.performanceAsOf : null;
   return {
     ticker,
     name: String(row.name ?? ticker),
@@ -2589,6 +2635,7 @@ function catalogFundFromIndex(ticker: string, row: JsonRecord): CatalogFund {
     secYield: numberOrNull(metrics.secYield),
     distributionRate: null,
     asOfDate: null,
+    returnsAsOf: wasDerived ? null : previousAsOf,
     returns: {
       ytd: numberOrNull(monthEnd.ytd),
       yr1: numberOrNull(monthEnd.yr1),

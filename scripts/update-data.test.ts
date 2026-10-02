@@ -33,6 +33,9 @@ import {
   indicatedYield,
   inferDistributionFrequency,
   deriveCatalogMetrics,
+  returnsBasisFields,
+  parseReturnsAsOf,
+  withReturnsBasis,
   formatEdgarDate,
   formatInvescoDate,
   toIsoDate,
@@ -789,6 +792,8 @@ describe('deriveCatalogMetrics', () => {
       null,
       null,
       706.32,
+      'Yahoo chart API',
+      '2026-07-31',
     );
     expect(metrics.ytd).toBe(15.97);
     expect(metrics.tr1y).toBe(18.34);
@@ -796,7 +801,20 @@ describe('deriveCatalogMetrics', () => {
     expect(metrics.tr3y).toBe(annualizedToTotal(20.15, 3));
     expect(metrics.dividendYield).toBe(0.44);
     expect(metrics.secYield).toBeNull();
-    expect(metrics.returnsBasis).toContain('official Invesco returns');
+    expect(metrics.returnsBasis).toContain('official Invesco NAV total returns');
+    expect(metrics.performanceAsOf).toBe('2026-07-31');
+    // returnsBasis then performanceAsOf close the object
+    expect(Object.keys(metrics).slice(-2)).toEqual(['returnsBasis', 'performanceAsOf']);
+  });
+
+  test('official returns without a published returns date keep performanceAsOf null', () => {
+    const metrics = deriveCatalogMetrics(
+      { ytd: 1, yr1: null, yr3: null, yr5: null, yr10: null, sinceInception: null },
+      { asOfDate: '2026-08-21', ytd: 2, yr1: 3, cagr3y: null, cagr5y: null, cagr10y: null, siAnn: null, mo1: null, qtd: null },
+      null, null, null, null, null,
+    );
+    expect(metrics.performanceAsOf).toBeNull();
+    expect(String(metrics.returnsBasis)).toContain('filled from adjusted closes');
   });
 
   test('falls back to derived returns and the indicated yield', () => {
@@ -814,7 +832,40 @@ describe('deriveCatalogMetrics', () => {
     expect(metrics.cagr5y).toBeNull();
     expect(metrics.dividendYield).toBe(18.7);
     expect(metrics.dividendYieldText).toBe('18.70%');
-    expect(metrics.returnsBasis).toContain('adjusted market-price closes');
+    expect(metrics.returnsBasis).toContain('derived from adjusted market-price closes');
+    expect(metrics.returnsBasis).toContain('estimates');
+    expect(metrics.performanceAsOf).toBe('2026-08-21');
+    expect(Object.keys(metrics).slice(-2)).toEqual(['returnsBasis', 'performanceAsOf']);
+  });
+
+  test('basis is never empty or a dash and the date is ISO or null', () => {
+    for (const hasOfficial of [true, false]) {
+      for (const date of ['2026-08-21', '', null, 'Aug 21 2026']) {
+        const { returnsBasis, performanceAsOf } = returnsBasisFields(hasOfficial, date, 'Yahoo chart API', date);
+        expect(returnsBasis.trim().length).toBeGreaterThan(1);
+        expect(returnsBasis).not.toBe('-');
+        expect(performanceAsOf === null || /^\d{4}-\d{2}-\d{2}$/.test(performanceAsOf)).toBe(true);
+      }
+    }
+  });
+});
+
+describe('returns as-of date (performanceAsOf source)', () => {
+  test('parseReturnsAsOf reads the preamble line, not the prices date', () => {
+    expect(parseReturnsAsOf('Prices as of 08/21/2026 Close. Returns as of 07/31/2026.')).toBe('2026-07-31');
+    expect(parseReturnsAsOf('Prices as of 08/21/2026 Close.')).toBeNull();
+  });
+
+  test('parseProductList carries the returns date to every fund', () => {
+    const funds = parseProductList(PRODUCT_LIST_FIXTURE);
+    expect(funds.every((fund) => fund.returnsAsOf === '2026-07-31')).toBe(true);
+    expect(funds[0].asOfDate).toBe('2026-08-21');
+  });
+
+  test('withReturnsBasis appends basis and date at the end of the returns block', () => {
+    const block = withReturnsBasis({ derivedFrom: 'x', returnsBasis: 'old', monthEnd: {} }, { returnsBasis: 'b', performanceAsOf: '2026-07-31' });
+    expect(Object.keys(block!)).toEqual(['derivedFrom', 'monthEnd', 'returnsBasis', 'performanceAsOf']);
+    expect(withReturnsBasis(null, {})).toBeNull();
   });
 });
 

@@ -44,6 +44,10 @@ Each fund carries a derived `metrics` object that powers the catalog columns sha
 - `siAnn` - since-inception annualized -> *SI Ann.*
 - `dividendYield` - 12-month trailing yield or indicated yield (latest distribution x frequency / price), an estimate when derived here
 - `secYield` - 30-day SEC yield when published; unavailable values stay empty and are never shown as 0
+- `returnsBasis` - always a non-empty label of how the returns were computed: official Invesco NAV total returns from the product list (periods Invesco does not publish, for young funds, are filled from adjusted closes), or, for funds without official returns, estimates derived from adjusted market-price closes (the source is named)
+- `performanceAsOf` - ISO `YYYY-MM-DD` date the returns are as of, not the NAV date: the `Returns as of` date printed above the Invesco product list table for official returns, the last close date used when derived, `null` when unknown (for example when the product list carries no returns date)
+
+Both fields are the last two keys of every `metrics` object and are repeated at the end of the `returns` block in each fund's `meta.json`.
 
 Daily history comes from the official invesco.com prices & yields CSV (NAV and close); Yahoo closes are a market-price fallback used only when that CSV fails or is empty. Yahoo is still the only source for distributions, exchange listing and the live quote. Funds filtered out or failing in a run keep their previously published metadata and data files.
 
