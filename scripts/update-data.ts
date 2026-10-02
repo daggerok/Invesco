@@ -667,7 +667,7 @@ function secHeaders(config: UpdaterConfig): Record<string, string> {
 
 // invesco.com sits behind a CDN that answers HTTP 406 to browser-like
 // User-Agents (checked on 2026-10-02: Chrome and Safari strings fail, curl, bun
-// and a custom bot string pass).
+// and a custom bot string pass, from a laptop and from a GitHub Actions runner).
 // The updater therefore identifies itself honestly instead of posing as a browser.
 function invescoHeaders(): Record<string, string> {
   return { 'User-Agent': INVESCO_UA, Accept: 'application/json,text/html;q=0.9,application/xml;q=0.8,*/*;q=0.5' };
