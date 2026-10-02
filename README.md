@@ -45,7 +45,7 @@ Each fund carries a derived `metrics` object that powers the catalog columns sha
 - `dividendYield` - 12-month trailing yield or indicated yield (latest distribution x frequency / price), an estimate when derived here
 - `secYield` - 30-day SEC yield when published; unavailable values stay empty and are never shown as 0
 - `returnsBasis` - always a non-empty label of how the returns were computed: official Invesco NAV total returns from the product list (periods Invesco does not publish, for young funds, are filled from adjusted closes), or, for funds without official returns, estimates derived from adjusted market-price closes (the source is named)
-- `performanceAsOf` - ISO `YYYY-MM-DD` date the returns are as of, not the NAV date: the `Returns as of` date printed above the Invesco product list table for official returns, the last close date used when derived, `null` when unknown (for example when the product list carries no returns date)
+- `performanceAsOf` - ISO `YYYY-MM-DD` date the returns are as of, not the NAV date: the returns date printed with the Invesco product list (`Returns as of` line or the `Performance (%) as of` table caption) for official returns, the last close date used (or the newest stored close when no fresh history came) when derived, `null` when unknown. The legacy product list CSV download answers HTTP 406/301 to non-browser clients, CI included, so official returns are carried over from the published feed (last refreshed as of `2026-08-31`) until the list is reachable again
 
 Both fields are the last two keys of every `metrics` object and are repeated at the end of the `returns` block in each fund's `meta.json`.
 
