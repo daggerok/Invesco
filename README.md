@@ -76,6 +76,7 @@ The table matches `scripts/update-data.config.json` exactly. Every control may a
 | `SKIP_YAHOO` | `false` | Skip the Yahoo chart request; history still updates from the invesco.com CSV |
 | `SKIP_INVESCO` | `false` | Update history only (Yahoo), keeping the previously published catalog and holdings |
 | `VERBOSE` | `false` | Print per-fund retry and fallback notices |
+| `USE_SYSTEM_CA` | `auto` | TLS trust store: `auto` restarts the updater once with Bun's `--use-system-ca` when a request fails with an untrusted-certificate error; `true` always uses the system CA store; `false` never restarts. Not an individual workflow input: use `advanced`, the config file or the CLI environment. |
 
 `TICKERS` combines with the AUM, TER, yield and return filters using AND logic; it does not override them.
 

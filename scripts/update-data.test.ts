@@ -1,6 +1,6 @@
 // Bun's test runner provides these globals at runtime.
 // @ts-ignore bun types are intentionally not required for this zero-dependency Bun script.
-import { describe, expect, test } from 'bun:test';
+import { afterEach, describe, expect, test } from 'bun:test';
 import { readFileSync } from 'node:fs';
 import {
   parseRange,
@@ -49,6 +49,8 @@ import {
   HOLDINGS_HEADERS,
   BOND_SHEET_HEADERS,
   CONTROL_NAMES,
+  isCertError,
+  installSystemCa,
   main,
   readConfig,
   resolveControls,
@@ -1167,4 +1169,63 @@ test('workflow: input limit, advanced, schedule, fixed output dir, no direct inp
   expect(text).not.toContain('bunx tsc');
   expect(text).toContain('timeout-minutes: 30');
   expect(text).toContain('persist-credentials: false');
+});
+
+// --- TLS trust store ---
+describe('USE_SYSTEM_CA', () => {
+  const realFetch = globalThis.fetch;
+  afterEach(() => { globalThis.fetch = realFetch; });
+  const certError = () => Object.assign(new Error('unable to get local issuer certificate'), { code: 'UNABLE_TO_GET_ISSUER_CERT_LOCALLY' });
+  const makeReexec = () => { const calls = { n: 0 }; const fn = (() => { calls.n++; return undefined as never; }) as () => never; return { calls, fn }; };
+
+  test('resolver accepts auto/true/false case-insensitively, rejects others, defaults to auto', () => {
+    expect(resolveControls(file).USE_SYSTEM_CA).toBe('auto');
+    expect(resolveControls(file, {}, {}, { USE_SYSTEM_CA: 'TRUE' }).USE_SYSTEM_CA).toBe('true');
+    expect(resolveControls(file, { USE_SYSTEM_CA: 'False' }).USE_SYSTEM_CA).toBe('false');
+    expect(() => resolveControls(file, { USE_SYSTEM_CA: 'maybe' })).toThrow();
+  });
+
+  test('isCertError detects certificate failures, also through cause', () => {
+    expect(isCertError({ code: 'UNABLE_TO_GET_ISSUER_CERT_LOCALLY' })).toBe(true);
+    expect(isCertError(new Error('unable to get local issuer certificate'))).toBe(true);
+    expect(isCertError(new Error('fetch failed', { cause: certError() }))).toBe(true);
+    expect(isCertError({ code: 'ECONNRESET', message: 'socket hang up' })).toBe(false);
+    expect(isCertError(new Error('HTTP 403 Forbidden'))).toBe(false);
+  });
+
+  test('mode false and an already active store leave fetch unchanged', () => {
+    const { calls, fn } = makeReexec();
+    installSystemCa('false', fn, false);
+    expect(globalThis.fetch).toBe(realFetch);
+    installSystemCa('auto', fn, true);
+    expect(globalThis.fetch).toBe(realFetch);
+    installSystemCa('true', fn, true);
+    expect(globalThis.fetch).toBe(realFetch);
+    expect(calls.n).toBe(0);
+  });
+
+  test('mode true restarts immediately', () => {
+    const { calls, fn } = makeReexec();
+    installSystemCa('true', fn, false);
+    expect(calls.n).toBe(1);
+  });
+
+  test('mode auto wraps fetch: cert error restarts once, other errors rethrow, success passes through', async () => {
+    const { calls, fn } = makeReexec();
+    const errors = console.error;
+    console.error = () => {};
+    try {
+      globalThis.fetch = (async () => new Response('ok')) as unknown as typeof fetch;
+      installSystemCa('auto', fn, false);
+      expect(await (await fetch('https://example.test')).text()).toBe('ok');
+      globalThis.fetch = (async () => { throw Object.assign(new Error('socket hang up'), { code: 'ECONNRESET' }); }) as unknown as typeof fetch;
+      installSystemCa('auto', fn, false);
+      await expect(fetch('https://example.test')).rejects.toThrow('socket hang up');
+      expect(calls.n).toBe(0);
+      globalThis.fetch = (async () => { throw certError(); }) as unknown as typeof fetch;
+      installSystemCa('auto', fn, false);
+      await fetch('https://example.test');
+      expect(calls.n).toBe(1);
+    } finally { console.error = errors; }
+  });
 });

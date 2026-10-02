@@ -594,6 +594,11 @@ Environment variables (all optional; strict "min:max" ranges; AND logic):
                        the live quote.
   VERBOSE              1/true to print per-fund retry and fallback notices
                        (default false).
+  USE_SYSTEM_CA        auto, true or false (default auto). TLS trust store:
+                       auto restarts the updater once with Bun's
+                       --use-system-ca when a request fails with an
+                       untrusted-certificate error; true always uses the
+                       system CA store; false never restarts.
   EDGAR_FALLBACK       0/false to skip the SEC EDGAR Form N-PORT-P fallback for
                        funds whose Invesco holdings download is empty
                        (default on; needs the declared SEC_UA).
@@ -2600,6 +2605,42 @@ function catalogFundFromIndex(ticker: string, row: JsonRecord): CatalogFund {
 
 
 
+// --- TLS trust store (identical in every ETF repo) ---
+const SYSTEM_CA_MARKER = 'ETF_UPDATER_SYSTEM_CA';
+const CERT_ERROR = /UNABLE_TO_GET_ISSUER_CERT|UNABLE_TO_VERIFY_LEAF_SIGNATURE|SELF_SIGNED_CERT|CERT_HAS_EXPIRED|unable to get (?:local )?issuer certificate|self[- ]signed certificate|certificate has expired/i;
+
+export function isCertError(error: unknown): boolean {
+  const e = error as { code?: unknown; message?: unknown; cause?: unknown } | null;
+  return CERT_ERROR.test(`${String(e?.code ?? '')} ${String(e?.message ?? '')}`) || (e?.cause ? isCertError(e.cause) : false);
+}
+
+export function systemCaActive(env: Record<string, string | undefined> = process.env, execArgv: string[] = process.execArgv): boolean {
+  return execArgv.includes('--use-system-ca') || env.NODE_USE_SYSTEM_CA === '1' || env[SYSTEM_CA_MARKER] === '1';
+}
+
+export function reexecWithSystemCa(): never {
+  const child = Bun.spawnSync([process.execPath, '--use-system-ca', ...process.argv.slice(1)], {
+    env: { ...process.env, [SYSTEM_CA_MARKER]: '1' },
+    stdio: ['inherit', 'inherit', 'inherit'],
+  });
+  process.exit(child.exitCode ?? 1);
+}
+
+/** mode: auto (restart once on an untrusted-certificate error), true (restart now), false (never). */
+export function installSystemCa(mode: string, reexec: () => never = reexecWithSystemCa, active: boolean = systemCaActive()): void {
+  if (mode === 'false' || active) return;
+  if (mode === 'true') reexec();
+  const realFetch = globalThis.fetch;
+  globalThis.fetch = (async (...args: Parameters<typeof fetch>) => {
+    try { return await realFetch(...args); }
+    catch (error) {
+      if (!isCertError(error)) throw error;
+      console.error('[ notice   ] TLS certificate not trusted; restarting once with --use-system-ca');
+      return reexec();
+    }
+  }) as typeof fetch;
+}
+
 // ---------------------------------------------------------------------------
 // Entry point (kept at the end: main() relies on the let bindings above)
 // ---------------------------------------------------------------------------
@@ -2612,7 +2653,7 @@ export const CONTROL_NAMES = [
   'MAX_FETCHES', 'REQUEST_SLEEP', 'CONCURRENCY', 'AUM', 'TER', 'DIVIDEND_YIELD', 'TICKERS',
   'HOLDINGS_PAGE_SIZE', 'HISTORY_PAGE_SIZE', 'MAX_RETRIES', 'HISTORY_RANGE', 'AUDIENCE_TYPE',
   'PRODUCT_LIST_URL', 'CATALOG_HTML_URL', 'STORE_RAW_DOWNLOADS', 'SEC_UA',
-  'SKIP_YAHOO', 'SKIP_INVESCO', 'PRICES_HISTORY', 'EDGAR_FALLBACK', 'VERBOSE',
+  'SKIP_YAHOO', 'SKIP_INVESCO', 'PRICES_HISTORY', 'EDGAR_FALLBACK', 'VERBOSE', 'USE_SYSTEM_CA',
   ...['PERFORMANCE', 'TOTAL_RETURN'].flatMap((prefix) => ['YTD', '1Y', '3Y', '5Y', '10Y'].map((period) => `${prefix}_${period}`)),
 ] as const;
 export type ControlName = (typeof CONTROL_NAMES)[number];
@@ -2661,6 +2702,11 @@ export function resolveControls(
   for (const key of ['PRODUCT_LIST_URL', 'CATALOG_HTML_URL']) {
     if (result[key]?.trim() && !/^https:\/\/\S+$/.test(result[key].trim())) throw new Error(`${key}: expected an https URL`);
   }
+  if (result.USE_SYSTEM_CA !== undefined) {
+    const mode = result.USE_SYSTEM_CA.trim().toLowerCase();
+    if (!['auto', 'true', 'false'].includes(mode)) throw new Error('USE_SYSTEM_CA: expected auto, true or false');
+    result.USE_SYSTEM_CA = mode;
+  }
   readConfig(result); // validate every min:max filter before any request or write
   return result;
 }
@@ -2679,6 +2725,7 @@ export async function main(argv: string[] = process.argv.slice(2), env: Record<s
   }
   const controls = await runtimeControls(env);
   if (controls.VERBOSE !== undefined && env === process.env) process.env.VERBOSE = controls.VERBOSE;
+  installSystemCa(controls.USE_SYSTEM_CA ?? 'auto');
   await runUpdater(readConfig(controls));
 }
 
