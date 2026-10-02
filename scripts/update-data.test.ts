@@ -35,6 +35,7 @@ import {
   deriveCatalogMetrics,
   returnsBasisFields,
   parseReturnsAsOf,
+  lastHistoryIsoDate,
   withReturnsBasis,
   formatEdgarDate,
   formatInvescoDate,
@@ -854,6 +855,19 @@ describe('returns as-of date (performanceAsOf source)', () => {
   test('parseReturnsAsOf reads the preamble line, not the prices date', () => {
     expect(parseReturnsAsOf('Prices as of 08/21/2026 Close. Returns as of 07/31/2026.')).toBe('2026-07-31');
     expect(parseReturnsAsOf('Prices as of 08/21/2026 Close.')).toBeNull();
+  });
+
+  test('parseReturnsAsOf reads the caption of the live invesco.com performance table', () => {
+    // verbatim from https://www.invesco.com/us/en/financial-products/etfs.html (2026-10-02)
+    expect(parseReturnsAsOf('|  | Performance (%) as of 06/30/2026 |  |  |  |')).toBe('2026-06-30');
+    expect(parseReturnsAsOf('Ticker Product name | YTD | 1yr | 3yr')).toBeNull();
+  });
+
+  test('lastHistoryIsoDate takes the newest stored close, label or ISO', () => {
+    expect(lastHistoryIsoDate([{ Date: 'Dec 15 2025' }, { Date: 'Feb 23 2026' }])).toBe('2026-02-23');
+    expect(lastHistoryIsoDate([{ Date: '2026-07-17' }, { Date: 'Jan 05 2026' }])).toBe('2026-07-17');
+    expect(lastHistoryIsoDate([{ Date: '—' }])).toBeNull();
+    expect(lastHistoryIsoDate([])).toBeNull();
   });
 
   test('parseProductList carries the returns date to every fund', () => {

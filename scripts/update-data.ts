@@ -943,10 +943,14 @@ export function readReturn(record: JsonRecord, candidates: string[], annualizedY
   return round(raw, 2);
 }
 
-// "Prices as of 08/21/2026 Close. Returns as of 07/31/2026." sits above the
-// table; the returns date is the performance as-of date (not the NAV date).
+// The returns date above the product list table ("Returns as of MM/DD/YYYY",
+// or the "Performance (%) as of MM/DD/YYYY" caption of the invesco.com table)
+// is the performance as-of date (not the NAV date). The legacy CSV download
+// answers HTTP 406/301 to every non-browser client (CI included), so this
+// format could not be verified against a live file: the parser accepts both
+// captions and returns null when neither is present.
 export function parseReturnsAsOf(preamble: string): string | null {
-  const match = /returns?\s+(?:are\s+)?as\s+of\s*:?\s*(\d{1,2}\/\d{1,2}\/\d{4}|\d{4}-\d{2}-\d{2})/i.exec(preamble);
+  const match = /(?:returns?|performance(?:\s*\(%\))?)\s+(?:are\s+)?as\s+of\s*:?\s*(\d{1,2}\/\d{1,2}\/\d{4}|\d{4}-\d{2}-\d{2})/i.exec(preamble);
   return match ? toIsoDate(match[1]) : null;
 }
 
@@ -1710,6 +1714,21 @@ export function priceReturns(days: ChartDay[], now = new Date()): PriceReturns {
   };
 }
 
+// Newest date of a stored history sheet (rows carry "Oct 01 2026" labels or ISO
+// dates) as ISO: the last close a derived return can be attributed to when no
+// fresh history was fetched this run.
+export function lastHistoryIsoDate(rows: JsonRecord[]): string | null {
+  let best: string | null = null;
+  for (const row of rows) {
+    const raw = String(row.Date ?? '').trim();
+    const label = /^([A-Za-z]{3}) (\d{2}) (\d{4})$/.exec(raw);
+    const month = label ? MONTHS.indexOf(label[1]) + 1 : 0;
+    const iso = label ? (month ? `${label[3]}-${String(month).padStart(2, '0')}-${label[2]}` : null) : /^\d{4}-\d{2}-\d{2}$/.test(raw) ? raw : null;
+    if (iso && (!best || iso > best)) best = iso;
+  }
+  return best;
+}
+
 export function lastCompletedQuarterEnd(now = new Date()): Date {
   const year = now.getUTCFullYear();
   const month = now.getUTCMonth(); // 0-based
@@ -2195,6 +2214,10 @@ async function processFund(
   const historyHeaders = ['Date', 'Close', 'Adj Close', 'Volume'];
   const history = haveFreshHistory ? historyRows(chartDays) : await readPreviousSheet(ticker, 'history');
   const historyManifest = await writePages(fundDir, ticker, 'history', historyHeaders, history, config.historyPageSize);
+  // Derived returns without a fresh chart still belong to the newest stored close.
+  if (metrics.performanceAsOf == null && /^derived/.test(String(metrics.returnsBasis))) {
+    metrics.performanceAsOf = lastHistoryIsoDate(history);
+  }
   const distributions = dividends.length ? distributionRows(dividends) : (((previous.distributions?.rows as JsonRecord[]) || []) as string[][]);
 
   // Without a fresh invesco.com catalog the filed N-PORT-P series name is the
