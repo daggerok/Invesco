@@ -1,15 +1,4 @@
 #!/usr/bin/env bun
-// Checked-in JSON is the runtime default; any nonblank environment value wins.
-import { readFileSync as readUpdaterConfig } from 'node:fs';
-try {
-  const updaterDefaults = JSON.parse(readUpdaterConfig(new URL('./update-data.config.json', import.meta.url), 'utf8')) as Record<string, unknown>;
-  for (const [key, value] of Object.entries(updaterDefaults)) {
-    const current = process.env[key];
-    if ((current === undefined || current.trim() === '') && value !== null && value !== undefined) process.env[key] = String(value);
-  }
-} catch (error) {
-  if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error;
-}
 // Bun provides Node-compatible fs/promises and process globals for this script.
 /// <reference types="bun" />
 import { readFile as outputReadFile, readdir as outputReadDir } from 'node:fs/promises';
@@ -53,7 +42,7 @@ function outputConfigEntries(config: Record<string, any>): [string, string][] {
 }
 function outputPrintConfig(brand: string, config: Record<string, any>): void {
   const entries: [string, string][] = [...outputConfigEntries(config), ['VERBOSE', String(outputVerbose())]];
-  console.log(`[ config   ] ${brand} updater:\n${entries.map(([key, value]) => `              ${key}=${/TOKEN|PASSWORD|SECRET|COOKIE/i.test(key) ? '<redacted>' : outputClean(value)}`).join('\n')}`);
+  console.log(`[ config   ] ${brand} updater:\n${entries.map(([key, value]) => `              ${key}=${/TOKEN|PASSWORD|SECRET|COOKIE|SEC_UA/i.test(key) ? '<redacted>' : outputClean(value)}`).join('\n')}`);
 }
 function outputHasOutputFilters(config: Record<string, any>): boolean {
   return outputConfigEntries(config).some(([name, value]) =>
@@ -227,7 +216,7 @@ const EDGAR_BROWSE_URL = 'https://www.sec.gov/cgi-bin/browse-edgar';
 // registrant CIK + series/class id, and operating-company ticker -> name.
 const SEC_FUND_TICKERS_URL = 'https://www.sec.gov/files/company_tickers_mf.json';
 const SEC_COMPANY_TICKERS_URL = 'https://www.sec.gov/files/company_tickers.json';
-const SEC_UA_DEFAULT = 'DaggerOk Invesco Feed admin@daggerok.example.com';
+const SEC_UA_DEFAULT = 'daggerok ETF feed daggerok@gmail.com';
 
 const API_ROOT = new URL('../api/invesco/', import.meta.url);
 const INDEX_FILE = new URL('index.json', API_ROOT);
@@ -479,7 +468,7 @@ function parseRanges(env: Record<string, string | undefined>, prefix: 'PERFORMAN
   return ranges;
 }
 
-function readConfig(env: Record<string, string | undefined> = process.env): UpdaterConfig {
+export function readConfig(env: Record<string, string | undefined> = process.env): UpdaterConfig {
   return {
     concurrency: parsePositiveInt(envValue(env, 'CONCURRENCY'), CONCURRENCY_FALLBACK),
     requestSleep: parseNonNegativeFloat(envValue(env, 'REQUEST_SLEEP'), REQUEST_SLEEP_FALLBACK),
@@ -533,7 +522,7 @@ function configLines(config: UpdaterConfig): string[] {
     `DIVIDEND_YIELD      ${rangeLabel(config.dividendYieldRange)}`,
     `PERFORMANCE_*       ${RETURN_PERIODS.filter((p) => config.performanceRanges[p]).map((p) => `${p}=${rangeLabel(config.performanceRanges[p])}`).join(' ') || 'any'}`,
     `TOTAL_RETURN_*      ${RETURN_PERIODS.filter((p) => config.totalReturnRanges[p]).map((p) => `${p}=${rangeLabel(config.totalReturnRanges[p])}`).join(' ') || 'any'}`,
-    `SEC_UA              ${config.secUa}`,
+    `SEC_UA              <redacted>`,
     `SKIP_YAHOO          ${config.skipYahoo}`,
     `SKIP_INVESCO        ${config.skipInvesco}`,
     `PRICES_HISTORY      ${config.pricesHistory}`,
@@ -546,6 +535,12 @@ Invesco ETF static data updater (Bun, no dependencies).
 
   bun ./scripts/update-data.ts            update ./api/invesco from invesco.com + Yahoo
   ./scripts/update-data.ts -h | --help    print this help
+
+Defaults live in scripts/update-data.config.json (every control below).
+Precedence: config file < workflow advanced JSON < nonblank workflow inputs <
+environment variables (the protected Actions variables SEC_UA, AUDIENCE_TYPE
+and STORE_RAW_DOWNLOADS are passed as environment). Each control may also be
+set as INVESCO_<NAME>.
 
 Environment variables (all optional; strict "min:max" ranges; AND logic):
 
@@ -597,11 +592,14 @@ Environment variables (all optional; strict "min:max" ranges; AND logic):
                        queried on every run regardless of this flag, since it
                        is the only source for dividends, exchange listing and
                        the live quote.
+  VERBOSE              1/true to print per-fund retry and fallback notices
+                       (default false).
   EDGAR_FALLBACK       0/false to skip the SEC EDGAR Form N-PORT-P fallback for
                        funds whose Invesco holdings download is empty
                        (default on; needs the declared SEC_UA).
-  SEC_UA               Override the declared SEC User-Agent (SEC policy
-                       requires a declared contact for automated access).
+  SEC_UA               Declared SEC User-Agent (default daggerok ETF feed
+                       daggerok@gmail.com; the protected Actions variable
+                       SEC_UA overrides it). Redacted in logs.
   SKIP_YAHOO           1/true to skip the Yahoo chart request entirely. Daily
                        close/NAV history still updates from the invesco.com
                        prices & yields CSV when PRICES_HISTORY is on (the
@@ -1120,8 +1118,7 @@ export function weightsSum(rows: JsonRecord[]): number {
 // bond, futures and cash rows come back blank or "n/a". Those rows keep "-"
 // and are keyed by their CUSIP/ISIN Identifier in the Watchlist — the exact
 // convention daggerok/SPDR and daggerok/Fidelity use. Names still missing a
-// ticker are resolved from scripts/held-tickers.ts and, for names the seed
-// does not cover yet, from the Yahoo Finance symbol search with a STRICT name
+// ticker are resolved from the Yahoo Finance symbol search with a STRICT name
 // match so a fuzzy hit can never pin the wrong security.
 // ---------------------------------------------------------------------------
 
@@ -2375,8 +2372,7 @@ async function resolveNportFiling(
 // Main
 // ---------------------------------------------------------------------------
 
-async function main(): Promise<void> {
-  const config = readConfig();
+async function runUpdater(config: UpdaterConfig): Promise<void> {
   requestSleepMs = Math.max(0, config.requestSleep) * 1000;
   nextRequestAtLanes = new Array(Math.max(1, config.concurrency)).fill(0);
 
@@ -2608,13 +2604,87 @@ function catalogFundFromIndex(ticker: string, row: JsonRecord): CatalogFund {
 // Entry point (kept at the end: main() relies on the let bindings above)
 // ---------------------------------------------------------------------------
 
-if ((import.meta as { main?: boolean }).main) {
-  if (process.argv.includes('-h') || process.argv.includes('--help')) {
-    console.log(USAGE.trim());
-  } else {
-    await main().catch((error) => {
-      console.error(error instanceof Error ? error.stack : String(error));
-      process.exitCode = 1;
-    });
+// File defaults and explicit overrides, one resolver for the CLI and the
+// GitHub Actions workflow: allowlisted scalar controls only, so user input is
+// never interpolated into bash. Precedence: config file < advanced JSON <
+// nonblank inputs < environment (INVESCO_<KEY> wins over <KEY>, then legacy aliases).
+export const CONTROL_NAMES = [
+  'MAX_FETCHES', 'REQUEST_SLEEP', 'CONCURRENCY', 'AUM', 'TER', 'DIVIDEND_YIELD', 'TICKERS',
+  'HOLDINGS_PAGE_SIZE', 'HISTORY_PAGE_SIZE', 'MAX_RETRIES', 'HISTORY_RANGE', 'AUDIENCE_TYPE',
+  'PRODUCT_LIST_URL', 'CATALOG_HTML_URL', 'STORE_RAW_DOWNLOADS', 'SEC_UA',
+  'SKIP_YAHOO', 'SKIP_INVESCO', 'PRICES_HISTORY', 'EDGAR_FALLBACK', 'VERBOSE',
+  ...['PERFORMANCE', 'TOTAL_RETURN'].flatMap((prefix) => ['YTD', '1Y', '3Y', '5Y', '10Y'].map((period) => `${prefix}_${period}`)),
+] as const;
+export type ControlName = (typeof CONTROL_NAMES)[number];
+export const CONFIG_FILE_URL = new URL('./update-data.config.json', import.meta.url);
+const LEGACY_ENV_ALIASES: Partial<Record<ControlName, string[]>> = {
+  MAX_FETCHES: ['INVESCO_LIMIT'],
+  HISTORY_PAGE_SIZE: ['HISTORICAL_PAGE_SIZE'],
+};
+
+export function resolveControls(
+  file: unknown = {},
+  advanced: unknown = {},
+  inputs: unknown = {},
+  env: Record<string, string | undefined> = {},
+): Record<string, string> {
+  const result: Record<string, string> = {};
+  const known = new Set<string>(CONTROL_NAMES);
+  const apply = (value: unknown, skipEmpty = false): void => {
+    if (!value || typeof value !== 'object' || Array.isArray(value)) throw new Error('Configuration must be a JSON object');
+    for (const [key, raw] of Object.entries(value)) {
+      if (!known.has(key)) throw new Error(`Unknown updater control: ${key}`);
+      if (skipEmpty && (raw === '' || raw === undefined || raw === null)) continue;
+      if (!['string', 'number', 'boolean'].includes(typeof raw)) throw new Error(`${key}: expected string, number or boolean`);
+      const text = String(raw);
+      if (/[\r\n\0]/.test(text)) throw new Error(`${key}: multiline/control characters are not allowed`);
+      result[key] = text;
+    }
+  };
+  apply(file);
+  apply(advanced);
+  apply(inputs, true);
+  for (const key of CONTROL_NAMES) {
+    const value = [`INVESCO_${key}`, key, ...(LEGACY_ENV_ALIASES[key] ?? [])].map((name) => env[name]).find((candidate) => candidate !== undefined);
+    if (value !== undefined) apply({ [key]: value });
   }
+  for (const key of ['MAX_FETCHES', 'CONCURRENCY', 'HOLDINGS_PAGE_SIZE', 'HISTORY_PAGE_SIZE', 'MAX_RETRIES']) {
+    const v = result[key];
+    if (v === undefined || v.trim() === '') continue;
+    const min = key === 'MAX_FETCHES' ? 0 : 1; // MAX_RETRIES 0 was never honored by the updater (falls back to 2)
+    if (!/^\d+$/.test(v.trim()) || !Number.isSafeInteger(Number(v)) || Number(v) < min) throw new Error(`${key}: expected integer >= ${min}`);
+  }
+  if (result.REQUEST_SLEEP?.trim() && (!Number.isFinite(Number(result.REQUEST_SLEEP)) || Number(result.REQUEST_SLEEP) < 0)) throw new Error('REQUEST_SLEEP: expected nonnegative seconds');
+  for (const key of ['STORE_RAW_DOWNLOADS', 'SKIP_YAHOO', 'SKIP_INVESCO', 'PRICES_HISTORY', 'EDGAR_FALLBACK', 'VERBOSE']) {
+    if (result[key]?.trim() && !/^(0|1|true|false|yes|no|y|n|on|off)$/i.test(result[key].trim())) throw new Error(`${key}: expected boolean`);
+  }
+  for (const key of ['PRODUCT_LIST_URL', 'CATALOG_HTML_URL']) {
+    if (result[key]?.trim() && !/^https:\/\/\S+$/.test(result[key].trim())) throw new Error(`${key}: expected an https URL`);
+  }
+  readConfig(result); // validate every min:max filter before any request or write
+  return result;
+}
+
+export async function runtimeControls(env: Record<string, string | undefined> = process.env): Promise<Record<string, string>> {
+  let file: unknown = {};
+  try { file = JSON.parse(await outputReadFile(CONFIG_FILE_URL, 'utf8')); }
+  catch (error) { if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error; }
+  return resolveControls(file, {}, {}, env);
+}
+
+export async function main(argv: string[] = process.argv.slice(2), env: Record<string, string | undefined> = process.env): Promise<void> {
+  if (argv.includes('-h') || argv.includes('--help')) {
+    console.log(USAGE.trim());
+    return;
+  }
+  const controls = await runtimeControls(env);
+  if (controls.VERBOSE !== undefined && env === process.env) process.env.VERBOSE = controls.VERBOSE;
+  await runUpdater(readConfig(controls));
+}
+
+if ((import.meta as { main?: boolean }).main) {
+  await main().catch((error) => {
+    console.error(error instanceof Error ? error.stack : String(error));
+    process.exitCode = 1;
+  });
 }
