@@ -216,7 +216,7 @@ const EDGAR_BROWSE_URL = 'https://www.sec.gov/cgi-bin/browse-edgar';
 // registrant CIK + series/class id, and operating-company ticker -> name.
 const SEC_FUND_TICKERS_URL = 'https://www.sec.gov/files/company_tickers_mf.json';
 const SEC_COMPANY_TICKERS_URL = 'https://www.sec.gov/files/company_tickers.json';
-const SEC_UA_DEFAULT = 'DaggerOk Invesco Feed admin@daggerok.example.com';
+const SEC_UA_DEFAULT = 'daggerok ETF feed daggerok@gmail.com';
 
 const API_ROOT = new URL('../api/invesco/', import.meta.url);
 const INDEX_FILE = new URL('index.json', API_ROOT);
@@ -522,7 +522,7 @@ function configLines(config: UpdaterConfig): string[] {
     `DIVIDEND_YIELD      ${rangeLabel(config.dividendYieldRange)}`,
     `PERFORMANCE_*       ${RETURN_PERIODS.filter((p) => config.performanceRanges[p]).map((p) => `${p}=${rangeLabel(config.performanceRanges[p])}`).join(' ') || 'any'}`,
     `TOTAL_RETURN_*      ${RETURN_PERIODS.filter((p) => config.totalReturnRanges[p]).map((p) => `${p}=${rangeLabel(config.totalReturnRanges[p])}`).join(' ') || 'any'}`,
-    `SEC_UA              ${config.secUa}`,
+    `SEC_UA              <redacted>`,
     `SKIP_YAHOO          ${config.skipYahoo}`,
     `SKIP_INVESCO        ${config.skipInvesco}`,
     `PRICES_HISTORY      ${config.pricesHistory}`,
@@ -597,8 +597,9 @@ Environment variables (all optional; strict "min:max" ranges; AND logic):
   EDGAR_FALLBACK       0/false to skip the SEC EDGAR Form N-PORT-P fallback for
                        funds whose Invesco holdings download is empty
                        (default on; needs the declared SEC_UA).
-  SEC_UA               Override the declared SEC User-Agent (SEC policy
-                       requires a declared contact for automated access).
+  SEC_UA               Declared SEC User-Agent (default daggerok ETF feed
+                       daggerok@gmail.com; the protected Actions variable
+                       SEC_UA overrides it). Redacted in logs.
   SKIP_YAHOO           1/true to skip the Yahoo chart request entirely. Daily
                        close/NAV history still updates from the invesco.com
                        prices & yields CSV when PRICES_HISTORY is on (the
@@ -1117,8 +1118,7 @@ export function weightsSum(rows: JsonRecord[]): number {
 // bond, futures and cash rows come back blank or "n/a". Those rows keep "-"
 // and are keyed by their CUSIP/ISIN Identifier in the Watchlist — the exact
 // convention daggerok/SPDR and daggerok/Fidelity use. Names still missing a
-// ticker are resolved from scripts/held-tickers.ts and, for names the seed
-// does not cover yet, from the Yahoo Finance symbol search with a STRICT name
+// ticker are resolved from the Yahoo Finance symbol search with a STRICT name
 // match so a fuzzy hit can never pin the wrong security.
 // ---------------------------------------------------------------------------
 
