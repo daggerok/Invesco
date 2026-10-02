@@ -130,34 +130,32 @@ function outputCreateReporter(root: URL | string, total: number) {
 
 // Invesco Ltd. (US ETFs) static data updater.
 //
-// Fetches the public Invesco US ETF catalog, the per-fund daily holdings CSV
-// and the per-fund invesco.com "prices & yields" CSV (daily NAV / close
-// history) plus the Yahoo Finance public chart feed (adjusted close / volume
-// + dividend history), then writes a deterministic, paginated static JSON API
-// under ./api/invesco — the same design as the daggerok/SPDR,
-// daggerok/Fidelity and daggerok/iShares updaters (zero dependencies, Bun
-// only: node:fs/promises + fetch).
+// Fetches the invesco.com fund pages and the JSON API behind them (month-end
+// NAV returns, NAV, net assets, yields, full daily holdings) plus the Yahoo
+// Finance public chart feed (adjusted close / volume + dividend history), then
+// writes a deterministic, paginated static JSON API under ./api/invesco - the
+// same design as the daggerok/SPDR, daggerok/Fidelity and daggerok/iShares
+// updaters (zero dependencies, Bun only: node:fs/promises + fetch).
 //
-// Official issuer data wins whenever it exists and is non-empty for a fund;
-// Yahoo is used only for what the official sources don't cover (dividends,
-// exchange listing, live quote) or when an official request fails/is empty
-// for that fund (see PRICES_HISTORY in --help).
+// Official issuer data wins whenever it exists for a fund; Yahoo is used only
+// for what invesco.com does not publish (daily market closes, dividends,
+// exchange listing, live quote) and to fill return periods Invesco does not
+// publish yet (young funds).
 //
-// Data sources
-//   - catalog + fund metrics  : invesco.com "Excel Product List Download"
-//     CSV (every active US Invesco ETF: ticker, name, inception, CUSIP/ISIN,
-//     exchange, category, TER, net assets, NAV, close, premium/discount,
-//     trailing-12m dividend yield, 30-day SEC yield, official returns)
-//   - per-fund daily holdings : invesco.com per-fund "download holdings" CSV
-//     (equity, bond and futures column flavours are normalized)
-//   - daily NAV/close history : invesco.com per-fund "prices & yields" CSV
-//     (default; falls back to the Yahoo chart feed per fund on failure/empty)
-//   - distributions, exchange,
-//     live quote               : Yahoo Finance public chart API (the only
-//     source for these; queried every run regardless of PRICES_HISTORY)
-//   - holdings fallback       : SEC EDGAR Form N-PORT-P filings of the
-//     Invesco ETF registrant (used only when the Invesco download has no
-//     positions for a fund)
+// Data sources (verified live on 2026-10-02; the legacy CSV downloads are gone)
+//   - fund list              : invesco.com sitemap.xml (every live fund page)
+//                              plus every fund already published
+//   - fund facts, expense    : the fund page (CUSIP, ISIN, index, total and net
+//     ratio                    expense ratio are embedded as page JSON)
+//   - returns, NAV, net      : dng-api.invesco.com fund API, addressed by CUSIP
+//     assets, yields           (month-end performance, prices, yieldInformation)
+//   - per-fund daily holdings: dng-api.invesco.com holdings/fund (all positions)
+//   - market history,
+//     distributions, quote   : Yahoo Finance public chart API
+//   - holdings fallback      : SEC EDGAR Form N-PORT-P filings of the Invesco
+//                              ETF registrant (funds invesco.com no longer lists)
+// invesco.com answers HTTP 406 to browser-like User-Agents, so every invesco.com
+// request carries a non-browser User-Agent.
 //
 // Usage: bun ./scripts/update-data.ts   (or ./scripts/update-data.ts --help)
 
@@ -176,35 +174,20 @@ declare const process: {
 type JsonRecord = Record<string, any>;
 
 const INVESCO_SITE = 'https://www.invesco.com';
-const PRODUCT_BASE = `${INVESCO_SITE}/us/en/financial-products/etfs`;
 const LEGACY_BASE = `${INVESCO_SITE}/us/financial-products/etfs`;
+const INVESCO_SITEMAP_URL = `${INVESCO_SITE}/us/en/sitemap.xml`;
+const INVESCO_CATALOG_PAGE = `${INVESCO_SITE}/us/en/financial-products/etfs.html`;
+const DNG_API = 'https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses';
 
-export function invescoFundPageUrl(ticker: string): string {
-  return `${PRODUCT_BASE}/${encodeURIComponent(String(ticker).toLowerCase())}.html`;
-}
-
+// The generic ?ticker= route: invesco.com redirects it to the canonical fund
+// page (or, for a renamed fund, to the page of the new ticker).
 export function invescoProductDetailUrl(ticker: string, audience = 'Investor'): string {
   return `${LEGACY_BASE}/product-detail?audienceType=${encodeURIComponent(audience)}&ticker=${encodeURIComponent(String(ticker).toUpperCase())}`;
 }
 
-export function invescoHoldingsDownloadUrl(ticker: string, audience = 'Investor'): string {
-  return `${LEGACY_BASE}/holdings/main/holdings/0?audienceType=${encodeURIComponent(audience)}&action=download&ticker=${encodeURIComponent(String(ticker).toUpperCase())}`;
-}
-
-export function invescoPricesDownloadUrl(ticker: string, audience = 'Investor'): string {
-  return `${LEGACY_BASE}/pricing/main/prices/0?audienceType=${encodeURIComponent(audience)}&action=download&ticker=${encodeURIComponent(String(ticker).toUpperCase())}`;
-}
-
-export function invescoProductListUrl(audience = 'Advisor'): string {
-  return `${LEGACY_BASE}/performance/prices/main/performance/0?audienceType=${encodeURIComponent(audience)}&action=download`;
-}
-
-
-const INVESCO_CATALOG_PAGE = `${INVESCO_SITE}/us/en/financial-products/etfs.html`;
-const INVESCO_PRODUCT_LIST_URL = invescoProductListUrl();
-
 const YAHOO_CHART_URL = 'https://query1.finance.yahoo.com/v8/finance/chart';
 const YAHOO_SEARCH_URL = 'https://query1.finance.yahoo.com/v1/finance/search';
+const INVESCO_UA = 'daggerok-etf-feed/1.0 (+https://github.com/daggerok/Invesco)';
 const YAHOO_BROWSER_UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36';
 
@@ -218,9 +201,16 @@ const SEC_FUND_TICKERS_URL = 'https://www.sec.gov/files/company_tickers_mf.json'
 const SEC_COMPANY_TICKERS_URL = 'https://www.sec.gov/files/company_tickers.json';
 const SEC_UA_DEFAULT = 'daggerok ETF feed daggerok@gmail.com';
 
-const API_ROOT = new URL('../api/invesco/', import.meta.url);
-const INDEX_FILE = new URL('index.json', API_ROOT);
-const STATE_FILE = new URL('update-state.json', API_ROOT);
+let API_ROOT = new URL('../api/invesco/', import.meta.url);
+let INDEX_FILE = new URL('index.json', API_ROOT);
+let STATE_FILE = new URL('update-state.json', API_ROOT);
+
+/** Tests point the writers at a temporary directory instead of ./api/invesco. */
+export function setApiRootForTests(root: URL): void {
+  API_ROOT = root;
+  INDEX_FILE = new URL('index.json', root);
+  STATE_FILE = new URL('update-state.json', root);
+}
 
 const HOLDINGS_PAGE_SIZE_FALLBACK = 250;
 const HISTORY_PAGE_SIZE_FALLBACK = 1000;
@@ -228,9 +218,6 @@ const CONCURRENCY_FALLBACK = 2;
 const REQUEST_SLEEP_FALLBACK = 1;
 const MAX_RETRIES_FALLBACK = 2;
 
-// Invesco publishes "Fund Assets" in millions on the product list. Anything
-// at or above this bound is already expressed in dollars.
-const NET_ASSETS_MILLIONS_HINT = 5_000_000;
 
 // The three Invesco ETF share classes below are excluded from the feed:
 // Invesco Ltd. (IVZ) is the listed asset manager, not a fund, and the two
@@ -351,17 +338,13 @@ type UpdaterConfig = {
   maxFetches: number;
   holdingsPageSize: number;
   historyPageSize: number;
-  storeRawDownloads: boolean;
   maxRetries: number;
   tickers: string[];
   historyRange: string;
-  audienceType: string;
-  productListUrl: string;
-  catalogHtmlUrl: string;
+  sitemapUrl: string;
   secUa: string;
   skipYahoo: boolean;
   skipInvesco: boolean;
-  pricesHistory: boolean;
   edgarFallback: boolean;
   aumRange?: Range & { source?: string };
   terRange?: Range;
@@ -475,20 +458,16 @@ export function readConfig(env: Record<string, string | undefined> = process.env
     maxFetches: parsePositiveInt(envValue(env, 'MAX_FETCHES', ['INVESCO_LIMIT']), 0),
     holdingsPageSize: parsePositiveInt(envValue(env, 'HOLDINGS_PAGE_SIZE'), HOLDINGS_PAGE_SIZE_FALLBACK),
     historyPageSize: parsePositiveInt(envValue(env, 'HISTORY_PAGE_SIZE', ['HISTORICAL_PAGE_SIZE']), HISTORY_PAGE_SIZE_FALLBACK),
-    storeRawDownloads: parseBoolean(envValue(env, 'STORE_RAW_DOWNLOADS', ['INVESCO_STORE_RAW_DOWNLOADS']), false),
     maxRetries: parsePositiveInt(envValue(env, 'MAX_RETRIES'), MAX_RETRIES_FALLBACK),
     tickers: envValue(env, 'TICKERS')
       .split(/[\s,;]+/)
       .map(sanitizeTicker)
       .filter(Boolean),
     historyRange: envValue(env, 'HISTORY_RANGE') || 'max',
-    audienceType: envValue(env, 'AUDIENCE_TYPE') || 'Investor',
-    productListUrl: envValue(env, 'PRODUCT_LIST_URL') || INVESCO_PRODUCT_LIST_URL,
-    catalogHtmlUrl: envValue(env, 'CATALOG_HTML_URL') || INVESCO_CATALOG_PAGE,
+    sitemapUrl: envValue(env, 'SITEMAP_URL') || INVESCO_SITEMAP_URL,
     secUa: envValue(env, 'SEC_UA') || SEC_UA_DEFAULT,
     skipYahoo: parseBoolean(envValue(env, 'SKIP_YAHOO'), false),
     skipInvesco: parseBoolean(envValue(env, 'SKIP_INVESCO'), false),
-    pricesHistory: parseBoolean(envValue(env, 'PRICES_HISTORY'), true),
     edgarFallback: parseBoolean(envValue(env, 'EDGAR_FALLBACK'), true),
     aumRange: parseAumRange(envValue(env, 'AUM')),
     terRange: parseRange(envValue(env, 'TER'), 'TER'),
@@ -512,11 +491,10 @@ function configLines(config: UpdaterConfig): string[] {
     `MAX_FETCHES         ${config.maxFetches === 0 ? 'all eligible funds (full pass, cursor ignored)' : `${config.maxFetches} per run (resumes after the saved cursor)`}`,
     `HOLDINGS_PAGE_SIZE  ${config.holdingsPageSize}`,
     `HISTORY_PAGE_SIZE   ${config.historyPageSize}`,
-    `STORE_RAW_DOWNLOADS ${config.storeRawDownloads ? 'on' : 'off'}`,
     `MAX_RETRIES         ${config.maxRetries}`,
     `TICKERS             ${config.tickers.length ? config.tickers.join(' ') : 'all Invesco ETFs in the catalog'}`,
     `HISTORY_RANGE       ${config.historyRange} (Yahoo chart range)`,
-    `AUDIENCE_TYPE       ${config.audienceType} (invesco.com audienceType parameter)`,
+    `SITEMAP_URL        ${config.sitemapUrl}`,
     `AUM                 ${rangeLabel(config.aumRange)}`,
     `TER                 ${rangeLabel(config.terRange)}`,
     `DIVIDEND_YIELD      ${rangeLabel(config.dividendYieldRange)}`,
@@ -525,7 +503,6 @@ function configLines(config: UpdaterConfig): string[] {
     `SEC_UA              <redacted>`,
     `SKIP_YAHOO          ${config.skipYahoo}`,
     `SKIP_INVESCO        ${config.skipInvesco}`,
-    `PRICES_HISTORY      ${config.pricesHistory}`,
     `EDGAR_FALLBACK      ${config.edgarFallback}`,
   ];
 }
@@ -538,9 +515,16 @@ Invesco ETF static data updater (Bun, no dependencies).
 
 Defaults live in scripts/update-data.config.json (every control below).
 Precedence: config file < workflow advanced JSON < nonblank workflow inputs <
-environment variables (the protected Actions variables SEC_UA, AUDIENCE_TYPE
-and STORE_RAW_DOWNLOADS are passed as environment). Each control may also be
-set as INVESCO_<NAME>.
+environment variables (the protected Actions variable SEC_UA is passed as
+environment). Each control may also be set as INVESCO_<NAME>.
+
+Data: fund list from the invesco.com sitemap (plus every fund already
+published), fund facts and expense ratio from each fund page, month-end
+returns, NAV, net assets, yields and daily holdings from the JSON API behind
+the fund pages (dng-api.invesco.com, addressed by CUSIP), market history and
+distributions from Yahoo Finance, SEC EDGAR N-PORT-P as the holdings fallback.
+invesco.com answers HTTP 406 to browser-like User-Agents, so the updater sends
+its own non-browser User-Agent.
 
 Environment variables (all optional; strict "min:max" ranges; AND logic):
 
@@ -550,15 +534,16 @@ Environment variables (all optional; strict "min:max" ranges; AND logic):
                        refreshed in one run, starting from the first ticker,
                        and the cursor is reset when it finishes.
                        Legacy alias: INVESCO_LIMIT.
-  REQUEST_SLEEP        Minimum seconds between outgoing request starts,
-                       including retries (default 1). invesco.com and the SEC
-                       both throttle bursty clients; the SEC allows at most 10
-                       requests per second, Yahoo throttles hard, keep >= 1.
-  CONCURRENCY          Parallel fund workers (default 2). Starts are still
-                       globally spaced by REQUEST_SLEEP.
-  MAX_RETRIES          Retries after the initial request (default 2). Only
-                       network errors and HTTP 403/408/425/429/5xx responses
-                       are retried with bounded exponential backoff.
+  REQUEST_SLEEP        Minimum seconds between outgoing request starts per
+                       worker lane, including retries (default 1). invesco.com
+                       and the SEC both throttle bursty clients; the SEC allows
+                       at most 10 requests per second, Yahoo throttles hard,
+                       keep >= 1.
+  CONCURRENCY          Parallel fund workers (default 2). Each worker has its
+                       own paced request lane.
+  MAX_RETRIES          Retries after the initial request (default 2, at least
+                       1). Only network errors and HTTP 403/408/425/429/5xx
+                       responses are retried with bounded exponential backoff.
   TICKERS              Space-, comma- or semicolon-separated ticker allowlist,
                        for example "QQQ QQQM RSP PGX".
   AUM                  Net assets range in USD: "min:max". Bounds accept plain
@@ -566,32 +551,16 @@ Environment variables (all optional; strict "min:max" ranges; AND logic):
                        one of nano, micro, small, mid, large.
   TER                  Expense ratio range in percent, for example "0.1:0.5".
   DIVIDEND_YIELD       Dividend-yield range in percent (the trailing-12-month
-                       yield published by Invesco, indicated when derived here).
+                       distribution rate published by Invesco, indicated when
+                       derived here).
   PERFORMANCE_YTD      Annualized return ranges (also 1Y, 3Y, 5Y, 10Y).
   TOTAL_RETURN_YTD     Cumulative return ranges (also 1Y, 3Y, 5Y, 10Y).
   HOLDINGS_PAGE_SIZE   Rows per generated current-holdings JSON page (default 250).
   HISTORY_PAGE_SIZE    Rows per generated price-history JSON page (default 1000).
                        Legacy alias: HISTORICAL_PAGE_SIZE.
-  STORE_RAW_DOWNLOADS  Store the source holdings CSV / product list under
-                       api/invesco/raw (1/true/yes/on).
-                       Legacy alias: INVESCO_STORE_RAW_DOWNLOADS.
   HISTORY_RANGE        Yahoo chart range for history rows (default "max").
-  AUDIENCE_TYPE        invesco.com audienceType parameter: Investor (default)
-                       or Advisor. The Investor flavor is what the public
-                       product pages serve.
-  PRODUCT_LIST_URL     Override the catalog CSV URL, e.g. to pin an as-of
-                       date: ...?audienceType=Advisor&action=download&asOfDate=MM/DD/YYYY
-  CATALOG_HTML_URL     invesco.com catalog page scraped for the canonical
-                       per-fund page URLs (falls back to ?ticker= links).
-  PRICES_HISTORY       0/false to skip the per-fund invesco.com "prices &
-                       yields" CSV (daily NAV / close history) and use the
-                       Yahoo chart feed for daily closes instead. Default on:
-                       the official CSV is tried first for every fund, and
-                       Yahoo's closes are only used for a fund when that CSV
-                       request fails or returns no rows. Yahoo is still
-                       queried on every run regardless of this flag, since it
-                       is the only source for dividends, exchange listing and
-                       the live quote.
+  SITEMAP_URL          invesco.com sitemap that lists the canonical fund pages
+                       (default ${INVESCO_SITEMAP_URL}).
   VERBOSE              1/true to print per-fund retry and fallback notices
                        (default false).
   USE_SYSTEM_CA        auto, true or false (default auto). TLS trust store:
@@ -600,25 +569,23 @@ Environment variables (all optional; strict "min:max" ranges; AND logic):
                        untrusted-certificate error; true always uses the
                        system CA store; false never restarts.
   EDGAR_FALLBACK       0/false to skip the SEC EDGAR Form N-PORT-P fallback for
-                       funds whose Invesco holdings download is empty
-                       (default on; needs the declared SEC_UA).
+                       funds without Invesco holdings (default on; needs the
+                       declared SEC_UA).
   SEC_UA               Declared SEC User-Agent (default daggerok ETF feed
                        daggerok@gmail.com; the protected Actions variable
                        SEC_UA overrides it). Redacted in logs.
-  SKIP_YAHOO           1/true to skip the Yahoo chart request entirely. Daily
-                       close/NAV history still updates from the invesco.com
-                       prices & yields CSV when PRICES_HISTORY is on (the
-                       default); distributions, exchange listing and the live
-                       quote keep their previously published values, since
-                       only Yahoo carries those.
+  SKIP_YAHOO           1/true to skip the Yahoo chart request entirely. The
+                       invesco.com data still updates; price history,
+                       distributions, exchange listing and the live quote keep
+                       their previously published values.
   SKIP_INVESCO         1/true to update history only (Yahoo), keeping the
-                       previously published catalog values and holdings. Useful
-                       when invesco.com is down and only prices moved.
+                       previously published fund facts, returns and holdings.
+                       Useful when invesco.com is down and only prices moved.
 
 AUM, TER, yield and return filters are evaluated against the freshly
-downloaded catalog values (or the previously published catalog) before the
-heavier per-fund downloads. Funds that are filtered out (or that fail) keep
-their previously published files, exactly like the sibling updaters.
+fetched fund values before the heavier holdings download. Funds that are
+filtered out (or that fail) keep their previously published files, exactly like
+the sibling updaters.
 
 Examples:
 
@@ -626,7 +593,6 @@ Examples:
   TICKERS="QQQ QQQM RSP" ./scripts/update-data.ts
   AUM="1B:" TER=":0.5" ./scripts/update-data.ts
   PERFORMANCE_1Y="15:" ./scripts/update-data.ts
-  STORE_RAW_DOWNLOADS=1 ./scripts/update-data.ts
   SKIP_YAHOO=1 ./scripts/update-data.ts
 `;
 
@@ -699,10 +665,12 @@ function secHeaders(config: UpdaterConfig): Record<string, string> {
   return { 'User-Agent': config.secUa, Accept: 'application/json,*/*' };
 }
 
-// invesco.com sits behind a marketing CDN that answers a plain browser UA and
-// rejects the odd user agents bots usually ship with.
+// invesco.com sits behind a CDN that answers HTTP 406 to browser-like
+// User-Agents (checked on 2026-10-02: Chrome and Safari strings fail, curl, bun
+// and a custom bot string pass, from a laptop and from a GitHub Actions runner).
+// The updater therefore identifies itself honestly instead of posing as a browser.
 function invescoHeaders(): Record<string, string> {
-  return { 'User-Agent': YAHOO_BROWSER_UA, Accept: 'text/csv,application/octet-stream,*/*' };
+  return { 'User-Agent': INVESCO_UA, Accept: 'application/json,text/html;q=0.9,application/xml;q=0.8,*/*;q=0.5' };
 }
 
 async function fetchText(url: string, label: string, headers: Record<string, string>, config: UpdaterConfig): Promise<string> {
@@ -717,120 +685,6 @@ async function fetchJson(url: string, label: string, headers: Record<string, str
   } catch {
     throw new Error(`${label}: response is not valid JSON`);
   }
-}
-
-// ---------------------------------------------------------------------------
-// CSV layer (RFC-4180 subset) — Invesco ships real CSV, unlike SPDR's XLSX
-// ---------------------------------------------------------------------------
-
-export type CsvTable = string[][];
-
-export function parseCsv(text: string): CsvTable {
-  const rows: CsvTable = [];
-  let row: string[] = [];
-  let field = '';
-  let quoted = false;
-  const source = String(text ?? '').replace(/^\uFEFF/, '');
-  for (let i = 0; i < source.length; i++) {
-    const char = source[i];
-    if (quoted) {
-      if (char === '"') {
-        if (source[i + 1] === '"') {
-          field += '"';
-          i += 1;
-        } else {
-          quoted = false;
-        }
-      } else {
-        field += char;
-      }
-      continue;
-    }
-    if (char === '"') {
-      quoted = true;
-      continue;
-    }
-    if (char === ',') {
-      row.push(field);
-      field = '';
-      continue;
-    }
-    if (char === '\n' || char === '\r') {
-      if (char === '\r' && source[i + 1] === '\n') i += 1;
-      row.push(field);
-      field = '';
-      if (row.some((cell) => cell.trim() !== '')) rows.push(row);
-      row = [];
-      continue;
-    }
-    field += char;
-  }
-  row.push(field);
-  if (row.some((cell) => cell.trim() !== '')) rows.push(row);
-  return rows;
-}
-
-// Header lookups ignore case, spaces and punctuation: invesco.com renames
-// columns between its Investor/Advisor flavors far more often than it changes
-// their meaning.
-function headerKey(name: unknown): string {
-  return String(name ?? '').replace(/[^a-z0-9]/gi, '').toLowerCase();
-}
-
-/**
- * invesco.com prefixes its downloads with legal/footer lines (fund company,
- * copyright, disclaimers), so the header row is located by content instead of
- * by a fixed row index.
- */
-export function findHeaderRowIndex(rows: CsvTable, requiredColumns: string[]): number {
-  const required = requiredColumns.map(headerKey);
-  for (let i = 0; i < Math.min(rows.length, 25); i++) {
-    const cells = (rows[i] || []).map(headerKey);
-    if (cells.length < 3) continue;
-    if (required.every((name) => cells.includes(name))) return i;
-  }
-  return -1;
-}
-
-/** Rows keyed by header name (original spelling preserved, first wins). */
-export function csvRecords(rows: CsvTable, headerIndex: number): JsonRecord[] {
-  const headers = (rows[headerIndex] || []).map((cell) => cleanText(cell));
-  const records: JsonRecord[] = [];
-  for (let i = headerIndex + 1; i < rows.length; i++) {
-    const row = rows[i];
-    if (!row || !row.some((cell) => String(cell ?? '').trim() !== '')) continue;
-    const record: JsonRecord = {};
-    for (let c = 0; c < headers.length; c++) {
-      const header = headers[c];
-      if (!header || Object.prototype.hasOwnProperty.call(record, header)) continue;
-      record[header] = String(row[c] ?? '').trim();
-    }
-    records.push(record);
-  }
-  return records;
-}
-
-/** First non-empty value among the candidate column names. */
-export function pickColumn(record: JsonRecord, candidates: string[]): string {
-  const wanted = candidates.map(headerKey);
-  const keys = Object.keys(record);
-  for (const name of wanted) {
-    for (const key of keys) {
-      if (headerKey(key) !== name) continue;
-      const value = record[key];
-      if (value !== undefined && value !== null && String(value).trim() !== '') return String(value).trim();
-    }
-  }
-  return '';
-}
-
-function pickNumber(record: JsonRecord, candidates: string[]): number | null {
-  return numberOrNull(pickColumn(record, candidates));
-}
-
-function pickDate(record: JsonRecord, candidates: string[]): string {
-  const raw = pickColumn(record, candidates);
-  return raw ? toIsoDate(raw) : '';
 }
 
 // ---------------------------------------------------------------------------
@@ -882,6 +736,9 @@ const EMPTY_RETURNS: CatalogReturns = { ytd: null, yr1: null, yr3: null, yr5: nu
 // like the sibling apps' (Fidelity: "US Equity", "Factor", "Bond").
 const CATEGORY_LABELS: Record<string, string> = {
   'us equity': 'US Equity',
+  'u s equity': 'US Equity',
+  'global ex us equity': 'International',
+  'sector equity': 'Sector',
   'international equity': 'International',
   'asia-pacific equity': 'Asia-Pacific Equity',
   'europe middle east africa equity': 'EMEA Equity',
@@ -933,121 +790,8 @@ export function normalizeInvescoCategory(raw: unknown): string {
   return head ? head.replace(/\b\w/g, (letter) => letter.toUpperCase()) : 'ETF';
 }
 
-// Invesco's product list reports YTD/1Y as cumulative returns and 3Y/5Y/10Y
-// as annualized ones; the catalog exposes both flavors, so `years` converts
-// annualized figures into the cumulative total return the UI also shows.
-export function readReturn(record: JsonRecord, candidates: string[], annualizedYears: number | null = null): number | null {
-  const raw = pickNumber(record, candidates);
-  if (raw === null) return null;
-  if (annualizedYears && annualizedYears > 0) return round(((1 + raw / 100) ** annualizedYears - 1) * 100, 2);
-  return round(raw, 2);
-}
-
-// The returns date above the product list table ("Returns as of MM/DD/YYYY",
-// or the "Performance (%) as of MM/DD/YYYY" caption of the invesco.com table)
-// is the performance as-of date (not the NAV date). The legacy CSV download
-// answers HTTP 406/301 to every non-browser client (CI included), so this
-// format could not be verified against a live file: the parser accepts both
-// captions and returns null when neither is present.
-export function parseReturnsAsOf(preamble: string): string | null {
-  const match = /(?:returns?|performance(?:\s*\(%\))?)\s+(?:are\s+)?as\s+of\s*:?\s*(\d{1,2}\/\d{1,2}\/\d{4}|\d{4}-\d{2}-\d{2})/i.exec(preamble);
-  return match ? toIsoDate(match[1]) : null;
-}
-
-export function parseProductList(text: string, fundPages: Map<string, string> = new Map()): CatalogFund[] {
-  const rows = parseCsv(text);
-  const headerIndex = findHeaderRowIndex(rows, ['Ticker']);
-  if (headerIndex < 0) throw new Error('product list: no header row with a "Ticker" column found');
-  const preambleReturnsAsOf = parseReturnsAsOf(rows.slice(0, headerIndex).map((row) => row.join(',')).join('\n'));
-  const records = csvRecords(rows, headerIndex);
-  const funds: CatalogFund[] = [];
-  const seen = new Set<string>();
-  for (const record of records) {
-    const ticker = sanitizeTicker(pickColumn(record, ['Ticker', 'Fund Ticker', 'Symbol']));
-    if (!ticker || seen.has(ticker)) continue;
-    if (EXCLUDED_FUND_NAMES.some((pattern) => pattern.test(pickColumn(record, ['Fund Name', 'Name', 'Fund'])))) continue;
-    seen.add(ticker);
-    const close = pickNumber(record, ['Close Price', 'Close', 'Market Price', 'Closing Price', 'Last Price', 'Price']);
-    const nav = pickNumber(record, ['NAV', 'NAV Price', 'Net Asset Value', 'Nav']);
-    const publishedPremium = pickNumber(record, ['Premium/Discount', 'Premium Discount', 'Prem/Disc', 'Premium/Discount (%)']);
-    const categoryPath = pickColumn(record, ['Fund Category', 'Category', 'Fund Type', 'Asset Class', 'Asset Category']);
-    const netAssetsRaw = pickNumber(record, ['Fund Assets', 'Net Assets', 'Total Net Assets', 'Fund Assets ($m)', 'Fund Assets ($MM)']);
-    funds.push({
-      ticker,
-      name: cleanText(pickColumn(record, ['Fund Name', 'Name', 'Fund'])) || ticker,
-      category: normalizeInvescoCategory(categoryPath),
-      categoryPath: categoryPath || 'ETF',
-      inception: pickDate(record, ['Inception Date', 'Inception_Date', 'Inception', 'Launch Date']) || null,
-      exchange: cleanText(pickColumn(record, ['Exchange', 'Primary Exchange', 'Listing Exchange'])),
-      cusip: pickColumn(record, ['CUSIP', 'Cusip']),
-      isin: pickColumn(record, ['ISIN', 'Isin']),
-      benchmark: cleanText(pickColumn(record, ['Index Ticker', 'Benchmark Ticker', 'Benchmark'])),
-      ter: pickNumber(record, ['Gross Expense Ratio', 'Total Expense Ratio', 'Expense Ratio', 'Net Expense Ratio']),
-      nav,
-      close,
-      premiumDiscount:
-        publishedPremium !== null ? publishedPremium : nav && close ? round(((close - nav) / nav) * 100, 2) : null,
-      netAssets: netAssetsRaw === null ? null : Math.abs(netAssetsRaw) < NET_ASSETS_MILLIONS_HINT ? round(netAssetsRaw * 1e6, 2) : round(netAssetsRaw, 2),
-      dividendYield: pickNumber(record, ['Trailing 12m Dividend Rate', 'Trailing 12-Month Yield', 'Trailing 12 Month Yield', 'Dividend Yield', 'Yield']),
-      secYield: pickNumber(record, ['SEC 30 Day', '30 Day SEC Yield', 'SEC Yield', 'SEC 30-Day', 'SEC 30 Day Yield']),
-      distributionRate: pickNumber(record, ['Distribution Rate', 'Distribution Rate (%)']),
-      asOfDate: pickDate(record, ['As Of Date', 'As_Of_Date', 'Data Date', 'NAV Date', 'Pricing Date']) || null,
-      returnsAsOf: pickDate(record, ['Returns As Of', 'Returns_As_Of', 'Performance As Of', 'Performance Date']) || preambleReturnsAsOf,
-      returns: {
-        ytd: readReturn(record, ['YTD', 'YTD Return', 'YTD Gross']),
-        yr1: readReturn(record, ['12 M', '12M', '1 Year', '1Y', 'Trailing 12 Month']),
-        yr3: readReturn(record, ['3 Yr Ann', '3 Yr', '3 Year', '3Y'], 3),
-        yr5: readReturn(record, ['5 Yr Ann', '5 Yr', '5 Year', '5Y'], 5),
-        yr10: readReturn(record, ['10 Yr Ann', '10 Yr', '10 Year', '10Y'], 10),
-        sinceInception: readReturn(record, ['Since Inception Ann', 'Since Inception (Ann.)', 'Since Inception']),
-      },
-      fundPage: fundPages.get(ticker) || invescoProductDetailUrl(ticker),
-      trustCik: null,
-      source: 'invesco',
-    });
-  }
-  if (!funds.length) throw new Error('product list: no fund rows found');
-  // The download is grouped by category; alphabetize so a rerun is diffable.
-  return funds.sort((a, b) => (a.ticker < b.ticker ? -1 : a.ticker > b.ticker ? 1 : 0));
-}
-
-// invesco.com serves canonical, human-readable fund pages
-// (/us/en/financial-products/etfs/<slug>.html). The product-list CSV has no
-// links, so they are scraped from the catalog page; if that ever fails the
-// generic ?ticker= route is used and the feed stays correct, just uglier.
-export function parseCatalogFundPages(html: string): Map<string, string> {
-  const pages = new Map<string, string>();
-  const anchorPattern = /<a\b[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gi;
-  for (const match of String(html ?? '').matchAll(anchorPattern)) {
-    const href = cleanText(match[1]);
-    const slugMatch = /\/us\/en\/financial-products\/etfs\/([a-z0-9-]+)\.html$/i.exec(href.split('?')[0]);
-    if (!slugMatch) continue;
-    const text = cleanText((match[2] || '').replace(/<[^>]*>/g, ' '));
-    // The catalog labels a fund row with its ticker either inside the link text
-    // or as the first segment of the page title ("<Ticker> | Invesco"); a plain
-    // article link ("Read more") matches neither and is ignored.
-    const titleMatch = /(?:^|\|)\s*([A-Z0-9.\-]{1,6})\s*(?:\||$)/.exec(text);
-    const ticker = sanitizeTicker(titleMatch ? titleMatch[1] : '');
-    // Only a link that actually shows the ticker is trusted, so an unrelated
-    // /etfs/<slug>.html page can never be attributed to the wrong fund.
-    if (!ticker || ticker.length > 6 || pages.has(ticker)) continue;
-    if (!new RegExp(`(^|[^A-Z0-9])${ticker.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}([^A-Z0-9]|$)`).test(text)) continue;
-    const absolute = /^https?:\/\//i.test(href) ? href : `${INVESCO_SITE}${href.startsWith('/') ? '' : '/'}${href}`;
-    pages.set(ticker, absolute);
-  }
-  return pages;
-}
-
 // ---------------------------------------------------------------------------
-// Holdings layer: the per-fund invesco.com "download holdings" CSV
-//
-// Three column flavours exist on invesco.com:
-//   equity  : "Holding Ticker", "Name", "Weight", "Shares/Par Value",
-//             "Market Value", "Security Identifier", "Sector", "Date"
-//   bond    : "Security Identifier"/"CUSIP", "PercentageOfFund", "CouponRate",
-//             "MaturityDate", "Rating", "PositionDate" (no exchange ticker)
-//   futures : "Commodity"/contract rows with notionals and no share counts
-// All of them normalize to the shared sheet headers the sibling apps use.
+// Holdings layer: shared sheet headers (equity and bond flavours)
 // ---------------------------------------------------------------------------
 
 export const HOLDINGS_HEADERS = ['Name', 'Ticker', 'Identifier', 'Weight', 'Market Value', 'Shares Held', 'Asset Category'];
@@ -1059,77 +803,207 @@ export type ParsedHoldings = {
   rows: JsonRecord[];
 };
 
-// The fund-level "Ticker" column on a holdings export is the ETF itself; only
-// "Holding Ticker" is a security symbol. This guard makes an export that
-// reuses the header name harmless.
-function sanitizeHoldingTickerColumn(raw: string): string {
-  return /^fund$/i.test(raw.trim()) ? '' : raw;
+// ---------------------------------------------------------------------------
+// Official invesco.com layer: the fund pages and the JSON API behind them
+//
+// The legacy CSV downloads (product list, per-fund holdings, prices & yields)
+// are gone: they answer a redirect to the catalog page, and any browser-like
+// User-Agent gets HTTP 406. What invesco.com still publishes, without a key:
+//   - sitemap.xml                  : the canonical page of every live US ETF
+//   - <fund page>.html             : fund facts (ticker, CUSIP, ISIN, index,
+//                                    expense ratios) embedded as page JSON
+//   - dng-api.invesco.com/cache/v1 : month-end performance, daily NAV/price/
+//                                    net assets, yields and the full daily
+//                                    holdings, addressed by CUSIP
+// Every request must carry a non-browser User-Agent (see invescoHeaders()).
+// ---------------------------------------------------------------------------
+
+export type FundPageInfo = {
+  ticker: string;
+  cusip: string;
+  isin: string;
+  name: string;
+  benchmark: string;
+  exchange: string;
+  inception: string | null;
+  ter: number | null;
+  netTer: number | null;
+  managementFee: number | null;
+  assetClass: string;
+  assetSubClass: string;
+};
+
+export type OfficialPerformance = { asOfDate: string | null; returns: CatalogReturns };
+export type OfficialPrices = { asOfDate: string | null; nav: number | null; close: number | null; netAssets: number | null };
+export type OfficialYields = { secYield: number | null; dividendYield: number | null; distributionRate: number | null };
+
+const FUND_PAGE_URL_RE = /^https:\/\/www\.invesco\.com\/us\/en\/financial-products\/etfs\/([a-z0-9-]+)\.html$/i;
+
+export function dngUrl(cusip: string, endpoint: 'performance' | 'prices' | 'yields' | 'holdings'): string {
+  const id = encodeURIComponent(String(cusip).toUpperCase());
+  const common = 'idType=cusip&productType=ETF';
+  switch (endpoint) {
+    case 'performance':
+      return `${DNG_API}/${id}/performance/standard?${common}&performanceSubType=annualized&performancePeriod=monthly`;
+    case 'prices':
+      return `${DNG_API}/${id}/prices?${common}&variationType=priceListing&productSubType=ETF`;
+    case 'yields':
+      return `${DNG_API}/${id}?expand=nav&${common}&variationType=yieldInformation&managementFeeWaiver=0.0`;
+    case 'holdings':
+      return `${DNG_API}/${id}/holdings/fund?${common}`;
+  }
 }
 
-export function parseInvescoHoldings(text: string, ticker: string): ParsedHoldings {
-  const rows = parseCsv(text);
-  let headerIndex = findHeaderRowIndex(rows, ['Name']);
-  const bondOnly = headerIndex < 0;
-  if (bondOnly) headerIndex = findHeaderRowIndex(rows, ['Security Identifier']);
-  if (bondOnly && headerIndex < 0) headerIndex = findHeaderRowIndex(rows, ['PositionDate']);
-  if (headerIndex < 0) throw new Error(`${ticker}: holdings CSV has no recognizable header row`);
-  const records = csvRecords(rows, headerIndex);
-  const fundTicker = sanitizeTicker(ticker);
-  const holdings: JsonRecord[] = [];
-  let asOfDate: string | null = null;
-  let hasBondColumns = false;
-  for (const record of records) {
-    const recordFund = sanitizeTicker(pickColumn(record, ['Fund Ticker']));
-    if (recordFund && recordFund !== fundTicker) continue; // guard against a misrouted download
-    const name = cleanText(
-      pickColumn(record, ['Name', 'Security Name', 'Security Description', 'Description', 'Issuer Name', 'Commodity', 'Underlying', 'Title']),
-    );
-    if (!name) continue;
-    const identifier = pickColumn(record, ['Security Identifier', 'CUSIP', 'ISIN', 'SEDOL', 'Identifier', 'Other Identifier']);
-    const rawHoldingTicker = sanitizeHoldingTickerColumn(pickColumn(record, ['Holding Ticker', 'Ticker', 'Symbol']));
-    const holdingTicker = cleanHoldingTicker(rawHoldingTicker) || '-';
-    const weight = pickNumber(record, ['Weight', 'PercentageOfFund', 'PercentOfFund', '% of Fund EOD', '% of Fund', 'Portfolio Weight', '% of Fund NAV']);
-    const marketValue = pickNumber(record, ['Market Value', 'MarketValue', 'Notional Value', 'Value', 'Market Price']);
-    const shares = pickColumn(record, ['Shares/Par Value', 'Shares Held', 'Shares', 'Par Value', 'Face Value', 'Quantity', 'Units', 'Balance']);
-    const sector = pickColumn(record, ['Sector', 'Asset Category', 'Sub Category', 'Industry', 'Asset Class']);
-    const coupon = pickNumber(record, ['CouponRate', 'Coupon', 'Coupon Rate', 'Current Coupon', 'Interest Rate']);
-    const maturity = pickDate(record, ['MaturityDate', 'Maturity Date', 'Maturity']);
-    const rating = pickColumn(record, ['Rating', 'Moody', 'S&P']);
-    if (coupon !== null || maturity || rating) hasBondColumns = true;
-    asOfDate = asOfDate || pickDate(record, ['Date', 'PositionDate', 'As Of Date', 'As_Of_Date']) || null;
-    const row: JsonRecord = {
-      Name: name,
-      Ticker: holdingTicker,
-      Identifier: identifier || '-',
-      Weight: weight === null ? '' : String(round(weight, 6)),
-      'Market Value': marketValue === null ? '' : normalizeNumberText(String(marketValue)),
-      'Shares Held': shares ? normalizeNumberText(shares) : '-',
-      'Asset Category': cleanText(rating ? `${sector ? `${sector} / ` : ''}${rating}` : sector) || '-',
-    };
-    if (hasBondColumns) {
-      row['Coupon'] = coupon === null ? '' : String(round(coupon, 4));
-      row['Maturity'] = maturity ? formatEdgarDate(maturity) : '';
-    }
-    holdings.push(row);
+/** Unique canonical fund page URLs listed in the US sitemap, in file order. */
+export function parseSitemapFundPages(xml: string): string[] {
+  const urls: string[] = [];
+  const seen = new Set<string>();
+  for (const match of String(xml ?? '').matchAll(/<loc>\s*([^<\s]+)\s*<\/loc>/gi)) {
+    const url = cleanText(match[1]).replace(/^http:/i, 'https:');
+    if (!FUND_PAGE_URL_RE.test(url) || seen.has(url)) continue;
+    seen.add(url);
+    urls.push(url);
   }
-  if (!holdings.length) throw new Error(`${ticker}: holdings CSV contains no positions`);
-  const headers = hasBondColumns ? BOND_SHEET_HEADERS : HOLDINGS_HEADERS;
+  return urls;
+}
+
+/** True for a real slug page (the old `<ticker>.html` guesses never resolved). */
+export function isFundPageUrl(url: unknown, ticker?: string): boolean {
+  const match = FUND_PAGE_URL_RE.exec(String(url ?? ''));
+  if (!match) return false;
+  return !ticker || match[1].toLowerCase() !== ticker.toLowerCase();
+}
+
+// The page embeds its component configuration as JSON inside HTML attributes
+// (&#34; for quotes), so the markup is decoded before fields are read.
+function decodePageJson(html: string): string {
+  return String(html ?? '').replace(/&#34;|&quot;/g, '"').replace(/&amp;/g, '&');
+}
+
+function pageField(text: string, key: string): string {
+  const match = new RegExp(`"${key}":"([^"]*)"`).exec(text);
+  return match ? cleanText(match[1]) : '';
+}
+
+/**
+ * Fund facts of one invesco.com fund page, or null when the page is not a fund
+ * page (country splash, 404, marketing microsite such as the QQQ home page).
+ */
+export function parseFundPage(html: string): FundPageInfo | null {
+  const text = decodePageJson(html);
+  const facts = /"productListFieldValueMap":\{("ticker":"[^}]*)\}/.exec(text);
+  if (!facts) return null;
+  const body = facts[1];
+  const ticker = sanitizeTicker(pageField(body, 'ticker'));
+  const cusip = pageField(body, 'cusip').toUpperCase();
+  if (!ticker || !/^[0-9A-Z]{9}$/.test(cusip)) return null;
+  const inception = pageField(body, 'InceptionDate');
   return {
-    asOfDate,
-    headers,
-    rows: holdings.map((row) => {
-      const next: JsonRecord = {};
-      for (const header of headers) next[header] = row[header] ?? '';
-      return next;
-    }),
+    ticker,
+    cusip,
+    isin: pageField(body, 'isin').toUpperCase(),
+    name: pageField(text, 'fundName') || cleanText((/<title>([^<|]*)/i.exec(html) || [])[1] || ''),
+    benchmark: pageField(body, 'bloombergTicker'),
+    exchange: pageField(body, 'exchange'),
+    inception: inception ? toIsoDate(inception) : null,
+    ter: numberOrNull(pageField(body, 'totalExpenseRatio')),
+    netTer: numberOrNull(pageField(body, 'netExpenseRatio')),
+    managementFee: numberOrNull(pageField(body, 'managementFee')),
+    assetClass: pageField(text, 'assetClass'),
+    assetSubClass: pageField(text, 'assetSubClass'),
   };
 }
 
-// Summed weight (percent) — used as a sanity check before a sheet is kept: a
-// holdings file whose weights do not remotely add up to ~100 is almost
-// certainly a different column layout than the one we can read.
-export function weightsSum(rows: JsonRecord[]): number {
-  return round(rows.reduce((sum, row) => sum + (numberOrNull(row.Weight) || 0), 0), 4);
+function isoOrNull(raw: unknown): string | null {
+  const iso = toIsoDate(raw);
+  return /^\d{4}-\d{2}-\d{2}$/.test(iso) ? iso : null;
+}
+
+const percent = (raw: unknown): number | null => {
+  const value = numberOrNull(raw);
+  return value === null ? null : round(value, 2);
+};
+
+/** Month-end annualized NAV returns of the "fund" row (YTD and 1Y cumulative, 3Y+ annualized). */
+export function parseDngPerformance(payload: JsonRecord): OfficialPerformance {
+  const rows: JsonRecord[] = Array.isArray(payload?.annualizedPerformance) ? payload.annualizedPerformance : [];
+  const row = rows.find((candidate) => candidate?.label === 'fund');
+  if (!row) throw new Error('performance: no fund NAV row');
+  return {
+    asOfDate: isoOrNull(payload.effectiveDate),
+    returns: {
+      ytd: percent(row.ytd),
+      yr1: percent(row.y1),
+      yr3: percent(row.y3),
+      yr5: percent(row.y5),
+      yr10: percent(row.y10),
+      sinceInception: percent(row.inception),
+    },
+  };
+}
+
+export function parseDngPrices(payload: JsonRecord): OfficialPrices {
+  const nav = numberOrNull(payload?.nav);
+  const close = numberOrNull(payload?.closingPrice);
+  if (nav === null && close === null) throw new Error('prices: no NAV or closing price');
+  const netAssets = numberOrNull(payload?.marketValue);
+  return {
+    asOfDate: isoOrNull(payload.effectiveDate),
+    nav: nav === null ? null : round(nav, 6),
+    close,
+    netAssets: netAssets === null ? null : round(netAssets, 2),
+  };
+}
+
+export function parseDngYields(payload: JsonRecord): OfficialYields {
+  if (!payload || typeof payload !== 'object' || !('cusip' in payload)) throw new Error('yields: unexpected payload');
+  return {
+    secYield: percent(payload.secYield30Day),
+    dividendYield: percent(payload.twelveMonthDistributionRate),
+    distributionRate: percent(payload.distributionYield),
+  };
+}
+
+/** Full daily holdings of one fund (percent weights; bond rows keep coupon and maturity). */
+export function parseDngHoldings(payload: JsonRecord, ticker: string): ParsedHoldings {
+  const raw: JsonRecord[] = Array.isArray(payload?.holdings) ? payload.holdings : [];
+  // Futures carry a maturityDate too (the contract expiry), so those rows do not count as bonds.
+  const isBond = (item: JsonRecord): boolean => (Boolean(item.maturityDate) && !item.contractExpiryDate) || (numberOrNull(item.coupon) ?? 0) > 0;
+  const hasBondColumns = raw.some(isBond);
+  const rows: JsonRecord[] = [];
+  for (const item of raw) {
+    const name = cleanText(item?.issuerName);
+    if (!name) continue;
+    const weight = numberOrNull(item.percentageOfTotalNetAssets);
+    const value = numberOrNull(item.marketValueBase);
+    const units = numberOrNull(item.units);
+    const rating = cleanText(item.spMoodysRating);
+    const sector = cleanText(item.sectorName) || cleanText(item.securityTypeName);
+    const bond = isBond(item);
+    const row: JsonRecord = {
+      Name: name,
+      // Bond, futures and cash rows carry internal codes instead of exchange tickers.
+      Ticker: bond ? '-' : cleanHoldingTicker(item.ticker) || '-',
+      Identifier: cleanText(item.cusip) || '-',
+      Weight: weight === null ? '' : String(round(weight, 6)),
+      'Market Value': value === null ? '' : normalizeNumberText(String(value)),
+      'Shares Held': units === null ? '-' : normalizeNumberText(String(units)),
+      'Asset Category': (bond && rating && rating !== 'NR/NR' ? `${sector ? `${sector} / ` : ''}${rating}` : sector) || '-',
+    };
+    if (hasBondColumns) {
+      const coupon = numberOrNull(item.coupon);
+      const maturity = isoOrNull(item.maturityDate);
+      row['Coupon'] = coupon === null ? '' : String(round(coupon, 4));
+      row['Maturity'] = maturity ? formatEdgarDate(maturity) : '';
+    }
+    rows.push(row);
+  }
+  if (!rows.length) throw new Error(`${ticker}: holdings payload contains no positions`);
+  return {
+    asOfDate: isoOrNull(payload.effectiveBusinessDate) || isoOrNull(payload.effectiveDate),
+    headers: hasBondColumns ? BOND_SHEET_HEADERS : HOLDINGS_HEADERS,
+    rows,
+  };
 }
 
 // ---------------------------------------------------------------------------
@@ -1563,34 +1437,6 @@ function chartUrl(ticker: string, config: UpdaterConfig): string {
   return `${YAHOO_CHART_URL}/${encodeURIComponent(ticker)}?period1=${period1}&period2=${period2}&interval=1d&events=div%7Csplit`;
 }
 
-// The per-fund "prices & yields" download: one row per business day with the
-// NAV, close, premium/discount and published yields. This is the default
-// source for the History tab's daily close/NAV rows (PRICES_HISTORY=1 by
-// default); the Yahoo chart feed's closes are used instead only when this
-// request fails or returns no rows for the fund (PRICES_HISTORY=0 disables
-// this source entirely).
-export function parsePricesCsv(text: string, ticker: string): { days: ChartDay[]; navByDate: Map<string, number>; asOfDate: string | null } {
-  const rows = parseCsv(text);
-  const headerIndex = findHeaderRowIndex(rows, ['Date']);
-  if (headerIndex < 0) throw new Error(`${ticker}: prices CSV has no recognizable header row`);
-  const records = csvRecords(rows, headerIndex);
-  const days: ChartDay[] = [];
-  const navByDate = new Map<string, number>();
-  let asOfDate: string | null = null;
-  for (const record of records) {
-    const date = pickDate(record, ['Date', 'Price Date', 'As Of Date']);
-    if (!date) continue;
-    const close = pickNumber(record, ['Close Price', 'Close', 'Closing Price', 'Market Price']);
-    const nav = pickNumber(record, ['NAV', 'Nav', 'Net Asset Value']);
-    if (nav !== null) navByDate.set(date, nav);
-    if (close === null || close <= 0) continue;
-    days.push({ date, close: round(close, 6), adjClose: round(close, 6), volume: pickNumber(record, ['Volume']) ?? 0 });
-  }
-  days.sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0));
-  asOfDate = days.length ? days[days.length - 1].date : null;
-  return { days, navByDate, asOfDate };
-}
-
 // ---------------------------------------------------------------------------
 // Derived catalog metrics (unit-tested helpers, sibling parity)
 // ---------------------------------------------------------------------------
@@ -1739,22 +1585,29 @@ export function lastCompletedQuarterEnd(now = new Date()): Date {
 }
 
 export const OFFICIAL_RETURNS_BASIS =
-  'official Invesco NAV total returns (product list download); periods Invesco does not publish (young funds) are filled from adjusted closes';
+  'official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close, so the date is the official one';
+
+// A fund without a fresh month-end table (renamed, matured or delisted funds, or a
+// failed request) keeps the last official figures that were published; they are
+// labelled as not refreshed, never as fresh.
+export const STALE_OFFICIAL_RETURNS_BASIS =
+  'last published official Invesco NAV total returns (not refreshed in this run: invesco.com provided no month-end table for this fund, for example a renamed or delisted one); periods Invesco did not publish are filled from adjusted closes';
 
 /**
  * `returnsBasis` and `performanceAsOf` (STANDARD.md 9a). Official returns are
- * as of the product list's returns date (null when the list carries none);
- * derived ones are as of the last close used. Never the NAV date.
+ * as of the effective date of Invesco's month-end performance table (null when
+ * unknown); derived ones are as of the last close used. Never the NAV date.
  */
 export function returnsBasisFields(
   hasOfficial: boolean,
   derivedAsOfDate: string | null | undefined,
   derivedCloseSource = 'Yahoo chart API',
   officialReturnsAsOf: string | null = null,
+  officialBasis: string = OFFICIAL_RETURNS_BASIS,
 ): { returnsBasis: string; performanceAsOf: string | null } {
   const iso = (value: string | null | undefined): string | null => (value && /^\d{4}-\d{2}-\d{2}$/.test(value) ? value : null);
   return hasOfficial
-    ? { returnsBasis: OFFICIAL_RETURNS_BASIS, performanceAsOf: iso(officialReturnsAsOf) }
+    ? { returnsBasis: officialBasis, performanceAsOf: iso(officialReturnsAsOf) }
     : {
         returnsBasis: `derived from adjusted market-price closes (${derivedCloseSource}), estimates and not official NAV returns`,
         performanceAsOf: iso(derivedAsOfDate),
@@ -1777,6 +1630,7 @@ export function deriveCatalogMetrics(
   price: number | null,
   derivedCloseSource = 'Yahoo chart API',
   officialReturnsAsOf: string | null = null,
+  officialBasis: string = OFFICIAL_RETURNS_BASIS,
 ): JsonRecord {
   const coalesce = (value: number | null | undefined): number | null => (typeof value === 'number' && Number.isFinite(value) ? value : null);
   const ytd = coalesce(official.ytd) ?? coalesce(derived.ytd);
@@ -1801,7 +1655,7 @@ export function deriveCatalogMetrics(
     dividendYieldText: text(dividendYield) ?? '—',
     secYield: coalesce(publishedSecYield),
     secYieldText: text(coalesce(publishedSecYield)) ?? '—',
-    ...returnsBasisFields(Object.values(official).some((value) => value !== null), derived.asOfDate, derivedCloseSource, officialReturnsAsOf),
+    ...returnsBasisFields(Object.values(official).some((value) => value !== null), derived.asOfDate, derivedCloseSource, officialReturnsAsOf, officialBasis),
   };
 }
 
@@ -1941,6 +1795,9 @@ async function writeUpdateState(lastProcessedTicker: string | null): Promise<voi
   });
 }
 
+// The published universe: index.json rows plus a row rebuilt from every
+// funds/<ticker>/meta.json the index does not list, so no run ever drops a
+// fund that has published files.
 async function readPreviousIndex(): Promise<Map<string, JsonRecord>> {
   const map = new Map<string, JsonRecord>();
   try {
@@ -1951,7 +1808,67 @@ async function readPreviousIndex(): Promise<Map<string, JsonRecord>> {
   } catch {
     // First run.
   }
+  let tickers: string[] = [];
+  try {
+    tickers = await readdir(new URL('funds/', API_ROOT));
+  } catch {
+    // No fund files yet.
+  }
+  for (const ticker of tickers) {
+    if (map.has(ticker)) continue;
+    const meta = await readPreviousMeta(ticker);
+    if (typeof meta.ticker === 'string') map.set(ticker, indexRowFromMeta(meta));
+  }
   return map;
+}
+
+export function indexRowFromMeta(meta: JsonRecord): JsonRecord {
+  const ticker = String(meta.ticker);
+  const returns = (meta.returns as JsonRecord) || {};
+  const monthEnd = (returns.monthEnd as JsonRecord) || {};
+  const wasDerived = /^(derived|adjusted)/.test(String(returns.returnsBasis ?? ''));
+  const official: CatalogReturns = wasDerived
+    ? EMPTY_RETURNS
+    : {
+        ytd: numberOrNull(monthEnd.ytd),
+        yr1: numberOrNull(monthEnd.yr1),
+        yr3: numberOrNull(monthEnd.yr3),
+        yr5: numberOrNull(monthEnd.yr5),
+        yr10: numberOrNull(monthEnd.yr10),
+        sinceInception: numberOrNull(monthEnd.sinceInception),
+      };
+  const yields = (meta.yields as JsonRecord) || {};
+  const asOf = typeof returns.performanceAsOf === 'string' && !wasDerived ? returns.performanceAsOf : null;
+  const metrics = deriveCatalogMetrics(official, EMPTY_PRICE_RETURNS, numberOrNull(yields.dividendYield), numberOrNull(yields.secYield), null, null, null, 'Yahoo chart API', asOf);
+  const display = (value: unknown): string => (typeof value === 'string' && value ? value : '—');
+  const identifiers = (meta.identifiers as JsonRecord) || {};
+  return {
+    ticker,
+    name: String(meta.name ?? ticker),
+    category: String(meta.category ?? 'ETF'),
+    fundPage: String((meta.source as JsonRecord)?.fundPage ?? invescoProductDetailUrl(ticker)),
+    dataFile: `./funds/${ticker}/meta.json`,
+    cusip: identifiers.cusip ?? null,
+    isin: identifiers.isin ?? null,
+    ter: display((meta.expenseRatio as JsonRecord)?.display),
+    terValue: numberOrNull((meta.expenseRatio as JsonRecord)?.value),
+    nav: display((meta.nav as JsonRecord)?.display),
+    navValue: numberOrNull((meta.nav as JsonRecord)?.value),
+    aum: display((meta.aum as JsonRecord)?.display),
+    aumValue: numberOrNull((meta.aum as JsonRecord)?.value),
+    asOfDate: display((meta.nav as JsonRecord)?.asOfDate),
+    inceptionDate: '—',
+    exchange: '',
+    closePrice: display((meta.marketPrice as JsonRecord)?.display),
+    closePriceValue: numberOrNull((meta.marketPrice as JsonRecord)?.value),
+    premiumDiscount: display((meta.premiumDiscount as JsonRecord)?.display),
+    premiumDiscountValue: numberOrNull((meta.premiumDiscount as JsonRecord)?.value),
+    distributions: { frequency: String((meta.distributions as JsonRecord)?.frequency ?? '—'), exDate: '—', dividend: '—' },
+    returns: { monthEnd, quarterEnd: returns.quarterEnd ?? null },
+    metrics,
+    holdings: numberOrNull((meta.holdings as JsonRecord)?.totalRows) ?? 0,
+    history: numberOrNull((meta.history as JsonRecord)?.totalRows) ?? 0,
+  };
 }
 
 async function readPreviousSheet(ticker: string, kind: 'holdings' | 'history'): Promise<JsonRecord[]> {
@@ -1969,6 +1886,14 @@ async function readPreviousSheet(ticker: string, kind: 'holdings' | 'history'): 
     if (totalRows !== null && rows.length >= totalRows) return rows;
     if (!(payload.rows || []).length) return rows;
     page += 1;
+  }
+}
+
+async function readPreviousMeta(ticker: string): Promise<JsonRecord> {
+  try {
+    return JSON.parse(await readFile(new URL(`funds/${ticker}/meta.json`, API_ROOT), 'utf8')) as JsonRecord;
+  } catch {
+    return {};
   }
 }
 
@@ -2003,19 +1928,21 @@ function distributionRows(dividends: Array<{ epoch: number; amount: number }>): 
 function returnsBlock(
   derived: PriceReturns,
   official: CatalogReturns,
-  asOfDate: string | null,
+  officialAsOf: string | null,
   previous: JsonRecord,
   derivedCloseSource = 'Yahoo chart API',
+  officialLive = true,
 ): JsonRecord | null {
   const hasOfficial = Object.values(official).some((value) => value !== null);
   const hasDerived = Boolean(derived.asOfDate);
   if (!hasOfficial && !hasDerived) return (previous.returns as JsonRecord) ?? null;
   const text = (value: number | null | undefined): string => (value === null || value === undefined ? '—' : `${value.toFixed(2)}%`);
   const quarterAnchor = lastCompletedQuarterEnd();
-  const asOf = asOfDate || derived.asOfDate;
+  // The month-end block carries the date of its official figures, not the NAV date.
+  const asOf = hasOfficial ? officialAsOf : derived.asOfDate;
   return {
     derivedFrom: hasOfficial
-      ? `official Invesco returns (product list download); mo1/qtd derived from adjusted closes (${derivedCloseSource})`
+      ? `${officialLive ? 'official Invesco month-end returns (invesco.com fund API)' : 'last published official Invesco returns (not refreshed in this run)'}; mo1/qtd derived from adjusted closes (${derivedCloseSource})`
       : `adjusted market-price closes (${derivedCloseSource}), not official NAV returns`,
     monthEnd: {
       asOfDate: asOf ? formatEdgarDate(asOf) : '—',
@@ -2047,16 +1974,115 @@ export function withReturnsBasis(block: JsonRecord | null, metrics: JsonRecord):
   return { ...rest, returnsBasis: metrics.returnsBasis, performanceAsOf: metrics.performanceAsOf ?? null };
 }
 
+// Fund pages the sitemap discovery already fetched, plus the sitemap's own
+// ticker -> canonical page mapping. A ticker the sitemap does not list is
+// renamed, matured or delisted: invesco.com no longer publishes it.
+type OfficialContext = {
+  pageUrls: Map<string, string>;
+  pages: Map<string, FundPageInfo>;
+  sitemapLoaded: boolean;
+};
+
+type OfficialFund = {
+  cusip: string;
+  url: string;
+  page: FundPageInfo | null;
+  performance: OfficialPerformance | null;
+  prices: OfficialPrices | null;
+  yields: OfficialYields | null;
+};
+
+async function loadOfficial(fund: CatalogFund, config: UpdaterConfig, ctx: OfficialContext): Promise<OfficialFund | null> {
+  const ticker = fund.ticker;
+  let url = ctx.pageUrls.get(ticker) ?? null;
+  // Without a sitemap the fund page is still reachable through the ?ticker= route.
+  if (!url && !ctx.sitemapLoaded) url = isFundPageUrl(fund.fundPage, ticker) ? fund.fundPage : invescoProductDetailUrl(ticker);
+  if (!url) {
+    outputNote(`[ ${'official'.padEnd(9)}] ${ticker}: not listed by invesco.com any more - keeping the published values`);
+    return null;
+  }
+  let page = ctx.pages.get(ticker) ?? null;
+  if (!page) {
+    try {
+      page = parseFundPageFor(ticker, await fetchText(url, `[ page     ] ${ticker}`, invescoHeaders(), config));
+    } catch (error) {
+      outputNote(`[ ${'page'.padEnd(9)}] ${ticker}: ${errorMessage(error)}`);
+    }
+  }
+  const cusip = page?.cusip || fund.cusip;
+  if (!cusip) return null;
+  const official: OfficialFund = { cusip, url, page, performance: null, prices: null, yields: null };
+  const call = async <T>(label: string, endpoint: Parameters<typeof dngUrl>[1], parse: (payload: JsonRecord) => T): Promise<T | null> => {
+    try {
+      return parse(await fetchJson(dngUrl(cusip, endpoint), `[ ${label.padEnd(9)}] ${ticker}`, invescoHeaders(), config));
+    } catch (error) {
+      outputNote(`[ ${label.padEnd(9)}] ${ticker}: ${errorMessage(error)}`);
+      return null;
+    }
+  };
+  official.performance = await call('returns', 'performance', parseDngPerformance);
+  official.prices = await call('prices', 'prices', parseDngPrices);
+  official.yields = await call('yields', 'yields', parseDngYields);
+  return official;
+}
+
+/** The page of exactly this ticker; a renamed fund's old ticker redirects to the new fund's page. */
+function parseFundPageFor(ticker: string, html: string): FundPageInfo {
+  const page = parseFundPage(html);
+  if (!page) throw new Error('not a fund page (no fund facts)');
+  if (page.ticker !== ticker) throw new Error(`the page belongs to ${page.ticker}`);
+  return page;
+}
+
+function applyOfficial(fund: CatalogFund, official: OfficialFund | null): CatalogFund {
+  if (!official) return fund;
+  const { page, performance, prices, yields } = official;
+  const categoryPath = page && (page.assetClass || page.assetSubClass) ? [page.assetClass, page.assetSubClass].filter(Boolean).join(', ') : '';
+  // A fund published without a real category (new, or only seeded from a registrant table) gets the page's.
+  const placeholderCategory = fund.source === 'seed' || fund.category === 'ETF';
+  return {
+    ...fund,
+    name: page?.name || fund.name,
+    category: placeholderCategory && categoryPath ? normalizeInvescoCategory(categoryPath) : fund.category,
+    categoryPath: placeholderCategory && categoryPath ? categoryPath : fund.categoryPath,
+    inception: page?.inception ?? fund.inception,
+    exchange: fund.exchange || page?.exchange || '',
+    cusip: official.cusip,
+    isin: page?.isin || fund.isin,
+    benchmark: page?.benchmark || fund.benchmark,
+    ter: page ? (page.ter ?? page.netTer ?? fund.ter) : fund.ter,
+    nav: prices ? prices.nav : fund.nav,
+    close: prices ? prices.close : fund.close,
+    // Recomputed from the fresh NAV and close when both are official.
+    premiumDiscount: prices ? null : fund.premiumDiscount,
+    netAssets: prices?.netAssets ?? fund.netAssets,
+    dividendYield: yields ? yields.dividendYield : fund.dividendYield,
+    secYield: yields ? yields.secYield : fund.secYield,
+    distributionRate: yields ? yields.distributionRate : fund.distributionRate,
+    asOfDate: prices?.asOfDate ?? fund.asOfDate,
+    returns: performance ? performance.returns : fund.returns,
+    returnsAsOf: performance ? performance.asOfDate : fund.returnsAsOf,
+    fundPage: official.url,
+    source: 'invesco',
+  };
+}
+
 async function processFund(
-  fund: CatalogFund,
+  listed: CatalogFund,
   config: UpdaterConfig,
   previous: JsonRecord,
-  invescoReachable: boolean,
+  ctx: OfficialContext,
 ): Promise<JsonRecord | null> {
-  const ticker = fund.ticker;
+  const ticker = listed.ticker;
+  if (config.tickers.length && !config.tickers.includes(ticker)) return null;
 
-  // Filters run against fresh catalog values (or the previous catalog when
-  // invesco.com is unavailable) before any per-fund download happens.
+  // 0) Official fund facts, month-end returns, NAV, net assets and yields from
+  //    invesco.com; a fund invesco.com no longer lists keeps its published values.
+  const official = config.skipInvesco ? null : await loadOfficial(listed, config, ctx);
+  const fund = applyOfficial(listed, official);
+
+  // Filters run against the fresh official values (or the published ones when
+  // invesco.com has none) before the heavier downloads happen.
   const preMetrics = deriveCatalogMetrics(
     fund.returns,
     EMPTY_PRICE_RETURNS,
@@ -2077,31 +2103,23 @@ async function processFund(
   const fundDir = new URL(`funds/${ticker}/`, API_ROOT);
   await mkdir(fundDir, { recursive: true });
 
-  // 1) invesco.com daily holdings CSV; SEC Form N-PORT-P as the fallback.
+  // 1) Daily holdings from the invesco.com API; SEC Form N-PORT-P as the fallback.
   let holdings: ParsedHoldings | null = null;
-  let holdingsSource = 'invesco.com per-fund holdings download';
+  let holdingsSource = 'invesco.com fund holdings API (dng-api.invesco.com)';
   let holdingsEdgar: ParsedNport | null = null;
-  if (!config.skipInvesco) {
+  if (official) {
     try {
-      const csv = await fetchText(invescoHoldingsDownloadUrl(ticker, config.audienceType), `[ holdings ] ${ticker}`, invescoHeaders(), config);
-      const parsed = parseInvescoHoldings(csv, ticker);
-      const sum = weightsSum(parsed.rows);
-      if (sum > 0 && sum < 1) {
-        // Weights arrived as fractions instead of percent: normalize once.
-        parsed.rows = parsed.rows.map((row) => ({ ...row, Weight: String(round((numberOrNull(row.Weight) || 0) * 100, 6)) }));
-      }
-      holdings = parsed;
-      if (config.storeRawDownloads) {
-        const rawDir = new URL(`raw/${ticker}/`, API_ROOT);
-        await mkdir(rawDir, { recursive: true });
-        await writeFile(new URL(`holdings-${(holdings.asOfDate || 'latest').replace(/-/g, '')}.csv`, rawDir), csv, 'utf8');
-      }
+      holdings = parseDngHoldings(await fetchJson(dngUrl(official.cusip, 'holdings'), `[ holdings ] ${ticker}`, invescoHeaders(), config), ticker);
     } catch (error) {
       outputNote(`[ ${'holdings'.padEnd(9)}] ${ticker}: ${errorMessage(error)}${config.edgarFallback ? ' — trying SEC EDGAR N-PORT-P' : ''}`);
     }
   }
 
-  if (!holdings && config.edgarFallback) {
+  // A fresh official holdings sheet is never replaced by an older quarterly filing
+  // just because one API request failed: the previous official sheet stays.
+  const previousHoldingsSource = String(((await readPreviousMeta(ticker)).holdings as JsonRecord | undefined)?.source ?? '');
+  const keepPreviousOfficial = previousHoldingsSource.startsWith('invesco.com');
+  if (!holdings && config.edgarFallback && !config.skipInvesco && !keepPreviousOfficial) {
     try {
       const filing = await resolveNportFiling(fund, config);
       if (filing) {
@@ -2139,9 +2157,8 @@ async function processFund(
   const holdingsManifest = await writePages(fundDir, ticker, 'holdings', holdingsHeaders, holdingsRows, config.holdingsPageSize);
   const holdingsAsOf = holdings?.asOfDate || (((previous.holdings as JsonRecord)?.asOfDate as string) ?? null);
 
-  // 2) invesco.com prices & yields history (default source), then Yahoo
-  //    chart for dividends/exchange/quote — and for daily closes only when
-  //    the official CSV above failed or returned no rows for this fund.
+  // 2) Yahoo chart: daily history, dividends, exchange and the live quote (the
+  //    only public source for these; invesco.com publishes NAV, not closes).
   let chartDays: ChartDay[] = [];
   let dividends: Array<{ epoch: number; amount: number }> = [];
   let exchangeName = '';
@@ -2149,41 +2166,20 @@ async function processFund(
   let priceFromChart: number | null = null;
   let marketTime: number | null = null;
   let firstTradeDate: number | null = null;
-  let historySource = 'Yahoo Finance public chart API (adjusted close)';
-
-  if (config.pricesHistory && !config.skipInvesco && invescoReachable) {
-    try {
-      const parsed = parsePricesCsv(
-        await fetchText(invescoPricesDownloadUrl(ticker, config.audienceType), `[ prices   ] ${ticker}`, invescoHeaders(), config),
-        ticker,
-      );
-      if (parsed.days.length) {
-        chartDays = parsed.days;
-        historySource = 'invesco.com per-fund prices & yields download';
-        // The prices file carries the NAV for every day, so the fund's NAV
-        // becomes the last published one instead of the Yahoo quote.
-        const lastNavDay = parsed.days[parsed.days.length - 1];
-        const lastNav = parsed.navByDate.get(lastNavDay.date);
-        if (typeof lastNav === 'number') navFromChart = lastNav;
-      }
-    } catch (error) {
-      outputNote(`[ ${'prices'.padEnd(9)}] ${ticker}: ${errorMessage(error)} — using the Yahoo chart feed`);
-    }
-  }
+  const historySource = 'Yahoo Finance public chart API (adjusted close)';
 
   if (!config.skipYahoo) {
     try {
       const chart = parseChart(await fetchJson(chartUrl(ticker, config), `[ chart    ] ${ticker}`, yahooHeaders(), config));
       exchangeName = chart.exchangeName;
-      // The official invesco.com prices CSV (when it ran above) already set
-      // navFromChart from a published NAV; Yahoo's own navPrice estimate only
-      // fills the gap when the official source didn't supply one.
-      navFromChart = navFromChart ?? chart.navPrice;
+      // Yahoo's own navPrice estimate only fills the gap when invesco.com
+      // supplied no NAV for this fund.
+      navFromChart = chart.navPrice;
       priceFromChart = chart.regularMarketPrice;
       marketTime = chart.regularMarketTime;
       firstTradeDate = chart.firstTradeDate;
       dividends = chart.dividends;
-      if (!chartDays.length) chartDays = chart.days;
+      chartDays = chart.days;
     } catch (error) {
       outputNote(`[ ${'chart'.padEnd(9)}] ${ticker}: ${errorMessage(error)} — keeping previous history`);
     }
@@ -2195,9 +2191,9 @@ async function processFund(
   const frequency = dividends.length
     ? inferDistributionFrequency(dividends)
     : { frequency: String((previous.distributions as JsonRecord)?.frequency || '—'), paymentsPerYear: null };
-  // Provenance for the derived (non-official) return/close figures: whichever
-  // source the daily closes above actually came from, not always Yahoo.
-  const derivedCloseSource = historySource.startsWith('invesco.com') ? 'invesco.com prices & yields CSV' : 'Yahoo chart API';
+  const derivedCloseSource = 'Yahoo chart API';
+  // True when this run read the month-end table from invesco.com (not the published copy).
+  const officialLive = Boolean(official?.performance);
 
   const metrics = deriveCatalogMetrics(
     fund.returns,
@@ -2206,9 +2202,10 @@ async function processFund(
     fund.secYield,
     latestDividend ? latestDividend.amount : null,
     frequency.paymentsPerYear,
-    fund.close ?? priceFromChart,
+    official?.prices?.close ?? priceFromChart ?? fund.close,
     derivedCloseSource,
     fund.returnsAsOf,
+    officialLive ? OFFICIAL_RETURNS_BASIS : STALE_OFFICIAL_RETURNS_BASIS,
   );
 
   const historyHeaders = ['Date', 'Close', 'Adj Close', 'Volume'];
@@ -2220,23 +2217,23 @@ async function processFund(
   }
   const distributions = dividends.length ? distributionRows(dividends) : (((previous.distributions?.rows as JsonRecord[]) || []) as string[][]);
 
-  // Without a fresh invesco.com catalog the filed N-PORT-P series name is the
+  // Without fresh invesco.com facts the filed N-PORT-P series name is the
   // most authoritative fund name available.
   const name =
     (fund.source !== 'invesco' && holdingsEdgar?.seriesName) || fund.name || String(previous.name ?? '') || ticker;
-  const nav = fund.nav ?? navFromChart;
-  const price = fund.close ?? priceFromChart;
-  const premiumDiscount =
-    fund.premiumDiscount ?? (nav && price ? round(((price - nav) / nav) * 100, 2) : null);
-  // Fresh invesco.com "Fund Assets" wins; when the catalog row only comes from
-  // the previously published index (invesco.com unavailable), the N-PORT-P net
-  // assets of the filing we just parsed are the authoritative number.
+  // Official NAV and close share one date; otherwise the Yahoo quote is the
+  // fresher value and the published one the last resort.
+  const nav = official?.prices?.nav ?? navFromChart ?? fund.nav;
+  const price = official?.prices?.close ?? priceFromChart ?? fund.close;
+  const premiumDiscount = nav && price ? round(((price - nav) / nav) * 100, 2) : fund.premiumDiscount;
+  // Fresh invesco.com net assets win; when invesco.com has none, the N-PORT-P
+  // net assets of the filing we just parsed are the authoritative number.
   const nportNetAssets = holdingsEdgar
     ? holdingsEdgar.netAssets ?? (holdingsEdgar.totalValue ? round(holdingsEdgar.totalValue, 2) : null)
     : null;
-  const catalogNetAssets = fund.source === 'invesco' ? fund.netAssets : null;
+  const catalogNetAssets = official?.prices?.netAssets ?? null;
   const netAssets = catalogNetAssets ?? nportNetAssets ?? fund.netAssets ?? numberOrNull(previous.aumValue);
-  const returnsData = returnsBlock(derived, fund.returns, fund.asOfDate, previous, derivedCloseSource);
+  const returnsData = returnsBlock(derived, fund.returns, fund.returnsAsOf, previous, derivedCloseSource, officialLive);
   const asOfLabel = fund.asOfDate ? formatEdgarDate(fund.asOfDate) : marketTime ? formatEpochDate(marketTime) : '—';
 
   const meta: JsonRecord = {
@@ -2246,15 +2243,17 @@ async function processFund(
     categoryPath: fund.categoryPath,
     source: {
       fundPage: fund.fundPage,
-      holdingsDownload: config.skipInvesco ? (((previous.source as JsonRecord)?.holdingsDownload as string) ?? null) : invescoHoldingsDownloadUrl(ticker, config.audienceType),
-      pricesDownload: invescoPricesDownloadUrl(ticker, config.audienceType),
+      holdingsApi: fund.cusip ? dngUrl(fund.cusip, 'holdings') : null,
+      performanceApi: fund.cusip ? dngUrl(fund.cusip, 'performance') : null,
+      pricesApi: fund.cusip ? dngUrl(fund.cusip, 'prices') : null,
+      yieldsApi: fund.cusip ? dngUrl(fund.cusip, 'yields') : null,
       // A stable provenance URL, not the live fetch URL: chartUrl(ticker, config)
       // embeds the current timestamp in period2, which would make this field
       // (and the file's digest) change on every single run.
       yahooChart: `${YAHOO_CHART_URL}/${encodeURIComponent(ticker)}`,
       holdingsSource,
       historySource,
-      provider: 'Invesco Ltd. public ETF downloads + Yahoo Finance public chart API',
+      provider: 'invesco.com fund pages and fund API + Yahoo Finance public chart API',
     },
     identifiers: { cusip: fund.cusip || null, isin: fund.isin || null, indexTicker: fund.benchmark || null },
     expenseRatio: fund.ter === null ? { display: '—', value: null } : { display: `${fund.ter}%`, value: fund.ter },
@@ -2264,14 +2263,14 @@ async function processFund(
     aum: {
       display: netAssets === null ? '—' : formatAumDisplay(netAssets),
       value: netAssets,
-      asOfDate: fund.asOfDate && catalogNetAssets !== null
-        ? formatEdgarDate(fund.asOfDate)
+      asOfDate: official?.prices?.asOfDate && catalogNetAssets !== null
+        ? formatEdgarDate(official.prices.asOfDate)
         : nportNetAssets !== null && holdingsEdgar?.repPdDate
           ? formatEdgarDate(holdingsEdgar.repPdDate)
           : (((previous.aum as JsonRecord)?.asOfDate as string) ?? '—'),
       source:
         catalogNetAssets !== null
-          ? 'Invesco product list "Fund Assets" column'
+          ? 'Invesco fund API prices endpoint (net assets / market value)'
           : nportNetAssets !== null
             ? `SEC Form N-PORT-P net assets (report period ${holdingsEdgar?.repPdDate || 'n/a'})`
             : 'previous run',
@@ -2280,11 +2279,11 @@ async function processFund(
       dividendYield: metrics.dividendYield,
       dividendYieldText: metrics.dividendYieldText,
       dividendYieldKind:
-        fund.dividendYield !== null ? 'trailing 12-month, published by invesco.com' : 'indicated (latest distribution x inferred frequency / market price)',
+        fund.dividendYield !== null ? 'trailing 12-month distribution rate, published by invesco.com' : 'indicated (latest distribution x inferred frequency / market price)',
       distributionRate: fund.distributionRate,
       secYield: fund.secYield,
       secYieldText: fund.secYield === null ? '—' : `${fund.secYield.toFixed(2)}%`,
-      secYieldKind: 'SEC 30-day yield as published on the invesco.com product list (fixed income funds; most equity funds publish none)',
+      secYieldKind: '30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)',
     },
     returns: withReturnsBasis(returnsData, metrics),
     distributions: { frequency: frequency.frequency, paymentsPerYear: frequency.paymentsPerYear, headers: ['Ex-Date', 'Amount'], rows: distributions },
@@ -2442,7 +2441,72 @@ async function resolveNportFiling(
 // Main
 // ---------------------------------------------------------------------------
 
-async function runUpdater(config: UpdaterConfig): Promise<void> {
+// The sitemap lists the canonical page of every live US ETF. Pages already known
+// from the published feed need no request here; unknown ones (new funds, or the
+// first run after the old guessed page URLs) are fetched to learn their ticker.
+async function discoverOfficialFunds(config: UpdaterConfig, catalog: Map<string, CatalogFund>, ctx: OfficialContext): Promise<number> {
+  let urls: string[] = [];
+  try {
+    urls = parseSitemapFundPages(await fetchText(config.sitemapUrl, '[catalog ] sitemap', invescoHeaders(), config));
+  } catch (error) {
+    console.warn(`[ catalog  ] ${errorMessage(error)} - keeping the published universe`);
+    return 0;
+  }
+  if (!urls.length) {
+    console.warn('[ catalog  ] the sitemap lists no fund pages - keeping the published universe');
+    return 0;
+  }
+  ctx.sitemapLoaded = true;
+  const knownPages = new Map<string, string>();
+  for (const fund of catalog.values()) if (isFundPageUrl(fund.fundPage, fund.ticker)) knownPages.set(fund.fundPage, fund.ticker);
+  const unknown: string[] = [];
+  for (const url of urls) {
+    const ticker = knownPages.get(url);
+    if (ticker) {
+      if (!ctx.pageUrls.has(ticker)) ctx.pageUrls.set(ticker, url);
+    } else {
+      unknown.push(url);
+    }
+  }
+  // A run limited to tickers whose pages are already known needs no discovery.
+  if (!unknown.length || (config.tickers.length && config.tickers.every((ticker) => ctx.pageUrls.has(ticker)))) return 0;
+  let added = 0;
+  const queue = unknown.slice();
+  await Promise.all(
+    Array.from({ length: Math.max(1, config.concurrency) }, async () => {
+      for (let url = queue.shift(); url; url = queue.shift()) {
+        try {
+          const page = parseFundPage(await fetchText(url, '[ catalog ] fund page', invescoHeaders(), config));
+          if (!page) continue;
+          ctx.pages.set(page.ticker, ctx.pages.get(page.ticker) ?? page);
+          if (!ctx.pageUrls.has(page.ticker)) ctx.pageUrls.set(page.ticker, url);
+          if (!catalog.has(page.ticker)) {
+            catalog.set(page.ticker, catalogFundFromPage(page, url));
+            added += 1;
+          }
+        } catch (error) {
+          outputNote(`[ ${'catalog'.padEnd(9)}] ${url}: ${errorMessage(error)}`);
+        }
+      }
+    }),
+  );
+  return added;
+}
+
+function catalogFundFromPage(page: FundPageInfo, url: string): CatalogFund {
+  const categoryPath = [page.assetClass, page.assetSubClass].filter(Boolean).join(', ');
+  return {
+    ...catalogFundFromIndex(page.ticker, { name: page.name, fundPage: url }),
+    category: normalizeInvescoCategory(categoryPath),
+    categoryPath: categoryPath || 'ETF',
+    cusip: page.cusip,
+    isin: page.isin,
+    ter: page.ter ?? page.netTer,
+    source: 'seed',
+  };
+}
+
+export async function runUpdater(config: UpdaterConfig): Promise<void> {
   requestSleepMs = Math.max(0, config.requestSleep) * 1000;
   nextRequestAtLanes = new Array(Math.max(1, config.concurrency)).fill(0);
 
@@ -2451,78 +2515,25 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
 
 
 
-  // 1) Catalog discovery: invesco.com product list, previous index, seed.
+  // 1) Catalog: every fund already published (index rows plus funds/*/meta.json,
+  //    so a filtered run never shrinks the feed) and every fund the invesco.com
+  //    sitemap lists.
   const catalog = new Map<string, CatalogFund>();
-  let catalogSource = 'previous api/invesco/index.json';
   const previousIndex = await readPreviousIndex();
+  for (const [ticker, row] of previousIndex) catalog.set(ticker, catalogFundFromIndex(ticker, row));
+  let catalogSource = 'published feed';
 
+  const ctx: OfficialContext = { pageUrls: new Map(), pages: new Map(), sitemapLoaded: false };
   if (!config.skipInvesco) {
-    let fundPages = new Map<string, string>();
-    try {
-      fundPages = parseCatalogFundPages(await fetchText(config.catalogHtmlUrl, '[catalog ] fund pages', invescoHeaders(), config));
-    } catch (error) {
-      console.warn(`[ catalog  ] ${errorMessage(error)} — using ?ticker= links`);
-    }
-    try {
-      const csv = await fetchText(config.productListUrl, '[catalog ] product list', invescoHeaders(), config);
-      for (const fund of parseProductList(csv, fundPages)) catalog.set(fund.ticker, fund);
-      if (config.storeRawDownloads) {
-        const rawDir = new URL('raw/', API_ROOT);
-        await mkdir(rawDir, { recursive: true });
-        await writeFile(new URL(`product-list-${new Date().toISOString().slice(0, 10)}.csv`, rawDir), csv, 'utf8');
-      }
-      catalogSource = 'invesco.com ETF product list download';
-    } catch (error) {
-      console.warn(`[ catalog  ] ${errorMessage(error)} — falling back to the published feed`);
-    }
-  }
-
-  if (!catalog.size) {
-    for (const [ticker, row] of previousIndex) catalog.set(ticker, catalogFundFromIndex(ticker, row));
-  } else {
-    // Funds that disappeared from the download keep their published row (the
-    // updater never deletes on a suspiciously small catalog).
-    for (const [ticker, row] of previousIndex) {
-      if (!catalog.has(ticker)) catalog.set(ticker, catalogFundFromIndex(ticker, row));
-    }
-  }
-
-
-  // Captured before any later reassignment below: true only when invesco.com
-  // actually answered the catalog request this run. When it didn't, invesco.com
-  // is almost certainly blocking this run's requests wholesale (the same CDN/WAF
-  // in front of every invesco.com endpoint), so per-fund code skips the prices
-  // & yields download too instead of repeating a request that's already known
-  // to fail for every fund — same fallback result, without the wasted round trip.
-  const invescoReachable = catalogSource === 'invesco.com ETF product list download';
-
-  // When invesco.com is unreachable the SEC registrant tables still list every
-  // share class of the Invesco ETF trusts, so a no-argument full pass keeps
-  // covering the complete product line instead of only the published feed.
-  if (!invescoReachable && config.edgarFallback) {
-    const table = await loadFundTickerMap(config);
-    const registrantCiks = new Set<string>();
-    for (const ticker of catalog.keys()) {
-      const ref = table.get(ticker);
-      if (ref) registrantCiks.add(ref.cik);
-    }
-    let discovered = 0;
-    for (const [ticker, ref] of table) {
-      if (!registrantCiks.has(ref.cik) || catalog.has(ticker)) continue;
-      catalog.set(ticker, { ...catalogFundFromIndex(ticker, {}), source: 'seed' });
-      discovered += 1;
-    }
-    if (discovered) {
-      console.log(`[ ${'catalog'.padEnd(9)}] +${discovered} funds discovered through the SEC registrant tables`);
-      catalogSource = `${catalogSource} + SEC registrant tables`;
-    }
+    const discovered = await discoverOfficialFunds(config, catalog, ctx);
+    if (ctx.sitemapLoaded) catalogSource = `published feed + invesco.com sitemap (${ctx.pageUrls.size} fund pages${discovered ? `, ${discovered} new` : ''})`;
   }
 
   const universe = [...catalog.values()].sort((a, b) => (a.ticker < b.ticker ? -1 : a.ticker > b.ticker ? 1 : 0));
   if (!universe.length) {
     console.log(
-      '[done    ] nothing to do: the invesco.com product list is unreachable and the published ' +
-        'api/invesco/index.json is empty or missing — run this where invesco.com resolves, e.g. ' +
+      '[done    ] nothing to do: the invesco.com sitemap is unreachable and the published ' +
+        'api/invesco/index.json is empty or missing - run this where invesco.com resolves, e.g. ' +
         'the "Update Invesco ETF data" GitHub Actions workflow',
     );
     return;
@@ -2558,7 +2569,7 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
       processed += 1;
       const before = await output.before(item.fund.ticker);
       try {
-        const row = await processFund(item.fund, config, previousIndex.get(item.fund.ticker) || {}, invescoReachable);
+        const row = await processFund(item.fund, config, previousIndex.get(item.fund.ticker) || {}, ctx);
         if (row) {
           results.push(row);
           lastProcessedTicker = item.fund.ticker;
@@ -2597,10 +2608,9 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
       market: 'us',
       site: INVESCO_SITE,
       catalog: INVESCO_CATALOG_PAGE,
-      catalogDownload: config.productListUrl,
-      holdings: 'https://www.invesco.com/us/financial-products/etfs/holdings/main/holdings/0?audienceType=Investor&action=download&ticker={TICKER}',
+      sitemap: config.sitemapUrl,
+      fundApi: `${DNG_API}/{CUSIP}/(performance/standard|prices|holdings/fund)`,
       history: 'Yahoo Finance public chart API (adjusted close)',
-      audienceType: config.audienceType,
     },
     counts,
     funds,
@@ -2646,8 +2656,8 @@ function catalogFundFromIndex(ticker: string, row: JsonRecord): CatalogFund {
     categoryPath: String(row.category ?? 'ETF'),
     inception: null,
     exchange: String(row.exchange ?? ''),
-    cusip: '',
-    isin: '',
+    cusip: String(row.cusip ?? ''),
+    isin: String(row.isin ?? ''),
     benchmark: '',
     ter: numberOrNull(row.terValue),
     nav: numberOrNull(row.navValue),
@@ -2721,9 +2731,8 @@ export function installSystemCa(mode: string, reexec: () => never = reexecWithSy
 // nonblank inputs < environment (INVESCO_<KEY> wins over <KEY>, then legacy aliases).
 export const CONTROL_NAMES = [
   'MAX_FETCHES', 'REQUEST_SLEEP', 'CONCURRENCY', 'AUM', 'TER', 'DIVIDEND_YIELD', 'TICKERS',
-  'HOLDINGS_PAGE_SIZE', 'HISTORY_PAGE_SIZE', 'MAX_RETRIES', 'HISTORY_RANGE', 'AUDIENCE_TYPE',
-  'PRODUCT_LIST_URL', 'CATALOG_HTML_URL', 'STORE_RAW_DOWNLOADS', 'SEC_UA',
-  'SKIP_YAHOO', 'SKIP_INVESCO', 'PRICES_HISTORY', 'EDGAR_FALLBACK', 'VERBOSE', 'USE_SYSTEM_CA',
+  'HOLDINGS_PAGE_SIZE', 'HISTORY_PAGE_SIZE', 'MAX_RETRIES', 'HISTORY_RANGE', 'SITEMAP_URL', 'SEC_UA',
+  'SKIP_YAHOO', 'SKIP_INVESCO', 'EDGAR_FALLBACK', 'VERBOSE', 'USE_SYSTEM_CA',
   ...['PERFORMANCE', 'TOTAL_RETURN'].flatMap((prefix) => ['YTD', '1Y', '3Y', '5Y', '10Y'].map((period) => `${prefix}_${period}`)),
 ] as const;
 export type ControlName = (typeof CONTROL_NAMES)[number];
@@ -2766,10 +2775,10 @@ export function resolveControls(
     if (!/^\d+$/.test(v.trim()) || !Number.isSafeInteger(Number(v)) || Number(v) < min) throw new Error(`${key}: expected integer >= ${min}`);
   }
   if (result.REQUEST_SLEEP?.trim() && (!Number.isFinite(Number(result.REQUEST_SLEEP)) || Number(result.REQUEST_SLEEP) < 0)) throw new Error('REQUEST_SLEEP: expected nonnegative seconds');
-  for (const key of ['STORE_RAW_DOWNLOADS', 'SKIP_YAHOO', 'SKIP_INVESCO', 'PRICES_HISTORY', 'EDGAR_FALLBACK', 'VERBOSE']) {
+  for (const key of ['SKIP_YAHOO', 'SKIP_INVESCO', 'EDGAR_FALLBACK', 'VERBOSE']) {
     if (result[key]?.trim() && !/^(0|1|true|false|yes|no|y|n|on|off)$/i.test(result[key].trim())) throw new Error(`${key}: expected boolean`);
   }
-  for (const key of ['PRODUCT_LIST_URL', 'CATALOG_HTML_URL']) {
+  for (const key of ['SITEMAP_URL']) {
     if (result[key]?.trim() && !/^https:\/\/\S+$/.test(result[key].trim())) throw new Error(`${key}: expected an https URL`);
   }
   if (result.USE_SYSTEM_CA !== undefined) {
