@@ -1,8 +1,9 @@
 {
  "ticker": "XMVM",
  "name": "Invesco S&P MidCap Value with Momentum ETF",
+ "listed": true,
  "category": "US Equity",
- "categoryPath": "US Equity",
+ "categoryPath": "Equity, U.S. Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/invesco-sp-midcap-value-with-momentum-etf.html",
   "holdingsApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46137V456/holdings/fund?idType=cusip&productType=ETF",
@@ -21,45 +22,50 @@
  },
  "expenseRatio": {
   "display": "0.37%",
-  "value": 0.37
+  "value": 0.37,
+  "gross": {
+   "display": "0.37%",
+   "value": 0.37
+  }
  },
  "nav": {
-  "display": "$70.82",
-  "value": 70.81842,
-  "asOfDate": "Oct 01 2026"
+  "display": "$71.44",
+  "value": 71.443501,
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
-  "display": "$70.80",
-  "value": 70.8,
-  "asOfDate": "Oct 01 2026"
+  "display": "$71.57",
+  "value": 71.57,
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
-  "display": "-0.03%",
-  "value": -0.03
+  "display": "0.18%",
+  "value": 0.18
  },
  "aum": {
-  "display": "$503.52 M",
-  "value": 503518968.7,
-  "asOfDate": "Oct 01 2026",
+  "display": "$507.96 M",
+  "value": 507963288.84,
+  "asOfDate": "Oct 02 2026",
   "source": "Invesco fund API prices endpoint (net assets / market value)"
  },
  "yields": {
-  "dividendYield": 1.95,
-  "dividendYieldText": "1.95%",
+  "dividendYield": 1.92,
+  "dividendYieldText": "1.92%",
   "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
-  "distributionRate": 2,
-  "secYield": 2,
-  "secYieldText": "2.00%",
+  "distributionRate": 1.97,
+  "secYield": 2.01,
+  "secYieldText": "2.01%",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
  },
  "returns": {
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Aug 31 2026",
-   "mo1": -3.79,
-   "mo1Text": "-3.79%",
-   "qtd": null,
-   "qtdText": "—",
+   "priceReturnsAsOf": "Oct 02 2026",
+   "mo1": -3.98,
+   "mo1Text": "-3.98%",
+   "qtd": 1.09,
+   "qtdText": "1.09%",
    "ytd": 16.95,
    "ytdText": "16.95%",
    "yr1": 23.98,
@@ -75,9 +81,14 @@
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
-   "null": null
+   "ytd": null,
+   "yr1": null,
+   "yr3": null,
+   "yr5": null,
+   "yr10": null,
+   "sinceInception": null
   },
-  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close, so the date is the official one",
+  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close (performanceAsOf is the date of the official table, the filled periods end later)",
   "performanceAsOf": "2026-08-31"
  },
  "distributions": {
@@ -428,8 +439,8 @@
   ],
   "pageSize": 250,
   "totalRows": 81,
-  "asOfDate": "2026-09-30",
-  "asOf": "Sep 30 2026",
+  "asOfDate": "2026-10-01",
+  "asOf": "Oct 01 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -442,8 +453,8 @@
    "history/006.json"
   ],
   "pageSize": 1000,
-  "totalRows": 5430,
-  "asOf": "Oct 01 2026",
+  "totalRows": 5431,
+  "asOf": "Oct 02 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

@@ -1,8 +1,9 @@
 {
  "ticker": "CZA",
  "name": "Invesco Zacks Mid-Cap ETF",
+ "listed": true,
  "category": "US Equity",
- "categoryPath": "US Equity",
+ "categoryPath": "Equity, U.S. Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/invesco-zacks-mid-cap-etf.html",
   "holdingsApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46137Y401/holdings/fund?idType=cusip&productType=ETF",
@@ -21,26 +22,30 @@
  },
  "expenseRatio": {
   "display": "0.69%",
-  "value": 0.69
+  "value": 0.69,
+  "gross": {
+   "display": "0.69%",
+   "value": 0.69
+  }
  },
  "nav": {
   "display": "$118.32",
   "value": 118.320122,
-  "asOfDate": "Oct 01 2026"
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
   "display": "$118.31",
   "value": 118.3143,
-  "asOfDate": "Oct 01 2026"
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
   "display": "0.00%",
   "value": 0
  },
  "aum": {
-  "display": "$202.33 M",
-  "value": 202327409.17,
-  "asOfDate": "Oct 01 2026",
+  "display": "$203.00 M",
+  "value": 203003122.78,
+  "asOfDate": "Oct 02 2026",
   "source": "Invesco fund API prices endpoint (net assets / market value)"
  },
  "yields": {
@@ -48,18 +53,19 @@
   "dividendYieldText": "1.46%",
   "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
   "distributionRate": 1.46,
-  "secYield": 1.64,
-  "secYieldText": "1.64%",
+  "secYield": 1.63,
+  "secYieldText": "1.63%",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
  },
  "returns": {
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Aug 31 2026",
-   "mo1": -4.64,
-   "mo1Text": "-4.64%",
-   "qtd": null,
-   "qtdText": "—",
+   "priceReturnsAsOf": "Oct 02 2026",
+   "mo1": -4.69,
+   "mo1Text": "-4.69%",
+   "qtd": 0.41,
+   "qtdText": "0.41%",
    "ytd": 12.9,
    "ytdText": "12.90%",
    "yr1": 16.05,
@@ -75,9 +81,14 @@
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
-   "null": null
+   "ytd": null,
+   "yr1": null,
+   "yr3": null,
+   "yr5": null,
+   "yr10": null,
+   "sinceInception": null
   },
-  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close, so the date is the official one",
+  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close (performanceAsOf is the date of the official table, the filled periods end later)",
   "performanceAsOf": "2026-08-31"
  },
  "distributions": {
@@ -172,8 +183,8 @@
   ],
   "pageSize": 250,
   "totalRows": 103,
-  "asOfDate": "2026-09-30",
-  "asOf": "Sep 30 2026",
+  "asOfDate": "2026-10-01",
+  "asOf": "Oct 01 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -185,8 +196,8 @@
    "history/005.json"
   ],
   "pageSize": 1000,
-  "totalRows": 4906,
-  "asOf": "Oct 01 2026",
+  "totalRows": 4907,
+  "asOf": "Oct 02 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

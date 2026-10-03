@@ -1,6 +1,7 @@
 {
  "ticker": "BSTU",
  "name": "Invesco BulletShares 2030 Treasury Bond ETF",
+ "listed": true,
  "category": "Fixed Income",
  "categoryPath": "Fixed Income, Target Maturity",
  "source": {
@@ -21,17 +22,21 @@
  },
  "expenseRatio": {
   "display": "0.07%",
-  "value": 0.07
+  "value": 0.07,
+  "gross": {
+   "display": "0.07%",
+   "value": 0.07
+  }
  },
  "nav": {
   "display": "$24.44",
   "value": 24.435894,
-  "asOfDate": "Oct 01 2026"
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
   "display": "$24.45",
   "value": 24.455,
-  "asOfDate": "Oct 01 2026"
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
   "display": "0.08%",
@@ -47,19 +52,20 @@
   "dividendYield": 4.17,
   "dividendYieldText": "4.17%",
   "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
-  "distributionRate": 4.18,
-  "secYield": 4.78,
-  "secYieldText": "4.78%",
+  "distributionRate": 4.17,
+  "secYield": 4.8,
+  "secYieldText": "4.80%",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
  },
  "returns": {
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Aug 31 2026",
-   "mo1": -1.17,
-   "mo1Text": "-1.17%",
-   "qtd": null,
-   "qtdText": "—",
+   "priceReturnsAsOf": "Oct 02 2026",
+   "mo1": -1.41,
+   "mo1Text": "-1.41%",
+   "qtd": -0.2,
+   "qtdText": "-0.20%",
    "ytd": null,
    "ytdText": "—",
    "yr1": null,
@@ -75,9 +81,14 @@
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
-   "null": null
+   "ytd": null,
+   "yr1": null,
+   "yr3": null,
+   "yr5": null,
+   "yr10": null,
+   "sinceInception": null
   },
-  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close, so the date is the official one",
+  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close (performanceAsOf is the date of the official table, the filled periods end later)",
   "performanceAsOf": "2026-08-31"
  },
  "distributions": {
@@ -107,9 +118,9 @@
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 31,
-  "asOfDate": "2026-09-30",
-  "asOf": "Sep 30 2026",
+  "totalRows": 30,
+  "asOfDate": "2026-10-01",
+  "asOf": "Oct 01 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -117,8 +128,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 79,
-  "asOf": "Oct 01 2026",
+  "totalRows": 80,
+  "asOf": "Oct 02 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

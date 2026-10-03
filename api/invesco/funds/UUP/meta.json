@@ -1,8 +1,9 @@
 {
  "ticker": "UUP",
  "name": "Invesco DB US Dollar Index Bullish Fund",
+ "listed": true,
  "category": "Currency",
- "categoryPath": "Currency",
+ "categoryPath": "Alternative, Currency",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/invesco-db-us-dollar-index-bullish-fund.html",
   "holdingsApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46141D203/holdings/fund?idType=cusip&productType=ETF",
@@ -20,34 +21,38 @@
   "indexTicker": "DBUSDLE"
  },
  "expenseRatio": {
-  "display": "0.78%",
-  "value": 0.78
+  "display": "0.7%",
+  "value": 0.7,
+  "gross": {
+   "display": "0.78%",
+   "value": 0.78
+  }
  },
  "nav": {
-  "display": "$28.97",
-  "value": 28.965176,
-  "asOfDate": "Oct 01 2026"
+  "display": "$28.92",
+  "value": 28.920381,
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
-  "display": "$28.96",
-  "value": 28.96,
-  "asOfDate": "Oct 01 2026"
+  "display": "$28.89",
+  "value": 28.89,
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
-  "display": "-0.02%",
-  "value": -0.02
+  "display": "-0.11%",
+  "value": -0.11
  },
  "aum": {
-  "display": "$440.27 M",
-  "value": 440271826.5,
-  "asOfDate": "Oct 01 2026",
+  "display": "$445.38 M",
+  "value": 445375031.78,
+  "asOfDate": "Oct 02 2026",
   "source": "Invesco fund API prices endpoint (net assets / market value)"
  },
  "yields": {
-  "dividendYield": 3.22,
-  "dividendYieldText": "3.22%",
+  "dividendYield": 3.2,
+  "dividendYieldText": "3.20%",
   "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
-  "distributionRate": 3.22,
+  "distributionRate": 3.2,
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
@@ -56,10 +61,11 @@
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Aug 31 2026",
-   "mo1": 2.66,
-   "mo1Text": "2.66%",
-   "qtd": null,
-   "qtdText": "—",
+   "priceReturnsAsOf": "Oct 02 2026",
+   "mo1": 2.56,
+   "mo1Text": "2.56%",
+   "qtd": -0.24,
+   "qtdText": "-0.24%",
    "ytd": 3.84,
    "ytdText": "3.84%",
    "yr1": 6.22,
@@ -75,9 +81,14 @@
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
-   "null": null
+   "ytd": null,
+   "yr1": null,
+   "yr3": null,
+   "yr5": null,
+   "yr10": null,
+   "sinceInception": null
   },
-  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close, so the date is the official one",
+  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close (performanceAsOf is the date of the official table, the filled periods end later)",
   "performanceAsOf": "2026-08-31"
  },
  "distributions": {
@@ -131,9 +142,9 @@
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 6,
-  "asOfDate": "2026-09-30",
-  "asOf": "Sep 30 2026",
+  "totalRows": 5,
+  "asOfDate": "2026-10-01",
+  "asOf": "Oct 01 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -145,8 +156,8 @@
    "history/005.json"
   ],
   "pageSize": 1000,
-  "totalRows": 4929,
-  "asOf": "Oct 01 2026",
+  "totalRows": 4930,
+  "asOf": "Oct 02 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

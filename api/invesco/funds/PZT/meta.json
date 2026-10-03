@@ -1,8 +1,9 @@
 {
  "ticker": "PZT",
  "name": "Invesco New York AMT-Free Municipal Bond ETF",
+ "listed": true,
  "category": "Fixed Income",
- "categoryPath": "Fixed Income",
+ "categoryPath": "Fixed Income, Broad Fixed Income",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/invesco-new-york-amt-free-municipal-bond-etf.html",
   "holdingsApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46138E529/holdings/fund?idType=cusip&productType=ETF",
@@ -21,45 +22,50 @@
  },
  "expenseRatio": {
   "display": "0.28%",
-  "value": 0.28
+  "value": 0.28,
+  "gross": {
+   "display": "0.28%",
+   "value": 0.28
+  }
  },
  "nav": {
   "display": "$20.68",
   "value": 20.6816,
-  "asOfDate": "Oct 01 2026"
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
   "display": "$20.67",
   "value": 20.67,
-  "asOfDate": "Oct 01 2026"
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
   "display": "-0.06%",
   "value": -0.06
  },
  "aum": {
-  "display": "$129.26 M",
-  "value": 129259998.46,
-  "asOfDate": "Oct 01 2026",
+  "display": "$129.08 M",
+  "value": 129081766.08,
+  "asOfDate": "Oct 02 2026",
   "source": "Invesco fund API prices endpoint (net assets / market value)"
  },
  "yields": {
-  "dividendYield": 4.08,
-  "dividendYieldText": "4.08%",
+  "dividendYield": 4.05,
+  "dividendYieldText": "4.05%",
   "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
-  "distributionRate": 4.18,
-  "secYield": 4.45,
-  "secYieldText": "4.45%",
+  "distributionRate": 4.15,
+  "secYield": 4.4,
+  "secYieldText": "4.40%",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
  },
  "returns": {
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Aug 31 2026",
-   "mo1": -3.95,
-   "mo1Text": "-3.95%",
-   "qtd": null,
-   "qtdText": "—",
+   "priceReturnsAsOf": "Oct 02 2026",
+   "mo1": -4.42,
+   "mo1Text": "-4.42%",
+   "qtd": -0.73,
+   "qtdText": "-0.73%",
    "ytd": -0.29,
    "ytdText": "-0.29%",
    "yr1": 5.29,
@@ -75,9 +81,14 @@
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
-   "null": null
+   "ytd": null,
+   "yr1": null,
+   "yr3": null,
+   "yr5": null,
+   "yr10": null,
+   "sinceInception": null
   },
-  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close, so the date is the official one",
+  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close (performanceAsOf is the date of the official table, the filled periods end later)",
   "performanceAsOf": "2026-08-31"
  },
  "distributions": {
@@ -1008,9 +1019,9 @@
    "holdings/006.json"
   ],
   "pageSize": 250,
-  "totalRows": 1322,
-  "asOfDate": "2026-09-30",
-  "asOf": "Sep 30 2026",
+  "totalRows": 1319,
+  "asOfDate": "2026-10-01",
+  "asOf": "Oct 01 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -1022,8 +1033,8 @@
    "history/005.json"
   ],
   "pageSize": 1000,
-  "totalRows": 4773,
-  "asOf": "Oct 01 2026",
+  "totalRows": 4774,
+  "asOf": "Oct 02 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

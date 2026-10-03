@@ -1,8 +1,9 @@
 {
  "ticker": "PIPE",
  "name": "Invesco SteelPath MLP & Energy Infrastructure ETF",
+ "listed": true,
  "category": "MLPs",
- "categoryPath": "MLPs",
+ "categoryPath": "Alternative, MLPs",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/invesco-steelpath-mlp-energy-infrastructure-etf.html",
   "holdingsApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46090A663/holdings/fund?idType=cusip&productType=ETF",
@@ -21,45 +22,50 @@
  },
  "expenseRatio": {
   "display": "0.75%",
-  "value": 0.75
+  "value": 0.75,
+  "gross": {
+   "display": "0.75%",
+   "value": 0.75
+  }
  },
  "nav": {
   "display": "$28.70",
   "value": 28.704863,
-  "asOfDate": "Oct 01 2026"
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
   "display": "$28.71",
   "value": 28.7134,
-  "asOfDate": "Oct 01 2026"
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
   "display": "0.03%",
   "value": 0.03
  },
  "aum": {
-  "display": "$62.29 M",
-  "value": 62289581.58,
-  "asOfDate": "Oct 01 2026",
+  "display": "$62.86 M",
+  "value": 62857786.41,
+  "asOfDate": "Oct 02 2026",
   "source": "Invesco fund API prices endpoint (net assets / market value)"
  },
  "yields": {
-  "dividendYield": 4.06,
-  "dividendYieldText": "4.06%",
+  "dividendYield": 4.01,
+  "dividendYieldText": "4.01%",
   "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
-  "distributionRate": 1.41,
-  "secYield": 3.62,
-  "secYieldText": "3.62%",
+  "distributionRate": 1.39,
+  "secYield": 3.64,
+  "secYieldText": "3.64%",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
  },
  "returns": {
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Aug 31 2026",
-   "mo1": -7.83,
-   "mo1Text": "-7.83%",
-   "qtd": null,
-   "qtdText": "—",
+   "priceReturnsAsOf": "Oct 02 2026",
+   "mo1": -6.85,
+   "mo1Text": "-6.85%",
+   "qtd": 0.84,
+   "qtdText": "0.84%",
    "ytd": 32.67,
    "ytdText": "32.67%",
    "yr1": 33.54,
@@ -75,9 +81,14 @@
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
-   "null": null
+   "ytd": null,
+   "yr1": null,
+   "yr3": null,
+   "yr5": null,
+   "yr10": null,
+   "sinceInception": null
   },
-  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close, so the date is the official one",
+  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close (performanceAsOf is the date of the official table, the filled periods end later)",
   "performanceAsOf": "2026-08-31"
  },
  "distributions": {
@@ -172,8 +183,8 @@
   ],
   "pageSize": 250,
   "totalRows": 29,
-  "asOfDate": "2026-09-30",
-  "asOf": "Sep 30 2026",
+  "asOfDate": "2026-10-01",
+  "asOf": "Oct 01 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -181,8 +192,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 404,
-  "asOf": "Oct 01 2026",
+  "totalRows": 405,
+  "asOf": "Oct 02 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

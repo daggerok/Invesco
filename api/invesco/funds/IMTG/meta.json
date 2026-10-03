@@ -1,8 +1,9 @@
 {
  "ticker": "IMTG",
  "name": "Invesco Agency MBS ETF",
+ "listed": true,
  "category": "Fixed Income",
- "categoryPath": "Fixed Income",
+ "categoryPath": "Fixed Income, Broad Fixed Income",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/invesco-agency-mbs-etf.html",
   "holdingsApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46127B882/holdings/fund?idType=cusip&productType=ETF",
@@ -21,17 +22,21 @@
  },
  "expenseRatio": {
   "display": "0.22%",
-  "value": 0.22
+  "value": 0.22,
+  "gross": {
+   "display": "0.22%",
+   "value": 0.22
+  }
  },
  "nav": {
   "display": "$46.41",
   "value": 46.413101,
-  "asOfDate": "Oct 01 2026"
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
   "display": "$46.56",
   "value": 46.5606,
-  "asOfDate": "Oct 01 2026"
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
   "display": "0.32%",
@@ -47,19 +52,20 @@
   "dividendYield": 5.33,
   "dividendYieldText": "5.33%",
   "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
-  "distributionRate": 5.36,
-  "secYield": 5.07,
-  "secYieldText": "5.07%",
+  "distributionRate": 5.35,
+  "secYield": 5.08,
+  "secYieldText": "5.08%",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
  },
  "returns": {
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Aug 31 2026",
-   "mo1": -2.74,
-   "mo1Text": "-2.74%",
-   "qtd": null,
-   "qtdText": "—",
+   "priceReturnsAsOf": "Oct 02 2026",
+   "mo1": -3.17,
+   "mo1Text": "-3.17%",
+   "qtd": -0.37,
+   "qtdText": "-0.37%",
    "ytd": null,
    "ytdText": "—",
    "yr1": null,
@@ -75,9 +81,14 @@
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
-   "null": null
+   "ytd": null,
+   "yr1": null,
+   "yr3": null,
+   "yr5": null,
+   "yr10": null,
+   "sinceInception": null
   },
-  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close, so the date is the official one",
+  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close (performanceAsOf is the date of the official table, the filled periods end later)",
   "performanceAsOf": "2026-08-31"
  },
  "distributions": {
@@ -120,8 +131,8 @@
   ],
   "pageSize": 250,
   "totalRows": 77,
-  "asOfDate": "2026-09-30",
-  "asOf": "Sep 30 2026",
+  "asOfDate": "2026-10-01",
+  "asOf": "Oct 01 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -129,8 +140,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 151,
-  "asOf": "Oct 01 2026",
+  "totalRows": 152,
+  "asOf": "Oct 02 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

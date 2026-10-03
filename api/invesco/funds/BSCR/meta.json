@@ -1,8 +1,9 @@
 {
  "ticker": "BSCR",
  "name": "Invesco BulletShares 2027 Corporate Bond ETF",
+ "listed": true,
  "category": "Fixed Income",
- "categoryPath": "Fixed Income",
+ "categoryPath": "Fixed Income, Target Maturity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/invesco-bulletshares-2027-corporate-bond-etf.html",
   "holdingsApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46138J783/holdings/fund?idType=cusip&productType=ETF",
@@ -21,45 +22,50 @@
  },
  "expenseRatio": {
   "display": "0.1%",
-  "value": 0.1
+  "value": 0.1,
+  "gross": {
+   "display": "0.1%",
+   "value": 0.1
+  }
  },
  "nav": {
   "display": "$19.55",
   "value": 19.550803,
-  "asOfDate": "Oct 01 2026"
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
   "display": "$19.55",
   "value": 19.555,
-  "asOfDate": "Oct 01 2026"
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
   "display": "0.02%",
   "value": 0.02
  },
  "aum": {
-  "display": "$4,583.69 M",
-  "value": 4583685683.36,
-  "asOfDate": "Oct 01 2026",
+  "display": "$4,533.98 M",
+  "value": 4533984536.21,
+  "asOfDate": "Oct 02 2026",
   "source": "Invesco fund API prices endpoint (net assets / market value)"
  },
  "yields": {
-  "dividendYield": 4.26,
-  "dividendYieldText": "4.26%",
+  "dividendYield": 4.25,
+  "dividendYieldText": "4.25%",
   "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
   "distributionRate": 4.28,
-  "secYield": 4.56,
-  "secYieldText": "4.56%",
+  "secYield": 4.57,
+  "secYieldText": "4.57%",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
  },
  "returns": {
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Aug 31 2026",
-   "mo1": 0.15,
-   "mo1Text": "0.15%",
-   "qtd": null,
-   "qtdText": "—",
+   "priceReturnsAsOf": "Oct 02 2026",
+   "mo1": 0.1,
+   "mo1Text": "0.10%",
+   "qtd": 0,
+   "qtdText": "0.00%",
    "ytd": 2.22,
    "ytdText": "2.22%",
    "yr1": 3.84,
@@ -75,9 +81,14 @@
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
-   "null": null
+   "ytd": null,
+   "yr1": null,
+   "yr3": null,
+   "yr5": null,
+   "yr10": null,
+   "sinceInception": null
   },
-  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close, so the date is the official one",
+  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close (performanceAsOf is the date of the official table, the filled periods end later)",
   "performanceAsOf": "2026-08-31"
  },
  "distributions": {
@@ -528,9 +539,9 @@
    "holdings/002.json"
   ],
   "pageSize": 250,
-  "totalRows": 486,
-  "asOfDate": "2026-09-30",
-  "asOf": "Sep 30 2026",
+  "totalRows": 484,
+  "asOfDate": "2026-10-01",
+  "asOf": "Oct 01 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -540,8 +551,8 @@
    "history/003.json"
   ],
   "pageSize": 1000,
-  "totalRows": 2265,
-  "asOf": "Oct 01 2026",
+  "totalRows": 2266,
+  "asOf": "Oct 02 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

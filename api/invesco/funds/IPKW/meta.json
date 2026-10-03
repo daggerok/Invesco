@@ -1,8 +1,9 @@
 {
  "ticker": "IPKW",
  "name": "Invesco International BuyBack Achievers ETF",
+ "listed": true,
  "category": "International",
- "categoryPath": "International",
+ "categoryPath": "Equity, Global Ex-US Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/invesco-international-buyback-achievers-etf.html",
   "holdingsApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46138E644/holdings/fund?idType=cusip&productType=ETF",
@@ -21,45 +22,50 @@
  },
  "expenseRatio": {
   "display": "0.55%",
-  "value": 0.55
+  "value": 0.55,
+  "gross": {
+   "display": "0.55%",
+   "value": 0.55
+  }
  },
  "nav": {
   "display": "$58.64",
   "value": 58.638176,
-  "asOfDate": "Oct 01 2026"
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
   "display": "$58.50",
   "value": 58.5,
-  "asOfDate": "Oct 01 2026"
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
   "display": "-0.24%",
   "value": -0.24
  },
  "aum": {
-  "display": "$539.47 M",
-  "value": 539471217.4,
-  "asOfDate": "Oct 01 2026",
+  "display": "$542.06 M",
+  "value": 542056657.12,
+  "asOfDate": "Oct 02 2026",
   "source": "Invesco fund API prices endpoint (net assets / market value)"
  },
  "yields": {
-  "dividendYield": 3.37,
-  "dividendYieldText": "3.37%",
+  "dividendYield": 3.42,
+  "dividendYieldText": "3.42%",
   "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
-  "distributionRate": 1.68,
-  "secYield": 1.59,
-  "secYieldText": "1.59%",
+  "distributionRate": 1.7,
+  "secYield": 1.6,
+  "secYieldText": "1.60%",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
  },
  "returns": {
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Aug 31 2026",
-   "mo1": -2.95,
-   "mo1Text": "-2.95%",
-   "qtd": null,
-   "qtdText": "—",
+   "priceReturnsAsOf": "Oct 02 2026",
+   "mo1": -3.19,
+   "mo1Text": "-3.19%",
+   "qtd": 0.72,
+   "qtdText": "0.72%",
    "ytd": 11.73,
    "ytdText": "11.73%",
    "yr1": 22.01,
@@ -75,9 +81,14 @@
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
-   "null": null
+   "ytd": null,
+   "yr1": null,
+   "yr3": null,
+   "yr5": null,
+   "yr10": null,
+   "sinceInception": null
   },
-  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close, so the date is the official one",
+  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close (performanceAsOf is the date of the official table, the filled periods end later)",
   "performanceAsOf": "2026-08-31"
  },
  "distributions": {
@@ -280,8 +291,8 @@
   ],
   "pageSize": 250,
   "totalRows": 194,
-  "asOfDate": "2026-09-30",
-  "asOf": "Sep 30 2026",
+  "asOfDate": "2026-10-01",
+  "asOf": "Oct 01 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -292,8 +303,8 @@
    "history/004.json"
   ],
   "pageSize": 1000,
-  "totalRows": 3168,
-  "asOf": "Oct 01 2026",
+  "totalRows": 3169,
+  "asOf": "Oct 02 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

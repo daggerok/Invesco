@@ -2,7 +2,7 @@
  "ticker": "FXY",
  "page": 1,
  "pageSize": 250,
- "totalRows": 2,
+ "totalRows": 3,
  "headers": [
   "Name",
   "Ticker",
@@ -17,9 +17,18 @@
    "Name": "CASH & EQUIVALENTS",
    "Ticker": "JPY",
    "Identifier": "CASHJPY06",
-   "Weight": "100",
-   "Market Value": "461127014.464318",
-   "Shares Held": "72459193439",
+   "Weight": "100.021272",
+   "Market Value": "459246180.113729",
+   "Shares Held": "72443788695",
+   "Asset Category": "Currency"
+  },
+  {
+   "Name": "CASH & EQUIVALENTS",
+   "Ticker": "USD",
+   "Identifier": "CASHUSD00",
+   "Weight": "-0.021272",
+   "Market Value": "-97669.143243",
+   "Shares Held": "-15406819",
    "Asset Category": "Currency"
   },
   {
@@ -27,7 +36,7 @@
    "Ticker": "USDPDV",
    "Identifier": "-",
    "Weight": "",
-   "Market Value": "51459.649343",
+   "Market Value": "3189.869727",
    "Shares Held": "0",
    "Asset Category": "Currency"
   }

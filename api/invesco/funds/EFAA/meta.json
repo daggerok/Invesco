@@ -1,8 +1,9 @@
 {
  "ticker": "EFAA",
  "name": "Invesco MSCI EAFE Income Advantage ETF",
+ "listed": true,
  "category": "International",
- "categoryPath": "International",
+ "categoryPath": "Equity, Global Ex-US Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/invesco-msci-eafe-income-advantage-etf.html",
   "holdingsApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46090A713/holdings/fund?idType=cusip&productType=ETF",
@@ -20,34 +21,38 @@
   "indexTicker": "MXEA"
  },
  "expenseRatio": {
-  "display": "0.42%",
-  "value": 0.42
+  "display": "0.39%",
+  "value": 0.39,
+  "gross": {
+   "display": "0.42%",
+   "value": 0.42
+  }
  },
  "nav": {
   "display": "$54.24",
   "value": 54.236444,
-  "asOfDate": "Oct 01 2026"
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
   "display": "$54.40",
   "value": 54.4,
-  "asOfDate": "Oct 01 2026"
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
   "display": "0.30%",
   "value": 0.3
  },
  "aum": {
-  "display": "$659.52 M",
-  "value": 659515213.79,
-  "asOfDate": "Oct 01 2026",
+  "display": "$665.82 M",
+  "value": 665819783.46,
+  "asOfDate": "Oct 02 2026",
   "source": "Invesco fund API prices endpoint (net assets / market value)"
  },
  "yields": {
-  "dividendYield": 8.42,
-  "dividendYieldText": "8.42%",
+  "dividendYield": 8.5,
+  "dividendYieldText": "8.50%",
   "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
-  "distributionRate": 8.56,
+  "distributionRate": 8.63,
   "secYield": 8.93,
   "secYieldText": "8.93%",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
@@ -56,10 +61,11 @@
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Aug 31 2026",
-   "mo1": -2.74,
-   "mo1Text": "-2.74%",
-   "qtd": null,
-   "qtdText": "—",
+   "priceReturnsAsOf": "Oct 02 2026",
+   "mo1": -2.05,
+   "mo1Text": "-2.05%",
+   "qtd": 0.92,
+   "qtdText": "0.92%",
    "ytd": 11.25,
    "ytdText": "11.25%",
    "yr1": 18.43,
@@ -75,9 +81,14 @@
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
-   "null": null
+   "ytd": null,
+   "yr1": null,
+   "yr3": null,
+   "yr5": null,
+   "yr10": null,
+   "sinceInception": null
   },
-  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close, so the date is the official one",
+  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close (performanceAsOf is the date of the official table, the filled periods end later)",
   "performanceAsOf": "2026-08-31"
  },
  "distributions": {
@@ -197,9 +208,9 @@
    "holdings/003.json"
   ],
   "pageSize": 250,
-  "totalRows": 690,
-  "asOfDate": "2026-09-30",
-  "asOf": "Sep 30 2026",
+  "totalRows": 687,
+  "asOfDate": "2026-10-01",
+  "asOf": "Oct 01 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -207,8 +218,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 555,
-  "asOf": "Oct 01 2026",
+  "totalRows": 556,
+  "asOf": "Oct 02 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

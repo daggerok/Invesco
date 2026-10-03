@@ -1,8 +1,9 @@
 {
  "ticker": "PXH",
- "name": "Invesco FTSE RAFI Emerging Markets ETF",
+ "name": "Invesco RAFI Emerging Markets ETF",
+ "listed": true,
  "category": "International",
- "categoryPath": "International",
+ "categoryPath": "Equity, Global Ex-US Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/invesco-ftse-rafi-emerging-markets-etf.html",
   "holdingsApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46138E727/holdings/fund?idType=cusip&productType=ETF",
@@ -17,49 +18,54 @@
  "identifiers": {
   "cusip": "46138E727",
   "isin": "US46138E7278",
-  "indexTicker": "PXH US"
+  "indexTicker": "RAFSEMMN"
  },
  "expenseRatio": {
-  "display": "0.49%",
-  "value": 0.49
+  "display": "0.47%",
+  "value": 0.47,
+  "gross": {
+   "display": "0.47%",
+   "value": 0.47
+  }
  },
  "nav": {
   "display": "$29.07",
   "value": 29.073665,
-  "asOfDate": "Oct 01 2026"
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
   "display": "$28.92",
   "value": 28.92,
-  "asOfDate": "Oct 01 2026"
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
   "display": "-0.53%",
   "value": -0.53
  },
  "aum": {
-  "display": "$2,042.42 M",
-  "value": 2042424991.28,
-  "asOfDate": "Oct 01 2026",
+  "display": "$2,048.91 M",
+  "value": 2048910557.98,
+  "asOfDate": "Oct 02 2026",
   "source": "Invesco fund API prices endpoint (net assets / market value)"
  },
  "yields": {
-  "dividendYield": 3.98,
-  "dividendYieldText": "3.98%",
+  "dividendYield": 3.99,
+  "dividendYieldText": "3.99%",
   "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
-  "distributionRate": 4.46,
-  "secYield": 1.88,
-  "secYieldText": "1.88%",
+  "distributionRate": 4.47,
+  "secYield": 1.87,
+  "secYieldText": "1.87%",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
  },
  "returns": {
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Aug 31 2026",
-   "mo1": -1.87,
-   "mo1Text": "-1.87%",
-   "qtd": null,
-   "qtdText": "—",
+   "priceReturnsAsOf": "Oct 02 2026",
+   "mo1": -1.89,
+   "mo1Text": "-1.89%",
+   "qtd": 0.59,
+   "qtdText": "0.59%",
    "ytd": 16.69,
    "ytdText": "16.69%",
    "yr1": 27.54,
@@ -75,9 +81,14 @@
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
-   "null": null
+   "ytd": null,
+   "yr1": null,
+   "yr3": null,
+   "yr5": null,
+   "yr10": null,
+   "sinceInception": null
   },
-  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close, so the date is the official one",
+  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close (performanceAsOf is the date of the official table, the filled periods end later)",
   "performanceAsOf": "2026-08-31"
  },
  "distributions": {
@@ -381,8 +392,8 @@
   ],
   "pageSize": 250,
   "totalRows": 398,
-  "asOfDate": "2026-09-30",
-  "asOf": "Sep 30 2026",
+  "asOfDate": "2026-10-01",
+  "asOf": "Oct 01 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -394,8 +405,8 @@
    "history/005.json"
   ],
   "pageSize": 1000,
-  "totalRows": 4782,
-  "asOf": "Oct 01 2026",
+  "totalRows": 4783,
+  "asOf": "Oct 02 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

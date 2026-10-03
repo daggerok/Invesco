@@ -1,8 +1,9 @@
 {
  "ticker": "KBWB",
  "name": "Invesco KBW Bank ETF",
+ "listed": true,
  "category": "US Equity",
- "categoryPath": "US Equity",
+ "categoryPath": "Equity, Thematic",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/invesco-kbw-bank-etf.html",
   "holdingsApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46138E628/holdings/fund?idType=cusip&productType=ETF",
@@ -21,26 +22,30 @@
  },
  "expenseRatio": {
   "display": "0.35%",
-  "value": 0.35
+  "value": 0.35,
+  "gross": {
+   "display": "0.35%",
+   "value": 0.35
+  }
  },
  "nav": {
   "display": "$87.06",
   "value": 87.060402,
-  "asOfDate": "Oct 01 2026"
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
   "display": "$87.05",
   "value": 87.05,
-  "asOfDate": "Oct 01 2026"
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
   "display": "-0.01%",
   "value": -0.01
  },
  "aum": {
-  "display": "$6,223.95 M",
-  "value": 6223948140.3,
-  "asOfDate": "Oct 01 2026",
+  "display": "$6,230.78 M",
+  "value": 6230780641.83,
+  "asOfDate": "Oct 02 2026",
   "source": "Invesco fund API prices endpoint (net assets / market value)"
  },
  "yields": {
@@ -48,18 +53,19 @@
   "dividendYieldText": "2.14%",
   "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
   "distributionRate": 2.11,
-  "secYield": 2.32,
-  "secYieldText": "2.32%",
+  "secYield": 2.34,
+  "secYieldText": "2.34%",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
  },
  "returns": {
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Aug 31 2026",
-   "mo1": -7.59,
-   "mo1Text": "-7.59%",
-   "qtd": null,
-   "qtdText": "—",
+   "priceReturnsAsOf": "Oct 02 2026",
+   "mo1": -8.47,
+   "mo1Text": "-8.47%",
+   "qtd": 0.61,
+   "qtdText": "0.61%",
    "ytd": 14.42,
    "ytdText": "14.42%",
    "yr1": 25.57,
@@ -75,9 +81,14 @@
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
-   "null": null
+   "ytd": null,
+   "yr1": null,
+   "yr3": null,
+   "yr5": null,
+   "yr10": null,
+   "sinceInception": null
   },
-  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close, so the date is the official one",
+  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close (performanceAsOf is the date of the official table, the filled periods end later)",
   "performanceAsOf": "2026-08-31"
  },
  "distributions": {
@@ -340,8 +351,8 @@
   ],
   "pageSize": 250,
   "totalRows": 31,
-  "asOfDate": "2026-09-30",
-  "asOf": "Sep 30 2026",
+  "asOfDate": "2026-10-01",
+  "asOf": "Oct 01 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -352,8 +363,8 @@
    "history/004.json"
   ],
   "pageSize": 1000,
-  "totalRows": 3750,
-  "asOf": "Oct 01 2026",
+  "totalRows": 3751,
+  "asOf": "Oct 02 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

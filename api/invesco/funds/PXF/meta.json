@@ -1,8 +1,9 @@
 {
  "ticker": "PXF",
- "name": "Invesco FTSE RAFI Developed Markets ex-U.S. ETF",
+ "name": "Invesco RAFI Developed Markets ex-U.S. ETF",
+ "listed": true,
  "category": "International",
- "categoryPath": "International",
+ "categoryPath": "Equity, Global Ex-US Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/invesco-ftse-rafi-developed-markets-ex-u-s-etf.html",
   "holdingsApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46138E743/holdings/fund?idType=cusip&productType=ETF",
@@ -17,49 +18,54 @@
  "identifiers": {
   "cusip": "46138E743",
   "isin": "US46138E7435",
-  "indexTicker": "PXF"
+  "indexTicker": "RAFSDXUN"
  },
  "expenseRatio": {
-  "display": "0.45%",
-  "value": 0.45
+  "display": "0.43%",
+  "value": 0.43,
+  "gross": {
+   "display": "0.43%",
+   "value": 0.43
+  }
  },
  "nav": {
   "display": "$75.62",
   "value": 75.618234,
-  "asOfDate": "Oct 01 2026"
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
   "display": "$75.57",
   "value": 75.57,
-  "asOfDate": "Oct 01 2026"
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
   "display": "-0.06%",
   "value": -0.06
  },
  "aum": {
-  "display": "$2,907.52 M",
-  "value": 2907521086.57,
-  "asOfDate": "Oct 01 2026",
+  "display": "$2,934.12 M",
+  "value": 2934120958.05,
+  "asOfDate": "Oct 02 2026",
   "source": "Invesco fund API prices endpoint (net assets / market value)"
  },
  "yields": {
-  "dividendYield": 3.26,
-  "dividendYieldText": "3.26%",
+  "dividendYield": 3.3,
+  "dividendYieldText": "3.30%",
   "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
-  "distributionRate": 2.87,
-  "secYield": 1.95,
-  "secYieldText": "1.95%",
+  "distributionRate": 2.9,
+  "secYield": 1.93,
+  "secYieldText": "1.93%",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
  },
  "returns": {
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Aug 31 2026",
-   "mo1": -3.61,
-   "mo1Text": "-3.61%",
-   "qtd": null,
-   "qtdText": "—",
+   "priceReturnsAsOf": "Oct 02 2026",
+   "mo1": -3.11,
+   "mo1Text": "-3.11%",
+   "qtd": 1.09,
+   "qtdText": "1.09%",
    "ytd": 22.99,
    "ytdText": "22.99%",
    "yr1": 36.38,
@@ -75,9 +81,14 @@
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
-   "null": null
+   "ytd": null,
+   "yr1": null,
+   "yr3": null,
+   "yr5": null,
+   "yr10": null,
+   "sinceInception": null
   },
-  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close, so the date is the official one",
+  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close (performanceAsOf is the date of the official table, the filled periods end later)",
   "performanceAsOf": "2026-08-31"
  },
  "distributions": {
@@ -395,9 +406,9 @@
    "holdings/005.json"
   ],
   "pageSize": 250,
-  "totalRows": 1037,
-  "asOfDate": "2026-09-30",
-  "asOf": "Sep 30 2026",
+  "totalRows": 1034,
+  "asOfDate": "2026-10-01",
+  "asOf": "Oct 01 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -409,8 +420,8 @@
    "history/005.json"
   ],
   "pageSize": 1000,
-  "totalRows": 4849,
-  "asOf": "Oct 01 2026",
+  "totalRows": 4850,
+  "asOf": "Oct 02 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

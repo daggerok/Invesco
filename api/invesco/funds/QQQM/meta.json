@@ -1,8 +1,9 @@
 {
  "ticker": "QQQM",
  "name": "Invesco NASDAQ 100 ETF",
+ "listed": true,
  "category": "US Equity",
- "categoryPath": "US Equity",
+ "categoryPath": "Equity, U.S. Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/invesco-nasdaq-100-etf.html",
   "holdingsApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46138G649/holdings/fund?idType=cusip&productType=ETF",
@@ -21,17 +22,21 @@
  },
  "expenseRatio": {
   "display": "0.15%",
-  "value": 0.15
+  "value": 0.15,
+  "gross": {
+   "display": "0.15%",
+   "value": 0.15
+  }
  },
  "nav": {
   "display": "$305.46",
   "value": 305.46378,
-  "asOfDate": "Oct 01 2026"
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
   "display": "$305.57",
   "value": 305.57,
-  "asOfDate": "Oct 01 2026"
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
   "display": "0.03%",
@@ -48,18 +53,19 @@
   "dividendYieldText": "0.43%",
   "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
   "distributionRate": 0.41,
-  "secYield": 0.43,
-  "secYieldText": "0.43%",
+  "secYield": 0.42,
+  "secYieldText": "0.42%",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
  },
  "returns": {
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Aug 31 2026",
-   "mo1": 4.97,
-   "mo1Text": "4.97%",
-   "qtd": null,
-   "qtdText": "—",
+   "priceReturnsAsOf": "Oct 02 2026",
+   "mo1": 5.82,
+   "mo1Text": "5.82%",
+   "qtd": 1.02,
+   "qtdText": "1.02%",
    "ytd": 17.03,
    "ytdText": "17.03%",
    "yr1": 26.39,
@@ -75,9 +81,14 @@
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
-   "null": null
+   "ytd": null,
+   "yr1": null,
+   "yr3": null,
+   "yr5": null,
+   "yr10": null,
+   "sinceInception": null
   },
-  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close, so the date is the official one",
+  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close (performanceAsOf is the date of the official table, the filled periods end later)",
   "performanceAsOf": "2026-08-31"
  },
  "distributions": {
@@ -192,8 +203,8 @@
   ],
   "pageSize": 250,
   "totalRows": 108,
-  "asOfDate": "2026-09-30",
-  "asOf": "Sep 30 2026",
+  "asOfDate": "2026-10-01",
+  "asOf": "Oct 01 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -202,8 +213,8 @@
    "history/002.json"
   ],
   "pageSize": 1000,
-  "totalRows": 1499,
-  "asOf": "Oct 01 2026",
+  "totalRows": 1500,
+  "asOf": "Oct 02 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

@@ -1,8 +1,9 @@
 {
  "ticker": "PSP",
  "name": "Invesco Global Listed Private Equity ETF",
+ "listed": true,
  "category": "Global Equity",
- "categoryPath": "Global Equity",
+ "categoryPath": "Equity, Sector Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/invesco-global-listed-private-equity-etf.html",
   "holdingsApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46137V118/holdings/fund?idType=cusip&productType=ETF",
@@ -21,45 +22,50 @@
  },
  "expenseRatio": {
   "display": "1.75%",
-  "value": 1.75
+  "value": 1.75,
+  "gross": {
+   "display": "1.75%",
+   "value": 1.75
+  }
  },
  "nav": {
   "display": "$56.34",
   "value": 56.338568,
-  "asOfDate": "Oct 01 2026"
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
   "display": "$56.09",
   "value": 56.09,
-  "asOfDate": "Oct 01 2026"
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
   "display": "-0.44%",
   "value": -0.44
  },
  "aum": {
-  "display": "$213.52 M",
-  "value": 213521088.82,
-  "asOfDate": "Oct 01 2026",
+  "display": "$213.71 M",
+  "value": 213711755.5,
+  "asOfDate": "Oct 02 2026",
   "source": "Invesco fund API prices endpoint (net assets / market value)"
  },
  "yields": {
-  "dividendYield": 5.55,
-  "dividendYieldText": "5.55%",
+  "dividendYield": 5.57,
+  "dividendYieldText": "5.57%",
   "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
-  "distributionRate": 2.86,
-  "secYield": 3.34,
-  "secYieldText": "3.34%",
+  "distributionRate": 2.87,
+  "secYield": 3.29,
+  "secYieldText": "3.29%",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
  },
  "returns": {
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Aug 31 2026",
+   "priceReturnsAsOf": "Oct 02 2026",
    "mo1": -8.8,
    "mo1Text": "-8.80%",
-   "qtd": null,
-   "qtdText": "—",
+   "qtd": 0.3,
+   "qtdText": "0.30%",
    "ytd": -2.6,
    "ytdText": "-2.60%",
    "yr1": -5.4,
@@ -75,9 +81,14 @@
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
-   "null": null
+   "ytd": null,
+   "yr1": null,
+   "yr3": null,
+   "yr5": null,
+   "yr10": null,
+   "sinceInception": null
   },
-  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close, so the date is the official one",
+  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close (performanceAsOf is the date of the official table, the filled periods end later)",
   "performanceAsOf": "2026-08-31"
  },
  "distributions": {
@@ -372,8 +383,8 @@
   ],
   "pageSize": 250,
   "totalRows": 75,
-  "asOfDate": "2026-09-30",
-  "asOf": "Sep 30 2026",
+  "asOfDate": "2026-10-01",
+  "asOf": "Oct 01 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -386,8 +397,8 @@
    "history/006.json"
   ],
   "pageSize": 1000,
-  "totalRows": 5015,
-  "asOf": "Oct 01 2026",
+  "totalRows": 5016,
+  "asOf": "Oct 02 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

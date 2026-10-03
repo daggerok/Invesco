@@ -1,8 +1,9 @@
 {
  "ticker": "TROT",
  "name": "Invesco MSCI Treasury Duration Rotation ETF",
+ "listed": true,
  "category": "Fixed Income",
- "categoryPath": "Fixed Income",
+ "categoryPath": "Fixed Income, Broad Fixed Income",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/invesco-msci-treasury-duration-rotation-etf.html",
   "holdingsApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46138G383/holdings/fund?idType=cusip&productType=ETF",
@@ -21,17 +22,21 @@
  },
  "expenseRatio": {
   "display": "0.15%",
-  "value": 0.15
+  "value": 0.15,
+  "gross": {
+   "display": "0.15%",
+   "value": 0.15
+  }
  },
  "nav": {
-  "display": "$24.24",
-  "value": 24.236199,
-  "asOfDate": "Oct 01 2026"
+  "display": "$24.21",
+  "value": 24.206047,
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
-  "display": "$24.24",
-  "value": 24.24,
-  "asOfDate": "Oct 01 2026"
+  "display": "$24.21",
+  "value": 24.21,
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
   "display": "0.02%",
@@ -44,22 +49,23 @@
   "source": "previous run"
  },
  "yields": {
-  "dividendYield": 3.51,
-  "dividendYieldText": "3.51%",
+  "dividendYield": 3.52,
+  "dividendYieldText": "3.52%",
   "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
   "distributionRate": 3.54,
-  "secYield": 4.59,
-  "secYieldText": "4.59%",
+  "secYield": 4.61,
+  "secYieldText": "4.61%",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
  },
  "returns": {
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Aug 31 2026",
-   "mo1": -0.7,
-   "mo1Text": "-0.70%",
-   "qtd": null,
-   "qtdText": "—",
+   "priceReturnsAsOf": "Oct 02 2026",
+   "mo1": -0.86,
+   "mo1Text": "-0.86%",
+   "qtd": -0.12,
+   "qtdText": "-0.12%",
    "ytd": null,
    "ytdText": "—",
    "yr1": null,
@@ -75,9 +81,14 @@
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
-   "null": null
+   "ytd": null,
+   "yr1": null,
+   "yr3": null,
+   "yr5": null,
+   "yr10": null,
+   "sinceInception": null
   },
-  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close, so the date is the official one",
+  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close (performanceAsOf is the date of the official table, the filled periods end later)",
   "performanceAsOf": "2026-08-31"
  },
  "distributions": {
@@ -123,9 +134,9 @@
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 149,
-  "asOfDate": "2026-09-30",
-  "asOf": "Sep 30 2026",
+  "totalRows": 156,
+  "asOfDate": "2026-10-01",
+  "asOf": "Oct 01 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -133,8 +144,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 151,
-  "asOf": "Oct 01 2026",
+  "totalRows": 152,
+  "asOf": "Oct 02 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

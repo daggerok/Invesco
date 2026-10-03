@@ -1,6 +1,7 @@
 {
  "ticker": "BSMA",
  "name": "Invesco BulletShares 2036 Municipal Bond ETF",
+ "listed": true,
  "category": "Fixed Income",
  "categoryPath": "Fixed Income, Municipal",
  "source": {
@@ -21,17 +22,21 @@
  },
  "expenseRatio": {
   "display": "0.18%",
-  "value": 0.18
+  "value": 0.18,
+  "gross": {
+   "display": "0.18%",
+   "value": 0.18
+  }
  },
  "nav": {
   "display": "$24.58",
   "value": 24.575432,
-  "asOfDate": "Oct 01 2026"
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
   "display": "$24.59",
   "value": 24.59,
-  "asOfDate": "Oct 01 2026"
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
   "display": "0.06%",
@@ -48,14 +53,15 @@
   "dividendYieldText": "—",
   "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
   "distributionRate": 0,
-  "secYield": 4.42,
-  "secYieldText": "4.42%",
+  "secYield": 4.38,
+  "secYieldText": "4.38%",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
  },
  "returns": {
   "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Sep 30 2026",
+   "asOfDate": "Oct 01 2026",
+   "priceReturnsAsOf": "Oct 01 2026",
    "mo1": null,
    "mo1Text": "—",
    "qtd": null,
@@ -75,10 +81,15 @@
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
-   "null": null
+   "ytd": null,
+   "yr1": null,
+   "yr3": null,
+   "yr5": null,
+   "yr10": null,
+   "sinceInception": null
   },
   "returnsBasis": "derived from adjusted market-price closes (Yahoo chart API), estimates and not official NAV returns",
-  "performanceAsOf": "2026-09-30"
+  "performanceAsOf": "2026-10-01"
  },
  "distributions": {
   "frequency": "—",
@@ -95,8 +106,8 @@
   ],
   "pageSize": 250,
   "totalRows": 191,
-  "asOfDate": "2026-09-30",
-  "asOf": "Sep 30 2026",
+  "asOfDate": "2026-10-01",
+  "asOf": "Oct 01 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -104,8 +115,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 12,
-  "asOf": "Sep 30 2026",
+  "totalRows": 13,
+  "asOf": "Oct 01 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

@@ -1,8 +1,9 @@
 {
  "ticker": "BSMW",
  "name": "Invesco BulletShares 2032 Municipal Bond ETF",
+ "listed": true,
  "category": "Fixed Income",
- "categoryPath": "Fixed Income",
+ "categoryPath": "Fixed Income, Municipal",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/invesco-bulletshares-2032-municipal-bond-etf.html",
   "holdingsApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46139W833/holdings/fund?idType=cusip&productType=ETF",
@@ -21,17 +22,21 @@
  },
  "expenseRatio": {
   "display": "0.18%",
-  "value": 0.18
+  "value": 0.18,
+  "gross": {
+   "display": "0.18%",
+   "value": 0.18
+  }
  },
  "nav": {
   "display": "$23.69",
   "value": 23.68734,
-  "asOfDate": "Oct 01 2026"
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
   "display": "$23.73",
   "value": 23.725,
-  "asOfDate": "Oct 01 2026"
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
   "display": "0.16%",
@@ -44,22 +49,23 @@
   "source": "previous run"
  },
  "yields": {
-  "dividendYield": 3.43,
-  "dividendYieldText": "3.43%",
+  "dividendYield": 3.41,
+  "dividendYieldText": "3.41%",
   "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
-  "distributionRate": 3.43,
-  "secYield": 4.01,
-  "secYieldText": "4.01%",
+  "distributionRate": 3.41,
+  "secYield": 3.99,
+  "secYieldText": "3.99%",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
  },
  "returns": {
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Aug 31 2026",
-   "mo1": -2.87,
-   "mo1Text": "-2.87%",
-   "qtd": null,
-   "qtdText": "—",
+   "priceReturnsAsOf": "Oct 02 2026",
+   "mo1": -2.58,
+   "mo1Text": "-2.58%",
+   "qtd": 0.08,
+   "qtdText": "0.08%",
    "ytd": -0.04,
    "ytdText": "-0.04%",
    "yr1": 3.79,
@@ -75,9 +81,14 @@
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
-   "null": null
+   "ytd": null,
+   "yr1": null,
+   "yr3": null,
+   "yr5": null,
+   "yr10": null,
+   "sinceInception": null
   },
-  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close, so the date is the official one",
+  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close (performanceAsOf is the date of the official table, the filled periods end later)",
   "performanceAsOf": "2026-08-31"
  },
  "distributions": {
@@ -271,8 +282,8 @@
   ],
   "pageSize": 250,
   "totalRows": 1915,
-  "asOfDate": "2026-09-30",
-  "asOf": "Sep 30 2026",
+  "asOfDate": "2026-10-01",
+  "asOf": "Oct 01 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -280,8 +291,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 900,
-  "asOf": "Oct 01 2026",
+  "totalRows": 901,
+  "asOf": "Oct 02 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

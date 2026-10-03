@@ -1,6 +1,7 @@
 {
  "ticker": "BSJM",
  "name": "Invesco BulletShares 2022 High Yield Corporate Bond ETF",
+ "listed": false,
  "category": "Fixed Income",
  "categoryPath": "Fixed Income",
  "source": {
@@ -21,7 +22,8 @@
  },
  "expenseRatio": {
   "display": "—",
-  "value": null
+  "value": null,
+  "gross": null
  },
  "nav": {
   "display": "—",
@@ -56,6 +58,7 @@
   "derivedFrom": "last published official Invesco returns (not refreshed in this run); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Aug 31 2026",
+   "priceReturnsAsOf": null,
    "mo1": null,
    "mo1Text": "—",
    "qtd": null,
@@ -75,7 +78,12 @@
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
-   "null": null
+   "ytd": null,
+   "yr1": null,
+   "yr3": null,
+   "yr5": null,
+   "yr10": null,
+   "sinceInception": null
   },
   "returnsBasis": "last published official Invesco NAV total returns (not refreshed in this run: invesco.com provided no month-end table for this fund, for example a renamed or delisted one); periods Invesco did not publish are filled from adjusted closes",
   "performanceAsOf": "2026-08-31"

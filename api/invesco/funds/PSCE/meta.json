@@ -1,8 +1,9 @@
 {
  "ticker": "PSCE",
  "name": "Invesco S&P SmallCap Energy ETF",
+ "listed": true,
  "category": "Sector",
- "categoryPath": "Sector",
+ "categoryPath": "Equity, Sector Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/invesco-sp-smallcap-energy-etf.html",
   "holdingsApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46138G474/holdings/fund?idType=cusip&productType=ETF",
@@ -21,45 +22,50 @@
  },
  "expenseRatio": {
   "display": "0.29%",
-  "value": 0.29
+  "value": 0.29,
+  "gross": {
+   "display": "0.29%",
+   "value": 0.29
+  }
  },
  "nav": {
   "display": "$58.78",
   "value": 58.780912,
-  "asOfDate": "Oct 01 2026"
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
   "display": "$58.79",
   "value": 58.7934,
-  "asOfDate": "Oct 01 2026"
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
   "display": "0.02%",
   "value": 0.02
  },
  "aum": {
-  "display": "$104.28 M",
-  "value": 104275574.01,
-  "asOfDate": "Oct 01 2026",
+  "display": "$104.37 M",
+  "value": 104367769.21,
+  "asOfDate": "Oct 02 2026",
   "source": "Invesco fund API prices endpoint (net assets / market value)"
  },
  "yields": {
-  "dividendYield": 2.52,
-  "dividendYieldText": "2.52%",
+  "dividendYield": 2.47,
+  "dividendYieldText": "2.47%",
   "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
-  "distributionRate": 2.85,
-  "secYield": 2.63,
-  "secYieldText": "2.63%",
+  "distributionRate": 2.79,
+  "secYield": 2.22,
+  "secYieldText": "2.22%",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
  },
  "returns": {
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Aug 31 2026",
-   "mo1": -6.62,
-   "mo1Text": "-6.62%",
-   "qtd": null,
-   "qtdText": "—",
+   "priceReturnsAsOf": "Oct 02 2026",
+   "mo1": -7.51,
+   "mo1Text": "-7.51%",
+   "qtd": 0.53,
+   "qtdText": "0.53%",
    "ytd": 47.72,
    "ytdText": "47.72%",
    "yr1": 53.49,
@@ -75,9 +81,14 @@
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
-   "null": null
+   "ytd": null,
+   "yr1": null,
+   "yr3": null,
+   "yr5": null,
+   "yr10": null,
+   "sinceInception": null
   },
-  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close, so the date is the official one",
+  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close (performanceAsOf is the date of the official table, the filled periods end later)",
   "performanceAsOf": "2026-08-31"
  },
  "distributions": {
@@ -268,8 +279,8 @@
   ],
   "pageSize": 250,
   "totalRows": 37,
-  "asOfDate": "2026-09-30",
-  "asOf": "Sep 30 2026",
+  "asOfDate": "2026-10-01",
+  "asOf": "Oct 01 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -281,8 +292,8 @@
    "history/005.json"
   ],
   "pageSize": 1000,
-  "totalRows": 4148,
-  "asOf": "Oct 01 2026",
+  "totalRows": 4149,
+  "asOf": "Oct 02 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

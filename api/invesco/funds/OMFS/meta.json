@@ -1,8 +1,9 @@
 {
  "ticker": "OMFS",
  "name": "Invesco Russell 2000 Dynamic Multifactor ETF",
+ "listed": true,
  "category": "US Equity",
- "categoryPath": "US Equity",
+ "categoryPath": "Equity, U.S. Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/invesco-russell-2000-dynamic-multifactor-etf.html",
   "holdingsApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46138J593/holdings/fund?idType=cusip&productType=ETF",
@@ -21,26 +22,30 @@
  },
  "expenseRatio": {
   "display": "0.39%",
-  "value": 0.39
+  "value": 0.39,
+  "gross": {
+   "display": "0.39%",
+   "value": 0.39
+  }
  },
  "nav": {
   "display": "$49.45",
   "value": 49.447487,
-  "asOfDate": "Oct 01 2026"
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
   "display": "$49.46",
   "value": 49.4611,
-  "asOfDate": "Oct 01 2026"
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
   "display": "0.03%",
   "value": 0.03
  },
  "aum": {
-  "display": "$264.05 M",
-  "value": 264049632.06,
-  "asOfDate": "Oct 01 2026",
+  "display": "$267.15 M",
+  "value": 267154440.62,
+  "asOfDate": "Oct 02 2026",
   "source": "Invesco fund API prices endpoint (net assets / market value)"
  },
  "yields": {
@@ -48,18 +53,19 @@
   "dividendYieldText": "1.30%",
   "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
   "distributionRate": 1.66,
-  "secYield": 1.22,
-  "secYieldText": "1.22%",
+  "secYield": 1.24,
+  "secYieldText": "1.24%",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
  },
  "returns": {
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Aug 31 2026",
-   "mo1": -4.07,
-   "mo1Text": "-4.07%",
-   "qtd": null,
-   "qtdText": "—",
+   "priceReturnsAsOf": "Oct 02 2026",
+   "mo1": -4.29,
+   "mo1Text": "-4.29%",
+   "qtd": 0.93,
+   "qtdText": "0.93%",
    "ytd": 18.88,
    "ytdText": "18.88%",
    "yr1": 22.8,
@@ -75,9 +81,14 @@
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
-   "null": null
+   "ytd": null,
+   "yr1": null,
+   "yr3": null,
+   "yr5": null,
+   "yr10": null,
+   "sinceInception": null
   },
-  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close, so the date is the official one",
+  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close (performanceAsOf is the date of the official table, the filled periods end later)",
   "performanceAsOf": "2026-08-31"
  },
  "distributions": {
@@ -240,8 +251,8 @@
   ],
   "pageSize": 250,
   "totalRows": 1111,
-  "asOfDate": "2026-09-30",
-  "asOf": "Sep 30 2026",
+  "asOfDate": "2026-10-01",
+  "asOf": "Oct 01 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -251,8 +262,8 @@
    "history/003.json"
   ],
   "pageSize": 1000,
-  "totalRows": 2233,
-  "asOf": "Oct 01 2026",
+  "totalRows": 2234,
+  "asOf": "Oct 02 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

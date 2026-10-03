@@ -1,8 +1,9 @@
 {
  "ticker": "VRP",
  "name": "Invesco Variable Rate Preferred ETF",
+ "listed": true,
  "category": "Fixed Income",
- "categoryPath": "Fixed Income",
+ "categoryPath": "Fixed Income, Preferred Securities",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/invesco-variable-rate-preferred-etf.html",
   "holdingsApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46138G870/holdings/fund?idType=cusip&productType=ETF",
@@ -21,45 +22,50 @@
  },
  "expenseRatio": {
   "display": "0.5%",
-  "value": 0.5
+  "value": 0.5,
+  "gross": {
+   "display": "0.5%",
+   "value": 0.5
+  }
  },
  "nav": {
-  "display": "$23.64",
-  "value": 23.64444,
-  "asOfDate": "Oct 01 2026"
+  "display": "$23.67",
+  "value": 23.669469,
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
-  "display": "$23.64",
-  "value": 23.64,
-  "asOfDate": "Oct 01 2026"
+  "display": "$23.71",
+  "value": 23.71,
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
-  "display": "-0.02%",
-  "value": -0.02
+  "display": "0.17%",
+  "value": 0.17
  },
  "aum": {
-  "display": "$2,995.75 M",
-  "value": 2995750577.36,
-  "asOfDate": "Oct 01 2026",
+  "display": "$2,998.92 M",
+  "value": 2998921778.65,
+  "asOfDate": "Oct 02 2026",
   "source": "Invesco fund API prices endpoint (net assets / market value)"
  },
  "yields": {
-  "dividendYield": 6.23,
-  "dividendYieldText": "6.23%",
+  "dividendYield": 6.24,
+  "dividendYieldText": "6.24%",
   "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
-  "distributionRate": 5.83,
-  "secYield": 5.86,
-  "secYieldText": "5.86%",
+  "distributionRate": 5.84,
+  "secYield": 5.91,
+  "secYieldText": "5.91%",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
  },
  "returns": {
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Aug 31 2026",
-   "mo1": -1.42,
-   "mo1Text": "-1.42%",
-   "qtd": null,
-   "qtdText": "—",
+   "priceReturnsAsOf": "Oct 02 2026",
+   "mo1": -1.21,
+   "mo1Text": "-1.21%",
+   "qtd": 0.3,
+   "qtdText": "0.30%",
    "ytd": 2.49,
    "ytdText": "2.49%",
    "yr1": 4.75,
@@ -75,9 +81,14 @@
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
-   "null": null
+   "ytd": null,
+   "yr1": null,
+   "yr3": null,
+   "yr5": null,
+   "yr10": null,
+   "sinceInception": null
   },
-  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close, so the date is the official one",
+  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close (performanceAsOf is the date of the official table, the filled periods end later)",
   "performanceAsOf": "2026-08-31"
  },
  "distributions": {
@@ -680,9 +691,9 @@
    "holdings/002.json"
   ],
   "pageSize": 250,
-  "totalRows": 368,
-  "asOfDate": "2026-09-30",
-  "asOf": "Sep 30 2026",
+  "totalRows": 367,
+  "asOfDate": "2026-10-01",
+  "asOf": "Oct 01 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -693,8 +704,8 @@
    "history/004.json"
   ],
   "pageSize": 1000,
-  "totalRows": 3124,
-  "asOf": "Oct 01 2026",
+  "totalRows": 3125,
+  "asOf": "Oct 02 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

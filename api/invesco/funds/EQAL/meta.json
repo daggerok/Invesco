@@ -1,8 +1,9 @@
 {
  "ticker": "EQAL",
  "name": "Invesco Russell 1000 Equal Weight ETF",
+ "listed": true,
  "category": "US Equity",
- "categoryPath": "US Equity",
+ "categoryPath": "Equity, U.S. Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/invesco-russell-1000-equal-weight-etf.html",
   "holdingsApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46138E420/holdings/fund?idType=cusip&productType=ETF",
@@ -21,33 +22,37 @@
  },
  "expenseRatio": {
   "display": "0.2%",
-  "value": 0.2
+  "value": 0.2,
+  "gross": {
+   "display": "0.2%",
+   "value": 0.2
+  }
  },
  "nav": {
   "display": "$57.55",
   "value": 57.547699,
-  "asOfDate": "Oct 01 2026"
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
   "display": "$57.54",
   "value": 57.54,
-  "asOfDate": "Oct 01 2026"
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
   "display": "-0.01%",
   "value": -0.01
  },
  "aum": {
-  "display": "$798.47 M",
-  "value": 798474374.61,
-  "asOfDate": "Oct 01 2026",
+  "display": "$804.51 M",
+  "value": 804514734.52,
+  "asOfDate": "Oct 02 2026",
   "source": "Invesco fund API prices endpoint (net assets / market value)"
  },
  "yields": {
-  "dividendYield": 1.77,
-  "dividendYieldText": "1.77%",
+  "dividendYield": 1.76,
+  "dividendYieldText": "1.76%",
   "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
-  "distributionRate": 1.9,
+  "distributionRate": 1.89,
   "secYield": 1.71,
   "secYieldText": "1.71%",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
@@ -56,10 +61,11 @@
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Aug 31 2026",
-   "mo1": -4.66,
-   "mo1Text": "-4.66%",
-   "qtd": null,
-   "qtdText": "—",
+   "priceReturnsAsOf": "Oct 02 2026",
+   "mo1": -4.5,
+   "mo1Text": "-4.50%",
+   "qtd": 0.8,
+   "qtdText": "0.80%",
    "ytd": 17.09,
    "ytdText": "17.09%",
    "yr1": 20.12,
@@ -75,9 +81,14 @@
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
-   "null": null
+   "ytd": null,
+   "yr1": null,
+   "yr3": null,
+   "yr5": null,
+   "yr10": null,
+   "sinceInception": null
   },
-  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close, so the date is the official one",
+  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close (performanceAsOf is the date of the official table, the filled periods end later)",
   "performanceAsOf": "2026-08-31"
  },
  "distributions": {
@@ -283,9 +294,9 @@
    "holdings/005.json"
   ],
   "pageSize": 250,
-  "totalRows": 1016,
-  "asOfDate": "2026-09-30",
-  "asOf": "Sep 30 2026",
+  "totalRows": 1017,
+  "asOfDate": "2026-10-01",
+  "asOf": "Oct 01 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -295,8 +306,8 @@
    "history/003.json"
   ],
   "pageSize": 1000,
-  "totalRows": 2959,
-  "asOf": "Oct 01 2026",
+  "totalRows": 2960,
+  "asOf": "Oct 02 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

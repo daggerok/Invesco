@@ -1,8 +1,9 @@
 {
  "ticker": "PFI",
  "name": "Invesco Dorsey Wright Financial Momentum ETF",
+ "listed": true,
  "category": "US Equity",
- "categoryPath": "US Equity",
+ "categoryPath": "Equity, Sector Equity",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/invesco-dorsey-wright-financial-momentum-etf.html",
   "holdingsApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46137V860/holdings/fund?idType=cusip&productType=ETF",
@@ -20,27 +21,31 @@
   "indexTicker": "DWFNTR"
  },
  "expenseRatio": {
-  "display": "0.78%",
-  "value": 0.78
+  "display": "0.6%",
+  "value": 0.6,
+  "gross": {
+   "display": "0.78%",
+   "value": 0.78
+  }
  },
  "nav": {
   "display": "$57.81",
   "value": 57.812732,
-  "asOfDate": "Oct 01 2026"
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
   "display": "$57.80",
   "value": 57.8015,
-  "asOfDate": "Oct 01 2026"
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
   "display": "-0.02%",
   "value": -0.02
  },
  "aum": {
-  "display": "$55.50 M",
-  "value": 55500222.71,
-  "asOfDate": "Oct 01 2026",
+  "display": "$55.90 M",
+  "value": 55899058.02,
+  "asOfDate": "Oct 02 2026",
   "source": "Invesco fund API prices endpoint (net assets / market value)"
  },
  "yields": {
@@ -48,18 +53,19 @@
   "dividendYieldText": "1.23%",
   "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
   "distributionRate": 1.12,
-  "secYield": 1.37,
-  "secYieldText": "1.37%",
+  "secYield": 1.38,
+  "secYieldText": "1.38%",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
  },
  "returns": {
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Aug 31 2026",
-   "mo1": -5.15,
-   "mo1Text": "-5.15%",
-   "qtd": null,
-   "qtdText": "—",
+   "priceReturnsAsOf": "Oct 02 2026",
+   "mo1": -5.27,
+   "mo1Text": "-5.27%",
+   "qtd": 0.78,
+   "qtdText": "0.78%",
    "ytd": 8.05,
    "ytdText": "8.05%",
    "yr1": 9.52,
@@ -75,9 +81,14 @@
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
-   "null": null
+   "ytd": null,
+   "yr1": null,
+   "yr3": null,
+   "yr5": null,
+   "yr10": null,
+   "sinceInception": null
   },
-  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close, so the date is the official one",
+  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close (performanceAsOf is the date of the official table, the filled periods end later)",
   "performanceAsOf": "2026-08-31"
  },
  "distributions": {
@@ -391,9 +402,9 @@
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 40,
-  "asOfDate": "2026-09-30",
-  "asOf": "Sep 30 2026",
+  "totalRows": 48,
+  "asOfDate": "2026-10-01",
+  "asOf": "Oct 01 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -406,8 +417,8 @@
    "history/006.json"
   ],
   "pageSize": 1000,
-  "totalRows": 5023,
-  "asOf": "Oct 01 2026",
+  "totalRows": 5024,
+  "asOf": "Oct 02 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

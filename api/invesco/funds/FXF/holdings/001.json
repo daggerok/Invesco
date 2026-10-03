@@ -2,7 +2,7 @@
  "ticker": "FXF",
  "page": 1,
  "pageSize": 250,
- "totalRows": 2,
+ "totalRows": 3,
  "headers": [
   "Name",
   "Ticker",
@@ -17,9 +17,18 @@
    "Name": "CASH & EQUIVALENTS",
    "Ticker": "CHF",
    "Identifier": "CASHCHF02",
-   "Weight": "100",
-   "Market Value": "312792752.9",
-   "Shares Held": "312792753",
+   "Weight": "100.045923",
+   "Market Value": "312649214.91",
+   "Shares Held": "312649215.01",
+   "Asset Category": "Currency"
+  },
+  {
+   "Name": "CASH & EQUIVALENTS",
+   "Ticker": "USD",
+   "Identifier": "CASHUSD00",
+   "Weight": "-0.045923",
+   "Market Value": "-143512.54",
+   "Shares Held": "-143512.54",
    "Asset Category": "Currency"
   },
   {
@@ -27,7 +36,7 @@
    "Ticker": "USDPDV",
    "Identifier": "-",
    "Weight": "",
-   "Market Value": "-39540.34",
+   "Market Value": "-1303.31",
    "Shares Held": "0",
    "Asset Category": "Currency"
   }

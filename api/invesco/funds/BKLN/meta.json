@@ -1,8 +1,9 @@
 {
  "ticker": "BKLN",
  "name": "Invesco Senior Loan ETF",
+ "listed": true,
  "category": "Fixed Income",
- "categoryPath": "Fixed Income",
+ "categoryPath": "Alternative, Bank Loans",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/invesco-senior-loan-etf.html",
   "holdingsApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46138G508/holdings/fund?idType=cusip&productType=ETF",
@@ -20,27 +21,31 @@
   "indexTicker": "SPBDLL"
  },
  "expenseRatio": {
-  "display": "0.67%",
-  "value": 0.67
+  "display": "0.65%",
+  "value": 0.65,
+  "gross": {
+   "display": "0.67%",
+   "value": 0.67
+  }
  },
  "nav": {
   "display": "$20.50",
   "value": 20.500369,
-  "asOfDate": "Oct 01 2026"
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
   "display": "$20.46",
   "value": 20.46,
-  "asOfDate": "Oct 01 2026"
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
   "display": "-0.20%",
   "value": -0.2
  },
  "aum": {
-  "display": "$6,447.37 M",
-  "value": 6447366083.1,
-  "asOfDate": "Oct 01 2026",
+  "display": "$6,285.84 M",
+  "value": 6285841041.91,
+  "asOfDate": "Oct 02 2026",
   "source": "Invesco fund API prices endpoint (net assets / market value)"
  },
  "yields": {
@@ -48,18 +53,19 @@
   "dividendYieldText": "6.39%",
   "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
   "distributionRate": 6.7,
-  "secYield": 6.84,
-  "secYieldText": "6.84%",
+  "secYield": 6.85,
+  "secYieldText": "6.85%",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
  },
  "returns": {
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Aug 31 2026",
-   "mo1": 0.1,
-   "mo1Text": "0.10%",
-   "qtd": null,
-   "qtdText": "—",
+   "priceReturnsAsOf": "Oct 02 2026",
+   "mo1": 0.15,
+   "mo1Text": "0.15%",
+   "qtd": 0.1,
+   "qtdText": "0.10%",
    "ytd": 2.34,
    "ytdText": "2.34%",
    "yr1": 4.7,
@@ -75,9 +81,14 @@
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
-   "null": null
+   "ytd": null,
+   "yr1": null,
+   "yr3": null,
+   "yr5": null,
+   "yr10": null,
+   "sinceInception": null
   },
-  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close, so the date is the official one",
+  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close (performanceAsOf is the date of the official table, the filled periods end later)",
   "performanceAsOf": "2026-08-31"
  },
  "distributions": {
@@ -839,9 +850,9 @@
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 165,
-  "asOfDate": "2026-09-30",
-  "asOf": "Sep 30 2026",
+  "totalRows": 166,
+  "asOfDate": "2026-10-01",
+  "asOf": "Oct 01 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -852,8 +863,8 @@
    "history/004.json"
   ],
   "pageSize": 1000,
-  "totalRows": 3919,
-  "asOf": "Oct 01 2026",
+  "totalRows": 3920,
+  "asOf": "Oct 02 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

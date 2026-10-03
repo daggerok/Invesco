@@ -1,8 +1,9 @@
 {
  "ticker": "QSOL",
  "name": "Invesco Galaxy Solana ETF",
+ "listed": true,
  "category": "Digital Assets",
- "categoryPath": "Digital Assets",
+ "categoryPath": "Alternative, Digital Assets",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/invesco-galaxy-solana-etf.html",
   "holdingsApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/67122G106/holdings/fund?idType=cusip&productType=ETF",
@@ -21,17 +22,21 @@
  },
  "expenseRatio": {
   "display": "0.25%",
-  "value": 0.25
+  "value": 0.25,
+  "gross": {
+   "display": "0.25%",
+   "value": 0.25
+  }
  },
  "nav": {
   "display": "$11.85",
   "value": 11.847847,
-  "asOfDate": "Oct 01 2026"
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
   "display": "$11.87",
   "value": 11.87,
-  "asOfDate": "Oct 01 2026"
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
   "display": "0.19%",
@@ -47,7 +52,7 @@
   "dividendYield": 3.1,
   "dividendYieldText": "3.10%",
   "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
-  "distributionRate": 3.13,
+  "distributionRate": 3.1,
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
@@ -56,10 +61,11 @@
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Aug 31 2026",
-   "mo1": 18.7,
-   "mo1Text": "18.70%",
-   "qtd": null,
-   "qtdText": "—",
+   "priceReturnsAsOf": "Oct 02 2026",
+   "mo1": 19.1,
+   "mo1Text": "19.10%",
+   "qtd": -0.17,
+   "qtdText": "-0.17%",
    "ytd": -15.05,
    "ytdText": "-15.05%",
    "yr1": null,
@@ -75,9 +81,14 @@
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
-   "null": null
+   "ytd": null,
+   "yr1": null,
+   "yr3": null,
+   "yr5": null,
+   "yr10": null,
+   "sinceInception": null
   },
-  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close, so the date is the official one",
+  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close (performanceAsOf is the date of the official table, the filled periods end later)",
   "performanceAsOf": "2026-08-31"
  },
  "distributions": {
@@ -108,8 +119,8 @@
   ],
   "pageSize": 250,
   "totalRows": 3,
-  "asOfDate": "2026-09-30",
-  "asOf": "Sep 30 2026",
+  "asOfDate": "2026-10-01",
+  "asOf": "Oct 01 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -117,8 +128,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 200,
-  "asOf": "Oct 01 2026",
+  "totalRows": 201,
+  "asOf": "Oct 02 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }
