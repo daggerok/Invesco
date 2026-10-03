@@ -58,6 +58,7 @@ import {
   resolveControls,
   runtimeControls,
 } from './update-data';
+import * as MOD from './update-data';
 
 // ---------------------------------------------------------------------------
 // Range parsers (same contract as daggerok/iShares, daggerok/SPDR, daggerok/Fidelity)
@@ -1087,7 +1088,8 @@ describe('update pipeline (mocked fetch, temporary api root)', () => {
       expect(index.funds.map((fund) => fund.ticker)).toEqual(['AAA', 'BBB', 'CCC']);
       const [aaa, bbb] = index.funds;
       expect(aaa.cusip).toBe('46137V350');
-      expect(aaa.terValue).toBe(0.2);
+      expect(aaa.terValue).toBe(0.19);
+      expect(aaa.terGrossValue).toBe(0.2);
       expect(aaa.navValue).toBe(208.981986);
       expect(aaa.aumValue).toBe(95423821287.23);
       expect(aaa.metrics.ytd).toBe(15.44);
@@ -1138,7 +1140,7 @@ describe('update pipeline (mocked fetch, temporary api root)', () => {
       const created = index.funds.find((fund) => fund.ticker === 'NEW')!;
       expect(created.cusip).toBe('46137V399');
       expect(created.category).toBe('US Equity');
-      expect(created.terValue).toBe(0.2);
+      expect(created.terValue).toBe(0.19);
       expect(created.metrics.returnsBasis).toBe(OFFICIAL_RETURNS_BASIS);
       expect(index.counts.funds).toBe(3);
     }, ['ZZZ']);
@@ -1353,5 +1355,221 @@ describe('USE_SYSTEM_CA', () => {
       await fetch('https://example.test');
       expect(calls.n).toBe(1);
     } finally { console.error = errors; }
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Review fixes: strict controls, honest returns blocks, lifecycle, robustness
+// ---------------------------------------------------------------------------
+
+const mod = MOD as any;
+
+describe('strict control parsing', () => {
+  test('range and AUM parsers reject malformed bounds instead of dropping the filter', () => {
+    expect(() => parseAumRange('abc:')).toThrow();
+    expect(() => parseAumRange('1B:2B:3B')).toThrow();
+    expect(() => parseRange('1:2:3', 'PERFORMANCE_1Y')).toThrow();
+    expect(parseAumRange('1B:')).toEqual({ min: 1e9, max: undefined });
+    expect(() => resolveControls({}, {}, {}, { AUM: 'abc:' })).toThrow();
+    expect(() => resolveControls({}, {}, {}, { PERFORMANCE_1Y: '1:2:3' })).toThrow();
+  });
+
+  test('HISTORY_RANGE accepts max or whole years only', () => {
+    for (const bad of ['garbage', '6mo', 'ytd', '0y', '-5y', '5']) expect(() => resolveControls({}, {}, {}, { HISTORY_RANGE: bad })).toThrow();
+    for (const good of ['max', '5y', '10Y']) expect(resolveControls({}, {}, {}, { HISTORY_RANGE: good }).HISTORY_RANGE).toBe(good);
+    expect(() => resolveControls({}, {}, {}, { SITEMAP_URL: 'https://' })).toThrow();
+  });
+
+  test('HISTORY_RANGE really shrinks the Yahoo request through explicit period1/period2', () => {
+    const now = 1_790_000_000_000;
+    const max = new URL(mod.chartUrl('AAA', { historyRange: 'max' }, now));
+    expect(max.searchParams.get('period1')).toBe('0');
+    expect(max.searchParams.get('period2')).toBe('1790000000');
+    const five = new URL(mod.chartUrl('AAA', { historyRange: '5y' }, now));
+    expect(Number(five.searchParams.get('period1'))).toBe(Math.floor(1_790_000_000 - 5 * 365.25 * 86_400));
+    expect(five.searchParams.has('range')).toBe(false);
+  });
+});
+
+describe('data contract fixes', () => {
+  test('a since-inception of exactly 0.00 is the provider placeholder: null, not 0', () => {
+    const payload = { effectiveDate: '2026-08-31', annualizedPerformance: [{ label: 'fund', ytd: 0.27, y1: 2.68, y3: 3.05, y5: -0.79, y10: null, inception: 0 }] };
+    const parsed = parseDngPerformance(payload as any);
+    expect(parsed.returns.sinceInception).toBeNull();
+    expect(parsed.returns.yr5).toBe(-0.79);
+  });
+
+  test('exchange names have one spelling per venue', () => {
+    expect(mod.normalizeExchange('NYSEArca')).toBe('NYSE Arca');
+    expect(mod.normalizeExchange('NYSE ARCA')).toBe('NYSE Arca');
+    expect(mod.normalizeExchange('NasdaqGM')).toBe('Nasdaq');
+    expect(mod.normalizeExchange('Nasdaq/NMS (Global Market)')).toBe('Nasdaq');
+    expect(mod.normalizeExchange('CBOE BZX U.S. EQUITIES EXCHANGE')).toBe('Cboe BZX');
+    expect(mod.normalizeExchange('Cboe US')).toBe('Cboe BZX');
+  });
+});
+
+describe('pipeline fixes (mocked fetch, temporary api root)', () => {
+  const realFetch = globalThis.fetch;
+  const realLog = console.log;
+  afterEach(() => {
+    globalThis.fetch = realFetch;
+    console.log = realLog;
+    mod.configureFetchForTests?.({ timeoutMs: 45_000, sleepMs: 0, deadlineMs: 25 * 60_000 });
+  });
+  const capture = (): string[] => { const lines: string[] = []; console.log = (...args: unknown[]) => { lines.push(args.join(' ')); }; return lines; };
+  const readJson = async (root: URL, path: string) => JSON.parse(await Bun.file(new URL(path, root)).text());
+
+  test('returns blocks carry no fabricated "null" key, the month-end block is dated honestly, TER is net with gross beside it', async () => {
+    capture();
+    installMockFetch();
+    await withTempFeed(MOCK_FUNDS.slice(0, 1), async (root) => {
+      await runUpdater(pipelineControls({ TICKERS: 'AAA' }));
+      const text = await Bun.file(new URL('index.json', root)).text();
+      const meta = await readJson(root, 'funds/AAA/meta.json');
+      expect(text).not.toContain('"null"');
+      expect(JSON.stringify(meta)).not.toContain('"null"');
+      const index = JSON.parse(text);
+      const quarterEnd = index.funds[0].returns.quarterEnd;
+      expect(Object.keys(quarterEnd)).toEqual(['asOfDate', 'ytd', 'yr1', 'yr3', 'yr5', 'yr10', 'sinceInception']);
+      expect(index.funds[0].returns.monthEnd.priceReturnsAsOf).toMatch(/^[A-Z][a-z]{2} \d{2} \d{4}$/);
+      expect(OFFICIAL_RETURNS_BASIS).not.toContain('so the date is the official one');
+      expect(index.funds[0].terValue).toBe(0.19);
+      expect(index.funds[0].terGrossValue).toBe(0.2);
+      expect(meta.expenseRatio.value).toBe(0.19);
+      expect(meta.expenseRatio.gross.value).toBe(0.2);
+    });
+  });
+
+  test('funds the sitemap no longer lists stay in the feed but are marked listed: false', async () => {
+    capture();
+    installMockFetch({ listed: MOCK_FUNDS.slice(0, 2) });
+    await withTempFeed(MOCK_FUNDS.slice(0, 3), async (root) => {
+      await runUpdater(pipelineControls({ SKIP_YAHOO: 'true' }));
+      const index = await readIndex(root);
+      expect(index.funds.map((fund) => fund.listed)).toEqual([true, true, false]);
+      expect((await readJson(root, 'funds/AAA/meta.json')).listed).toBe(true);
+    });
+  });
+
+  test('every fetch has a timeout and a hanging request is retried then fails', async () => {
+    mod.configureFetchForTests({ timeoutMs: 30, sleepMs: 0, lanes: 1 });
+    let calls = 0;
+    globalThis.fetch = (async (_url: unknown, init?: RequestInit) => {
+      calls += 1;
+      const signal = init?.signal;
+      if (!signal) { await new Promise((resolve) => setTimeout(resolve, 150)); return new Response('late', { status: 200 }); }
+      return new Promise<Response>((_resolve, reject) => signal.addEventListener('abort', () => reject(new Error('aborted'))));
+    }) as typeof fetch;
+    await expect(mod.fetchWithRetry('https://example.test/x', 't', {}, 1)).rejects.toThrow(/network error/);
+    expect(calls).toBe(2);
+  });
+
+  test('pacing reserves the lane slot synchronously: 4 simultaneous requests on 2 lanes start 0,0,S,S', async () => {
+    mod.configureFetchForTests({ sleepMs: 200, lanes: 2 });
+    const t0 = Date.now();
+    const starts: number[] = [];
+    await Promise.all([0, 1, 2, 3].map(async () => { await mod.paceRequests(); starts.push(Date.now() - t0); }));
+    starts.sort((a, b) => a - b);
+    expect(starts[1]).toBeLessThan(100);
+    expect(starts[2]).toBeGreaterThanOrEqual(150);
+    expect(starts[3]).toBeGreaterThanOrEqual(150);
+  });
+
+  test('MAX_FETCHES counts only funds that pass the filters, so a late ticker is reached', async () => {
+    capture();
+    installMockFetch();
+    await withTempFeed(MOCK_FUNDS, async (root) => {
+      await runUpdater(pipelineControls({ TICKERS: 'FFF', MAX_FETCHES: '1', SKIP_YAHOO: 'true' }));
+      const index = await readIndex(root);
+      expect(index.funds.length).toBe(6);
+      expect(index.funds.find((fund) => fund.ticker === 'FFF')!.metrics.ytd).toBe(15.44);
+      expect(index.funds.find((fund) => fund.ticker === 'AAA')!.metrics.ytd).toBe(1.5);
+      const state = await readJson(root, 'update-state.json');
+      expect(state.cursor).toBe('FFF');
+    });
+  });
+
+  test('the cursor wraps around and is ignored for a different filter set', async () => {
+    capture();
+    installMockFetch();
+    await withTempFeed(MOCK_FUNDS, async (root) => {
+      const seen: string[] = [];
+      for (let run = 0; run < 4; run++) {
+        await runUpdater(pipelineControls({ MAX_FETCHES: '2', SKIP_YAHOO: 'true' }));
+        seen.push((await readJson(root, 'update-state.json')).cursor);
+      }
+      expect(seen).toEqual(['BBB', 'DDD', 'FFF', 'BBB']);
+      await runUpdater(pipelineControls({ MAX_FETCHES: '1', TICKERS: 'CCC', SKIP_YAHOO: 'true' }));
+      const state = await readJson(root, 'update-state.json');
+      expect(state.cursor).toBe('CCC');
+    });
+  });
+
+  test('a run where no fund received fresh data fails instead of exiting green', async () => {
+    capture();
+    globalThis.fetch = (async () => new Response('', { status: 404 })) as typeof fetch;
+    await withTempFeed(MOCK_FUNDS.slice(0, 2), async (root) => {
+      await expect(runUpdater(pipelineControls())).rejects.toThrow(/every examined fund failed/);
+      expect((await readIndex(root)).funds.length).toBe(2);
+    });
+  });
+
+  test('new funds are announced as NEW FUNDS', async () => {
+    const lines = capture();
+    const newFund: MockFund = { ticker: 'NEW', cusip: '46137V399', slug: 'invesco-brand-new-etf' };
+    installMockFetch({ listed: [...MOCK_FUNDS.slice(0, 1), newFund] });
+    await withTempFeed(MOCK_FUNDS.slice(0, 1), async () => {
+      await runUpdater(pipelineControls({ SKIP_YAHOO: 'true' }));
+    });
+    expect(lines).toContain('NEW FUNDS: NEW');
+  });
+
+  test('an unchanged rerun writes nothing and leaves no temporary files', async () => {
+    capture();
+    installMockFetch();
+    const { readdirSync, statSync } = await import('node:fs');
+    const { join } = await import('node:path');
+    const { fileURLToPath } = await import('node:url');
+    const snapshot = (dir: string): Record<string, number> => {
+      const out: Record<string, number> = {};
+      const walk = (path: string): void => {
+        for (const name of readdirSync(path)) {
+          const full = join(path, name);
+          if (statSync(full).isDirectory()) walk(full); else out[full] = statSync(full).mtimeMs;
+        }
+      };
+      walk(dir);
+      return out;
+    };
+    await withTempFeed(MOCK_FUNDS.slice(0, 2), async (root) => {
+      await runUpdater(pipelineControls());
+      const dir = fileURLToPath(root);
+      const first = snapshot(dir);
+      await new Promise((resolve) => setTimeout(resolve, 30));
+      await runUpdater(pipelineControls());
+      expect(snapshot(dir)).toEqual(first);
+      expect(Object.keys(first).some((file) => file.endsWith('.tmp'))).toBe(false);
+    });
+  });
+
+  test('the soft deadline stops taking funds, still writes the full index and resumes where it stopped', async () => {
+    capture();
+    installMockFetch({ delayMs: 25 });
+    await withTempFeed(MOCK_FUNDS, async (root) => {
+      mod.configureFetchForTests({ deadlineMs: 120 });
+      await runUpdater(pipelineControls({ SKIP_YAHOO: 'true' }));
+      const index = await readIndex(root);
+      expect(index.funds.length).toBe(6);
+      const state = await readJson(root, 'update-state.json');
+      expect(state.partial).toBe(true);
+      expect(state.cursor).not.toBeNull();
+      expect(state.cursor).not.toBe('FFF');
+      mod.configureFetchForTests({ deadlineMs: 25 * 60_000 });
+      await runUpdater(pipelineControls({ SKIP_YAHOO: 'true' }));
+      const done = await readJson(root, 'update-state.json');
+      expect(done.partial).toBe(false);
+      expect(done.cursor).toBeNull();
+    });
   });
 });

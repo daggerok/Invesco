@@ -47,23 +47,25 @@ Each fund carries a derived `metrics` object that powers the catalog columns sha
 - `ytd` / `tr1y` - official YTD and 1-year NAV returns -> *YTD Return*, *TR 1Y*
 - `cagr3y` / `cagr5y` / `cagr10y` - published annualized 3Y/5Y/10Y figures -> *CAGR 3Y/5Y/10Y*
 - `tr3y` / `tr5y` / `tr10y` - cumulative 3Y/5Y/10Y figures `(1 + CAGR)^n - 1` -> *TR 3Y/5Y/10Y*
-- `siAnn` - since-inception annualized -> *SI Ann.*
+- `siAnn` - since-inception annualized -> *SI Ann.*; a published since-inception of exactly `0.00` is the provider's placeholder and is stored as `null`
 - `dividendYield` - official trailing 12-month distribution rate; when Invesco publishes none, an indicated yield (latest distribution x frequency / price) that is an estimate
 - `secYield` - official 30-day SEC yield when published; unavailable values stay `null` and are never shown as 0
 - `returnsBasis` - always a non-empty label of how the returns were computed. Official month-end NAV total returns from the invesco.com fund API (periods Invesco does not publish, for young funds, are filled from adjusted closes: a mixed basis, said so in the label); `last published official ... (not refreshed in this run)` for a fund without a fresh month-end table (renamed, matured or delisted funds keep their last official figures with their old date); estimates derived from adjusted market-price closes (Yahoo, named in the label) for funds without any official returns
 - `performanceAsOf` - ISO `YYYY-MM-DD` date the returns are as of, not the NAV date: the effective date of Invesco's month-end performance table for official returns (month-end data appears 1-2 weeks after the month end, so mid-month it is still the previous month end, today `2026-08-31`), the last close used when derived, `null` when unknown
 
-Both fields are the last two keys of every `metrics` object and are repeated at the end of the `returns` block in each fund's `meta.json`. The `monthEnd.asOfDate` of that block carries the same official date; `mo1` and `qtd` are always derived from Yahoo closes.
+Both fields are the last two keys of every `metrics` object and are repeated at the end of the `returns` block in each fund's `meta.json`. The `monthEnd.asOfDate` of that block carries the same official date; `mo1` and `qtd` are always derived from Yahoo closes up to `monthEnd.priceReturnsAsOf` (later than the official month end), so they are not month-end figures. `quarterEnd` has the same keys as `monthEnd` with `null` figures: the fund API serves only the monthly table.
 
 Official and derived values, field by field:
 
 - official, daily: NAV (`navValue`), net assets (`aumValue`, dated by the prices endpoint), yields, holdings (as of the previous business day)
 - official, month-end: the return periods above
-- official, static: expense ratio (`terValue`, the total expense ratio shown on the fund page)
+- official, static: expense ratio - `terValue` is the NET expense ratio (after waivers, `netExpenseRatio` on the fund page; the only number when just one is published), `terGrossValue` the GROSS total expense ratio (`totalExpenseRatio`, which includes acquired fund fees, e.g. KBWD); `meta.json` has both under `expenseRatio` and the TER filter uses the net value
 - derived (Yahoo): daily market history, distributions and their frequency, premium/discount against the official NAV, exchange when the page has none
 - unavailable: `navValue`, `terValue` and fresh returns for funds the sitemap no longer lists (their last published values stay and are labelled); a fund that is not listed is never zero-filled
 
 Funds filtered out or failing in a run keep their previously published metadata and data files.
+
+Lifecycle: every index row and `meta.json` has `listed`. A fund the loaded invesco.com sitemap no longer lists (matured BulletShares, renamed or delisted funds) stays in the feed with its last values and `listed: false`; without a sitemap the previous status is kept. `exchange` uses one spelling per venue (`NYSE Arca`, `Nasdaq`, `Cboe BZX`).
 
 ### Update controls
 
@@ -71,19 +73,19 @@ The table matches `scripts/update-data.config.json` exactly. Every control may a
 
 | Control | Default | Meaning |
 | --- | --: | --- |
-| `MAX_FETCHES` | `0` (all) | Batch size: with a positive value the updater continues after the committed cursor in `api/invesco/update-state.json`; empty or `0` is a full pass - every fund is refreshed in one run |
+| `MAX_FETCHES` | `0` (all) | Batch size in funds that pass the filters (funds a filter rejects cost no slot): with a positive value the updater continues after the committed cursor in `api/invesco/update-state.json`, wraps around at the end and ignores a cursor saved for another filter set; empty or `0` is a full pass. A pass that reaches the 25-minute soft deadline stops taking funds, writes the index and resumes after the last examined fund on the next run |
 | `REQUEST_SLEEP` | `1` | Minimum delay in seconds between outgoing request starts, including retries |
 | `CONCURRENCY` | `2` | Number of parallel fund update workers; each worker has its own paced request lane |
 | `AUM` | `:` | Net Assets range; each bound may be a USD amount or `K`/`M`/`B`/`T`, or one of `nano`, `micro`, `small`, `mid`, `large` |
-| `TER` | `:` | Expense ratio range in % (strict `min:max`) |
+| `TER` | `:` | Net expense ratio range in % (strict `min:max`, exactly one colon, bounds must be numbers) |
 | `DIVIDEND_YIELD` | `:` | Dividend-yield percentage range |
 | `PERFORMANCE_YTD` / `_1Y` / `_3Y` / `_5Y` / `_10Y` | `:` | Annualized return ranges in %, one control per period |
 | `TOTAL_RETURN_YTD` / `_1Y` / `_3Y` / `_5Y` / `_10Y` | `:` | Cumulative return ranges in %, one control per period |
 | `TICKERS` | empty (all) | Space-, comma- or semicolon-separated ticker allowlist, e.g. `QQQ QQQM RSP PGX` |
 | `HOLDINGS_PAGE_SIZE` | `250` | Rows in each generated current-holdings JSON page |
 | `HISTORY_PAGE_SIZE` | `1000` | Rows in each generated daily-history JSON page |
-| `MAX_RETRIES` | `2` | Retries after the initial request (integer >= 1); only network errors and HTTP 403/408/425/429/5xx are retried with exponential backoff |
-| `HISTORY_RANGE` | `max` | Yahoo chart range for history rows (`max`, `10y`, `5y`, ...) |
+| `MAX_RETRIES` | `2` | Retries after the initial request (integer >= 1); network errors, timeouts (45 s per request, headers and body) and HTTP 403/408/425/429/5xx are retried with exponential backoff |
+| `HISTORY_RANGE` | `max` | `max` or a whole number of years such as `5y`; anything else is an error. Sent as explicit `period1`/`period2` so the Yahoo request really shrinks |
 | `SITEMAP_URL` | empty | Override the invesco.com sitemap (https) that lists the fund pages; empty uses the built-in URL |
 | `SEC_UA` | `daggerok ETF feed daggerok@gmail.com` | Declared SEC User-Agent (SEC policy requires a contact); redacted in logs; the protected `SEC_UA` Actions variable overrides it |
 | `EDGAR_FALLBACK` | `true` | SEC EDGAR Form N-PORT-P fallback for funds without invesco.com holdings |
@@ -92,7 +94,7 @@ The table matches `scripts/update-data.config.json` exactly. Every control may a
 | `VERBOSE` | `false` | Print per-fund retry and fallback notices |
 | `USE_SYSTEM_CA` | `auto` | TLS trust store: `auto` restarts the updater once with Bun's `--use-system-ca` when a request fails with an untrusted-certificate error; `true` always uses the system CA store; `false` never restarts. Not an individual workflow input: use `advanced`, the config file or the CLI environment. |
 
-`TICKERS` combines with the AUM, TER, yield and return filters using AND logic; it does not override them.
+`TICKERS` combines with the AUM, TER, yield and return filters using AND logic; it does not override them. A bounded return range excludes funds whose value is `null`. A new fund found in the sitemap is printed as `NEW FUNDS: A, B` and added to the job summary; a run in which no fund received any fresh source exits non-zero.
 
 The workflow exposes 23 individual inputs plus `advanced` (a JSON object of UPPER_CASE control names with scalar values) for everything else, for example `{"HISTORY_PAGE_SIZE": "500", "SITEMAP_URL": "https://www.invesco.com/us/en/sitemap.xml"}`. The output directory is fixed at `api/invesco` and is not a control.
 
