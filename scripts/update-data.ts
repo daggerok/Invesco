@@ -161,12 +161,6 @@ function outputCreateReporter(root: URL | string, total: number) {
 
 import { mkdir, readFile, writeFile, readdir, rm, appendFile, rename } from 'node:fs/promises';
 
-declare const process: {
-  env: Record<string, string | undefined>;
-  argv: string[];
-  exitCode?: number;
-};
-
 // ---------------------------------------------------------------------------
 // Constants and small helpers
 // ---------------------------------------------------------------------------
