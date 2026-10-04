@@ -221,7 +221,7 @@ function installMockFetch(options: { listed?: MockFund[]; unlisted?: MockFund[];
     } finally {
       inFlight -= 1;
     }
-  }) as typeof fetch;
+  }) as unknown as typeof fetch;
   return { requests, peak: () => peak };
 }
 
@@ -931,7 +931,7 @@ describe('pipeline', () => {
 
   test('a run where every source fails exits red and keeps every fund with its published returns', async () => {
     quiet();
-    globalThis.fetch = (async () => new Response('', { status: 404 })) as typeof fetch;
+    globalThis.fetch = (async () => new Response('', { status: 404 })) as unknown as typeof fetch;
     await withTempFeed(MOCK_FUNDS.slice(0, 2), async (root) => {
       await expect(runUpdater(pipelineControls())).rejects.toThrow(/every examined fund failed/);
       const index = await readIndex(root);
@@ -1038,7 +1038,7 @@ describe('network', () => {
       const signal = init?.signal;
       if (!signal) { await new Promise((resolve) => setTimeout(resolve, 150)); return new Response('late', { status: 200 }); }
       return new Promise<Response>((_resolve, reject) => signal.addEventListener('abort', () => reject(new Error('aborted'))));
-    }) as typeof fetch;
+    }) as unknown as typeof fetch;
     await expect(fetchWithRetry('https://example.test/x', 't', {}, 1)).rejects.toThrow(/network error/);
     expect(calls).toBe(2);
   });
@@ -1053,7 +1053,7 @@ describe('network', () => {
       if (!signal) return new Response('late', { status: 200 });
       const body = new ReadableStream({ start: (controller) => { signal.addEventListener('abort', () => controller.error(new Error('body aborted'))); } });
       return new Response(body, { status: 200 });
-    }) as typeof fetch;
+    }) as unknown as typeof fetch;
     await withTempFeed(MOCK_FUNDS.slice(0, 1), async () => {
       await expect(runUpdater(pipelineControls({ SKIP_YAHOO: 'true', MAX_RETRIES: '1' }))).rejects.toThrow(/every examined fund failed/);
     });
@@ -1115,14 +1115,14 @@ describe('network', () => {
     console.error = () => {};
     let restarts = 0;
     const reexec = (() => { restarts += 1; return undefined as never; }) as () => never;
-    globalThis.fetch = (async () => new Response('ok')) as unknown as typeof fetch;
+    globalThis.fetch = (async () => new Response('ok')) as unknown as unknown as typeof fetch;
     installSystemCa('auto', reexec, false);
     expect(await (await fetch('https://example.test')).text()).toBe('ok');
-    globalThis.fetch = (async () => { throw Object.assign(new Error('socket hang up'), { code: 'ECONNRESET' }); }) as unknown as typeof fetch;
+    globalThis.fetch = (async () => { throw Object.assign(new Error('socket hang up'), { code: 'ECONNRESET' }); }) as unknown as unknown as typeof fetch;
     installSystemCa('auto', reexec, false);
     await expect(fetch('https://example.test')).rejects.toThrow('socket hang up');
     expect(restarts).toBe(0);
-    globalThis.fetch = (async () => { throw Object.assign(new Error('unable to get local issuer certificate'), { code: 'UNABLE_TO_GET_ISSUER_CERT_LOCALLY' }); }) as unknown as typeof fetch;
+    globalThis.fetch = (async () => { throw Object.assign(new Error('unable to get local issuer certificate'), { code: 'UNABLE_TO_GET_ISSUER_CERT_LOCALLY' }); }) as unknown as unknown as typeof fetch;
     installSystemCa('auto', reexec, false);
     await fetch('https://example.test');
     expect(restarts).toBe(1);
