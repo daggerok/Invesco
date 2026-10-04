@@ -1008,7 +1008,7 @@ const FUND_FILTER_COLUMNS: FilterColumn[] = [
   { key: 'aumValue', label: 'Net Assets', numeric: true, text: (f: any) => String((formatMoney(f.aumValue)) ?? ''), value: (f: any) => f.aumValue },
   { key: 'terValue', label: 'Expense', numeric: true, text: (f: any) => String((f.ter || '—') ?? ''), value: (f: any) => f.terValue },
   { key: 'dividendYield', label: 'Dividend Yield', numeric: true, text: (f: any) => String((formatPercent(f.dividendYield)) ?? ''), value: (f: any) => f.dividendYield },
-  { key: 'secYield', label: 'SEC Yield', numeric: true, text: (f: any) => String(('—') ?? ''), value: (f: any) => f.secYield },
+  { key: 'secYield', label: 'SEC Yield', numeric: true, text: (f: any) => String((formatPercent(f.secYield)) ?? ''), value: (f: any) => f.secYield },
   { key: 'frequencyCode', label: 'Frequency', numeric: false, text: (f: any) => String((f.frequencyCode || '00 - None') ?? '') },
   { key: 'ytd', label: 'YTD Return', numeric: true, text: (f: any) => String((formatPercent(f.ytd)) ?? ''), value: (f: any) => f.ytd },
   { key: 'yr1', label: 'TR 1Y', numeric: true, text: (f: any) => String((formatPercent(f.yr1)) ?? ''), value: (f: any) => f.yr1 },
@@ -1942,7 +1942,7 @@ function sheetView(scope: string, headers: string[], sourceRows: string[][], num
               <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatMoney(fund.aumValue)}</td>
               <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${escapeHtml(fund.ter || '—')}</td>
               <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatPercent(fund.dividendYield)}</td>
-              <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">—</td>
+              <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatPercent(fund.secYield)}</td>
               <td class="py-2.5 px-4 text-slate-600 dark:text-slate-300 font-mono">${escapeHtml(fund.frequencyCode || '00 - None')}</td>
               <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatPercent(fund.ytd)}</td>
               <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatPercent(fund.yr1)}</td>
