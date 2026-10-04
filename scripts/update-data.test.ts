@@ -843,6 +843,8 @@ describe('pipeline', () => {
       expect(aaa.returns.monthEnd.asOfDate).toBe('Aug 31 2026');
       expect(aaa.holdings).toBe(3);
       expect(bbb.metrics.ytd).toBe(1.5);
+      // kept rows without a funds/<T>/meta.json have no data file, the refreshed one has
+      expect([aaa.dataFile, bbb.dataFile]).toEqual(['./funds/AAA/meta.json', null]);
       const keys = Object.keys(aaa.metrics);
       for (const fund of index.funds) expect(Object.keys(fund.metrics)).toEqual(keys);
       // no fabricated "null" keys, quarter-end block keeps its shape
@@ -876,6 +878,9 @@ describe('pipeline', () => {
       expect(ccc.metrics.performanceAsOf).toBe('2026-08-31');
       expect(ccc.terValue).toBeNull();
       expect(ccc.navValue).toBeNull();
+      expect(ccc.dataFile).toBeNull();
+      expect([ccc.holdings, ccc.history]).toEqual([7, 9]);
+      expect(index.funds[0].dataFile).toBe('./funds/AAA/meta.json');
       expect(index.funds[0].metrics.returnsBasis).toBe(OFFICIAL_RETURNS_BASIS);
       expect((await readJson(root, 'funds/AAA/meta.json')).listed).toBe(true);
     });
@@ -894,6 +899,9 @@ describe('pipeline', () => {
         expect(fund.metrics.tr10y).not.toBe(0);
         expect(fund.metrics.performanceAsOf).toBe('2026-08-31');
         expect(fund.aumValue).toBe(1_000_000);
+        // counts stay as published, and no meta.json exists for the seeded rows
+        expect([fund.holdings, fund.history]).toEqual([7, 9]);
+        expect(fund.dataFile).toBeNull();
       }
     });
   });
