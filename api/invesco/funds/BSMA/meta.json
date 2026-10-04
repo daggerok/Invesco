@@ -51,6 +51,7 @@
  "yields": {
   "dividendYield": null,
   "dividendYieldText": "—",
+  "dividendYieldBasis": null,
   "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
   "distributionRate": 0,
   "secYield": 4.38,
@@ -60,12 +61,12 @@
  "returns": {
   "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
-   "asOfDate": "Oct 01 2026",
-   "priceReturnsAsOf": "Oct 01 2026",
+   "asOfDate": "Oct 02 2026",
+   "priceReturnsAsOf": "Oct 02 2026",
    "mo1": null,
    "mo1Text": "—",
-   "qtd": null,
-   "qtdText": "—",
+   "qtd": -0.08,
+   "qtdText": "-0.08%",
    "ytd": null,
    "ytdText": "—",
    "yr1": null,
@@ -89,7 +90,7 @@
    "sinceInception": null
   },
   "returnsBasis": "derived from adjusted market-price closes (Yahoo chart API), estimates and not official NAV returns",
-  "performanceAsOf": "2026-10-01"
+  "performanceAsOf": "2026-10-02"
  },
  "distributions": {
   "frequency": "—",
@@ -106,8 +107,8 @@
   ],
   "pageSize": 250,
   "totalRows": 191,
-  "asOfDate": "2026-10-01",
-  "asOf": "Oct 01 2026",
+  "asOfDate": "2026-10-02",
+  "asOf": "Oct 02 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -115,8 +116,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 13,
-  "asOf": "Oct 01 2026",
+  "totalRows": 14,
+  "asOf": "Oct 02 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

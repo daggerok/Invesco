@@ -51,6 +51,7 @@
  "yields": {
   "dividendYield": 2.74,
   "dividendYieldText": "2.74%",
+  "dividendYieldBasis": "official-trailing-12m",
   "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
   "distributionRate": 2.73,
   "secYield": 3.35,
@@ -62,8 +63,8 @@
   "monthEnd": {
    "asOfDate": "Aug 31 2026",
    "priceReturnsAsOf": "Oct 02 2026",
-   "mo1": -0.89,
-   "mo1Text": "-0.89%",
+   "mo1": -0.98,
+   "mo1Text": "-0.98%",
    "qtd": 0.09,
    "qtdText": "0.09%",
    "ytd": 1.48,
@@ -452,9 +453,9 @@
    "holdings/011.json"
   ],
   "pageSize": 250,
-  "totalRows": 2660,
-  "asOfDate": "2026-10-01",
-  "asOf": "Oct 01 2026",
+  "totalRows": 2659,
+  "asOfDate": "2026-10-02",
+  "asOf": "Oct 02 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {

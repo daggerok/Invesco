@@ -51,6 +51,7 @@
  "yields": {
   "dividendYield": 0.71,
   "dividendYieldText": "0.71%",
+  "dividendYieldBasis": "indicated",
   "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
   "distributionRate": 0.71,
   "secYield": 0.64,
@@ -62,8 +63,8 @@
   "monthEnd": {
    "asOfDate": "Aug 31 2026",
    "priceReturnsAsOf": "Oct 02 2026",
-   "mo1": 1.35,
-   "mo1Text": "1.35%",
+   "mo1": 0.47,
+   "mo1Text": "0.47%",
    "qtd": 0.5,
    "qtdText": "0.50%",
    "ytd": null,
@@ -115,8 +116,8 @@
   ],
   "pageSize": 250,
   "totalRows": 104,
-  "asOfDate": "2026-10-01",
-  "asOf": "Oct 01 2026",
+  "asOfDate": "2026-10-02",
+  "asOf": "Oct 02 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
