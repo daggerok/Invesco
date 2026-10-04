@@ -26,6 +26,9 @@ import {
   annualizedToTotal,
   totalToAnnualized,
   indicatedYield,
+  isYieldBasis,
+  yieldBasisFromKind,
+  withYieldBasis,
   inferDistributionFrequency,
   deriveCatalogMetrics,
   returnsBasisFields,
@@ -752,6 +755,43 @@ describe('metrics', () => {
     }
   });
 
+  test('dividendYieldBasis names the definition behind the yield and is null with a null yield', () => {
+    const published = deriveCatalogMetrics(NO_OFFICIAL, DERIVED, 1.53, null, 0.65, 12, 41.72);
+    expect([published.dividendYield, published.dividendYieldBasis]).toEqual([1.53, 'official-trailing-12m']);
+    const indicated = deriveCatalogMetrics(NO_OFFICIAL, DERIVED, null, null, 0.65, 12, 41.72);
+    expect(indicated.dividendYieldBasis).toBe('indicated');
+    const none = deriveCatalogMetrics(NO_OFFICIAL, DERIVED, null, null, null, null, null);
+    expect([none.dividendYield, none.dividendYieldBasis]).toEqual([null, null]);
+    // a retained yield keeps the code it was published with
+    const retained = deriveCatalogMetrics(NO_OFFICIAL, DERIVED, 18.7, null, 0.65, 12, 41.72, 'Yahoo chart API', null, undefined, 'indicated');
+    expect(retained.dividendYieldBasis).toBe('indicated');
+    // old free text maps to a code; unknown provider text is official-other, no text is indicated
+    expect(yieldBasisFromKind('trailing 12-month distribution rate, published by invesco.com')).toBe('official-trailing-12m');
+    expect(yieldBasisFromKind('indicated (latest distribution x inferred frequency / market price)')).toBe('indicated');
+    expect(yieldBasisFromKind('some yield published by invesco.com')).toBe('official-other');
+    expect(yieldBasisFromKind(undefined)).toBe('indicated');
+    expect(isYieldBasis('computed-trailing-12m')).toBe(true);
+    expect(isYieldBasis('toString')).toBe(false);
+  });
+
+  test('rows rebuilt from meta and kept rows carry the same dividendYieldBasis key set', () => {
+    const fresh = Object.keys(deriveCatalogMetrics(NO_OFFICIAL, DERIVED, 1, null, null, null, null));
+    const rebuilt = (yields: Record<string, unknown>) => indexRowFromMeta({ ticker: 'DDD', yields }).metrics as Record<string, unknown>;
+    expect(Object.keys(rebuilt({ dividendYield: 4.5, dividendYieldKind: 'trailing 12-month distribution rate, published by invesco.com' }))).toEqual(fresh);
+    expect(rebuilt({ dividendYield: 4.5, dividendYieldKind: 'trailing 12-month distribution rate, published by invesco.com' }).dividendYieldBasis).toBe('official-trailing-12m');
+    expect(rebuilt({ dividendYield: 4.5, dividendYieldKind: 'indicated (latest distribution x inferred frequency / market price)' }).dividendYieldBasis).toBe('indicated');
+    expect(rebuilt({ dividendYield: 4.5, dividendYieldBasis: 'official-other' }).dividendYieldBasis).toBe('official-other');
+    expect(rebuilt({ dividendYield: null }).dividendYieldBasis).toBeNull();
+    // an old kept row without the key, or with a stale code next to a null yield
+    const old = withYieldBasis({ ticker: 'X', metrics: { ytd: 1, dividendYield: 2, dividendYieldText: '2.00%', secYield: null } }, { dividendYieldKind: 'trailing 12-month distribution rate, published by invesco.com' });
+    expect(Object.keys(old.metrics)).toEqual(['ytd', 'dividendYield', 'dividendYieldText', 'dividendYieldBasis', 'secYield']);
+    expect(old.metrics.dividendYieldBasis).toBe('official-trailing-12m');
+    const stale = withYieldBasis({ ticker: 'X', metrics: { dividendYield: null, dividendYieldText: '—', dividendYieldBasis: 'indicated' } });
+    expect(stale.metrics.dividendYieldBasis).toBeNull();
+    const placeholder = withYieldBasis({ ticker: 'X', dataFile: null });
+    expect(placeholder.metrics).toEqual({ dividendYieldBasis: null });
+  });
+
   test('every metrics object has the same key set and returnsBasis then performanceAsOf close it', () => {
     const official = deriveCatalogMetrics({ ytd: 1, yr1: 2, yr3: 3, yr5: 4, yr10: 5, sinceInception: 6 }, DERIVED, 1, 1, null, null, null, 'Yahoo chart API', '2026-07-31');
     const derived = deriveCatalogMetrics(NO_OFFICIAL, DERIVED, null, null, 0.65, 12, 41.72);
@@ -838,6 +878,8 @@ describe('pipeline', () => {
       expect(aaa.aumValue).toBe(95423821287.23);
       expect(aaa.metrics.ytd).toBe(15.44);
       expect(aaa.metrics.secYield).toBe(1.57);
+      expect([aaa.metrics.dividendYield === null, aaa.metrics.dividendYieldBasis === null]).toEqual([false, false]);
+      expect(aaa.metrics.dividendYieldBasis).toBe('official-trailing-12m');
       expect(aaa.metrics.returnsBasis).toBe(OFFICIAL_RETURNS_BASIS);
       expect(aaa.metrics.performanceAsOf).toBe('2026-08-31');
       expect(aaa.returns.monthEnd.asOfDate).toBe('Aug 31 2026');
