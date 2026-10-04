@@ -2178,7 +2178,9 @@ async function processFund(
   }
 
   const fundDir = new URL(`funds/${ticker}/`, API_ROOT);
-  await mkdir(fundDir, { recursive: true });
+  // A fund with no published meta.json that got no fresh source in this run is not given a hollow
+  // meta.json or empty pages: its row keeps dataFile null and the counts as published.
+  const hasPublishedMeta = typeof (await readPreviousMeta(ticker)).ticker === 'string';
 
   // 1) Daily holdings from the invesco.com API; SEC Form N-PORT-P as the fallback.
   let holdings: ParsedHoldings | null = null;
@@ -2227,11 +2229,11 @@ async function processFund(
 
 
 
+  const hasFresh = Boolean(official?.performance || official?.prices || official?.yields || holdings);
   const holdingsRows: JsonRecord[] = holdings ? holdings.rows : await readPreviousSheet(ticker, 'holdings');
   const holdingsHeaders = holdings?.headers.length
     ? holdings.headers
     : (await readPreviousSheetHeaders(ticker, 'holdings')) || HOLDINGS_HEADERS;
-  const { cleanup: cleanHoldingsPages, ...holdingsManifest } = await writePages(fundDir, ticker, 'holdings', holdingsHeaders, holdingsRows, config.holdingsPageSize);
   const holdingsAsOf = holdings?.asOfDate || (((previous.holdings as JsonRecord)?.asOfDate as string) ?? null);
 
   // 2) Yahoo chart: daily history, dividends, exchange and the live quote (the
@@ -2263,6 +2265,12 @@ async function processFund(
   }
 
   const haveFreshHistory = chartDays.length > 0;
+  const persist = hasFresh || haveFreshHistory || hasPublishedMeta;
+  const emptyPages = (pageSize: number) => ({ pages: [] as string[], pageSize, totalRows: 0, cleanup: async () => {} });
+  if (persist) await mkdir(fundDir, { recursive: true });
+  const { cleanup: cleanHoldingsPages, ...holdingsManifest } = persist
+    ? await writePages(fundDir, ticker, 'holdings', holdingsHeaders, holdingsRows, config.holdingsPageSize)
+    : emptyPages(config.holdingsPageSize);
   const derived = haveFreshHistory ? priceReturns(chartDays) : EMPTY_PRICE_RETURNS;
   const latestDividend = dividends.length ? dividends[dividends.length - 1] : null;
   const frequency = dividends.length
@@ -2288,7 +2296,9 @@ async function processFund(
 
   const historyHeaders = ['Date', 'Close', 'Adj Close', 'Volume'];
   const history = haveFreshHistory ? historyRows(chartDays) : await readPreviousSheet(ticker, 'history');
-  const { cleanup: cleanHistoryPages, ...historyManifest } = await writePages(fundDir, ticker, 'history', historyHeaders, history, config.historyPageSize);
+  const { cleanup: cleanHistoryPages, ...historyManifest } = (persist
+    ? await writePages(fundDir, ticker, 'history', historyHeaders, history, config.historyPageSize)
+    : emptyPages(config.historyPageSize));
   // Derived returns without a fresh chart still belong to the newest stored close.
   if (metrics.performanceAsOf == null && /^derived/.test(String(metrics.returnsBasis))) {
     metrics.performanceAsOf = lastHistoryIsoDate(history);
@@ -2382,7 +2392,7 @@ async function processFund(
       source: haveFreshHistory ? historySource : 'previous run',
     },
   };
-  await writeIfChanged(new URL('meta.json', fundDir), meta);
+  if (persist) await writeIfChanged(new URL('meta.json', fundDir), meta);
   await cleanHoldingsPages();
   await cleanHistoryPages();
 
@@ -2393,7 +2403,7 @@ async function processFund(
     listed: isListed,
     category: fund.category,
     fundPage: fund.fundPage,
-    dataFile: `./funds/${ticker}/meta.json`,
+    dataFile: persist ? `./funds/${ticker}/meta.json` : null,
     cusip: fund.cusip || null,
     isin: fund.isin || null,
     ter: fund.ter === null ? '—' : `${fund.ter}%`,
@@ -2422,8 +2432,9 @@ async function processFund(
     },
     returns: { monthEnd, quarterEnd: ((returnsData as JsonRecord)?.quarterEnd as JsonRecord) || null },
     metrics,
-    holdings: holdingsRows.length,
-    history: history.length,
+    // counts stay as published while the sheets could not be refreshed and no pages exist to count
+    holdings: holdings || holdingsRows.length ? holdingsRows.length : numberOrNull(previous.holdings) ?? 0,
+    history: haveFreshHistory || history.length ? history.length : numberOrNull(previous.history) ?? 0,
   };
 }
 
@@ -2697,10 +2708,14 @@ export async function runUpdater(config: UpdaterConfig): Promise<void> {
   if (deadlineHit) console.log(`[ ${'deadline'.padEnd(9)}] soft deadline reached after ${started} funds - the rest keeps its published rows and the next run resumes after ${lastExamined}`);
 
   // Funds not selected for a successful update keep their previously published rows.
-  const keptFromPrevious = universe
-    .filter((fund) => !results.some((row) => row.ticker === fund.ticker))
-    .map((fund) => previousIndex.get(fund.ticker))
-    .filter(Boolean) as JsonRecord[];
+  // A kept row whose funds/<T>/meta.json does not exist has dataFile null (the hub shows its Overview only).
+  const keptFromPrevious: JsonRecord[] = [];
+  for (const fund of universe.filter((item) => !results.some((row) => row.ticker === item.ticker))) {
+    const row = previousIndex.get(fund.ticker);
+    if (!row) continue;
+    const hasMeta = typeof (await readPreviousMeta(fund.ticker)).ticker === 'string';
+    keptFromPrevious.push(hasMeta || row.dataFile == null ? row : { ...row, dataFile: null });
+  }
   const funds = [...results, ...keptFromPrevious].sort((a, b) => String(a.ticker).localeCompare(String(b.ticker)));
 
   const counts = {
