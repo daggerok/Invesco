@@ -66,9 +66,18 @@ Each fund carries a derived `metrics` object that powers the catalog columns sha
 - `tr3y` / `tr5y` / `tr10y` - cumulative 3Y/5Y/10Y figures `(1 + CAGR)^n - 1` -> *TR 3Y/5Y/10Y*
 - `siAnn` - since-inception annualized -> *SI Ann.*; a published since-inception of exactly `0.00` is the provider's placeholder and is stored as `null`
 - `dividendYield` - official trailing 12-month distribution rate; when Invesco publishes none, an indicated yield (latest distribution x frequency / price) that is an estimate
+- `dividendYieldBasis` - short code of the definition behind `dividendYield`, `null` exactly when `dividendYield` is `null`; a retained yield keeps its code (see the table below)
 - `secYield` - official 30-day SEC yield when published; unavailable values stay `null` and are never shown as 0
 - `returnsBasis` - always a non-empty label of how the returns were computed. Official month-end NAV total returns from the invesco.com fund API (periods Invesco does not publish, for young funds, are filled from adjusted closes: a mixed basis, said so in the label); `last published official ... (not refreshed in this run)` for a fund without a fresh month-end table (renamed, matured or delisted funds keep their last official figures with their old date); estimates derived from adjusted market-price closes (Yahoo, named in the label) for funds without any official returns
 - `performanceAsOf` - ISO `YYYY-MM-DD` date the returns are as of, not the NAV date: the effective date of Invesco's month-end performance table for official returns (month-end data appears 1-2 weeks after the month end, so mid-month it is still the previous month end, today `2026-08-31`), the last close used when derived, `null` when unknown
+
+`dividendYieldBasis` for Invesco:
+
+| Code | Meaning here |
+| --- | --- |
+| `official-trailing-12m` | `twelveMonthDistributionRate` of the invesco.com yields endpoint (trailing 12-month distribution rate), also when retained from the published feed |
+| `indicated` | updater estimate: latest Yahoo distribution x inferred payments per year / market price, used when invesco.com publishes no 12-month rate |
+| `official-distribution-rate`, `official-other`, `computed-trailing-12m` | standard codes this feed does not emit today (`distributionYield` is kept only as `distributionRate` in `meta.json`) |
 
 Both fields are the last two keys of every `metrics` object and are repeated at the end of the `returns` block in each fund's `meta.json`. The `monthEnd.asOfDate` of that block carries the same official date; `mo1` and `qtd` are always derived from Yahoo closes up to `monthEnd.priceReturnsAsOf` (later than the official month end), so they are not month-end figures. `quarterEnd` has the same keys as `monthEnd` with `null` figures: the fund API serves only the monthly table.
 

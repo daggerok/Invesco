@@ -762,6 +762,8 @@ export type CatalogFund = {
   premiumDiscount: number | null;
   netAssets: number | null;
   dividendYield: number | null;
+  // code of the definition behind dividendYield (see YieldBasis), null exactly when dividendYield is null
+  dividendYieldBasis: YieldBasis | null;
   secYield: number | null;
   distributionRate: number | null;
   asOfDate: string | null;
@@ -773,6 +775,26 @@ export type CatalogFund = {
   trustCik: string | null;
   source: 'invesco' | 'previous index' | 'seed';
 };
+
+// `metrics.dividendYieldBasis`: which definition stands behind `dividendYield` (null exactly when it is null).
+export type YieldBasis = 'official-trailing-12m' | 'official-distribution-rate' | 'official-other' | 'computed-trailing-12m' | 'indicated';
+const YIELD_BASIS_KIND: Record<YieldBasis, string> = {
+  'official-trailing-12m': 'trailing 12-month distribution rate, published by invesco.com',
+  'official-distribution-rate': 'distribution rate, published by invesco.com',
+  'official-other': 'yield published by invesco.com',
+  'computed-trailing-12m': 'trailing 12-month distributions / price, computed by the updater',
+  indicated: 'indicated (latest distribution x inferred frequency / market price)',
+};
+export function isYieldBasis(value: unknown): value is YieldBasis {
+  return typeof value === 'string' && Object.prototype.hasOwnProperty.call(YIELD_BASIS_KIND, value);
+}
+/** Maps the free-text `yields.dividendYieldKind` of an older meta.json to a code (unknown text: provider-published -> official-other, none -> indicated). */
+export function yieldBasisFromKind(kind: unknown): YieldBasis {
+  const text = typeof kind === 'string' ? kind.trim() : '';
+  if (/^trailing 12-month distribution rate/.test(text)) return 'official-trailing-12m';
+  if (/^indicated/.test(text)) return 'indicated';
+  return /published by invesco\.com/.test(text) ? 'official-other' : 'indicated';
+}
 
 const EMPTY_RETURNS: CatalogReturns = { ytd: null, yr1: null, yr3: null, yr5: null, yr10: null, sinceInception: null };
 
@@ -1679,6 +1701,7 @@ export function deriveCatalogMetrics(
   derivedCloseSource = 'Yahoo chart API',
   officialReturnsAsOf: string | null = null,
   officialBasis: string = OFFICIAL_RETURNS_BASIS,
+  publishedYieldBasis: YieldBasis | null = null,
 ): JsonRecord {
   const coalesce = (value: number | null | undefined): number | null => (typeof value === 'number' && Number.isFinite(value) ? value : null);
   const ytd = coalesce(official.ytd) ?? coalesce(derived.ytd);
@@ -1687,7 +1710,10 @@ export function deriveCatalogMetrics(
   const cagr5y = coalesce(official.yr5) ?? coalesce(derived.cagr5y);
   const cagr10y = coalesce(official.yr10) ?? coalesce(derived.cagr10y);
   const siAnn = coalesce(official.sinceInception) ?? coalesce(derived.siAnn);
-  const dividendYield = coalesce(publishedDividendYield) ?? indicatedYield(latestDistribution, paymentsPerYear, price);
+  const published = coalesce(publishedDividendYield);
+  const dividendYield = published ?? indicatedYield(latestDistribution, paymentsPerYear, price);
+  // A retained yield keeps the code it was published with; a fresh published one is the trailing 12-month rate.
+  const dividendYieldBasis: YieldBasis | null = dividendYield === null ? null : published !== null ? (publishedYieldBasis ?? 'official-trailing-12m') : 'indicated';
   const text = (value: number | null): string | null => (value === null ? null : `${value.toFixed(2)}%`);
   return {
     ytd,
@@ -1701,6 +1727,7 @@ export function deriveCatalogMetrics(
     siAnn,
     dividendYield,
     dividendYieldText: text(dividendYield) ?? '—',
+    dividendYieldBasis,
     secYield: coalesce(publishedSecYield),
     secYieldText: text(coalesce(publishedSecYield)) ?? '—',
     ...returnsBasisFields(Object.values(official).some((value) => value !== null), derived.asOfDate, derivedCloseSource, officialReturnsAsOf, officialBasis),
@@ -1880,6 +1907,21 @@ async function readPreviousIndex(): Promise<Map<string, JsonRecord>> {
   return map;
 }
 
+/** Gives a kept index row the `dividendYieldBasis` key (right after `dividendYieldText`); null exactly when the yield is null. */
+export function withYieldBasis(row: JsonRecord, metaYields?: JsonRecord): JsonRecord {
+  const metrics = (row.metrics as JsonRecord) || {};
+  const hasYield = numberOrNull(metrics.dividendYield) !== null;
+  const basis = !hasYield ? null : isYieldBasis(metrics.dividendYieldBasis) ? metrics.dividendYieldBasis : yieldBasisFromKind(metaYields?.dividendYieldKind);
+  const next: JsonRecord = {};
+  for (const [key, value] of Object.entries(metrics)) {
+    if (key === 'dividendYieldBasis') continue;
+    next[key] = value;
+    if (key === 'dividendYieldText') next.dividendYieldBasis = basis;
+  }
+  if (!('dividendYieldBasis' in next)) next.dividendYieldBasis = basis;
+  return { ...row, metrics: next };
+}
+
 export function indexRowFromMeta(meta: JsonRecord): JsonRecord {
   const ticker = String(meta.ticker);
   const returns = (meta.returns as JsonRecord) || {};
@@ -1897,7 +1939,8 @@ export function indexRowFromMeta(meta: JsonRecord): JsonRecord {
       };
   const yields = (meta.yields as JsonRecord) || {};
   const asOf = typeof returns.performanceAsOf === 'string' && !wasDerived ? returns.performanceAsOf : null;
-  const metrics = deriveCatalogMetrics(official, EMPTY_PRICE_RETURNS, numberOrNull(yields.dividendYield), numberOrNull(yields.secYield), null, null, null, 'Yahoo chart API', asOf);
+  const metrics = deriveCatalogMetrics(official, EMPTY_PRICE_RETURNS, numberOrNull(yields.dividendYield), numberOrNull(yields.secYield), null, null, null, 'Yahoo chart API', asOf, undefined,
+    isYieldBasis(yields.dividendYieldBasis) ? yields.dividendYieldBasis : yieldBasisFromKind(yields.dividendYieldKind));
   const display = (value: unknown): string => (typeof value === 'string' && value ? value : '—');
   const identifiers = (meta.identifiers as JsonRecord) || {};
   return {
@@ -2129,6 +2172,7 @@ function applyOfficial(fund: CatalogFund, official: OfficialFund | null): Catalo
     premiumDiscount: prices ? null : fund.premiumDiscount,
     netAssets: prices?.netAssets ?? fund.netAssets,
     dividendYield: yields ? yields.dividendYield : fund.dividendYield,
+    dividendYieldBasis: yields ? (yields.dividendYield === null ? null : 'official-trailing-12m') : fund.dividendYieldBasis,
     secYield: yields ? yields.secYield : fund.secYield,
     distributionRate: yields ? yields.distributionRate : fund.distributionRate,
     asOfDate: prices?.asOfDate ?? fund.asOfDate,
@@ -2151,7 +2195,12 @@ async function processFund(
   // 0) Official fund facts, month-end returns, NAV, net assets and yields from
   //    invesco.com; a fund invesco.com no longer lists keeps its published values.
   const official = config.skipInvesco ? null : await loadOfficial(listed, config, ctx);
-  const fund = applyOfficial(listed, official);
+  // A yield retained from an index without the code keeps the meaning its published meta.json gave it.
+  const listedWithBasis =
+    listed.dividendYield !== null && !listed.dividendYieldBasis
+      ? { ...listed, dividendYieldBasis: yieldBasisFromKind(((await readPreviousMeta(ticker)).yields as JsonRecord | undefined)?.dividendYieldKind) }
+      : listed;
+  const fund = applyOfficial(listedWithBasis, official);
   // Lifecycle: a fund the loaded sitemap no longer lists (matured, renamed, delisted) stays in the
   // feed with its last values but is marked listed: false. Without a sitemap the status is unknown
   // and the previous one is kept.
@@ -2168,6 +2217,10 @@ async function processFund(
     null,
     null,
     fund.close,
+    undefined,
+    null,
+    undefined,
+    fund.dividendYieldBasis,
   );
   const reasons = fundFilterReasons(
     { ticker, aumValue: fund.netAssets ?? numberOrNull(previous.aumValue), terValue: fund.ter ?? numberOrNull(previous.terValue), metrics: preMetrics },
@@ -2292,6 +2345,7 @@ async function processFund(
     derivedCloseSource,
     fund.returnsAsOf,
     officialLive ? OFFICIAL_RETURNS_BASIS : STALE_OFFICIAL_RETURNS_BASIS,
+    fund.dividendYieldBasis,
   );
 
   const historyHeaders = ['Date', 'Close', 'Adj Close', 'Volume'];
@@ -2371,8 +2425,8 @@ async function processFund(
     yields: {
       dividendYield: metrics.dividendYield,
       dividendYieldText: metrics.dividendYieldText,
-      dividendYieldKind:
-        fund.dividendYield !== null ? 'trailing 12-month distribution rate, published by invesco.com' : 'indicated (latest distribution x inferred frequency / market price)',
+      dividendYieldBasis: metrics.dividendYieldBasis,
+      dividendYieldKind: YIELD_BASIS_KIND[(metrics.dividendYieldBasis as YieldBasis | null) ?? 'indicated'],
       distributionRate: fund.distributionRate,
       secYield: fund.secYield,
       secYieldText: fund.secYield === null ? '—' : `${fund.secYield.toFixed(2)}%`,
@@ -2714,7 +2768,8 @@ export async function runUpdater(config: UpdaterConfig): Promise<void> {
     const row = previousIndex.get(fund.ticker);
     if (!row) continue;
     const hasMeta = typeof (await readPreviousMeta(fund.ticker)).ticker === 'string';
-    keptFromPrevious.push(hasMeta || row.dataFile == null ? row : { ...row, dataFile: null });
+    const kept = hasMeta || row.dataFile == null ? row : { ...row, dataFile: null };
+    keptFromPrevious.push(withYieldBasis(kept, hasMeta ? ((await readPreviousMeta(fund.ticker)).yields as JsonRecord | undefined) : undefined));
   }
   const funds = [...results, ...keptFromPrevious].sort((a, b) => String(a.ticker).localeCompare(String(b.ticker)));
 
@@ -2794,6 +2849,8 @@ function catalogFundFromIndex(ticker: string, row: JsonRecord): CatalogFund {
     premiumDiscount: numberOrNull(row.premiumDiscountValue),
     netAssets: numberOrNull(row.aumValue),
     dividendYield: numberOrNull(metrics.dividendYield),
+    // older indexes have no code: processFund resolves it from the published meta.json
+    dividendYieldBasis: numberOrNull(metrics.dividendYield) === null ? null : isYieldBasis(metrics.dividendYieldBasis) ? metrics.dividendYieldBasis : null,
     secYield: numberOrNull(metrics.secYield),
     distributionRate: null,
     asOfDate: null,
