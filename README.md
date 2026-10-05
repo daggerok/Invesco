@@ -1,14 +1,16 @@
 # Invesco
 
-One of the app's features lets you select Invesco ETFs in the Watchlist and aggregate their holdings to see how often each ticker appears across the selected funds. Repeated holdings make overlapping exposure visible: the more selected funds include a ticker, the greater its potential influence on the portfolio; gains in that holding may help, while declines may hurt, and actual impact also depends on each fund's position size.  Another feature makes it faster and easier to find funds with stronger growth over different periods, higher dividend yields or distributions, greater Total Return (price performance plus dividends), and other key performance metrics. A single-file client-side tool that reads the generated `./api/invesco` static feed (invesco.com fund pages and the JSON API behind them for month-end returns, NAV, net assets, yields, expense ratio and daily holdings, Yahoo Finance for daily market history and distributions, SEC EDGAR N-PORT-P only as a holdings fallback) into a searchable ETF/asset-class catalog with per-fund tabs, watchlist aggregation, ticker copy and CSV/TXT export — the same look, feel, columns and business logic as the sibling applications.
+One of the app's features lets you select Invesco ETFs in the Watchlist and aggregate their holdings to see how often each ticker appears across the selected funds. Repeated holdings make overlapping exposure visible: the more selected funds include a ticker, the greater its potential influence on the portfolio; gains in that holding may help, while declines may hurt, and actual impact also depends on each fund's position size.  Another feature makes it faster and easier to find funds with stronger growth over different periods, higher dividend yields or distributions, greater Total Return (price performance plus dividends), and other key performance metrics. A client-side tool that reads the generated `./api/invesco` static feed (invesco.com fund pages and the JSON API behind them for month-end returns, NAV, net assets, yields, expense ratio and daily holdings, Yahoo Finance for daily market history and distributions, SEC EDGAR N-PORT-P only as a holdings fallback) into a searchable ETF/asset-class catalog with per-fund tabs, watchlist aggregation, ticker copy and CSV/TXT export — the same look, feel, columns and business logic as the sibling applications.
 
 ## Using Bun
 
 ```bash
 bunx degit daggerok/Invesco#main ./12345 && cd $_
-bunx serve . -p 1234
-open http://0:1234
+bun install
+bun run serve
 ```
+
+`bun run serve` is the Parcel dev server (it copies `api/` into `dist/api` first); `bun run build` writes the production site to `dist` and `bun run build-github-pages` does the same for the `/Invesco/` public URL
 
 The published application is available at <https://daggerok.github.io/Invesco/>.
 
@@ -140,7 +142,7 @@ SKIP_YAHOO=true bun scripts/update-data.ts
 
 ## TypeScript and verification
 
-The browser app is intentionally build-free: `index.html` carries the markup, styles and bootstrap, and `app.tsx` is TypeScript compiled in the browser with Babel standalone - no build step, no bundler, no `tsconfig.json` needed. Bun runs TypeScript out of the box.
+The browser app is built by Parcel with Tailwind CSS v4: `src/index.html` carries the markup, `src/index.css` the styles and `src/main.tsx` is the TypeScript app, bundled into `dist` by `bun run build` - no `tsconfig.json` needed. Bun runs TypeScript out of the box. GitHub Pages is deployed by `.github/workflows/github-pages.yml`
 
 Verification before every publish:
 
