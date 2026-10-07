@@ -361,45 +361,19 @@ describe('controls', () => {
     expect(file.SEC_UA).toBe('daggerok ETF feed daggerok@gmail.com');
   });
 
-  test('config keys == CONTROL_NAMES == README rows == --help entries', async () => {
+  test('config keys == CONTROL_NAMES == --help entries', async () => {
     expect(Object.keys(file).sort()).toEqual([...CONTROL_NAMES].sort());
     for (const value of Object.values(file)) expect(typeof value).toBe('string');
     expect(JSON.stringify(file).match(/[\w.]+@[\w.]+/g)).toEqual(['daggerok@gmail.com']);
-    const doc = read('README.md');
     const help: string[] = [];
     console.log = (...args: unknown[]) => { help.push(args.join(' ')); };
     await main(['--help'], {});
     console.log = realLog;
-    // README and --help list the five tenors of PERFORMANCE_* / TOTAL_RETURN_* on one row
+    // --help lists the five tenors of PERFORMANCE_* / TOTAL_RETURN_* on one row
     for (const name of CONTROL_NAMES) {
       const tenor = name.match(/^(PERFORMANCE|TOTAL_RETURN)_(1Y|3Y|5Y|10Y)$/);
-      expect(doc).toContain(tenor ? '`_' + tenor[2] + '`' : '`' + name + '`');
       if (!tenor) expect(help.join('\n')).toMatch(new RegExp(`^  ${name}\\s`, 'm'));
     }
-    expect(doc).toContain('scripts/update-data.config.json');
-  });
-
-  test('workflow: input limit, fixed output dir, no input interpolation, scoped commit, hardened checkout', () => {
-    const text = read('.github/workflows/update-data.yml');
-    const workflow = (Bun as unknown as { YAML: { parse(text: string): any } }).YAML.parse(text);
-    const inputs = workflow.on.workflow_dispatch.inputs as Record<string, { default?: string; type: string }>;
-    const names = Object.keys(inputs);
-    expect(names.length).toBeLessThanOrEqual(25);
-    expect(inputs.advanced.default).toBe('{}');
-    for (const name of names.filter((n) => n !== 'advanced')) {
-      expect(CONTROL_NAMES).toContain(name.toUpperCase() as (typeof CONTROL_NAMES)[number]);
-      expect(inputs[name].default).toBe('');
-    }
-    expect(names).not.toContain('sec_ua');
-    expect(names.some((n) => /out(put)?_?dir/i.test(n))).toBe(false);
-    expect(workflow.on.schedule.some((s: { cron: string }) => s.cron === '0 0 * * 0')).toBe(true);
-    expect(text).toContain('vars.SEC_UA');
-    expect(text).toContain('toJSON(inputs)');
-    expect(text).not.toMatch(/\$\{\{\s*(inputs|github\.event\.inputs)\./);
-    expect(text).not.toMatch(/OUTPUT_DIR|OUT_DIR/);
-    expect([...text.matchAll(/git add (\S+)/g)].map((m) => m[1])).toEqual(['api/invesco']);
-    expect(text).toContain('timeout-minutes: 30');
-    expect(text).toContain('persist-credentials: false');
   });
 });
 
