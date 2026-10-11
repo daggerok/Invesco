@@ -29,18 +29,18 @@
   }
  },
  "nav": {
-  "display": "$22.31",
-  "value": 22.30765,
-  "asOfDate": "Oct 02 2026"
+  "display": "$22.30",
+  "value": 22.304239,
+  "asOfDate": "Oct 09 2026"
  },
  "marketPrice": {
-  "display": "$22.29",
-  "value": 22.2935,
-  "asOfDate": "Oct 02 2026"
+  "display": "$22.36",
+  "value": 22.365,
+  "asOfDate": "Oct 09 2026"
  },
  "premiumDiscount": {
-  "display": "-0.06%",
-  "value": -0.06
+  "display": "0.27%",
+  "value": 0.27
  },
  "aum": {
   "display": "$271.61 M",
@@ -49,36 +49,36 @@
   "source": "previous run"
  },
  "yields": {
-  "dividendYield": 2.81,
-  "dividendYieldText": "2.81%",
+  "dividendYield": 2.82,
+  "dividendYieldText": "2.82%",
   "dividendYieldBasis": "official-trailing-12m",
   "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
-  "distributionRate": 2.79,
-  "secYield": 3.44,
-  "secYieldText": "3.44%",
+  "distributionRate": 2.8,
+  "secYield": 3.54,
+  "secYieldText": "3.54%",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
  },
  "returns": {
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
-   "asOfDate": "Aug 31 2026",
-   "priceReturnsAsOf": "Oct 02 2026",
-   "mo1": -1.89,
-   "mo1Text": "-1.89%",
-   "qtd": -0.04,
-   "qtdText": "-0.04%",
-   "ytd": 0.84,
-   "ytdText": "0.84%",
-   "yr1": 2.76,
-   "yr1Text": "2.76%",
-   "yr3": 3.1,
-   "yr3Text": "3.10%",
-   "yr5": -0.28,
-   "yr5Text": "-0.28%",
+   "asOfDate": "Sep 30 2026",
+   "priceReturnsAsOf": "Oct 09 2026",
+   "mo1": -0.71,
+   "mo1Text": "-0.71%",
+   "qtd": 0.27,
+   "qtdText": "0.27%",
+   "ytd": -1.8,
+   "ytdText": "-1.80%",
+   "yr1": -0.85,
+   "yr1Text": "-0.85%",
+   "yr3": 3.08,
+   "yr3Text": "3.08%",
+   "yr5": -0.58,
+   "yr5Text": "-0.58%",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": 0.96,
-   "sinceInceptionText": "0.96%"
+   "sinceInception": 0.56,
+   "sinceInceptionText": "0.56%"
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
@@ -90,7 +90,7 @@
    "sinceInception": null
   },
   "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close (performanceAsOf is the date of the official table, the filled periods end later)",
-  "performanceAsOf": "2026-08-31"
+  "performanceAsOf": "2026-09-30"
  },
  "distributions": {
   "frequency": "Monthly",
@@ -451,9 +451,9 @@
    "holdings/009.json"
   ],
   "pageSize": 250,
-  "totalRows": 2007,
-  "asOfDate": "2026-10-02",
-  "asOf": "Oct 02 2026",
+  "totalRows": 2016,
+  "asOfDate": "2026-10-09",
+  "asOf": "Oct 09 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -462,8 +462,8 @@
    "history/002.json"
   ],
   "pageSize": 1000,
-  "totalRows": 1765,
-  "asOf": "Oct 02 2026",
+  "totalRows": 1770,
+  "asOf": "Oct 09 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

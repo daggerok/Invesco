@@ -29,18 +29,18 @@
   }
  },
  "nav": {
-  "display": "$36.68",
-  "value": 36.682974,
-  "asOfDate": "Oct 02 2026"
+  "display": "$37.45",
+  "value": 37.453753,
+  "asOfDate": "Oct 09 2026"
  },
  "marketPrice": {
-  "display": "$36.69",
-  "value": 36.6875,
-  "asOfDate": "Oct 02 2026"
+  "display": "$37.46",
+  "value": 37.4604,
+  "asOfDate": "Oct 09 2026"
  },
  "premiumDiscount": {
-  "display": "0.01%",
-  "value": 0.01
+  "display": "0.02%",
+  "value": 0.02
  },
  "aum": {
   "display": "—",
@@ -61,24 +61,24 @@
  "returns": {
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
-   "asOfDate": "Aug 31 2026",
-   "priceReturnsAsOf": "Oct 02 2026",
-   "mo1": -2.83,
-   "mo1Text": "-2.83%",
-   "qtd": 0.6,
-   "qtdText": "0.60%",
-   "ytd": 6.68,
-   "ytdText": "6.68%",
-   "yr1": 6.78,
-   "yr1Text": "6.78%",
+   "asOfDate": "Sep 30 2026",
+   "priceReturnsAsOf": "Oct 09 2026",
+   "mo1": 4.7,
+   "mo1Text": "4.70%",
+   "qtd": 2.71,
+   "qtdText": "2.71%",
+   "ytd": 0.91,
+   "ytdText": "0.91%",
+   "yr1": -1,
+   "yr1Text": "-1.00%",
    "yr3": null,
    "yr3Text": "—",
    "yr5": null,
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": 19.44,
-   "sinceInceptionText": "19.44%"
+   "sinceInception": 16.5,
+   "sinceInceptionText": "16.50%"
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
@@ -90,7 +90,7 @@
    "sinceInception": null
   },
   "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close (performanceAsOf is the date of the official table, the filled periods end later)",
-  "performanceAsOf": "2026-08-31"
+  "performanceAsOf": "2026-09-30"
  },
  "distributions": {
   "frequency": "Quarterly",
@@ -151,9 +151,9 @@
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 54,
-  "asOfDate": "2026-10-02",
-  "asOf": "Oct 02 2026",
+  "totalRows": 53,
+  "asOfDate": "2026-10-09",
+  "asOf": "Oct 09 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -161,8 +161,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 708,
-  "asOf": "Oct 02 2026",
+  "totalRows": 713,
+  "asOf": "Oct 09 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }
