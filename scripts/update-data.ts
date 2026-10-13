@@ -22,10 +22,12 @@ function outputConfigEntries(config: Record<string, any>): [string, string][] {
     performanceRanges: 'PERFORMANCE', totalReturnRanges: 'TOTAL_RETURN',
     skipVanEck: 'SKIP_VANECK', skipProShares: 'SKIP_PROSHARES',
     skipWisdomTree: 'SKIP_WISDOMTREE', skipGoldmanSachs: 'SKIP_GOLDMANSACHS',
+    skipGlobalX: 'SKIP_GLOBALX', skipNorthernTrust: 'SKIP_NORTHERNTRUST',
   };
-  const range = (v: any): string => v?.source ?? `${Number.isFinite(v?.min) ? v.min : ''}:${Number.isFinite(v?.max) ? v.max : ''}`;
+  const range = (v: any): string => typeof v === 'string' ? v : v?.source ?? `${Number.isFinite(v?.min) ? v.min : ''}:${Number.isFinite(v?.max) ? v.max : ''}`;
   for (const [key, value] of Object.entries(config)) {
-    const name = aliases[key] ?? key.replace(/([a-z0-9])([A-Z])/g, '$1_$2').toUpperCase();
+    if (['proxyGapMs', 'fetchTimeoutMs', 'retryDelayMs'].includes(key)) continue;
+    const name = aliases[key] ?? (/^[A-Z0-9_]+$/.test(key) ? key : key.replace(/([a-z0-9])([A-Z])/g, '$1_$2').toUpperCase());
     if (name === 'PERFORMANCE' || name === 'TOTAL_RETURN') {
       for (const period of ['YTD', '1Y', '3Y', '5Y', '10Y']) values.set(`${name}_${period}`, range(value?.[period]));
     } else if (['AUM', 'TER', 'DIVIDEND_YIELD', 'SEC_YIELD'].includes(name)) {
@@ -40,13 +42,18 @@ function outputConfigEntries(config: Record<string, any>): [string, string][] {
     return (ai < 0 ? first.length : ai) - (bi < 0 ? first.length : bi) || a.localeCompare(b);
   });
 }
+function outputConfigValue(key: string, value: string): string {
+  if (/TOKEN|PASSWORD|SECRET|COOKIE|SEC_UA/i.test(key)) return '<redacted>';
+  if (key === 'TICKERS' && ['', 'null', 'undefined'].includes(value)) return 'all';
+  return outputClean(value);
+}
 function outputPrintConfig(brand: string, config: Record<string, any>): void {
   const entries: [string, string][] = [...outputConfigEntries(config), ['VERBOSE', String(outputVerbose())]];
-  console.log(`[ config   ] ${brand} updater:\n${entries.map(([key, value]) => `              ${key}=${/TOKEN|PASSWORD|SECRET|COOKIE|SEC_UA/i.test(key) ? '<redacted>' : outputClean(value)}`).join('\n')}`);
+  console.log(`[ config   ] ${brand} updater:\n${entries.map(([key, value]) => `              ${key}=${outputConfigValue(key, value)}`).join('\n')}`);
 }
 function outputHasOutputFilters(config: Record<string, any>): boolean {
   return outputConfigEntries(config).some(([name, value]) =>
-    /^(TICKERS|CATEGORY|AUM|TER|DIVIDEND_YIELD|SEC_YIELD|PERFORMANCE_|TOTAL_RETURN_)/.test(name) &&
+    /^(CATEGORY|AUM|TER|DIVIDEND_YIELD|SEC_YIELD|PERFORMANCE_|TOTAL_RETURN_)/.test(name) &&
     !['', ':', 'null', 'all'].includes(value));
 }
 function outputPrintFilter(selected: number, total: number, deferred = false): void {
@@ -78,18 +85,29 @@ async function outputInspectFund(root: URL | string, ticker: string): Promise<{ 
 }
 const outputCount = (value: any): unknown => typeof value === 'number' ? value : Array.isArray(value) ? value.length : value?.totalRows ?? value?.rows?.length ?? null;
 const outputScalar = (value: any): any => value && typeof value === 'object' ? value.display ?? value.value ?? null : value;
+const outputUnits: Record<string, number> = { K: 1e3, M: 1e6, B: 1e9, T: 1e12, THOUSAND: 1e3, MILLION: 1e6, BILLION: 1e9, TRILLION: 1e12 };
 function outputMoney(value: any): string {
-  const raw = outputScalar(value);
+  const raw = value && typeof value === 'object' && typeof value.value === 'number' && Number.isFinite(value.value) ? value.value : outputScalar(value);
   if (raw === null || raw === undefined || raw === '—' || raw === '--') return 'null';
   const text = String(raw).replace(/[$,\s]/g, '');
-  const match = text.match(/^([+-]?[\d.]+)([KMBT])?$/i);
+  const match = text.match(/^([+-]?[\d.]+)(K|M|B|T|Thousand|Million|Billion|Trillion)?$/i);
   if (!match) return outputClean(raw);
-  const number = Number(match[1]) * ({ K: 1e3, M: 1e6, B: 1e9, T: 1e12 }[match[2]?.toUpperCase() as 'K' | 'M' | 'B' | 'T'] ?? 1);
+  const number = Number(match[1]) * (outputUnits[match[2]?.toUpperCase() ?? ''] ?? 1);
   if (!Number.isFinite(number)) return 'null';
   for (const [unit, scale] of [['T', 1e12], ['B', 1e9], ['M', 1e6], ['K', 1e3]] as const) {
     if (Math.abs(number) >= scale) return `$${(number / scale).toFixed(1)}${unit}`;
   }
   return `$${number.toFixed(2)}`;
+}
+/** Yields: rounded to 2 decimals without trailing zeros; placeholders are omitted like null. */
+function outputPercent(value: any): unknown {
+  const raw = outputScalar(value);
+  if (raw === null || raw === undefined) return null;
+  if (typeof raw === 'number') return Number.isFinite(raw) ? Number(raw.toFixed(2)) : null;
+  const text = String(raw).trim().replace(/%$/, '').trim();
+  if (['', '-', '—', '--', 'n/a'].includes(text.toLowerCase())) return null;
+  const number = Number(text.replace(/,/g, ''));
+  return Number.isFinite(number) ? Number(number.toFixed(2)) : outputClean(raw);
 }
 function outputFundLine(index: number, total: number, ticker: string, status: string, data: any = {}, reason?: unknown): string {
   const width = Math.max(2, String(total).length);
@@ -110,21 +128,34 @@ function outputFundLine(index: number, total: number, ticker: string, status: st
     field('divs', outputCount(data.worksheets?.Distributions ?? data.distributions)),
     field('netAssets', outputMoney(data.netAssets ?? data.aum)),
     field('total', outputMoney(data.totalFundNetAssets ?? data.totalNetAssets)),
-    field('div', outputScalar(data.trailingYield ?? data.yields?.effectiveYield ?? data.yields?.dividendYield ?? data.dividendYield ?? metrics.dividendYield)),
-    field('sec', outputScalar(data.secYield ?? data.yields?.secYield ?? metrics.secYield)),
+    field('div', outputPercent(data.trailingYield ?? data.yields?.effectiveYield ?? data.yields?.dividendYield ?? data.dividendYield ?? metrics.dividendYield)),
+    field('sec', outputPercent(data.secYield ?? data.yields?.secYield ?? metrics.secYield)),
     field('wp', data.workplaceRaw),
   ].filter(part => part !== '').join(' ');
   return `[ ${String(index).padStart(width)}/${String(total).padEnd(width)}  ] ${outputClean(ticker).padEnd(5)} ${status.padEnd(9)}${detail ? ` ${detail}` : ''}${reason ? ` reason=${outputClean(reason)}` : ''}`;
 }
 function outputCreateReporter(root: URL | string, total: number) {
   let completed = 0;
+  const tally = new Map<string, number>();
   return {
     before: (ticker: string) => outputInspectFund(root, ticker),
     async result(ticker: string, before: { digest: string }, status?: string, reason?: unknown, extra: any = {}) {
       const after = await outputInspectFund(root, ticker);
-      console.log(outputFundLine(++completed, total, ticker, status ?? (before.digest === after.digest ? 'unchanged' : 'updated'), { ...after.meta, ...extra }, reason));
+      const final = status ?? (before.digest === after.digest ? 'unchanged' : 'updated');
+      tally.set(final, (tally.get(final) ?? 0) + 1);
+      console.log(outputFundLine(++completed, total, ticker, final, { ...after.meta, ...extra }, reason));
+    },
+    /** First [ done ] line: the statuses of every fund line this reporter printed. */
+    summary(startedAt: number): string {
+      const order = ['updated', 'unchanged', 'kept', 'skipped', 'failed'];
+      const statuses = [...order, ...[...tally.keys()].filter(status => !order.includes(status))];
+      return `[ done     ] ${completed} fund${completed === 1 ? '' : 's'}: ${statuses.map(status => `${tally.get(status) ?? 0} ${status}`).join(', ')} in ${((Date.now() - startedAt) / 1000).toFixed(1)}s`;
     },
   };
+}
+/** Second [ done ] line: published totals. */
+function outputCounts(funds: number, holdings: number, history: number): string {
+  return `[ done     ] counts: ${funds.toLocaleString('en-US')} funds / ${holdings.toLocaleString('en-US')} holdings rows / ${history.toLocaleString('en-US')} history rows`;
 }
 
 
@@ -914,6 +945,15 @@ export function dngUrl(cusip: string, endpoint: 'performance' | 'prices' | 'yiel
     case 'holdings':
       return `${DNG_API}/${id}/holdings/fund?${common}`;
   }
+}
+
+/**
+ * The prices endpoint addressed by ticker instead of CUSIP. It answers an empty list for a ticker
+ * that no longer owns its CUSIP: a renamed fund's old page stays online with the CUSIP of the new
+ * ticker (IMSI -> IROC, ISDB -> GTOS on 2026-10-13).
+ */
+export function dngTickerPricesUrl(ticker: string): string {
+  return `${DNG_API}/${encodeURIComponent(String(ticker).toUpperCase())}/prices?idType=ticker&productType=ETF&variationType=priceListing&productSubType=ETF`;
 }
 
 /** Unique canonical fund page URLs listed in the US sitemap, in file order. */
@@ -1860,6 +1900,13 @@ async function readUpdateState(): Promise<UpdateState | null> {
   }
 }
 
+/** The run order: only the TICKERS selection (all funds when empty), rotated after the cursor. */
+export function runOrder<T extends { ticker: string }>(universe: T[], tickers: string[], cursor: string | null): T[] {
+  const selected = universe.filter((fund) => !tickers.length || tickers.includes(fund.ticker));
+  const index = cursor ? selected.findIndex((fund) => fund.ticker === cursor) : -1;
+  return index >= 0 ? selected.slice(index + 1).concat(selected.slice(0, index + 1)) : selected.slice();
+}
+
 /** The filter set a cursor belongs to: a cursor saved for other filters is never reused. */
 export function cursorScope(config: UpdaterConfig): string {
   return JSON.stringify([config.tickers, config.aumRange ?? null, config.terRange ?? null, config.dividendYieldRange ?? null, config.performanceRanges, config.totalReturnRanges]);
@@ -2088,6 +2135,8 @@ type OfficialContext = {
   sitemapLoaded: boolean;
   // tickers that received at least one fresh source in this run
   fresh: Set<string>;
+  // CUSIP -> every catalog ticker that names it, built once before the fund loop
+  cusipTickers: Map<string, string[]>;
 };
 
 type OfficialFund = {
@@ -2097,6 +2146,8 @@ type OfficialFund = {
   performance: OfficialPerformance | null;
   prices: OfficialPrices | null;
   yields: OfficialYields | null;
+  // the tickers that own this fund's CUSIP now; set for a renamed fund's old ticker
+  supersededBy: string | null;
 };
 
 async function loadOfficial(fund: CatalogFund, config: UpdaterConfig, ctx: OfficialContext): Promise<OfficialFund | null> {
@@ -2118,7 +2169,19 @@ async function loadOfficial(fund: CatalogFund, config: UpdaterConfig, ctx: Offic
   }
   const cusip = page?.cusip || fund.cusip;
   if (!cusip) return null;
-  const official: OfficialFund = { cusip, url, page, performance: null, prices: null, yields: null };
+  const official: OfficialFund = { cusip, url, page, performance: null, prices: null, yields: null, supersededBy: null };
+  // Every endpoint below is addressed by CUSIP, so a CUSIP shared with another ticker would hand
+  // this ticker the other fund's net assets, yields, returns and holdings.
+  const others = (ctx.cusipTickers.get(cusip) ?? []).filter((other) => other !== ticker);
+  if (others.length) {
+    const owns = await ownsCusip(ticker, config);
+    // unknown ownership: keep the published values rather than risk the other fund's
+    if (owns === null) return null;
+    if (!owns) {
+      outputNote(`[ ${'official'.padEnd(9)}] ${ticker}: CUSIP ${cusip} belongs to ${others.join(', ')} now (renamed fund) - not listed`);
+      return { ...official, supersededBy: others.join(', ') };
+    }
+  }
   const call = async <T>(label: string, endpoint: Parameters<typeof dngUrl>[1], parse: (payload: JsonRecord) => T): Promise<T | null> => {
     try {
       return parse(await fetchJson(dngUrl(cusip, endpoint), `[ ${label.padEnd(9)}] ${ticker}`, invescoHeaders(), config));
@@ -2131,6 +2194,26 @@ async function loadOfficial(fund: CatalogFund, config: UpdaterConfig, ctx: Offic
   official.prices = await call('prices', 'prices', parseDngPrices);
   official.yields = await call('yields', 'yields', parseDngYields);
   return official;
+}
+
+async function ownsCusip(ticker: string, config: UpdaterConfig): Promise<boolean | null> {
+  try {
+    const payload: unknown = await fetchJson(dngTickerPricesUrl(ticker), `[ prices   ] ${ticker}`, invescoHeaders(), config);
+    return !Array.isArray(payload) || payload.length > 0;
+  } catch (error) {
+    outputNote(`[ ${'prices'.padEnd(9)}] ${ticker}: ${errorMessage(error)}`);
+    return null;
+  }
+}
+
+// A renamed fund's old ticker carries none of the values addressed by the CUSIP it lost.
+function withoutCusipData(fund: CatalogFund): CatalogFund {
+  return {
+    ...fund,
+    nav: null, close: null, premiumDiscount: null, netAssets: null, asOfDate: null,
+    dividendYield: null, dividendYieldBasis: null, secYield: null, distributionRate: null,
+    returns: EMPTY_RETURNS, returnsAsOf: null,
+  };
 }
 
 /** The page of exactly this ticker; a renamed fund's old ticker redirects to the new fund's page. */
@@ -2189,17 +2272,20 @@ async function processFund(
   // 0) Official fund facts, month-end returns, NAV, net assets and yields from
   //    invesco.com; a fund invesco.com no longer lists keeps its published values.
   const official = config.skipInvesco ? null : await loadOfficial(listed, config, ctx);
+  const supersededBy = official?.supersededBy ?? null;
+  // Its published values came from the other fund's CUSIP: none of them is retained.
+  if (supersededBy) previous = {};
   // A yield retained from an index without the code keeps the meaning its published meta.json gave it.
   const listedWithBasis =
     listed.dividendYield !== null && !listed.dividendYieldBasis
       ? { ...listed, dividendYieldBasis: yieldBasisFromKind(((await readPreviousMeta(ticker)).yields as JsonRecord | undefined)?.dividendYieldKind) }
       : listed;
-  const fund = applyOfficial(listedWithBasis, official);
+  const fund = supersededBy ? withoutCusipData(applyOfficial(listedWithBasis, official)) : applyOfficial(listedWithBasis, official);
   // Lifecycle: a fund the loaded sitemap no longer lists (matured, renamed, delisted) stays in the
   // feed with its last values but is marked listed: false. Without a sitemap the status is unknown
   // and the previous one is kept.
   const sitemapSaysMissing = !config.skipInvesco && ctx.sitemapLoaded && !ctx.pageUrls.has(ticker);
-  const isListed = sitemapSaysMissing ? false : !config.skipInvesco && ctx.sitemapLoaded ? true : previous.listed !== false;
+  const isListed = supersededBy || sitemapSaysMissing ? false : !config.skipInvesco && ctx.sitemapLoaded ? true : previous.listed !== false;
 
   // Filters run against the fresh official values (or the published ones when
   // invesco.com has none) before the heavier downloads happen.
@@ -2231,9 +2317,11 @@ async function processFund(
 
   // 1) Daily holdings from the invesco.com API; SEC Form N-PORT-P as the fallback.
   let holdings: ParsedHoldings | null = null;
-  let holdingsSource = 'invesco.com fund holdings API (dng-api.invesco.com)';
+  let holdingsSource = supersededBy
+    ? `none: the fund's CUSIP belongs to ${supersededBy} now`
+    : 'invesco.com fund holdings API (dng-api.invesco.com)';
   let holdingsEdgar: ParsedNport | null = null;
-  if (official) {
+  if (official && !supersededBy) {
     try {
       holdings = parseDngHoldings(await fetchJson(dngUrl(official.cusip, 'holdings'), `[ holdings ] ${ticker}`, invescoHeaders(), config), ticker);
     } catch (error) {
@@ -2245,7 +2333,7 @@ async function processFund(
   // just because one API request failed: the previous official sheet stays.
   const previousHoldingsSource = String(((await readPreviousMeta(ticker)).holdings as JsonRecord | undefined)?.source ?? '');
   const keepPreviousOfficial = previousHoldingsSource.startsWith('invesco.com');
-  if (!holdings && config.edgarFallback && !config.skipInvesco && !keepPreviousOfficial) {
+  if (!holdings && config.edgarFallback && !config.skipInvesco && !keepPreviousOfficial && !supersededBy) {
     try {
       const filing = await resolveNportFiling(fund, config);
       if (filing) {
@@ -2277,7 +2365,7 @@ async function processFund(
 
 
   const hasFresh = Boolean(official?.performance || official?.prices || official?.yields || holdings);
-  const holdingsRows: JsonRecord[] = holdings ? holdings.rows : await readPreviousSheet(ticker, 'holdings');
+  const holdingsRows: JsonRecord[] = holdings ? holdings.rows : supersededBy ? [] : await readPreviousSheet(ticker, 'holdings');
   const holdingsHeaders = holdings?.headers.length
     ? holdings.headers
     : (await readPreviousSheetHeaders(ticker, 'holdings')) || HOLDINGS_HEADERS;
@@ -2327,7 +2415,7 @@ async function processFund(
   // True when this run read the month-end table from invesco.com (not the published copy).
   const officialLive = Boolean(official?.performance);
 
-  if (official?.performance || official?.prices || official?.yields || holdings || haveFreshHistory) ctx.fresh.add(ticker);
+  if (supersededBy || official?.performance || official?.prices || official?.yields || holdings || haveFreshHistory) ctx.fresh.add(ticker);
   const metrics = deriveCatalogMetrics(
     fund.returns,
     derived,
@@ -2372,6 +2460,7 @@ async function processFund(
   const returnsData = returnsBlock(derived, fund.returns, fund.returnsAsOf, previous, derivedCloseSource, officialLive);
   const asOfLabel = fund.asOfDate ? formatEdgarDate(fund.asOfDate) : marketTime ? formatEpochDate(marketTime) : '—';
 
+  const apiCusip = supersededBy ? '' : fund.cusip;
   const meta: JsonRecord = {
     ticker,
     name,
@@ -2380,10 +2469,10 @@ async function processFund(
     categoryPath: fund.categoryPath,
     source: {
       fundPage: fund.fundPage,
-      holdingsApi: fund.cusip ? dngUrl(fund.cusip, 'holdings') : null,
-      performanceApi: fund.cusip ? dngUrl(fund.cusip, 'performance') : null,
-      pricesApi: fund.cusip ? dngUrl(fund.cusip, 'prices') : null,
-      yieldsApi: fund.cusip ? dngUrl(fund.cusip, 'yields') : null,
+      holdingsApi: apiCusip ? dngUrl(apiCusip, 'holdings') : null,
+      performanceApi: apiCusip ? dngUrl(apiCusip, 'performance') : null,
+      pricesApi: apiCusip ? dngUrl(apiCusip, 'prices') : null,
+      yieldsApi: apiCusip ? dngUrl(apiCusip, 'yields') : null,
       // A stable provenance URL, not the live fetch URL: chartUrl(ticker, config)
       // embeds the current timestamp in period2, which would make this field
       // (and the file's digest) change on every single run.
@@ -2501,9 +2590,9 @@ async function loadFundTickerMap(config: UpdaterConfig): Promise<Map<string, Sec
   try {
     const payload = await fetchJson(SEC_FUND_TICKERS_URL, '[edgar   ] fund ticker table', secHeaders(config), config);
     fundTickerMap = parseFundTickerMap(payload);
-    outputNote(`[ ${'edgar'.padEnd(9)}] SEC fund ticker table: ${fundTickerMap.size} ETF / mutual-fund share classes`);
+    outputNote(`[ ${'edgar'.padEnd(9)}] SEC fund ticker table: ${Array.isArray(payload.data) ? payload.data.length : fundTickerMap.size} share classes`);
   } catch (error) {
-    console.warn(`[ edgar    ] fund ticker table: ${errorMessage(error)} — falling back to full-text search`);
+    outputNote(`[ edgar    ] fund ticker table: ${errorMessage(error)} — falling back to full-text search`);
     fundTickerMap = new Map<string, SecSeriesRef>();
   }
   return fundTickerMap;
@@ -2514,9 +2603,10 @@ async function loadCompanyTickerMap(config: UpdaterConfig): Promise<Map<string, 
   try {
     const payload = await fetchJson(SEC_COMPANY_TICKERS_URL, '[ edgar    ] company ticker table', secHeaders(config), config);
     companyTickerMap = parseCompanyTickerMap(payload);
-    console.log(`[ edgar    ] SEC company ticker table: ${companyTickerMap.size} issuer names`);
+    // rows of the file, the same count in every repo (the name map dedupes them)
+    outputNote(`[ edgar    ] SEC company ticker table: ${Object.keys(payload).length} issuer names`);
   } catch (error) {
-    console.warn(`[ edgar    ] company ticker table: ${errorMessage(error)} — N-PORT tickers stay "-"`);
+    outputNote(`[ edgar    ] company ticker table: ${errorMessage(error)} — N-PORT tickers stay "-"`);
     companyTickerMap = new Map<string, string>();
   }
   return companyTickerMap;
@@ -2657,12 +2747,10 @@ function catalogFundFromPage(page: FundPageInfo, url: string): CatalogFund {
 export async function runUpdater(config: UpdaterConfig): Promise<void> {
   requestSleepMs = Math.max(0, config.requestSleep) * 1000;
   nextRequestAtLanes = new Array(Math.max(1, config.concurrency)).fill(0);
-  const deadlineAt = Date.now() + softDeadlineMs;
+  const startedAt = Date.now();
+  const deadlineAt = startedAt + softDeadlineMs;
 
   outputPrintConfig('Invesco', config);
-  console.log('');
-
-
 
   // 1) Catalog: every fund already published (index rows plus funds/*/meta.json,
   //    so a filtered run never shrinks the feed) and every fund the invesco.com
@@ -2672,16 +2760,20 @@ export async function runUpdater(config: UpdaterConfig): Promise<void> {
   for (const [ticker, row] of previousIndex) catalog.set(ticker, catalogFundFromIndex(ticker, row));
   let catalogSource = 'published feed';
 
-  const ctx: OfficialContext = { pageUrls: new Map(), pages: new Map(), sitemapLoaded: false, fresh: new Set() };
+  const ctx: OfficialContext = { pageUrls: new Map(), pages: new Map(), sitemapLoaded: false, fresh: new Set(), cusipTickers: new Map() };
   if (!config.skipInvesco) {
     const discovered = await discoverOfficialFunds(config, catalog, ctx);
     if (ctx.sitemapLoaded) catalogSource = `published feed + invesco.com sitemap (${ctx.pageUrls.size} fund pages${discovered ? `, ${discovered} new` : ''})`;
+  }
+  for (const fund of catalog.values()) {
+    const cusip = ctx.pages.get(fund.ticker)?.cusip || fund.cusip;
+    if (cusip) ctx.cusipTickers.set(cusip, [...(ctx.cusipTickers.get(cusip) ?? []), fund.ticker]);
   }
 
   const universe = [...catalog.values()].sort((a, b) => (a.ticker < b.ticker ? -1 : a.ticker > b.ticker ? 1 : 0));
   if (!universe.length) {
     console.log(
-      '[done    ] nothing to do: the invesco.com sitemap is unreachable and the published ' +
+      '[ done     ] nothing to do: the invesco.com sitemap is unreachable and the published ' +
         'api/invesco/index.json is empty or missing - run this where invesco.com resolves, e.g. ' +
         'the "Update Invesco ETF data" GitHub Actions workflow',
     );
@@ -2692,7 +2784,9 @@ export async function runUpdater(config: UpdaterConfig): Promise<void> {
   if (newFunds.length) console.log(`NEW FUNDS: ${newFunds.join(', ')}`);
 
   // 2) Bounded, resumable batch run over the catalog (iShares/SPDR cursor).
-  const state = await readUpdateState();
+  // A TICKERS run never reads, writes or deletes the cursor (First-Trust rule).
+  const useCursor = config.tickers.length === 0;
+  const state = useCursor ? await readUpdateState() : null;
   // A plain `bun ./scripts/update-data.ts` (no MAX_FETCHES) always walks the
   // whole catalog from the top and clears the cursor afterwards; the saved
   // cursor only rotates the queue for explicitly bounded batch runs, exactly
@@ -2701,11 +2795,7 @@ export async function runUpdater(config: UpdaterConfig): Promise<void> {
   // used for the same filter set it was saved for.
   const scope = cursorScope(config);
   const cursor = (config.maxFetches > 0 || state?.partial === true) && state?.scope === scope ? state?.cursor || null : null;
-  const cursorIndex = cursor ? universe.findIndex((fund) => fund.ticker === cursor) : -1;
-  const ordered =
-    cursorIndex >= 0
-      ? universe.slice(cursorIndex + 1).concat(universe.slice(0, cursorIndex + 1))
-      : universe.slice();
+  const ordered = runOrder(universe, config.tickers, cursor);
 
   const queue = ordered.map((fund) => ({ fund }));
   const results: JsonRecord[] = [];
@@ -2717,8 +2807,8 @@ export async function runUpdater(config: UpdaterConfig): Promise<void> {
   let deadlineHit = false;
   let failures = 0;
 
-  outputPrintFilter(universe.length, universe.length, outputHasOutputFilters(config));
-  const output = outputCreateReporter(API_ROOT, config.maxFetches > 0 ? Math.min(config.maxFetches, ordered.length) : ordered.length);
+  outputPrintFilter(ordered.length, universe.length, outputHasOutputFilters({ ...config, tickers: [] }));
+  const reporter = outputCreateReporter(API_ROOT, config.maxFetches > 0 ? Math.min(config.maxFetches, ordered.length) : ordered.length);
   async function worker(): Promise<void> {
     for (;;) {
       // never start more funds than the batch still needs: wait for in-flight ones to resolve
@@ -2734,17 +2824,17 @@ export async function runUpdater(config: UpdaterConfig): Promise<void> {
       if (!item) return;
       started += 1;
       pending += 1;
-      const before = await output.before(item.fund.ticker);
+      const before = await reporter.before(item.fund.ticker);
       try {
         const row = await processFund(item.fund, config, previousIndex.get(item.fund.ticker) || {}, ctx);
         if (row) {
           results.push(row);
           passed += 1;
         }
-        await output.result(item.fund.ticker, before, row ? undefined : 'skipped');
+        await reporter.result(item.fund.ticker, before, row ? undefined : 'skipped');
       } catch (error) {
         failures += 1;
-        await output.result(item.fund.ticker, before, 'failed', String(error));
+        await reporter.result(item.fund.ticker, before, 'failed', String(error));
       } finally {
         pending -= 1;
       }
@@ -2791,13 +2881,12 @@ export async function runUpdater(config: UpdaterConfig): Promise<void> {
 
 
   // Full passes reset the cursor: the next run starts from the top again.
-  await writeUpdateState(config.maxFetches > 0 || deadlineHit ? lastExamined : null, scope, deadlineHit);
+  if (useCursor) await writeUpdateState(config.maxFetches > 0 || deadlineHit ? lastExamined : null, scope, deadlineHit);
 
-  console.log('');
-  console.log(`[ ${'done'.padEnd(9)}] ${results.length} funds updated, ${keptFromPrevious.length} kept from previous runs, ${failures} failures`);
-  console.log(`[ ${'done'.padEnd(9)}] counts: ${counts.funds} funds / ${counts.holdings.toLocaleString('en-US')} holdings rows / ${counts.history.toLocaleString('en-US')} history rows`);
+  console.log(reporter.summary(startedAt));
+  console.log(outputCounts(counts.funds, counts.holdings, counts.history));
   console.log(
-    `[ cursor   ] ${(config.maxFetches > 0 || deadlineHit) && lastExamined ? `next run continues after ${lastExamined}` : 'full pass complete (cursor reset)'}`,
+    `[ cursor   ] ${!useCursor ? 'TICKERS run: cursor untouched' : (config.maxFetches > 0 || deadlineHit) && lastExamined ? `next run continues after ${lastExamined}` : 'full pass complete (cursor reset)'}`,
   );
 
   if (process.env.GITHUB_STEP_SUMMARY) {

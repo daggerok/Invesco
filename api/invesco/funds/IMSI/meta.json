@@ -1,17 +1,17 @@
 {
  "ticker": "IMSI",
  "name": "Invesco Municipal Strategic Income ETF",
- "listed": true,
+ "listed": false,
  "category": "Fixed Income",
  "categoryPath": "Fixed Income, Municipal",
  "source": {
   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/invesco-municipal-strategic-income-etf.html",
-  "holdingsApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46090A747/holdings/fund?idType=cusip&productType=ETF",
-  "performanceApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46090A747/performance/standard?idType=cusip&productType=ETF&performanceSubType=annualized&performancePeriod=monthly",
-  "pricesApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46090A747/prices?idType=cusip&productType=ETF&variationType=priceListing&productSubType=ETF",
-  "yieldsApi": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46090A747?expand=nav&idType=cusip&productType=ETF&variationType=yieldInformation&managementFeeWaiver=0.0",
+  "holdingsApi": null,
+  "performanceApi": null,
+  "pricesApi": null,
+  "yieldsApi": null,
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/IMSI",
-  "holdingsSource": "invesco.com fund holdings API (dng-api.invesco.com)",
+  "holdingsSource": "none: the fund's CUSIP belongs to IROC now",
   "historySource": "Yahoo Finance public chart API (adjusted close)",
   "provider": "invesco.com fund pages and fund API + Yahoo Finance public chart API"
  },
@@ -29,71 +29,38 @@
   }
  },
  "nav": {
-  "display": "$47.61",
-  "value": 47.607987,
-  "asOfDate": "Oct 09 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "—"
  },
  "marketPrice": {
-  "display": "$47.78",
-  "value": 47.78,
-  "asOfDate": "Oct 09 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "—"
  },
  "premiumDiscount": {
-  "display": "0.36%",
-  "value": 0.36
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$184.72 M",
-  "value": 184719037.82,
-  "asOfDate": "Oct 09 2026",
-  "source": "Invesco fund API prices endpoint (net assets / market value)"
+  "display": "—",
+  "value": null,
+  "asOfDate": "—",
+  "source": "previous run"
  },
  "yields": {
-  "dividendYield": 5.45,
-  "dividendYieldText": "5.45%",
-  "dividendYieldBasis": "official-trailing-12m",
-  "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
-  "distributionRate": 5.27,
-  "secYield": 5.26,
-  "secYieldText": "5.26%",
+  "dividendYield": null,
+  "dividendYieldText": "—",
+  "dividendYieldBasis": null,
+  "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
+  "distributionRate": null,
+  "secYield": null,
+  "secYieldText": "—",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
  },
- "returns": {
-  "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
-  "monthEnd": {
-   "asOfDate": "Sep 30 2026",
-   "priceReturnsAsOf": null,
-   "mo1": null,
-   "mo1Text": "—",
-   "qtd": null,
-   "qtdText": "—",
-   "ytd": -1.84,
-   "ytdText": "-1.84%",
-   "yr1": -0.55,
-   "yr1Text": "-0.55%",
-   "yr3": 4.17,
-   "yr3Text": "4.17%",
-   "yr5": null,
-   "yr5Text": "—",
-   "yr10": null,
-   "yr10Text": "—",
-   "sinceInception": 3.23,
-   "sinceInceptionText": "3.23%"
-  },
-  "quarterEnd": {
-   "asOfDate": "Sep 30 2026",
-   "ytd": null,
-   "yr1": null,
-   "yr3": null,
-   "yr5": null,
-   "yr10": null,
-   "sinceInception": null
-  },
-  "returnsBasis": "official Invesco month-end NAV total returns (invesco.com fund API); periods Invesco does not publish (young funds) are filled from adjusted closes up to the last close (performanceAsOf is the date of the official table, the filled periods end later)",
-  "performanceAsOf": "2026-09-30"
- },
+ "returns": null,
  "distributions": {
-  "frequency": "Monthly",
+  "frequency": "—",
   "paymentsPerYear": null,
   "headers": [
    "Ex-Date",
@@ -102,14 +69,12 @@
   "rows": []
  },
  "holdings": {
-  "pages": [
-   "holdings/001.json"
-  ],
+  "pages": [],
   "pageSize": 250,
-  "totalRows": 193,
-  "asOfDate": "2026-10-09",
-  "asOf": "Oct 09 2026",
-  "source": "invesco.com fund holdings API (dng-api.invesco.com)"
+  "totalRows": 0,
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "none: the fund's CUSIP belongs to IROC now"
  },
  "history": {
   "pages": [
