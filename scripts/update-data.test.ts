@@ -188,7 +188,7 @@ function mockChart(): Record<string, unknown> {
 
 type MockRequest = { url: string; userAgent: string };
 
-function installMockFetch(options: { listed?: MockFund[]; unlisted?: MockFund[]; delayMs?: number } = {}): { requests: MockRequest[]; peak: () => number } {
+function installMockFetch(options: { listed?: MockFund[]; unlisted?: MockFund[]; renamed?: string[]; delayMs?: number } = {}): { requests: MockRequest[]; peak: () => number } {
   const requests: MockRequest[] = [];
   const listed = options.listed ?? MOCK_FUNDS;
   let inFlight = 0;
@@ -209,6 +209,9 @@ function installMockFetch(options: { listed?: MockFund[]; unlisted?: MockFund[];
       }
       const page = listed.find((fund) => url === `${MOCK_PAGE_BASE}${fund.slug}.html`);
       if (page) return new Response(mockFundPage(page), { status: 200 });
+      // addressed by ticker, the API answers [] for a renamed fund's old ticker
+      const byTicker = /shareclasses\/([A-Z]+)\/prices\?idType=ticker&/.exec(url);
+      if (byTicker) return json((options.renamed ?? []).includes(byTicker[1]) ? [] : PRICES_SAMPLE);
       const api = /shareclasses\/([0-9A-Z]{9})(\/[a-z/]+)?\?/.exec(url);
       if (api && listed.some((fund) => fund.cusip === api[1])) {
         if (url.includes('/performance/standard')) return json(PERFORMANCE_SAMPLE);
@@ -901,6 +904,27 @@ describe('pipeline', () => {
       expect((await readJson(root, 'funds/AAA/meta.json')).listed).toBe(true);
     });
     expect(mock.requests.some((request) => request.url.includes('fund-ccc'))).toBe(false);
+  });
+
+  test('a renamed fund whose old page shares the CUSIP of the new ticker gets none of its values', async () => {
+    quiet();
+    // IMSI -> IROC: both pages stay online with one CUSIP, the old ticker printed the new fund's net assets and yields
+    const [live] = MOCK_FUNDS;
+    const old: MockFund = { ticker: 'OLD', cusip: live.cusip, slug: 'invesco-old-name-etf' };
+    const mock = installMockFetch({ listed: [live, old], renamed: ['OLD'] });
+    await withTempFeed([live, old], async (root) => {
+      const rows = [live, old].map((fund) => seedIndexRow(fund, { cusip: fund.cusip }));
+      writeFileSync(new URL('index.json', root), JSON.stringify({ funds: rows }));
+      await runUpdater(pipelineControls({ SKIP_YAHOO: 'true', CONCURRENCY: '2' }));
+      const [aaa, renamed] = (await readIndex(root)).funds;
+      expect([aaa.ticker, aaa.listed, aaa.aumValue, aaa.metrics.secYield, aaa.holdings]).toEqual(['AAA', true, 95423821287.23, 1.57, 3]);
+      expect([renamed.ticker, renamed.listed, renamed.cusip]).toEqual(['OLD', false, live.cusip]);
+      expect([renamed.aumValue, renamed.navValue, renamed.metrics.dividendYield, renamed.metrics.secYield, renamed.metrics.ytd, renamed.holdings]).toEqual([null, null, null, null, null, 0]);
+      const meta = await readJson(root, 'funds/OLD/meta.json');
+      expect([meta.aum.value, meta.holdings.totalRows, meta.source.pricesApi]).toEqual([null, 0, null]);
+    }, ['OLD']);
+    // the shared CUSIP's holdings are fetched once, for the ticker that owns it
+    expect(mock.requests.filter((request) => request.url.includes('/holdings/fund')).length).toBe(1);
   });
 
   test('a run where every source fails exits red and keeps every fund with its published returns', async () => {

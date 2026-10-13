@@ -945,6 +945,15 @@ export function dngUrl(cusip: string, endpoint: 'performance' | 'prices' | 'yiel
   }
 }
 
+/**
+ * The prices endpoint addressed by ticker instead of CUSIP. It answers an empty list for a ticker
+ * that no longer owns its CUSIP: a renamed fund's old page stays online with the CUSIP of the new
+ * ticker (IMSI -> IROC, ISDB -> GTOS on 2026-10-13).
+ */
+export function dngTickerPricesUrl(ticker: string): string {
+  return `${DNG_API}/${encodeURIComponent(String(ticker).toUpperCase())}/prices?idType=ticker&productType=ETF&variationType=priceListing&productSubType=ETF`;
+}
+
 /** Unique canonical fund page URLs listed in the US sitemap, in file order. */
 export function parseSitemapFundPages(xml: string): string[] {
   const urls: string[] = [];
@@ -2117,6 +2126,8 @@ type OfficialContext = {
   sitemapLoaded: boolean;
   // tickers that received at least one fresh source in this run
   fresh: Set<string>;
+  // CUSIP -> every catalog ticker that names it, built once before the fund loop
+  cusipTickers: Map<string, string[]>;
 };
 
 type OfficialFund = {
@@ -2126,6 +2137,8 @@ type OfficialFund = {
   performance: OfficialPerformance | null;
   prices: OfficialPrices | null;
   yields: OfficialYields | null;
+  // the tickers that own this fund's CUSIP now; set for a renamed fund's old ticker
+  supersededBy: string | null;
 };
 
 async function loadOfficial(fund: CatalogFund, config: UpdaterConfig, ctx: OfficialContext): Promise<OfficialFund | null> {
@@ -2147,7 +2160,19 @@ async function loadOfficial(fund: CatalogFund, config: UpdaterConfig, ctx: Offic
   }
   const cusip = page?.cusip || fund.cusip;
   if (!cusip) return null;
-  const official: OfficialFund = { cusip, url, page, performance: null, prices: null, yields: null };
+  const official: OfficialFund = { cusip, url, page, performance: null, prices: null, yields: null, supersededBy: null };
+  // Every endpoint below is addressed by CUSIP, so a CUSIP shared with another ticker would hand
+  // this ticker the other fund's net assets, yields, returns and holdings.
+  const others = (ctx.cusipTickers.get(cusip) ?? []).filter((other) => other !== ticker);
+  if (others.length) {
+    const owns = await ownsCusip(ticker, config);
+    // unknown ownership: keep the published values rather than risk the other fund's
+    if (owns === null) return null;
+    if (!owns) {
+      outputNote(`[ ${'official'.padEnd(9)}] ${ticker}: CUSIP ${cusip} belongs to ${others.join(', ')} now (renamed fund) - not listed`);
+      return { ...official, supersededBy: others.join(', ') };
+    }
+  }
   const call = async <T>(label: string, endpoint: Parameters<typeof dngUrl>[1], parse: (payload: JsonRecord) => T): Promise<T | null> => {
     try {
       return parse(await fetchJson(dngUrl(cusip, endpoint), `[ ${label.padEnd(9)}] ${ticker}`, invescoHeaders(), config));
@@ -2160,6 +2185,26 @@ async function loadOfficial(fund: CatalogFund, config: UpdaterConfig, ctx: Offic
   official.prices = await call('prices', 'prices', parseDngPrices);
   official.yields = await call('yields', 'yields', parseDngYields);
   return official;
+}
+
+async function ownsCusip(ticker: string, config: UpdaterConfig): Promise<boolean | null> {
+  try {
+    const payload: unknown = await fetchJson(dngTickerPricesUrl(ticker), `[ prices   ] ${ticker}`, invescoHeaders(), config);
+    return !Array.isArray(payload) || payload.length > 0;
+  } catch (error) {
+    outputNote(`[ ${'prices'.padEnd(9)}] ${ticker}: ${errorMessage(error)}`);
+    return null;
+  }
+}
+
+// A renamed fund's old ticker carries none of the values addressed by the CUSIP it lost.
+function withoutCusipData(fund: CatalogFund): CatalogFund {
+  return {
+    ...fund,
+    nav: null, close: null, premiumDiscount: null, netAssets: null, asOfDate: null,
+    dividendYield: null, dividendYieldBasis: null, secYield: null, distributionRate: null,
+    returns: EMPTY_RETURNS, returnsAsOf: null,
+  };
 }
 
 /** The page of exactly this ticker; a renamed fund's old ticker redirects to the new fund's page. */
@@ -2218,17 +2263,20 @@ async function processFund(
   // 0) Official fund facts, month-end returns, NAV, net assets and yields from
   //    invesco.com; a fund invesco.com no longer lists keeps its published values.
   const official = config.skipInvesco ? null : await loadOfficial(listed, config, ctx);
+  const supersededBy = official?.supersededBy ?? null;
+  // Its published values came from the other fund's CUSIP: none of them is retained.
+  if (supersededBy) previous = {};
   // A yield retained from an index without the code keeps the meaning its published meta.json gave it.
   const listedWithBasis =
     listed.dividendYield !== null && !listed.dividendYieldBasis
       ? { ...listed, dividendYieldBasis: yieldBasisFromKind(((await readPreviousMeta(ticker)).yields as JsonRecord | undefined)?.dividendYieldKind) }
       : listed;
-  const fund = applyOfficial(listedWithBasis, official);
+  const fund = supersededBy ? withoutCusipData(applyOfficial(listedWithBasis, official)) : applyOfficial(listedWithBasis, official);
   // Lifecycle: a fund the loaded sitemap no longer lists (matured, renamed, delisted) stays in the
   // feed with its last values but is marked listed: false. Without a sitemap the status is unknown
   // and the previous one is kept.
   const sitemapSaysMissing = !config.skipInvesco && ctx.sitemapLoaded && !ctx.pageUrls.has(ticker);
-  const isListed = sitemapSaysMissing ? false : !config.skipInvesco && ctx.sitemapLoaded ? true : previous.listed !== false;
+  const isListed = supersededBy || sitemapSaysMissing ? false : !config.skipInvesco && ctx.sitemapLoaded ? true : previous.listed !== false;
 
   // Filters run against the fresh official values (or the published ones when
   // invesco.com has none) before the heavier downloads happen.
@@ -2260,9 +2308,11 @@ async function processFund(
 
   // 1) Daily holdings from the invesco.com API; SEC Form N-PORT-P as the fallback.
   let holdings: ParsedHoldings | null = null;
-  let holdingsSource = 'invesco.com fund holdings API (dng-api.invesco.com)';
+  let holdingsSource = supersededBy
+    ? `none: the fund's CUSIP belongs to ${supersededBy} now`
+    : 'invesco.com fund holdings API (dng-api.invesco.com)';
   let holdingsEdgar: ParsedNport | null = null;
-  if (official) {
+  if (official && !supersededBy) {
     try {
       holdings = parseDngHoldings(await fetchJson(dngUrl(official.cusip, 'holdings'), `[ holdings ] ${ticker}`, invescoHeaders(), config), ticker);
     } catch (error) {
@@ -2274,7 +2324,7 @@ async function processFund(
   // just because one API request failed: the previous official sheet stays.
   const previousHoldingsSource = String(((await readPreviousMeta(ticker)).holdings as JsonRecord | undefined)?.source ?? '');
   const keepPreviousOfficial = previousHoldingsSource.startsWith('invesco.com');
-  if (!holdings && config.edgarFallback && !config.skipInvesco && !keepPreviousOfficial) {
+  if (!holdings && config.edgarFallback && !config.skipInvesco && !keepPreviousOfficial && !supersededBy) {
     try {
       const filing = await resolveNportFiling(fund, config);
       if (filing) {
@@ -2306,7 +2356,7 @@ async function processFund(
 
 
   const hasFresh = Boolean(official?.performance || official?.prices || official?.yields || holdings);
-  const holdingsRows: JsonRecord[] = holdings ? holdings.rows : await readPreviousSheet(ticker, 'holdings');
+  const holdingsRows: JsonRecord[] = holdings ? holdings.rows : supersededBy ? [] : await readPreviousSheet(ticker, 'holdings');
   const holdingsHeaders = holdings?.headers.length
     ? holdings.headers
     : (await readPreviousSheetHeaders(ticker, 'holdings')) || HOLDINGS_HEADERS;
@@ -2356,7 +2406,7 @@ async function processFund(
   // True when this run read the month-end table from invesco.com (not the published copy).
   const officialLive = Boolean(official?.performance);
 
-  if (official?.performance || official?.prices || official?.yields || holdings || haveFreshHistory) ctx.fresh.add(ticker);
+  if (supersededBy || official?.performance || official?.prices || official?.yields || holdings || haveFreshHistory) ctx.fresh.add(ticker);
   const metrics = deriveCatalogMetrics(
     fund.returns,
     derived,
@@ -2401,6 +2451,7 @@ async function processFund(
   const returnsData = returnsBlock(derived, fund.returns, fund.returnsAsOf, previous, derivedCloseSource, officialLive);
   const asOfLabel = fund.asOfDate ? formatEdgarDate(fund.asOfDate) : marketTime ? formatEpochDate(marketTime) : '—';
 
+  const apiCusip = supersededBy ? '' : fund.cusip;
   const meta: JsonRecord = {
     ticker,
     name,
@@ -2409,10 +2460,10 @@ async function processFund(
     categoryPath: fund.categoryPath,
     source: {
       fundPage: fund.fundPage,
-      holdingsApi: fund.cusip ? dngUrl(fund.cusip, 'holdings') : null,
-      performanceApi: fund.cusip ? dngUrl(fund.cusip, 'performance') : null,
-      pricesApi: fund.cusip ? dngUrl(fund.cusip, 'prices') : null,
-      yieldsApi: fund.cusip ? dngUrl(fund.cusip, 'yields') : null,
+      holdingsApi: apiCusip ? dngUrl(apiCusip, 'holdings') : null,
+      performanceApi: apiCusip ? dngUrl(apiCusip, 'performance') : null,
+      pricesApi: apiCusip ? dngUrl(apiCusip, 'prices') : null,
+      yieldsApi: apiCusip ? dngUrl(apiCusip, 'yields') : null,
       // A stable provenance URL, not the live fetch URL: chartUrl(ticker, config)
       // embeds the current timestamp in period2, which would make this field
       // (and the file's digest) change on every single run.
@@ -2700,10 +2751,14 @@ export async function runUpdater(config: UpdaterConfig): Promise<void> {
   for (const [ticker, row] of previousIndex) catalog.set(ticker, catalogFundFromIndex(ticker, row));
   let catalogSource = 'published feed';
 
-  const ctx: OfficialContext = { pageUrls: new Map(), pages: new Map(), sitemapLoaded: false, fresh: new Set() };
+  const ctx: OfficialContext = { pageUrls: new Map(), pages: new Map(), sitemapLoaded: false, fresh: new Set(), cusipTickers: new Map() };
   if (!config.skipInvesco) {
     const discovered = await discoverOfficialFunds(config, catalog, ctx);
     if (ctx.sitemapLoaded) catalogSource = `published feed + invesco.com sitemap (${ctx.pageUrls.size} fund pages${discovered ? `, ${discovered} new` : ''})`;
+  }
+  for (const fund of catalog.values()) {
+    const cusip = ctx.pages.get(fund.ticker)?.cusip || fund.cusip;
+    if (cusip) ctx.cusipTickers.set(cusip, [...(ctx.cusipTickers.get(cusip) ?? []), fund.ticker]);
   }
 
   const universe = [...catalog.values()].sort((a, b) => (a.ticker < b.ticker ? -1 : a.ticker > b.ticker ? 1 : 0));
