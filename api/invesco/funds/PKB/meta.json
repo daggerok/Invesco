@@ -54,19 +54,19 @@
   "dividendYieldBasis": "official-trailing-12m",
   "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
   "distributionRate": 0.05,
-  "secYield": -0.1,
-  "secYieldText": "-0.10%",
+  "secYield": -0.02,
+  "secYieldText": "-0.02%",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
  },
  "returns": {
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Sep 30 2026",
-   "priceReturnsAsOf": "Oct 09 2026",
-   "mo1": -2.45,
-   "mo1Text": "-2.45%",
-   "qtd": -0.97,
-   "qtdText": "-0.97%",
+   "priceReturnsAsOf": "Oct 12 2026",
+   "mo1": -5.4,
+   "mo1Text": "-5.40%",
+   "qtd": -2.05,
+   "qtdText": "-2.05%",
    "ytd": -1.87,
    "ytdText": "-1.87%",
    "yr1": -4.77,
@@ -334,8 +334,8 @@
    "history/006.json"
   ],
   "pageSize": 1000,
-  "totalRows": 5271,
-  "asOf": "Oct 09 2026",
+  "totalRows": 5272,
+  "asOf": "Oct 12 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }
