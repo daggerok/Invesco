@@ -178,17 +178,17 @@ function mockFundPage(fund: MockFund): string {
   return FUND_PAGE_SAMPLE.replace('RSP', fund.ticker).replace('46137V357', fund.cusip).replace('US46137V3574', `US${fund.cusip}4`);
 }
 
-function mockChart(): Record<string, unknown> {
+function mockChart(adjclose = [100, 100.5, 101]): Record<string, unknown> {
   const timestamp = [1_790_000_000, 1_790_086_400, 1_790_172_800];
   return {
     chart: { result: [{ meta: { fullExchangeName: 'NYSE Arca', longName: 'Mock Fund', regularMarketPrice: 101, regularMarketTime: 1_790_172_800, firstTradeDate: 1_000_000_000 },
-      timestamp, indicators: { quote: [{ close: [100, 100.5, 101], volume: [10, 20, 30] }], adjclose: [{ adjclose: [100, 100.5, 101] }] }, events: {} }] },
+      timestamp, indicators: { quote: [{ close: [100, 100.5, 101], volume: [10, 20, 30] }], adjclose: [{ adjclose }] }, events: {} }] },
   };
 }
 
 type MockRequest = { url: string; userAgent: string };
 
-function installMockFetch(options: { listed?: MockFund[]; unlisted?: MockFund[]; renamed?: string[]; delayMs?: number } = {}): { requests: MockRequest[]; peak: () => number } {
+function installMockFetch(options: { listed?: MockFund[]; unlisted?: MockFund[]; renamed?: string[]; delayMs?: number; adjclose?: number[] } = {}): { requests: MockRequest[]; peak: () => number } {
   const requests: MockRequest[] = [];
   const listed = options.listed ?? MOCK_FUNDS;
   let inFlight = 0;
@@ -219,7 +219,7 @@ function installMockFetch(options: { listed?: MockFund[]; unlisted?: MockFund[];
         if (url.includes('/holdings/fund')) return json(HOLDINGS_SAMPLE);
         if (url.includes('variationType=yieldInformation')) return json(YIELDS_SAMPLE);
       }
-      if (url.includes('query1.finance.yahoo.com/v8/finance/chart/')) return json(mockChart());
+      if (url.includes('query1.finance.yahoo.com/v8/finance/chart/')) return json(mockChart(options.adjclose));
       return new Response('', { status: 404 });
     } finally {
       inFlight -= 1;
@@ -1001,6 +1001,30 @@ describe('pipeline', () => {
       await runUpdater(pipelineControls());
       expect(snapshot(dir)).toEqual(first);
       expect(Object.keys(first).some((path) => path.endsWith('.tmp'))).toBe(false);
+    });
+  });
+
+  test('two runs on the same source data write zero changes even when Yahoo adjusted closes jitter across a cent boundary', async () => {
+    quiet();
+    await withTempFeed(MOCK_FUNDS.slice(0, 1), async (root) => {
+      const dir = fileURLToPath(root);
+      const historyPage = () => JSON.parse(readFileSync(join(dir, 'funds', 'AAA', 'history', '001.json'), 'utf8')).rows.map((row: Record<string, string>) => row['Adj Close']);
+      // Yahoo float32 noise seen live: BAB came back as 16.41 and 16.42 on two runs with the same data
+      installMockFetch({ adjclose: [99.915001, 100.484999, 100.995001] });
+      await runUpdater(pipelineControls());
+      expect(historyPage()).toEqual(['99.92', '100.48', '101']);
+      for (const path of Object.keys(snapshot(dir))) {
+        if (path.endsWith('.json')) writeFileSync(path, readFileSync(path, 'utf8').replace(/"(generatedAt|savedAt)": "[^"]+"/g, '"$1": "2000-01-01T00:00:00Z"'));
+        utimesSync(path, 1_000_000_000, 1_000_000_000);
+      }
+      const first = snapshot(dir);
+      installMockFetch({ adjclose: [99.914998, 100.485002, 100.994999] });
+      await runUpdater(pipelineControls());
+      expect(snapshot(dir)).toEqual(first);
+      // a real change beyond the noise is still written
+      installMockFetch({ adjclose: [99.9, 100.47, 100.98] });
+      await runUpdater(pipelineControls());
+      expect(historyPage()).toEqual(['99.9', '100.47', '100.98']);
     });
   });
 
