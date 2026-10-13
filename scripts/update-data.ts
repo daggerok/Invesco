@@ -1900,6 +1900,13 @@ async function readUpdateState(): Promise<UpdateState | null> {
   }
 }
 
+/** The run order: only the TICKERS selection (all funds when empty), rotated after the cursor. */
+export function runOrder<T extends { ticker: string }>(universe: T[], tickers: string[], cursor: string | null): T[] {
+  const selected = universe.filter((fund) => !tickers.length || tickers.includes(fund.ticker));
+  const index = cursor ? selected.findIndex((fund) => fund.ticker === cursor) : -1;
+  return index >= 0 ? selected.slice(index + 1).concat(selected.slice(0, index + 1)) : selected.slice();
+}
+
 /** The filter set a cursor belongs to: a cursor saved for other filters is never reused. */
 export function cursorScope(config: UpdaterConfig): string {
   return JSON.stringify([config.tickers, config.aumRange ?? null, config.terRange ?? null, config.dividendYieldRange ?? null, config.performanceRanges, config.totalReturnRanges]);
@@ -2777,7 +2784,9 @@ export async function runUpdater(config: UpdaterConfig): Promise<void> {
   if (newFunds.length) console.log(`NEW FUNDS: ${newFunds.join(', ')}`);
 
   // 2) Bounded, resumable batch run over the catalog (iShares/SPDR cursor).
-  const state = await readUpdateState();
+  // A TICKERS run never reads, writes or deletes the cursor (First-Trust rule).
+  const useCursor = config.tickers.length === 0;
+  const state = useCursor ? await readUpdateState() : null;
   // A plain `bun ./scripts/update-data.ts` (no MAX_FETCHES) always walks the
   // whole catalog from the top and clears the cursor afterwards; the saved
   // cursor only rotates the queue for explicitly bounded batch runs, exactly
@@ -2786,11 +2795,7 @@ export async function runUpdater(config: UpdaterConfig): Promise<void> {
   // used for the same filter set it was saved for.
   const scope = cursorScope(config);
   const cursor = (config.maxFetches > 0 || state?.partial === true) && state?.scope === scope ? state?.cursor || null : null;
-  const cursorIndex = cursor ? universe.findIndex((fund) => fund.ticker === cursor) : -1;
-  const ordered =
-    cursorIndex >= 0
-      ? universe.slice(cursorIndex + 1).concat(universe.slice(0, cursorIndex + 1))
-      : universe.slice();
+  const ordered = runOrder(universe, config.tickers, cursor);
 
   const queue = ordered.map((fund) => ({ fund }));
   const results: JsonRecord[] = [];
@@ -2802,7 +2807,7 @@ export async function runUpdater(config: UpdaterConfig): Promise<void> {
   let deadlineHit = false;
   let failures = 0;
 
-  outputPrintFilter(universe.length, universe.length, outputHasOutputFilters(config));
+  outputPrintFilter(ordered.length, universe.length, outputHasOutputFilters({ ...config, tickers: [] }));
   const reporter = outputCreateReporter(API_ROOT, config.maxFetches > 0 ? Math.min(config.maxFetches, ordered.length) : ordered.length);
   async function worker(): Promise<void> {
     for (;;) {
@@ -2876,12 +2881,12 @@ export async function runUpdater(config: UpdaterConfig): Promise<void> {
 
 
   // Full passes reset the cursor: the next run starts from the top again.
-  await writeUpdateState(config.maxFetches > 0 || deadlineHit ? lastExamined : null, scope, deadlineHit);
+  if (useCursor) await writeUpdateState(config.maxFetches > 0 || deadlineHit ? lastExamined : null, scope, deadlineHit);
 
   console.log(reporter.summary(startedAt));
   console.log(outputCounts(counts.funds, counts.holdings, counts.history));
   console.log(
-    `[ cursor   ] ${(config.maxFetches > 0 || deadlineHit) && lastExamined ? `next run continues after ${lastExamined}` : 'full pass complete (cursor reset)'}`,
+    `[ cursor   ] ${!useCursor ? 'TICKERS run: cursor untouched' : (config.maxFetches > 0 || deadlineHit) && lastExamined ? `next run continues after ${lastExamined}` : 'full pass complete (cursor reset)'}`,
   );
 
   if (process.env.GITHUB_STEP_SUMMARY) {

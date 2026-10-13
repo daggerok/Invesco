@@ -972,15 +972,17 @@ describe('pipeline', () => {
       expect(index.funds.length).toBe(6);
       expect(index.funds.find((fund) => fund.ticker === 'FFF')!.metrics.ytd).toBe(15.44);
       expect(index.funds.find((fund) => fund.ticker === 'AAA')!.metrics.ytd).toBe(1.5);
-      expect((await readJson(root, 'update-state.json')).cursor).toBe('FFF');
+      // a TICKERS run never reads, writes or deletes the cursor
+      expect(() => readFileSync(new URL('update-state.json', root))).toThrow();
       const seen: string[] = [];
       for (let run = 0; run < 4; run++) {
         await runUpdater(pipelineControls({ MAX_FETCHES: '2', SKIP_YAHOO: 'true' }));
         seen.push((await readJson(root, 'update-state.json')).cursor);
       }
       expect(seen).toEqual(['BBB', 'DDD', 'FFF', 'BBB']);
+      const stateBefore = readFileSync(new URL('update-state.json', root), 'utf8');
       await runUpdater(pipelineControls({ MAX_FETCHES: '1', TICKERS: 'CCC', SKIP_YAHOO: 'true' }));
-      expect((await readJson(root, 'update-state.json')).cursor).toBe('CCC');
+      expect(readFileSync(new URL('update-state.json', root), 'utf8')).toBe(stateBefore);
     });
   });
 
