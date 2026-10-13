@@ -40,9 +40,14 @@ function outputConfigEntries(config: Record<string, any>): [string, string][] {
     return (ai < 0 ? first.length : ai) - (bi < 0 ? first.length : bi) || a.localeCompare(b);
   });
 }
+function outputConfigValue(key: string, value: string): string {
+  if (/TOKEN|PASSWORD|SECRET|COOKIE|SEC_UA/i.test(key)) return '<redacted>';
+  if (key === 'TICKERS' && ['', 'null', 'undefined'].includes(value)) return 'all';
+  return outputClean(value);
+}
 function outputPrintConfig(brand: string, config: Record<string, any>): void {
   const entries: [string, string][] = [...outputConfigEntries(config), ['VERBOSE', String(outputVerbose())]];
-  console.log(`[ config   ] ${brand} updater:\n${entries.map(([key, value]) => `              ${key}=${/TOKEN|PASSWORD|SECRET|COOKIE|SEC_UA/i.test(key) ? '<redacted>' : outputClean(value)}`).join('\n')}`);
+  console.log(`[ config   ] ${brand} updater:\n${entries.map(([key, value]) => `              ${key}=${outputConfigValue(key, value)}`).join('\n')}`);
 }
 function outputHasOutputFilters(config: Record<string, any>): boolean {
   return outputConfigEntries(config).some(([name, value]) =>
@@ -78,18 +83,29 @@ async function outputInspectFund(root: URL | string, ticker: string): Promise<{ 
 }
 const outputCount = (value: any): unknown => typeof value === 'number' ? value : Array.isArray(value) ? value.length : value?.totalRows ?? value?.rows?.length ?? null;
 const outputScalar = (value: any): any => value && typeof value === 'object' ? value.display ?? value.value ?? null : value;
+const outputUnits: Record<string, number> = { K: 1e3, M: 1e6, B: 1e9, T: 1e12, THOUSAND: 1e3, MILLION: 1e6, BILLION: 1e9, TRILLION: 1e12 };
 function outputMoney(value: any): string {
-  const raw = outputScalar(value);
+  const raw = value && typeof value === 'object' && typeof value.value === 'number' && Number.isFinite(value.value) ? value.value : outputScalar(value);
   if (raw === null || raw === undefined || raw === '—' || raw === '--') return 'null';
   const text = String(raw).replace(/[$,\s]/g, '');
-  const match = text.match(/^([+-]?[\d.]+)([KMBT])?$/i);
+  const match = text.match(/^([+-]?[\d.]+)(K|M|B|T|Thousand|Million|Billion|Trillion)?$/i);
   if (!match) return outputClean(raw);
-  const number = Number(match[1]) * ({ K: 1e3, M: 1e6, B: 1e9, T: 1e12 }[match[2]?.toUpperCase() as 'K' | 'M' | 'B' | 'T'] ?? 1);
+  const number = Number(match[1]) * (outputUnits[match[2]?.toUpperCase() ?? ''] ?? 1);
   if (!Number.isFinite(number)) return 'null';
   for (const [unit, scale] of [['T', 1e12], ['B', 1e9], ['M', 1e6], ['K', 1e3]] as const) {
     if (Math.abs(number) >= scale) return `$${(number / scale).toFixed(1)}${unit}`;
   }
   return `$${number.toFixed(2)}`;
+}
+/** Yields: rounded to 2 decimals without trailing zeros; placeholders are omitted like null. */
+function outputPercent(value: any): unknown {
+  const raw = outputScalar(value);
+  if (raw === null || raw === undefined) return null;
+  if (typeof raw === 'number') return Number.isFinite(raw) ? Number(raw.toFixed(2)) : null;
+  const text = String(raw).trim().replace(/%$/, '').trim();
+  if (['', '-', '—', '--', 'n/a'].includes(text.toLowerCase())) return null;
+  const number = Number(text.replace(/,/g, ''));
+  return Number.isFinite(number) ? Number(number.toFixed(2)) : outputClean(raw);
 }
 function outputFundLine(index: number, total: number, ticker: string, status: string, data: any = {}, reason?: unknown): string {
   const width = Math.max(2, String(total).length);
@@ -110,21 +126,34 @@ function outputFundLine(index: number, total: number, ticker: string, status: st
     field('divs', outputCount(data.worksheets?.Distributions ?? data.distributions)),
     field('netAssets', outputMoney(data.netAssets ?? data.aum)),
     field('total', outputMoney(data.totalFundNetAssets ?? data.totalNetAssets)),
-    field('div', outputScalar(data.trailingYield ?? data.yields?.effectiveYield ?? data.yields?.dividendYield ?? data.dividendYield ?? metrics.dividendYield)),
-    field('sec', outputScalar(data.secYield ?? data.yields?.secYield ?? metrics.secYield)),
+    field('div', outputPercent(data.trailingYield ?? data.yields?.effectiveYield ?? data.yields?.dividendYield ?? data.dividendYield ?? metrics.dividendYield)),
+    field('sec', outputPercent(data.secYield ?? data.yields?.secYield ?? metrics.secYield)),
     field('wp', data.workplaceRaw),
   ].filter(part => part !== '').join(' ');
   return `[ ${String(index).padStart(width)}/${String(total).padEnd(width)}  ] ${outputClean(ticker).padEnd(5)} ${status.padEnd(9)}${detail ? ` ${detail}` : ''}${reason ? ` reason=${outputClean(reason)}` : ''}`;
 }
 function outputCreateReporter(root: URL | string, total: number) {
   let completed = 0;
+  const tally = new Map<string, number>();
   return {
     before: (ticker: string) => outputInspectFund(root, ticker),
     async result(ticker: string, before: { digest: string }, status?: string, reason?: unknown, extra: any = {}) {
       const after = await outputInspectFund(root, ticker);
-      console.log(outputFundLine(++completed, total, ticker, status ?? (before.digest === after.digest ? 'unchanged' : 'updated'), { ...after.meta, ...extra }, reason));
+      const final = status ?? (before.digest === after.digest ? 'unchanged' : 'updated');
+      tally.set(final, (tally.get(final) ?? 0) + 1);
+      console.log(outputFundLine(++completed, total, ticker, final, { ...after.meta, ...extra }, reason));
+    },
+    /** First [ done ] line: the statuses of every fund line this reporter printed. */
+    summary(startedAt: number): string {
+      const order = ['updated', 'unchanged', 'kept', 'skipped', 'failed'];
+      const statuses = [...order, ...[...tally.keys()].filter(status => !order.includes(status))];
+      return `[ done     ] ${completed} funds: ${statuses.map(status => `${tally.get(status) ?? 0} ${status}`).join(', ')} in ${((Date.now() - startedAt) / 1000).toFixed(1)}s`;
     },
   };
+}
+/** Second [ done ] line: published totals. */
+function outputCounts(funds: number, holdings: number, history: number): string {
+  return `[ done     ] counts: ${funds.toLocaleString('en-US')} funds / ${holdings.toLocaleString('en-US')} holdings rows / ${history.toLocaleString('en-US')} history rows`;
 }
 
 
@@ -2501,9 +2530,9 @@ async function loadFundTickerMap(config: UpdaterConfig): Promise<Map<string, Sec
   try {
     const payload = await fetchJson(SEC_FUND_TICKERS_URL, '[edgar   ] fund ticker table', secHeaders(config), config);
     fundTickerMap = parseFundTickerMap(payload);
-    outputNote(`[ ${'edgar'.padEnd(9)}] SEC fund ticker table: ${fundTickerMap.size} ETF / mutual-fund share classes`);
+    outputNote(`[ ${'edgar'.padEnd(9)}] SEC fund ticker table: ${Array.isArray(payload.data) ? payload.data.length : fundTickerMap.size} share classes`);
   } catch (error) {
-    console.warn(`[ edgar    ] fund ticker table: ${errorMessage(error)} — falling back to full-text search`);
+    outputNote(`[ edgar    ] fund ticker table: ${errorMessage(error)} — falling back to full-text search`);
     fundTickerMap = new Map<string, SecSeriesRef>();
   }
   return fundTickerMap;
@@ -2514,9 +2543,10 @@ async function loadCompanyTickerMap(config: UpdaterConfig): Promise<Map<string, 
   try {
     const payload = await fetchJson(SEC_COMPANY_TICKERS_URL, '[ edgar    ] company ticker table', secHeaders(config), config);
     companyTickerMap = parseCompanyTickerMap(payload);
-    console.log(`[ edgar    ] SEC company ticker table: ${companyTickerMap.size} issuer names`);
+    // rows of the file, the same count in every repo (the name map dedupes them)
+    outputNote(`[ edgar    ] SEC company ticker table: ${Object.keys(payload).length} issuer names`);
   } catch (error) {
-    console.warn(`[ edgar    ] company ticker table: ${errorMessage(error)} — N-PORT tickers stay "-"`);
+    outputNote(`[ edgar    ] company ticker table: ${errorMessage(error)} — N-PORT tickers stay "-"`);
     companyTickerMap = new Map<string, string>();
   }
   return companyTickerMap;
@@ -2657,12 +2687,10 @@ function catalogFundFromPage(page: FundPageInfo, url: string): CatalogFund {
 export async function runUpdater(config: UpdaterConfig): Promise<void> {
   requestSleepMs = Math.max(0, config.requestSleep) * 1000;
   nextRequestAtLanes = new Array(Math.max(1, config.concurrency)).fill(0);
-  const deadlineAt = Date.now() + softDeadlineMs;
+  const startedAt = Date.now();
+  const deadlineAt = startedAt + softDeadlineMs;
 
   outputPrintConfig('Invesco', config);
-  console.log('');
-
-
 
   // 1) Catalog: every fund already published (index rows plus funds/*/meta.json,
   //    so a filtered run never shrinks the feed) and every fund the invesco.com
@@ -2681,7 +2709,7 @@ export async function runUpdater(config: UpdaterConfig): Promise<void> {
   const universe = [...catalog.values()].sort((a, b) => (a.ticker < b.ticker ? -1 : a.ticker > b.ticker ? 1 : 0));
   if (!universe.length) {
     console.log(
-      '[done    ] nothing to do: the invesco.com sitemap is unreachable and the published ' +
+      '[ done     ] nothing to do: the invesco.com sitemap is unreachable and the published ' +
         'api/invesco/index.json is empty or missing - run this where invesco.com resolves, e.g. ' +
         'the "Update Invesco ETF data" GitHub Actions workflow',
     );
@@ -2718,7 +2746,7 @@ export async function runUpdater(config: UpdaterConfig): Promise<void> {
   let failures = 0;
 
   outputPrintFilter(universe.length, universe.length, outputHasOutputFilters(config));
-  const output = outputCreateReporter(API_ROOT, config.maxFetches > 0 ? Math.min(config.maxFetches, ordered.length) : ordered.length);
+  const reporter = outputCreateReporter(API_ROOT, config.maxFetches > 0 ? Math.min(config.maxFetches, ordered.length) : ordered.length);
   async function worker(): Promise<void> {
     for (;;) {
       // never start more funds than the batch still needs: wait for in-flight ones to resolve
@@ -2734,17 +2762,17 @@ export async function runUpdater(config: UpdaterConfig): Promise<void> {
       if (!item) return;
       started += 1;
       pending += 1;
-      const before = await output.before(item.fund.ticker);
+      const before = await reporter.before(item.fund.ticker);
       try {
         const row = await processFund(item.fund, config, previousIndex.get(item.fund.ticker) || {}, ctx);
         if (row) {
           results.push(row);
           passed += 1;
         }
-        await output.result(item.fund.ticker, before, row ? undefined : 'skipped');
+        await reporter.result(item.fund.ticker, before, row ? undefined : 'skipped');
       } catch (error) {
         failures += 1;
-        await output.result(item.fund.ticker, before, 'failed', String(error));
+        await reporter.result(item.fund.ticker, before, 'failed', String(error));
       } finally {
         pending -= 1;
       }
@@ -2793,9 +2821,8 @@ export async function runUpdater(config: UpdaterConfig): Promise<void> {
   // Full passes reset the cursor: the next run starts from the top again.
   await writeUpdateState(config.maxFetches > 0 || deadlineHit ? lastExamined : null, scope, deadlineHit);
 
-  console.log('');
-  console.log(`[ ${'done'.padEnd(9)}] ${results.length} funds updated, ${keptFromPrevious.length} kept from previous runs, ${failures} failures`);
-  console.log(`[ ${'done'.padEnd(9)}] counts: ${counts.funds} funds / ${counts.holdings.toLocaleString('en-US')} holdings rows / ${counts.history.toLocaleString('en-US')} history rows`);
+  console.log(reporter.summary(startedAt));
+  console.log(outputCounts(counts.funds, counts.holdings, counts.history));
   console.log(
     `[ cursor   ] ${(config.maxFetches > 0 || deadlineHit) && lastExamined ? `next run continues after ${lastExamined}` : 'full pass complete (cursor reset)'}`,
   );
