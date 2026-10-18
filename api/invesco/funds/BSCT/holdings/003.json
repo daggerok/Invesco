@@ -2,7 +2,7 @@
  "ticker": "BSCT",
  "page": 3,
  "pageSize": 250,
- "totalRows": 504,
+ "totalRows": 511,
  "headers": [
   "Name",
   "Ticker",
@@ -16,15 +16,103 @@
  ],
  "rows": [
   {
+   "Name": "SSM Health Care Corp",
+   "Ticker": "-",
+   "Identifier": "784710AD7",
+   "Weight": "0.096398",
+   "Market Value": "2953485.03",
+   "Shares Held": "3000000",
+   "Asset Category": "Corporate Bond / A+/NR",
+   "Coupon": "4.755",
+   "Maturity": "Jun 01 2029"
+  },
+  {
+   "Name": "Xylem Inc/NY",
+   "Ticker": "-",
+   "Identifier": "98419MAQ3",
+   "Weight": "0.096223",
+   "Market Value": "2952612.32",
+   "Shares Held": "2961000",
+   "Asset Category": "Corporate Bond / BBB/Baa2",
+   "Coupon": "5.25",
+   "Maturity": "Sep 28 2029"
+  },
+  {
+   "Name": "Valero Energy Corp",
+   "Ticker": "-",
+   "Identifier": "91913YAW0",
+   "Weight": "0.095196",
+   "Market Value": "2923430.35",
+   "Shares Held": "3010000",
+   "Asset Category": "Corporate Bond / BBB/Baa2",
+   "Coupon": "4",
+   "Maturity": "Apr 01 2029"
+  },
+  {
+   "Name": "Shell International Finance BV",
+   "Ticker": "-",
+   "Identifier": "822582CD2",
+   "Weight": "0.092274",
+   "Market Value": "2806805.51",
+   "Shares Held": "3039000",
+   "Asset Category": "Corporate Bond / A+/Aa2",
+   "Coupon": "2.375",
+   "Maturity": "Nov 07 2029"
+  },
+  {
+   "Name": "Constellation Energy Generation LLC",
+   "Ticker": "-",
+   "Identifier": "210385AH3",
+   "Weight": "0.079547",
+   "Market Value": "2423317.46",
+   "Shares Held": "2460000",
+   "Asset Category": "Corporate Bond / BBB+/Baa1",
+   "Coupon": "4.625",
+   "Maturity": "Feb 01 2029"
+  },
+  {
+   "Name": "Equifax Inc",
+   "Ticker": "-",
+   "Identifier": "294429AZ8",
+   "Weight": "0.049409",
+   "Market Value": "1503648.16",
+   "Shares Held": "1520000",
+   "Asset Category": "Corporate Bond / BBB/Baa2",
+   "Coupon": "5",
+   "Maturity": "Aug 15 2029"
+  },
+  {
+   "Name": "BorgWarner Inc",
+   "Ticker": "-",
+   "Identifier": "099724AP1",
+   "Weight": "0.007558",
+   "Market Value": "230539.04",
+   "Shares Held": "233000",
+   "Asset Category": "Corporate Bond / BBB+/Baa1",
+   "Coupon": "4.95",
+   "Maturity": "Aug 15 2029"
+  },
+  {
    "Name": "Autodesk Inc",
    "Ticker": "-",
    "Identifier": "052769AK2",
-   "Weight": "0.003332",
-   "Market Value": "99161.7",
+   "Weight": "0.003249",
+   "Market Value": "99438.68",
    "Shares Held": "100000",
-   "Asset Category": "Corporate / BBB+/A3",
+   "Asset Category": "Corporate Bond / BBB+/A3",
    "Coupon": "5.05",
    "Maturity": "Sep 15 2029"
+  },
+  {
+   "Name": "CASH & EQUIVALENTS",
+   "Ticker": "USD",
+   "Identifier": "CASHUSD00",
+   "Weight": "0.000026",
+   "Market Value": "804.68",
+   "Shares Held": "804.68",
+   "Asset Category": "Currency",
+   "Coupon": "0",
+   "Maturity": ""
   },
   {
    "Name": "SECURITIES LENDING - BNYM",
@@ -33,19 +121,8 @@
    "Weight": "0",
    "Market Value": "0.01",
    "Shares Held": "1",
-   "Asset Category": "Cash",
+   "Asset Category": "Uninvestible Cash",
    "Coupon": "",
-   "Maturity": ""
-  },
-  {
-   "Name": "CASH & EQUIVALENTS",
-   "Ticker": "USD",
-   "Identifier": "CASHUSD00",
-   "Weight": "-0.000515",
-   "Market Value": "-15399.51",
-   "Shares Held": "-15399.51",
-   "Asset Category": "Cash",
-   "Coupon": "0",
    "Maturity": ""
   },
   {
@@ -53,9 +130,9 @@
    "Ticker": "USDPDV",
    "Identifier": "-",
    "Weight": "",
-   "Market Value": "29698890.38",
+   "Market Value": "29096670.38",
    "Shares Held": "0",
-   "Asset Category": "Cash",
+   "Asset Category": "Currency",
    "Coupon": "",
    "Maturity": ""
   }

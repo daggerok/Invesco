@@ -29,23 +29,23 @@
   }
  },
  "nav": {
-  "display": "$60.30",
-  "value": 60.29618,
-  "asOfDate": "Oct 09 2026"
+  "display": "$58.15",
+  "value": 58.146935,
+  "asOfDate": "Oct 14 2026"
  },
  "marketPrice": {
-  "display": "$60.32",
-  "value": 60.3153,
-  "asOfDate": "Oct 09 2026"
+  "display": "$58.11",
+  "value": 58.1123,
+  "asOfDate": "Oct 14 2026"
  },
  "premiumDiscount": {
-  "display": "0.03%",
-  "value": 0.03
+  "display": "-0.06%",
+  "value": -0.06
  },
  "aum": {
-  "display": "$335.86 M",
-  "value": 335856055.83,
-  "asOfDate": "Oct 09 2026",
+  "display": "$323.88 M",
+  "value": 323884533.12,
+  "asOfDate": "Oct 14 2026",
   "source": "Invesco fund API prices endpoint (net assets / market value)"
  },
  "yields": {
@@ -62,11 +62,11 @@
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Sep 30 2026",
-   "priceReturnsAsOf": "Oct 12 2026",
-   "mo1": -0.67,
-   "mo1Text": "-0.67%",
-   "qtd": 0,
-   "qtdText": "0.00%",
+   "priceReturnsAsOf": "Oct 16 2026",
+   "mo1": -2.71,
+   "mo1Text": "-2.71%",
+   "qtd": -3.89,
+   "qtdText": "-3.89%",
    "ytd": 12.75,
    "ytdText": "12.75%",
    "yr1": 16,
@@ -387,9 +387,9 @@
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 104,
-  "asOfDate": "2026-10-09",
-  "asOf": "Oct 09 2026",
+  "totalRows": 105,
+  "asOfDate": "2026-10-16",
+  "asOf": "Oct 16 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -402,8 +402,8 @@
    "history/006.json"
   ],
   "pageSize": 1000,
-  "totalRows": 5183,
-  "asOf": "Oct 12 2026",
+  "totalRows": 5187,
+  "asOf": "Oct 16 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

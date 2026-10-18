@@ -29,18 +29,18 @@
   }
  },
  "nav": {
-  "display": "$34.06",
-  "value": 34.057181,
-  "asOfDate": "Oct 09 2026"
+  "display": "$33.92",
+  "value": 33.923065,
+  "asOfDate": "Oct 14 2026"
  },
  "marketPrice": {
-  "display": "$34.06",
-  "value": 34.0567,
-  "asOfDate": "Oct 09 2026"
+  "display": "$33.92",
+  "value": 33.9184,
+  "asOfDate": "Oct 14 2026"
  },
  "premiumDiscount": {
-  "display": "0.00%",
-  "value": 0
+  "display": "-0.01%",
+  "value": -0.01
  },
  "aum": {
   "display": "—",
@@ -49,11 +49,11 @@
   "source": "previous run"
  },
  "yields": {
-  "dividendYield": 1.44,
-  "dividendYieldText": "1.44%",
+  "dividendYield": 1.42,
+  "dividendYieldText": "1.42%",
   "dividendYieldBasis": "official-trailing-12m",
   "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
-  "distributionRate": 1.53,
+  "distributionRate": 1.51,
   "secYield": 1.64,
   "secYieldText": "1.64%",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
@@ -62,11 +62,11 @@
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Sep 30 2026",
-   "priceReturnsAsOf": "Oct 12 2026",
-   "mo1": -0.26,
-   "mo1Text": "-0.26%",
-   "qtd": 1.88,
-   "qtdText": "1.88%",
+   "priceReturnsAsOf": "Oct 16 2026",
+   "mo1": 0.71,
+   "mo1Text": "0.71%",
+   "qtd": 2.27,
+   "qtdText": "2.27%",
    "ytd": 13.43,
    "ytdText": "13.43%",
    "yr1": 17.38,
@@ -188,8 +188,8 @@
   ],
   "pageSize": 250,
   "totalRows": 188,
-  "asOfDate": "2026-10-09",
-  "asOf": "Oct 09 2026",
+  "asOfDate": "2026-10-16",
+  "asOf": "Oct 16 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -198,8 +198,8 @@
    "history/002.json"
   ],
   "pageSize": 1000,
-  "totalRows": 1229,
-  "asOf": "Oct 12 2026",
+  "totalRows": 1233,
+  "asOf": "Oct 16 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

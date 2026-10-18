@@ -29,18 +29,18 @@
   }
  },
  "nav": {
-  "display": "$24.45",
-  "value": 24.448504,
-  "asOfDate": "Oct 09 2026"
+  "display": "$24.47",
+  "value": 24.47057,
+  "asOfDate": "Oct 14 2026"
  },
  "marketPrice": {
-  "display": "$24.48",
-  "value": 24.485,
-  "asOfDate": "Oct 09 2026"
+  "display": "$24.50",
+  "value": 24.495,
+  "asOfDate": "Oct 14 2026"
  },
  "premiumDiscount": {
-  "display": "0.15%",
-  "value": 0.15
+  "display": "0.10%",
+  "value": 0.1
  },
  "aum": {
   "display": "—",
@@ -49,24 +49,24 @@
   "source": "previous run"
  },
  "yields": {
-  "dividendYield": 4.17,
-  "dividendYieldText": "4.17%",
+  "dividendYield": 4.16,
+  "dividendYieldText": "4.16%",
   "dividendYieldBasis": "indicated",
   "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
-  "distributionRate": 4.16,
-  "secYield": 4.9,
-  "secYieldText": "4.90%",
+  "distributionRate": 4.15,
+  "secYield": 4.94,
+  "secYieldText": "4.94%",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
  },
  "returns": {
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Sep 30 2026",
-   "priceReturnsAsOf": "Oct 12 2026",
-   "mo1": -0.41,
-   "mo1Text": "-0.41%",
-   "qtd": 0.08,
-   "qtdText": "0.08%",
+   "priceReturnsAsOf": "Oct 16 2026",
+   "mo1": 0.12,
+   "mo1Text": "0.12%",
+   "qtd": 0.57,
+   "qtdText": "0.57%",
    "ytd": null,
    "ytdText": "—",
    "yr1": null,
@@ -120,8 +120,8 @@
   ],
   "pageSize": 250,
   "totalRows": 31,
-  "asOfDate": "2026-10-09",
-  "asOf": "Oct 09 2026",
+  "asOfDate": "2026-10-16",
+  "asOf": "Oct 16 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -129,8 +129,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 86,
-  "asOf": "Oct 12 2026",
+  "totalRows": 90,
+  "asOf": "Oct 16 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

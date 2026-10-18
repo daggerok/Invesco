@@ -2,7 +2,7 @@
  "ticker": "BTCO",
  "page": 1,
  "pageSize": 250,
- "totalRows": 2,
+ "totalRows": 3,
  "headers": [
   "Name",
   "Ticker",
@@ -17,10 +17,19 @@
    "Name": "PHYSICAL BITCOIN",
    "Ticker": "-",
    "Identifier": "IVZBTCUSD",
-   "Weight": "100",
-   "Market Value": "415508165.47",
-   "Shares Held": "5051.6119",
+   "Weight": "100.000001",
+   "Market Value": "407480804.55",
+   "Shares Held": "5001.8965",
    "Asset Category": "Commodity"
+  },
+  {
+   "Name": "CASH & EQUIVALENTS",
+   "Ticker": "USD",
+   "Identifier": "CASHUSD00",
+   "Weight": "-0.000001",
+   "Market Value": "-3.1",
+   "Shares Held": "-3.1",
+   "Asset Category": "Currency"
   },
   {
    "Name": "USD Pending Dividends",

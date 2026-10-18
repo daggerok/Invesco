@@ -30,22 +30,22 @@
  },
  "nav": {
   "display": "$24.85",
-  "value": 24.848222,
-  "asOfDate": "Oct 09 2026"
+  "value": 24.854393,
+  "asOfDate": "Oct 14 2026"
  },
  "marketPrice": {
-  "display": "$24.89",
-  "value": 24.885,
-  "asOfDate": "Oct 09 2026"
+  "display": "$24.90",
+  "value": 24.9,
+  "asOfDate": "Oct 14 2026"
  },
  "premiumDiscount": {
-  "display": "0.15%",
-  "value": 0.15
+  "display": "0.18%",
+  "value": 0.18
  },
  "aum": {
   "display": "$33.55 M",
-  "value": 33545099.73,
-  "asOfDate": "Oct 09 2026",
+  "value": 33553430.64,
+  "asOfDate": "Oct 14 2026",
   "source": "Invesco fund API prices endpoint (net assets / market value)"
  },
  "yields": {
@@ -54,19 +54,19 @@
   "dividendYieldBasis": "official-trailing-12m",
   "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
   "distributionRate": 2.09,
-  "secYield": 2.87,
-  "secYieldText": "2.87%",
+  "secYield": 2.72,
+  "secYieldText": "2.72%",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
  },
  "returns": {
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Sep 30 2026",
-   "priceReturnsAsOf": "Oct 12 2026",
-   "mo1": 0.12,
-   "mo1Text": "0.12%",
-   "qtd": -0.08,
-   "qtdText": "-0.08%",
+   "priceReturnsAsOf": "Oct 16 2026",
+   "mo1": 0.6,
+   "mo1Text": "0.60%",
+   "qtd": 0.2,
+   "qtdText": "0.20%",
    "ytd": 1.55,
    "ytdText": "1.55%",
    "yr1": 2.19,
@@ -780,8 +780,8 @@
   ],
   "pageSize": 250,
   "totalRows": 168,
-  "asOfDate": "2026-10-09",
-  "asOf": "Oct 09 2026",
+  "asOfDate": "2026-10-16",
+  "asOf": "Oct 16 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -793,8 +793,8 @@
    "history/005.json"
   ],
   "pageSize": 1000,
-  "totalRows": 4755,
-  "asOf": "Oct 12 2026",
+  "totalRows": 4759,
+  "asOf": "Oct 16 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }
