@@ -29,44 +29,44 @@
   }
  },
  "nav": {
-  "display": "$65.37",
-  "value": 65.367014,
-  "asOfDate": "Oct 14 2026"
+  "display": "$66.06",
+  "value": 66.05991,
+  "asOfDate": "Oct 19 2026"
  },
  "marketPrice": {
-  "display": "$65.33",
-  "value": 65.33,
-  "asOfDate": "Oct 14 2026"
+  "display": "$66.12",
+  "value": 66.12,
+  "asOfDate": "Oct 19 2026"
  },
  "premiumDiscount": {
-  "display": "-0.06%",
-  "value": -0.06
+  "display": "0.09%",
+  "value": 0.09
  },
  "aum": {
-  "display": "$579.81 M",
-  "value": 579805412.05,
-  "asOfDate": "Oct 14 2026",
+  "display": "$575.83 M",
+  "value": 575829847.24,
+  "asOfDate": "Oct 19 2026",
   "source": "Invesco fund API prices endpoint (net assets / market value)"
  },
  "yields": {
-  "dividendYield": 1.91,
-  "dividendYieldText": "1.91%",
+  "dividendYield": 1.92,
+  "dividendYieldText": "1.92%",
   "dividendYieldBasis": "official-trailing-12m",
   "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
   "distributionRate": 2.5,
-  "secYield": 2.58,
-  "secYieldText": "2.58%",
+  "secYield": 2.48,
+  "secYieldText": "2.48%",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
  },
  "returns": {
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Sep 30 2026",
-   "priceReturnsAsOf": "Oct 16 2026",
-   "mo1": -2.3,
-   "mo1Text": "-2.30%",
-   "qtd": 0.53,
-   "qtdText": "0.53%",
+   "priceReturnsAsOf": "Oct 19 2026",
+   "mo1": -2.54,
+   "mo1Text": "-2.54%",
+   "qtd": -0.4,
+   "qtdText": "-0.40%",
    "ytd": 15.56,
    "ytdText": "15.56%",
    "yr1": 17.43,
@@ -446,8 +446,8 @@
    "history/006.json"
   ],
   "pageSize": 1000,
-  "totalRows": 5441,
-  "asOf": "Oct 16 2026",
+  "totalRows": 5442,
+  "asOf": "Oct 19 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

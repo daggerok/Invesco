@@ -62,11 +62,11 @@
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Sep 30 2026",
-   "priceReturnsAsOf": "Oct 16 2026",
-   "mo1": 0.26,
-   "mo1Text": "0.26%",
-   "qtd": -0.21,
-   "qtdText": "-0.21%",
+   "priceReturnsAsOf": "Oct 19 2026",
+   "mo1": 0.48,
+   "mo1Text": "0.48%",
+   "qtd": 0.22,
+   "qtdText": "0.22%",
    "ytd": 10.73,
    "ytdText": "10.73%",
    "yr1": 17.85,
@@ -527,6 +527,10 @@
    [
     "09/21/2026",
     "0.189"
+   ],
+   [
+    "10/19/2026",
+    "0.166"
    ]
   ]
  },
@@ -551,8 +555,8 @@
    "history/005.json"
   ],
   "pageSize": 1000,
-  "totalRows": 4731,
-  "asOf": "Oct 16 2026",
+  "totalRows": 4732,
+  "asOf": "Oct 19 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }
