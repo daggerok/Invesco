@@ -29,18 +29,18 @@
   }
  },
  "nav": {
-  "display": "$24.47",
-  "value": 24.468896,
-  "asOfDate": "Oct 16 2026"
+  "display": "$24.34",
+  "value": 24.336509,
+  "asOfDate": "Oct 20 2026"
  },
  "marketPrice": {
-  "display": "$24.48",
-  "value": 24.485,
-  "asOfDate": "Oct 16 2026"
+  "display": "$24.36",
+  "value": 24.355,
+  "asOfDate": "Oct 20 2026"
  },
  "premiumDiscount": {
-  "display": "0.07%",
-  "value": 0.07
+  "display": "0.08%",
+  "value": 0.08
  },
  "aum": {
   "display": "—",
@@ -49,11 +49,11 @@
   "source": "previous run"
  },
  "yields": {
-  "dividendYield": 4.26,
-  "dividendYieldText": "4.26%",
+  "dividendYield": 4.29,
+  "dividendYieldText": "4.29%",
   "dividendYieldBasis": "indicated",
   "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
-  "distributionRate": 4.24,
+  "distributionRate": 4.28,
   "secYield": 4.95,
   "secYieldText": "4.95%",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
@@ -62,11 +62,11 @@
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Sep 30 2026",
-   "priceReturnsAsOf": "Oct 19 2026",
-   "mo1": 0.04,
-   "mo1Text": "0.04%",
-   "qtd": 0.58,
-   "qtdText": "0.58%",
+   "priceReturnsAsOf": "Oct 20 2026",
+   "mo1": 0.08,
+   "mo1Text": "0.08%",
+   "qtd": 0.62,
+   "qtdText": "0.62%",
    "ytd": null,
    "ytdText": "—",
    "yr1": null,
@@ -123,9 +123,9 @@
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 28,
-  "asOfDate": "2026-10-16",
-  "asOf": "Oct 16 2026",
+  "totalRows": 29,
+  "asOfDate": "2026-10-19",
+  "asOf": "Oct 19 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -133,8 +133,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 91,
-  "asOf": "Oct 19 2026",
+  "totalRows": 92,
+  "asOf": "Oct 20 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

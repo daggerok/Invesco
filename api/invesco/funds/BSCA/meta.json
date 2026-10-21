@@ -29,18 +29,18 @@
   }
  },
  "nav": {
-  "display": "$19.17",
-  "value": 19.174326,
-  "asOfDate": "Oct 16 2026"
+  "display": "$19.03",
+  "value": 19.026101,
+  "asOfDate": "Oct 20 2026"
  },
  "marketPrice": {
-  "display": "$19.19",
-  "value": 19.1884,
-  "asOfDate": "Oct 16 2026"
+  "display": "$19.06",
+  "value": 19.0596,
+  "asOfDate": "Oct 20 2026"
  },
  "premiumDiscount": {
-  "display": "0.07%",
-  "value": 0.07
+  "display": "0.18%",
+  "value": 0.18
  },
  "aum": {
   "display": "—",
@@ -49,24 +49,24 @@
   "source": "previous run"
  },
  "yields": {
-  "dividendYield": 5,
-  "dividendYieldText": "5.00%",
+  "dividendYield": 5.04,
+  "dividendYieldText": "5.04%",
   "dividendYieldBasis": "indicated",
   "dividendYieldKind": "indicated (latest distribution x inferred frequency / market price)",
-  "distributionRate": 5.49,
-  "secYield": 6.04,
-  "secYieldText": "6.04%",
+  "distributionRate": 5.06,
+  "secYield": 6.05,
+  "secYieldText": "6.05%",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
  },
  "returns": {
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Sep 30 2026",
-   "priceReturnsAsOf": "Oct 19 2026",
-   "mo1": -1.14,
-   "mo1Text": "-1.14%",
-   "qtd": 0.74,
-   "qtdText": "0.74%",
+   "priceReturnsAsOf": "Oct 20 2026",
+   "mo1": -0.88,
+   "mo1Text": "-0.88%",
+   "qtd": 1.01,
+   "qtdText": "1.01%",
    "ytd": null,
    "ytdText": "—",
    "yr1": null,
@@ -125,8 +125,8 @@
   ],
   "pageSize": 250,
   "totalRows": 258,
-  "asOfDate": "2026-10-16",
-  "asOf": "Oct 16 2026",
+  "asOfDate": "2026-10-19",
+  "asOf": "Oct 19 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -134,8 +134,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 91,
-  "asOf": "Oct 19 2026",
+  "totalRows": 92,
+  "asOf": "Oct 20 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }
