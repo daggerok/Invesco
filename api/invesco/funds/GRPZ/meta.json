@@ -29,18 +29,18 @@
   }
  },
  "nav": {
-  "display": "$31.35",
-  "value": 31.346804,
-  "asOfDate": "Oct 20 2026"
+  "display": "$31.43",
+  "value": 31.429685,
+  "asOfDate": "Oct 23 2026"
  },
  "marketPrice": {
-  "display": "$31.35",
-  "value": 31.3484,
-  "asOfDate": "Oct 20 2026"
+  "display": "$31.46",
+  "value": 31.457,
+  "asOfDate": "Oct 23 2026"
  },
  "premiumDiscount": {
-  "display": "0.01%",
-  "value": 0.01
+  "display": "0.09%",
+  "value": 0.09
  },
  "aum": {
   "display": "—",
@@ -49,24 +49,24 @@
   "source": "previous run"
  },
  "yields": {
-  "dividendYield": 0.86,
-  "dividendYieldText": "0.86%",
+  "dividendYield": 0.85,
+  "dividendYieldText": "0.85%",
   "dividendYieldBasis": "official-trailing-12m",
   "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
   "distributionRate": 0.55,
-  "secYield": 0.52,
-  "secYieldText": "0.52%",
+  "secYield": 0.51,
+  "secYieldText": "0.51%",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
  },
  "returns": {
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Sep 30 2026",
-   "priceReturnsAsOf": "Oct 20 2026",
-   "mo1": -0.03,
-   "mo1Text": "-0.03%",
-   "qtd": 2.89,
-   "qtdText": "2.89%",
+   "priceReturnsAsOf": "Oct 23 2026",
+   "mo1": 2.04,
+   "mo1Text": "2.04%",
+   "qtd": 3.25,
+   "qtdText": "3.25%",
    "ytd": 14.79,
    "ytdText": "14.79%",
    "yr1": 14.57,
@@ -148,8 +148,8 @@
   ],
   "pageSize": 250,
   "totalRows": 89,
-  "asOfDate": "2026-10-19",
-  "asOf": "Oct 19 2026",
+  "asOfDate": "2026-10-23",
+  "asOf": "Oct 23 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -157,8 +157,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 643,
-  "asOf": "Oct 20 2026",
+  "totalRows": 646,
+  "asOf": "Oct 23 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

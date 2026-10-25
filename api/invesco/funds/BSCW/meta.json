@@ -29,18 +29,18 @@
   }
  },
  "nav": {
-  "display": "$19.65",
-  "value": 19.653918,
-  "asOfDate": "Oct 20 2026"
+  "display": "$19.75",
+  "value": 19.749753,
+  "asOfDate": "Oct 23 2026"
  },
  "marketPrice": {
-  "display": "$19.66",
-  "value": 19.66,
-  "asOfDate": "Oct 20 2026"
+  "display": "$19.77",
+  "value": 19.765,
+  "asOfDate": "Oct 23 2026"
  },
  "premiumDiscount": {
-  "display": "0.03%",
-  "value": 0.03
+  "display": "0.08%",
+  "value": 0.08
  },
  "aum": {
   "display": "—",
@@ -49,24 +49,24 @@
   "source": "previous run"
  },
  "yields": {
-  "dividendYield": 5.42,
-  "dividendYieldText": "5.42%",
+  "dividendYield": 5,
+  "dividendYieldText": "5.00%",
   "dividendYieldBasis": "official-trailing-12m",
   "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
   "distributionRate": 5.09,
-  "secYield": 5.7,
-  "secYieldText": "5.70%",
+  "secYield": 5.77,
+  "secYieldText": "5.77%",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
  },
  "returns": {
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Sep 30 2026",
-   "priceReturnsAsOf": "Oct 20 2026",
-   "mo1": -0.46,
-   "mo1Text": "-0.46%",
-   "qtd": 0.51,
-   "qtdText": "0.51%",
+   "priceReturnsAsOf": "Oct 23 2026",
+   "mo1": 0.97,
+   "mo1Text": "0.97%",
+   "qtd": 1.02,
+   "qtdText": "1.02%",
    "ytd": -2.71,
    "ytdText": "-2.71%",
    "yr1": -1.55,
@@ -305,8 +305,8 @@
   ],
   "pageSize": 250,
   "totalRows": 329,
-  "asOfDate": "2026-10-19",
-  "asOf": "Oct 19 2026",
+  "asOfDate": "2026-10-23",
+  "asOf": "Oct 23 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -315,8 +315,8 @@
    "history/002.json"
   ],
   "pageSize": 1000,
-  "totalRows": 1032,
-  "asOf": "Oct 20 2026",
+  "totalRows": 1035,
+  "asOf": "Oct 23 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }
