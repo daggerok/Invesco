@@ -50,6 +50,7 @@ import {
   parseDngPrices,
   parseDngYields,
   parseDngHoldings,
+  holdingsGuard,
   indexRowFromMeta,
   invescoProductDetailUrl,
   runUpdater,
@@ -154,10 +155,11 @@ const YIELDS_SAMPLE = {
   twelveMonthDistributionRate: 1.52943, secUnsubsidizedYield30Day: null,
 };
 
+// MRNA's weight is raised so the sample adds up to ~100% like a real sheet (holdingsGuard rejects a sum outside 50..150)
 const HOLDINGS_SAMPLE = {
   cusip: '46137V357', effectiveDate: '2026-09-30', effectiveBusinessDate: '2026-09-30', totalNumberOfHoldings: 504,
   holdings: [
-    { ticker: 'MRNA', issuerName: 'Moderna Inc', units: 1443681, percentageOfTotalNetAssets: 0.292069, securityTypeName: 'Common Stock', sectorName: 'Health Care', coupon: null, maturityDate: null, spMoodysRating: 'NR/NR', marketValueBase: 278009650.17, contractExpiryDate: null, cusip: '60770K107', currency: 'USD', securityTypeCode: 'COM' },
+    { ticker: 'MRNA', issuerName: 'Moderna Inc', units: 1443681, percentageOfTotalNetAssets: 99.292069, securityTypeName: 'Common Stock', sectorName: 'Health Care', coupon: null, maturityDate: null, spMoodysRating: 'NR/NR', marketValueBase: 278009650.17, contractExpiryDate: null, cusip: '60770K107', currency: 'USD', securityTypeCode: 'COM' },
     { ticker: 'LWEZ6', issuerName: 'E-mini S&amp;P 500 Equal Weight Futures', units: 1000, percentageOfTotalNetAssets: 0.178355, securityTypeName: 'Index Future', sectorName: null, coupon: null, maturityDate: '2026-12-18', spMoodysRating: 'NR/NR', marketValueBase: 169770000, contractExpiryDate: '2026-12-18', cusip: 'LWEZ6', currency: 'USD', securityTypeCode: 'IFUT' },
     { ticker: null, issuerName: 'CONTRA FUTURE E-MIN S&amp;P 500 EWF DEC26LWEZ6', units: -1000, percentageOfTotalNetAssets: -0.178355, securityTypeName: 'Synthetic Cash', sectorName: null, coupon: null, maturityDate: '2026-12-18', spMoodysRating: 'NR/NR', marketValueBase: -169770000, contractExpiryDate: '2026-12-18', cusip: 'LWEZ6', currency: 'USD', securityTypeCode: 'SYN' },
   ],
@@ -465,7 +467,7 @@ describe('parsing', () => {
     expect(equity.asOfDate).toBe('2026-09-30');
     expect(equity.headers).toEqual(HOLDINGS_HEADERS);
     expect(equity.rows[0]).toEqual({
-      Name: 'Moderna Inc', Ticker: 'MRNA', Identifier: '60770K107', Weight: '0.292069', 'Market Value': '278009650.17', 'Shares Held': '1443681', 'Asset Category': 'Health Care',
+      Name: 'Moderna Inc', Ticker: 'MRNA', Identifier: '60770K107', Weight: '99.292069', 'Market Value': '278009650.17', 'Shares Held': '1443681', 'Asset Category': 'Health Care',
     });
     expect(equity.rows[1].Name).toBe('E-mini S&P 500 Equal Weight Futures');
     expect(equity.rows[1]['Asset Category']).toBe('Index Future');
@@ -480,6 +482,21 @@ describe('parsing', () => {
     // an error so the SEC fallback can take over
     expect(() => parseDngHoldings({ effectiveDate: '2026-09-30', holdings: [] }, 'XYZ')).toThrow();
     expect(() => parseDngHoldings({ message: 'Bad Request', status: 'error' }, 'XYZ')).toThrow();
+  });
+
+  test('holdings guard: header-only, renamed weight column, broken weights, a bad weight sum and a halved sheet are rejected', () => {
+    const headers = ['Name', 'Ticker', 'Weight'];
+    const rows = [{ Name: 'A', Ticker: 'A', Weight: '60%' }, { Name: 'B', Ticker: 'B', Weight: '40%' }];
+    expect(holdingsGuard(headers, rows, 2)).toBeNull();
+    expect(holdingsGuard(headers, [['A', 'A', '60'], ['B', 'B', '40']], null)).toBeNull();
+    expect(holdingsGuard([], [], 0)).toBeNull(); // nothing published before: an empty sheet is honest
+    expect(holdingsGuard(headers, [], 505)).toContain('no holdings rows');
+    expect(holdingsGuard(['Name', 'Ticker', 'Wt'], rows, 2)).toContain('no weight column');
+    expect(holdingsGuard(headers, rows.map((row) => ({ ...row, Weight: '6\u200B0' })), 2)).toContain('numeric weight');
+    const allocation = [{ Name: 'Cash&Collateral', Ticker: '-', Weight: '100' }, { Name: 'Equities', Ticker: '-', Weight: '476' }];
+    expect(holdingsGuard(headers, allocation, 2)).toContain('outside 50..150');
+    expect(holdingsGuard(headers, allocation, 2, ['sum'])).toBeNull();
+    expect(holdingsGuard(headers, rows, 5)).toContain('less than half');
   });
 
   test('Yahoo chart: trading days, adjusted closes, sorted positive dividends, empty result is an error', () => {
@@ -944,6 +961,32 @@ describe('pipeline', () => {
         expect(fund.dataFile).toBeNull();
       }
     });
+  });
+
+  test('holdings that fail the guard keep the fund exactly as published and report it failed', async () => {
+    quiet();
+    const summaryDir = mkdtempSync(join(tmpdir(), 'invesco-summary-'));
+    try {
+      await withTempFeed(MOCK_FUNDS.slice(0, 2), async (root) => {
+        installMockFetch();
+        await runUpdater(pipelineControls());
+        const dir = fileURLToPath(root);
+        const contents = () => Object.fromEntries(Object.keys(snapshot(dir)).map((path) => [path, readFileSync(path, 'utf8')]));
+        const first = contents();
+        expect((await readJson(root, 'funds/AAA/meta.json')).holdings.totalRows).toBe(3);
+        // the API renames its weight field: every Weight cell of the fresh sheet turns blank
+        const good = globalThis.fetch;
+        const renamed = { ...HOLDINGS_SAMPLE, holdings: HOLDINGS_SAMPLE.holdings.map(({ percentageOfTotalNetAssets, ...rest }) => ({ ...rest, weightPct: percentageOfTotalNetAssets })) };
+        globalThis.fetch = (async (input: RequestInfo | URL, init?: RequestInit) =>
+          String(input).includes('/holdings/fund') ? new Response(JSON.stringify(renamed), { status: 200 }) : good(input, init)) as unknown as typeof fetch;
+        process.env.GITHUB_STEP_SUMMARY = join(summaryDir, 'summary.md');
+        await expect(runUpdater(pipelineControls({ TICKERS: 'AAA' }))).rejects.toThrow(/every examined fund failed/);
+        expect(contents()).toEqual(first);
+        expect(readFileSync(join(summaryDir, 'summary.md'), 'utf8')).toContain('- failed: 1');
+      });
+    } finally {
+      rmSync(summaryDir, { recursive: true, force: true });
+    }
   });
 
   test('funds with only a meta.json stay in the index, new sitemap funds are discovered', async () => {
