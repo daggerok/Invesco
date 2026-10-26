@@ -897,6 +897,48 @@ const HOLDINGS_GUARD_RELAX: Record<string, string[]> = {
 };
 /** Funds the issuer closed, each confirmed from an SEC filing or the issuer notice (`source`): never fetched or guarded, last published data kept, index row marked closed. */
 export const CLOSED_FUNDS: ClosedFund[] = [];
+/** A fund the issuer renamed to a new ticker (same CUSIP, same SEC series), confirmed from an SEC filing (`source`). */
+export type RenamedFund = { ticker: string; renamedTo: string; renamed: string; source: string };
+/**
+ * Funds renamed to a new ticker: the old ticker leaves the run, index.json and its api/invesco/funds folder once its
+ * successor is in the catalog; the successor carries the fund (Yahoo moved the whole price history to the new ticker).
+ * Without an entry the old page keeps a row with 0 holdings next to the full new row (the CUSIP check blanks its values).
+ */
+export const RENAMED_FUNDS: RenamedFund[] = [
+  // 497 of 2025-02-18, Invesco Actively Managed Exchange-Traded Fund Trust: Invesco Municipal Strategic Income ETF (IMSI)
+  // becomes Invesco Rochester High Yield Municipal ETF (IROC) on 2025-02-24 (CUSIP 46090A747 stays)
+  { ticker: 'IMSI', renamedTo: 'IROC', renamed: '2025-02-24', source: 'https://www.sec.gov/Archives/edgar/data/1418144/000110465925014725/tm256636d1_497.htm' },
+  // 497 of 2025-02-18, same trust: Invesco Short Duration Bond ETF (ISDB) becomes Invesco Short Duration Total Return Bond
+  // ETF (GTOS) on 2025-02-24, moved from 2025-02-20 by this supplement (CUSIP 46090A739 stays)
+  { ticker: 'ISDB', renamedTo: 'GTOS', renamed: '2025-02-24', source: 'https://www.sec.gov/Archives/edgar/data/1418144/000110465925014724/tm256642d1_497.htm' },
+];
+
+/** The RENAMED_FUNDS entry of an old ticker, or null. A malformed entry throws, so a typo (no ISO date, no https source) never ships. */
+export function renamedFund(list: ReadonlyArray<RenamedFund>, ticker: unknown): RenamedFund | null {
+  const wanted = String(ticker === null || ticker === undefined ? '' : ticker).trim().toUpperCase();
+  let found: RenamedFund | null = null;
+  for (const fund of list) {
+    const symbol = /^[A-Z0-9][A-Z0-9.-]{0,9}$/;
+    if (!symbol.test(fund.ticker) || !symbol.test(fund.renamedTo) || fund.ticker === fund.renamedTo || !/^\d{4}-\d{2}-\d{2}$/.test(fund.renamed) || !/^https:\/\/\S+$/.test(fund.source)) {
+      throw new Error(`RENAMED_FUNDS: ${fund.ticker} needs upper-case old and new tickers, an ISO date and an https source`);
+    }
+    if (fund.ticker === wanted) found = fund;
+  }
+  return found;
+}
+
+/** Removes every renamed fund whose successor is in the catalog and returns the old tickers removed (sorted). */
+export function dropRenamedFunds(catalog: Map<string, unknown>, list: ReadonlyArray<RenamedFund>): string[] {
+  const dropped: string[] = [];
+  for (const ticker of Array.from(catalog.keys())) {
+    const entry = renamedFund(list, ticker);
+    if (entry && catalog.has(entry.renamedTo)) {
+      catalog.delete(ticker);
+      dropped.push(ticker);
+    }
+  }
+  return dropped.sort();
+}
 
 export type ParsedHoldings = {
   asOfDate: string | null;
@@ -2100,6 +2142,72 @@ export function keepPublishedAdjClose(days: ChartDay[], published: JsonRecord[])
   });
 }
 
+/** A history row date ("Oct 23 2026" or ISO) as an ISO date, or null. */
+function historyRowIsoDate(raw: unknown): string | null {
+  const text = String(raw ?? '').trim();
+  const label = /^([A-Za-z]{3}) (\d{2}) (\d{4})$/.exec(text);
+  if (label) {
+    const month = MONTHS.indexOf(label[1]) + 1;
+    return month ? `${label[3]}-${String(month).padStart(2, '0')}-${label[2]}` : null;
+  }
+  return /^\d{4}-\d{2}-\d{2}$/.test(text) ? text : null;
+}
+
+/**
+ * A chart that starts after the published history (a HISTORY_RANGE window, or Yahoo cutting a series) never shrinks it:
+ * the published days before the window are kept and the window's metrics (3y, 5y, 10y, since inception) still see them.
+ * Yahoo rescales every adjusted close before a new dividend, so the kept days are rescaled by the ratio of the fresh to
+ * the published adjusted close on the overlapping days (one factor: a dividend moves every earlier close alike); ratios
+ * within float noise of 1 keep the published cents. Distributions before the window are kept the same way.
+ * Returns null when the two cannot be joined honestly (no overlap, a split moved the raw closes, ratios disagree): the
+ * caller then keeps the fund's published history and returns, exactly as after a failed chart request.
+ * Same rule as Fidelity's mergeWindowedChart (Fidelity PR 81).
+ */
+export function mergeWindowedChart(chart: ParsedChart, published: JsonRecord[], publishedDistributions: unknown[]): ParsedChart | null {
+  if (!chart.days.length || !published.length) return chart;
+  const firstFresh = chart.days[0].date;
+  const rows = published
+    .map((row) => ({ date: historyRowIsoDate(row.Date), close: numberOrNull(row.Close), adjClose: numberOrNull(row['Adj Close']), volume: numberOrNull(row.Volume) ?? 0 }))
+    .filter((row): row is { date: string; close: number; adjClose: number; volume: number } => row.date !== null && row.close !== null && row.adjClose !== null && row.adjClose > 0)
+    .sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0));
+  const older = rows.filter((row) => row.date < firstFresh);
+  if (!older.length) return chart;
+  const byDate = new Map(rows.map((row) => [row.date, row] as [string, typeof row]));
+  const adjRatios: number[] = [];
+  const closeRatios: number[] = [];
+  for (const day of chart.days) {
+    const prior = byDate.get(day.date);
+    if (!prior) continue;
+    adjRatios.push((day.adjCloseRaw ?? day.adjClose) / prior.adjClose);
+    if (prior.close > 0) closeRatios.push(day.close / prior.close);
+  }
+  if (!adjRatios.length) return null;
+  const mean = (values: number[]): number => values.reduce((sum, value) => sum + value, 0) / values.length;
+  const spread = (values: number[]): number => Math.max(...values) / Math.min(...values) - 1;
+  // A split rescales the raw closes too (the kept raw closes would then be wrong); disagreeing ratios mean the two
+  // series are not the same security or not one adjustment apart.
+  if (closeRatios.length && Math.abs(mean(closeRatios) - 1) > 1e-3) return null;
+  if (spread(adjRatios) > 5e-3) return null;
+  const measured = mean(adjRatios);
+  if (measured < 0.5 || measured > 1.001) return null;
+  const factor = Math.abs(measured - 1) < 1e-4 ? 1 : measured;
+  const days: ChartDay[] = older.map((row) => {
+    const raw = row.adjClose * factor;
+    return { date: row.date, close: row.close, adjClose: factor === 1 ? row.adjClose : round(raw, 2), volume: row.volume, adjCloseRaw: raw };
+  });
+  const firstFreshEpoch = Date.parse(`${firstFresh}T00:00:00Z`) / 1000;
+  const keptDividends = publishedDistributions
+    .map((row) => {
+      const cells = Array.isArray(row) ? row : [];
+      const match = /^(\d{2})\/(\d{2})\/(\d{4})$/.exec(String(cells[0] ?? ''));
+      const amount = numberOrNull(cells[1]);
+      return match && amount !== null && amount > 0 ? { epoch: Date.UTC(Number(match[3]), Number(match[1]) - 1, Number(match[2])) / 1000, amount } : null;
+    })
+    .filter((row): row is { epoch: number; amount: number } => row !== null && row.epoch < firstFreshEpoch)
+    .sort((a, b) => a.epoch - b.epoch);
+  return { ...chart, days: days.concat(chart.days), dividends: keptDividends.concat(chart.dividends.filter((dividend) => dividend.epoch >= firstFreshEpoch)) };
+}
+
 function historyRows(days: ChartDay[]): JsonRecord[] {
   return days.map((day) => ({
     Date: formatEdgarDate(day.date),
@@ -2447,7 +2555,11 @@ async function processFund(
 
   if (!config.skipYahoo) {
     try {
-      const chart = parseChart(await fetchJson(chartUrl(ticker, config), `[ chart    ] ${ticker}`, yahooHeaders(), config));
+      const fetched = parseChart(await fetchJson(chartUrl(ticker, config), `[ chart    ] ${ticker}`, yahooHeaders(), config));
+      // A HISTORY_RANGE window never shrinks the published history (and with it 3y, 5y, 10y and since inception)
+      const publishedDistributionRows = ((previousMeta.distributions as JsonRecord | undefined)?.rows as unknown[] | undefined) ?? [];
+      const chart = supersededBy ? fetched : mergeWindowedChart(fetched, await readPreviousSheet(ticker, 'history'), publishedDistributionRows);
+      if (!chart) throw new Error(`chart window does not join the published history (${config.historyRange})`);
       exchangeName = chart.exchangeName;
       // Yahoo's own navPrice estimate only fills the gap when invesco.com
       // supplied no NAV for this fund.
@@ -2679,11 +2791,15 @@ async function loadCompanyTickerMap(config: UpdaterConfig): Promise<Map<string, 
 
 // N-PORT positions carry CUSIP/ISIN but never a ticker; the SEC company table
 // turns the filed issuer name back into an exchange symbol so the watchlist
-// export stays usable, exactly like the sibling Fidelity updater.
-function fillNportTickers(rows: NportHolding[], names: Map<string, string>): NportHolding[] {
+// export stays usable, exactly like the sibling Fidelity updater. Only equity rows (N-PORT assetCat EC common,
+// EP preferred) get one: a bond of Visa or Amazon must not carry the stock ticker V or AMZN, the hub groups by ticker.
+const NPORT_EQUITY_CATEGORIES = new Set(['EC', 'EP']);
+
+export function fillNportTickers(rows: NportHolding[], names: Map<string, string>): NportHolding[] {
   if (!names.size) return rows;
   return rows.map((row) => {
     if (cleanHoldingTicker(row.Ticker)) return row;
+    if (!NPORT_EQUITY_CATEGORIES.has(String(row['Asset Category'] ?? '').trim().toUpperCase())) return row;
     const name = String(row.Name ?? '');
     const ticker = names.get(normalizeHoldingName(name)) || names.get(normalizeHoldingNameCore(name)) || '';
     return ticker ? { ...row, Ticker: ticker } : row;
@@ -2830,6 +2946,11 @@ export async function runUpdater(config: UpdaterConfig): Promise<void> {
     const discovered = await discoverOfficialFunds(config, catalog, ctx);
     if (ctx.sitemapLoaded) catalogSource = `published feed + invesco.com sitemap (${ctx.pageUrls.size} fund pages${discovered ? `, ${discovered} new` : ''})`;
   }
+  // Renamed funds leave before anything else: never fetched, never in the index, their folder is removed after the index
+  const renamedAway = dropRenamedFunds(catalog, RENAMED_FUNDS);
+  if (renamedAway.length) {
+    console.log(`[ ${'renamed'.padEnd(9)}] ${renamedAway.map((ticker) => `${ticker} -> ${renamedFund(RENAMED_FUNDS, ticker)?.renamedTo}`).join(', ')}: renamed by the issuer, old ticker removed`);
+  }
   for (const fund of catalog.values()) {
     const cusip = ctx.pages.get(fund.ticker)?.cusip || fund.cusip;
     if (cusip) ctx.cusipTickers.set(cusip, [...(ctx.cusipTickers.get(cusip) ?? []), fund.ticker]);
@@ -2949,6 +3070,8 @@ export async function runUpdater(config: UpdaterConfig): Promise<void> {
     counts,
     funds,
   });
+  // the index no longer lists a renamed fund, so its files can go
+  for (const ticker of renamedAway) await rm(new URL(`funds/${ticker}/`, API_ROOT), { recursive: true, force: true });
 
 
 
