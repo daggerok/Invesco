@@ -1562,6 +1562,16 @@ export function annualizedToTotal(annualizedPercent: number | null | undefined, 
   return round(((1 + annualizedPercent / 100) ** years - 1) * 100, 2);
 }
 
+// invesco.com's "inception" figure is annualized only for funds older than one year: for a younger fund it is
+// the cumulative return since inception and must not be published as siAnn (same rule as JPMorgan).
+export function annualizedSinceInception(value: number | null, inception: string | null, asOfDate: string | null): number | null {
+  if (value === null) return null;
+  const start = inception ? Date.parse(`${inception}T00:00:00Z`) : Number.NaN;
+  const end = asOfDate ? Date.parse(`${asOfDate}T00:00:00Z`) : Number.NaN;
+  if (!Number.isFinite(start) || !Number.isFinite(end)) return value;
+  return (end - start) / 86_400_000 >= 365 ? value : null;
+}
+
 export function totalToAnnualized(totalPercent: number | null | undefined, years: number): number | null {
   if (typeof totalPercent !== 'number' || !Number.isFinite(totalPercent)) return null;
   if (years <= 0) return null;
@@ -1627,10 +1637,16 @@ function annualized(start: number, end: number, years: number): number | null {
   return round(((end / start) ** (1 / years) - 1) * 100, 2);
 }
 
+// The first close is the fund's own start only when it falls within this many days of the first trade
+// (a HISTORY_RANGE=Ny window starts years later, and its since-inception figure would equal cagrNy).
+export const INCEPTION_TOLERANCE_DAYS = 10;
+
 // Market-price total returns (adjusted close) anchored to the last trading day
 // at or before `now`. Invesco publishes official returns for every fund, so
 // these only fill the gaps and drive the History-derived month/quarter blocks.
-export function priceReturns(days: ChartDay[], now = new Date()): PriceReturns {
+// `firstTradeIso` is Yahoo's first trade date (or the official inception): siAnn needs the series to start
+// there and to span at least one year, a shorter period is never annualized (null, like the official table).
+export function priceReturns(days: ChartDay[], now = new Date(), firstTradeIso: string | null = null): PriceReturns {
   const empty: PriceReturns = { ...EMPTY_PRICE_RETURNS };
   if (!days.length) return empty;
   const last = days[days.length - 1];
@@ -1658,7 +1674,10 @@ export function priceReturns(days: ChartDay[], now = new Date()): PriceReturns {
   const year5 = yearsAgo(5);
   const year10 = yearsAgo(10);
   const first = days[0];
-  const siYears = (lastEpoch - Date.parse(`${first.date}T00:00:00Z`) / 1000) / (365.25 * 86_400);
+  const firstEpoch = Date.parse(`${first.date}T00:00:00Z`) / 1000;
+  const siYears = (lastEpoch - firstEpoch) / (365.25 * 86_400);
+  const firstTradeEpoch = firstTradeIso ? Date.parse(`${firstTradeIso}T00:00:00Z`) / 1000 : Number.NaN;
+  const startsAtInception = Number.isFinite(firstTradeEpoch) && firstEpoch - firstTradeEpoch <= INCEPTION_TOLERANCE_DAYS * 86_400;
   const mo1StartDay = atOrBefore(mo1Start);
   const qtdStartDay = atOrBefore(quarterStart);
   return {
@@ -1668,7 +1687,7 @@ export function priceReturns(days: ChartDay[], now = new Date()): PriceReturns {
     cagr3y: year3 && year3.date < last.date ? annualized(year3.adjClose, last.adjClose, 3) : null,
     cagr5y: year5 && year5.date < last.date ? annualized(year5.adjClose, last.adjClose, 5) : null,
     cagr10y: year10 && year10.date < last.date ? annualized(year10.adjClose, last.adjClose, 10) : null,
-    siAnn: siYears >= 0.75 ? annualized(first.adjClose, last.adjClose, siYears) : null,
+    siAnn: startsAtInception && siYears >= 1 ? annualized(first.adjClose, last.adjClose, siYears) : null,
     mo1: mo1StartDay && mo1StartDay.date < last.date ? pctChange(mo1StartDay.adjClose, last.adjClose) : null,
     qtd: qtdStartDay && qtdStartDay.date < last.date ? pctChange(qtdStartDay.adjClose, last.adjClose) : null,
   };
@@ -2307,7 +2326,14 @@ async function processFund(
     listed.dividendYield !== null && !listed.dividendYieldBasis
       ? { ...listed, dividendYieldBasis: yieldBasisFromKind(((await readPreviousMeta(ticker)).yields as JsonRecord | undefined)?.dividendYieldKind) }
       : listed;
-  const fund = supersededBy ? withoutCusipData(applyOfficial(listedWithBasis, official)) : applyOfficial(listedWithBasis, official);
+  const assembled = supersededBy ? withoutCusipData(applyOfficial(listedWithBasis, official)) : applyOfficial(listedWithBasis, official);
+  const fund: CatalogFund = {
+    ...assembled,
+    returns: { ...assembled.returns, sinceInception: annualizedSinceInception(assembled.returns.sinceInception, assembled.inception, assembled.returnsAsOf) },
+  };
+  // meta.json-only fields of a kept fund (holdings and history dates, distribution rows, sources) come from its own
+  // meta.json: the index row carries counts and display strings under the same keys
+  const previousMeta: JsonRecord = supersededBy ? {} : await readPreviousMeta(ticker);
   // Lifecycle: a fund the loaded sitemap no longer lists (matured, renamed, delisted) stays in the
   // feed with its last values but is marked listed: false. Without a sitemap the status is unknown
   // and the previous one is kept.
@@ -2358,7 +2384,7 @@ async function processFund(
 
   // A fresh official holdings sheet is never replaced by an older quarterly filing
   // just because one API request failed: the previous official sheet stays.
-  const previousHoldingsSource = String(((await readPreviousMeta(ticker)).holdings as JsonRecord | undefined)?.source ?? '');
+  const previousHoldingsSource = String((previousMeta.holdings as JsonRecord | undefined)?.source ?? '');
   const keepPreviousOfficial = previousHoldingsSource.startsWith('invesco.com');
   if (!holdings && config.edgarFallback && !config.skipInvesco && !keepPreviousOfficial && !supersededBy) {
     try {
@@ -2396,7 +2422,9 @@ async function processFund(
   const holdingsHeaders = holdings?.headers.length
     ? holdings.headers
     : (await readPreviousSheetHeaders(ticker, 'holdings')) || HOLDINGS_HEADERS;
-  const holdingsAsOf = holdings?.asOfDate || (((previous.holdings as JsonRecord)?.asOfDate as string) ?? null);
+  // kept rows keep the date and the source label they were published with (an N-PORT sheet stays N-PORT)
+  if (!holdings && !supersededBy && previousHoldingsSource) holdingsSource = previousHoldingsSource;
+  const holdingsAsOf = holdings?.asOfDate || (((previousMeta.holdings as JsonRecord)?.asOfDate as string) ?? null);
   // Fresh holdings (invesco.com API or N-PORT) that look broken (no weight column, non-numeric weights, a bad weight
   // sum, half the rows gone) never replace the published ones: the fund fails and keeps its previous complete state.
   // `holdings` is null when the rows above are the previous run's sheet, which is never checked again.
@@ -2442,7 +2470,8 @@ async function processFund(
   const { cleanup: cleanHoldingsPages, ...holdingsManifest } = persist
     ? await writePages(fundDir, ticker, 'holdings', holdingsHeaders, holdingsRows, config.holdingsPageSize)
     : emptyPages(config.holdingsPageSize);
-  const derived = haveFreshHistory ? priceReturns(chartDays) : EMPTY_PRICE_RETURNS;
+  // siAnn is derived only from a series that starts at the first trade (HISTORY_RANGE=max), never from a window
+  const derived = haveFreshHistory ? priceReturns(chartDays, new Date(), firstTradeDate !== null ? epochToIsoDate(firstTradeDate) : fund.inception) : EMPTY_PRICE_RETURNS;
   const latestDividend = dividends.length ? dividends[dividends.length - 1] : null;
   const frequency = dividends.length
     ? inferDistributionFrequency(dividends)
@@ -2475,7 +2504,7 @@ async function processFund(
   if (metrics.performanceAsOf == null && /^derived/.test(String(metrics.returnsBasis))) {
     metrics.performanceAsOf = lastHistoryIsoDate(history);
   }
-  const distributions = dividends.length ? distributionRows(dividends) : (((previous.distributions?.rows as JsonRecord[]) || []) as string[][]);
+  const distributions = dividends.length ? distributionRows(dividends) : (((previousMeta.distributions as JsonRecord | undefined)?.rows as string[][] | undefined) || []);
 
   // Without fresh invesco.com facts the filed N-PORT-P series name is the
   // most authoritative fund name available.
@@ -2533,7 +2562,7 @@ async function processFund(
         ? formatEdgarDate(official.prices.asOfDate)
         : nportNetAssets !== null && holdingsEdgar?.repPdDate
           ? formatEdgarDate(holdingsEdgar.repPdDate)
-          : (((previous.aum as JsonRecord)?.asOfDate as string) ?? '—'),
+          : (((previousMeta.aum as JsonRecord)?.asOfDate as string) ?? '—'),
       source:
         catalogNetAssets !== null
           ? 'Invesco fund API prices endpoint (net assets / market value)'
@@ -2561,7 +2590,7 @@ async function processFund(
     },
     history: {
       ...historyManifest,
-      asOf: derived.asOfDate ? formatEdgarDate(derived.asOfDate) : (((previous.history as JsonRecord)?.asOf as string) ?? '—'),
+      asOf: derived.asOfDate ? formatEdgarDate(derived.asOfDate) : (((previousMeta.history as JsonRecord)?.asOf as string) ?? '—'),
       source: haveFreshHistory ? historySource : 'previous run',
     },
   };
