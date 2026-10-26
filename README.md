@@ -55,9 +55,9 @@ The old invesco.com CSV downloads (product list, per-fund holdings, prices & yie
 | Fund facts, expense ratio | each fund page (`/us/en/financial-products/etfs/<slug>.html`): ticker, CUSIP, ISIN, index, total and net expense ratio are embedded as page JSON |
 | Month-end returns (official) | `dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/{CUSIP}/performance/standard?...performanceSubType=annualized&performancePeriod=monthly` (fund NAV row, with its effective date) |
 | NAV, close, net assets (AUM), yields | `.../{CUSIP}/prices` and `.../{CUSIP}?...variationType=yieldInformation` (daily, official) |
-| Holdings per fund | `.../{CUSIP}/holdings/fund` (all positions, daily, official) |
+| Holdings per fund | `.../{CUSIP}/holdings/fund` (all positions, daily, official). The API names no exchange, only each line's local currency, so a bare ticker is published only for a U.S. listing (traded in U.S. dollars, ADRs included): a foreign listing has Ticker `-` and keeps its CUSIP or CINS as the Identifier (IMFL lists Saputo as `SAP` in Canadian dollars next to the SAP SE ADR `SAP`), and so do global depositary receipts, cash and currency lines, futures, swaps, rights, warrants, preferred shares and bonds |
 | Daily market history, distributions, exchange, quote | Yahoo Finance chart API (adjusted close); invesco.com publishes NAV, not market closes. A `HISTORY_RANGE=Ny` window never shrinks the published history: the older published days are kept, rescaled to the new adjusted closes over the shared days, and older distributions stay; when the two series cannot be joined (a split, no overlap) the fund keeps its published history |
-| Fallback | SEC EDGAR N-PORT-P holdings for funds invesco.com lists no page for (renamed, matured, delisted) or whose holdings request fails and that have no fresh official holdings yet. Only equity rows (`EC`, `EP`) get a ticker from the SEC company table, a bond keeps `-` |
+| Fallback | SEC EDGAR N-PORT-P holdings for funds invesco.com lists no page for (renamed, matured, delisted) or whose holdings request fails and that have no fresh official holdings yet, read by the shared N-PORT reader: the filing must name the fund's own series (SEC's fund ticker table; a fund it does not list is matched by name through the EDGAR full-text search) and its report period must be strictly newer than the published holdings (the newest report period first, read from the trust's own EDGAR folder). N-PORT identifiers are the position's own (a derivative never takes its reference security's CUSIP or ticker), a ticker is set only for a U.S. equity traded in USD and never on two different securities, and a missing weight or value stays empty. A kept N-PORT sheet published before this rule loses the stock tickers of its debt rows (BSCP listed Visa notes as `V`) |
 
 The quarterly table on the catalog page (`Performance (%) as of 06/30/2026`, 50 rows per page, filled by script) is not used: the fund API serves the newer month-end figures for every live fund.
 
@@ -69,6 +69,8 @@ Each fund carries a derived `metrics` object that powers the catalog columns sha
 - `cagr3y` / `cagr5y` / `cagr10y` - published annualized 3Y/5Y/10Y figures -> *CAGR 3Y/5Y/10Y*
 - `tr3y` / `tr5y` / `tr10y` - cumulative 3Y/5Y/10Y figures `(1 + CAGR)^n - 1` -> *TR 3Y/5Y/10Y*
 - `siAnn` - since-inception annualized -> *SI Ann.*; a published since-inception of exactly `0.00` is the provider's placeholder and is stored as `null`. A fund younger than one year at the table date has `null`: invesco.com publishes its since-inception figure cumulative, not annualized. A derived `siAnn` (no official figure) needs at least one year of adjusted closes starting at Yahoo's first trade date, so a `HISTORY_RANGE=Ny` window never fills it
+- A fund younger than a horizon publishes no return for it, official or derived: no 1-year or since-inception figure before the first anniversary of its inception (calendar anniversary, inclusive), no 3, 5 or 10-year one before those anniversaries; an unknown inception date keeps the value
+- Dates are read as plain calendar text (U.S. `MM/DD/YYYY`, ISO and month-name dates), never through the local time zone, so a local run publishes the same days as CI
 - `dividendYield` - official trailing 12-month distribution rate; when Invesco publishes none, an indicated yield (latest distribution x frequency / price) that is an estimate
 - `dividendYieldBasis` - short code of the definition behind `dividendYield`, `null` exactly when `dividendYield` is `null`; a retained yield keeps its code (see the table below)
 - `secYield` - official 30-day SEC yield when published; unavailable values stay `null` and are never shown as 0
@@ -111,11 +113,11 @@ The table matches `scripts/update-data.config.json` exactly. Every control may a
 | `DIVIDEND_YIELD` | `:` | Dividend-yield percentage range |
 | `PERFORMANCE_YTD` / `_1Y` / `_3Y` / `_5Y` / `_10Y` | `:` | Annualized return ranges in %, one control per period |
 | `TOTAL_RETURN_YTD` / `_1Y` / `_3Y` / `_5Y` / `_10Y` | `:` | Cumulative return ranges in %, one control per period |
-| `TICKERS` | empty (all) | Space-, comma- or semicolon-separated ticker allowlist, e.g. `QQQ QQQM RSP PGX` |
+| `TICKERS` | empty (all) | Space-, comma- or semicolon-separated ticker allowlist, e.g. `QQQ QQQM RSP PGX`; a ticker that is neither listed by the invesco.com sitemap nor a published fund is an error before any fund request (nothing is written) |
 | `HOLDINGS_PAGE_SIZE` | `250` | Rows in each generated current-holdings JSON page |
 | `HISTORY_PAGE_SIZE` | `1000` | Rows in each generated daily-history JSON page |
 | `MAX_RETRIES` | `2` | Retries after the initial request (integer >= 1); network errors, timeouts (45 s per request, headers and body) and HTTP 403/408/425/429/5xx are retried with exponential backoff |
-| `HISTORY_RANGE` | `max` | `max` or a whole number of years such as `5y`; anything else is an error. Sent as explicit `period1`/`period2` so the Yahoo request really shrinks |
+| `HISTORY_RANGE` | `max` | `max` or a whole number of years such as `5y`; anything else is an error. Sent as explicit `period1`/`period2` so the Yahoo request really shrinks; a window keeps the older published history (rescaled by the overlapping days), and a window that does not join it keeps the fund as published |
 | `SITEMAP_URL` | empty | Override the invesco.com sitemap (https) that lists the fund pages; empty uses the built-in URL |
 | `SEC_UA` | `daggerok ETF feed daggerok@gmail.com` | Declared SEC User-Agent (SEC policy requires a contact); redacted in logs; the protected `SEC_UA` Actions variable overrides it |
 | `EDGAR_FALLBACK` | `true` | SEC EDGAR Form N-PORT-P fallback for funds without invesco.com holdings |
@@ -124,7 +126,7 @@ The table matches `scripts/update-data.config.json` exactly. Every control may a
 | `VERBOSE` | `false` | Print per-fund retry and fallback notices |
 | `USE_SYSTEM_CA` | `auto` | TLS trust store: `auto` restarts the updater once with Bun's `--use-system-ca` when a request fails with an untrusted-certificate error; `true` always uses the system CA store; `false` never restarts. Not an individual workflow input: use `advanced`, the config file or the CLI environment. |
 
-`TICKERS` combines with the AUM, TER, yield and return filters using AND logic; it does not override them. A bounded return range excludes funds whose value is `null`. A new fund found in the sitemap is printed as `NEW FUNDS: A, B` and added to the job summary; a run in which no fund received any fresh source exits non-zero.
+`TICKERS` combines with the AUM, TER, yield and return filters using AND logic; it does not override them. A bounded return range excludes funds whose value is `null`. `NEW FUNDS: A, B` is printed (and added to the job summary) when a fund is published for the first time, also when its first read failed and a later run succeeds; `NEW FUNDS (not published yet): C` names new sitemap funds whose first read failed. A catalog-only row (no published data) that the sitemap no longer lists, for example an old mistyped `TICKERS` entry, is dropped; a run in which no fund received any fresh source exits non-zero.
 
 The workflow exposes 23 individual inputs plus `advanced` (a JSON object of UPPER_CASE control names with scalar values) for everything else, for example `{"HISTORY_PAGE_SIZE": "500", "SITEMAP_URL": "https://www.invesco.com/us/en/sitemap.xml"}`. The output directory is fixed at `api/invesco` and is not a control.
 
