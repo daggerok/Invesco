@@ -22,6 +22,7 @@ import {
   parseChart,
   chartUrl,
   priceReturns,
+  annualizedSinceInception,
   lastCompletedQuarterEnd,
   annualizedToTotal,
   totalToAnnualized,
@@ -683,7 +684,7 @@ describe('metrics', () => {
       { date: '2026-08-21', close: 340, adjClose: 330, volume: 1 },
     ];
     const now = new Date(Date.UTC(2026, 7, 21));
-    const returns = priceReturns(days, now);
+    const returns = priceReturns(days, now, '2015-01-02');
     expect(returns.asOfDate).toBe('2026-08-21');
     // each anchor is the last trading day at or before the period start, so a thin fixture falls back to the newest early-enough day
     expect(returns.ytd).toBeCloseTo(54.21, 2);
@@ -813,6 +814,27 @@ describe('metrics 2', () => {
         expect(performanceAsOf === null || /^\d{4}-\d{2}-\d{2}$/.test(performanceAsOf)).toBe(true);
       }
     }
+  });
+
+  test('siAnn is annualized only from the first trade and over at least one year; a younger cumulative figure is not siAnn', () => {
+    // hand-built closes: 100 at the first trade, 150 five years before the last close, 200 at the last close
+    const day = (date: string, adjClose: number) => ({ date, close: adjClose, adjClose, volume: 1 });
+    const now = new Date(Date.UTC(2026, 7, 21));
+    const closes = [day('2016-01-04', 100), day('2021-08-20', 150), day('2026-08-21', 200)];
+    // 2x over 10.63 years since the first trade
+    expect(priceReturns(closes, now, '2016-01-04').siAnn).toBe(6.74);
+    // a HISTORY_RANGE=5y window starts years after the first trade: no since-inception figure (was 5.92, the 5y CAGR)
+    const window = priceReturns(closes.slice(1), now, '2016-01-04');
+    expect([window.cagr5y, window.siAnn]).toEqual([5.92, null]);
+    expect(priceReturns(closes.slice(1), now, null).siAnn).toBeNull();
+    // a fund 0.8 years old is never annualized (was 25.71 from +20% in 0.8 years)
+    expect(priceReturns([day('2025-11-03', 10), day('2026-08-21', 12)], now, '2025-11-03').siAnn).toBeNull();
+    // invesco.com publishes a cumulative since-inception figure until the first anniversary (QEW: 20.21 over 6.5 months)
+    expect(annualizedSinceInception(20.21, '2026-03-18', '2026-09-30')).toBeNull();
+    expect(annualizedSinceInception(-3.24, '2025-09-17', '2026-09-30')).toBe(-3.24);
+    expect(annualizedSinceInception(11.39, '2003-04-24', '2026-08-31')).toBe(11.39);
+    expect(annualizedSinceInception(5, null, '2026-09-30')).toBe(5);
+    expect(annualizedSinceInception(null, '2003-04-24', '2026-08-31')).toBeNull();
   });
 
   test('the as-of date comes from the newest stored close; the returns block ends with basis and date', () => {
@@ -1191,6 +1213,48 @@ describe('pipeline 3', () => {
       const done = await readJson(root, 'update-state.json');
       expect(done.partial).toBe(false);
       expect(done.cursor).toBeNull();
+    });
+  });
+
+  test('a kept fund keeps the dates, distribution rows and source label of its own meta.json; a fund under one year old gets no siAnn', async () => {
+    quiet();
+    const [aaa, bbb] = MOCK_FUNDS;
+    installMockFetch();
+    const base = globalThis.fetch;
+    const failing: RegExp[] = [];
+    globalThis.fetch = (async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input);
+      if (failing.some((pattern) => pattern.test(url))) return new Response('', { status: 404 });
+      if (url.includes('/v8/finance/chart/')) {
+        const chart = mockChart() as { chart: { result: Array<Record<string, unknown>> } };
+        chart.chart.result[0].events = { dividends: { a: { amount: 0.25, date: 1_782_000_000 }, b: { amount: 0.3, date: 1_789_900_000 } } };
+        return new Response(JSON.stringify(chart), { status: 200 });
+      }
+      const response = await base(input, init);
+      // BBB launched 2026-03-18, so its official since-inception figure as of 2026-08-31 is cumulative
+      if (url !== `${MOCK_PAGE_BASE}${bbb.slug}.html`) return response;
+      return new Response((await response.text()).replace('2003-04-24', '2026-03-18'), { status: 200 });
+    }) as unknown as typeof fetch;
+    await withTempFeed([aaa, bbb], async (root) => {
+      await runUpdater(pipelineControls());
+      const first = await readJson(root, 'funds/AAA/meta.json');
+      expect([first.holdings.asOfDate, first.aum.asOfDate, first.distributions.rows.length]).toEqual(['2026-09-30', 'Oct 01 2026', 2]);
+      const [aaaRow, bbbRow] = (await readIndex(root)).funds;
+      // same feed, same table: the fund from 2003 keeps its annualized 11.39, the five-month-old one publishes none
+      expect([aaaRow.metrics.siAnn, bbbRow.metrics.siAnn, bbbRow.returns.monthEnd.sinceInception]).toEqual([11.39, null, null]);
+      expect(bbbRow.metrics.ytd).toBe(15.44);
+      // AAA's sheet came from an N-PORT filing; this run its holdings, prices and Yahoo requests fail
+      const nport = 'SEC EDGAR Form N-PORT-P (accession 0001378872-26-000613, report period 2026-09-30)';
+      writeFileSync(new URL('funds/AAA/meta.json', root), JSON.stringify({ ...first, holdings: { ...first.holdings, source: nport } }));
+      failing.push(/\/holdings\/fund/, /\/prices\?/, /\/v8\/finance\/chart\//);
+      await runUpdater(pipelineControls({ TICKERS: 'AAA' }));
+      const kept = await readJson(root, 'funds/AAA/meta.json');
+      // the index row has counts under these keys (holdings: 3, history: 3) and no rows: nothing is read from it
+      expect([kept.holdings.asOfDate, kept.holdings.source, kept.source.holdingsSource, kept.holdings.totalRows]).toEqual(['2026-09-30', nport, nport, 3]);
+      expect([kept.history.asOf, kept.history.totalRows]).toEqual([first.history.asOf, 3]);
+      expect(kept.history.asOf).not.toBe('—');
+      expect(kept.aum.asOfDate).toBe('Oct 01 2026');
+      expect(kept.distributions.rows).toEqual(first.distributions.rows);
     });
   });
 });

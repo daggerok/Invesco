@@ -68,7 +68,7 @@ Each fund carries a derived `metrics` object that powers the catalog columns sha
 - `ytd` / `tr1y` - official YTD and 1-year NAV returns -> *YTD Return*, *TR 1Y*
 - `cagr3y` / `cagr5y` / `cagr10y` - published annualized 3Y/5Y/10Y figures -> *CAGR 3Y/5Y/10Y*
 - `tr3y` / `tr5y` / `tr10y` - cumulative 3Y/5Y/10Y figures `(1 + CAGR)^n - 1` -> *TR 3Y/5Y/10Y*
-- `siAnn` - since-inception annualized -> *SI Ann.*; a published since-inception of exactly `0.00` is the provider's placeholder and is stored as `null`
+- `siAnn` - since-inception annualized -> *SI Ann.*; a published since-inception of exactly `0.00` is the provider's placeholder and is stored as `null`. A fund younger than one year at the table date has `null`: invesco.com publishes its since-inception figure cumulative, not annualized. A derived `siAnn` (no official figure) needs at least one year of adjusted closes starting at Yahoo's first trade date, so a `HISTORY_RANGE=Ny` window never fills it
 - `dividendYield` - official trailing 12-month distribution rate; when Invesco publishes none, an indicated yield (latest distribution x frequency / price) that is an estimate
 - `dividendYieldBasis` - short code of the definition behind `dividendYield`, `null` exactly when `dividendYield` is `null`; a retained yield keeps its code (see the table below)
 - `secYield` - official 30-day SEC yield when published; unavailable values stay `null` and are never shown as 0
