@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-26T05:21:44Z",
+ "generatedAt": "2026-10-26T05:35:34Z",
  "source": {
   "provider": "Invesco Ltd. (US ETFs)",
   "market": "us",
@@ -10,9 +10,9 @@
   "history": "Yahoo Finance public chart API (adjusted close)"
  },
  "counts": {
-  "funds": 272,
+  "funds": 270,
   "holdings": 77773,
-  "history": 812239
+  "history": 812237
  },
  "funds": [
   {
@@ -8641,60 +8641,6 @@
    "history": 1422
   },
   {
-   "ticker": "IMSI",
-   "name": "Invesco Municipal Strategic Income ETF",
-   "listed": false,
-   "category": "Fixed Income",
-   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/invesco-municipal-strategic-income-etf.html",
-   "dataFile": "./funds/IMSI/meta.json",
-   "cusip": "46090A747",
-   "isin": "US46090A7476",
-   "ter": "0.39%",
-   "terValue": 0.39,
-   "terGross": "0.39%",
-   "terGrossValue": 0.39,
-   "nav": "—",
-   "navValue": null,
-   "aum": "—",
-   "aumValue": null,
-   "asOfDate": "—",
-   "inceptionDate": "Dec 09 2022",
-   "exchange": "Cboe BZX",
-   "closePrice": "—",
-   "closePriceValue": null,
-   "premiumDiscount": "—",
-   "premiumDiscountValue": null,
-   "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
-   },
-   "returns": {
-    "monthEnd": {},
-    "quarterEnd": null
-   },
-   "metrics": {
-    "ytd": null,
-    "tr1y": null,
-    "tr3y": null,
-    "tr5y": null,
-    "tr10y": null,
-    "cagr3y": null,
-    "cagr5y": null,
-    "cagr10y": null,
-    "siAnn": null,
-    "dividendYield": null,
-    "dividendYieldText": "—",
-    "dividendYieldBasis": null,
-    "secYield": null,
-    "secYieldText": "—",
-    "returnsBasis": "derived from adjusted market-price closes (Yahoo chart API), estimates and not official NAV returns",
-    "performanceAsOf": "2026-07-17"
-   },
-   "holdings": 0,
-   "history": 1
-  },
-  {
    "ticker": "IMTG",
    "name": "Invesco Agency MBS ETF",
    "listed": true,
@@ -9179,60 +9125,6 @@
    },
    "holdings": 207,
    "history": 970
-  },
-  {
-   "ticker": "ISDB",
-   "name": "Invesco Short Duration Bond ETF",
-   "listed": false,
-   "category": "Fixed Income",
-   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/invesco-short-duration-bond-etf.html",
-   "dataFile": "./funds/ISDB/meta.json",
-   "cusip": "46090A739",
-   "isin": "US46090A7393",
-   "ter": "0.36%",
-   "terValue": 0.36,
-   "terGross": "0.36%",
-   "terGrossValue": 0.36,
-   "nav": "—",
-   "navValue": null,
-   "aum": "—",
-   "aumValue": null,
-   "asOfDate": "—",
-   "inceptionDate": "Dec 09 2022",
-   "exchange": "Cboe BZX",
-   "closePrice": "—",
-   "closePriceValue": null,
-   "premiumDiscount": "—",
-   "premiumDiscountValue": null,
-   "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
-   },
-   "returns": {
-    "monthEnd": {},
-    "quarterEnd": null
-   },
-   "metrics": {
-    "ytd": null,
-    "tr1y": null,
-    "tr3y": null,
-    "tr5y": null,
-    "tr10y": null,
-    "cagr3y": null,
-    "cagr5y": null,
-    "cagr10y": null,
-    "siAnn": null,
-    "dividendYield": null,
-    "dividendYieldText": "—",
-    "dividendYieldBasis": null,
-    "secYield": null,
-    "secYieldText": "—",
-    "returnsBasis": "derived from adjusted market-price closes (Yahoo chart API), estimates and not official NAV returns",
-    "performanceAsOf": "2026-07-17"
-   },
-   "holdings": 0,
-   "history": 1
   },
   {
    "ticker": "IUS",

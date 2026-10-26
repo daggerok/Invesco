@@ -56,8 +56,8 @@ The old invesco.com CSV downloads (product list, per-fund holdings, prices & yie
 | Month-end returns (official) | `dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/{CUSIP}/performance/standard?...performanceSubType=annualized&performancePeriod=monthly` (fund NAV row, with its effective date) |
 | NAV, close, net assets (AUM), yields | `.../{CUSIP}/prices` and `.../{CUSIP}?...variationType=yieldInformation` (daily, official) |
 | Holdings per fund | `.../{CUSIP}/holdings/fund` (all positions, daily, official) |
-| Daily market history, distributions, exchange, quote | Yahoo Finance chart API (adjusted close); invesco.com publishes NAV, not market closes |
-| Fallback | SEC EDGAR N-PORT-P holdings for funds invesco.com lists no page for (renamed, matured, delisted) or whose holdings request fails and that have no fresh official holdings yet |
+| Daily market history, distributions, exchange, quote | Yahoo Finance chart API (adjusted close); invesco.com publishes NAV, not market closes. A `HISTORY_RANGE=Ny` window never shrinks the published history: the older published days are kept, rescaled to the new adjusted closes over the shared days, and older distributions stay; when the two series cannot be joined (a split, no overlap) the fund keeps its published history |
+| Fallback | SEC EDGAR N-PORT-P holdings for funds invesco.com lists no page for (renamed, matured, delisted) or whose holdings request fails and that have no fresh official holdings yet. Only equity rows (`EC`, `EP`) get a ticker from the SEC company table, a bond keeps `-` |
 
 The quarterly table on the catalog page (`Performance (%) as of 06/30/2026`, 50 rows per page, filled by script) is not used: the fund API serves the newer month-end figures for every live fund.
 
@@ -95,7 +95,7 @@ Official and derived values, field by field:
 
 Funds filtered out or failing in a run keep their previously published metadata and data files.
 
-Lifecycle: every index row and `meta.json` has `listed`. A fund the loaded invesco.com sitemap no longer lists (matured BulletShares, renamed or delisted funds) stays in the feed with its last values and `listed: false`; without a sitemap the previous status is kept. `exchange` uses one spelling per venue (`NYSE Arca`, `Nasdaq`, `Cboe BZX`).
+Lifecycle: every index row and `meta.json` has `listed`. A fund the loaded invesco.com sitemap no longer lists (matured BulletShares, renamed or delisted funds) stays in the feed with its last values and `listed: false`; without a sitemap the previous status is kept. A fund renamed to a new ticker (`RENAMED_FUNDS` in `scripts/update-data.ts`: old and new ticker, date and the SEC filing, today IMSI -> IROC and ISDB -> GTOS) leaves the feed once the new ticker is in it: no row in `index.json`, no `funds/<old>/` folder; the new ticker carries the fund. `exchange` uses one spelling per venue (`NYSE Arca`, `Nasdaq`, `Cboe BZX`).
 
 ### Update controls
 

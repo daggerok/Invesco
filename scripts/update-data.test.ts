@@ -54,6 +54,10 @@ import {
   holdingsGuard,
   CLOSED_FUNDS,
   closedFund,
+  RENAMED_FUNDS,
+  renamedFund,
+  mergeWindowedChart,
+  fillNportTickers,
   indexRowFromMeta,
   invescoProductDetailUrl,
   runUpdater,
@@ -617,6 +621,14 @@ describe('parsing 3', () => {
     });
     expect(companies.get(normalizeHoldingName('NVIDIA Corp'))).toBe('NVDA');
     expect(companies.get(normalizeHoldingName('No Ticker Inc'))).toBeUndefined();
+    // INV-3: only equity rows get the issuer's stock ticker, a bond of the same issuer (BSCP: Visa 92826CAD4) stays "-"
+    const visa = parseCompanyTickerMap({ '0': { cik_str: 1403161, ticker: 'V', title: 'VISA INC.' } });
+    const filled = fillNportTickers([
+      { Name: 'Visa Inc', Ticker: '-', Identifier: '92826C839', 'Asset Category': 'EC' },
+      { Name: 'Visa Inc', Ticker: '-', Identifier: '92826CAD4', 'Asset Category': 'DBT' },
+      { Name: 'Visa Inc', Ticker: '-', Identifier: 'X', 'Asset Category': 'EP' },
+    ], visa);
+    expect(filled.map((row) => row.Ticker)).toEqual(['V', '-', 'V']);
 
     const url = edgarSeriesFilingsUrl('S000060812', 5);
     for (const part of ['https://www.sec.gov/cgi-bin/browse-edgar?', 'CIK=S000060812', 'type=NPORT-P', 'output=atom', 'count=5']) expect(url).toContain(part);
@@ -971,9 +983,27 @@ describe('pipeline', () => {
       expect([renamed.aumValue, renamed.navValue, renamed.metrics.dividendYield, renamed.metrics.secYield, renamed.metrics.ytd, renamed.holdings]).toEqual([null, null, null, null, null, 0]);
       const meta = await readJson(root, 'funds/OLD/meta.json');
       expect([meta.aum.value, meta.holdings.totalRows, meta.source.pricesApi]).toEqual([null, 0, null]);
+      // the shared CUSIP's holdings are fetched once, for the ticker that owns it
+      expect(mock.requests.filter((request) => request.url.includes('/holdings/fund')).length).toBe(1);
+      // Q20: with a RENAMED_FUNDS entry the old ticker leaves the index and api, the new one stays as it was
+      const entry = { ticker: 'OLD', renamedTo: 'AAA', renamed: '2025-02-24', source: 'https://www.sec.gov/Archives/edgar/data/1/497.htm' };
+      expect(() => renamedFund([{ ...entry, renamedTo: 'old' }], 'OLD')).toThrow('RENAMED_FUNDS');
+      expect(renamedFund(RENAMED_FUNDS, 'IMSI')?.renamedTo).toBe('IROC');
+      const aaaMeta = readFileSync(new URL('funds/AAA/meta.json', root), 'utf8');
+      RENAMED_FUNDS.push(entry);
+      const seen = mock.requests.length;
+      try {
+        await runUpdater(pipelineControls({ SKIP_YAHOO: 'true', CONCURRENCY: '2' }));
+        expect(mock.requests.slice(seen).filter((request) => /\/OLD\/|old-name/.test(request.url))).toEqual([]);
+        expect((await readIndex(root)).funds.map((fund) => fund.ticker)).toEqual(['AAA']);
+        expect(readdirSync(new URL('funds/', root)).sort()).toEqual(['AAA']);
+        expect(readFileSync(new URL('funds/AAA/meta.json', root), 'utf8')).toBe(aaaMeta);
+      } finally {
+        RENAMED_FUNDS.splice(RENAMED_FUNDS.indexOf(entry), 1);
+      }
     }, ['OLD']);
-    // the shared CUSIP's holdings are fetched once, for the ticker that owns it
-    expect(mock.requests.filter((request) => request.url.includes('/holdings/fund')).length).toBe(1);
+    // the renamed run fetched AAA once more and never asked for the old ticker
+    expect(mock.requests.filter((request) => request.url.includes('/holdings/fund')).length).toBe(2);
   });
 
   test('a run where every source fails exits red and keeps every fund with its published returns', async () => {
@@ -1021,6 +1051,38 @@ describe('pipeline 2', () => {
     } finally {
       rmSync(summaryDir, { recursive: true, force: true });
     }
+  });
+
+  test('a HISTORY_RANGE window never shrinks the published history: older days are rescaled to the new adjusted closes', async () => {
+    quiet();
+    await withTempFeed(MOCK_FUNDS.slice(0, 1), async (root) => {
+      installMockFetch({ listed: MOCK_FUNDS.slice(0, 1) });
+      await runUpdater(pipelineControls({ TICKERS: 'AAA' }));
+      expect((await readJson(root, 'funds/AAA/meta.json')).history.totalRows).toBe(3);
+      // a 1y window that starts on the second published day, after a dividend: Yahoo rescaled every adjusted close by 0.99
+      const good = globalThis.fetch;
+      const windowed = mockChart([99.5, 99.99]) as any;
+      const result = windowed.chart.result[0];
+      result.timestamp = result.timestamp.slice(1);
+      result.indicators.quote[0] = { close: [100.5, 101], volume: [20, 30] };
+      globalThis.fetch = (async (input: RequestInfo | URL, init?: RequestInit) =>
+        String(input).includes('/v8/finance/chart/') ? new Response(JSON.stringify(windowed), { status: 200 }) : good(input, init)) as unknown as typeof fetch;
+      await runUpdater(pipelineControls({ TICKERS: 'AAA', HISTORY_RANGE: '1y' }));
+      const meta = await readJson(root, 'funds/AAA/meta.json');
+      expect(meta.history.totalRows).toBe(3);
+      const rows = (await readJson(root, 'funds/AAA/history/001.json')).rows;
+      expect([rows[0].Close, rows[0]['Adj Close']]).toEqual(['100', '99']);
+      expect(rows.map((row: Record<string, string>) => row['Adj Close'])).toEqual(['99', '99.5', '99.99']);
+    });
+    // a split rescales the raw closes too, a window without overlap cannot be joined: the caller keeps the published history
+    const day = (date: string, close: number) => ({ date, close, adjClose: close, volume: 0 });
+    const published = [{ Date: 'Jan 02 2026', Close: '40', 'Adj Close': '40', Volume: '0' }, { Date: 'Jan 05 2026', Close: '42', 'Adj Close': '42', Volume: '0' }];
+    const chart = { exchangeName: '', longName: '', navPrice: null, regularMarketPrice: null, regularMarketTime: null, firstTradeDate: null, dividends: [] };
+    expect(mergeWindowedChart({ ...chart, days: [day('2026-01-05', 21), day('2026-01-06', 22)] }, published, [])).toBeNull();
+    expect(mergeWindowedChart({ ...chart, days: [day('2026-01-07', 42)] }, published, [])).toBeNull();
+    // older distributions stay
+    const kept = mergeWindowedChart({ ...chart, days: [day('2026-01-05', 42)] }, published, [['01/02/2026', '0.5']]);
+    expect([kept?.days.length, kept?.dividends]).toEqual([2, [{ epoch: Date.UTC(2026, 0, 2) / 1000, amount: 0.5 }]]);
   });
 
   test('a closed fund is never fetched or reported failed: its files stay as published, its index row says closed, a rerun writes nothing', async () => {
