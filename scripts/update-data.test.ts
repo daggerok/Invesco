@@ -51,6 +51,8 @@ import {
   parseDngYields,
   parseDngHoldings,
   holdingsGuard,
+  CLOSED_FUNDS,
+  closedFund,
   indexRowFromMeta,
   invescoProductDetailUrl,
   runUpdater,
@@ -320,7 +322,9 @@ describe('controls', () => {
     expect(resolveControls({ HISTORY_PAGE_SIZE: 5 }, {}, {}, { HISTORICAL_PAGE_SIZE: '9' }).HISTORY_PAGE_SIZE).toBe('9');
     expect(resolveControls({ SKIP_YAHOO: 'false' }, {}, {}, { INVESCO_SKIP_YAHOO: 'true' }).SKIP_YAHOO).toBe('true');
   });
+});
 
+describe('controls 2', () => {
   test('strict validation: unknown keys, bad values and CR/LF/NUL injection are errors', () => {
     const bad: unknown[] = [
       { UNKNOWN: 1 }, { OUTPUT_DIR: 'x' }, { SEC_UA: 'x\nEVIL=yes' }, { SEC_UA: 'x\rfoo' }, { SEC_UA: 'x\0bad' },
@@ -461,7 +465,9 @@ describe('parsing', () => {
     expect(() => parseDngPrices({ effectiveDate: '2026-10-01' })).toThrow();
     expect(() => parseDngYields('' as unknown as Record<string, unknown>)).toThrow();
   });
+});
 
+describe('parsing 2', () => {
   test('holdings: equity keeps percent weights, futures are not bonds, bonds add coupon and maturity, empty is an error', () => {
     const equity = parseDngHoldings(HOLDINGS_SAMPLE, 'RSP');
     expect(equity.asOfDate).toBe('2026-09-30');
@@ -556,7 +562,9 @@ describe('parsing', () => {
     expect(empty.totalValue).toBe(0);
     expect(parseNport('').holdings).toEqual([]);
   });
+});
 
+describe('parsing 3', () => {
   test('N-PORT freshness: only NPORT-P filings count, the report quarter anchors to the last completed one', () => {
     const accessions = parseNportAccessions({
       cik: '913760',
@@ -767,7 +775,9 @@ describe('metrics', () => {
     expect(isYieldBasis('computed-trailing-12m')).toBe(true);
     expect(isYieldBasis('toString')).toBe(false);
   });
+});
 
+describe('metrics 2', () => {
   test('rows rebuilt from meta and kept rows carry the same dividendYieldBasis key set', () => {
     const fresh = Object.keys(deriveCatalogMetrics(NO_OFFICIAL, DERIVED, 1, null, null, null, null));
     const rebuilt = (yields: Record<string, unknown>) => indexRowFromMeta({ ticker: 'DDD', yields }).metrics as Record<string, unknown>;
@@ -962,7 +972,9 @@ describe('pipeline', () => {
       }
     });
   });
+});
 
+describe('pipeline 2', () => {
   test('holdings that fail the guard keep the fund exactly as published and report it failed', async () => {
     quiet();
     const summaryDir = mkdtempSync(join(tmpdir(), 'invesco-summary-'));
@@ -989,6 +1001,96 @@ describe('pipeline', () => {
     }
   });
 
+  test('a closed fund is never fetched or reported failed: its files stay as published, its index row says closed, a rerun writes nothing', async () => {
+    const entry = { ticker: 'AAA', closed: '2026-10-01', source: 'https://www.sec.gov/Archives/edgar/data/1/notice.htm' };
+    expect(() => closedFund([{ ...entry, closed: 'soon' }], 'AAA')).toThrow('CLOSED_FUNDS');
+    expect(closedFund([entry], 'aaa')).toEqual(entry);
+    quiet();
+    await withTempFeed(MOCK_FUNDS.slice(0, 2), async (root) => {
+      installMockFetch({ listed: MOCK_FUNDS.slice(0, 2) });
+      await runUpdater(pipelineControls({ SKIP_YAHOO: 'true' }));
+      const dir = fileURLToPath(root);
+      const contents = () => Object.fromEntries(Object.keys(snapshot(dir)).map((path) => [path, readFileSync(path, 'utf8')]));
+      const first = contents();
+      expect(first[join(dir, 'funds', 'AAA', 'meta.json')]).toBeDefined();
+      // the guard would reject these holdings: every Weight cell turns blank
+      const good = globalThis.fetch;
+      const calls: string[] = [];
+      const renamed = { ...HOLDINGS_SAMPLE, holdings: HOLDINGS_SAMPLE.holdings.map(({ percentageOfTotalNetAssets, ...rest }) => ({ ...rest, weightPct: percentageOfTotalNetAssets })) };
+      globalThis.fetch = (async (input: RequestInfo | URL, init?: RequestInit) => {
+        calls.push(String(input));
+        return String(input).includes('/holdings/fund') ? new Response(JSON.stringify(renamed), { status: 200 }) : good(input, init);
+      }) as unknown as typeof fetch;
+      CLOSED_FUNDS.push(entry);
+      try {
+        await runUpdater(pipelineControls({ SKIP_YAHOO: 'true', TICKERS: 'AAA' }));
+        expect(calls.filter((url) => /aaa|46137V350/i.test(url))).toEqual([]);
+        expect(process.exitCode).not.toBe(1);
+        const closed = contents();
+        for (const path of Object.keys(first)) if (!path.endsWith('index.json')) expect([path, closed[path]]).toEqual([path, first[path]]);
+        const rows = (await readIndex(root)).funds;
+        expect(rows.map((row) => row.ticker)).toEqual(['AAA', 'BBB']);
+        expect(rows[0]).toMatchObject({ status: 'closed', closedDate: '2026-10-01', closedSource: entry.source, dataFile: './funds/AAA/meta.json' });
+        expect(rows.filter((row) => row.status === 'closed')).toHaveLength(1);
+        // a full rerun whose live catalog no longer lists the closed fund keeps its row and writes nothing
+        for (const path of Object.keys(closed)) utimesSync(path, 1_000_000_000, 1_000_000_000);
+        const aged = snapshot(dir);
+        installMockFetch({ listed: MOCK_FUNDS.slice(1, 2) });
+        await runUpdater(pipelineControls({ SKIP_YAHOO: 'true' }));
+        expect(snapshot(dir)).toEqual(aged);
+      } finally {
+        CLOSED_FUNDS.splice(CLOSED_FUNDS.indexOf(entry), 1);
+      }
+    });
+  });
+
+  test('a new fund whose holdings fail the guard is reported failed and still gets a catalog-only row; the next run publishes it', async () => {
+    const lines: string[] = [];
+    console.log = (...args: unknown[]) => { lines.push(args.map(String).join(' ')); };
+    const summaryDir = mkdtempSync(join(tmpdir(), 'invesco-summary-'));
+    const [aaa] = MOCK_FUNDS;
+    const fresh: MockFund = { ticker: 'NEW', cusip: '46137V398', slug: 'invesco-brand-new-etf' };
+    const dark: MockFund = { ticker: 'DRK', cusip: '46137V397', slug: 'invesco-dark-etf' };
+    try {
+      await withTempFeed([aaa], async (root) => {
+        const mock = installMockFetch({ listed: [aaa, fresh, dark] });
+        const good = globalThis.fetch;
+        const renamed = { ...HOLDINGS_SAMPLE, holdings: HOLDINGS_SAMPLE.holdings.map(({ percentageOfTotalNetAssets, ...rest }) => ({ ...rest, weightPct: percentageOfTotalNetAssets })) };
+        // NEW: holdings the guard rejects; DRK: its page is found, every fund API source fails (no throw, no files)
+        globalThis.fetch = (async (input: RequestInfo | URL, init?: RequestInit) => {
+          const url = String(input);
+          if (url.includes(dark.cusip)) return new Response('', { status: 404 });
+          return url.includes(`${fresh.cusip}/holdings/fund`) ? new Response(JSON.stringify(renamed), { status: 200 }) : good(input, init);
+        }) as unknown as typeof fetch;
+        process.env.GITHUB_STEP_SUMMARY = join(summaryDir, 'summary.md');
+        await runUpdater(pipelineControls({ SKIP_YAHOO: 'true' }));
+        expect(lines.some((line) => /\] NEW\s+failed\s.*holdings guard/.test(line))).toBe(true);
+        expect(lines.some((line) => /\[ done +\] 3 funds: .*1 failed/.test(line))).toBe(true);
+        expect(readFileSync(join(summaryDir, 'summary.md'), 'utf8')).toContain('- failed: 1');
+        const index = await readIndex(root);
+        expect(index.funds.map((fund) => fund.ticker)).toEqual(['AAA', 'DRK', 'NEW']);
+        const keys = Object.keys(index.funds[0].metrics);
+        for (const ticker of ['NEW', 'DRK']) {
+          const row = index.funds.find((fund) => fund.ticker === ticker)!;
+          expect([row.dataFile, row.holdings, row.history, row.listed, row.terValue]).toEqual([null, 0, 0, true, 0.19]);
+          expect(Object.keys(row.metrics)).toEqual(keys);
+          for (const key of keys) if (key !== 'returnsBasis') expect([key, row.metrics[key] === null || row.metrics[key] === '—']).toEqual([key, true]);
+          expect(typeof row.metrics.returnsBasis).toBe('string');
+          expect(() => statSync(new URL(`funds/${ticker}/`, root))).toThrow();
+        }
+        // the catalog-only row is not published data: the next run with good holdings publishes the fund in full
+        globalThis.fetch = good;
+        await runUpdater(pipelineControls({ SKIP_YAHOO: 'true', TICKERS: 'NEW' }));
+        const created = (await readIndex(root)).funds.find((fund) => fund.ticker === 'NEW')!;
+        expect([created.dataFile, created.holdings]).toEqual(['./funds/NEW/meta.json', 3]);
+        expect((await readJson(root, 'funds/NEW/meta.json')).holdings.totalRows).toBe(3);
+        expect(mock.requests.some((request) => request.url.includes(`${fresh.cusip}/holdings/fund`))).toBe(true);
+      });
+    } finally {
+      rmSync(summaryDir, { recursive: true, force: true });
+    }
+  });
+
   test('funds with only a meta.json stay in the index, new sitemap funds are discovered', async () => {
     quiet();
     const newFund: MockFund = { ticker: 'NEW', cusip: '46137V399', slug: 'invesco-brand-new-etf' };
@@ -1005,7 +1107,9 @@ describe('pipeline', () => {
       expect(index.counts.funds).toBe(3);
     }, ['ZZZ']);
   });
+});
 
+describe('pipeline 3', () => {
   test('MAX_FETCHES counts only funds that pass the filters; the cursor wraps and is ignored for another filter set', async () => {
     quiet();
     installMockFetch();
@@ -1148,7 +1252,9 @@ describe('network', () => {
       expect(mock.peak()).toBe(expected);
     }
   });
+});
 
+describe('network 2', () => {
   test('HISTORY_RANGE shrinks the Yahoo request through explicit period1/period2', () => {
     const now = 1_790_000_000_000;
     const max = new URL(chartUrl('AAA', { historyRange: 'max' }, now));
