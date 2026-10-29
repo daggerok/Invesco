@@ -889,7 +889,31 @@ export const HOLDINGS_GUARD_RELAX: Record<string, string[]> = {
   FXF: ['numeric'], FXY: ['numeric'], PDBA: ['numeric'], PDBC: ['numeric'], QETH: ['numeric'], QSOL: ['numeric'],
 };
 /** Funds the issuer closed, each confirmed from an SEC filing or the issuer notice (`source`): never fetched or guarded, last published data kept, index row marked closed. */
-export const CLOSED_FUNDS: ClosedFund[] = [];
+export const CLOSED_FUNDS: ClosedFund[] = [
+  // liquidated: last trading day 2026-02-23, liquidation payment on or about 2026-02-25 (497 supplement of 2025-12-19 approving termination; Form 25-NSE filed 2026-03-05)
+  { ticker: 'BLKC', closed: '2026-02-23', source: 'https://www.sec.gov/Archives/edgar/data/1378872/000119312525326792/d48091d497.htm' },
+  // matured: BulletShares 2022 funds, last trading day 2022-12-15, terminated 2022-12-19 (497 supplement of 2022-12-01)
+  { ticker: 'BSBE', closed: '2022-12-15', source: 'https://www.sec.gov/Archives/edgar/data/1657201/000119312522295846/d427902d497.htm' },
+  { ticker: 'BSCM', closed: '2022-12-15', source: 'https://www.sec.gov/Archives/edgar/data/1657201/000119312522295846/d427902d497.htm' },
+  // matured: BulletShares 2024 funds, last trading day 2024-12-13, terminated 2024-12-17 (497 supplement of 2024-11-29)
+  { ticker: 'BSCO', closed: '2024-12-13', source: 'https://www.sec.gov/Archives/edgar/data/1657201/000119312524267881/d941760d497.htm' },
+  // matured: BulletShares 2025 funds, last trading day 2025-12-15, terminated 2025-12-17 (497 supplement of 2025-12-01)
+  { ticker: 'BSCP', closed: '2025-12-15', source: 'https://www.sec.gov/Archives/edgar/data/1657201/000119312525303852/d16519d497.htm' },
+  { ticker: 'BSJM', closed: '2022-12-15', source: 'https://www.sec.gov/Archives/edgar/data/1657201/000119312522295846/d427902d497.htm' },
+  { ticker: 'BSJO', closed: '2024-12-13', source: 'https://www.sec.gov/Archives/edgar/data/1657201/000119312524267881/d941760d497.htm' },
+  { ticker: 'BSJP', closed: '2025-12-15', source: 'https://www.sec.gov/Archives/edgar/data/1657201/000119312525303852/d16519d497.htm' },
+  { ticker: 'BSMM', closed: '2022-12-15', source: 'https://www.sec.gov/Archives/edgar/data/1657201/000119312522295846/d427902d497.htm' },
+  { ticker: 'BSMO', closed: '2024-12-13', source: 'https://www.sec.gov/Archives/edgar/data/1657201/000119312524267881/d941760d497.htm' },
+  { ticker: 'BSMP', closed: '2025-12-15', source: 'https://www.sec.gov/Archives/edgar/data/1657201/000119312525303852/d16519d497.htm' },
+  // liquidated: last trading day 2026-02-23, liquidation payment on or about 2026-02-25 (497 supplement of 2025-12-19)
+  { ticker: 'GBLD', closed: '2026-02-23', source: 'https://www.sec.gov/Archives/edgar/data/1378872/000119312525326792/d48091d497.htm' },
+  { ticker: 'IVRA', closed: '2026-02-23', source: 'https://www.sec.gov/Archives/edgar/data/1418144/000119312525326782/d11942d497.htm' },
+  // liquidated: last trading day moved to 2023-06-23 by the 497 supplement of 2023-02-24 (first set 2023-03-30 on 2023-01-23); Form 25-NSE filed 2023-07-06
+  { ticker: 'PBND', closed: '2023-06-23', source: 'https://www.sec.gov/Archives/edgar/data/1378872/000119312523048862/d471458d497.htm' },
+  { ticker: 'QQJG', closed: '2026-02-23', source: 'https://www.sec.gov/Archives/edgar/data/1378872/000119312525326792/d48091d497.htm' },
+  { ticker: 'SPMV', closed: '2026-02-23', source: 'https://www.sec.gov/Archives/edgar/data/1378872/000119312525326792/d48091d497.htm' },
+  { ticker: 'XRLV', closed: '2026-02-23', source: 'https://www.sec.gov/Archives/edgar/data/1378872/000119312525326792/d48091d497.htm' },
+];
 /** A fund the issuer renamed to a new ticker (same CUSIP, same SEC series), confirmed from an SEC filing (`source`). */
 export type RenamedFund = { ticker: string; renamedTo: string; renamed: string; source: string };
 /**
@@ -904,6 +928,13 @@ export const RENAMED_FUNDS: RenamedFund[] = [
   // 497 of 2025-02-18, same trust: Invesco Short Duration Bond ETF (ISDB) becomes Invesco Short Duration Total Return Bond
   // ETF (GTOS) on 2025-02-24, moved from 2025-02-20 by this supplement (CUSIP 46090A739 stays)
   { ticker: 'ISDB', renamedTo: 'GTOS', renamed: '2025-02-24', source: 'https://www.sec.gov/Archives/edgar/data/1418144/000110465925014724/tm256642d1_497.htm' },
+  // 497 supplements of 2025-12-19 (board meeting 2025-12-17): name and ticker change effective on or about 2026-02-23, same fund and series
+  { ticker: 'HIYS', renamedTo: 'GTOH', renamed: '2026-02-23', source: 'https://www.sec.gov/Archives/edgar/data/1418144/000110465925123132/tm2533722d1_497.htm' },
+  { ticker: 'IHYF', renamedTo: 'GTOQ', renamed: '2026-02-23', source: 'https://www.sec.gov/Archives/edgar/data/1418144/000110465925123132/tm2533722d1_497.htm' },
+  { ticker: 'KBWR', renamedTo: 'FDIQ', renamed: '2026-02-23', source: 'https://www.sec.gov/Archives/edgar/data/1378872/000110465925123127/tm2533630d1_497.htm' },
+  { ticker: 'PHB', renamedTo: 'IFLN', renamed: '2026-02-23', source: 'https://www.sec.gov/Archives/edgar/data/1378872/000110465925123127/tm2533630d1_497.htm' },
+  { ticker: 'PIN', renamedTo: 'IMVP', renamed: '2026-02-23', source: 'https://www.sec.gov/Archives/edgar/data/1419139/000110465925123131/tm2533678d1_497.htm' },
+  { ticker: 'SPVU', renamedTo: 'QVMT', renamed: '2026-02-23', source: 'https://www.sec.gov/Archives/edgar/data/1378872/000110465925123127/tm2533630d1_497.htm' },
 ];
 
 /** The RENAMED_FUNDS entry of an old ticker, or null. A malformed entry throws, so a typo (no ISO date, no https source) never ships. */
