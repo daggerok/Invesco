@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-29T21:48:54Z",
+ "generatedAt": "2026-10-29T23:00:00Z",
  "source": {
   "provider": "Invesco Ltd. (US ETFs)",
   "market": "us",
@@ -10,9 +10,9 @@
   "history": "Yahoo Finance public chart API (adjusted close)"
  },
  "counts": {
-  "funds": 270,
+  "funds": 264,
   "holdings": 77852,
-  "history": 813220
+  "history": 813214
  },
  "funds": [
   {
@@ -271,7 +271,10 @@
     "performanceAsOf": "2026-02-23"
    },
    "holdings": 82,
-   "history": 1
+   "history": 1,
+   "status": "closed",
+   "closedDate": "2026-02-23",
+   "closedSource": "https://www.sec.gov/Archives/edgar/data/1378872/000119312525326792/d48091d497.htm"
   },
   {
    "ticker": "BMVP",
@@ -447,7 +450,10 @@
     "performanceAsOf": "2026-08-31"
    },
    "holdings": 0,
-   "history": 1
+   "history": 1,
+   "status": "closed",
+   "closedDate": "2022-12-15",
+   "closedSource": "https://www.sec.gov/Archives/edgar/data/1657201/000119312522295846/d427902d497.htm"
   },
   {
    "ticker": "BSCA",
@@ -623,7 +629,10 @@
     "performanceAsOf": "2026-08-31"
    },
    "holdings": 0,
-   "history": 1
+   "history": 1,
+   "status": "closed",
+   "closedDate": "2022-12-15",
+   "closedSource": "https://www.sec.gov/Archives/edgar/data/1657201/000119312522295846/d427902d497.htm"
   },
   {
    "ticker": "BSCO",
@@ -711,7 +720,10 @@
     "performanceAsOf": "2026-08-31"
    },
    "holdings": 0,
-   "history": 1
+   "history": 1,
+   "status": "closed",
+   "closedDate": "2024-12-13",
+   "closedSource": "https://www.sec.gov/Archives/edgar/data/1657201/000119312524267881/d941760d497.htm"
   },
   {
    "ticker": "BSCP",
@@ -793,7 +805,10 @@
     "performanceAsOf": "2025-12-15"
    },
    "holdings": 11,
-   "history": 1
+   "history": 1,
+   "status": "closed",
+   "closedDate": "2025-12-15",
+   "closedSource": "https://www.sec.gov/Archives/edgar/data/1657201/000119312525303852/d16519d497.htm"
   },
   {
    "ticker": "BSCQ",
@@ -1937,7 +1952,10 @@
     "performanceAsOf": "2026-08-31"
    },
    "holdings": 0,
-   "history": 1
+   "history": 1,
+   "status": "closed",
+   "closedDate": "2022-12-15",
+   "closedSource": "https://www.sec.gov/Archives/edgar/data/1657201/000119312522295846/d427902d497.htm"
   },
   {
    "ticker": "BSJO",
@@ -2025,7 +2043,10 @@
     "performanceAsOf": "2026-08-31"
    },
    "holdings": 0,
-   "history": 1
+   "history": 1,
+   "status": "closed",
+   "closedDate": "2024-12-13",
+   "closedSource": "https://www.sec.gov/Archives/edgar/data/1657201/000119312524267881/d941760d497.htm"
   },
   {
    "ticker": "BSJP",
@@ -2107,7 +2128,10 @@
     "performanceAsOf": "2025-12-15"
    },
    "holdings": 3,
-   "history": 1
+   "history": 1,
+   "status": "closed",
+   "closedDate": "2025-12-15",
+   "closedSource": "https://www.sec.gov/Archives/edgar/data/1657201/000119312525303852/d16519d497.htm"
   },
   {
    "ticker": "BSJQ",
@@ -3075,7 +3099,10 @@
     "performanceAsOf": "2026-08-31"
    },
    "holdings": 0,
-   "history": 1
+   "history": 1,
+   "status": "closed",
+   "closedDate": "2022-12-15",
+   "closedSource": "https://www.sec.gov/Archives/edgar/data/1657201/000119312522295846/d427902d497.htm"
   },
   {
    "ticker": "BSMO",
@@ -3163,7 +3190,10 @@
     "performanceAsOf": "2026-08-31"
    },
    "holdings": 0,
-   "history": 1
+   "history": 1,
+   "status": "closed",
+   "closedDate": "2024-12-13",
+   "closedSource": "https://www.sec.gov/Archives/edgar/data/1657201/000119312524267881/d941760d497.htm"
   },
   {
    "ticker": "BSMP",
@@ -3245,7 +3275,10 @@
     "performanceAsOf": "2025-12-15"
    },
    "holdings": 231,
-   "history": 1
+   "history": 1,
+   "status": "closed",
+   "closedDate": "2025-12-15",
+   "closedSource": "https://www.sec.gov/Archives/edgar/data/1657201/000119312525303852/d16519d497.htm"
   },
   {
    "ticker": "BSMQ",
@@ -7375,7 +7408,10 @@
     "performanceAsOf": "2026-02-23"
    },
    "holdings": 0,
-   "history": 1
+   "history": 1,
+   "status": "closed",
+   "closedDate": "2026-02-23",
+   "closedSource": "https://www.sec.gov/Archives/edgar/data/1378872/000119312525326792/d48091d497.htm"
   },
   {
    "ticker": "GGME",
@@ -8186,7 +8222,7 @@
    "navValue": 24.611567,
    "aum": "$121.83 M",
    "aumValue": 121831568.67,
-   "asOfDate": "Oct 28 2026",
+   "asOfDate": "Oct 29 2026",
    "inceptionDate": "Dec 09 2022",
    "exchange": "Cboe BZX",
    "closePrice": "$24.61",
@@ -8202,10 +8238,10 @@
     "monthEnd": {
      "asOfDate": "Sep 30 2026",
      "priceReturnsAsOf": "Oct 29 2026",
-     "mo1": 0.45,
-     "mo1Text": "0.45%",
-     "qtd": 0.37,
-     "qtdText": "0.37%",
+     "mo1": 0.49,
+     "mo1Text": "0.49%",
+     "qtd": 0.41,
+     "qtdText": "0.41%",
      "ytd": 1.23,
      "ytdText": "1.23%",
      "yr1": 2.68,
@@ -8246,8 +8282,8 @@
     "secYieldText": "5.16%",
     "week52Low": 24.56,
     "week52High": 25.26,
-    "range52w": 7.14,
-    "range52wClose": 24.61,
+    "range52w": 8.59,
+    "range52wClose": 24.6201,
     "range52wAsOf": "2026-10-29",
     "range52wSince": null,
     "range52wBasis": "Close",
@@ -8344,88 +8380,6 @@
    },
    "holdings": 200,
    "history": 170
-  },
-  {
-   "ticker": "HIYS",
-   "name": "Invesco High Yield Select ETF",
-   "listed": false,
-   "category": "Fixed Income",
-   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/hiys.html",
-   "dataFile": "./funds/HIYS/meta.json",
-   "cusip": null,
-   "isin": null,
-   "ter": "—",
-   "terValue": null,
-   "terGross": "—",
-   "terGrossValue": null,
-   "nav": "—",
-   "navValue": null,
-   "aum": "—",
-   "aumValue": null,
-   "asOfDate": "—",
-   "inceptionDate": "Jul 17 2026",
-   "exchange": "Cboe BZX",
-   "closePrice": "$25.82",
-   "closePriceValue": 25.825,
-   "premiumDiscount": "—",
-   "premiumDiscountValue": null,
-   "distributions": {
-    "frequency": "Monthly",
-    "exDate": "—",
-    "dividend": "—"
-   },
-   "returns": {
-    "monthEnd": {
-     "asOfDate": "Jul 17 2026",
-     "mo1": null,
-     "mo1Text": "—",
-     "qtd": null,
-     "qtdText": "—",
-     "ytd": null,
-     "ytdText": "—",
-     "yr1": null,
-     "yr1Text": "—",
-     "yr3": null,
-     "yr3Text": "—",
-     "yr5": null,
-     "yr5Text": "—",
-     "yr10": null,
-     "yr10Text": "—",
-     "sinceInception": null,
-     "sinceInceptionText": "—"
-    },
-    "quarterEnd": {
-     "asOfDate": "Jun 30 2026",
-     "null": null
-    }
-   },
-   "metrics": {
-    "ytd": null,
-    "tr1y": null,
-    "tr3y": null,
-    "tr5y": null,
-    "tr10y": null,
-    "cagr3y": null,
-    "cagr5y": null,
-    "cagr10y": null,
-    "siAnn": null,
-    "dividendYield": 5.99,
-    "dividendYieldText": "5.99%",
-    "dividendYieldBasis": "official-trailing-12m",
-    "secYield": null,
-    "secYieldText": "—",
-    "week52Low": null,
-    "week52High": null,
-    "range52w": null,
-    "range52wClose": null,
-    "range52wAsOf": null,
-    "range52wSince": null,
-    "range52wBasis": null,
-    "returnsBasis": "derived from adjusted market-price closes (Yahoo chart API), estimates and not official NAV returns",
-    "performanceAsOf": "2026-07-17"
-   },
-   "holdings": 0,
-   "history": 1
   },
   {
    "ticker": "IBBQ",
@@ -9042,88 +8996,6 @@
    },
    "holdings": 115,
    "history": 5372
-  },
-  {
-   "ticker": "IHYF",
-   "name": "Invesco High Yield Bond Factor ETF",
-   "listed": false,
-   "category": "Fixed Income",
-   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/ihyf.html",
-   "dataFile": "./funds/IHYF/meta.json",
-   "cusip": null,
-   "isin": null,
-   "ter": "—",
-   "terValue": null,
-   "terGross": "—",
-   "terGrossValue": null,
-   "nav": "—",
-   "navValue": null,
-   "aum": "—",
-   "aumValue": null,
-   "asOfDate": "—",
-   "inceptionDate": "Jul 17 2026",
-   "exchange": "Nasdaq",
-   "closePrice": "$22.75",
-   "closePriceValue": 22.745,
-   "premiumDiscount": "—",
-   "premiumDiscountValue": null,
-   "distributions": {
-    "frequency": "Monthly",
-    "exDate": "—",
-    "dividend": "—"
-   },
-   "returns": {
-    "monthEnd": {
-     "asOfDate": "Jul 17 2026",
-     "mo1": null,
-     "mo1Text": "—",
-     "qtd": null,
-     "qtdText": "—",
-     "ytd": null,
-     "ytdText": "—",
-     "yr1": null,
-     "yr1Text": "—",
-     "yr3": null,
-     "yr3Text": "—",
-     "yr5": null,
-     "yr5Text": "—",
-     "yr10": null,
-     "yr10Text": "—",
-     "sinceInception": null,
-     "sinceInceptionText": "—"
-    },
-    "quarterEnd": {
-     "asOfDate": "Jun 30 2026",
-     "null": null
-    }
-   },
-   "metrics": {
-    "ytd": null,
-    "tr1y": null,
-    "tr3y": null,
-    "tr5y": null,
-    "tr10y": null,
-    "cagr3y": null,
-    "cagr5y": null,
-    "cagr10y": null,
-    "siAnn": null,
-    "dividendYield": 7.12,
-    "dividendYieldText": "7.12%",
-    "dividendYieldBasis": "official-trailing-12m",
-    "secYield": null,
-    "secYieldText": "—",
-    "week52Low": null,
-    "week52High": null,
-    "range52w": null,
-    "range52wClose": null,
-    "range52wAsOf": null,
-    "range52wSince": null,
-    "range52wBasis": null,
-    "returnsBasis": "derived from adjusted market-price closes (Yahoo chart API), estimates and not official NAV returns",
-    "performanceAsOf": "2026-07-17"
-   },
-   "holdings": 0,
-   "history": 1
   },
   {
    "ticker": "IIGD",
@@ -10085,7 +9957,10 @@
     "performanceAsOf": "2026-02-23"
    },
    "holdings": 0,
-   "history": 1
+   "history": 1,
+   "status": "closed",
+   "closedDate": "2026-02-23",
+   "closedSource": "https://www.sec.gov/Archives/edgar/data/1418144/000119312525326782/d11942d497.htm"
   },
   {
    "ticker": "KBWB",
@@ -10350,88 +10225,6 @@
    },
    "holdings": 27,
    "history": 3987
-  },
-  {
-   "ticker": "KBWR",
-   "name": "Invesco KBW Regional Banking ETF",
-   "listed": false,
-   "category": "US Equity",
-   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/kbwr.html",
-   "dataFile": "./funds/KBWR/meta.json",
-   "cusip": null,
-   "isin": null,
-   "ter": "—",
-   "terValue": null,
-   "terGross": "—",
-   "terGrossValue": null,
-   "nav": "—",
-   "navValue": null,
-   "aum": "—",
-   "aumValue": null,
-   "asOfDate": "—",
-   "inceptionDate": "Jul 17 2026",
-   "exchange": "Nasdaq",
-   "closePrice": "$69.31",
-   "closePriceValue": 69.313,
-   "premiumDiscount": "—",
-   "premiumDiscountValue": null,
-   "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
-   },
-   "returns": {
-    "monthEnd": {
-     "asOfDate": "Jul 17 2026",
-     "mo1": null,
-     "mo1Text": "—",
-     "qtd": null,
-     "qtdText": "—",
-     "ytd": null,
-     "ytdText": "—",
-     "yr1": null,
-     "yr1Text": "—",
-     "yr3": null,
-     "yr3Text": "—",
-     "yr5": null,
-     "yr5Text": "—",
-     "yr10": null,
-     "yr10Text": "—",
-     "sinceInception": null,
-     "sinceInceptionText": "—"
-    },
-    "quarterEnd": {
-     "asOfDate": "Jun 30 2026",
-     "null": null
-    }
-   },
-   "metrics": {
-    "ytd": null,
-    "tr1y": null,
-    "tr3y": null,
-    "tr5y": null,
-    "tr10y": null,
-    "cagr3y": null,
-    "cagr5y": null,
-    "cagr10y": null,
-    "siAnn": null,
-    "dividendYield": null,
-    "dividendYieldText": "—",
-    "dividendYieldBasis": null,
-    "secYield": null,
-    "secYieldText": "—",
-    "week52Low": null,
-    "week52High": null,
-    "range52w": null,
-    "range52wClose": null,
-    "range52wAsOf": null,
-    "range52wSince": null,
-    "range52wBasis": null,
-    "returnsBasis": "derived from adjusted market-price closes (Yahoo chart API), estimates and not official NAV returns",
-    "performanceAsOf": "2026-07-17"
-   },
-   "holdings": 0,
-   "history": 1
   },
   {
    "ticker": "KBWY",
@@ -11399,7 +11192,10 @@
     "performanceAsOf": "2026-08-31"
    },
    "holdings": 0,
-   "history": 1
+   "history": 1,
+   "status": "closed",
+   "closedDate": "2023-06-23",
+   "closedSource": "https://www.sec.gov/Archives/edgar/data/1378872/000119312523048862/d471458d497.htm"
   },
   {
    "ticker": "PBP",
@@ -13162,88 +12958,6 @@
    "history": 4717
   },
   {
-   "ticker": "PHB",
-   "name": "Invesco Fundamental High Yield® Corporate Bond ETF",
-   "listed": false,
-   "category": "Fixed Income",
-   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/phb.html",
-   "dataFile": "./funds/PHB/meta.json",
-   "cusip": null,
-   "isin": null,
-   "ter": "—",
-   "terValue": null,
-   "terGross": "—",
-   "terGrossValue": null,
-   "nav": "—",
-   "navValue": null,
-   "aum": "—",
-   "aumValue": null,
-   "asOfDate": "—",
-   "inceptionDate": "Jul 17 2026",
-   "exchange": "NYSE Arca",
-   "closePrice": "$18.71",
-   "closePriceValue": 18.71,
-   "premiumDiscount": "—",
-   "premiumDiscountValue": null,
-   "distributions": {
-    "frequency": "Monthly",
-    "exDate": "—",
-    "dividend": "—"
-   },
-   "returns": {
-    "monthEnd": {
-     "asOfDate": "Jul 17 2026",
-     "mo1": null,
-     "mo1Text": "—",
-     "qtd": null,
-     "qtdText": "—",
-     "ytd": null,
-     "ytdText": "—",
-     "yr1": null,
-     "yr1Text": "—",
-     "yr3": null,
-     "yr3Text": "—",
-     "yr5": null,
-     "yr5Text": "—",
-     "yr10": null,
-     "yr10Text": "—",
-     "sinceInception": null,
-     "sinceInceptionText": "—"
-    },
-    "quarterEnd": {
-     "asOfDate": "Jun 30 2026",
-     "null": null
-    }
-   },
-   "metrics": {
-    "ytd": null,
-    "tr1y": null,
-    "tr3y": null,
-    "tr5y": null,
-    "tr10y": null,
-    "cagr3y": null,
-    "cagr5y": null,
-    "cagr10y": null,
-    "siAnn": null,
-    "dividendYield": 5.59,
-    "dividendYieldText": "5.59%",
-    "dividendYieldBasis": "official-trailing-12m",
-    "secYield": null,
-    "secYieldText": "—",
-    "week52Low": null,
-    "week52High": null,
-    "range52w": null,
-    "range52wClose": null,
-    "range52wAsOf": null,
-    "range52wSince": null,
-    "range52wBasis": null,
-    "returnsBasis": "derived from adjusted market-price closes (Yahoo chart API), estimates and not official NAV returns",
-    "performanceAsOf": "2026-07-17"
-   },
-   "holdings": 0,
-   "history": 1
-  },
-  {
    "ticker": "PHDG",
    "name": "Invesco S&P 500 Downside Hedged ETF",
    "listed": true,
@@ -13682,88 +13396,6 @@
    },
    "holdings": 121,
    "history": 4734
-  },
-  {
-   "ticker": "PIN",
-   "name": "Invesco India ETF",
-   "listed": false,
-   "category": "International",
-   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/pin.html",
-   "dataFile": "./funds/PIN/meta.json",
-   "cusip": null,
-   "isin": null,
-   "ter": "—",
-   "terValue": null,
-   "terGross": "—",
-   "terGrossValue": null,
-   "nav": "—",
-   "navValue": null,
-   "aum": "—",
-   "aumValue": null,
-   "asOfDate": "—",
-   "inceptionDate": "Jul 17 2026",
-   "exchange": "NYSE Arca",
-   "closePrice": "$23.98",
-   "closePriceValue": 23.98,
-   "premiumDiscount": "—",
-   "premiumDiscountValue": null,
-   "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
-   },
-   "returns": {
-    "monthEnd": {
-     "asOfDate": "Jul 17 2026",
-     "mo1": null,
-     "mo1Text": "—",
-     "qtd": null,
-     "qtdText": "—",
-     "ytd": null,
-     "ytdText": "—",
-     "yr1": null,
-     "yr1Text": "—",
-     "yr3": null,
-     "yr3Text": "—",
-     "yr5": null,
-     "yr5Text": "—",
-     "yr10": null,
-     "yr10Text": "—",
-     "sinceInception": null,
-     "sinceInceptionText": "—"
-    },
-    "quarterEnd": {
-     "asOfDate": "Jun 30 2026",
-     "null": null
-    }
-   },
-   "metrics": {
-    "ytd": null,
-    "tr1y": null,
-    "tr3y": null,
-    "tr5y": null,
-    "tr10y": null,
-    "cagr3y": null,
-    "cagr5y": null,
-    "cagr10y": null,
-    "siAnn": null,
-    "dividendYield": null,
-    "dividendYieldText": "—",
-    "dividendYieldBasis": null,
-    "secYield": null,
-    "secYieldText": "—",
-    "week52Low": null,
-    "week52High": null,
-    "range52w": null,
-    "range52wClose": null,
-    "range52wAsOf": null,
-    "range52wSince": null,
-    "range52wBasis": null,
-    "returnsBasis": "derived from adjusted market-price closes (Yahoo chart API), estimates and not official NAV returns",
-    "performanceAsOf": "2026-07-17"
-   },
-   "holdings": 0,
-   "history": 1
   },
   {
    "ticker": "PIO",
@@ -17981,7 +17613,10 @@
     "performanceAsOf": "2026-02-23"
    },
    "holdings": 0,
-   "history": 1
+   "history": 1,
+   "status": "closed",
+   "closedDate": "2026-02-23",
+   "closedSource": "https://www.sec.gov/Archives/edgar/data/1378872/000119312525326792/d48091d497.htm"
   },
   {
    "ticker": "QQLV",
@@ -21847,7 +21482,10 @@
     "performanceAsOf": "2026-02-23"
    },
    "holdings": 125,
-   "history": 1
+   "history": 1,
+   "status": "closed",
+   "closedDate": "2026-02-23",
+   "closedSource": "https://www.sec.gov/Archives/edgar/data/1378872/000119312525326792/d48091d497.htm"
   },
   {
    "ticker": "SPVM",
@@ -21936,88 +21574,6 @@
    },
    "holdings": 103,
    "history": 3866
-  },
-  {
-   "ticker": "SPVU",
-   "name": "Invesco S&P 500® Enhanced Value ETF",
-   "listed": false,
-   "category": "US Equity",
-   "fundPage": "https://www.invesco.com/us/en/financial-products/etfs/spvu.html",
-   "dataFile": "./funds/SPVU/meta.json",
-   "cusip": null,
-   "isin": null,
-   "ter": "—",
-   "terValue": null,
-   "terGross": "—",
-   "terGrossValue": null,
-   "nav": "—",
-   "navValue": null,
-   "aum": "—",
-   "aumValue": null,
-   "asOfDate": "—",
-   "inceptionDate": "Jul 17 2026",
-   "exchange": "NYSE Arca",
-   "closePrice": "$61.30",
-   "closePriceValue": 61.3,
-   "premiumDiscount": "—",
-   "premiumDiscountValue": null,
-   "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
-   },
-   "returns": {
-    "monthEnd": {
-     "asOfDate": "Jul 17 2026",
-     "mo1": null,
-     "mo1Text": "—",
-     "qtd": null,
-     "qtdText": "—",
-     "ytd": null,
-     "ytdText": "—",
-     "yr1": null,
-     "yr1Text": "—",
-     "yr3": null,
-     "yr3Text": "—",
-     "yr5": null,
-     "yr5Text": "—",
-     "yr10": null,
-     "yr10Text": "—",
-     "sinceInception": null,
-     "sinceInceptionText": "—"
-    },
-    "quarterEnd": {
-     "asOfDate": "Jun 30 2026",
-     "null": null
-    }
-   },
-   "metrics": {
-    "ytd": null,
-    "tr1y": null,
-    "tr3y": null,
-    "tr5y": null,
-    "tr10y": null,
-    "cagr3y": null,
-    "cagr5y": null,
-    "cagr10y": null,
-    "siAnn": null,
-    "dividendYield": null,
-    "dividendYieldText": "—",
-    "dividendYieldBasis": null,
-    "secYield": null,
-    "secYieldText": "—",
-    "week52Low": null,
-    "week52High": null,
-    "range52w": null,
-    "range52wClose": null,
-    "range52wAsOf": null,
-    "range52wSince": null,
-    "range52wBasis": null,
-    "returnsBasis": "derived from adjusted market-price closes (Yahoo chart API), estimates and not official NAV returns",
-    "performanceAsOf": "2026-07-17"
-   },
-   "holdings": 0,
-   "history": 1
   },
   {
    "ticker": "TAN",
@@ -23243,7 +22799,10 @@
     "performanceAsOf": "2026-02-23"
    },
    "holdings": 102,
-   "history": 1
+   "history": 1,
+   "status": "closed",
+   "closedDate": "2026-02-23",
+   "closedSource": "https://www.sec.gov/Archives/edgar/data/1378872/000119312525326792/d48091d497.htm"
   },
   {
    "ticker": "XSHD",
