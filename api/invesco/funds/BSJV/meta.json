@@ -29,18 +29,18 @@
   }
  },
  "nav": {
-  "display": "$24.63",
-  "value": 24.630644,
-  "asOfDate": "Oct 23 2026"
+  "display": "$24.96",
+  "value": 24.961715,
+  "asOfDate": "Oct 28 2026"
  },
  "marketPrice": {
-  "display": "$24.75",
-  "value": 24.75,
-  "asOfDate": "Oct 23 2026"
+  "display": "$25.04",
+  "value": 25.0358,
+  "asOfDate": "Oct 28 2026"
  },
  "premiumDiscount": {
-  "display": "0.48%",
-  "value": 0.48
+  "display": "0.30%",
+  "value": 0.3
  },
  "aum": {
   "display": "—",
@@ -49,11 +49,11 @@
   "source": "previous run"
  },
  "yields": {
-  "dividendYield": 6.92,
-  "dividendYieldText": "6.92%",
+  "dividendYield": 6.85,
+  "dividendYieldText": "6.85%",
   "dividendYieldBasis": "official-trailing-12m",
   "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
-  "distributionRate": 7.1,
+  "distributionRate": 7.03,
   "secYield": 8.28,
   "secYieldText": "8.28%",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
@@ -62,11 +62,11 @@
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Sep 30 2026",
-   "priceReturnsAsOf": "Oct 23 2026",
-   "mo1": -1.28,
-   "mo1Text": "-1.28%",
-   "qtd": -0.76,
-   "qtdText": "-0.76%",
+   "priceReturnsAsOf": "Oct 29 2026",
+   "mo1": -0.08,
+   "mo1Text": "-0.08%",
+   "qtd": 0.32,
+   "qtdText": "0.32%",
    "ytd": -1.23,
    "ytdText": "-1.23%",
    "yr1": 0.19,
@@ -257,8 +257,8 @@
   ],
   "pageSize": 250,
   "totalRows": 259,
-  "asOfDate": "2026-10-23",
-  "asOf": "Oct 23 2026",
+  "asOfDate": "2026-10-28",
+  "asOf": "Oct 28 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -266,8 +266,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 777,
-  "asOf": "Oct 23 2026",
+  "totalRows": 781,
+  "asOf": "Oct 29 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

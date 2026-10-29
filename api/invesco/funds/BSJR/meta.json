@@ -29,18 +29,18 @@
   }
  },
  "nav": {
-  "display": "$22.09",
-  "value": 22.086936,
-  "asOfDate": "Oct 23 2026"
+  "display": "$22.14",
+  "value": 22.135113,
+  "asOfDate": "Oct 28 2026"
  },
  "marketPrice": {
-  "display": "$22.15",
-  "value": 22.1458,
-  "asOfDate": "Oct 23 2026"
+  "display": "$22.17",
+  "value": 22.1703,
+  "asOfDate": "Oct 28 2026"
  },
  "premiumDiscount": {
-  "display": "0.27%",
-  "value": 0.27
+  "display": "0.16%",
+  "value": 0.16
  },
  "aum": {
   "display": "$849.54 M",
@@ -49,24 +49,24 @@
   "source": "previous run"
  },
  "yields": {
-  "dividendYield": 5.45,
-  "dividendYieldText": "5.45%",
+  "dividendYield": 5.44,
+  "dividendYieldText": "5.44%",
   "dividendYieldBasis": "official-trailing-12m",
   "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
-  "distributionRate": 5.31,
-  "secYield": 6.67,
-  "secYieldText": "6.67%",
+  "distributionRate": 5.3,
+  "secYield": 6.68,
+  "secYieldText": "6.68%",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
  },
  "returns": {
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Sep 30 2026",
-   "priceReturnsAsOf": "Oct 23 2026",
-   "mo1": 0.45,
-   "mo1Text": "0.45%",
-   "qtd": 0.54,
-   "qtdText": "0.54%",
+   "priceReturnsAsOf": "Oct 29 2026",
+   "mo1": 0.41,
+   "mo1Text": "0.41%",
+   "qtd": 0.36,
+   "qtdText": "0.36%",
    "ytd": 1.68,
    "ytdText": "1.68%",
    "yr1": 2.78,
@@ -448,8 +448,8 @@
   ],
   "pageSize": 250,
   "totalRows": 93,
-  "asOfDate": "2026-10-23",
-  "asOf": "Oct 23 2026",
+  "asOfDate": "2026-10-28",
+  "asOf": "Oct 28 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -458,8 +458,8 @@
    "history/002.json"
   ],
   "pageSize": 1000,
-  "totalRows": 1788,
-  "asOf": "Oct 23 2026",
+  "totalRows": 1792,
+  "asOf": "Oct 29 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

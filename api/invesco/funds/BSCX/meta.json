@@ -29,18 +29,18 @@
   }
  },
  "nav": {
-  "display": "$20.23",
-  "value": 20.228738,
-  "asOfDate": "Oct 23 2026"
+  "display": "$20.25",
+  "value": 20.250447,
+  "asOfDate": "Oct 28 2026"
  },
  "marketPrice": {
-  "display": "$20.25",
-  "value": 20.25,
-  "asOfDate": "Oct 23 2026"
+  "display": "$20.26",
+  "value": 20.2551,
+  "asOfDate": "Oct 28 2026"
  },
  "premiumDiscount": {
-  "display": "0.11%",
-  "value": 0.11
+  "display": "0.02%",
+  "value": 0.02
  },
  "aum": {
   "display": "—",
@@ -49,24 +49,24 @@
   "source": "previous run"
  },
  "yields": {
-  "dividendYield": 5.1,
-  "dividendYieldText": "5.10%",
+  "dividendYield": 5.07,
+  "dividendYieldText": "5.07%",
   "dividendYieldBasis": "official-trailing-12m",
   "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
-  "distributionRate": 5,
-  "secYield": 5.85,
-  "secYieldText": "5.85%",
+  "distributionRate": 4.97,
+  "secYield": 5.8,
+  "secYieldText": "5.80%",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
  },
  "returns": {
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Sep 30 2026",
-   "priceReturnsAsOf": "Oct 23 2026",
-   "mo1": 1,
-   "mo1Text": "1.00%",
-   "qtd": 1.4,
-   "qtdText": "1.40%",
+   "priceReturnsAsOf": "Oct 29 2026",
+   "mo1": 1.75,
+   "mo1Text": "1.75%",
+   "qtd": 1.65,
+   "qtdText": "1.65%",
    "ytd": -3.28,
    "ytdText": "-3.28%",
    "yr1": -2.12,
@@ -257,8 +257,8 @@
   ],
   "pageSize": 250,
   "totalRows": 325,
-  "asOfDate": "2026-10-23",
-  "asOf": "Oct 23 2026",
+  "asOfDate": "2026-10-28",
+  "asOf": "Oct 28 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -266,8 +266,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 776,
-  "asOf": "Oct 23 2026",
+  "totalRows": 780,
+  "asOf": "Oct 29 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

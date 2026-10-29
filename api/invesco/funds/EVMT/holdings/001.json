@@ -2,7 +2,7 @@
  "ticker": "EVMT",
  "page": 1,
  "pageSize": 250,
- "totalRows": 3,
+ "totalRows": 4,
  "headers": [
   "Name",
   "Ticker",
@@ -14,29 +14,38 @@
  ],
  "rows": [
   {
+   "Name": "POWERSHARES CAYMAN FUND",
+   "Ticker": "-",
+   "Identifier": "394424KY0",
+   "Weight": "99.921055",
+   "Market Value": "4994725.98",
+   "Shares Held": "1379224.3172",
+   "Asset Category": "Hedge Fund"
+  },
+  {
    "Name": "Invesco Premier US Government Money Portfolio",
    "Ticker": "IUGXX",
    "Identifier": "00142W843",
-   "Weight": "79.239697",
+   "Weight": "80.100196",
    "Market Value": "3993705.12",
    "Shares Held": "3993705.12",
    "Asset Category": "Money Market Fund, Taxable"
   },
   {
-   "Name": "POWERSHARES CAYMAN FUND",
+   "Name": "CASH & EQUIVALENTS",
    "Ticker": "-",
-   "Identifier": "394424KY0",
-   "Weight": "20.760303",
-   "Market Value": "1048459.34",
-   "Shares Held": "277672.3242",
-   "Asset Category": "Hedge Fund"
+   "Identifier": "CASHUSD00",
+   "Weight": "-80.02125",
+   "Market Value": "-4000000",
+   "Shares Held": "-4000000",
+   "Asset Category": "Currency"
   },
   {
    "Name": "USD Pending Dividends",
-   "Ticker": "USDPDV",
+   "Ticker": "-",
    "Identifier": "-",
    "Weight": "",
-   "Market Value": "8144.08",
+   "Market Value": "10241.1",
    "Shares Held": "0",
    "Asset Category": "Currency"
   }
