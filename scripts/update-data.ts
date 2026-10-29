@@ -132,7 +132,7 @@ function outputFundLine(index: number, total: number, ticker: string, status: st
     field('sec', outputPercent(data.secYield ?? data.yields?.secYield ?? metrics.secYield)),
     field('wp', data.workplaceRaw),
   ].filter(part => part !== '').join(' ');
-  return `[ ${String(index).padStart(width)}/${String(total).padEnd(width)}  ] ${outputClean(ticker).padEnd(5)} ${status.padEnd(9)}${detail ? ` ${detail}` : ''}${reason ? ` reason=${outputClean(reason)}` : ''}`;
+  return `[ ${`${String(index).padStart(width)}/${total}`.padEnd(8)} ] ${outputClean(ticker).padEnd(5)} ${status.padEnd(9)}${detail ? ` ${detail}` : ''}${reason ? ` reason=${outputClean(reason)}` : ''}`;
 }
 function outputCreateReporter(root: URL | string, total: number) {
   let completed = 0;
@@ -2101,7 +2101,7 @@ async function loadOfficial(fund: CatalogFund, config: UpdaterConfig, ctx: Offic
   // Without a sitemap the fund page is still reachable through the ?ticker= route.
   if (!url && !ctx.sitemapLoaded) url = isFundPageUrl(fund.fundPage, ticker) ? fund.fundPage : invescoProductDetailUrl(ticker);
   if (!url) {
-    outputNote(`[ ${'official'.padEnd(9)}] ${ticker}: not listed by invesco.com any more - keeping the published values`);
+    outputNote(`[ ${'official'.padEnd(8)} ] ${ticker}: not listed by invesco.com any more - keeping the published values`);
     return null;
   }
   let page = ctx.pages.get(ticker) ?? null;
@@ -2109,7 +2109,7 @@ async function loadOfficial(fund: CatalogFund, config: UpdaterConfig, ctx: Offic
     try {
       page = parseFundPageFor(ticker, await fetchText(url, `[ page     ] ${ticker}`, invescoHeaders(), config));
     } catch (error) {
-      outputNote(`[ ${'page'.padEnd(9)}] ${ticker}: ${errorMessage(error)}`);
+      outputNote(`[ ${'page'.padEnd(8)} ] ${ticker}: ${errorMessage(error)}`);
     }
   }
   const cusip = page?.cusip || fund.cusip;
@@ -2123,15 +2123,15 @@ async function loadOfficial(fund: CatalogFund, config: UpdaterConfig, ctx: Offic
     // unknown ownership: keep the published values rather than risk the other fund's
     if (owns === null) return null;
     if (!owns) {
-      outputNote(`[ ${'official'.padEnd(9)}] ${ticker}: CUSIP ${cusip} belongs to ${others.join(', ')} now (renamed fund) - not listed`);
+      outputNote(`[ ${'official'.padEnd(8)} ] ${ticker}: CUSIP ${cusip} belongs to ${others.join(', ')} now (renamed fund) - not listed`);
       return { ...official, supersededBy: others.join(', ') };
     }
   }
   const call = async <T>(label: string, endpoint: Parameters<typeof dngUrl>[1], parse: (payload: JsonRecord) => T): Promise<T | null> => {
     try {
-      return parse(await fetchJson(dngUrl(cusip, endpoint), `[ ${label.padEnd(9)}] ${ticker}`, invescoHeaders(), config));
+      return parse(await fetchJson(dngUrl(cusip, endpoint), `[ ${label.padEnd(8)} ] ${ticker}`, invescoHeaders(), config));
     } catch (error) {
-      outputNote(`[ ${label.padEnd(9)}] ${ticker}: ${errorMessage(error)}`);
+      outputNote(`[ ${label.padEnd(8)} ] ${ticker}: ${errorMessage(error)}`);
       return null;
     }
   };
@@ -2146,7 +2146,7 @@ async function ownsCusip(ticker: string, config: UpdaterConfig): Promise<boolean
     const payload: unknown = await fetchJson(dngTickerPricesUrl(ticker), `[ prices   ] ${ticker}`, invescoHeaders(), config);
     return !Array.isArray(payload) || payload.length > 0;
   } catch (error) {
-    outputNote(`[ ${'prices'.padEnd(9)}] ${ticker}: ${errorMessage(error)}`);
+    outputNote(`[ ${'prices'.padEnd(8)} ] ${ticker}: ${errorMessage(error)}`);
     return null;
   }
 }
@@ -2281,7 +2281,7 @@ async function processFund(
     try {
       holdings = parseDngHoldings(await fetchJson(dngUrl(official.cusip, 'holdings'), `[ holdings ] ${ticker}`, invescoHeaders(), config), ticker);
     } catch (error) {
-      outputNote(`[ ${'holdings'.padEnd(9)}] ${ticker}: ${errorMessage(error)}${config.edgarFallback ? ' — trying SEC EDGAR N-PORT-P' : ''}`);
+      outputNote(`[ ${'holdings'.padEnd(8)} ] ${ticker}: ${errorMessage(error)}${config.edgarFallback ? ' — trying SEC EDGAR N-PORT-P' : ''}`);
     }
   }
 
@@ -2297,22 +2297,22 @@ async function processFund(
       const read: NportRead = wanted
         ? await readNportHoldings(wanted, { asOf: (previousMeta.holdings as JsonRecord | undefined)?.asOfDate, rows: numberOrNull((previousMeta.holdings as JsonRecord | undefined)?.totalRows) ?? 0 }, (url, label) => fetchText(url, `[ nport    ] ${label}`, secHeaders(config), config), { cache: secState.reader })
         : { problem: `${ticker}: no registrant CIK in the SEC fund ticker table or the EDGAR full-text search` };
-      if ('problem' in read) outputNote(`[ ${'edgar'.padEnd(9)}] ${read.problem}`);
+      if ('problem' in read) outputNote(`[ ${'edgar'.padEnd(8)} ] ${read.problem}`);
       else {
         let names: Map<string, string> | null = null;
         try {
           names = await loadCompanyNames(config);
         } catch (error) {
-          outputNote(`[ ${'edgar'.padEnd(9)}] company ticker table: ${errorMessage(error)} - N-PORT tickers only from the filing`);
+          outputNote(`[ ${'edgar'.padEnd(8)} ] company ticker table: ${errorMessage(error)} - N-PORT tickers only from the filing`);
         }
         const sheet = nportHoldingsSheet(read.filing, nportTickers(read.filing.positions, names, await loadUsListings((url, label) => fetchText(url, `[ nport    ] ${label}`, secHeaders(config), config))));
-        if (read.loose) outputNote(`[ ${'edgar'.padEnd(9)}] ${ticker}: ${read.candidate.accession} matched by a partial name ("${read.filing.seriesName}")`);
+        if (read.loose) outputNote(`[ ${'edgar'.padEnd(8)} ] ${ticker}: ${read.candidate.accession} matched by a partial name ("${read.filing.seriesName}")`);
         holdingsEdgar = read.filing;
         holdings = { asOfDate: read.filing.repPdDate || null, headers: sheet.headers, rows: sheet.rows };
         holdingsSource = `SEC EDGAR Form N-PORT-P (accession ${read.candidate.accession}, report period ${read.filing.repPdDate || 'n/a'})`;
       }
     } catch (error) {
-      outputNote(`[ ${'edgar'.padEnd(9)}] ${ticker}: ${errorMessage(error)} — keeping previous holdings`);
+      outputNote(`[ ${'edgar'.padEnd(8)} ] ${ticker}: ${errorMessage(error)} — keeping previous holdings`);
     }
   }
 
@@ -2373,7 +2373,7 @@ async function processFund(
       dividends = chart.dividends;
       chartDays = chart.days;
     } catch (error) {
-      outputNote(`[ ${'chart'.padEnd(9)}] ${ticker}: ${errorMessage(error)} — keeping previous history`);
+      outputNote(`[ ${'chart'.padEnd(8)} ] ${ticker}: ${errorMessage(error)} — keeping previous history`);
     }
   }
 
@@ -2613,7 +2613,7 @@ async function nportFund(fund: CatalogFund, config: UpdaterConfig): Promise<{ ti
   try {
     table = await loadFundTickerTable(config);
   } catch (error) {
-    outputNote(`[ ${'edgar'.padEnd(9)}] fund ticker table: ${errorMessage(error)} - falling back to full-text search`);
+    outputNote(`[ ${'edgar'.padEnd(8)} ] fund ticker table: ${errorMessage(error)} - falling back to full-text search`);
   }
   const ref = table ? table.get(fund.ticker) : undefined;
   if (ref) return { ticker: fund.ticker, cik: ref.cik, seriesId: ref.seriesId, name: fund.name };
@@ -2628,7 +2628,7 @@ async function nportFund(fund: CatalogFund, config: UpdaterConfig): Promise<{ ti
     const cik = await lookup;
     return cik ? { ticker: fund.ticker, cik, seriesId: null, name: fund.name } : null;
   } catch (error) {
-    outputNote(`[ ${'edgar'.padEnd(9)}] search ${fund.ticker}: ${errorMessage(error)}`);
+    outputNote(`[ ${'edgar'.padEnd(8)} ] search ${fund.ticker}: ${errorMessage(error)}`);
     return null;
   }
 }
@@ -2643,7 +2643,7 @@ async function nportFund(fund: CatalogFund, config: UpdaterConfig): Promise<{ ti
 async function discoverOfficialFunds(config: UpdaterConfig, catalog: Map<string, CatalogFund>, ctx: OfficialContext): Promise<number> {
   let urls: string[] = [];
   try {
-    urls = parseSitemapFundPages(await fetchText(config.sitemapUrl, '[catalog ] sitemap', invescoHeaders(), config));
+    urls = parseSitemapFundPages(await fetchText(config.sitemapUrl, '[ catalog  ] sitemap', invescoHeaders(), config));
   } catch (error) {
     console.warn(`[ catalog  ] ${errorMessage(error)} - keeping the published universe`);
     return 0;
@@ -2672,7 +2672,7 @@ async function discoverOfficialFunds(config: UpdaterConfig, catalog: Map<string,
     Array.from({ length: Math.max(1, config.concurrency) }, async () => {
       for (let url = queue.shift(); url; url = queue.shift()) {
         try {
-          const page = parseFundPage(await fetchText(url, '[ catalog ] fund page', invescoHeaders(), config));
+          const page = parseFundPage(await fetchText(url, '[ catalog  ] fund page', invescoHeaders(), config));
           if (!page) continue;
           ctx.pages.set(page.ticker, ctx.pages.get(page.ticker) ?? page);
           if (!ctx.pageUrls.has(page.ticker)) ctx.pageUrls.set(page.ticker, url);
@@ -2681,7 +2681,7 @@ async function discoverOfficialFunds(config: UpdaterConfig, catalog: Map<string,
             added += 1;
           }
         } catch (error) {
-          outputNote(`[ ${'catalog'.padEnd(9)}] ${url}: ${errorMessage(error)}`);
+          outputNote(`[ ${'catalog'.padEnd(8)} ] ${url}: ${errorMessage(error)}`);
         }
       }
     }),
@@ -2728,7 +2728,7 @@ export async function runUpdater(config: UpdaterConfig): Promise<void> {
   // Renamed funds leave before anything else: never fetched, never in the index, their folder is removed after the index
   const renamedAway = dropRenamedFunds(catalog, RENAMED_FUNDS);
   if (renamedAway.length) {
-    console.log(`[ ${'renamed'.padEnd(9)}] ${renamedAway.map((ticker) => `${ticker} -> ${renamedFund(RENAMED_FUNDS, ticker)?.renamedTo}`).join(', ')}: renamed by the issuer, old ticker removed`);
+    console.log(`[ ${'renamed'.padEnd(8)} ] ${renamedAway.map((ticker) => `${ticker} -> ${renamedFund(RENAMED_FUNDS, ticker)?.renamedTo}`).join(', ')}: renamed by the issuer, old ticker removed`);
   }
   // The live catalog is the loaded sitemap (null without one): a catalog-only row (no published data) it no longer lists, for
   // example an old mistyped TICKERS entry, is dropped, never retried (open-items etfs Q27)
@@ -2752,7 +2752,7 @@ export async function runUpdater(config: UpdaterConfig): Promise<void> {
     );
     return;
   }
-  console.log(`[ ${'catalog'.padEnd(9)}] ${universe.length} Invesco ETFs (${catalogSource})`);
+  console.log(`[ ${'catalog'.padEnd(8)} ] ${universe.length} Invesco ETFs (${catalogSource})`);
 
   // 2) Bounded, resumable batch run over the catalog (iShares/SPDR cursor).
   // A TICKERS run never reads, writes or deletes the cursor (First-Trust rule).
@@ -2821,7 +2821,7 @@ export async function runUpdater(config: UpdaterConfig): Promise<void> {
 
   await Promise.all(Array.from({ length: Math.max(1, config.concurrency) }, () => worker()));
   const lastExamined = started > 0 ? ordered[started - 1].ticker : cursor;
-  if (deadlineHit) console.log(`[ ${'deadline'.padEnd(9)}] soft deadline reached after ${started} funds - the rest keeps its published rows and the next run resumes after ${lastExamined}`);
+  if (deadlineHit) console.log(`[ ${'deadline'.padEnd(8)} ] soft deadline reached after ${started} funds - the rest keeps its published rows and the next run resumes after ${lastExamined}`);
 
   // Funds not selected for a successful update keep their previously published rows.
   // A kept row whose funds/<T>/meta.json does not exist has dataFile null (the hub shows its Overview only).
@@ -2887,7 +2887,7 @@ export async function runUpdater(config: UpdaterConfig): Promise<void> {
 }
 
 async function yahooSearchForTicker(name: string, config: UpdaterConfig): Promise<string | null> {
-  const payload = await fetchJson(yahooSearchUrl(name), `[ticker  ] ${name}`, yahooHeaders(), config);
+  const payload = await fetchJson(yahooSearchUrl(name), `[ ticker   ] ${name}`, yahooHeaders(), config);
   return pickSearchTicker(name, payload);
 }
 
