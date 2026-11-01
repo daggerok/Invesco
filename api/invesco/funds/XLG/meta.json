@@ -29,28 +29,28 @@
   }
  },
  "nav": {
-  "display": "$63.52",
-  "value": 63.519066,
-  "asOfDate": "Oct 28 2026"
+  "display": "$61.47",
+  "value": 61.469378,
+  "asOfDate": "Oct 30 2026"
  },
  "marketPrice": {
-  "display": "$63.59",
-  "value": 63.59,
-  "asOfDate": "Oct 28 2026"
+  "display": "$61.47",
+  "value": 61.47,
+  "asOfDate": "Oct 30 2026"
  },
  "premiumDiscount": {
-  "display": "0.11%",
-  "value": 0.11
+  "display": "0.00%",
+  "value": 0
  },
  "aum": {
-  "display": "$11,916.04 M",
-  "value": 11916040176.91,
-  "asOfDate": "Oct 28 2026",
+  "display": "$11,511.24 M",
+  "value": 11511238203.08,
+  "asOfDate": "Oct 30 2026",
   "source": "Invesco fund API prices endpoint (net assets / market value)"
  },
  "yields": {
-  "dividendYield": 0.62,
-  "dividendYieldText": "0.62%",
+  "dividendYield": 0.63,
+  "dividendYieldText": "0.63%",
   "dividendYieldBasis": "official-trailing-12m",
   "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
   "distributionRate": 0.56,
@@ -62,11 +62,11 @@
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Sep 30 2026",
-   "priceReturnsAsOf": "Oct 29 2026",
-   "mo1": -1.33,
-   "mo1Text": "-1.33%",
-   "qtd": -1.13,
-   "qtdText": "-1.13%",
+   "priceReturnsAsOf": "Oct 30 2026",
+   "mo1": -3.38,
+   "mo1Text": "-3.38%",
+   "qtd": -3.38,
+   "qtdText": "-3.38%",
    "ytd": 7.77,
    "ytdText": "7.77%",
    "yr1": 11.2,
@@ -440,8 +440,8 @@
   ],
   "pageSize": 250,
   "totalRows": 54,
-  "asOfDate": "2026-10-28",
-  "asOf": "Oct 28 2026",
+  "asOfDate": "2026-10-29",
+  "asOf": "Oct 29 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -454,8 +454,8 @@
    "history/006.json"
   ],
   "pageSize": 1000,
-  "totalRows": 5403,
-  "asOf": "Oct 29 2026",
+  "totalRows": 5404,
+  "asOf": "Oct 30 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

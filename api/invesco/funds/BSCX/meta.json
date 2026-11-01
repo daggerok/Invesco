@@ -29,18 +29,18 @@
   }
  },
  "nav": {
-  "display": "$20.25",
-  "value": 20.250447,
-  "asOfDate": "Oct 28 2026"
+  "display": "$20.33",
+  "value": 20.325098,
+  "asOfDate": "Oct 30 2026"
  },
  "marketPrice": {
-  "display": "$20.26",
-  "value": 20.2551,
-  "asOfDate": "Oct 28 2026"
+  "display": "$20.33",
+  "value": 20.3251,
+  "asOfDate": "Oct 30 2026"
  },
  "premiumDiscount": {
-  "display": "0.02%",
-  "value": 0.02
+  "display": "0.00%",
+  "value": 0
  },
  "aum": {
   "display": "—",
@@ -49,11 +49,11 @@
   "source": "previous run"
  },
  "yields": {
-  "dividendYield": 5.07,
-  "dividendYieldText": "5.07%",
+  "dividendYield": 5.06,
+  "dividendYieldText": "5.06%",
   "dividendYieldBasis": "official-trailing-12m",
   "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
-  "distributionRate": 4.97,
+  "distributionRate": 4.96,
   "secYield": 5.8,
   "secYieldText": "5.80%",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
@@ -62,11 +62,11 @@
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Sep 30 2026",
-   "priceReturnsAsOf": "Oct 29 2026",
-   "mo1": 1.75,
-   "mo1Text": "1.75%",
-   "qtd": 1.65,
-   "qtdText": "1.65%",
+   "priceReturnsAsOf": "Oct 30 2026",
+   "mo1": 1.8,
+   "mo1Text": "1.80%",
+   "qtd": 1.8,
+   "qtdText": "1.80%",
    "ytd": -3.28,
    "ytdText": "-3.28%",
    "yr1": -2.12,
@@ -257,8 +257,8 @@
   ],
   "pageSize": 250,
   "totalRows": 325,
-  "asOfDate": "2026-10-28",
-  "asOf": "Oct 28 2026",
+  "asOfDate": "2026-10-29",
+  "asOf": "Oct 29 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -266,8 +266,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 780,
-  "asOf": "Oct 29 2026",
+  "totalRows": 781,
+  "asOf": "Oct 30 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

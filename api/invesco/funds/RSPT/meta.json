@@ -29,23 +29,23 @@
   }
  },
  "nav": {
-  "display": "$66.43",
-  "value": 66.427121,
-  "asOfDate": "Oct 28 2026"
+  "display": "$62.97",
+  "value": 62.96709,
+  "asOfDate": "Oct 30 2026"
  },
  "marketPrice": {
-  "display": "$66.46",
-  "value": 66.46,
-  "asOfDate": "Oct 28 2026"
+  "display": "$62.95",
+  "value": 62.95,
+  "asOfDate": "Oct 30 2026"
  },
  "premiumDiscount": {
-  "display": "0.05%",
-  "value": 0.05
+  "display": "-0.03%",
+  "value": -0.03
  },
  "aum": {
-  "display": "$6,220.24 M",
-  "value": 6220235654.21,
-  "asOfDate": "Oct 28 2026",
+  "display": "$5,940.32 M",
+  "value": 5940315259.48,
+  "asOfDate": "Oct 30 2026",
   "source": "Invesco fund API prices endpoint (net assets / market value)"
  },
  "yields": {
@@ -54,19 +54,19 @@
   "dividendYieldBasis": "official-trailing-12m",
   "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
   "distributionRate": 0.2,
-  "secYield": 0.19,
-  "secYieldText": "0.19%",
+  "secYield": 0.24,
+  "secYieldText": "0.24%",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
  },
  "returns": {
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Sep 30 2026",
-   "priceReturnsAsOf": "Oct 29 2026",
-   "mo1": 0.06,
-   "mo1Text": "0.06%",
-   "qtd": -2.67,
-   "qtdText": "-2.67%",
+   "priceReturnsAsOf": "Oct 30 2026",
+   "mo1": -6.63,
+   "mo1Text": "-6.63%",
+   "qtd": -6.63,
+   "qtdText": "-6.63%",
    "ytd": 44.98,
    "ytdText": "44.98%",
    "yr1": 48.14,
@@ -408,8 +408,8 @@
   ],
   "pageSize": 250,
   "totalRows": 79,
-  "asOfDate": "2026-10-28",
-  "asOf": "Oct 28 2026",
+  "asOfDate": "2026-10-29",
+  "asOf": "Oct 29 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -422,8 +422,8 @@
    "history/006.json"
   ],
   "pageSize": 1000,
-  "totalRows": 5025,
-  "asOf": "Oct 29 2026",
+  "totalRows": 5026,
+  "asOf": "Oct 30 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }
