@@ -2,7 +2,7 @@
  "ticker": "PBP",
  "page": 3,
  "pageSize": 250,
- "totalRows": 508,
+ "totalRows": 509,
  "headers": [
   "Name",
   "Ticker",
@@ -14,11 +14,20 @@
  ],
  "rows": [
   {
+   "Name": "MGM Resorts International",
+   "Ticker": "MGM",
+   "Identifier": "552953101",
+   "Weight": "0.009055",
+   "Market Value": "34362.24",
+   "Shares Held": "1056",
+   "Asset Category": "Common Stock"
+  },
+  {
    "Name": "Brown-Forman Corp",
    "Ticker": "BF/B",
    "Identifier": "115637209",
-   "Weight": "0.007562",
-   "Market Value": "29778.48",
+   "Weight": "0.008665",
+   "Market Value": "32879.52",
    "Shares Held": "1062",
    "Asset Category": "Common Stock"
   },
@@ -26,17 +35,26 @@
    "Name": "Skydance Corp",
    "Ticker": "SKYD",
    "Identifier": "69932A204",
-   "Weight": "0.00656",
-   "Market Value": "25833",
+   "Weight": "0.007023",
+   "Market Value": "26650.5",
    "Shares Held": "3270",
    "Asset Category": "Common Stock"
+  },
+  {
+   "Name": "Invesco Government & Agency Portfolio",
+   "Ticker": "AGPXX",
+   "Identifier": "825252885",
+   "Weight": "0.006459",
+   "Market Value": "24504.29",
+   "Shares Held": "24504.29",
+   "Asset Category": "Money Market Fund, Taxable"
   },
   {
    "Name": "News Corp",
    "Ticker": "NWS",
    "Identifier": "65249B208",
-   "Weight": "0.005835",
-   "Market Value": "22976.52",
+   "Weight": "0.005451",
+   "Market Value": "20684.58",
    "Shares Held": "714",
    "Asset Category": "Common Stock"
   },
@@ -59,20 +77,11 @@
    "Asset Category": "Uninvestible Cash"
   },
   {
-   "Name": "CASH & EQUIVALENTS",
-   "Ticker": "-",
-   "Identifier": "CASHUSD00",
-   "Weight": "-0.018902",
-   "Market Value": "-74433.86",
-   "Shares Held": "-74433.86",
-   "Asset Category": "Currency"
-  },
-  {
    "Name": "S&P 500 INDEX",
    "Ticker": "-",
    "Identifier": "SPX201126",
-   "Weight": "-1.259883",
-   "Market Value": "-4961340",
+   "Weight": "-0.109463",
+   "Market Value": "-415380",
    "Shares Held": "-516",
    "Asset Category": "Index Call Option"
   },
@@ -81,7 +90,7 @@
    "Ticker": "-",
    "Identifier": "-",
    "Weight": "",
-   "Market Value": "177428.37",
+   "Market Value": "139069.49",
    "Shares Held": "0",
    "Asset Category": "Currency"
   }

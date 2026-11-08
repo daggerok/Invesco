@@ -2,7 +2,7 @@
  "ticker": "GGME",
  "page": 1,
  "pageSize": 250,
- "totalRows": 108,
+ "totalRows": 109,
  "headers": [
   "Name",
   "Ticker",
@@ -10,899 +10,1110 @@
   "Weight",
   "Market Value",
   "Shares Held",
-  "Asset Category"
+  "Asset Category",
+  "Coupon",
+  "Maturity"
  ],
  "rows": [
-  {
-   "Name": "Advanced Micro Devices Inc",
-   "Ticker": "AMD",
-   "Identifier": "007903107",
-   "Weight": "9.060077",
-   "Market Value": "3928689.12",
-   "Shares Held": "6936",
-   "Asset Category": "Common Stock"
-  },
   {
    "Name": "Apple Inc",
    "Ticker": "AAPL",
    "Identifier": "037833100",
-   "Weight": "8.607156",
-   "Market Value": "3732290.27",
+   "Weight": "8.888409",
+   "Market Value": "3681586.49",
    "Shares Held": "10697",
-   "Asset Category": "Common Stock"
-  },
-  {
-   "Name": "NVIDIA Corp",
-   "Ticker": "NVDA",
-   "Identifier": "67066G104",
-   "Weight": "7.882174",
-   "Market Value": "3417919.02",
-   "Shares Held": "15997",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "Meta Platforms Inc",
    "Ticker": "META",
    "Identifier": "30303M102",
-   "Weight": "7.807464",
-   "Market Value": "3385522.92",
+   "Weight": "7.919198",
+   "Market Value": "3280138.68",
    "Shares Held": "5421",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "Netflix Inc",
    "Ticker": "NFLX",
    "Identifier": "64110L106",
-   "Weight": "6.576241",
-   "Market Value": "2851631.85",
+   "Weight": "7.274106",
+   "Market Value": "3012940.92",
    "Shares Held": "45957",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
+  },
+  {
+   "Name": "NVIDIA Corp",
+   "Ticker": "NVDA",
+   "Identifier": "67066G104",
+   "Weight": "7.013639",
+   "Market Value": "2905055.2",
+   "Shares Held": "15997",
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
+  },
+  {
+   "Name": "Advanced Micro Devices Inc",
+   "Ticker": "AMD",
+   "Identifier": "007903107",
+   "Weight": "6.77188",
+   "Market Value": "2804918.4",
+   "Shares Held": "6936",
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "Spotify Technology SA",
    "Ticker": "SPOT",
    "Identifier": "L8681T102",
-   "Weight": "4.839571",
-   "Market Value": "2098565.84",
+   "Weight": "5.586343",
+   "Market Value": "2313868.06",
    "Shares Held": "3766",
-   "Asset Category": "Common Stock"
-  },
-  {
-   "Name": "QUALCOMM Inc",
-   "Ticker": "QCOM",
-   "Identifier": "747525103",
-   "Weight": "4.749986",
-   "Market Value": "2059719.69",
-   "Shares Held": "11109",
-   "Asset Category": "Common Stock"
-  },
-  {
-   "Name": "Cloudflare Inc",
-   "Ticker": "NET",
-   "Identifier": "18915M107",
-   "Weight": "4.518969",
-   "Market Value": "1959544.5",
-   "Shares Held": "6315",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "Adobe Inc",
    "Ticker": "ADBE",
    "Identifier": "00724F101",
-   "Weight": "4.518644",
-   "Market Value": "1959403.64",
+   "Weight": "4.698534",
+   "Market Value": "1946136.68",
    "Shares Held": "7897",
-   "Asset Category": "Common Stock"
-  },
-  {
-   "Name": "MediaTek Inc",
-   "Ticker": "-",
-   "Identifier": "Y5945U103",
-   "Weight": "3.759673",
-   "Market Value": "1630293.79",
-   "Shares Held": "13140",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "Nintendo Co Ltd",
    "Ticker": "-",
    "Identifier": "J51699106",
-   "Weight": "3.751811",
-   "Market Value": "1618228.22",
+   "Weight": "4.23238",
+   "Market Value": "1738107.87",
    "Shares Held": "31081",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
+  },
+  {
+   "Name": "QUALCOMM Inc",
+   "Ticker": "QCOM",
+   "Identifier": "747525103",
+   "Weight": "4.204085",
+   "Market Value": "1741335.75",
+   "Shares Held": "11109",
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
+  },
+  {
+   "Name": "Cloudflare Inc",
+   "Ticker": "NET",
+   "Identifier": "18915M107",
+   "Weight": "3.727855",
+   "Market Value": "1544080.65",
+   "Shares Held": "6315",
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "Autodesk Inc",
    "Ticker": "ADSK",
    "Identifier": "052769106",
-   "Weight": "3.13795",
-   "Market Value": "1360698.17",
+   "Weight": "3.657891",
+   "Market Value": "1515101.64",
    "Shares Held": "5629",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
-   "Name": "ROBLOX Corp",
-   "Ticker": "RBLX",
-   "Identifier": "771049103",
-   "Weight": "2.198322",
-   "Market Value": "953250.66",
-   "Shares Held": "18171",
-   "Asset Category": "Common Stock"
-  },
-  {
-   "Name": "Take-Two Interactive Software Inc",
-   "Ticker": "TTWO",
-   "Identifier": "874054109",
-   "Weight": "2.148746",
-   "Market Value": "931753.02",
-   "Shares Held": "4818",
-   "Asset Category": "Common Stock"
+   "Name": "MediaTek Inc",
+   "Ticker": "-",
+   "Identifier": "Y5945U103",
+   "Weight": "3.05178",
+   "Market Value": "1264049.86",
+   "Shares Held": "13140",
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "NetEase Inc",
    "Ticker": "-",
    "Identifier": "-",
-   "Weight": "2.14694",
-   "Market Value": "930970.13",
+   "Weight": "2.529534",
+   "Market Value": "1047735.25",
    "Shares Held": "41569",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
+  },
+  {
+   "Name": "Take-Two Interactive Software Inc",
+   "Ticker": "TTWO",
+   "Identifier": "874054109",
+   "Weight": "2.481812",
+   "Market Value": "1027968.48",
+   "Shares Held": "4818",
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "Xiaomi Corp",
    "Ticker": "-",
    "Identifier": "G9830T106",
-   "Weight": "1.840752",
-   "Market Value": "798198.57",
+   "Weight": "2.309751",
+   "Market Value": "956700.99",
    "Shares Held": "242525",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
+  },
+  {
+   "Name": "ROBLOX Corp",
+   "Ticker": "RBLX",
+   "Identifier": "771049103",
+   "Weight": "2.090406",
+   "Market Value": "865848.15",
+   "Shares Held": "18171",
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "Aristocrat Leisure Ltd",
    "Ticker": "-",
    "Identifier": "Q0521T108",
-   "Weight": "1.671629",
-   "Market Value": "724862.62",
+   "Weight": "1.783646",
+   "Market Value": "738787.54",
    "Shares Held": "16192",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "Zoom Communications Inc",
    "Ticker": "ZM",
    "Identifier": "98980L101",
-   "Weight": "1.616382",
-   "Market Value": "700905.82",
+   "Weight": "1.539015",
+   "Market Value": "637461.14",
    "Shares Held": "7177",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "Dassault Systemes SE",
    "Ticker": "-",
    "Identifier": "F24571451",
-   "Weight": "1.293462",
-   "Market Value": "560879.49",
+   "Weight": "1.417301",
+   "Market Value": "587047.27",
    "Shares Held": "20031",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "Roku Inc",
    "Ticker": "ROKU",
    "Identifier": "77543R102",
-   "Weight": "1.291014",
-   "Market Value": "559817.73",
+   "Weight": "1.386489",
+   "Market Value": "574284.97",
    "Shares Held": "3581",
-   "Asset Category": "Common Stock"
-  },
-  {
-   "Name": "Reddit Inc",
-   "Ticker": "RDDT",
-   "Identifier": "75734B100",
-   "Weight": "1.184142",
-   "Market Value": "513475.2",
-   "Shares Held": "3962",
-   "Asset Category": "Common Stock"
-  },
-  {
-   "Name": "Lenovo Group Ltd",
-   "Ticker": "-",
-   "Identifier": "Y5257Y107",
-   "Weight": "1.022007",
-   "Market Value": "443169.39",
-   "Shares Held": "156100",
-   "Asset Category": "Common Stock"
-  },
-  {
-   "Name": "Hexagon AB",
-   "Ticker": "-",
-   "Identifier": "W4R431112",
-   "Weight": "0.914698",
-   "Market Value": "396637.03",
-   "Shares Held": "35407",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "Unity Software Inc",
    "Ticker": "U",
    "Identifier": "91332U101",
-   "Weight": "0.911324",
-   "Market Value": "395174.01",
+   "Weight": "1.185595",
+   "Market Value": "491074.4",
    "Shares Held": "10063",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "Konami Group Corp",
    "Ticker": "-",
    "Identifier": "J3600L101",
-   "Weight": "0.840809",
-   "Market Value": "362823.63",
+   "Weight": "1.073117",
+   "Market Value": "442713.26",
    "Shares Held": "2499",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
+  },
+  {
+   "Name": "Hexagon AB",
+   "Ticker": "-",
+   "Identifier": "W4R431112",
+   "Weight": "0.943671",
+   "Market Value": "390869.33",
+   "Shares Held": "35407",
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
+  },
+  {
+   "Name": "Reddit Inc",
+   "Ticker": "RDDT",
+   "Identifier": "75734B100",
+   "Weight": "0.897331",
+   "Market Value": "371675.22",
+   "Shares Held": "3962",
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
+  },
+  {
+   "Name": "Lenovo Group Ltd",
+   "Ticker": "-",
+   "Identifier": "Y5257Y107",
+   "Weight": "0.870685",
+   "Market Value": "360638.53",
+   "Shares Held": "156100",
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "Logitech International SA",
    "Ticker": "-",
    "Identifier": "H50430232",
-   "Weight": "0.79752",
-   "Market Value": "345825.6",
+   "Weight": "0.823006",
+   "Market Value": "340889.69",
    "Shares Held": "3498",
-   "Asset Category": "Common Stock"
-  },
-  {
-   "Name": "Pinterest Inc",
-   "Ticker": "PINS",
-   "Identifier": "72352L106",
-   "Weight": "0.613228",
-   "Market Value": "265912.08",
-   "Shares Held": "13349",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "DraftKings Inc",
    "Ticker": "DKNG",
    "Identifier": "26142V105",
-   "Weight": "0.598053",
-   "Market Value": "259331.52",
+   "Weight": "0.710709",
+   "Market Value": "294376.32",
    "Shares Held": "12516",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
+  },
+  {
+   "Name": "Pinterest Inc",
+   "Ticker": "PINS",
+   "Identifier": "72352L106",
+   "Weight": "0.637799",
+   "Market Value": "264176.71",
+   "Shares Held": "13349",
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "Evolution AB",
    "Ticker": "-",
    "Identifier": "W3287P115",
-   "Weight": "0.549906",
-   "Market Value": "238453.7",
+   "Weight": "0.597656",
+   "Market Value": "247549.48",
    "Shares Held": "2837",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "Bentley Systems Inc",
    "Ticker": "BSY",
    "Identifier": "08265T208",
-   "Weight": "0.486421",
-   "Market Value": "210924.95",
+   "Weight": "0.577101",
+   "Market Value": "239035.86",
    "Shares Held": "5319",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "Capcom Co Ltd",
    "Ticker": "-",
    "Identifier": "J05187109",
-   "Weight": "0.446449",
-   "Market Value": "192406.37",
+   "Weight": "0.540452",
+   "Market Value": "222670.51",
    "Shares Held": "8136",
-   "Asset Category": "Common Stock"
-  },
-  {
-   "Name": "Snap Inc",
-   "Ticker": "SNAP",
-   "Identifier": "83304A106",
-   "Weight": "0.43124",
-   "Market Value": "186996.96",
-   "Shares Held": "32922",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "Nexon Co Ltd",
    "Ticker": "-",
    "Identifier": "J4914X104",
-   "Weight": "0.385328",
-   "Market Value": "144830.36",
+   "Weight": "0.421237",
+   "Market Value": "152224.32",
    "Shares Held": "8465",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
-   "Name": "Figma Inc",
-   "Ticker": "FIG",
-   "Identifier": "316841105",
-   "Weight": "0.349449",
-   "Market Value": "151530.48",
-   "Shares Held": "6789",
-   "Asset Category": "Common Stock"
-  },
-  {
-   "Name": "Trade Desk Inc/The",
-   "Ticker": "TTD",
-   "Identifier": "88339J105",
-   "Weight": "0.348587",
-   "Market Value": "151156.44",
-   "Shares Held": "11574",
-   "Asset Category": "Common Stock"
-  },
-  {
-   "Name": "Invesco Government & Agency Portfolio",
-   "Ticker": "AGPXX",
-   "Identifier": "825252885",
-   "Weight": "0.340236",
-   "Market Value": "147004.93",
-   "Shares Held": "147004.93",
-   "Asset Category": "Money Market Fund, Taxable"
+   "Name": "Snap Inc",
+   "Ticker": "SNAP",
+   "Identifier": "83304A106",
+   "Weight": "0.404569",
+   "Market Value": "167572.98",
+   "Shares Held": "32922",
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "Xometry Inc",
    "Ticker": "XMTR",
    "Identifier": "98423F109",
-   "Weight": "0.334574",
-   "Market Value": "145079.98",
+   "Weight": "0.378718",
+   "Market Value": "156865.39",
    "Shares Held": "1439",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
-   "Name": "CAMBRICON TECH A (HK-C)",
-   "Ticker": "-",
-   "Identifier": "-",
-   "Weight": "0.313344",
-   "Market Value": "135874.21",
-   "Shares Held": "991",
-   "Asset Category": "Common Stock"
+   "Name": "Trade Desk Inc/The",
+   "Ticker": "TTD",
+   "Identifier": "88339J105",
+   "Weight": "0.357949",
+   "Market Value": "148262.94",
+   "Shares Held": "11574",
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
+  },
+  {
+   "Name": "Invesco Government & Agency Portfolio",
+   "Ticker": "AGPXX",
+   "Identifier": "825252885",
+   "Weight": "0.356506",
+   "Market Value": "147587.44",
+   "Shares Held": "147587.44",
+   "Asset Category": "Money Market Fund, Taxable",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "CD Projekt Red SA",
    "Ticker": "-",
    "Identifier": "X0957E106",
-   "Weight": "0.300512",
-   "Market Value": "130310.05",
+   "Weight": "0.306273",
+   "Market Value": "126858.37",
    "Shares Held": "1897",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
+  },
+  {
+   "Name": "Figma Inc",
+   "Ticker": "FIG",
+   "Identifier": "316841105",
+   "Weight": "0.302243",
+   "Market Value": "125189.16",
+   "Shares Held": "6789",
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "Tencent Music Entertainment Group",
    "Ticker": "-",
    "Identifier": "G87577113",
-   "Weight": "0.250508",
-   "Market Value": "108627.02",
+   "Weight": "0.298021",
+   "Market Value": "123440.49",
    "Shares Held": "26159",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
-   "Name": "Shanghai Biren Technology Co Ltd",
+   "Name": "CAMBRICON TECH A (HK-C)",
    "Ticker": "-",
-   "Identifier": "Y768WN109",
-   "Weight": "0.22909",
-   "Market Value": "99339.29",
-   "Shares Held": "36717",
-   "Asset Category": "Common Stock"
-  },
-  {
-   "Name": "Dolby Laboratories Inc",
-   "Ticker": "DLB",
-   "Identifier": "25659T107",
-   "Weight": "0.216312",
-   "Market Value": "93798.81",
-   "Shares Held": "1491",
-   "Asset Category": "Common Stock"
-  },
-  {
-   "Name": "Life360 Inc",
-   "Ticker": "LIF",
-   "Identifier": "532206109",
-   "Weight": "0.20614",
-   "Market Value": "89387.85",
-   "Shares Held": "1965",
-   "Asset Category": "Common Stock"
-  },
-  {
-   "Name": "Square Enix Holdings Co Ltd",
-   "Ticker": "-",
-   "Identifier": "J7659R109",
-   "Weight": "0.201826",
-   "Market Value": "86976.65",
-   "Shares Held": "4739",
-   "Asset Category": "Common Stock"
+   "Identifier": "-",
+   "Weight": "0.292743",
+   "Market Value": "121254.46",
+   "Shares Held": "991",
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "Magnite Inc",
    "Ticker": "MGNI",
    "Identifier": "55955D100",
-   "Weight": "0.201216",
-   "Market Value": "87252.7",
+   "Weight": "0.258456",
+   "Market Value": "107052.8",
    "Shares Held": "3890",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "Krafton Inc",
    "Ticker": "-",
    "Identifier": "Y0929C104",
-   "Weight": "0.20115",
-   "Market Value": "87224.17",
+   "Weight": "0.24702",
+   "Market Value": "102315.72",
    "Shares Held": "644",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
+  },
+  {
+   "Name": "Dolby Laboratories Inc",
+   "Ticker": "DLB",
+   "Identifier": "25659T107",
+   "Weight": "0.233333",
+   "Market Value": "96646.62",
+   "Shares Held": "1491",
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
+  },
+  {
+   "Name": "Square Enix Holdings Co Ltd",
+   "Ticker": "-",
+   "Identifier": "J7659R109",
+   "Weight": "0.231236",
+   "Market Value": "95237.94",
+   "Shares Held": "4739",
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
+  },
+  {
+   "Name": "Shanghai Biren Technology Co Ltd",
+   "Ticker": "-",
+   "Identifier": "Y768WN109",
+   "Weight": "0.224455",
+   "Market Value": "92969.29",
+   "Shares Held": "36717",
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
+  },
+  {
+   "Name": "Life360 Inc",
+   "Ticker": "LIF",
+   "Identifier": "532206109",
+   "Weight": "0.222355",
+   "Market Value": "92099.55",
+   "Shares Held": "1965",
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "Sega Sammy Holdings Inc",
    "Ticker": "-",
    "Identifier": "J7028D104",
-   "Weight": "0.196158",
-   "Market Value": "84352.49",
+   "Weight": "0.221416",
+   "Market Value": "91004.22",
    "Shares Held": "4131",
-   "Asset Category": "Common Stock"
-  },
-  {
-   "Name": "Ambarella Inc",
-   "Ticker": "AMBA",
-   "Identifier": "G037AX101",
-   "Weight": "0.177227",
-   "Market Value": "76850.2",
-   "Shares Held": "1190",
-   "Asset Category": "Common Stock"
-  },
-  {
-   "Name": "Sankyo Co Ltd",
-   "Ticker": "-",
-   "Identifier": "J67844100",
-   "Weight": "0.174561",
-   "Market Value": "73969.33",
-   "Shares Held": "5445",
-   "Asset Category": "Common Stock"
-  },
-  {
-   "Name": "Nemetschek SE",
-   "Ticker": "-",
-   "Identifier": "D56134105",
-   "Weight": "0.172614",
-   "Market Value": "74850.17",
-   "Shares Held": "910",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "Kingsoft Corp Ltd",
    "Ticker": "-",
    "Identifier": "G5264Y108",
-   "Weight": "0.170825",
-   "Market Value": "74074.16",
+   "Weight": "0.195739",
+   "Market Value": "81075.41",
    "Shares Held": "25161",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
-   "Name": "Adeia Inc",
-   "Ticker": "ADEA",
-   "Identifier": "00676P107",
-   "Weight": "0.146039",
-   "Market Value": "63326.16",
-   "Shares Held": "2817",
-   "Asset Category": "Common Stock"
-  },
-  {
-   "Name": "Acer Inc",
+   "Name": "Sankyo Co Ltd",
    "Ticker": "-",
-   "Identifier": "Y0003F171",
-   "Weight": "0.134159",
-   "Market Value": "58174.81",
-   "Shares Held": "59267",
-   "Asset Category": "Common Stock"
+   "Identifier": "J67844100",
+   "Weight": "0.188646",
+   "Market Value": "76412.69",
+   "Shares Held": "5445",
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
+  },
+  {
+   "Name": "Nemetschek SE",
+   "Ticker": "-",
+   "Identifier": "D56134105",
+   "Weight": "0.16746",
+   "Market Value": "69362.2",
+   "Shares Held": "910",
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
+  },
+  {
+   "Name": "Ambarella Inc",
+   "Ticker": "AMBA",
+   "Identifier": "G037AX101",
+   "Weight": "0.158504",
+   "Market Value": "65652.3",
+   "Shares Held": "1190",
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "Shanghai Iluvatar CoreX Semiconductor Co Ltd",
    "Ticker": "-",
    "Identifier": "Y768WQ102",
-   "Weight": "0.13101",
-   "Market Value": "56809.23",
+   "Weight": "0.128862",
+   "Market Value": "53374.6",
    "Shares Held": "6586",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "Sinch AB",
    "Ticker": "-",
    "Identifier": "W835AF448",
-   "Weight": "0.130155",
-   "Market Value": "56438.56",
+   "Weight": "0.128346",
+   "Market Value": "53160.9",
    "Shares Held": "12162",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "Sonos Inc",
    "Ticker": "SONO",
    "Identifier": "83570H108",
-   "Weight": "0.12917",
-   "Market Value": "56011.68",
+   "Weight": "0.126476",
+   "Market Value": "52386.64",
    "Shares Held": "3208",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
-   "Name": "SoundHound AI Inc",
-   "Ticker": "SOUN",
-   "Identifier": "836100107",
-   "Weight": "0.112231",
-   "Market Value": "48666.32",
-   "Shares Held": "11162",
-   "Asset Category": "Common Stock"
-  },
-  {
-   "Name": "DoubleVerify Holdings Inc",
-   "Ticker": "DV",
-   "Identifier": "25862V105",
-   "Weight": "0.111814",
-   "Market Value": "48485.61",
-   "Shares Held": "3573",
-   "Asset Category": "Common Stock"
-  },
-  {
-   "Name": "JOYY Inc",
-   "Ticker": "JOYY",
-   "Identifier": "46591M109",
-   "Weight": "0.105691",
-   "Market Value": "45830.61",
-   "Shares Held": "567",
-   "Asset Category": "American Depository Receipt"
+   "Name": "Acer Inc",
+   "Ticker": "-",
+   "Identifier": "Y0003F171",
+   "Weight": "0.122509",
+   "Market Value": "50743.37",
+   "Shares Held": "59267",
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "TCL Electronics Holdings Ltd",
    "Ticker": "-",
    "Identifier": "G8701T138",
-   "Weight": "0.101023",
-   "Market Value": "43806.22",
+   "Weight": "0.116809",
+   "Market Value": "48382.35",
    "Shares Held": "22403",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
-   "Name": "NC Corp",
-   "Ticker": "-",
-   "Identifier": "Y6258Y104",
-   "Weight": "0.095407",
-   "Market Value": "41371.18",
-   "Shares Held": "278",
-   "Asset Category": "Common Stock"
+   "Name": "DoubleVerify Holdings Inc",
+   "Ticker": "DV",
+   "Identifier": "25862V105",
+   "Weight": "0.116799",
+   "Market Value": "48378.42",
+   "Shares Held": "3573",
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
+  },
+  {
+   "Name": "SoundHound AI Inc",
+   "Ticker": "SOUN",
+   "Identifier": "836100107",
+   "Weight": "0.1148",
+   "Market Value": "47550.12",
+   "Shares Held": "11162",
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
+  },
+  {
+   "Name": "JOYY Inc",
+   "Ticker": "JOYY",
+   "Identifier": "46591M109",
+   "Weight": "0.109512",
+   "Market Value": "45360",
+   "Shares Held": "567",
+   "Asset Category": "American Depository Receipt",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "China Ruyi Holdings Ltd",
    "Ticker": "-",
    "Identifier": "G4404N114",
-   "Weight": "0.094787",
-   "Market Value": "41102.21",
+   "Weight": "0.109165",
+   "Market Value": "45216.12",
    "Shares Held": "252045",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "Peloton Interactive Inc",
    "Ticker": "PTON",
    "Identifier": "70614W100",
-   "Weight": "0.093868",
-   "Market Value": "40703.52",
+   "Weight": "0.105342",
+   "Market Value": "43632.94",
    "Shares Held": "7709",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
+  },
+  {
+   "Name": "Adeia Inc",
+   "Ticker": "ADEA",
+   "Identifier": "00676P107",
+   "Weight": "0.100792",
+   "Market Value": "41747.94",
+   "Shares Held": "2817",
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
+  },
+  {
+   "Name": "NC Corp",
+   "Ticker": "-",
+   "Identifier": "Y6258Y104",
+   "Weight": "0.100099",
+   "Market Value": "41461.19",
+   "Shares Held": "278",
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "Sportradar Group AG",
    "Ticker": "SRAD",
    "Identifier": "H8088L103",
-   "Weight": "0.081538",
-   "Market Value": "35356.93",
+   "Weight": "0.098902",
+   "Market Value": "40965.47",
    "Shares Held": "2891",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "Beijing 51World Digital Twin Technology Co Ltd",
    "Ticker": "-",
    "Identifier": "Y0S7M5102",
-   "Weight": "0.07927",
-   "Market Value": "34373.56",
+   "Weight": "0.085346",
+   "Market Value": "35350.32",
    "Shares Held": "4956",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "Playtech Plc",
    "Ticker": "-",
    "Identifier": "G7132V100",
-   "Weight": "0.078113",
-   "Market Value": "33871.91",
+   "Weight": "0.084912",
+   "Market Value": "35170.61",
    "Shares Held": "7130",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "Koei Tecmo Holdings Co Ltd",
    "Ticker": "-",
    "Identifier": "J8239A103",
-   "Weight": "0.072032",
-   "Market Value": "31234.97",
+   "Weight": "0.082609",
+   "Market Value": "34216.75",
    "Shares Held": "2983",
-   "Asset Category": "Common Stock"
-  },
-  {
-   "Name": "Modern Times Group MTG AB",
-   "Ticker": "-",
-   "Identifier": "W56523116",
-   "Weight": "0.071101",
-   "Market Value": "30831.39",
-   "Shares Held": "2489",
-   "Asset Category": "Common Stock"
-  },
-  {
-   "Name": "Embracer Group AB",
-   "Ticker": "-",
-   "Identifier": "W2504N184",
-   "Weight": "0.063271",
-   "Market Value": "27435.95",
-   "Shares Held": "2860",
-   "Asset Category": "Common Stock"
-  },
-  {
-   "Name": "Hacksaw AB",
-   "Ticker": "-",
-   "Identifier": "W42390109",
-   "Weight": "0.062404",
-   "Market Value": "27060.23",
-   "Shares Held": "4902",
-   "Asset Category": "Common Stock"
-  },
-  {
-   "Name": "Trump Media & Technology Group Corp",
-   "Ticker": "DJT",
-   "Identifier": "25400Q105",
-   "Weight": "0.060076",
-   "Market Value": "26050.46",
-   "Shares Held": "4507",
-   "Asset Category": "Common Stock"
-  },
-  {
-   "Name": "Beijing Kingsoft Office Software Inc",
-   "Ticker": "-",
-   "Identifier": "Y0R9YP102",
-   "Weight": "0.05671",
-   "Market Value": "24591.14",
-   "Shares Held": "732",
-   "Asset Category": "Common Stock"
-  },
-  {
-   "Name": "NetEase Cloud Music Inc",
-   "Ticker": "-",
-   "Identifier": "G2215N109",
-   "Weight": "0.056444",
-   "Market Value": "24475.6",
-   "Shares Held": "2221",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "XD Inc",
    "Ticker": "-",
    "Identifier": "G9830N109",
-   "Weight": "0.055123",
-   "Market Value": "23902.72",
+   "Weight": "0.070165",
+   "Market Value": "29062.29",
    "Shares Held": "5170",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
-   "Name": "Pearl Abyss Corp",
+   "Name": "Hacksaw AB",
    "Ticker": "-",
-   "Identifier": "Y6803R109",
-   "Weight": "0.054441",
-   "Market Value": "23607.04",
-   "Shares Held": "916",
-   "Asset Category": "Common Stock"
+   "Identifier": "W42390109",
+   "Weight": "0.067514",
+   "Market Value": "27964.39",
+   "Shares Held": "4902",
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
-   "Name": "HTC Corp",
+   "Name": "Modern Times Group MTG AB",
    "Ticker": "-",
-   "Identifier": "Y3732M111",
-   "Weight": "0.053335",
-   "Market Value": "23127.59",
-   "Shares Held": "18919",
-   "Asset Category": "Common Stock"
+   "Identifier": "W56523116",
+   "Weight": "0.067241",
+   "Market Value": "27851.22",
+   "Shares Held": "2489",
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
-   "Name": "RUM Group Inc",
-   "Ticker": "RUM",
-   "Identifier": "78137L105",
-   "Weight": "0.045975",
-   "Market Value": "19936",
-   "Shares Held": "3560",
-   "Asset Category": "Common Stock"
+   "Name": "Embracer Group AB",
+   "Ticker": "-",
+   "Identifier": "W2504N184",
+   "Weight": "0.066725",
+   "Market Value": "27637.5",
+   "Shares Held": "2860",
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
+  },
+  {
+   "Name": "NetEase Cloud Music Inc",
+   "Ticker": "-",
+   "Identifier": "G2215N109",
+   "Weight": "0.066327",
+   "Market Value": "27472.65",
+   "Shares Held": "2221",
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
+  },
+  {
+   "Name": "Beijing Kingsoft Office Software Inc",
+   "Ticker": "-",
+   "Identifier": "Y0R9YP102",
+   "Weight": "0.061674",
+   "Market Value": "25545.41",
+   "Shares Held": "732",
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "Zhejiang Century Huatong Group Co Ltd",
    "Ticker": "-",
    "Identifier": "Y988BH109",
-   "Weight": "0.045188",
-   "Market Value": "19594.52",
+   "Weight": "0.051443",
+   "Market Value": "21307.54",
    "Shares Held": "11100",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
+  },
+  {
+   "Name": "Pearl Abyss Corp",
+   "Ticker": "-",
+   "Identifier": "Y6803R109",
+   "Weight": "0.051396",
+   "Market Value": "21288.28",
+   "Shares Held": "916",
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "Vobile Group Ltd",
    "Ticker": "-",
    "Identifier": "G9390R110",
-   "Weight": "0.04413",
-   "Market Value": "19136.01",
+   "Weight": "0.050692",
+   "Market Value": "20996.8",
    "Shares Held": "63289",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
-   "Name": "Wacom Co Ltd",
+   "Name": "HTC Corp",
    "Ticker": "-",
-   "Identifier": "J9467Z109",
-   "Weight": "0.043452",
-   "Market Value": "18577.7",
-   "Shares Held": "3478",
-   "Asset Category": "Common Stock"
+   "Identifier": "Y3732M111",
+   "Weight": "0.04841",
+   "Market Value": "20051.58",
+   "Shares Held": "18919",
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "Newborn Town Inc",
    "Ticker": "-",
    "Identifier": "G6464H101",
-   "Weight": "0.043416",
-   "Market Value": "18826.42",
+   "Weight": "0.048296",
+   "Market Value": "20004.27",
    "Shares Held": "17090",
-   "Asset Category": "Common Stock"
-  },
-  {
-   "Name": "Pexip Holding ASA",
-   "Ticker": "-",
-   "Identifier": "R66399107",
-   "Weight": "0.043163",
-   "Market Value": "18716.81",
-   "Shares Held": "2434",
-   "Asset Category": "Common Stock"
-  },
-  {
-   "Name": "DeNA Co Ltd",
-   "Ticker": "-",
-   "Identifier": "J1257N107",
-   "Weight": "0.041097",
-   "Market Value": "17820.9",
-   "Shares Held": "1111",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "MIXI Inc",
    "Ticker": "-",
    "Identifier": "J45993110",
-   "Weight": "0.040069",
-   "Market Value": "17101.77",
+   "Weight": "0.04569",
+   "Market Value": "18651.56",
    "Shares Held": "719",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
+  },
+  {
+   "Name": "DeNA Co Ltd",
+   "Ticker": "-",
+   "Identifier": "J1257N107",
+   "Weight": "0.04507",
+   "Market Value": "18668.12",
+   "Shares Held": "1111",
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
+  },
+  {
+   "Name": "Trump Media & Technology Group Corp",
+   "Ticker": "DJT",
+   "Identifier": "25400Q105",
+   "Weight": "0.043742",
+   "Market Value": "18118.14",
+   "Shares Held": "4507",
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "Weibo Corp",
    "Ticker": "-",
    "Identifier": "G9515T108",
-   "Weight": "0.039191",
-   "Market Value": "16994.09",
+   "Weight": "0.043272",
+   "Market Value": "17923.17",
    "Shares Held": "2781",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "GoerTek Inc",
    "Ticker": "-",
    "Identifier": "Y27360109",
-   "Weight": "0.038166",
-   "Market Value": "16549.97",
+   "Weight": "0.042968",
+   "Market Value": "17797.35",
    "Shares Held": "4900",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
+  },
+  {
+   "Name": "Pexip Holding ASA",
+   "Ticker": "-",
+   "Identifier": "R66399107",
+   "Weight": "0.042828",
+   "Market Value": "17739.5",
+   "Shares Held": "2434",
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "GungHo Online Entertainment Inc",
    "Ticker": "-",
    "Identifier": "J18912105",
-   "Weight": "0.037546",
-   "Market Value": "16280.8",
+   "Weight": "0.042299",
+   "Market Value": "17520.24",
    "Shares Held": "1104",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
-   "Name": "Merry Electronics Co Ltd",
-   "Ticker": "-",
-   "Identifier": "Y6021M106",
-   "Weight": "0.037509",
-   "Market Value": "16264.7",
-   "Shares Held": "6687",
-   "Asset Category": "Common Stock"
+   "Name": "RUM Group Inc",
+   "Ticker": "RUM",
+   "Identifier": "78137L105",
+   "Weight": "0.040353",
+   "Market Value": "16714.2",
+   "Shares Held": "3560",
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "Netmarble Corp",
    "Ticker": "-",
    "Identifier": "Y6S5CG100",
-   "Weight": "0.036052",
-   "Market Value": "15633.12",
+   "Weight": "0.039581",
+   "Market Value": "16394.53",
    "Shares Held": "620",
-   "Asset Category": "Common Stock"
-  },
-  {
-   "Name": "Addnode Group AB",
-   "Ticker": "-",
-   "Identifier": "W3593A109",
-   "Weight": "0.032635",
-   "Market Value": "14151.43",
-   "Shares Held": "2117",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "Shenzhen Transsion Holdings Co Ltd",
    "Ticker": "-",
    "Identifier": "Y774FC100",
-   "Weight": "0.03244",
-   "Market Value": "14066.9",
+   "Weight": "0.038357",
+   "Market Value": "15887.43",
    "Shares Held": "1673",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
-   "Name": "Ballys Intralot SA",
+   "Name": "Wacom Co Ltd",
    "Ticker": "-",
-   "Identifier": "X3968Y103",
-   "Weight": "0.031611",
-   "Market Value": "13707.4",
-   "Shares Held": "10993",
-   "Asset Category": "Common Stock"
+   "Identifier": "J9467Z109",
+   "Weight": "0.036747",
+   "Market Value": "14956.25",
+   "Shares Held": "3478",
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "Iflytek Co Ltd",
    "Ticker": "-",
    "Identifier": "Y013A6101",
-   "Weight": "0.031517",
-   "Market Value": "13666.71",
+   "Weight": "0.033531",
+   "Market Value": "13888.37",
    "Shares Held": "2428",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
+  },
+  {
+   "Name": "Merry Electronics Co Ltd",
+   "Ticker": "-",
+   "Identifier": "Y6021M106",
+   "Weight": "0.033451",
+   "Market Value": "13855.43",
+   "Shares Held": "6687",
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
+  },
+  {
+   "Name": "Ballys Intralot SA",
+   "Ticker": "-",
+   "Identifier": "X3968Y103",
+   "Weight": "0.033108",
+   "Market Value": "13713.35",
+   "Shares Held": "10993",
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
+  },
+  {
+   "Name": "Addnode Group AB",
+   "Ticker": "-",
+   "Identifier": "W3593A109",
+   "Weight": "0.0331",
+   "Market Value": "13709.95",
+   "Shares Held": "2117",
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "Anker Innovations Technology Co Ltd",
    "Ticker": "-",
    "Identifier": "Y01425100",
-   "Weight": "0.031013",
-   "Market Value": "13447.88",
+   "Weight": "0.033061",
+   "Market Value": "13693.79",
    "Shares Held": "800",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "Hello Group Inc",
    "Ticker": "MOMO",
    "Identifier": "423403104",
-   "Weight": "0.029868",
-   "Market Value": "12951.48",
+   "Weight": "0.032184",
+   "Market Value": "13330.69",
    "Shares Held": "2917",
-   "Asset Category": "American Depository Receipt"
+   "Asset Category": "American Depository Receipt",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "Ubisoft Entertainment SA",
    "Ticker": "-",
    "Identifier": "F9396N106",
-   "Weight": "0.028711",
-   "Market Value": "12449.76",
+   "Weight": "0.031825",
+   "Market Value": "13181.99",
    "Shares Held": "2645",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "Catapult Sports Ltd",
    "Ticker": "-",
    "Identifier": "Q2159P101",
-   "Weight": "0.023984",
-   "Market Value": "10399.91",
+   "Weight": "0.026882",
+   "Market Value": "11134.65",
    "Shares Held": "4434",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "Goke Microelectronics Co Ltd",
    "Ticker": "-",
    "Identifier": "Y3R607109",
-   "Weight": "0.012981",
-   "Market Value": "5628.93",
+   "Weight": "0.013933",
+   "Market Value": "5770.9",
    "Shares Held": "300",
-   "Asset Category": "Common Stock"
+   "Asset Category": "Common Stock",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "CASH & EQUIVALENTS",
    "Ticker": "-",
    "Identifier": "CASHUSD00",
-   "Weight": "0.002695",
+   "Weight": "0.002822",
    "Market Value": "1168.75",
    "Shares Held": "1168.75",
-   "Asset Category": "Currency"
+   "Asset Category": "Currency",
+   "Coupon": "0",
+   "Maturity": ""
+  },
+  {
+   "Name": "CASH & EQUIVALENTS",
+   "Ticker": "-",
+   "Identifier": "CASHCNH07",
+   "Weight": "0.00024",
+   "Market Value": "99.25",
+   "Shares Held": "661.5",
+   "Asset Category": "Currency",
+   "Coupon": "",
+   "Maturity": "Dec 31 2222"
   },
   {
    "Name": "CASH & EQUIVALENTS",
@@ -911,7 +1122,9 @@
    "Weight": "0.000002",
    "Market Value": "0.78",
    "Shares Held": "3.05",
-   "Asset Category": "Currency"
+   "Asset Category": "Currency",
+   "Coupon": "0",
+   "Maturity": ""
   },
   {
    "Name": "CASH & EQUIVALENTS",
@@ -920,7 +1133,9 @@
    "Weight": "0",
    "Market Value": "-0.06",
    "Shares Held": "-0.05",
-   "Asset Category": "Currency"
+   "Asset Category": "Currency",
+   "Coupon": "0",
+   "Maturity": ""
   },
   {
    "Name": "SECURITIES LENDING - BNYM",
@@ -929,61 +1144,75 @@
    "Weight": "0",
    "Market Value": "0.01",
    "Shares Held": "1",
-   "Asset Category": "Uninvestible Cash"
+   "Asset Category": "Uninvestible Cash",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "CASH & EQUIVALENTS",
    "Ticker": "-",
    "Identifier": "CASHAUD07",
-   "Weight": "-0.000387",
-   "Market Value": "-167.73",
-   "Shares Held": "-238.3",
-   "Asset Category": "Currency"
+   "Weight": "-0.000403",
+   "Market Value": "-167.1",
+   "Shares Held": "-240.1",
+   "Asset Category": "Currency",
+   "Coupon": "0",
+   "Maturity": ""
   },
   {
    "Name": "CASH & EQUIVALENTS",
    "Ticker": "-",
    "Identifier": "CASHSEK06",
-   "Weight": "-0.0005",
-   "Market Value": "-216.72",
-   "Shares Held": "-2135.9",
-   "Asset Category": "Currency"
+   "Weight": "-0.000529",
+   "Market Value": "-218.93",
+   "Shares Held": "-2145.5",
+   "Asset Category": "Currency",
+   "Coupon": "0",
+   "Maturity": ""
   },
   {
    "Name": "CASH & EQUIVALENTS",
    "Ticker": "-",
    "Identifier": "CASHJPY06",
-   "Weight": "-0.000556",
-   "Market Value": "-241.23",
-   "Shares Held": "-38074",
-   "Asset Category": "Currency"
+   "Weight": "-0.000584",
+   "Market Value": "-241.93",
+   "Shares Held": "-38194",
+   "Asset Category": "Currency",
+   "Coupon": "0",
+   "Maturity": ""
   },
   {
    "Name": "CASH & EQUIVALENTS",
    "Ticker": "-",
    "Identifier": "CASHEUR08",
-   "Weight": "-0.000687",
-   "Market Value": "-297.9",
-   "Shares Held": "-266.86",
-   "Asset Category": "Currency"
+   "Weight": "-0.000727",
+   "Market Value": "-300.95",
+   "Shares Held": "-268.06",
+   "Asset Category": "Currency",
+   "Coupon": "0",
+   "Maturity": ""
   },
   {
    "Name": "CASH & EQUIVALENTS",
    "Ticker": "-",
    "Identifier": "-",
-   "Weight": "-0.001912",
-   "Market Value": "-829.26",
-   "Shares Held": "-6506.96",
-   "Asset Category": "Currency"
+   "Weight": "-0.002018",
+   "Market Value": "-835.71",
+   "Shares Held": "-6552.71",
+   "Asset Category": "Currency",
+   "Coupon": "",
+   "Maturity": ""
   },
   {
    "Name": "USD Pending Dividends",
    "Ticker": "-",
    "Identifier": "-",
    "Weight": "",
-   "Market Value": "37913.6",
+   "Market Value": "43745.12",
    "Shares Held": "0",
-   "Asset Category": "Currency"
+   "Asset Category": "Currency",
+   "Coupon": "",
+   "Maturity": ""
   }
  ]
 }
