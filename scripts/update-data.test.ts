@@ -941,8 +941,9 @@ describe('pipeline', () => {
       expect([aaa.dataFile, bbb.dataFile]).toEqual(['./funds/AAA/meta.json', null]);
       const keys = Object.keys(aaa.metrics);
       for (const fund of index.funds) expect(Object.keys(fund.metrics)).toEqual(keys);
-      // the 52-week keys of the range-52w block sit in every row, in front of returnsBasis and performanceAsOf
-      expect(keys.slice(-9)).toEqual(['week52Low', 'week52High', 'range52w', 'range52wClose', 'range52wAsOf', 'range52wSince', 'range52wBasis', 'returnsBasis', 'performanceAsOf']);
+      // the 52-week keys of the range-52w block and the swing keys of the swing block sit in every row, in front of returnsBasis and performanceAsOf
+      expect(keys.slice(-18)).toEqual(['week52Low', 'week52High', 'range52w', 'range52wClose', 'range52wAsOf', 'range52wSince', 'range52wBasis', 'pctFrom52wHigh', 'athPrice', 'athDate', 'athBasis', 'pctFromAth', 'volatility1y', 'sigmaFromMean60d', 'high60d', 'low60d', 'returnsBasis', 'performanceAsOf']);
+      expect([typeof aaa.metrics.athPrice, aaa.metrics.athBasis]).toEqual(['number', expect.stringMatching(/^daily closes since \d{4}-\d{2}-\d{2}$/)]);
       // no fabricated "null" keys, quarter-end block keeps its shape
       const meta = await readJson(root, 'funds/AAA/meta.json');
       expect(indexText).not.toContain('"null"');
