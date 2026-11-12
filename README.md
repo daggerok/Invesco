@@ -74,6 +74,13 @@ Each fund carries a derived `metrics` object that powers the catalog columns sha
 - `dividendYield` - official trailing 12-month distribution rate; when Invesco publishes none, an indicated yield (latest distribution x frequency / price) that is an estimate
 - `dividendYieldBasis` - short code of the definition behind `dividendYield`, `null` exactly when `dividendYield` is `null`; a retained yield keeps its code (see the table below)
 - `secYield` - official 30-day SEC yield when published; unavailable values stay `null` and are never shown as 0
+- Swing metrics (shared `swing` block, the formulas of the Stocks feed) from the split-adjusted, not dividend-adjusted daily `Close` column of the published history, with the last close as the price; `null` (never `0`) when the history is too short:
+  - `pctFrom52wHigh` - last close against the highest close of the last 52 weeks, in percent
+  - `athPrice`, `athDate`, `athBasis` - highest close of the whole history, its date and the history it covers (`daily closes since <first date>`)
+  - `pctFromAth` - last close against `athPrice`, in percent
+  - `volatility1y` - annualized volatility of the last 252 daily log returns, in percent (needs 253 closes)
+  - `sigmaFromMean60d` - distance of the last close from the mean of the last 60 closes, in sample standard deviations
+  - `high60d`, `low60d` - highest and lowest of the last 60 closes
 - `returnsBasis` - always a non-empty label of how the returns were computed. Official month-end NAV total returns from the invesco.com fund API (periods Invesco does not publish, for young funds, are filled from adjusted closes: a mixed basis, said so in the label); `last published official ... (not refreshed in this run)` for a fund without a fresh month-end table (renamed, matured or delisted funds keep their last official figures with their old date); estimates derived from adjusted market-price closes (Yahoo, named in the label) for funds without any official returns
 - `performanceAsOf` - ISO `YYYY-MM-DD` date the returns are as of, not the NAV date: the effective date of Invesco's month-end performance table for official returns (month-end data appears 1-2 weeks after the month end, so mid-month it is still the previous month end, today `2026-08-31`), the last close used when derived, `null` when unknown
 
