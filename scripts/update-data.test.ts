@@ -191,8 +191,8 @@ function mockFundPage(fund: MockFund): string {
 function mockChart(adjclose = [100, 100.5, 101]): Record<string, unknown> {
   const timestamp = [1_790_000_000, 1_790_086_400, 1_790_172_800];
   return {
-    chart: { result: [{ meta: { fullExchangeName: 'NYSE Arca', longName: 'Mock Fund', regularMarketPrice: 101, regularMarketTime: 1_790_172_800, firstTradeDate: 1_000_000_000 },
-      timestamp, indicators: { quote: [{ close: [100, 100.5, 101], volume: [10, 20, 30] }], adjclose: [{ adjclose }] }, events: {} }] },
+    chart: { result: [{ meta: { fullExchangeName: 'NYSE Arca', longName: 'Mock Fund', regularMarketPrice: 101, regularMarketTime: 1_790_172_800, firstTradeDate: 1_790_000_000, dataGranularity: '1d' },
+      timestamp, indicators: { quote: [{ close: [100, 100.5, 101], volume: [10, 20, 30] }], adjclose: [{ adjclose }] }, events: { dividends: { '1790172800': { amount: 0.25, date: 1_790_172_800 } } } }] },
   };
 }
 
@@ -942,7 +942,11 @@ describe('pipeline', () => {
       const keys = Object.keys(aaa.metrics);
       for (const fund of index.funds) expect(Object.keys(fund.metrics)).toEqual(keys);
       // the 52-week keys of the range-52w block and the swing keys of the swing block sit in every row, in front of returnsBasis and performanceAsOf
-      expect(keys.slice(-18)).toEqual(['week52Low', 'week52High', 'range52w', 'range52wClose', 'range52wAsOf', 'range52wSince', 'range52wBasis', 'pctFrom52wHigh', 'athPrice', 'athDate', 'athBasis', 'pctFromAth', 'volatility1y', 'sigmaFromMean60d', 'high60d', 'low60d', 'returnsBasis', 'performanceAsOf']);
+      expect(keys.slice(-24, -8)).toEqual(['week52Low', 'week52High', 'range52w', 'range52wClose', 'range52wAsOf', 'range52wSince', 'range52wBasis', 'pctFrom52wHigh', 'athPrice', 'athDate', 'athBasis', 'pctFromAth', 'volatility1y', 'sigmaFromMean60d', 'high60d', 'low60d']);
+      expect(keys.slice(-8, -2)).toEqual(['dividendRate', 'dividendGrowth', 'dividendGrowth3y', 'dividendGrowth5y', 'dividendStreak', 'dividendCut10y']);
+      expect(keys.slice(-2)).toEqual(['returnsBasis', 'performanceAsOf']);
+      // the updated fund reads the dividend events of its own daily chart request: 0.25 in the last 12 months, the five growth keys stay null (never 0)
+      expect([aaa.metrics.dividendRate, aaa.metrics.dividendGrowth, aaa.metrics.dividendGrowth3y, aaa.metrics.dividendGrowth5y, aaa.metrics.dividendStreak, aaa.metrics.dividendCut10y]).toEqual([0.25, null, null, null, null, null]);
       expect([typeof aaa.metrics.athPrice, aaa.metrics.athBasis]).toEqual(['number', expect.stringMatching(/^daily closes since \d{4}-\d{2}-\d{2}$/)]);
       // no fabricated "null" keys, quarter-end block keeps its shape
       const meta = await readJson(root, 'funds/AAA/meta.json');
@@ -954,6 +958,9 @@ describe('pipeline', () => {
       expect(meta.returns.performanceAsOf).toBe('2026-08-31');
       expect(meta.identifiers.indexTicker).toBe('SPXEWTR');
     });
+    // the dividends block asks for the dividend events of the updated fund only (daily chart without pre/post), never for an unselected one
+    expect(mock.requests.filter((request) => /chart\/AAA\?period1=0&.*includePrePost=false/.test(request.url)).length).toBe(1);
+    expect(mock.requests.some((request) => /chart\/BBB\?period1=0&/.test(request.url))).toBe(false);
     // unselected funds cost no request, and every invesco.com request identifies itself honestly
     expect(mock.requests.some((request) => request.url.includes('46137V351') || request.url.includes('fund-bbb'))).toBe(false);
     const invesco = mock.requests.filter((request) => /invesco\.com/.test(request.url));
