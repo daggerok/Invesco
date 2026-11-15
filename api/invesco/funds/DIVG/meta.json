@@ -29,18 +29,18 @@
   }
  },
  "nav": {
-  "display": "$38.27",
-  "value": 38.270416,
-  "asOfDate": "Nov 06 2026"
+  "display": "$38.95",
+  "value": 38.948962,
+  "asOfDate": "Nov 13 2026"
  },
  "marketPrice": {
-  "display": "$38.27",
-  "value": 38.2723,
-  "asOfDate": "Nov 06 2026"
+  "display": "$38.95",
+  "value": 38.9463,
+  "asOfDate": "Nov 13 2026"
  },
  "premiumDiscount": {
-  "display": "0.00%",
-  "value": 0
+  "display": "-0.01%",
+  "value": -0.01
  },
  "aum": {
   "display": "—",
@@ -49,24 +49,24 @@
   "source": "previous run"
  },
  "yields": {
-  "dividendYield": 2.92,
-  "dividendYieldText": "2.92%",
+  "dividendYield": 2.93,
+  "dividendYieldText": "2.93%",
   "dividendYieldBasis": "official-trailing-12m",
   "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
   "distributionRate": 2.84,
-  "secYield": 2.86,
-  "secYieldText": "2.86%",
+  "secYield": 2.94,
+  "secYieldText": "2.94%",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
  },
  "returns": {
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Oct 31 2026",
-   "priceReturnsAsOf": "Nov 06 2026",
-   "mo1": 4.96,
-   "mo1Text": "4.96%",
-   "qtd": 6.93,
-   "qtdText": "6.93%",
+   "priceReturnsAsOf": "Nov 13 2026",
+   "mo1": 5.38,
+   "mo1Text": "5.38%",
+   "qtd": 8.83,
+   "qtdText": "8.83%",
    "ytd": 20.6,
    "ytdText": "20.60%",
    "yr1": 24.08,
@@ -240,8 +240,8 @@
   ],
   "pageSize": 250,
   "totalRows": 103,
-  "asOfDate": "2026-11-05",
-  "asOf": "Nov 05 2026",
+  "asOfDate": "2026-11-12",
+  "asOf": "Nov 12 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -249,8 +249,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 732,
-  "asOf": "Nov 06 2026",
+  "totalRows": 737,
+  "asOf": "Nov 13 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

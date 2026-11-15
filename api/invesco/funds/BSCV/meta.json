@@ -29,18 +29,18 @@
   }
  },
  "nav": {
-  "display": "$16.01",
-  "value": 16.011048,
-  "asOfDate": "Nov 06 2026"
+  "display": "$15.84",
+  "value": 15.840931,
+  "asOfDate": "Nov 13 2026"
  },
  "marketPrice": {
-  "display": "$16.03",
-  "value": 16.03,
-  "asOfDate": "Nov 06 2026"
+  "display": "$15.86",
+  "value": 15.855,
+  "asOfDate": "Nov 13 2026"
  },
  "premiumDiscount": {
-  "display": "0.12%",
-  "value": 0.12
+  "display": "0.09%",
+  "value": 0.09
  },
  "aum": {
   "display": "—",
@@ -49,24 +49,24 @@
   "source": "previous run"
  },
  "yields": {
-  "dividendYield": 4.79,
-  "dividendYieldText": "4.79%",
+  "dividendYield": 4.84,
+  "dividendYieldText": "4.84%",
   "dividendYieldBasis": "official-trailing-12m",
   "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
-  "distributionRate": 4.87,
-  "secYield": 5.55,
-  "secYieldText": "5.55%",
+  "distributionRate": 4.92,
+  "secYield": 5.54,
+  "secYieldText": "5.54%",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
  },
  "returns": {
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Oct 31 2026",
-   "priceReturnsAsOf": "Nov 06 2026",
-   "mo1": 1.39,
-   "mo1Text": "1.39%",
-   "qtd": 1.71,
-   "qtdText": "1.71%",
+   "priceReturnsAsOf": "Nov 13 2026",
+   "mo1": -0.06,
+   "mo1Text": "-0.06%",
+   "qtd": 0.57,
+   "qtdText": "0.57%",
    "ytd": -0.55,
    "ytdText": "-0.55%",
    "yr1": 0.33,
@@ -354,8 +354,8 @@
   ],
   "pageSize": 250,
   "totalRows": 504,
-  "asOfDate": "2026-11-05",
-  "asOf": "Nov 05 2026",
+  "asOfDate": "2026-11-12",
+  "asOf": "Nov 12 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -364,8 +364,8 @@
    "history/002.json"
   ],
   "pageSize": 1000,
-  "totalRows": 1292,
-  "asOf": "Nov 06 2026",
+  "totalRows": 1297,
+  "asOf": "Nov 13 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

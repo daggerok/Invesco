@@ -2,7 +2,7 @@
  "ticker": "DBE",
  "page": 1,
  "pageSize": 250,
- "totalRows": 22,
+ "totalRows": 16,
  "headers": [
   "Name",
   "Ticker",
@@ -17,189 +17,135 @@
    "Name": "Invesco Government & Agency Portfolio",
    "Ticker": "AGPXX",
    "Identifier": "825252885",
-   "Weight": "89.607128",
-   "Market Value": "118706310.23",
-   "Shares Held": "118706310.23",
+   "Weight": "87.694968",
+   "Market Value": "115886179.37",
+   "Shares Held": "115886179.37",
    "Asset Category": "Money Market Fund, Taxable"
-  },
-  {
-   "Name": "NYMEX Light Sweet Crude Oil Future",
-   "Ticker": "-",
-   "Identifier": "CLG7",
-   "Weight": "28.547476",
-   "Market Value": "37839870",
-   "Shares Held": "433",
-   "Asset Category": "Commodity Future"
-  },
-  {
-   "Name": "ICE Brent Crude Oil Future",
-   "Ticker": "-",
-   "Identifier": "COF7",
-   "Weight": "21.578458",
-   "Market Value": "28602390",
-   "Shares Held": "291",
-   "Asset Category": "Commodity Future"
   },
   {
    "Name": "ICE Brent Crude Oil Future",
    "Ticker": "-",
    "Identifier": "COG7",
-   "Weight": "14.248959",
-   "Market Value": "18887090",
-   "Shares Held": "199",
+   "Weight": "31.453734",
+   "Market Value": "41620850",
+   "Shares Held": "445",
    "Asset Category": "Commodity Future"
   },
   {
-   "Name": "NYMEX NY Harbor ULSD Futures",
+   "Name": "NYMEX Light Sweet Crude Oil Future",
    "Ticker": "-",
-   "Identifier": "HOM7",
-   "Weight": "10.247137",
-   "Market Value": "13582648.8",
-   "Shares Held": "87",
-   "Asset Category": "Commodity Future"
-  },
-  {
-   "Name": "ICE Gas Oil Future",
-   "Ticker": "-",
-   "Identifier": "QSZ6",
-   "Weight": "10.078259",
-   "Market Value": "13358800",
-   "Shares Held": "104",
-   "Asset Category": "Commodity Future"
-  },
-  {
-   "Name": "CASH & EQUIVALENTS",
-   "Ticker": "-",
-   "Identifier": "CASHUSD00",
-   "Weight": "7.301604",
-   "Market Value": "9678325.33",
-   "Shares Held": "9678325.33",
-   "Asset Category": "Currency"
-  },
-  {
-   "Name": "ICE Gas Oil Future",
-   "Ticker": "-",
-   "Identifier": "QSM7",
-   "Weight": "6.776786",
-   "Market Value": "8982675",
-   "Shares Held": "83",
-   "Asset Category": "Commodity Future"
-  },
-  {
-   "Name": "NYMEX Reformulated Gasoline Blendstock for Oxygen Blending RBOB Futures",
-   "Ticker": "-",
-   "Identifier": "XBZ6",
-   "Weight": "3.940249",
-   "Market Value": "5222826",
-   "Shares Held": "45",
-   "Asset Category": "Commodity Future"
-  },
-  {
-   "Name": "NYMEX Henry Hub Natural Gas Futures",
-   "Ticker": "-",
-   "Identifier": "NGJ27",
-   "Weight": "3.568092",
-   "Market Value": "4729530",
-   "Shares Held": "201",
+   "Identifier": "CLG7",
+   "Weight": "27.985302",
+   "Market Value": "37031280",
+   "Shares Held": "429",
    "Asset Category": "Commodity Future"
   },
   {
    "Name": "CASH COLLATERAL",
    "Ticker": "-",
    "Identifier": "USDMTM",
-   "Weight": "3.091268",
-   "Market Value": "4097495.96",
-   "Shares Held": "4097495.96",
+   "Weight": "12.175699",
+   "Market Value": "16111375.75",
+   "Shares Held": "16111375.75",
    "Asset Category": "Currency Collateral"
+  },
+  {
+   "Name": "ICE Gas Oil Future",
+   "Ticker": "-",
+   "Identifier": "QSM7",
+   "Weight": "11.698291",
+   "Market Value": "15479650",
+   "Shares Held": "146",
+   "Asset Category": "Commodity Future"
+  },
+  {
+   "Name": "NYMEX Henry Hub Natural Gas Futures",
+   "Ticker": "-",
+   "Identifier": "NGJ27",
+   "Weight": "11.676246",
+   "Market Value": "15450480",
+   "Shares Held": "622",
+   "Asset Category": "Commodity Future"
+  },
+  {
+   "Name": "NYMEX NY Harbor ULSD Futures",
+   "Ticker": "-",
+   "Identifier": "HOM7",
+   "Weight": "8.696827",
+   "Market Value": "11507991.6",
+   "Shares Held": "74",
+   "Asset Category": "Commodity Future"
   },
   {
    "Name": "NYMEX Reformulated Gasoline Blendstock for Oxygen Blending RBOB Futures",
    "Ticker": "-",
    "Identifier": "XBF7",
-   "Weight": "2.58206",
-   "Market Value": "3422538",
-   "Shares Held": "30",
+   "Weight": "7.689219",
+   "Market Value": "10174684.8",
+   "Shares Held": "92",
    "Asset Category": "Commodity Future"
+  },
+  {
+   "Name": "CASH & EQUIVALENTS",
+   "Ticker": "-",
+   "Identifier": "CASHUSD00",
+   "Weight": "0.129333",
+   "Market Value": "171138.43",
+   "Shares Held": "171138.43",
+   "Asset Category": "Currency"
   },
   {
    "Name": "CONTRA FUTURE GASOLINE RBOB FUT JAN27XBF7 COMB",
    "Ticker": "-",
    "Identifier": "XBF7",
-   "Weight": "-2.58206",
-   "Market Value": "-3422538",
-   "Shares Held": "-30",
-   "Asset Category": "Synthetic Cash"
-  },
-  {
-   "Name": "CONTRA FUTURE NATURAL GAS FUTR APR27NGJ27 COMB",
-   "Ticker": "-",
-   "Identifier": "NGJ27",
-   "Weight": "-3.568092",
-   "Market Value": "-4729530",
-   "Shares Held": "-201",
-   "Asset Category": "Synthetic Cash"
-  },
-  {
-   "Name": "CONTRA FUTURE GASOLINE RBOB FUT DEC26XBZ6 COMB",
-   "Ticker": "-",
-   "Identifier": "XBZ6",
-   "Weight": "-3.940249",
-   "Market Value": "-5222826",
-   "Shares Held": "-45",
-   "Asset Category": "Synthetic Cash"
-  },
-  {
-   "Name": "CONTRA FUTURE LOW SU GASOIL G JUN27QSM7",
-   "Ticker": "-",
-   "Identifier": "QSM7",
-   "Weight": "-6.776786",
-   "Market Value": "-8982675",
-   "Shares Held": "-83",
-   "Asset Category": "Synthetic Cash"
-  },
-  {
-   "Name": "CONTRA FUTURE LOW SU GASOIL G DEC26QSZ6",
-   "Ticker": "-",
-   "Identifier": "QSZ6",
-   "Weight": "-10.078259",
-   "Market Value": "-13358800",
-   "Shares Held": "-104",
+   "Weight": "-7.689219",
+   "Market Value": "-10174684.8",
+   "Shares Held": "-92",
    "Asset Category": "Synthetic Cash"
   },
   {
    "Name": "CONTRA FUTURE NY HARB ULSD FUT JUN27HOM7 COMB",
    "Ticker": "-",
    "Identifier": "HOM7",
-   "Weight": "-10.247137",
-   "Market Value": "-13582648.8",
-   "Shares Held": "-87",
+   "Weight": "-8.696827",
+   "Market Value": "-11507991.6",
+   "Shares Held": "-74",
    "Asset Category": "Synthetic Cash"
   },
   {
-   "Name": "CONTRA FUTURE BRENT CRUDE FUTR FEB27COG7",
+   "Name": "CONTRA FUTURE NATURAL GAS FUTR APR27NGJ27 COMB",
    "Ticker": "-",
-   "Identifier": "COG7",
-   "Weight": "-14.248959",
-   "Market Value": "-18887090",
-   "Shares Held": "-199",
+   "Identifier": "NGJ27",
+   "Weight": "-11.676246",
+   "Market Value": "-15450480",
+   "Shares Held": "-622",
    "Asset Category": "Synthetic Cash"
   },
   {
-   "Name": "CONTRA FUTURE BRENT CRUDE FUTR JAN27COF7",
+   "Name": "CONTRA FUTURE LOW SU GASOIL G JUN27QSM7",
    "Ticker": "-",
-   "Identifier": "COF7",
-   "Weight": "-21.578458",
-   "Market Value": "-28602390",
-   "Shares Held": "-291",
+   "Identifier": "QSM7",
+   "Weight": "-11.698291",
+   "Market Value": "-15479650",
+   "Shares Held": "-146",
    "Asset Category": "Synthetic Cash"
   },
   {
    "Name": "CONTRA FUTURE WTI CRUDE FUTURE FEB27CLG7 COMB",
    "Ticker": "-",
    "Identifier": "CLG7",
-   "Weight": "-28.547476",
-   "Market Value": "-37839870",
-   "Shares Held": "-433",
+   "Weight": "-27.985302",
+   "Market Value": "-37031280",
+   "Shares Held": "-429",
+   "Asset Category": "Synthetic Cash"
+  },
+  {
+   "Name": "CONTRA FUTURE BRENT CRUDE FUTR FEB27COG7",
+   "Ticker": "-",
+   "Identifier": "COG7",
+   "Weight": "-31.453734",
+   "Market Value": "-41620850",
+   "Shares Held": "-445",
    "Asset Category": "Synthetic Cash"
   },
   {
@@ -207,7 +153,7 @@
    "Ticker": "-",
    "Identifier": "-",
    "Weight": "",
-   "Market Value": "68537.86",
+   "Market Value": "155339.55",
    "Shares Held": "0",
    "Asset Category": "Currency"
   }

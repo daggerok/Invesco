@@ -29,14 +29,14 @@
   }
  },
  "nav": {
-  "display": "$18.36",
-  "value": 18.356331,
-  "asOfDate": "Nov 06 2026"
+  "display": "$18.24",
+  "value": 18.243056,
+  "asOfDate": "Nov 13 2026"
  },
  "marketPrice": {
-  "display": "$18.37",
-  "value": 18.37,
-  "asOfDate": "Nov 06 2026"
+  "display": "$18.25",
+  "value": 18.255,
+  "asOfDate": "Nov 13 2026"
  },
  "premiumDiscount": {
   "display": "0.07%",
@@ -49,24 +49,24 @@
   "source": "previous run"
  },
  "yields": {
-  "dividendYield": 4.55,
-  "dividendYieldText": "4.55%",
+  "dividendYield": 4.58,
+  "dividendYieldText": "4.58%",
   "dividendYieldBasis": "official-trailing-12m",
   "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
-  "distributionRate": 4.59,
-  "secYield": 5.31,
-  "secYieldText": "5.31%",
+  "distributionRate": 4.63,
+  "secYield": 5.29,
+  "secYieldText": "5.29%",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
  },
  "returns": {
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Oct 31 2026",
-   "priceReturnsAsOf": "Nov 06 2026",
-   "mo1": 0.88,
-   "mo1Text": "0.88%",
-   "qtd": 1.1,
-   "qtdText": "1.10%",
+   "priceReturnsAsOf": "Nov 13 2026",
+   "mo1": 0.05,
+   "mo1Text": "0.05%",
+   "qtd": 0.44,
+   "qtdText": "0.44%",
    "ytd": 1,
    "ytdText": "1.00%",
    "yr1": 1.92,
@@ -450,8 +450,8 @@
   ],
   "pageSize": 250,
   "totalRows": 514,
-  "asOfDate": "2026-11-05",
-  "asOf": "Nov 05 2026",
+  "asOfDate": "2026-11-12",
+  "asOf": "Nov 12 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -460,8 +460,8 @@
    "history/002.json"
   ],
   "pageSize": 1000,
-  "totalRows": 1798,
-  "asOf": "Nov 06 2026",
+  "totalRows": 1803,
+  "asOf": "Nov 13 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }
