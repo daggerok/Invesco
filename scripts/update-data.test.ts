@@ -942,11 +942,18 @@ describe('pipeline', () => {
       const keys = Object.keys(aaa.metrics);
       for (const fund of index.funds) expect(Object.keys(fund.metrics)).toEqual(keys);
       // the 52-week keys of the range-52w block and the swing keys of the swing block sit in every row, in front of returnsBasis and performanceAsOf
-      expect(keys.slice(-24, -8)).toEqual(['week52Low', 'week52High', 'range52w', 'range52wClose', 'range52wAsOf', 'range52wSince', 'range52wBasis', 'pctFrom52wHigh', 'athPrice', 'athDate', 'athBasis', 'pctFromAth', 'volatility1y', 'sigmaFromMean60d', 'high60d', 'low60d']);
-      expect(keys.slice(-8, -2)).toEqual(['dividendRate', 'dividendGrowth', 'dividendGrowth3y', 'dividendGrowth5y', 'dividendStreak', 'dividendCut10y']);
+      expect(keys.slice(-58, -42)).toEqual(['week52Low', 'week52High', 'range52w', 'range52wClose', 'range52wAsOf', 'range52wSince', 'range52wBasis', 'pctFrom52wHigh', 'athPrice', 'athDate', 'athBasis', 'pctFromAth', 'volatility1y', 'sigmaFromMean60d', 'high60d', 'low60d']);
+      expect(keys.slice(-42, -34)).toEqual(['dividendRate', 'dividendGrowth', 'dividendGrowth3y', 'dividendGrowth5y', 'dividendStreak', 'dividendCut10y', 'paymentsPerYear', 'payFrequency']);
+      // the benchmark keys against SPY and QQQ of the benchmark block, read from the same chart request
+      expect(keys.slice(-34, -2)).toEqual(['perf1y', 'perf3y', 'perf5y', 'perf10y', 'perfSi', 'maxDrawdown1y', 'maxDrawdown3y', 'maxDrawdown5y', 'maxDrawdown10y',
+        'vsSpy1y', 'vsSpy3y', 'vsSpy5y', 'vsSpy10y', 'beta1ySpy', 'corr1ySpy', 'upCapture3ySpy', 'downCapture3ySpy', 'relStrength3mSpy', 'stressReturnSpy', 'stressBasisSpy',
+        'vsQqq1y', 'vsQqq3y', 'vsQqq5y', 'vsQqq10y', 'beta1yQqq', 'corr1yQqq', 'upCapture3yQqq', 'downCapture3yQqq', 'relStrength3mQqq', 'stressReturnQqq', 'stressBasisQqq', 'benchmarkAsOf']);
       expect(keys.slice(-2)).toEqual(['returnsBasis', 'performanceAsOf']);
       // the updated fund reads the dividend events of its own daily chart request: 0.25 in the last 12 months, the five growth keys stay null (never 0)
-      expect([aaa.metrics.dividendRate, aaa.metrics.dividendGrowth, aaa.metrics.dividendGrowth3y, aaa.metrics.dividendGrowth5y, aaa.metrics.dividendStreak, aaa.metrics.dividendCut10y]).toEqual([0.25, null, null, null, null, null]);
+      expect([aaa.metrics.dividendRate, aaa.metrics.dividendGrowth, aaa.metrics.dividendGrowth3y, aaa.metrics.dividendGrowth5y, aaa.metrics.dividendStreak, aaa.metrics.dividendCut10y, aaa.metrics.paymentsPerYear, aaa.metrics.payFrequency]).toEqual([0.25, null, null, null, null, null, 1, null]);
+      // three mocked bars (the benchmarks answer the same ones): every horizon and the 252-return statistics are null (never 0), the common date is set
+      expect([aaa.metrics.perf1y, aaa.metrics.perfSi, aaa.metrics.vsSpy1y, aaa.metrics.beta1ySpy, aaa.metrics.relStrength3mQqq, aaa.metrics.benchmarkAsOf]).toEqual([null, null, null, null, null, '2026-09-23']);
+      expect(bbb.metrics.benchmarkAsOf).toBeNull();
       expect([typeof aaa.metrics.athPrice, aaa.metrics.athBasis]).toEqual(['number', expect.stringMatching(/^daily closes since \d{4}-\d{2}-\d{2}$/)]);
       // no fabricated "null" keys, quarter-end block keeps its shape
       const meta = await readJson(root, 'funds/AAA/meta.json');
@@ -960,6 +967,8 @@ describe('pipeline', () => {
     });
     // the dividends block asks for the dividend events of the updated fund only (daily chart without pre/post), never for an unselected one
     expect(mock.requests.filter((request) => /chart\/AAA\?period1=0&.*includePrePost=false/.test(request.url)).length).toBe(1);
+    // the benchmark block adds exactly the SPY and the QQQ chart to the run, no request per fund
+    expect(mock.requests.filter((request) => /chart\/[^?]+\?period1=0&.*includePrePost=false/.test(request.url)).map((request) => /chart\/([^?]+)/.exec(request.url)?.[1]).sort()).toEqual(['AAA', 'QQQ', 'SPY']);
     expect(mock.requests.some((request) => /chart\/BBB\?period1=0&/.test(request.url))).toBe(false);
     // unselected funds cost no request, and every invesco.com request identifies itself honestly
     expect(mock.requests.some((request) => request.url.includes('46137V351') || request.url.includes('fund-bbb'))).toBe(false);
