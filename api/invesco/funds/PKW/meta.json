@@ -29,44 +29,44 @@
   }
  },
  "nav": {
-  "display": "$145.45",
-  "value": 145.447454,
-  "asOfDate": "Nov 18 2026"
+  "display": "$142.86",
+  "value": 142.855609,
+  "asOfDate": "Nov 19 2026"
  },
  "marketPrice": {
-  "display": "$145.44",
-  "value": 145.4353,
-  "asOfDate": "Nov 18 2026"
+  "display": "$142.88",
+  "value": 142.878,
+  "asOfDate": "Nov 19 2026"
  },
  "premiumDiscount": {
-  "display": "-0.01%",
-  "value": -0.01
+  "display": "0.02%",
+  "value": 0.02
  },
  "aum": {
-  "display": "$1,682.83 M",
-  "value": 1682827038.67,
-  "asOfDate": "Nov 18 2026",
+  "display": "$1,652.84 M",
+  "value": 1652839397.12,
+  "asOfDate": "Nov 19 2026",
   "source": "Invesco fund API prices endpoint (net assets / market value)"
  },
  "yields": {
-  "dividendYield": 0.66,
-  "dividendYieldText": "0.66%",
+  "dividendYield": 0.68,
+  "dividendYieldText": "0.68%",
   "dividendYieldBasis": "official-trailing-12m",
   "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
-  "distributionRate": 0.59,
-  "secYield": 0.65,
-  "secYieldText": "0.65%",
+  "distributionRate": 0.61,
+  "secYield": 0.68,
+  "secYieldText": "0.68%",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
  },
  "returns": {
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Oct 31 2026",
-   "priceReturnsAsOf": "Nov 18 2026",
-   "mo1": -1.72,
-   "mo1Text": "-1.72%",
-   "qtd": 0.52,
-   "qtdText": "0.52%",
+   "priceReturnsAsOf": "Nov 20 2026",
+   "mo1": -6.22,
+   "mo1Text": "-6.22%",
+   "qtd": -3.01,
+   "qtdText": "-3.01%",
    "ytd": 12.67,
    "ytdText": "12.67%",
    "yr1": 16.93,
@@ -405,8 +405,8 @@
   ],
   "pageSize": 250,
   "totalRows": 288,
-  "asOfDate": "2026-11-17",
-  "asOf": "Nov 17 2026",
+  "asOfDate": "2026-11-19",
+  "asOf": "Nov 19 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -419,8 +419,8 @@
    "history/006.json"
   ],
   "pageSize": 1000,
-  "totalRows": 5009,
-  "asOf": "Nov 18 2026",
+  "totalRows": 5011,
+  "asOf": "Nov 20 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

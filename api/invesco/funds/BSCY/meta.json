@@ -29,18 +29,18 @@
   }
  },
  "nav": {
-  "display": "$19.76",
-  "value": 19.761626,
-  "asOfDate": "Nov 18 2026"
+  "display": "$19.78",
+  "value": 19.776909,
+  "asOfDate": "Nov 19 2026"
  },
  "marketPrice": {
   "display": "$19.77",
-  "value": 19.765,
-  "asOfDate": "Nov 18 2026"
+  "value": 19.775,
+  "asOfDate": "Nov 19 2026"
  },
  "premiumDiscount": {
-  "display": "0.02%",
-  "value": 0.02
+  "display": "-0.01%",
+  "value": -0.01
  },
  "aum": {
   "display": "—",
@@ -49,24 +49,24 @@
   "source": "previous run"
  },
  "yields": {
-  "dividendYield": 5.1,
-  "dividendYieldText": "5.10%",
+  "dividendYield": 5.09,
+  "dividendYieldText": "5.09%",
   "dividendYieldBasis": "official-trailing-12m",
   "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
-  "distributionRate": 5.19,
-  "secYield": 5.88,
-  "secYieldText": "5.88%",
+  "distributionRate": 5.17,
+  "secYield": 5.86,
+  "secYieldText": "5.86%",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
  },
  "returns": {
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Oct 31 2026",
-   "priceReturnsAsOf": "Nov 18 2026",
-   "mo1": 0.66,
-   "mo1Text": "0.66%",
-   "qtd": 1.44,
-   "qtdText": "1.44%",
+   "priceReturnsAsOf": "Nov 20 2026",
+   "mo1": 1.07,
+   "mo1Text": "1.07%",
+   "qtd": 2.05,
+   "qtdText": "2.05%",
    "ytd": -1.42,
    "ytdText": "-1.42%",
    "yr1": -0.64,
@@ -221,8 +221,8 @@
   ],
   "pageSize": 250,
   "totalRows": 304,
-  "asOfDate": "2026-11-17",
-  "asOf": "Nov 17 2026",
+  "asOfDate": "2026-11-19",
+  "asOf": "Nov 19 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -230,8 +230,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 611,
-  "asOf": "Nov 18 2026",
+  "totalRows": 613,
+  "asOf": "Nov 20 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }

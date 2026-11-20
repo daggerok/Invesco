@@ -29,18 +29,18 @@
   }
  },
  "nav": {
-  "display": "$24.14",
-  "value": 24.140357,
-  "asOfDate": "Nov 18 2026"
+  "display": "$23.56",
+  "value": 23.55704,
+  "asOfDate": "Nov 19 2026"
  },
  "marketPrice": {
-  "display": "$24.02",
-  "value": 24.0164,
-  "asOfDate": "Nov 18 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "Nov 19 2026"
  },
  "premiumDiscount": {
-  "display": "-0.51%",
-  "value": -0.51
+  "display": "—",
+  "value": null
  },
  "aum": {
   "display": "—",
@@ -59,7 +59,6 @@
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
  },
  "returns": {
-  "derivedFrom": "adjusted market-price closes (Yahoo chart API), not official NAV returns",
   "monthEnd": {
    "asOfDate": "Nov 12 2026",
    "priceReturnsAsOf": "Nov 12 2026",
@@ -107,9 +106,9 @@
    "holdings/002.json"
   ],
   "pageSize": 250,
-  "totalRows": 353,
-  "asOfDate": "2026-11-17",
-  "asOf": "Nov 17 2026",
+  "totalRows": 355,
+  "asOfDate": "2026-11-19",
+  "asOf": "Nov 19 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -119,6 +118,6 @@
   "pageSize": 1000,
   "totalRows": 1,
   "asOf": "Nov 12 2026",
-  "source": "Yahoo Finance public chart API (adjusted close)"
+  "source": "previous run"
  }
 }

@@ -29,18 +29,18 @@
   }
  },
  "nav": {
-  "display": "$15.89",
-  "value": 15.890155,
-  "asOfDate": "Nov 18 2026"
+  "display": "$15.91",
+  "value": 15.907563,
+  "asOfDate": "Nov 19 2026"
  },
  "marketPrice": {
-  "display": "$15.89",
-  "value": 15.895,
-  "asOfDate": "Nov 18 2026"
+  "display": "$15.90",
+  "value": 15.9,
+  "asOfDate": "Nov 19 2026"
  },
  "premiumDiscount": {
-  "display": "0.03%",
-  "value": 0.03
+  "display": "-0.05%",
+  "value": -0.05
  },
  "aum": {
   "display": "—",
@@ -49,11 +49,11 @@
   "source": "previous run"
  },
  "yields": {
-  "dividendYield": 4.83,
-  "dividendYieldText": "4.83%",
+  "dividendYield": 4.82,
+  "dividendYieldText": "4.82%",
   "dividendYieldBasis": "official-trailing-12m",
   "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
-  "distributionRate": 4.91,
+  "distributionRate": 4.9,
   "secYield": 5.57,
   "secYieldText": "5.57%",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
@@ -62,11 +62,11 @@
   "derivedFrom": "official Invesco month-end returns (invesco.com fund API); mo1/qtd derived from adjusted closes (Yahoo chart API)",
   "monthEnd": {
    "asOfDate": "Oct 31 2026",
-   "priceReturnsAsOf": "Nov 18 2026",
-   "mo1": 0.44,
-   "mo1Text": "0.44%",
-   "qtd": 0.89,
-   "qtdText": "0.89%",
+   "priceReturnsAsOf": "Nov 20 2026",
+   "mo1": 1.01,
+   "mo1Text": "1.01%",
+   "qtd": 1.4,
+   "qtdText": "1.40%",
    "ytd": -0.55,
    "ytdText": "-0.55%",
    "yr1": 0.33,
@@ -354,8 +354,8 @@
   ],
   "pageSize": 250,
   "totalRows": 504,
-  "asOfDate": "2026-11-17",
-  "asOf": "Nov 17 2026",
+  "asOfDate": "2026-11-19",
+  "asOf": "Nov 19 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {
@@ -364,8 +364,8 @@
    "history/002.json"
   ],
   "pageSize": 1000,
-  "totalRows": 1300,
-  "asOf": "Nov 18 2026",
+  "totalRows": 1302,
+  "asOf": "Nov 20 2026",
   "source": "Yahoo Finance public chart API (adjusted close)"
  }
 }
