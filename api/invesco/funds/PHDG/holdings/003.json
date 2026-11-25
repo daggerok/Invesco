@@ -2,7 +2,7 @@
  "ticker": "PHDG",
  "page": 3,
  "pageSize": 250,
- "totalRows": 512,
+ "totalRows": 513,
  "headers": [
   "Name",
   "Ticker",
@@ -14,29 +14,29 @@
  ],
  "rows": [
   {
-   "Name": "Alexandria Real Estate Equities Inc",
-   "Ticker": "ARE",
-   "Identifier": "015271109",
-   "Weight": "0.006445",
-   "Market Value": "3926.38",
-   "Shares Held": "94",
-   "Asset Category": "Real Estate Investment Trust"
-  },
-  {
    "Name": "Mosaic Co/The",
    "Ticker": "MOS",
    "Identifier": "61945C103",
-   "Weight": "0.006288",
-   "Market Value": "3831.05",
+   "Weight": "0.006154",
+   "Market Value": "3877.37",
    "Shares Held": "193",
+   "Asset Category": "Common Stock"
+  },
+  {
+   "Name": "Brown-Forman Corp",
+   "Ticker": "BF/B",
+   "Identifier": "115637209",
+   "Weight": "0.006086",
+   "Market Value": "3834.39",
+   "Shares Held": "133",
    "Asset Category": "Common Stock"
   },
   {
    "Name": "DaVita Inc",
    "Ticker": "DVA",
    "Identifier": "23918K108",
-   "Weight": "0.006159",
-   "Market Value": "3752.16",
+   "Weight": "0.006085",
+   "Market Value": "3834.24",
    "Shares Held": "24",
    "Asset Category": "Common Stock"
   },
@@ -44,8 +44,8 @@
    "Name": "Wynn Resorts Ltd",
    "Ticker": "WYNN",
    "Identifier": "983134107",
-   "Weight": "0.006083",
-   "Market Value": "3694.5",
+   "Weight": "0.00597",
+   "Market Value": "3750.3",
    "Shares Held": "45",
    "Asset Category": "Common Stock"
   },
@@ -53,8 +53,8 @@
    "Name": "MGM Resorts International",
    "Ticker": "MGM",
    "Identifier": "552953101",
-   "Weight": "0.005813",
-   "Market Value": "3541.46",
+   "Weight": "0.005668",
+   "Market Value": "3571.14",
    "Shares Held": "106",
    "Asset Category": "Common Stock"
   },
@@ -62,8 +62,8 @@
    "Name": "News Corp",
    "Ticker": "NWS",
    "Identifier": "65249B208",
-   "Weight": "0.004426",
-   "Market Value": "2696.64",
+   "Weight": "0.00431",
+   "Market Value": "2715.84",
    "Shares Held": "96",
    "Asset Category": "Common Stock"
   },
@@ -71,8 +71,8 @@
    "Name": "Skydance Corp",
    "Ticker": "SKYD",
    "Identifier": "69932A204",
-   "Weight": "0.003039",
-   "Market Value": "1851.28",
+   "Weight": "0.002934",
+   "Market Value": "1848.36",
    "Shares Held": "292",
    "Asset Category": "Common Stock"
   },
@@ -95,21 +95,30 @@
    "Asset Category": "Uninvestible Cash"
   },
   {
-   "Name": "CONTRA FUTURE FUTURE DEC 18 26",
+   "Name": "CASH & EQUIVALENTS",
    "Ticker": "-",
-   "Identifier": "-",
-   "Weight": "-15.357511",
-   "Market Value": "-9356425",
-   "Shares Held": "-26",
-   "Asset Category": "Synthetic Cash"
+   "Identifier": "CASHUSD00",
+   "Weight": "-0.000015",
+   "Market Value": "-9.15",
+   "Shares Held": "-9.15",
+   "Asset Category": "Currency"
   },
   {
    "Name": "CBOE Volatility Index Future",
    "Ticker": "-",
    "Identifier": "-",
-   "Weight": "-16.390936",
-   "Market Value": "-9986029.9",
-   "Shares Held": "-407",
+   "Weight": "-10.435284",
+   "Market Value": "-6575041.2",
+   "Shares Held": "-273",
+   "Asset Category": "Synthetic Cash"
+  },
+  {
+   "Name": "CONTRA FUTURE FUTURE DEC 18 26",
+   "Ticker": "-",
+   "Identifier": "-",
+   "Weight": "-18.997533",
+   "Market Value": "-11969925",
+   "Shares Held": "-33",
    "Asset Category": "Synthetic Cash"
   },
   {
@@ -117,7 +126,7 @@
    "Ticker": "-",
    "Identifier": "-",
    "Weight": "",
-   "Market Value": "55430.62",
+   "Market Value": "64624.51",
    "Shares Held": "0",
    "Asset Category": "Currency"
   }
