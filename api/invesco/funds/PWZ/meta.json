@@ -49,13 +49,13 @@
   "source": "Invesco fund API prices endpoint (net assets / market value)"
  },
  "yields": {
-  "dividendYield": 3.99,
-  "dividendYieldText": "3.99%",
+  "dividendYield": 3.98,
+  "dividendYieldText": "3.98%",
   "dividendYieldBasis": "official-trailing-12m",
   "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
-  "distributionRate": 4.01,
-  "secYield": 4.31,
-  "secYieldText": "4.31%",
+  "distributionRate": 4,
+  "secYield": 4.29,
+  "secYieldText": "4.29%",
   "secYieldKind": "30-day SEC yield as published by invesco.com (fixed income funds; most equity funds publish none)"
  },
  "returns": {
@@ -1012,13 +1012,12 @@
    "holdings/002.json",
    "holdings/003.json",
    "holdings/004.json",
-   "holdings/005.json",
-   "holdings/006.json"
+   "holdings/005.json"
   ],
   "pageSize": 250,
-  "totalRows": 1252,
-  "asOfDate": "2026-11-24",
-  "asOf": "Nov 24 2026",
+  "totalRows": 1241,
+  "asOfDate": "2026-11-25",
+  "asOf": "Nov 25 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {

@@ -49,8 +49,8 @@
   "source": "Invesco fund API prices endpoint (net assets / market value)"
  },
  "yields": {
-  "dividendYield": 0.01,
-  "dividendYieldText": "0.01%",
+  "dividendYield": 0,
+  "dividendYieldText": "0.00%",
   "dividendYieldBasis": "official-trailing-12m",
   "dividendYieldKind": "trailing 12-month distribution rate, published by invesco.com",
   "distributionRate": 0.02,
@@ -239,9 +239,9 @@
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 76,
-  "asOfDate": "2026-11-24",
-  "asOf": "Nov 24 2026",
+  "totalRows": 75,
+  "asOfDate": "2026-11-25",
+  "asOf": "Nov 25 2026",
   "source": "invesco.com fund holdings API (dng-api.invesco.com)"
  },
  "history": {

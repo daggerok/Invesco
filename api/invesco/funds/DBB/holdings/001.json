@@ -17,53 +17,53 @@
    "Name": "Invesco Government & Agency Portfolio",
    "Ticker": "AGPXX",
    "Identifier": "825252885",
-   "Weight": "84.860569",
-   "Market Value": "240997666.02",
-   "Shares Held": "240997666.02",
+   "Weight": "80.932261",
+   "Market Value": "229805470.68",
+   "Shares Held": "229805470.68",
    "Asset Category": "Money Market Fund, Taxable"
   },
   {
    "Name": "LME Primary Aluminum Future",
    "Ticker": "-",
    "Identifier": "LAG27",
-   "Weight": "26.435316",
-   "Market Value": "75286064",
+   "Weight": "26.290767",
+   "Market Value": "74880784",
    "Shares Held": "1088",
-   "Asset Category": "Commodity Future"
-  },
-  {
-   "Name": "LME Copper Future",
-   "Ticker": "-",
-   "Identifier": "LPH27",
-   "Weight": "20.563564",
-   "Market Value": "58563697.5",
-   "Shares Held": "198",
    "Asset Category": "Commodity Future"
   },
   {
    "Name": "COMEX Copper Future",
    "Ticker": "-",
    "Identifier": "HGK7",
-   "Weight": "20.379967",
-   "Market Value": "58040825",
+   "Weight": "20.267106",
+   "Market Value": "57724325",
    "Shares Held": "422",
+   "Asset Category": "Commodity Future"
+  },
+  {
+   "Name": "LME Copper Future",
+   "Ticker": "-",
+   "Identifier": "LPH27",
+   "Weight": "20.259303",
+   "Market Value": "57702100.5",
+   "Shares Held": "198",
    "Asset Category": "Commodity Future"
   },
   {
    "Name": "CASH COLLATERAL",
    "Ticker": "-",
    "Identifier": "USDMTM",
-   "Weight": "16.69203",
-   "Market Value": "47537818.21",
-   "Shares Held": "47537818.21",
+   "Weight": "15.13814",
+   "Market Value": "43116118.56",
+   "Shares Held": "43116118.56",
    "Asset Category": "Currency Collateral"
   },
   {
    "Name": "LME Nickel Future",
    "Ticker": "-",
    "Identifier": "LNU7",
-   "Weight": "9.549973",
-   "Market Value": "27197703.9",
+   "Weight": "9.550532",
+   "Market Value": "27201614.94",
    "Shares Held": "291",
    "Asset Category": "Commodity Future"
   },
@@ -71,8 +71,8 @@
    "Name": "LME Zinc Future",
    "Ticker": "-",
    "Identifier": "LXH7",
-   "Weight": "7.690198",
-   "Market Value": "21901184",
+   "Weight": "7.599255",
+   "Market Value": "21644032",
    "Shares Held": "256",
    "Asset Category": "Commodity Future"
   },
@@ -80,10 +80,19 @@
    "Name": "LME Lead Future",
    "Ticker": "-",
    "Identifier": "LLH7",
-   "Weight": "4.88729",
-   "Market Value": "13918683.75",
+   "Weight": "4.88291",
+   "Market Value": "13907397",
    "Shares Held": "303",
    "Asset Category": "Commodity Future"
+  },
+  {
+   "Name": "CASH & EQUIVALENTS",
+   "Ticker": "-",
+   "Identifier": "CASHUSD00",
+   "Weight": "3.929598",
+   "Market Value": "11192195.34",
+   "Shares Held": "11192195.34",
+   "Asset Category": "Currency"
   },
   {
    "Name": "CONTRA FUTURE LME PRI ALUM FUTR DEC26LAZ26",
@@ -104,20 +113,11 @@
    "Asset Category": "Commodity Future"
   },
   {
-   "Name": "CASH & EQUIVALENTS",
-   "Ticker": "-",
-   "Identifier": "CASHUSD00",
-   "Weight": "-1.552598",
-   "Market Value": "-4421699.65",
-   "Shares Held": "-4421699.65",
-   "Asset Category": "Currency"
-  },
-  {
    "Name": "CONTRA FUTURE LME LEAD FUTURE MAR27LLH7",
    "Ticker": "-",
    "Identifier": "LLH7",
-   "Weight": "-4.88729",
-   "Market Value": "-13918683.75",
+   "Weight": "-4.88291",
+   "Market Value": "-13907397",
    "Shares Held": "-303",
    "Asset Category": "Synthetic Cash"
   },
@@ -125,8 +125,8 @@
    "Name": "CONTRA FUTURE LME ZINC FUTURE MAR27LXH7",
    "Ticker": "-",
    "Identifier": "LXH7",
-   "Weight": "-7.690198",
-   "Market Value": "-21901184",
+   "Weight": "-7.599255",
+   "Market Value": "-21644032",
    "Shares Held": "-256",
    "Asset Category": "Synthetic Cash"
   },
@@ -134,35 +134,35 @@
    "Name": "CONTRA FUTURE LME NICKEL FUTURE SEP27LNU7",
    "Ticker": "-",
    "Identifier": "LNU7",
-   "Weight": "-9.549973",
-   "Market Value": "-27197703.9",
+   "Weight": "-9.550532",
+   "Market Value": "-27201614.94",
    "Shares Held": "-291",
-   "Asset Category": "Synthetic Cash"
-  },
-  {
-   "Name": "CONTRA FUTURE COPPER FUTURE MAY27HGK7 COMB",
-   "Ticker": "-",
-   "Identifier": "HGK7",
-   "Weight": "-20.379967",
-   "Market Value": "-58040825",
-   "Shares Held": "-422",
    "Asset Category": "Synthetic Cash"
   },
   {
    "Name": "CONTRA FUTURE LME COPPER FUTURE MAR27LPH27",
    "Ticker": "-",
    "Identifier": "LPH27",
-   "Weight": "-20.563564",
-   "Market Value": "-58563697.5",
+   "Weight": "-20.259303",
+   "Market Value": "-57702100.5",
    "Shares Held": "-198",
+   "Asset Category": "Synthetic Cash"
+  },
+  {
+   "Name": "CONTRA FUTURE COPPER FUTURE MAY27HGK7 COMB",
+   "Ticker": "-",
+   "Identifier": "HGK7",
+   "Weight": "-20.267106",
+   "Market Value": "-57724325",
+   "Shares Held": "-422",
    "Asset Category": "Synthetic Cash"
   },
   {
    "Name": "CONTRA FUTURE LME PRI ALUM FUTR FEB27LAG27",
    "Ticker": "-",
    "Identifier": "LAG27",
-   "Weight": "-26.435316",
-   "Market Value": "-75286064",
+   "Weight": "-26.290767",
+   "Market Value": "-74880784",
    "Shares Held": "-1088",
    "Asset Category": "Synthetic Cash"
   },
@@ -171,7 +171,7 @@
    "Ticker": "-",
    "Identifier": "-",
    "Weight": "",
-   "Market Value": "679729.29",
+   "Market Value": "704015.13",
    "Shares Held": "0",
    "Asset Category": "Currency"
   }
